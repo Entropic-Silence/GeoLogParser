@@ -4,9 +4,20 @@ from pathlib import Path
 import pytest
 
 from geologparser.evaluation import (
-    SurfacePoint, boundary_surface_points, idw_predict, perturb_interval_boundaries,
+    SurfacePoint, aggregate_repeated_metrics, boundary_surface_points, idw_predict, perturb_interval_boundaries,
     surface_error_metrics,
 )
+
+
+def test_repeated_metric_aggregation_traces_normal_ci():
+    result = aggregate_repeated_metrics([
+        {"mae_m": 1, "rmse_m": 2, "max_abs_error_m": 3},
+        {"mae_m": 3, "rmse_m": 4, "max_abs_error_m": 5},
+    ])
+    assert result["repetitions"] == 2
+    assert result["mae_m"]["mean"] == 2
+    assert result["mae_m"]["std"] == pytest.approx(2**0.5)
+    assert len(result["mae_m"]["ci95_normal"]) == 2
 
 
 ROOT = Path(__file__).resolve().parents[1]

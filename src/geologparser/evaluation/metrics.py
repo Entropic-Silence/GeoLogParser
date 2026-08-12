@@ -10,6 +10,91 @@ from typing import Any, Mapping, Sequence
 from .types import MetricResult, validate_pairs
 
 
+def _levenshtein(reference: Sequence[Any], prediction: Sequence[Any]) -> int:
+    """Memory-bounded Levenshtein distance for character/token metrics."""
+    previous = list(range(len(prediction) + 1))
+    for reference_index, reference_item in enumerate(reference, 1):
+        current = [reference_index]
+        for prediction_index, prediction_item in enumerate(prediction, 1):
+            current.append(min(
+                current[-1] + 1,
+                previous[prediction_index] + 1,
+                previous[prediction_index - 1] + (reference_item != prediction_item),
+            ))
+        previous = current
+    return previous[-1]
+
+
+def sequence_error_rate(
+    references: Sequence[str],
+    predictions: Sequence[str],
+    *,
+    unit: str = "character",
+    name: str | None = None,
+) -> MetricResult:
+    """Micro CER/WER with explicit empty-reference handling.
+
+    For WER the contract is whitespace tokenization. Chinese word segmentation
+    must be supplied as already space-delimited strings and recorded by the
+    caller; the metric never silently selects a language model/tokenizer.
+    """
+    validate_pairs(references, predictions)
+    if unit not in {"character", "word"}:
+        raise ValueError("unit must be character or word")
+    transform = (lambda value: list(value)) if unit == "character" else (lambda value: value.split())
+    edits = 0
+    denominator = 0
+    empty_reference_insertions = 0
+    for reference, prediction in zip(references, predictions):
+        if not isinstance(reference, str) or not isinstance(prediction, str):
+            raise TypeError("sequence error rate inputs must be strings")
+        reference_units = transform(reference)
+        prediction_units = transform(prediction)
+        distance = _levenshtein(reference_units, prediction_units)
+        if reference_units:
+            edits += distance
+            denominator += len(reference_units)
+        else:
+            # Insertions against an empty reference are traced but cannot be
+            # divided by zero. Dataset protocols should report them separately.
+            empty_reference_insertions += distance
+    default_name = "cer" if unit == "character" else "wer"
+    return MetricResult(
+        name or default_name,
+        edits / denominator if denominator else None,
+        edits,
+        denominator,
+        "error_rate",
+        {"unit": unit, "empty_reference_insertions": empty_reference_insertions},
+    )
+
+
+def character_error_rate(references: Sequence[str], predictions: Sequence[str]) -> MetricResult:
+    return sequence_error_rate(references, predictions, unit="character", name="cer")
+
+
+def word_error_rate(references: Sequence[str], predictions: Sequence[str]) -> MetricResult:
+    return sequence_error_rate(references, predictions, unit="word", name="wer")
+
+
+def numeric_character_error_rate(
+    references: Sequence[str], predictions: Sequence[str], *, include_signs: bool = True,
+) -> MetricResult:
+    """CER over digits, decimal points, and optionally signs only."""
+    pattern = r"[^0-9.\-+]" if include_signs else r"[^0-9.]"
+    import re
+
+    numeric_references = [re.sub(pattern, "", value) for value in references]
+    numeric_predictions = [re.sub(pattern, "", value) for value in predictions]
+    result = sequence_error_rate(
+        numeric_references, numeric_predictions, unit="character", name="numeric_cer",
+    )
+    return MetricResult(
+        result.name, result.value, result.numerator, result.denominator, result.unit,
+        result.details | {"include_signs": include_signs, "filtered_alphabet": "0-9.-+" if include_signs else "0-9."},
+    )
+
+
 def exact_match(references: Sequence[Any], predictions: Sequence[Any], name: str = "exact_match") -> MetricResult:
     validate_pairs(references, predictions)
     correct = sum(reference == prediction for reference, prediction in zip(references, predictions))

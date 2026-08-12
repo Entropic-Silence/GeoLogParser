@@ -115,6 +115,14 @@ remain at `/root/GeoLogParser`.
 - `fitz`: not installed
 - `pytesseract`: not installed
 
+These entries describe the host/project Python captured at the start of the
+round. A pre-existing isolated AI runtime was subsequently verified at
+`/root/venvs/ai`: Python 3.10.12, PyTorch 2.13.0+cu130, Transformers 5.14.1,
+Accelerate 1.14.0, Torchvision 0.28.0, Safetensors 0.8.0, Tokenizers 0.22.2,
+Pillow 12.3.0, and huggingface-hub 1.24.0. It imports
+`Qwen3VLForConditionalGeneration` successfully. The exact project-facing lock
+is `requirements-vlm.txt`; this runtime is not mixed into `.venv`.
+
 ## External runtimes
 
 - `docker`: `/usr/bin/docker`; Docker version 29.1.3, build 29.1.3-0ubuntu3~22.04.2
@@ -153,3 +161,27 @@ remain at `/root/GeoLogParser`.
 6. Tesseract 4.1.1, `chi_sim`, and Poppler 22.02.0 were installed during the
    foundation round. Their age makes them a smoke-test baseline, not an assumed
    competitive OCR system.
+
+## GPU worker pause/restore mapping
+
+Read-only Docker inspection on 2026-08-12 verified that each miner has restart
+policy `unless-stopped` and an explicit GPU UUID:
+
+| Physical GPU | GPU UUID | Container |
+|---|---|---|
+| RTX 5090 index 0 | `GPU-9858f74c-f213-32bc-b3ea-ce73cfbf3432` | `Pearl` |
+| RTX 2080 Ti index 2 | `GPU-c04228ef-d18d-b4c5-0f48-a3628e8d094a` | `Pearl-2080Ti-1` |
+| RTX 2080 Ti index 1 | `GPU-ce3e20b4-8629-d6a7-6654-ad58b8464b9d` | `Pearl-2080Ti-2` |
+| RTX 2080 Ti index 3 | `GPU-04459f99-d29e-5495-a648-f50a50eeb86a` | `Pearl-2080Ti-3` |
+| RTX 2080 Ti index 4 | `GPU-5999ff4d-d19c-3c20-ba1a-87ad5548d1ec` | `Pearl-2080Ti-4` |
+
+The fleet is supervised by `pearl-guardian.service`; a bare `docker stop` is
+therefore automatically recovered and is not a persistent maintenance pause.
+The verified maintenance sequence is to send
+`{"command":"miner_stop","target":"rtx5090"}` to
+`/run/pearl-guardian/guardian.sock`, wait for the miner process to disappear and
+the GPU to become idle, run with explicit `CUDA_VISIBLE_DEVICES`, then send
+`miner_start` for the same target. Verify the operator flag, miner process,
+container health, memory, and utilization. Do not kill the loop/miner process
+directly. This behavior was discovered during the first VLM smoke; that run's
+latency remains preserved but should not be used as the clean timing estimate.

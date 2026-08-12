@@ -2,7 +2,7 @@
 
 ## Abstract
 
-Legacy borehole logs encode coordinates, elevations, interval boundaries, and geological descriptions in heterogeneous tables, scans, and drawings. Existing OCR scores do not establish whether these records can be converted into reliable databases, and page-level random splits can leak project templates. We define a provenance-bearing extraction task, a panel-aware annotation unit, leakage-resistant split protocols, a four-level evaluation framework, degradation metadata, and an error taxonomy. The rights-cleared Chinese benchmark size, model comparison, split-generalization gap, robustness results, and human agreement are `TBD`. A four-document British Geological Survey audit validates the executable baseline and exposes coverage failures; it is not a representative benchmark result. The intended contribution is a reproducible benchmark centered on data quality, provenance, and cross-template generalization rather than a new network.
+Legacy borehole logs encode coordinates, elevations, interval boundaries, and geological descriptions in heterogeneous tables, scans, and drawings. Existing OCR scores do not establish whether these records can be converted into reliable databases, and page-level random splits can leak project templates. We define a provenance-bearing extraction task, a panel-aware annotation unit, leakage-resistant split protocols, a four-level evaluation framework, degradation metadata, and an error taxonomy. The rights-cleared Chinese benchmark size, model comparison, split-generalization gap, robustness results, and human agreement are `TBD`. Four-document British Geological Survey audits validate the executable OCR/VLM paths and expose coverage failures; a rights-unverified four-panel Chinese audit exposes truncation and geological inconsistency. Neither is a representative benchmark result. The intended contribution is a reproducible benchmark centered on data quality, provenance, and cross-template generalization rather than a new network.
 
 ## 1. Introduction
 
@@ -40,7 +40,7 @@ Real and synthetic degradation cover resolution, blur, noise, skew, JPEG compres
 
 ## 5. Baselines
 
-B1 OCR+regex; B2 OCR+LLM; B3 OCR+layout+rules; B4 zero-shot VLM; B5 few-shot VLM; B6 OCR+VLM fusion. Adapters and model revisions come from a registry. Current executed audits cover Tesseract+regex and RapidOCR+regex on four BGS documents. B2–B6 and full Chinese runs are `TBD`.
+B1 OCR+regex; B2 OCR+LLM; B3 OCR+layout+rules; B4 zero-shot VLM; B5 few-shot VLM; B6 OCR+VLM fusion. Adapters and model revisions come from a registry. Current executed audits cover Tesseract+regex and RapidOCR+regex on four BGS documents, plus Apache-2.0 Qwen3-VL-4B at fixed revision `ebb281ec...` through a local B4 adapter. B4 uses greedy decoding and versioned prompt `vlm_extract_v002`; whole-image values are marked `VLM_UNGROUNDED`. B2, B3, B5, B6 and formal Chinese runs are `TBD`.
 
 ## 6. Evaluation
 
@@ -50,13 +50,13 @@ Error taxonomy includes OCR digit/character/decimal errors, layout/column/row er
 
 ## 7. Results
 
-See [generated/current_results.md](generated/current_results.md). These rows are audit-only. The Paper I benchmark comparison, random-versus-disjoint generalization, degradation curves, error distribution, and statistical intervals remain `TBD`.
+See [generated/current_results.md](generated/current_results.md). These rows are audit-only. On four quarantined Chinese panels, B4 produced 3/4 Schema-valid responses; one reached the 1024-token cap. Valid records emitted eight intervals, while C1–C10 diagnosed 20 violations across 82 evaluated items. Mean inference time was 50.637 s/image and peak allocated VRAM about 9.29 GB. This is structured-output behavior, not accuracy: annotations remain `auto` and rights-unverified. On four BGS first pages, the same prompt produced 4/4 valid empty records in 6.397 s/image on average, an abstention/coverage failure rather than successful extraction. Formal comparison, random-versus-disjoint generalization, degradation curves, GT-based error distribution, and statistical intervals remain `TBD`.
 
 ## 8. Discussion and Threats to Validity
 
 The BGS audit demonstrates why coverage must accompany MAE: zero extracted final-depth values yield undefined MAE, not zero error. RapidOCR correctly extracted header IDs but initially lost coordinates because OCR deleted header spaces; a versioned repair restored header extraction without improving interval coverage. These observations cannot be generalized beyond four documents.
 
-Major threats are Chinese source rights, project/template diversity, annotation reliability, field missingness, model version drift, prompt instability, and benchmark leakage. All will be quantified or marked `TBD` rather than inferred.
+Major threats are Chinese source rights, project/template diversity, annotation reliability, field missingness, model version drift, prompt instability, and benchmark leakage. The engineering audit also shows that valid JSON is not equivalent to valid geology: absolute elevations were confused with measured depths, producing inverted/inconsistent intervals detected by C1/C2/C4. Formal effects will be quantified or marked `TBD` rather than inferred.
 
 ## 9. Reproducibility and Ethics
 

@@ -192,3 +192,45 @@
   raw AI, constraint-validated, and human GT surfaces.
 - Next step: add multi-seed experiment aggregation and automatic table/figure
   generation, while continuing acquisition of eligible spatial data.
+
+## 2026-08-12 — Local Qwen3-VL B4 engineering audits
+
+- Experiments: three immutable single-panel smoke runs followed by
+  `P1_B4_QWEN3VL4B_SANMING_AUDIT_001` and
+  `P1_B4_QWEN3VL4B_BGS_AUDIT_001`. Model revision is
+  `ebb281ec70b05090aa6165b016eac8ec08e71b17`; prompts and manifests are hashed.
+- Observation: prompt v001 reached the 1,536-token limit and emitted truncated
+  JSON. Prompt v002 reduced repetition, but the next smoke exposed a missing
+  `jsonschema` dependency in the isolated runtime. After locking that dependency,
+  a one-panel response became Schema-valid and C1/C2/C4 detected four numerical
+  violations. Every failed run remains frozen rather than overwritten.
+- Chinese audit: 3/4 valid responses, eight intervals, 20 violations among 82
+  constraint evaluations, 50.637324 s/image mean, and 9,291,707,392 bytes peak
+  allocated GPU memory. One response hit 1,024 tokens. These four panels are
+  quarantined and have no human GT, so accuracy is null.
+- BGS audit: 4/4 valid but empty responses on the first page of each fixed
+  document, 6.397402 s/image mean. This is abstention/coverage behavior, not
+  accuracy. Full multi-page VLM evaluation remains unrun.
+- Operational failure: `docker stop Pearl` was automatically reversed by the
+  fleet guardian. The supported control-socket `miner_stop`/`miner_start`
+  commands were then used. The 5090 was verified idle before bounded runs and
+  restored to 100% utilization afterward; other miners remained active.
+- Decision: keep Qwen3-VL-4B as the first Apache-2.0 B4 adapter, mark all
+  whole-image fields ungrounded, and require constraints/review rather than
+  treating syntactic JSON success as acceptance.
+- Next step: acquire/verify real GT, run B5 and B6 on eligible splits, and add
+  a constrained rereading audit against human-corrected numerical fields.
+
+## 2026-08-12 — Multi-seed Paper III protocol validation
+
+- Experiment: `P3_SYNTHETIC_ERROR_PROPAGATION_MULTISEED_001`; 30 deterministic
+  seeds for each of five boundary perturbation magnitudes on the same synthetic
+  four-borehole IDW fixture.
+- Observation: the pipeline reports mean, sample standard deviation, and an
+  explicitly named normal-approximation 95% CI. At 1.00 m, synthetic surface
+  MAE mean/std were 0.662470/0.110565 m.
+- Limitation: random-sign seeds are repeats of an artificial fixture, not
+  independent sites. These values remain `protocol_only` and cannot support a
+  geological conclusion.
+- Next step: replace the fixture with a rights-cleared spatially coherent site
+  and compare human GT, raw AI, and constraint-validated surfaces.

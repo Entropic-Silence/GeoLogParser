@@ -32,7 +32,7 @@ The database preserves source hash, raw/normalized values, page/bbox/text, metho
 
 ## 6. Results
 
-See [generated/current_results.md](generated/current_results.md). The table contains only a synthetic protocol smoke. Real-site surface sensitivity, raw/QC/GT comparison, 3D figures, uncertainty, human time, and statistical analysis remain `TBD`.
+See [generated/current_results.md](generated/current_results.md). The tables contain synthetic protocol results only. A 30-seed extension now exercises mean/std and explicitly named normal-approximation confidence intervals for perturbations 0.01–1.00 m. At 1.00 m, synthetic surface MAE was 0.662470 ± 0.110565 m across seeds. This four-artificial-borehole fixture is not a real geological sensitivity estimate. Real-site sensitivity, raw/QC/GT comparison, 3D figures, uncertainty, human time, and statistical analysis remain `TBD`.
 
 ## 7. Human-in-the-Loop Evaluation
 

@@ -6,7 +6,7 @@ import copy
 import random
 from dataclasses import dataclass
 from math import hypot, sqrt
-from statistics import mean
+from statistics import mean, stdev
 from typing import Any, Mapping, Sequence
 
 
@@ -100,3 +100,32 @@ def surface_error_metrics(reference: Sequence[float], prediction: Sequence[float
         "rmse_m": sqrt(mean(error**2 for error in errors)),
         "max_abs_error_m": max(abs(error) for error in errors),
     }
+
+
+def aggregate_repeated_metrics(
+    repetitions: Sequence[Mapping[str, float | int | None]],
+    confidence_z: float = 1.96,
+) -> dict[str, Any]:
+    """Aggregate repeated runs with normal-approximation CIs, explicitly named.
+
+    This utility does not imply independent geological samples. The caller must
+    state what was repeated (for example, random perturbation seeds).
+    """
+    if confidence_z <= 0:
+        raise ValueError("confidence_z must be positive")
+    output: dict[str, Any] = {"repetitions": len(repetitions), "confidence_z": confidence_z}
+    for key in ("mae_m", "rmse_m", "max_abs_error_m"):
+        values = [float(item[key]) for item in repetitions if item.get(key) is not None]
+        if not values:
+            output[key] = {"n": 0, "mean": None, "std": None, "ci95_normal": None}
+            continue
+        average = mean(values)
+        standard_deviation = stdev(values) if len(values) > 1 else None
+        half_width = confidence_z * standard_deviation / sqrt(len(values)) if standard_deviation is not None else None
+        output[key] = {
+            "n": len(values),
+            "mean": average,
+            "std": standard_deviation,
+            "ci95_normal": [average - half_width, average + half_width] if half_width is not None else None,
+        }
+    return output
