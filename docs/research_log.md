@@ -311,3 +311,21 @@
   is template-sensitive. These counts are coverage evidence, not accuracy.
 - Decision: retain abstention as an explicit cross-template failure rather than
   weaken the minimum-column evidence rule. Formal B3 metrics await human GT.
+
+## 2026-08-12 — Ground-Truth export gate and GeoParquet interoperability
+
+- Annotation gate: a new export rejects any collection containing `auto`
+  status and records human status, annotator IDs, and snapshot SHA256. The real
+  Padova pack was passed through this command and correctly failed on
+  `UNIPD_GS1_P001`; no GT file was created. This is a safety test, not an
+  annotation result.
+- Agreement API: two independently supplied annotation collections can now be
+  compared for categorical header exact agreement and boundary numeric MAE;
+  documents with different interval counts are explicitly counted/excluded
+  from pairwise boundary MAE.
+- Interoperability: QGIS-readable GeoParquet point export now includes WKB and
+  GeoParquet 1.1 metadata. Export requires one explicit EPSG identifier and
+  rejects mixed/unknown CRSs. No coordinate transformation is inferred.
+- Limitation: GeoPackage and real spatial case-study export remain unrun; the
+  current records do not provide a rights-cleared, human-validated coherent
+  site.

@@ -119,3 +119,57 @@ def write_parquet_dataset(records: Iterable[Mapping[str, Any]], directory: Path)
         "note": "canonical lossless record remains JSON; provenance values are JSON strings",
     }
     (directory / "metadata.json").write_text(json.dumps(metadata, indent=2) + "\n", encoding="utf-8")
+
+
+def write_geoparquet(records: Iterable[Mapping[str, Any]], path: Path) -> None:
+    """Write one QGIS-readable point layer without transforming coordinates.
+
+    A single non-null EPSG label is required. Mixing CRSs or using an unknown
+    CRS is rejected because a GeoParquet file has one geometry CRS metadata
+    object and must not silently combine incompatible coordinates.
+    """
+    try:
+        import pyarrow as pa
+        import pyarrow.parquet as pq
+        from shapely import to_wkb
+        from shapely.geometry import Point
+    except ImportError as exc:
+        raise RuntimeError("GeoParquet export requires pyarrow and shapely") from exc
+    rows = tabular_rows(records)["boreholes"]
+    located = [row for row in rows if row["x_coordinate"] is not None and row["y_coordinate"] is not None]
+    systems = {row["coordinate_system"] for row in located}
+    if not located:
+        raise ValueError("GeoParquet export requires at least one located borehole")
+    if len(systems) != 1 or None in systems:
+        raise ValueError("GeoParquet export requires exactly one known coordinate system")
+    coordinate_system = next(iter(systems))
+    match = __import__("re").fullmatch(r"EPSG:(\d+)", str(coordinate_system), flags=__import__("re").IGNORECASE)
+    if match is None:
+        raise ValueError("coordinate_system must use an explicit EPSG:<code> identifier")
+    epsg = int(match.group(1))
+    projected_rows = []
+    for row in located:
+        projected_rows.append(row | {
+            "geometry": to_wkb(Point(float(row["x_coordinate"]), float(row["y_coordinate"])), hex=False),
+        })
+    table = pa.Table.from_pylist(projected_rows)
+    geometry_index = table.schema.get_field_index("geometry")
+    fields = list(table.schema)
+    fields[geometry_index] = fields[geometry_index].with_metadata({b"ARROW:extension:name": b"geoarrow.wkb"})
+    geo = {
+        "version": "1.1.0", "primary_column": "geometry",
+        "columns": {"geometry": {
+            "encoding": "WKB", "geometry_types": ["Point"],
+            "crs": {"id": {"authority": "EPSG", "code": epsg}},
+            "bbox": [
+                min(float(row["x_coordinate"]) for row in located),
+                min(float(row["y_coordinate"]) for row in located),
+                max(float(row["x_coordinate"]) for row in located),
+                max(float(row["y_coordinate"]) for row in located),
+            ],
+        }},
+    }
+    schema = pa.schema(fields, metadata=(table.schema.metadata or {}) | {b"geo": json.dumps(geo).encode("utf-8")})
+    table = table.cast(schema)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    pq.write_table(table, path, compression="zstd")

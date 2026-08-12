@@ -4,7 +4,7 @@ from pathlib import Path
 import openpyxl
 import pyarrow.parquet as pq
 
-from geologparser.export import tabular_rows, write_parquet_dataset, write_xlsx
+from geologparser.export import tabular_rows, write_geoparquet, write_parquet_dataset, write_xlsx
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -41,3 +41,24 @@ def test_parquet_dataset_preserves_tables_and_empty_intervals(tmp_path):
     assert interval_table.num_rows == 0
     assert "interval_id" in interval_table.column_names
     assert json.loads((directory / "metadata.json").read_text())["format"].endswith("v001")
+
+
+def test_geoparquet_has_geo_metadata_and_rejects_mixed_crs(tmp_path):
+    first = record()
+    first["borehole"]["x_coordinate"]["value"] = 329168
+    first["borehole"]["y_coordinate"]["value"] = 405889
+    first["borehole"]["coordinate_system"]["value"] = "EPSG:27700"
+    path = tmp_path / "boreholes.parquet"
+    write_geoparquet([first], path)
+    metadata = pq.read_schema(path).metadata
+    geo = json.loads(metadata[b"geo"])
+    assert geo["primary_column"] == "geometry"
+    assert geo["columns"]["geometry"]["crs"]["id"] == {"authority": "EPSG", "code": 27700}
+    second = record()
+    second["document"]["document_id"] = "other"
+    second["borehole"]["x_coordinate"]["value"] = 1
+    second["borehole"]["y_coordinate"]["value"] = 2
+    second["borehole"]["coordinate_system"]["value"] = "EPSG:4326"
+    import pytest
+    with pytest.raises(ValueError, match="exactly one"):
+        write_geoparquet([first, second], tmp_path / "mixed.parquet")

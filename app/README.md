@@ -41,3 +41,14 @@ PDF points and transformed rendered-pixel bboxes, so eligible evidence is
 highlighted in the displayed panel. Standalone CSV/XLSX/Parquet exporters are
 implemented in the library; UI export buttons and interactive field re-reading
 remain `NOT COMPLETED`.
+
+After real review, create a frozen GT snapshot with:
+
+```bash
+.venv/bin/python scripts/export_verified_annotations.py \
+  /data/GeoLogParser/artifacts/annotation/unipd_levee_geotech_v001/annotations \
+  /data/GeoLogParser/datasets/derived/unipd_gt_v001/annotations.jsonl
+```
+
+The command deliberately fails if even one item remains `auto`; it never
+promotes auto proposals to Ground Truth.

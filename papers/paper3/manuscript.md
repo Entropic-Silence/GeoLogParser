@@ -16,7 +16,7 @@ Shepard's irregular-data interpolation provides the provenance for the transpare
 
 ## 3. Workflow
 
-Legacy PDF/JPG/PNG enters GeoLogParser and produces validated records with provenance. SQLite separates boreholes, intervals, and field provenance. GeoJSON exports coordinates without implicit CRS transformation. CSV, JSON, XLSX, and Parquet are supported with separate borehole, interval, and provenance tables. QGIS/GemPy/PyVista integration is `TBD`.
+Legacy PDF/JPG/PNG enters GeoLogParser and produces validated records with provenance. SQLite separates boreholes, intervals, and field provenance. GeoJSON exports coordinates without implicit CRS transformation. CSV, JSON, XLSX, and Parquet are supported with separate borehole, interval, and provenance tables. A GeoParquet point export carries EPSG CRS and GeoParquet metadata for QGIS-compatible consumption; it rejects unknown or mixed CRSs rather than combining them. GeoPackage and GemPy/PyVista integration are `TBD`.
 
 Human review is triggered by missing MVP fields, low confidence, field warnings, unknown terminology, and constraint violations. Start/completion events record real duration and corrected-field count. No human timing result exists yet.
 
@@ -28,7 +28,7 @@ The main comparison will be raw AI extraction versus constraint-validated extrac
 
 ## 5. Database and Interoperability
 
-The database preserves source hash, raw/normalized values, page/bbox/text, method, confidence, validation, warnings, and units. Upserts replace a document's interval projection transactionally. GeoJSON skips missing coordinates and reports encountered CRS labels; it never guesses or transforms an unknown CRS. A quarantine-only internal run built four auto boreholes, 12 intervals, and 224 provenance rows; because data are not human-validated or release-cleared, this is connectivity evidence only.
+The database preserves source hash, raw/normalized values, page/bbox/text, method, confidence, validation, warnings, and units. Upserts replace a document's interval projection transactionally. GeoJSON skips missing coordinates and reports encountered CRS labels; it never guesses or transforms an unknown CRS. GeoParquet writes WKB point geometry only when all located records share one explicit `EPSG:<code>` identifier. A quarantine-only internal run built four auto boreholes, 12 intervals, and 224 provenance rows; because data are not human-validated or release-cleared, this is connectivity evidence only.
 
 ## 6. Results
 

@@ -30,7 +30,7 @@ Every item records organization, URL, access date, licence, usage, redistributio
 
 ### 4.2 Annotation
 
-The local UI shows a panel beside editable provenance-bearing fields. Auto proposals have status `auto`; human stages are `single_verified`, `double_verified`, and `expert_verified`. Saves create immutable revisions. Inter-annotator or repeated self-agreement protocol and sample size are `TBD`.
+The local UI shows a panel beside editable provenance-bearing fields. Auto proposals have status `auto`; human stages are `single_verified`, `double_verified`, and `expert_verified`. Saves create immutable revisions. The GT exporter refuses any directory containing an `auto` item and records snapshot hashes, statuses, and annotator IDs. A separate agreement evaluator compares categorical header fields and interval-boundary MAE between independent annotation collections. Actual inter-annotator or repeated self-agreement sample size and results are `TBD`.
 
 ### 4.3 Metadata and splits
 
