@@ -651,6 +651,32 @@
   renderer failure. A source-faithful CAD conversion route or source-side PDF
   export remains necessary before any can enter annotation.
 
+## 2026-08-12 — Annotation-integrated numeric ROI re-reading
+
+- Objective: connect the tested constraint-guided re-reading primitives to the
+  human annotation workflow without allowing a model proposal to become Ground
+  Truth automatically.
+- Implementation: numeric MVP fields with a rendered-pixel bbox can trigger a
+  high-resolution ROI crop and Tesseract re-read from the UI. The API accepts
+  the current unsaved record together with the stored annotation revision, so
+  ranking reflects the editor's visible state while optimistic concurrency
+  still rejects stale server revisions.
+- Evidence: each run stores the source-panel SHA256, ROI bbox/scale, crop and
+  crop SHA256, adapter identity, raw OCR regions/confidences, all candidate
+  component scores, constraint counts before/after, decision, and immutable
+  result SHA256. The ROI can be fetched only through an identity- and
+  hash-checked endpoint for visual inspection.
+- Safety: the endpoint never saves or edits an annotation. An accepted proposal
+  remains `extraction_method=fusion`, `validation_status=needs_review`, and
+  carries `CONSTRAINT_GUIDED_REREAD_PROPOSAL`; the reviewer must apply it
+  locally, inspect the ROI, explicitly confirm it, and save a new revision.
+- Verification: unit/API tests cover non-mutation, stale revisions, preservation
+  of unsaved edits, hash-checked ROI retrieval, refusal to mix PDF-point and
+  pixel bboxes, and refusal to use the numeric path for text fields.
+- Limitation: default UI re-reading is OCR-only. VLM ROI grounding, manually
+  drawn bbox selection, real human-corrected case accuracy, false correction
+  rate, and Paper II effect sizes remain `TBD`.
+
 ## 2026-08-12 — Ground-Truth progress and draft-export UI gate
 
 - Objective: reduce manual-review friction without weakening the human Ground

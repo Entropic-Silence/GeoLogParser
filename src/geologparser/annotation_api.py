@@ -13,13 +13,18 @@ from geologparser.annotation import (
     human_empty_interval, revise_annotation, save_annotation, validate_annotation,
 )
 from geologparser.annotation_export import ground_truth_gate
+from geologparser.annotation_reread import run_annotation_reread
 from geologparser.constraints import default_engine
 from geologparser.export.tabular import write_xlsx
 from geologparser.schema import validate_record
 from geologparser.review import TimingEventStore, build_review_queue, review_items_to_dict
+from geologparser.ocr import OCRBackendUnavailable, TesseractOCRAdapter
 
 
-def create_app(annotation_root: Path, static_root: Path, timing_log: Path | None = None):
+def create_app(
+    annotation_root: Path, static_root: Path, timing_log: Path | None = None,
+    reread_root: Path | None = None, reread_adapters=None,
+):
     try:
         from fastapi import FastAPI, HTTPException
         from fastapi.responses import FileResponse, HTMLResponse, Response
@@ -30,6 +35,9 @@ def create_app(annotation_root: Path, static_root: Path, timing_log: Path | None
     static_root = Path(static_root).resolve()
     app = FastAPI(title="GeoLogParser Annotation API", version="v001")
     timing_store = TimingEventStore(timing_log or annotation_root / "events" / "review_timing.jsonl")
+    reread_root = Path(reread_root or annotation_root / "rereading_runs").resolve()
+    if reread_adapters is None:
+        reread_adapters = [TesseractOCRAdapter(language="chi_sim+eng", psm=7)]
 
     def annotation_path(annotation_id: str) -> Path:
         safe = Path(annotation_id).name
@@ -226,6 +234,45 @@ def create_app(annotation_root: Path, static_root: Path, timing_log: Path | None
             )
         except (KeyError, TypeError, ValueError) as exc:
             raise HTTPException(422, str(exc)) from exc
+
+    @app.post("/api/annotations/{annotation_id}/reread")
+    def reread_field(annotation_id: str, payload: dict[str, Any]):
+        annotation = json.loads(annotation_path(annotation_id).read_text(encoding="utf-8"))
+        if payload.get("base_revision") != annotation["revision"]:
+            raise HTTPException(409, "revision conflict; reload before re-reading")
+        try:
+            if "record" in payload:
+                validate_record(payload["record"])
+                annotation = dict(annotation)
+                annotation["record"] = payload["record"]
+            return run_annotation_reread(
+                annotation, str(payload["field_path"]), reread_adapters, reread_root,
+                bbox_pixels=payload.get("bbox_pixels"),
+                padding_pixels=int(payload.get("padding_pixels", 12)),
+                scale=float(payload.get("scale", 3.0)),
+            )
+        except (KeyError, TypeError, ValueError, FileNotFoundError, OCRBackendUnavailable) as exc:
+            raise HTTPException(422, str(exc)) from exc
+
+    @app.get("/api/rereading/{annotation_id}/{run_id}/roi")
+    def reread_roi(annotation_id: str, run_id: str):
+        # Require a live annotation and simple path components before resolving
+        # an immutable run artifact.
+        annotation_path(annotation_id)
+        if Path(run_id).name != run_id:
+            raise HTTPException(400, "invalid re-read run id")
+        result_path = (reread_root / annotation_id / run_id / "result.json").resolve()
+        if reread_root not in result_path.parents or not result_path.is_file():
+            raise HTTPException(404, "re-read result not found")
+        result = json.loads(result_path.read_text(encoding="utf-8"))
+        if result.get("annotation_id") != annotation_id or result.get("run_id") != run_id:
+            raise HTTPException(409, "re-read result identity mismatch")
+        image_path = (result_path.parent / "roi.png").resolve()
+        if not image_path.is_file() or result.get("crop_sha256") != __import__("hashlib").sha256(
+            image_path.read_bytes()
+        ).hexdigest():
+            raise HTTPException(409, "re-read ROI hash mismatch")
+        return FileResponse(image_path, media_type="image/png")
 
     @app.put("/api/annotations/{annotation_id}")
     def update_annotation(annotation_id: str, payload: dict[str, Any]):

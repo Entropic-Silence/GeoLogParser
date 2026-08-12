@@ -1,4 +1,4 @@
-"""Constraint-guided re-reading namespace (implementation TBD)."""
+"""Constraint-guided, evidence-preserving re-reading primitives."""
 from .core import (
     Candidate, CandidateScore, RereadDecision, decide_reread, decision_to_dict,
     get_field, rank_candidates, record_with_candidate,

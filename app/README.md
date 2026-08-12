@@ -42,8 +42,13 @@ labelled `DRAFT_NOT_GT` until that annotation passes the human gate; the
 collection JSONL endpoint refuses download unless every page passes. Native-PDF proposal builders store both source
 PDF points and transformed rendered-pixel bboxes, so eligible evidence is
 highlighted in the displayed panel. Standalone CSV/XLSX/Parquet exporters are
-implemented in the library and exposed as review-time downloads. Interactive
-field re-reading remains `NOT COMPLETED`.
+implemented in the library and exposed as review-time downloads. Numeric fields
+with rendered-pixel evidence can now trigger a high-resolution Tesseract ROI
+re-read. Each run freezes its crop, OCR output, ranking decision, source-panel
+hash, and result hash under the annotation artifact root. Re-reading is
+non-mutating: even an accepted candidate is applied locally as `needs_review`
+and requires explicit human confirmation plus the ordinary revisioned save.
+The UI does not yet expose a VLM ROI adapter or a user-drawn bbox.
 
 After real review, create a frozen GT snapshot with:
 

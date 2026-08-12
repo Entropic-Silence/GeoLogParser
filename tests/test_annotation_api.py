@@ -4,9 +4,17 @@ from pathlib import Path
 import pytest
 
 from geologparser.annotation import create_annotation, save_annotation
+from geologparser.ocr import TextRegion
 
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+class FakeRereadAdapter:
+    name = "fake_reread"
+
+    def extract(self, _path):
+        return [TextRegion(1, (0, 0, 10, 10), "1.20", 0.99, "ocr")]
 
 
 def build_client(tmp_path: Path):
@@ -16,14 +24,18 @@ def build_client(tmp_path: Path):
     annotation_root = tmp_path / "annotations"
     annotation_root.mkdir()
     image = tmp_path / "panel.png"
-    image.write_bytes(b"png fixture")
+    from PIL import Image
+    Image.new("RGB", (200, 100), "white").save(image)
     record = json.loads((ROOT / "examples/boreholes/synthetic_valid.json").read_text(encoding="utf-8"))
     annotation = create_annotation(
         "test-panel", {"panel_id": "test-panel", "rendered_path": str(image)},
         record, "AUTO", "auto",
     )
     save_annotation(annotation, annotation_root / "test-panel.json")
-    return TestClient(create_app(annotation_root, ROOT / "app/static")), annotation_root
+    return TestClient(create_app(
+        annotation_root, ROOT / "app/static", reread_root=tmp_path / "reread",
+        reread_adapters=[FakeRereadAdapter()],
+    )), annotation_root
 
 
 def test_annotation_api_lists_loads_and_validates(tmp_path: Path):
@@ -105,3 +117,52 @@ def test_verified_collection_export_fails_with_traceable_reasons(tmp_path: Path)
     detail = response.json()["detail"]
     assert detail["message"] == "Ground Truth gate failed"
     assert "test-panel" in detail["failures"]
+
+
+def test_annotation_api_reread_is_revision_gated_and_non_mutating(tmp_path: Path):
+    client, _ = build_client(tmp_path)
+    annotation = client.get("/api/annotations/test-panel").json()
+    annotation["record"]["intervals"][1]["top_depth_m"].update({
+        "value": 1.5, "display_bbox": [10, 10, 60, 40],
+    })
+    # Persist the deliberately inconsistent fixture through the ordinary
+    # revisioned route so the re-read endpoint operates on server state.
+    saved = client.put("/api/annotations/test-panel", json={
+        "base_revision": 1, "record": annotation["record"],
+        "annotator_id": "fixture", "annotation_status": "auto",
+    }).json()
+    response = client.post("/api/annotations/test-panel/reread", json={
+        "base_revision": 2, "field_path": "intervals[1].top_depth_m",
+        "record": saved["record"],
+    })
+    assert response.status_code == 200
+    assert response.json()["decision"]["status"] == "ACCEPT_PROPOSAL"
+    roi = client.get(
+        f"/api/rereading/test-panel/{response.json()['run_id']}/roi"
+    )
+    assert roi.status_code == 200
+    assert roi.headers["content-type"] == "image/png"
+    assert client.get("/api/annotations/test-panel").json()["record"]["intervals"][1]["top_depth_m"]["value"] == 1.5
+    stale = client.post("/api/annotations/test-panel/reread", json={
+        "base_revision": 1, "field_path": "intervals[1].top_depth_m",
+    })
+    assert stale.status_code == 409
+
+
+def test_annotation_reread_uses_current_unsaved_record(tmp_path: Path):
+    client, _ = build_client(tmp_path)
+    annotation = client.get("/api/annotations/test-panel").json()
+    annotation["record"]["intervals"][1]["top_depth_m"].update({
+        "value": 1.5, "display_bbox": [10, 10, 60, 40],
+    })
+    annotation["record"]["borehole"]["project_name"]["value"] = "unsaved local edit"
+    response = client.post("/api/annotations/test-panel/reread", json={
+        "base_revision": 1, "field_path": "intervals[1].top_depth_m",
+        "record": annotation["record"],
+    })
+    assert response.status_code == 200
+    proposed = response.json()["decision"]["proposed_record"]
+    assert proposed["borehole"]["project_name"]["value"] == "unsaved local edit"
+    # Re-reading remains non-mutating until a later explicit save.
+    server = client.get("/api/annotations/test-panel").json()
+    assert server["record"]["borehole"]["project_name"]["value"] != "unsaved local edit"

@@ -75,7 +75,9 @@ experiment metadata, prompts, baselines, and paper planning were missing.
   **PARTIAL**; publishable data and experiments **NOT COMPLETED**.
 - Phase 7 C1–C10: **COMPLETED v001** with tests.
 - Phase 8 constraint-guided ROI rereading/ranking: **COMPLETED v001** with
-  controlled tests; multimodal field trial **NOT COMPLETED**.
+  controlled tests and annotation-UI numeric OCR re-reading. Every UI run is
+  hash-traceable and non-mutating until explicit human confirmation. A VLM ROI
+  adapter and human-GT multimodal field trial are **NOT COMPLETED**.
 - Phase 9 Paper II experiments/ablations/calibration/FCR: **NOT COMPLETED**.
 - Phase 10 database/export: SQLite/CSV/JSON/XLSX/Parquet/GeoJSON/GeoParquet/
   GeoPackage **COMPLETED v001**; a validated interval-bearing spatial case is

@@ -15,6 +15,9 @@ main { display: grid; grid-template-columns: minmax(420px, 52vw) 1fr; height: ca
 #gate-status.failed { border-color: #cc7a00; background: #fff2cc; }
 #gate-status.passed { border-color: #31845b; background: #e5f5ec; }
 .exports { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+#reread-panel { padding: 8px; margin-bottom: 10px; border: 1px solid #7297b3; background: #edf6fc; }
+#reread-output { white-space: pre-wrap; max-height: 220px; overflow: auto; margin: 7px 0 0; background: white; padding: 7px; }
+#reread-roi { display: none; margin-top: 7px; max-width: 100%; max-height: 180px; border: 2px solid #17212b; image-rendering: auto; }
 h2 { font-size: 16px; margin: 8px 0; }
 .field-row { display: grid; grid-template-columns: 160px 1fr 80px 86px; gap: 6px; margin-bottom: 5px; }
 .field-row input { min-width: 0; }

@@ -36,6 +36,13 @@
         <button data-format="xlsx">Download XLSX</button>
         <button id="download-verified">Download verified GT JSONL</button>
       </div>
+      <div id="reread-panel">
+        <strong>Selected numeric field:</strong> <code id="selected-field">none</code>
+        <button id="reread-field" disabled>Re-read ROI</button>
+        <button id="apply-reread" disabled>Apply proposal locally</button>
+        <img id="reread-roi" alt="Re-read ROI evidence">
+        <pre id="reread-output">Select a numeric field with pixel evidence.</pre>
+      </div>
       <h2>Borehole fields</h2>
       <div id="borehole-fields"></div>
       <h2>Intervals</h2>
