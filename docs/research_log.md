@@ -1,5 +1,26 @@
 # Research log
 
+## 2026-08-12 — Padova source-location linkage audit
+
+- Experiment: source metadata linkage, not extraction accuracy or Ground
+  Truth. The repository KMZ SHA256 is
+  `daa59ddcdf9033733eab0d738d4078fa9b8caf38c66e85efe3c21ab624f1e730`.
+- Observation: all 11 borehole PDFs linked to source-provided WGS84 points by a
+  canonicalized borehole identifier. The frozen location manifest SHA256 is
+  `106e7daaf45a6692bbd2a57e2557114cc190a99f1c21897a289dc7c934eba137`.
+  The locations form three river/site groups described by the source README,
+  creating a plausible real spatial case candidate for Paper III.
+- Limitation: locations are source-provided and not independently surveyed or
+  human verified. The KMZ lists `TS5`, while the corresponding `TS5.pdf` page
+  header is known to read `TS2`; the link is therefore flagged rather than
+  silently resolved. The archive's XLS/XLSX files contain CPT/laboratory data,
+  not interval Ground Truth for the PDF logs.
+- Decision: store coordinates as `EPSG:4326` with validation status
+  `source_provided_unverified` and retain the ID-conflict warning. Do not use
+  the location manifest to score header extraction or create GT.
+- Next step: manually verify borehole identities/intervals and decide whether a
+  spatially coherent subset can support Paper III raw/QC/GT comparison.
+
 ## 2026-08-12 — Public-repository metadata search extension
 
 - Experiment: read-only DataCite discovery; not data acquisition or a

@@ -25,7 +25,7 @@ datasets:
     redistribution_policy: "retain DOI, creator attribution, CC BY 4.0 notice, source URL, and modification disclosure"
     paper_fit: [paper1_public_pipeline_validation, paper1_international_transfer, paper3_protocol_development]
     status: acquired_rights_verified_format_verified
-    verification_notes: "Repository JSON identifies public file 14335 as CC BY 4.0, size 15,986,769 bytes, MD5 030f545f07da0abcb06ca4ead715bf9c. Download matched MD5; local SHA256 f07bdd15f7bef34bd2697274c1f472b85a9a359b21ea7fece52012e27cf60163. ZIP contains 11 actual borehole-log PDFs. All 15 pages were detected as native PDF. Dataset is useful public international material but is not Chinese Benchmark GT and has not yet been manually annotated."
+    verification_notes: "Repository JSON identifies public file 14335 as CC BY 4.0, size 15,986,769 bytes, MD5 030f545f07da0abcb06ca4ead715bf9c. Download matched MD5; local SHA256 f07bdd15f7bef34bd2697274c1f472b85a9a359b21ea7fece52012e27cf60163. ZIP contains 11 actual borehole-log PDFs. All 15 pages were detected as native PDF. A source KMZ links all 11 PDF filenames to WGS84 coordinates, but these remain source-provided/unverified and TS5 has a known filename/header ID conflict. Dataset is useful public international and spatial-workflow material but is not Chinese Benchmark GT and has not yet been manually annotated."
 
   - id: mendeley_borehole_log_collection_v002
     name: "Borehole log Collection"

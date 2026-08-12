@@ -11,7 +11,10 @@ Verified on 2026-08-12. The structured facts and URLs live in
   ZIP matched that MD5 and contains 11 borehole-log PDFs (15 native-PDF pages),
   plus CPT/laboratory files. This is directly usable, with attribution, as an
   international pipeline/transfer source. It is not a Chinese benchmark and is
-  not yet manually annotated.
+  not yet manually annotated. Its KMZ supplies WGS84 locations for all 11 PDF
+  identifiers and three site groups, making it a Paper III candidate; the
+  coordinates remain source-provided/unverified, and the known TS5 filename vs
+  TS2 page-header conflict is explicitly retained.
 - **BGS borehole records:** OGL terms and a fixed four-document/20-page audit
   sample are acquired and hashed. BGS source acknowledgement and item terms
   must accompany any redistribution.
