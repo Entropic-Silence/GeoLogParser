@@ -1,5 +1,44 @@
 # Research log
 
+## 2026-08-12 — Mendeley Chinese DWG single-file rights/content audit
+
+- Experiment: acquisition/content audit, not a benchmark experiment. Dataset
+  DOI `10.17632/vcpz47r3sv.2`; archive SHA256
+  `c262d83a255a64e5d8e285fe327204f430022856fe66b9ac3b61b9e67ebc1a16`.
+- Observation: the archive contains 33 valid DWG files in eight source folders.
+  Legacy ZIP names can be reversibly decoded from CP437 bytes as GB18030. A
+  single fixed sample converted with LibreDWG 0.14 and contained Chinese
+  lithological descriptions and a comprehensive borehole column.
+- Failure/risk: LibreDWG emitted `MTEXT ignored`; the resulting SVG is therefore
+  incomplete. Extracted CAD text contained a named company and named mining
+  area/project. The remaining 32 drawings were not inspected, and DWG lies
+  outside the phase-1 PDF/JPG/PNG input contract.
+- Decision: keep the entire collection quarantined and `benchmark_eligible:
+  false`; do not count it toward Chinese page, template, or Ground Truth totals.
+  Record the gating requirements in ADR-004.
+- Next step: build a deterministic conversion/content-audit manifest for all
+  files, then review and anonymize eligible PDF/PNG derivatives before human
+  annotation. Accuracy experiments remain blocked until verified GT exists.
+
+## 2026-08-12 — Reproducible B2 text-only LLM rerun
+
+- Experiment: `P1_B2_QWEN3VL4B_TEXT_UNIPD_AUDIT_003`, recorded code commit
+  `d67a2e248353c44a9555bc7c93ed737f5b21cbbf`.
+- Observation: the 15-page rerun produced 13 Schema-valid responses, 74
+  unverified intervals, eight violations among 538 constraint evaluations, and
+  11,973 input tokens. Mean latency was 50.102257 s/page; peak allocated GPU
+  memory was 9,296,219,648 bytes. Excluding runtime fields, every prediction
+  row was byte-identical after canonical JSON sorting to development audit
+  `_002`.
+- Limitation: all annotations remain `auto`; accuracy metrics are null. The
+  identical content demonstrates repeatability for this greedy run only, not
+  correctness or general model determinism.
+- Decision: index `_003` as `audit_only`, preserve both latency measurements,
+  and use `_003` as the code-at-recorded-commit reference. The RTX 5090 mining
+  job was restored immediately after inference.
+- Next step: obtain human-verified annotations before computing B2 accuracy or
+  comparing B2 against other baselines.
+
 ## 2026-08-12 — Foundation initialization
 
 - Experiment: none; this is an engineering/setup activity.
