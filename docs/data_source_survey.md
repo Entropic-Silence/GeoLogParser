@@ -31,7 +31,10 @@ Verified on 2026-08-12. The structured facts and URLs live in
   deliberate PDF/PNG derivative policy. They are not eligible benchmark pages.
   An automatic `dwgread` text pre-screen subsequently found Chinese text in all
   33 and conservatively risk-flagged 30; this prioritizes human review but does
-  not clear the other three.
+  not clear the other three. Review-only DXF/PNG derivatives were produced for
+  those three with a recorded CJK font substitution, but all three conversion
+  logs contain completeness warnings. Human review and benchmark eligibility
+  therefore remain at zero.
 
 ## Accessible licence, dataset inspection incomplete
 

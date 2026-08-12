@@ -43,6 +43,27 @@
   preserves CAD text, then complete privacy/location and third-party-content
   review before annotation.
 
+## 2026-08-12 — Priority CAD review derivatives
+
+- Experiment: review-only derivative build `priority_derivatives_v001`; not a
+  benchmark experiment. Inputs were the three drawings with no automatic risk
+  keyword hit (`MENDELEY_DWG_009`–`011`).
+- Observation: pinned LibreDWG 0.14 generated DXF and ezdxf 1.4.3 plus
+  matplotlib 3.10.5 generated 1025×4025 model-space PNGs for all three. The
+  derivative manifest SHA256 is
+  `1189e00d7e36b73d58a16a632ef730c3eb4050ec89ec38949f8ce9b79b7dfda0`.
+  An explicit Droid Sans Fallback substitution made Chinese labels renderable.
+- Failure/risk: all three conversions emitted warnings or errors, including
+  unsupported classes and skipped entities, so
+  `conversion_may_be_incomplete=true` for every item. The very tall CAD aspect
+  ratio also limits whole-image visual inspection. Automatic low risk did not
+  become content clearance; human review count remains zero.
+- Decision: preserve the source/DXF/PNG/log/hash chain under `/data`; keep all
+  derivatives quarantined and ineligible. Introduce a mandatory content-review
+  schema before any item can proceed to annotation.
+- Next step: add tiled/zoomable reviewer presentation and obtain real human
+  decisions; exclude or repair technically incomplete derivatives before GT.
+
 ## 2026-08-12 — Reproducible B2 text-only LLM rerun
 
 - Experiment: `P1_B2_QWEN3VL4B_TEXT_UNIPD_AUDIT_003`, recorded code commit
