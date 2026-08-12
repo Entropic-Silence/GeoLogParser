@@ -53,9 +53,11 @@ No aggregate metric replaces its component results.
 
 The paper-facing evaluator accepts annotation envelopes only after the Ground
 Truth gate passes. A human status alone is insufficient: log pages require at
-least one interval; every MVP interval value must be present, explicitly
-human-authored, field-level `human_verified`, and page-traceable. Populated MVP
-borehole fields must likewise be human-authored and verified. A reviewer may
+least one interval; every MVP interval field must be explicitly human-authored,
+field-level `human_verified`, and page-traceable. A verified `null` is valid and
+means that the reviewer confirmed the source does not report that field; an
+unreviewed `null` is not GT. Populated MVP borehole fields must likewise be
+human-authored and verified. A reviewer may
 explicitly export a verified non-log page with no intervals, but that exception
 must be selected at export time and recorded by the surrounding dataset build.
 

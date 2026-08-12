@@ -42,9 +42,9 @@ def ground_truth_gate(
     for index, interval in enumerate(intervals):
         for name in MVP_INTERVAL_FIELDS:
             envelope = interval.get(name, {})
-            if envelope.get("value") is None:
-                failures.append(f"MISSING_INTERVAL_FIELD:intervals[{index}].{name}")
-                continue
+            # Null is a valid GT value when the source does not report a field;
+            # the human-authored/verified flags distinguish confirmed absence
+            # from an unreviewed model abstention.
             if envelope.get("validation_status") != "human_verified":
                 failures.append(f"FIELD_NOT_HUMAN_VERIFIED:intervals[{index}].{name}")
             if envelope.get("extraction_method") != "human":

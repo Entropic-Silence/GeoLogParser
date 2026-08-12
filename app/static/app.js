@@ -12,6 +12,13 @@ function setEnvelopeValue(envelope, raw, name) {
   envelope.confidence = null;
 }
 
+function confirmEnvelope(envelope) {
+  if (envelope.source_page == null) envelope.source_page = annotation?.panel?.source_page ?? null;
+  envelope.extraction_method = "human";
+  envelope.validation_status = "human_verified";
+  envelope.confidence = null;
+}
+
 function highlight(envelope) {
   const box = envelope?.display_bbox ?? envelope?.source_bbox;
   const image = document.querySelector("#panel-image");
@@ -35,7 +42,9 @@ function envelopeInput(name, envelope) {
   const input = document.createElement("input"); input.value = envelope.value ?? "";
   input.addEventListener("change", () => setEnvelopeValue(envelope, input.value, name));
   const evidence = document.createElement("button"); evidence.textContent = "Evidence"; evidence.onclick = () => highlight(envelope);
-  row.append(label,input,evidence); return row;
+  const confirm = document.createElement("button"); confirm.textContent = envelope.validation_status === "human_verified" ? "Confirmed" : "Confirm";
+  confirm.onclick = () => { confirmEnvelope(envelope); confirm.textContent = "Confirmed"; };
+  row.append(label,input,evidence,confirm); return row;
 }
 
 function render() {
@@ -53,10 +62,12 @@ function render() {
       input.onchange=()=> name==="interval_id" ? interval[name]=input.value : setEnvelopeValue(interval[name],input.value,name);
       if(name!=="interval_id") input.onclick=()=>highlight(interval[name]); cell.append(input); row.append(cell);
     });
-    const actionCell=document.createElement("td"), remove=document.createElement("button");
+    const actionCell=document.createElement("td"), confirm=document.createElement("button"), remove=document.createElement("button");
+    confirm.textContent="Confirm row";
+    confirm.onclick=()=>{Object.entries(interval).forEach(([name,envelope])=>{if(name!=="interval_id")confirmEnvelope(envelope);});render();};
     remove.textContent="Delete";
     remove.onclick=()=>{annotation.record.intervals.splice(intervalIndex,1);renumberIntervals();render();};
-    actionCell.append(remove);row.append(actionCell);tbody.append(row);
+    actionCell.append(confirm,remove);row.append(actionCell);tbody.append(row);
   });
 }
 
@@ -74,6 +85,9 @@ async function loadReviewQueue(){const all=await(await fetch("/api/review-queue"
 async function startReview(){const response=await fetch("/api/review-sessions/start",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({annotation_id:annotation.annotation_id,annotator_id:document.querySelector("#annotator").value})});reviewSession=await response.json();document.querySelector("#message").textContent=`Timer started ${reviewSession.session_id}`;}
 async function save() { const corrected=countCorrections(originalRecord,annotation.record), response=await fetch(`/api/annotations/${annotation.annotation_id}`,{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify({base_revision:annotation.revision,record:annotation.record,annotator_id:document.querySelector("#annotator").value,annotation_status:document.querySelector("#status").value})}); if(!response.ok){document.querySelector("#message").textContent=await response.text();return;} annotation=await response.json();if(reviewSession){await fetch(`/api/review-sessions/${reviewSession.session_id}/complete`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({corrected_fields:corrected})});reviewSession=null;}originalRecord=structuredClone(annotation.record);document.querySelector("#message").textContent=`Saved revision ${annotation.revision}; corrected fields ${corrected}`;render();await loadReviewQueue();}
 
+function confirmAllMvp(){boreholeNames.forEach(name=>confirmEnvelope(annotation.record.borehole[name]));annotation.record.intervals.forEach(interval=>Object.entries(interval).forEach(([name,envelope])=>{if(name!=="interval_id")confirmEnvelope(envelope);}));render();document.querySelector("#message").textContent="All displayed fields explicitly confirmed; inspect validation before saving.";}
+
 document.querySelector("#validate").onclick=validate; document.querySelector("#start-review").onclick=startReview; document.querySelector("#save").onclick=save;
+document.querySelector("#confirm-all").onclick=confirmAllMvp;
 document.querySelector("#add-interval").onclick=async()=>{const intervalId=`I${String(annotation.record.intervals.length+1).padStart(3,"0")}`;const response=await fetch("/api/interval-template",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({interval_id:intervalId,source_page:annotation.panel.source_page})});if(!response.ok){document.querySelector("#message").textContent=await response.text();return;}annotation.record.intervals.push(await response.json());render();};
 loadList();

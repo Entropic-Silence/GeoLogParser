@@ -45,6 +45,17 @@ def test_ground_truth_gate_requires_populated_interval_fields_to_be_human_confir
     assert "FIELD_NOT_HUMAN_AUTHORED:intervals[0].top_depth_m" in failures
 
 
+def test_ground_truth_gate_accepts_human_confirmed_null_as_absent_source_field(request):
+    root = request.config.rootpath
+    annotation = create_annotation("A", {"panel_id": "A"}, record(root), "reviewer", "single_verified")
+    field = annotation["record"]["intervals"][0]["description_raw"]
+    field.update({
+        "value": None, "source_page": 1, "extraction_method": "human",
+        "validation_status": "human_verified",
+    })
+    assert ground_truth_gate(annotation) == []
+
+
 def test_annotation_agreement_reports_numeric_difference(request):
     root = request.config.rootpath
     first = create_annotation("A", {"panel_id": "A"}, record(root), "one", "single_verified")

@@ -12,7 +12,7 @@ main { display: grid; grid-template-columns: minmax(420px, 52vw) 1fr; height: ca
 #highlight { display: none; position: absolute; pointer-events: none; border: 3px solid #ff3b30; background: rgb(255 59 48 / 18%); box-sizing: border-box; }
 #editor { padding: 14px; overflow: auto; background: white; }
 h2 { font-size: 16px; margin: 8px 0; }
-.field-row { display: grid; grid-template-columns: 160px 1fr 80px; gap: 6px; margin-bottom: 5px; }
+.field-row { display: grid; grid-template-columns: 160px 1fr 80px 86px; gap: 6px; margin-bottom: 5px; }
 .field-row input { min-width: 0; }
 .field-row button { font-size: 12px; }
 table { border-collapse: collapse; width: 100%; font-size: 12px; }

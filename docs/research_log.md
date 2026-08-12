@@ -14,7 +14,10 @@
 - Decision: enforce a GT content/provenance gate and replace the dataset-level
   evaluation placeholder with an ID-aligned, schema-validating runner that
   preserves metric denominators and traceable errors. An identity synthetic
-  smoke test passed but is not indexed or used as paper evidence.
+  smoke test passed but is not indexed or used as paper evidence. The gate
+  treats a human-confirmed `null` as a legitimate absent source field, distinct
+  from an unreviewed abstention; the UI now supports explicit field/row/batch
+  confirmation.
 - Next step: use the new B6 pack for actual human review; export GT only after
   the gate passes, then evaluate the frozen B1–B6 predictions.
 
