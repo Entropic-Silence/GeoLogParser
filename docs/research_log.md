@@ -1,5 +1,24 @@
 # Research log
 
+## 2026-08-12 — Public-repository metadata search extension
+
+- Experiment: read-only DataCite discovery; not data acquisition or a
+  benchmark experiment.
+- Observation: exact `borehole log` title search returned 27 DataCite records
+  and recovered the already acquired Mendeley collection. Chinese keyword
+  searches additionally surfaced CGS records already in the registry and a
+  Zenodo CC BY 4.0 record (`10.5281/zenodo.15400683`) whose abstract reports
+  shear-wave measurements from 9,715 Chinese boreholes.
+- Failure/limitation: DataCite exposes no file list, format, size, or content URL
+  for the Zenodo record, and the Zenodo API was unreachable from this host. The
+  9,715 value is a source abstract statement, not an acquired dataset count.
+  Broad Chinese searches also returned many irrelevant records.
+- Decision: register the record as metadata-only and potentially relevant to
+  Paper III. Do not claim it contains logs, coordinates, stratigraphy, or usable
+  individual profiles until files and rights are inspected.
+- Next step: retry an official file inventory later or through a browser/manual
+  route; continue seeking directly inspectable, licensed PDF/PNG sources.
+
 ## 2026-08-12 — Mendeley Chinese DWG single-file rights/content audit
 
 - Experiment: acquisition/content audit, not a benchmark experiment. Dataset

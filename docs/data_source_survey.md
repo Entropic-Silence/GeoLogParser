@@ -86,3 +86,15 @@ Consequently all four remain `metadata_only`: none was downloaded, none is
 counted toward dataset size, and none may be redistributed. Exact item terms,
 authentication/application requirements, file inventory, and sensitive
 geolocation review must be established before acquisition.
+
+## Additional CC BY Chinese metadata candidate
+
+- **China shear-wave velocity profiles:** Zenodo DOI
+  `10.5281/zenodo.15400683` has CC BY 4.0 metadata and an abstract reporting
+  measurements from 9,715 Chinese boreholes. DataCite exposes no file format,
+  size, or content URL, and the Zenodo records API was unreachable from this
+  host during verification. The headline count is therefore only a source
+  claim, not project data inventory. The record is potentially useful for a
+  Paper III spatial/velocity study, but legacy images, interval fields,
+  coordinates, privacy, embedded-data rights, and file accessibility all remain
+  `TBD`; nothing was downloaded or counted.

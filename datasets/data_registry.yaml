@@ -240,3 +240,23 @@ datasets:
     paper_fit: [paper1_chinese_candidate]
     status: metadata_only_no_rights_statement
     verification_notes: "DataCite rightsList is empty. The dataset description is relevant but provides no permission evidence."
+
+  - id: zenodo_china_shear_wave_profiles_v002
+    name: "Development of Regional Shear Wave Velocity Extrapolation Models for Mainland China Using Geological Environmental Zoning"
+    source_organization: Zenodo
+    url: https://zenodo.org/doi/10.5281/zenodo.15400683
+    doi: 10.5281/zenodo.15400683
+    license_url: https://creativecommons.org/licenses/by/4.0/legalcode
+    access_date: "2026-08-12"
+    language: Chinese and English metadata
+    format: "TBD; DataCite exposes no format, size, or content URL"
+    scale: "abstract reports measurements from 9,715 boreholes; actual files and fields not inspected"
+    downloadable: unknown
+    access_status: "DataCite metadata accessible; Zenodo records/files API unreachable from this host during verification"
+    license: Creative Commons Attribution 4.0 International
+    allowed_usage: "share and adapt repository content with attribution, subject to file-level/third-party verification"
+    redistribution: conditional
+    redistribution_policy: "do not redistribute until file inventory, embedded data rights, privacy, coordinates, and exact scope are inspected"
+    paper_fit: [paper3_spatial_or_velocity_case_candidate, paper1_metadata_only]
+    status: metadata_rights_verified_files_uninspected
+    verification_notes: "DataCite record confirms CC BY 4.0 and describes 9,715 measured shear-wave velocity boreholes across mainland China. This does not establish that legacy log images, stratigraphic intervals, coordinates, or reusable individual profiles are included. No dataset scale is counted and no file was downloaded."
