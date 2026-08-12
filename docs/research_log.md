@@ -39,3 +39,26 @@
   metrics remain `TBD` until a rights-cleared, annotated dataset exists.
 - Next step: acquire and legally audit a small public sample set, then run a
   dataset versioned smoke benchmark before changing the schema.
+
+## 2026-08-12 — Fixed-ID BGS B1 audit
+
+- Experiment: `P1_B1_BGS_AUDIT_001`; immutable result directory
+  `results/2026-08-12/P1_B1_BGS_AUDIT_001`; source dataset is the frozen BGS
+  IDs 4, 5, 6, and 10 manifest with SHA256
+  `7847e402293971684919626bea3555276dcd386433ed1634fadad4b955cb3ce5`.
+- Observation: the CPU Tesseract 4.1.1 + conservative regex baseline processed
+  four documents (20 pages) in 127.375155 seconds. Borehole-ID exact match was
+  3/4. Coordinate extraction covered 4/4 references for both axes with zero
+  paired-value MAE. These statements apply only to this fixed audit sample.
+- Failure: final-depth coverage was 0/4, so its MAE is undefined (`null`), not
+  zero. Only one interval was emitted; it was a false parse of OCR text
+  `4 0 50 Sand rE` and C1/C2 correctly flagged the invalid depths/thickness.
+  The other three documents emitted no interval. The run contains eight
+  field/interval error rows.
+- Decision: retain this run as a connectivity and failure-mode audit, not a
+  representative BGS result and not a Paper I headline table. Always report
+  numeric extraction coverage beside MAE. Never count an unevaluated
+  constraint as evidence of geological consistency.
+- Next step: add an independently packaged OCR backend, rerun the identical
+  fixed-ID audit under a new experiment ID, and freeze a backend-neutral
+  prediction/evaluation protocol before expanding the sample.
