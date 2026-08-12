@@ -6,7 +6,9 @@ import json
 from pathlib import Path
 from typing import Any
 
-from geologparser.annotation import revise_annotation, save_annotation, validate_annotation
+from geologparser.annotation import (
+    human_empty_interval, revise_annotation, save_annotation, validate_annotation,
+)
 from geologparser.constraints import default_engine
 from geologparser.schema import validate_record
 from geologparser.review import TimingEventStore, build_review_queue, review_items_to_dict
@@ -107,6 +109,15 @@ def create_app(annotation_root: Path, static_root: Path, timing_log: Path | None
                 for result in results
             ],
         }
+
+    @app.post("/api/interval-template")
+    def interval_template(payload: dict[str, Any]):
+        try:
+            return human_empty_interval(
+                str(payload["interval_id"]), int(payload["source_page"]),
+            )
+        except (KeyError, TypeError, ValueError) as exc:
+            raise HTTPException(422, str(exc)) from exc
 
     @app.put("/api/annotations/{annotation_id}")
     def update_annotation(annotation_id: str, payload: dict[str, Any]):

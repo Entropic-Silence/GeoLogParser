@@ -6,6 +6,7 @@ let originalRecord = null;
 
 function setEnvelopeValue(envelope, raw, name) {
   envelope.value = raw === "" ? null : (numericNames.has(name) ? Number(raw) : raw);
+  if (envelope.source_page == null) envelope.source_page = annotation?.panel?.source_page ?? null;
   envelope.extraction_method = "human";
   envelope.validation_status = "human_verified";
   envelope.confidence = null;
@@ -43,7 +44,7 @@ function render() {
   const fields = document.querySelector("#borehole-fields"); fields.replaceChildren();
   boreholeNames.forEach(name => fields.append(envelopeInput(name, annotation.record.borehole[name])));
   const tbody = document.querySelector("#intervals"); tbody.replaceChildren();
-  annotation.record.intervals.forEach(interval => {
+  annotation.record.intervals.forEach((interval, intervalIndex) => {
     const row = document.createElement("tr");
     const specs = [["interval_id",false],["top_depth_m",false],["bottom_depth_m",false],["thickness_m",false],["stratum_code_raw",false],["lithology_raw",false],["description_raw",true]];
     specs.forEach(([name,multiline]) => {
@@ -51,9 +52,15 @@ function render() {
       const input=document.createElement(multiline?"textarea":"input"); input.value=value??"";
       input.onchange=()=> name==="interval_id" ? interval[name]=input.value : setEnvelopeValue(interval[name],input.value,name);
       if(name!=="interval_id") input.onclick=()=>highlight(interval[name]); cell.append(input); row.append(cell);
-    }); tbody.append(row);
+    });
+    const actionCell=document.createElement("td"), remove=document.createElement("button");
+    remove.textContent="Delete";
+    remove.onclick=()=>{annotation.record.intervals.splice(intervalIndex,1);renumberIntervals();render();};
+    actionCell.append(remove);row.append(actionCell);tbody.append(row);
   });
 }
+
+function renumberIntervals(){annotation.record.intervals.forEach((interval,index)=>{interval.interval_id=`I${String(index+1).padStart(3,"0")}`;});}
 
 async function loadList() {
   const items=await (await fetch("/api/annotations")).json(), select=document.querySelector("#annotation-list"); select.replaceChildren();
@@ -68,5 +75,5 @@ async function startReview(){const response=await fetch("/api/review-sessions/st
 async function save() { const corrected=countCorrections(originalRecord,annotation.record), response=await fetch(`/api/annotations/${annotation.annotation_id}`,{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify({base_revision:annotation.revision,record:annotation.record,annotator_id:document.querySelector("#annotator").value,annotation_status:document.querySelector("#status").value})}); if(!response.ok){document.querySelector("#message").textContent=await response.text();return;} annotation=await response.json();if(reviewSession){await fetch(`/api/review-sessions/${reviewSession.session_id}/complete`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({corrected_fields:corrected})});reviewSession=null;}originalRecord=structuredClone(annotation.record);document.querySelector("#message").textContent=`Saved revision ${annotation.revision}; corrected fields ${corrected}`;render();await loadReviewQueue();}
 
 document.querySelector("#validate").onclick=validate; document.querySelector("#start-review").onclick=startReview; document.querySelector("#save").onclick=save;
-document.querySelector("#add-interval").onclick=()=>{const template=structuredClone(annotation.record.intervals.at(-1)); template.interval_id=`I${String(annotation.record.intervals.length+1).padStart(3,"0")}`; Object.values(template).forEach(v=>{if(v&&typeof v==="object"&&"value" in v){v.value=null;v.source_bbox=null;v.source_text=null;v.extraction_method="human";}}); annotation.record.intervals.push(template);render();};
+document.querySelector("#add-interval").onclick=async()=>{const intervalId=`I${String(annotation.record.intervals.length+1).padStart(3,"0")}`;const response=await fetch("/api/interval-template",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({interval_id:intervalId,source_page:annotation.panel.source_page})});if(!response.ok){document.querySelector("#message").textContent=await response.text();return;}annotation.record.intervals.push(await response.json());render();};
 loadList();

@@ -10,10 +10,30 @@ from pathlib import Path
 from typing import Any, Mapping
 
 from geologparser.datasets.manifest import sha256_file
+from geologparser.io.records import empty_interval
 from geologparser.schema import validate_record
 
 
 ANNOTATION_STATUSES = {"auto", "single_verified", "double_verified", "expert_verified"}
+
+
+def human_empty_interval(interval_id: str, source_page: int) -> dict[str, Any]:
+    """Create an editable interval without inventing any geological value."""
+    if not interval_id:
+        raise ValueError("interval_id must not be empty")
+    if source_page < 1:
+        raise ValueError("source_page must be one-based")
+    interval = empty_interval(interval_id)
+    for name, envelope in interval.items():
+        if name == "interval_id":
+            continue
+        envelope.update({
+            "source_page": source_page,
+            "extraction_method": "human",
+            "confidence": None,
+            "validation_status": "not_validated",
+        })
+    return interval
 
 
 @dataclass(frozen=True)

@@ -6,7 +6,7 @@ from pathlib import Path
 import pytest
 
 from geologparser.annotation import (
-    PanelSpec, create_annotation, pdf_bbox_to_rendered_pixels, render_panel,
+    PanelSpec, create_annotation, human_empty_interval, pdf_bbox_to_rendered_pixels, render_panel,
     revise_annotation, save_annotation,
 )
 
@@ -21,6 +21,18 @@ def sample_record():
 def test_panel_spec_rejects_invalid_bounds():
     with pytest.raises(ValueError):
         PanelSpec("x", "/tmp/x.pdf", 1, (0.5, 0, 0.4, 1)).validate()
+
+
+def test_human_empty_interval_is_schema_ready_without_invented_values():
+    interval = human_empty_interval("I001", 3)
+    assert interval["interval_id"] == "I001"
+    for name, envelope in interval.items():
+        if name == "interval_id":
+            continue
+        assert envelope["value"] is None
+        assert envelope["source_page"] == 3
+        assert envelope["extraction_method"] == "human"
+        assert envelope["validation_status"] == "not_validated"
 
 
 def test_revisioned_annotation_preserves_history(tmp_path: Path):

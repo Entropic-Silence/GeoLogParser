@@ -1,5 +1,23 @@
 # Research log
 
+## 2026-08-12 — Padova annotation-to-spatial catalog gate
+
+- Experiment: linked the 15 existing page-level annotation proposals to 11
+  source borehole locations without changing annotation status or values.
+- Observation: the generated catalog contains 11 borehole documents and 15
+  page annotations; zero pages are human verified and zero boreholes are
+  eligible for spatial modelling. Catalog SHA256 is
+  `dd116b81d6b9740b349434f553dad8e82352a37b06fba117f14cc3c35164fd71`.
+- Failure: all current Padova page proposals contain zero intervals. The prior
+  annotation UI could not add the first interval because it attempted to clone
+  a nonexistent last interval.
+- Decision: add schema-ready empty human interval creation, deletion, and
+  one-based page provenance; implement an explicit human-only multi-page merge
+  and attach source coordinates only as `needs_review` with
+  `SOURCE_COORDINATE_UNVERIFIED`. No accuracy metric was created.
+- Next step: improve conservative native-PDF interval proposals, then conduct
+  real human verification before any GT export or spatial experiment.
+
 ## 2026-08-12 — Padova source-location linkage audit
 
 - Experiment: source metadata linkage, not extraction accuracy or Ground

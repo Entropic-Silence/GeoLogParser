@@ -35,6 +35,13 @@ def test_annotation_api_lists_loads_and_validates(tmp_path: Path):
     assert validated["schema_valid"] is True
     assert len(validated["constraints"]) == 10
 
+    template = client.post("/api/interval-template", json={
+        "interval_id": "I003", "source_page": 2,
+    })
+    assert template.status_code == 200
+    assert template.json()["top_depth_m"]["source_page"] == 2
+    assert template.json()["lithology_raw"]["value"] is None
+
 
 def test_annotation_api_saves_revision_and_rejects_stale_update(tmp_path: Path):
     client, annotation_root = build_client(tmp_path)
