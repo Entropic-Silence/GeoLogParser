@@ -36,11 +36,14 @@ GEOLOGPARSER_ANNOTATION_ROOT=/data/GeoLogParser/artifacts/annotation/unipd_levee
 
 The UI provides panel switching, header/interval editing, evidence inspection,
 Schema + C1–C10 validation, review queue, append-only timing events, and
-conflict-safe revisioned saves. Native-PDF proposal builders store both source
+conflict-safe revisioned saves. It now displays collection-level GT progress
+and exact per-page GT-gate failures. Per-page JSON/CSV/XLSX exports are always
+labelled `DRAFT_NOT_GT` until that annotation passes the human gate; the
+collection JSONL endpoint refuses download unless every page passes. Native-PDF proposal builders store both source
 PDF points and transformed rendered-pixel bboxes, so eligible evidence is
 highlighted in the displayed panel. Standalone CSV/XLSX/Parquet exporters are
-implemented in the library; UI export buttons and interactive field re-reading
-remain `NOT COMPLETED`.
+implemented in the library and exposed as review-time downloads. Interactive
+field re-reading remains `NOT COMPLETED`.
 
 After real review, create a frozen GT snapshot with:
 

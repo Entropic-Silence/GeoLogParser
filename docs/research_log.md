@@ -615,3 +615,20 @@
 - Next step: human-review the public Padova annotations and Mendeley content,
   then freeze GT, split manifests, critical-error thresholds, and ontology
   version before formal experiments.
+
+## 2026-08-12 — Ground-Truth progress and draft-export UI gate
+
+- Objective: reduce manual-review friction without weakening the human Ground
+  Truth boundary.
+- Implementation: the annotation API/UI now reports per-annotation GT gate
+  failures, collection status counts, exportable progress, and aggregate gate
+  failure counts. Reviewers can download the current page as JSON, CSV, or
+  XLSX; response headers and filenames mark every non-gated export
+  `DRAFT_NOT_GT`.
+- Safety: the verified-collection JSONL endpoint returns HTTP 409 with exact
+  per-page failure reasons unless every annotation passes the existing field-
+  level human-authorship/provenance gate. It never promotes or partially
+  exports `auto` records as GT.
+- Verification: API/export regression tests cover JSON/CSV/XLSX draft labels,
+  status counts, and verified-collection rejection. Real Padova GT count
+  remains zero because no human review was performed by the automated agent.

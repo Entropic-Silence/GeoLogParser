@@ -71,23 +71,34 @@ function render() {
   });
 }
 
+function renderGate(item) {
+  const gate=document.querySelector("#gate-status"), failures=item?.ground_truth_gate_failures??[];
+  gate.className=failures.length?"failed":"passed";
+  gate.textContent=failures.length?`NOT GT — ${failures.join("; ")}`:"Ground Truth gate PASSED for this annotation";
+}
+
+async function loadStatus(){const status=await(await fetch("/api/status")).json();document.querySelector("#progress").textContent=`GT progress: ${status.ground_truth_exportable_count}/${status.annotation_count}; statuses=${JSON.stringify(status.status_counts)}; failures=${JSON.stringify(status.ground_truth_gate_failure_counts)}`;}
+
 function renumberIntervals(){annotation.record.intervals.forEach((interval,index)=>{interval.interval_id=`I${String(index+1).padStart(3,"0")}`;});}
 
 async function loadList() {
   const items=await (await fetch("/api/annotations")).json(), select=document.querySelector("#annotation-list"); select.replaceChildren();
-  items.forEach(item=>{const option=document.createElement("option"); option.value=item.annotation_id; option.textContent=`${item.borehole_id??item.annotation_id} [${item.annotation_status} r${item.revision}]`; select.append(option);});
+  items.forEach(item=>{const option=document.createElement("option"); option.value=item.annotation_id; option.textContent=`${item.borehole_id??item.annotation_id} [${item.annotation_status} r${item.revision}] ${item.ground_truth_exportable?"GT":"NOT GT"}`; select.append(option);});
+  select.dataset.items=JSON.stringify(items);
   select.onchange=()=>load(select.value); if(items.length) await load(items[0].annotation_id);
 }
-async function load(id) { annotation=await (await fetch(`/api/annotations/${id}`)).json(); originalRecord=structuredClone(annotation.record); reviewSession=null; render(); await loadReviewQueue(); }
+async function load(id) { annotation=await (await fetch(`/api/annotations/${id}`)).json(); originalRecord=structuredClone(annotation.record); reviewSession=null; render();const items=JSON.parse(document.querySelector("#annotation-list").dataset.items||"[]");renderGate(items.find(x=>x.annotation_id===id));await loadStatus(); await loadReviewQueue(); }
 async function validate() { const response=await fetch("/api/validate",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({record:annotation.record})}); document.querySelector("#validation-output").textContent=JSON.stringify(await response.json(),null,2); }
 function countCorrections(a,b){let n=0;for(const name of boreholeNames)if(JSON.stringify(a.borehole[name].value)!==JSON.stringify(b.borehole[name].value))n++;const count=Math.max(a.intervals.length,b.intervals.length);for(let i=0;i<count;i++){if(!a.intervals[i]||!b.intervals[i]){n++;continue;}for(const name of ["top_depth_m","bottom_depth_m","thickness_m","stratum_code_raw","lithology_raw","description_raw"])if(JSON.stringify(a.intervals[i][name].value)!==JSON.stringify(b.intervals[i][name].value))n++;}return n;}
 async function loadReviewQueue(){const all=await(await fetch("/api/review-queue")).json();document.querySelector("#review-output").textContent=JSON.stringify(all.filter(x=>x.annotation_id===annotation.annotation_id),null,2);}
 async function startReview(){const response=await fetch("/api/review-sessions/start",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({annotation_id:annotation.annotation_id,annotator_id:document.querySelector("#annotator").value})});reviewSession=await response.json();document.querySelector("#message").textContent=`Timer started ${reviewSession.session_id}`;}
-async function save() { const corrected=countCorrections(originalRecord,annotation.record), response=await fetch(`/api/annotations/${annotation.annotation_id}`,{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify({base_revision:annotation.revision,record:annotation.record,annotator_id:document.querySelector("#annotator").value,annotation_status:document.querySelector("#status").value})}); if(!response.ok){document.querySelector("#message").textContent=await response.text();return;} annotation=await response.json();if(reviewSession){await fetch(`/api/review-sessions/${reviewSession.session_id}/complete`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({corrected_fields:corrected})});reviewSession=null;}originalRecord=structuredClone(annotation.record);document.querySelector("#message").textContent=`Saved revision ${annotation.revision}; corrected fields ${corrected}`;render();await loadReviewQueue();}
+async function save() { const corrected=countCorrections(originalRecord,annotation.record), response=await fetch(`/api/annotations/${annotation.annotation_id}`,{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify({base_revision:annotation.revision,record:annotation.record,annotator_id:document.querySelector("#annotator").value,annotation_status:document.querySelector("#status").value})}); if(!response.ok){document.querySelector("#message").textContent=await response.text();return;} annotation=await response.json();if(reviewSession){await fetch(`/api/review-sessions/${reviewSession.session_id}/complete`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({corrected_fields:corrected})});reviewSession=null;}originalRecord=structuredClone(annotation.record);document.querySelector("#message").textContent=`Saved revision ${annotation.revision}; corrected fields ${corrected}`;render();await loadList();}
 
 function confirmAllMvp(){boreholeNames.forEach(name=>confirmEnvelope(annotation.record.borehole[name]));annotation.record.intervals.forEach(interval=>Object.entries(interval).forEach(([name,envelope])=>{if(name!=="interval_id")confirmEnvelope(envelope);}));render();document.querySelector("#message").textContent="All displayed fields explicitly confirmed; inspect validation before saving.";}
 
 document.querySelector("#validate").onclick=validate; document.querySelector("#start-review").onclick=startReview; document.querySelector("#save").onclick=save;
 document.querySelector("#confirm-all").onclick=confirmAllMvp;
 document.querySelector("#add-interval").onclick=async()=>{const intervalId=`I${String(annotation.record.intervals.length+1).padStart(3,"0")}`;const response=await fetch("/api/interval-template",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({interval_id:intervalId,source_page:annotation.panel.source_page})});if(!response.ok){document.querySelector("#message").textContent=await response.text();return;}annotation.record.intervals.push(await response.json());render();};
+document.querySelectorAll(".exports button[data-format]").forEach(button=>button.onclick=()=>{window.location=`/api/exports/${annotation.annotation_id}?format=${button.dataset.format}`;});
+document.querySelector("#download-verified").onclick=async()=>{const response=await fetch("/api/exports/verified/all.jsonl");if(!response.ok){document.querySelector("#message").textContent=await response.text();return;}const blob=await response.blob(),url=URL.createObjectURL(blob),link=document.createElement("a");link.href=url;link.download="verified_ground_truth.jsonl";link.click();URL.revokeObjectURL(url);};
 loadList();

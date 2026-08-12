@@ -30,6 +30,11 @@ def test_annotation_api_lists_loads_and_validates(tmp_path: Path):
     client, _ = build_client(tmp_path)
     items = client.get("/api/annotations").json()
     assert items[0]["annotation_id"] == "test-panel"
+    assert items[0]["ground_truth_exportable"] is False
+    assert "ANNOTATION_NOT_HUMAN_VERIFIED" in items[0]["ground_truth_gate_failures"]
+    status = client.get("/api/status").json()
+    assert status["annotation_count"] == 1
+    assert status["ground_truth_exportable_count"] == 0
     annotation = client.get("/api/annotations/test-panel").json()
     validated = client.post("/api/validate", json={"record": annotation["record"]}).json()
     assert validated["schema_valid"] is True
@@ -77,3 +82,26 @@ def test_annotation_api_review_queue_and_timing(tmp_path: Path):
     assert completed.json()["corrected_fields"] == 2
     events = (annotation_root / "events/review_timing.jsonl").read_text().splitlines()
     assert [json.loads(line)["event"] for line in events] == ["review_started", "review_completed"]
+
+
+@pytest.mark.parametrize("format,content_type", [
+    ("json", "application/json"), ("csv", "text/csv"),
+    ("xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"),
+])
+def test_annotation_api_draft_exports_are_explicitly_not_gt(tmp_path: Path, format: str, content_type: str):
+    client, _ = build_client(tmp_path)
+    response = client.get(f"/api/exports/test-panel?format={format}")
+    assert response.status_code == 200
+    assert content_type in response.headers["content-type"]
+    assert response.headers["x-geologparser-ground-truth"] == "false"
+    assert "DRAFT_NOT_GT" in response.headers["content-disposition"]
+    assert response.content
+
+
+def test_verified_collection_export_fails_with_traceable_reasons(tmp_path: Path):
+    client, _ = build_client(tmp_path)
+    response = client.get("/api/exports/verified/all.jsonl")
+    assert response.status_code == 409
+    detail = response.json()["detail"]
+    assert detail["message"] == "Ground Truth gate failed"
+    assert "test-panel" in detail["failures"]

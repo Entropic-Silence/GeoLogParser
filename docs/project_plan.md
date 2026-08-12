@@ -67,7 +67,9 @@ experiment metadata, prompts, baselines, and paper planning were missing.
   implemented, subject to dataset-driven threshold/ontology validation.
 - Phase 5 annotation backend/UI and auto proposals: **COMPLETED v001**; a
   separate revisioned CAD privacy/content-review UI and eligibility gate are
-  **COMPLETED v001**; actual manual/double/expert geological annotations are
+  **COMPLETED v001**. The primary UI reports exact GT-gate/progress status,
+  labels per-page exports as draft until eligible, and refuses incomplete GT
+  collection export. Actual manual/double/expert geological annotations are
   **NOT COMPLETED**.
 - Phase 6 Paper I benchmark/splits/degradation/failure analysis: infrastructure
   **PARTIAL**; publishable data and experiments **NOT COMPLETED**.

@@ -3,13 +3,18 @@
 from __future__ import annotations
 
 import json
+import csv
+import io
 from pathlib import Path
+import tempfile
 from typing import Any
 
 from geologparser.annotation import (
     human_empty_interval, revise_annotation, save_annotation, validate_annotation,
 )
+from geologparser.annotation_export import ground_truth_gate
 from geologparser.constraints import default_engine
+from geologparser.export.tabular import write_xlsx
 from geologparser.schema import validate_record
 from geologparser.review import TimingEventStore, build_review_queue, review_items_to_dict
 
@@ -17,7 +22,7 @@ from geologparser.review import TimingEventStore, build_review_queue, review_ite
 def create_app(annotation_root: Path, static_root: Path, timing_log: Path | None = None):
     try:
         from fastapi import FastAPI, HTTPException
-        from fastapi.responses import FileResponse, HTMLResponse
+        from fastapi.responses import FileResponse, HTMLResponse, Response
     except ImportError as exc:
         raise RuntimeError("annotation UI requires geologparser[annotation]") from exc
 
@@ -53,13 +58,41 @@ def create_app(annotation_root: Path, static_root: Path, timing_log: Path | None
         for path in sorted(annotation_root.glob("*.json")):
             annotation = json.loads(path.read_text(encoding="utf-8"))
             validate_annotation(annotation)
+            gate_failures = ground_truth_gate(annotation)
             items.append({
                 "annotation_id": annotation["annotation_id"],
                 "revision": annotation["revision"],
                 "annotation_status": annotation["annotation_status"],
                 "borehole_id": annotation["record"]["borehole"]["borehole_id"]["value"],
+                "ground_truth_exportable": not gate_failures,
+                "ground_truth_gate_failures": gate_failures,
             })
         return items
+
+    @app.get("/api/status")
+    def status():
+        statuses: dict[str, int] = {}
+        failure_counts: dict[str, int] = {}
+        exportable = 0
+        total = 0
+        for path in sorted(annotation_root.glob("*.json")):
+            annotation = json.loads(path.read_text(encoding="utf-8"))
+            total += 1
+            annotation_status = str(annotation["annotation_status"])
+            statuses[annotation_status] = statuses.get(annotation_status, 0) + 1
+            failures = ground_truth_gate(annotation)
+            if not failures:
+                exportable += 1
+            for failure in failures:
+                category = failure.split(":", 1)[0]
+                failure_counts[category] = failure_counts.get(category, 0) + 1
+        return {
+            "annotation_count": total,
+            "status_counts": dict(sorted(statuses.items())),
+            "ground_truth_exportable_count": exportable,
+            "ground_truth_complete": total > 0 and exportable == total,
+            "ground_truth_gate_failure_counts": dict(sorted(failure_counts.items())),
+        }
 
     @app.get("/api/annotations/{annotation_id}")
     def get_annotation(annotation_id: str):
@@ -72,6 +105,81 @@ def create_app(annotation_root: Path, static_root: Path, timing_log: Path | None
         if not image_path.is_file():
             raise HTTPException(404, "panel image not found")
         return FileResponse(image_path, media_type="image/png")
+
+    @app.get("/api/exports/{annotation_id}")
+    def export_annotation(annotation_id: str, format: str = "json"):
+        annotation = json.loads(annotation_path(annotation_id).read_text(encoding="utf-8"))
+        record = annotation["record"]
+        gate_failures = ground_truth_gate(annotation)
+        label = "GT" if not gate_failures else "DRAFT_NOT_GT"
+        headers = {
+            "Content-Disposition": f'attachment; filename="{annotation_id}_{label}.{format}"',
+            "X-GeoLogParser-Ground-Truth": str(not gate_failures).lower(),
+            "X-GeoLogParser-Annotation-Status": str(annotation["annotation_status"]),
+        }
+        if format == "json":
+            return Response(
+                json.dumps(record, ensure_ascii=False, indent=2) + "\n",
+                media_type="application/json", headers=headers,
+            )
+        if format == "csv":
+            output = io.StringIO(newline="")
+            fields = (
+                "interval_id", "top_depth_m", "bottom_depth_m", "thickness_m",
+                "stratum_code_raw", "stratum_code_normalized", "lithology_raw",
+                "lithology_normalized", "description_raw", "description_normalized",
+            )
+            writer = csv.DictWriter(output, fieldnames=fields)
+            writer.writeheader()
+            for interval in record.get("intervals", []):
+                writer.writerow({
+                    name: (
+                        interval.get(name, {}).get("value")
+                        if isinstance(interval.get(name), dict) else interval.get(name)
+                    )
+                    for name in fields
+                })
+            # UTF-8 BOM keeps Chinese text readable in spreadsheet programs.
+            return Response(
+                "\ufeff" + output.getvalue(), media_type="text/csv; charset=utf-8", headers=headers,
+            )
+        if format == "xlsx":
+            with tempfile.TemporaryDirectory(prefix="geologparser_export_") as directory:
+                path = Path(directory) / "record.xlsx"
+                write_xlsx([record], path)
+                content = path.read_bytes()
+            return Response(
+                content,
+                media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                headers=headers,
+            )
+        raise HTTPException(422, "format must be json, csv, or xlsx")
+
+    @app.get("/api/exports/verified/all.jsonl")
+    def export_verified_collection():
+        annotations = []
+        failures = {}
+        for path in sorted(annotation_root.glob("*.json")):
+            annotation = json.loads(path.read_text(encoding="utf-8"))
+            item_failures = ground_truth_gate(annotation)
+            if item_failures:
+                failures[annotation["annotation_id"]] = item_failures
+            annotations.append(annotation)
+        if not annotations:
+            raise HTTPException(409, "annotation collection is empty")
+        if failures:
+            raise HTTPException(409, {"message": "Ground Truth gate failed", "failures": failures})
+        payload = "".join(
+            json.dumps(annotation, ensure_ascii=False, sort_keys=True) + "\n"
+            for annotation in annotations
+        )
+        return Response(
+            payload, media_type="application/x-ndjson",
+            headers={
+                "Content-Disposition": 'attachment; filename="verified_ground_truth.jsonl"',
+                "X-GeoLogParser-Ground-Truth": "true",
+            },
+        )
 
     @app.get("/api/review-queue")
     def review_queue():
