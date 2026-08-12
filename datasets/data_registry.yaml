@@ -27,6 +27,26 @@ datasets:
     status: acquired_rights_verified_format_verified
     verification_notes: "Repository JSON identifies public file 14335 as CC BY 4.0, size 15,986,769 bytes, MD5 030f545f07da0abcb06ca4ead715bf9c. Download matched MD5; local SHA256 f07bdd15f7bef34bd2697274c1f472b85a9a359b21ea7fece52012e27cf60163. ZIP contains 11 actual borehole-log PDFs. All 15 pages were detected as native PDF. Dataset is useful public international material but is not Chinese Benchmark GT and has not yet been manually annotated."
 
+  - id: mendeley_borehole_log_collection_v002
+    name: "Borehole log Collection"
+    source_organization: Mendeley Data
+    url: https://data.mendeley.com/datasets/vcpz47r3sv/2
+    doi: 10.17632/vcpz47r3sv.2
+    license_url: https://creativecommons.org/licenses/by/4.0/legalcode
+    access_date: "2026-08-12"
+    language: "Chinese confirmed on one audited drawing; remaining 32 drawings not visually inspected"
+    format: "ZIP containing 33 Autodesk DWG drawings (AC1014/AC1018/AC1021) in eight source folders"
+    scale: "verified 26,720,387-byte ZIP; 33 DWG files; 40,645,694 uncompressed bytes"
+    downloadable: true
+    access_status: "public anonymous repository download verified"
+    license: Creative Commons Attribution 4.0 International
+    allowed_usage: "share and adapt with attribution; item notice warns that separately identified third-party content may require permission"
+    redistribution: allowed_with_conditions
+    redistribution_policy: "retain creator/DOI/CC BY attribution and modification notice; screen drawings for embedded third-party material before redistributing conversions"
+    paper_fit: [paper1_chinese_cad_candidate, paper1_template_diversity_candidate]
+    status: acquired_rights_verified_single_dwg_audited_full_content_review_pending
+    verification_notes: "Official anonymous files API reported one ZIP, file ID 2d647e02-1f14-4d8a-968d-43fd235367a4, SHA256 c262d83a255a64e5d8e285fe327204f430022856fe66b9ac3b61b9e67ebc1a16. Download matched. Archive has 33 valid DWG headers across eight folders. A pinned LibreDWG 0.14 single-file audit confirmed a Chinese comprehensive borehole column with geological descriptions, but also found a named company and named mining-area/project title. LibreDWG warned that MTEXT was ignored, so the render is incomplete. The other 32 drawings, privacy, sensitive locations, third-party content, and benchmark eligibility remain unverified. This is not counted as PDF/JPG/PNG benchmark data."
+
   - id: bgs_onshore_borehole_records
     name: BGS onshore borehole records and scans
     source_organization: British Geological Survey

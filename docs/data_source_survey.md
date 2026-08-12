@@ -18,6 +18,17 @@ Verified on 2026-08-12. The structured facts and URLs live in
 - **Dutch BRO product environment:** official technical environment responded
   and is useful for database/schema interoperability. Its value as a legacy
   scanned-log image source and exact dataset licence are `TBD`.
+- **Mendeley Borehole log Collection:** DOI `10.17632/vcpz47r3sv.2` is public
+  under CC BY 4.0. The anonymous repository API exposed one 26,720,387-byte ZIP
+  with SHA256 `c262d83a...1a16`; the acquired file matched. It contains 33 DWG
+  drawings in eight folders (AutoCAD AC1014/AC1018/AC1021). This is a promising
+  Chinese CAD-log candidate. A pinned LibreDWG 0.14 conversion of one drawing
+  confirmed Chinese geological descriptions and a comprehensive borehole
+  column, but also exposed a named company and named mining-area/project title.
+  LibreDWG reported ignored MTEXT, so the rendering is incomplete. The sample
+  and remaining 32 drawings stay quarantined pending complete conversion,
+  privacy/sensitive-location review, third-party-content screening, and a
+  deliberate PDF/PNG derivative policy. They are not eligible benchmark pages.
 
 ## Accessible licence, dataset inspection incomplete
 
