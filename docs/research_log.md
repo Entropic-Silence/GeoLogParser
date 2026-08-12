@@ -270,3 +270,30 @@
   prior runs remain unchanged.
 - Decision: this source is eligible for international/public validation and
   annotation with attribution, but cannot satisfy the Chinese Paper I core.
+
+## 2026-08-12 — Padova annotation pack, CGS rights audit, and B6 contract
+
+- Annotation artifact: rendered all 15 Padova pages at 150 dpi and created 15
+  revisioned `auto` proposals under
+  `/data/GeoLogParser/artifacts/annotation/unipd_levee_geotech_v001`.
+  `panel_manifest.jsonl` SHA256 is
+  `2ee38b8da430075df80a4b3c16a4739838b43228bf1a9e7ff9ff7b835f77d4b3`.
+  Every page retains source/render hashes, page number, visual crop, licence,
+  and PDF-to-rendered bbox transformation. None is Ground Truth yet.
+- CGS audit: DataCite metadata for four DOI candidates was recorded in the data
+  registry. Three `rightsList` entries point only to an institutional URL and
+  one is empty; this is not a licence grant. DOI targets timed out from this
+  host. No files were downloaded and eligible Chinese benchmark size remains
+  zero.
+- Implementation: added conservative B6 field fusion. Agreement retains
+  grounded provenance; conflicts retain the grounded value but set
+  `needs_review`; unaligned VLM-only intervals remain explicit review items.
+  Added a human-GT-gated Paper II evaluator requiring disjoint calibration and
+  test partitions. It rejects `auto` annotations before computing FCR, review
+  recall, Brier score, or ECE.
+- Runtime failure: the first Padova B4 invocation failed before model loading
+  because the isolated AI environment lacked the repository import path. No
+  experiment directory was created. The rerun explicitly used `PYTHONPATH=src`.
+- Next step: complete and index Padova B4/B6 audits, then manually validate the
+  public annotations. B4/B6 audits without human GT remain coverage/failure
+  evidence only.

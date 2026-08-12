@@ -16,7 +16,7 @@ Verified literature on borehole databases, stratigraphic correlation, spatial in
 
 ## 3. Workflow
 
-Legacy PDF/JPG/PNG enters GeoLogParser and produces validated records with provenance. SQLite separates boreholes, intervals, and field provenance. GeoJSON exports coordinates without implicit CRS transformation. CSV/JSON are supported; Parquet/XLSX and QGIS/GemPy/PyVista integration are `TBD`.
+Legacy PDF/JPG/PNG enters GeoLogParser and produces validated records with provenance. SQLite separates boreholes, intervals, and field provenance. GeoJSON exports coordinates without implicit CRS transformation. CSV, JSON, XLSX, and Parquet are supported with separate borehole, interval, and provenance tables. QGIS/GemPy/PyVista integration is `TBD`.
 
 Human review is triggered by missing MVP fields, low confidence, field warnings, unknown terminology, and constraint violations. Start/completion events record real duration and corrected-field count. No human timing result exists yet.
 

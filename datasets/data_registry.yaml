@@ -140,3 +140,83 @@ datasets:
     paper_fit: [paper1_core, paper2_core, paper3_if_spatially_coherent]
     status: candidates_quarantined_rights_unverified
     verification_notes: "Quarantine snapshot chinese_public_web_20260812 contains three PDFs: one blank field form, one 58-page public-procurement attachment with four usable logs on pages 44–45, and one delivery-specification attachment. Exact source URLs, item licence, redistribution permission, privacy, stamps, and sensitive project-location fields remain unverified; none is counted as benchmark data."
+
+  - id: cgs_shaliu_quaternary_borehole_database
+    name: "Quaternary borehole database for 1:50,000 Shaliu River Map-sheet of Hebei Province, China"
+    source_organization: China Geological Survey data center
+    url: http://dcc.cgs.gov.cn/cn/geologicalData/details/doi/10.35080/data.A.2020.P12
+    doi: 10.35080/data.A.2020.P12
+    license_url: TBD
+    access_date: "2026-08-12"
+    language: Chinese
+    format: ".mpj (DataCite metadata); description states five borehole histograms"
+    scale: "249 MB package; five borehole groups/histograms described; file contents not inspected"
+    downloadable: unknown
+    access_status: "DataCite metadata accessible; DOI target timed out from this host; no file downloaded"
+    license: unclear
+    allowed_usage: TBD
+    redistribution: unclear
+    redistribution_policy: "do not download for project use or redistribute until exact item terms are verified"
+    paper_fit: [paper1_chinese_candidate, paper3_database_candidate]
+    status: metadata_only_license_and_access_unverified
+    verification_notes: "DataCite rightsList contains only http://dcc.ngac.org.cn/, an organization URL rather than an identifiable licence grant. It is not treated as permission."
+
+  - id: cgs_wucaiwan_twenty_boreholes
+    name: "Dataset of Boreholes Drilled in the Coalfield of Wucaiwan Area in Eastern Margin of Junggar Basin, Xinjiang"
+    source_organization: China Geological Survey data center
+    url: http://dcc.cgs.gov.cn/cn/geologicalData/details/doi/10.35080/data.H.2020.P19
+    doi: 10.35080/data.H.2020.P19
+    license_url: TBD
+    access_date: "2026-08-12"
+    language: Chinese
+    format: "*.xls"
+    scale: "8.94 MB; 20 boreholes and ten worksheets per database described"
+    downloadable: unknown
+    access_status: "DataCite metadata accessible; DOI target timed out from this host; no file downloaded"
+    license: unclear
+    allowed_usage: TBD
+    redistribution: unclear
+    redistribution_policy: "do not download for project use or redistribute until exact item terms are verified"
+    paper_fit: [paper3_schema_and_database_candidate]
+    status: metadata_only_license_and_access_unverified
+    verification_notes: "Structured database rather than a page-image benchmark. DataCite rights URL is not an identifiable licence."
+
+  - id: cgs_dongsheng_borehole_database
+    name: "Borehole Databases and 3D Geological Model of Jurassic-Cretaceous Strata in Dongsheng Area, North Ordos Basin"
+    source_organization: China Geological Survey data center
+    url: http://dcc.cgs.gov.cn/cn/geologicalData/details/doi/10.35080/data.H.2020.P20
+    doi: 10.35080/data.H.2020.P20
+    license_url: TBD
+    access_date: "2026-08-12"
+    language: Chinese
+    format: ".xls, .mdb, .bwi, and .jpg according to DataCite metadata"
+    scale: "2.99 GB; three Access databases and corresponding atlas described"
+    downloadable: unknown
+    access_status: "DataCite metadata accessible; no download attempted because item rights and access conditions are unverified"
+    license: unclear
+    allowed_usage: TBD
+    redistribution: unclear
+    redistribution_policy: "do not download for project use or redistribute until exact item terms are verified"
+    paper_fit: [paper1_chinese_image_candidate, paper3_case_study_candidate]
+    status: metadata_only_license_and_access_unverified
+    verification_notes: "Potential JPG atlas is relevant, but 2.99 GB was not acquired on metadata alone. DataCite rights URL is not an identifiable licence."
+
+  - id: cgs_panggezhuang_regional_geology
+    name: "北京庞各庄幅(J50E003010)1:50,000区域地质调查数据集"
+    source_organization: China Geological Survey data center
+    url: http://dcc.cgs.gov.cn/cn/geologicalData/details/doi/10.35080/data.C.2021.P25
+    doi: 10.35080/data.C.2021.P25
+    license_url: TBD
+    access_date: "2026-08-12"
+    language: Chinese
+    format: TBD
+    scale: "description lists two lithological borehole columns, two paleomagnetic columns, two logging plots, and related tables"
+    downloadable: unknown
+    access_status: "DataCite metadata accessible; DOI target not verified; no file downloaded"
+    license: unclear
+    allowed_usage: TBD
+    redistribution: unclear
+    redistribution_policy: "do not download for project use or redistribute until exact item terms are verified"
+    paper_fit: [paper1_chinese_candidate]
+    status: metadata_only_no_rights_statement
+    verification_notes: "DataCite rightsList is empty. The dataset description is relevant but provides no permission evidence."

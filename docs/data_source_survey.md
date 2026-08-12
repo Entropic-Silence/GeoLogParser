@@ -53,3 +53,19 @@ Verified on 2026-08-12. The structured facts and URLs live in
 
 No quarantined candidate is eligible for redistribution until its rights record
 and privacy decision are complete.
+
+## CGS/DataCite Chinese candidates — metadata only
+
+Four China Geological Survey records were checked through DataCite on
+2026-08-12: `10.35080/data.A.2020.P12`, `10.35080/data.H.2020.P19`,
+`10.35080/data.H.2020.P20`, and `10.35080/data.C.2021.P25`. Their descriptions
+are relevant: they respectively mention five borehole histograms, a 20-hole XLS
+database, a 2.99 GB database/JPG atlas, and two lithological borehole columns.
+The first three expose `http://dcc.ngac.org.cn/` in DataCite `rightsList`; this
+is an institutional URL, not an identifiable licence. The fourth has no rights
+entry. DOI targets redirected to the CGS HTTP site and timed out from this host.
+
+Consequently all four remain `metadata_only`: none was downloaded, none is
+counted toward dataset size, and none may be redistributed. Exact item terms,
+authentication/application requirements, file inventory, and sensitive
+geolocation review must be established before acquisition.

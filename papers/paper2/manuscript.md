@@ -2,7 +2,7 @@
 
 ## Abstract
 
-We study whether geological and numerical constraints can improve the reliability of multimodal borehole-log extraction without rule-based overwriting. The method separates OCR, layout, VLM evidence, constraint diagnosis, high-resolution ROI rereading, candidate ranking, terminology normalization, and confidence calibration. Constraints trigger review or evidence-based proposals; they never silently replace source values. The implemented system includes C1–C10, conservative candidate ranking, ROI OCR rereading, abstention, review queues, and calibration primitives. Main benchmark, ablation, false-correction, manual-review recall, and calibration results are `TBD`; consequently no superiority claim is made in this draft.
+We study whether geological and numerical constraints can improve the reliability of multimodal borehole-log extraction without rule-based overwriting. The method separates OCR, layout, VLM evidence, conservative fusion, constraint diagnosis, high-resolution ROI rereading, candidate ranking, terminology normalization, and confidence calibration. Constraints trigger review or evidence-based proposals; they never silently replace source values. The implemented system includes C1–C10, conservative candidate ranking, ROI OCR rereading, abstention, review queues, calibration primitives, and a Ground-Truth-gated batch evaluator. Main benchmark, ablation, false-correction, manual-review recall, and calibration results are `TBD`; consequently no superiority claim is made in this draft.
 
 ## 1. Introduction
 
@@ -37,6 +37,8 @@ Raw and normalized terms are separate. Ontology coverage is data-driven and sour
 Data and splits follow Paper I without redefining the benchmark. Baselines are single-pass B1–B6. The full method is compared with one-module-at-a-time ablations: −constraints, −rereading, −layout, −OCR, −VLM, −normalization, and −calibration. Seeds/repeats, model revisions, prompts, and compute are recorded. Exact configurations are `TBD`.
 
 Primary metrics include interval/field scores, critical numerical error rate (`TBD` field thresholds), geological component consistency and coverage, manual-review recall, review rate, auto-accept risk, and false correction rate. FCR is incorrect automatic corrections divided by all automatic corrections; zero corrections yields undefined, not zero.
+
+The implemented Paper II evaluator refuses `auto` labels, requires human-verified cases, and requires disjoint calibration and test partitions before fitting temperature scaling or reporting correction/review/calibration metrics. This prevents engineering audits from entering the formal result table.
 
 ## 5. Results
 

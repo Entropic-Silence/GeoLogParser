@@ -18,6 +18,7 @@ def number(value, decimals: int = 3) -> str:
 def paper1_table(entries: list[dict], repository_root: Path) -> str:
     ocr_rows = []
     vlm_rows = []
+    fusion_rows = []
     native_rows = []
     for entry in entries:
         metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
@@ -32,6 +33,17 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
                 str(metrics["total_intervals_emitted"]),
                 number(metrics["latency_seconds_per_page"]),
                 entry["paper_eligibility"],
+            ]) + " |")
+        elif "items_with_schema_valid_vlm_record" in metrics:
+            decisions = metrics["fusion_decision_counts"]
+            fusion_rows.append("| " + " | ".join([
+                entry["experiment_id"], run["model"], str(metrics["items"]),
+                f'{metrics["items_with_schema_valid_vlm_record"]}/{metrics["items"]}',
+                str(decisions.get("agreement_keep_grounded_provenance", 0)),
+                str(decisions.get("disagreement_keep_grounded_needs_review", 0)),
+                str(decisions.get("visual_only_needs_review", 0)),
+                str(decisions.get("vlm_unavailable_keep_grounded", 0)),
+                str(metrics["emitted_intervals"]), entry["paper_eligibility"],
             ]) + " |")
         elif "structured_parse_rate" in metrics:
             vlm_rows.append("| " + " | ".join([
@@ -63,6 +75,11 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
         "| Experiment | Model | Images | Schema-valid | Emitted intervals | Constraint evals | Violations | s/image | Peak GiB | Eligibility |",
         "|---|---|---:|---:|---:|---:|---:|---:|---:|---|",
         *vlm_rows, "",
+        "### B6 conservative fusion engineering audits",
+        "",
+        "| Experiment | Model | Items | VLM available | Agreements | Disagreements | Visual-only review | VLM unavailable | Emitted intervals | Eligibility |",
+        "|---|---|---:|---:|---:|---:|---:|---:|---:|---|",
+        *fusion_rows, "",
         "### Public native-PDF engineering audits",
         "",
         "| Experiment | Model | Documents | Borehole-ID coverage | Final-depth coverage | Emitted intervals | Violations | s/page | Eligibility |",
