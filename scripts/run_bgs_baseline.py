@@ -5,17 +5,27 @@ from __future__ import annotations
 import argparse
 import json
 import platform
+import resource
 import subprocess
 import time
+from importlib.metadata import version
 from pathlib import Path
 
 from geologparser.constraints import default_engine
 from geologparser.evaluation import exact_match, numeric_with_missing_mae
 from geologparser.experiment import create_run_directory
+from geologparser.ocr import RapidOCROnnxAdapter, TesseractOCRAdapter
+from geologparser.pdf import detect_pdf
 from geologparser.pipeline import run_minimal_baseline
 
 
 ROOT = Path(__file__).resolve().parents[1]
+RAPIDOCR_MODEL_DIR = Path("/data/GeoLogParser/models/rapidocr")
+RAPIDOCR_MODEL_HASHES = {
+    "ch_PP-OCRv4_det_infer.onnx": "d2a7720d45a54257208b1e13e36a8479894cb74155a5efe29462512d42f49da9",
+    "ch_PP-OCRv4_rec_infer.onnx": "48fc40f24f6d2a207a2b1091d3437eb3cc3eb6b676dc3ef9c37384005483683b",
+    "ch_ppocr_mobile_v2.0_cls_infer.onnx": "e47acedf663230f8863ff1ab0e64dd2d82b838fceb5957146dab185a89d6215c",
+}
 
 
 def scalar(record: dict, name: str):
@@ -27,24 +37,55 @@ def main() -> None:
     parser.add_argument("--experiment-id", required=True)
     parser.add_argument("--dataset-root", type=Path, default=Path("/data/GeoLogParser/datasets/public/bgs_v001"))
     parser.add_argument("--results-root", type=Path, default=ROOT / "results")
+    parser.add_argument("--ocr-backend", choices=("tesseract", "rapidocr"), default="tesseract")
+    parser.add_argument("--render-dpi", type=int, default=300)
+    parser.add_argument("--rapidocr-threads", type=int, default=4)
     arguments = parser.parse_args()
     manifest_path = arguments.dataset_root / "metadata" / "manifest.jsonl"
     manifest = [json.loads(line) for line in manifest_path.read_text(encoding="utf-8").splitlines() if line]
     git_commit = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True, capture_output=True, check=True).stdout.strip()
-    tesseract_version = subprocess.run(["tesseract", "--version"], text=True, capture_output=True, check=True).stdout.splitlines()[0]
+    if arguments.ocr_backend == "tesseract":
+        backend_revision = subprocess.run(
+            ["tesseract", "--version"], text=True, capture_output=True, check=True,
+        ).stdout.splitlines()[0]
+        adapter = TesseractOCRAdapter(language="eng", psm=6)
+        model_id = "B1_tesseract_ocr_regex"
+        software = {"python": platform.python_version(), "tesseract": backend_revision}
+        backend_config = {"ocr_language": "eng", "psm": 6}
+    else:
+        backend_revision = f"rapidocr_onnxruntime {version('rapidocr_onnxruntime')} / onnxruntime {version('onnxruntime')}"
+        adapter = RapidOCROnnxAdapter(
+            model_dir=RAPIDOCR_MODEL_DIR, intra_op_num_threads=arguments.rapidocr_threads,
+        )
+        model_id = "B1_rapidocr_onnxruntime_ppocrv4_regex"
+        software = {
+            "python": platform.python_version(),
+            "rapidocr_onnxruntime": version("rapidocr_onnxruntime"),
+            "onnxruntime": version("onnxruntime"),
+        }
+        backend_config = {
+            "intra_op_num_threads": arguments.rapidocr_threads,
+            "inter_op_num_threads": 1,
+            "model_dir": str(RAPIDOCR_MODEL_DIR),
+            "model_sha256": RAPIDOCR_MODEL_HASHES,
+            "execution_provider": "CPUExecutionProvider",
+        }
+    sample_pages = sum(len(detect_pdf(Path(item["local_path"])).pages) for item in manifest)
     run = create_run_directory(arguments.results_root, {
         "experiment_id": arguments.experiment_id,
         "git_commit": git_commit,
         "date": "2026-08-12",
         "dataset_version": "bgs_opengeoscience_v001_fixed_ids_4_5_6_10",
         "split_version": "audit_all_no_training",
-        "model": "B1_tesseract_ocr_regex",
-        "model_revision": tesseract_version,
+        "model": model_id,
+        "model_revision": backend_revision,
         "prompt_version": "not_applicable",
         "seed": None,
         "hardware": {"device": "cpu", "processor": platform.processor(), "gpu_used": False},
-        "software": {"python": platform.python_version(), "tesseract": tesseract_version},
-        "config": {"ocr_language": "eng", "psm": 6, "render_dpi": 300, "constraint_tolerance_m": "0.05"},
+        "software": software,
+        "config": backend_config | {
+            "render_dpi": arguments.render_dpi, "constraint_tolerance_m": "0.05",
+        },
     })
     references = {name: [] for name in ("borehole_id", "x_coordinate", "y_coordinate", "final_depth_m")}
     predictions = {name: [] for name in references}
@@ -55,7 +96,9 @@ def main() -> None:
             metadata = item["metadata"]
             source = Path(item["local_path"])
             start = time.perf_counter()
-            regions, record = run_minimal_baseline(source, ocr_language="eng")
+            regions, record = run_minimal_baseline(
+                source, ocr_language="eng", ocr_adapter=adapter, render_dpi=arguments.render_dpi,
+            )
             elapsed = time.perf_counter() - start
             expected = {
                 "borehole_id": metadata.get("REFERENCE"),
@@ -84,7 +127,7 @@ def main() -> None:
     total_elapsed = time.perf_counter() - total_start
     metrics = {
         "sample_documents": len(rows),
-        "sample_pages": 20,
+        "sample_pages": sample_pages,
         "benchmark_scope": "small public audit sample; not representative BGS performance",
         "borehole_id_exact_match": exact_match(references["borehole_id"], predictions["borehole_id"], "borehole_id_exact_match").to_dict(),
         "x_coordinate": {key: value.to_dict() for key, value in numeric_with_missing_mae(references["x_coordinate"], predictions["x_coordinate"], "x_coordinate_mae").items()},
@@ -94,7 +137,8 @@ def main() -> None:
         "total_intervals_emitted": sum(row["interval_count"] for row in rows),
         "latency_total_seconds": total_elapsed,
         "latency_seconds_per_document": total_elapsed / len(rows) if rows else None,
-        "latency_seconds_per_page": total_elapsed / 20,
+        "latency_seconds_per_page": total_elapsed / sample_pages if sample_pages else None,
+        "peak_process_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
     }
     (run / "metrics.json").write_text(json.dumps(metrics, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     errors = []
@@ -111,7 +155,7 @@ def main() -> None:
             errors.append({"source_record_id": row["source_record_id"], "field": "intervals", "error_type": "missing_interval", "expected": "TBD_manual_annotation", "observed": 0})
     (run / "errors.jsonl").write_text("".join(json.dumps(error, ensure_ascii=False) + "\n" for error in errors), encoding="utf-8")
     (run / "run.log").write_text(
-        f"documents={len(rows)}\npages=20\ntotal_seconds={total_elapsed:.6f}\nstatus=completed\n",
+        f"documents={len(rows)}\npages={sample_pages}\ntotal_seconds={total_elapsed:.6f}\nstatus=completed\n",
         encoding="utf-8",
     )
     print(run)
@@ -119,4 +163,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
