@@ -172,3 +172,23 @@
 - Next step: implement field-level ROI rereading candidates and ranking with
   explicit evidence/constraint terms, then validate correction safety using
   controlled fixtures before any automatic acceptance experiment.
+
+## 2026-08-12 — Synthetic IDW error-propagation protocol smoke
+
+- Experiment: `P3_SYNTHETIC_ERROR_PROPAGATION_SMOKE_001`; four synthetic
+  boreholes, first internal boundary, IDW power 2, 6×6 query grid, perturbation
+  magnitudes 0.01/0.05/0.10/0.50/1.00 m, and one recorded seed per condition.
+- Observation: the experiment produced five prediction rows and metrics for 36
+  grid points per condition. For example, recorded surface MAE values were
+  0.006136, 0.024720, 0.061361, 0.306805, and 1.000000 m in magnitude order.
+  These numbers validate the implementation protocol only.
+- Failure/limitation: this fixture uses four artificial points, one internal
+  boundary, one seed per magnitude, and no human-validated extraction. At the
+  1.00 m condition all sampled signs happened to align, yielding MAE≈1.00 m;
+  this illustrates high sampling variance and is not a geological conclusion.
+- Decision: index the run as `protocol_only`, not paper evidence. Formal Paper
+  III experiments require spatially coherent, rights-cleared, human-validated
+  boreholes, multiple seeds, mean/std/confidence intervals, and comparison of
+  raw AI, constraint-validated, and human GT surfaces.
+- Next step: add multi-seed experiment aggregation and automatic table/figure
+  generation, while continuing acquisition of eligible spatial data.

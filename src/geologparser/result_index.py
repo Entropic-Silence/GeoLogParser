@@ -39,6 +39,8 @@ def verify_index(index_path: Path, repository_root: Path) -> list[str]:
             elif file_sha256(target) != entry[hash_key]:
                 errors.append(f"{experiment_id}: hash mismatch for {target}")
         manifest = Path(entry["dataset_manifest_path"])
+        if not manifest.is_absolute():
+            manifest = repository_root / manifest
         if not manifest.is_file():
             errors.append(f"{experiment_id}: missing {manifest}")
         elif file_sha256(manifest) != entry["dataset_manifest_sha256"]:
