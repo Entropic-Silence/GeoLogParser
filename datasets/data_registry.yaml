@@ -44,8 +44,8 @@ datasets:
     redistribution: allowed_with_conditions
     redistribution_policy: "retain creator/DOI/CC BY attribution and modification notice; screen drawings for embedded third-party material before redistributing conversions"
     paper_fit: [paper1_chinese_cad_candidate, paper1_template_diversity_candidate]
-    status: acquired_rights_verified_single_dwg_audited_full_content_review_pending
-    verification_notes: "Official anonymous files API reported one ZIP, file ID 2d647e02-1f14-4d8a-968d-43fd235367a4, SHA256 c262d83a255a64e5d8e285fe327204f430022856fe66b9ac3b61b9e67ebc1a16. Download matched. Archive has 33 valid DWG headers across eight folders. A pinned LibreDWG 0.14 single-file audit confirmed a Chinese comprehensive borehole column with geological descriptions, but also found a named company and named mining-area/project title; its SVG conversion warned that MTEXT was ignored. A subsequent automatic text/risk pre-screen converted all 33 with dwgread minJSON, found Chinese text in all 33, and conservatively risk-flagged 30/33. This pass is not human review and does not establish safety for the other three. Privacy, sensitive locations, third-party content, derivative completeness, and benchmark eligibility remain unresolved. This is not counted as PDF/JPG/PNG benchmark data."
+    status: acquired_rights_verified_automatic_inventory_reconciled_human_review_pending
+    verification_notes: "Official anonymous files API reported one ZIP, file ID 2d647e02-1f14-4d8a-968d-43fd235367a4, SHA256 c262d83a255a64e5d8e285fe327204f430022856fe66b9ac3b61b9e67ebc1a16. Download matched. Archive has 33 valid DWG headers across eight folders. A pinned LibreDWG 0.14 single-file audit confirmed a Chinese comprehensive borehole column with geological descriptions, but also found a named company and named mining-area/project title; its SVG conversion warned that MTEXT was ignored. A subsequent automatic text/risk pre-screen converted all 33 with dwgread minJSON, found Chinese text in all 33, and conservatively risk-flagged 30/33. Review-only DXF/PNG derivatives exist for MENDELEY_DWG_009–011. An automated v002 entity reconciliation matched source-DWG and derivative-DXF modelspace inventories exactly: 1,244/1,244, 1,905/1,905, and 7,173/7,173 entity handles, including ordered text hashes for 363, 537, and 611 text entities. This narrows conversion risk but is not pixel-level fidelity or human review. Privacy, sensitive locations, third-party content, visual completeness, and benchmark eligibility remain unresolved. This is not counted as PDF/JPG/PNG benchmark data."
 
   - id: bgs_onshore_borehole_records
     name: BGS onshore borehole records and scans
@@ -260,3 +260,83 @@ datasets:
     paper_fit: [paper3_spatial_or_velocity_case_candidate, paper1_metadata_only]
     status: metadata_rights_verified_files_uninspected
     verification_notes: "DataCite record confirms CC BY 4.0 and describes 9,715 measured shear-wave velocity boreholes across mainland China. This does not establish that legacy log images, stratigraphic intervals, coordinates, or reusable individual profiles are included. No dataset scale is counted and no file was downloaded."
+
+  - id: sage_china_site_classification_collection_v001
+    name: "Site classification scheme based on geological age and genesis for Xinjiang and the Capital Metropolitan areas of China"
+    source_organization: SAGE Journals / Figshare
+    url: https://sage.figshare.com/collections/Site_classification_scheme_based_on_geological_age_and_genesis_for_Xinjiang_and_the_Capital_Metropolitan_areas_of_China/6961823/1
+    doi: 10.25384/sage.c.6961823.v1
+    license_url: https://creativecommons.org/licenses/by/4.0/legalcode
+    access_date: "2026-08-12"
+    language: English metadata; study concerns China
+    format: "TBD; DataCite collection record exposes no file formats, sizes, or content URL"
+    scale: "abstract states thousands of engineering boreholes; files and reusable borehole records not inspected"
+    downloadable: unknown
+    access_status: "DataCite metadata accessible; SAGE Figshare API returned HTTP 403 from this host"
+    license: Creative Commons Attribution 4.0 International
+    allowed_usage: "share and adapt repository collection content with attribution, subject to article/file and third-party verification"
+    redistribution: conditional
+    redistribution_policy: "do not redistribute until collection members, files, embedded-data rights, and geolocation/privacy are inspected"
+    paper_fit: [paper3_site_classification_context, paper1_metadata_only]
+    status: metadata_rights_verified_files_uninspected
+    verification_notes: "The collection abstract reports geological maps and engineering-borehole statistics, not legacy borehole-log page images. The source-claimed scale is not project inventory and is not counted."
+
+  - id: dryad_gonghe_granite_core_stress_v001
+    name: "Reservoir in-situ stress state determined by retrieved granite cores from the Gonghe enhanced geothermal system"
+    source_organization: Dryad
+    url: https://datadryad.org/dataset/doi:10.5061/dryad.9kd51c5sp
+    doi: 10.5061/dryad.9kd51c5sp
+    license_url: https://creativecommons.org/publicdomain/zero/1.0/legalcode
+    access_date: "2026-08-12"
+    language: English metadata
+    format: "research data; DataCite does not expose a phase-1 legacy-log image format"
+    scale: "6,710,118 bytes according to DataCite; abstract describes 16 retrieved granite cores"
+    downloadable: unknown
+    access_status: "metadata and CC0 rights verified through DataCite; files not downloaded because task fit is poor"
+    license: Creative Commons Zero v1.0 Universal
+    allowed_usage: "CC0 reuse"
+    redistribution: allowed_with_conditions
+    redistribution_policy: "verify individual file inventory and preserve scholarly provenance before redistribution"
+    paper_fit: [not_phase1_borehole_log_data]
+    status: rights_verified_out_of_scope
+    verification_notes: "The record concerns anelastic strain recovery and in-situ stress measurements from cores, not borehole column images or interval extraction. It is excluded from the acquisition queue."
+
+  - id: cgs_xiongan_engineering_geology_article_record_v001
+    name: "Integration of Engineering Geological Investigation Data and Construction of a 3D Geological Structure Model in the Xiong’an New Area"
+    source_organization: Geoscientific Data & Discovery Publishing System
+    url: http://dcc.ngac.org.cn/en//geologicalData/details/doi/10.35080/data.D.2019.P23
+    doi: 10.35080/data.D.2019.P23
+    license_url: TBD
+    access_date: "2026-08-12"
+    language: Chinese and English metadata
+    format: "TBD; DataCite exposes no sizes, formats, or content URL"
+    scale: "abstract reports more than 100 boreholes; downloadable records not identified"
+    downloadable: unknown
+    access_status: "DataCite metadata only"
+    license: unclear
+    allowed_usage: TBD
+    redistribution: unclear
+    redistribution_policy: "do not acquire or redistribute without identifiable item rights and file inventory"
+    paper_fit: [paper3_related_case_metadata_only]
+    status: metadata_only_no_rights_statement
+    verification_notes: "This DOI appears to describe a data-integration paper/case record. It is distinct from DOI 10.23650/data.D.2019.P23 and cannot be treated as the same downloadable dataset or licence."
+
+  - id: cgs_xiongan_3d_model_dataset_v001
+    name: "雄安新区工程地质三维结构模型数据集"
+    source_organization: Geoscientific Data and Discovery Publishing
+    url: http://datacite.lib.tsinghua.edu.cn/datacite/Resolution/Handler?doi=10.23650/data.d.2019.p23
+    doi: 10.23650/data.d.2019.p23
+    license_url: TBD
+    access_date: "2026-08-12"
+    language: Chinese metadata
+    format: "OBJ geological body and ArcGIS point/surface collections according to DataCite"
+    scale: "16.5 MB according to DataCite"
+    downloadable: unknown
+    access_status: "DataCite metadata only; no content URL exposed"
+    license: unclear
+    allowed_usage: TBD
+    redistribution: unclear
+    redistribution_policy: "do not acquire or redistribute until the website's referenced copyright terms are captured"
+    paper_fit: [paper3_interoperability_candidate]
+    status: metadata_only_rights_unclear
+    verification_notes: "The rights field says only '版权信息详见网站' and links an institutional page; this is not a reusable licence. The format is a downstream model, not a legacy page-image benchmark."

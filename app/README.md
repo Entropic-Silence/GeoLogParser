@@ -67,3 +67,19 @@ rejects `eligible_for_annotation` when the derivative manifest reports an
 incomplete conversion. All current Mendeley priority derivatives have that
 warning, so they may only be excluded, kept internal, or sent for repair and
 re-review. Content review never sets `benchmark_eligible` directly.
+
+For a non-human structural/text reconciliation of the three priority
+derivatives, run:
+
+```bash
+.venv/bin/python scripts/audit_cad_conversion_fidelity.py \
+  /data/GeoLogParser/datasets/public/mendeley_borehole_logs_v002/audit/priority_derivatives_v001/derivative_manifest.jsonl \
+  /data/GeoLogParser/datasets/public/mendeley_borehole_logs_v002/audit/priority_derivatives_v001 \
+  /data/GeoLogParser/datasets/public/mendeley_borehole_logs_v002/audit/priority_fidelity_v003 \
+  /data/GeoLogParser/tools/prefix/libredwg-0.14/bin/dwgread \
+  --library-dir /data/GeoLogParser/tools/prefix/libredwg-0.14/lib
+```
+
+This audit deliberately leaves human review, privacy review, and benchmark
+eligibility false. A successful inventory match must not be presented as a
+human visual-completeness decision.

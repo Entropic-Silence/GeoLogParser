@@ -22,6 +22,14 @@ archive/source-manifest hashes. Never use a decoded filename as Ground Truth.
 4. Keep source, DXF, images, logs, and review records under `/data/GeoLogParser`.
    Only code, schemas, aggregate counts, and non-sensitive hashes enter Git.
 
+An optional entity-inventory reconciliation compares source DWG graphical
+entities with derivative DXF modelspace by type, handle, text count, and ordered
+text hash. Database objects such as layers, styles, and dictionaries are not
+modelspace entities and must be excluded from both populations. A full match
+narrows structural/text-loss risk but does not override converter warnings or
+prove pixel fidelity, correct font substitution, privacy, rights, or geological
+correctness. Human visual/content review remains mandatory.
+
 The installed fallback for Chinese glyphs is `DroidSansFallbackFull.ttf`.
 Replacing a missing CAD font is a visible derivative transform; it must be
 recorded and never treated as original pixel evidence.

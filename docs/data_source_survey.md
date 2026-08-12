@@ -35,9 +35,13 @@ Verified on 2026-08-12. The structured facts and URLs live in
   An automatic `dwgread` text pre-screen subsequently found Chinese text in all
   33 and conservatively risk-flagged 30; this prioritizes human review but does
   not clear the other three. Review-only DXF/PNG derivatives were produced for
-  those three with a recorded CJK font substitution, but all three conversion
-  logs contain completeness warnings. Human review and benchmark eligibility
-  therefore remain at zero.
+  those three with a recorded CJK font substitution. An automated v002
+  source-DWG/derivative-DXF reconciliation found exact modelspace entity-handle
+  and ordered-text inventory matches for all three: 1,244 entities/363 text,
+  1,905/537, and 7,173/611. This is stronger conversion evidence than warning
+  parsing alone, but it does not verify fonts, pixel appearance, privacy,
+  rights of embedded content, or geological correctness. Human review and
+  benchmark eligibility therefore remain at zero.
 
 ## Accessible licence, dataset inspection incomplete
 
@@ -101,3 +105,21 @@ geolocation review must be established before acquisition.
   Paper III spatial/velocity study, but legacy images, interval fields,
   coordinates, privacy, embedded-data rights, and file accessibility all remain
   `TBD`; nothing was downloaded or counted.
+
+## Additional metadata triage — no new phase-1 pages
+
+- **SAGE/Figshare China site-classification collection:** DOI
+  `10.25384/sage.c.6961823.v1` is CC BY 4.0 at collection level. Its abstract
+  describes statistics from thousands of engineering boreholes, but DataCite
+  exposes no members, file formats, sizes, or content URL; the Figshare API
+  returned HTTP 403. This is not evidence of legacy log images and no headline
+  count enters project inventory.
+- **Dryad Gonghe core-stress data:** DOI `10.5061/dryad.9kd51c5sp` is CC0 and
+  DataCite reports 6,710,118 bytes, but the record concerns stress measurements
+  from 16 granite cores rather than borehole-column documents. It is explicitly
+  out of scope and was not downloaded.
+- **Xiong'an records:** DOI `10.35080/data.D.2019.P23` has no rights statement,
+  size, format, or content URL and appears to be an article/case record. The
+  distinct DOI `10.23650/data.D.2019.P23` describes a 16.5 MB OBJ/ArcGIS 3D
+  model, but its rights field only says to consult the website. Neither is a
+  licensed phase-1 image source, and neither was acquired.
