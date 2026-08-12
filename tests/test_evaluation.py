@@ -4,6 +4,7 @@ from geologparser.evaluation import (
     boundary_accuracy,
     boundary_matched_interval_metrics,
     brier_score,
+    constraint_consistency_summary,
     exact_match,
     extraction_coverage,
     expected_calibration_error,
@@ -115,3 +116,24 @@ def test_boundary_matcher_rejects_negative_tolerance_and_missing_boundaries():
     assert matches == []
     assert unmatched_references == [0]
     assert unmatched_predictions == [0]
+
+
+def test_constraint_summary_does_not_reward_unevaluated_results():
+    results = constraint_consistency_summary([[
+        {"name": "C1", "evaluated_count": 0, "violations": []},
+        {"name": "C2", "evaluated_count": 0, "violations": []},
+    ]])
+    assert results["constraint_consistency_rate"].value is None
+    assert results["constraint_consistency_rate"].denominator == 0
+    assert results["constraint_document_coverage"].value == 0
+    assert results["constraint_consistency_rate"].details["per_constraint"]["C1"]["consistency_rate"] is None
+
+
+def test_constraint_summary_reports_rate_and_coverage_separately():
+    results = constraint_consistency_summary([
+        [{"name": "C1", "evaluated_count": 2, "violations": [{"code": "X"}]}],
+        [{"name": "C1", "evaluated_count": 0, "violations": []}],
+    ])
+    assert results["constraint_consistency_rate"].value == 0.5
+    assert results["constraint_consistency_rate"].denominator == 2
+    assert results["constraint_document_coverage"].value == 0.5

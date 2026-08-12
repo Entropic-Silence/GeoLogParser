@@ -48,3 +48,13 @@ and auto-accept error rate.
 - Manual Review Recall: erroneous fields sent to review / all erroneous fields.
 
 No aggregate metric replaces its component results.
+
+## Constraint coverage
+
+The implemented audit summary computes `1 - violations/evaluated_checks` only
+when at least one check was evaluated. With zero evaluated checks, consistency
+is `null`, never 1.0. It separately emits document coverage (documents with any
+evaluated constraint / all documents), total evaluated checks, total
+violations, and per-constraint counts/rates. This is an audit statistic; the
+final GCR definition remains `TBD` until constraint dependence, severity
+weighting, and false-positive behavior have been validated on annotated data.

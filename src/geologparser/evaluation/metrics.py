@@ -256,3 +256,66 @@ def boundary_matched_interval_metrics(
             bottom_error_sum, true_positive, "m", details,
         ),
     }
+
+
+def constraint_consistency_summary(
+    result_documents: Sequence[Sequence[Any]],
+) -> dict[str, MetricResult]:
+    """Summarize evaluated checks and violations without rewarding missing data.
+
+    Items may be ConstraintResult objects or their serialized mappings. Overall
+    consistency is null when no checks were evaluated. Per-constraint details
+    retain coverage so an extractor cannot score well merely by abstaining.
+    """
+    totals: dict[str, dict[str, int]] = {}
+    for document in result_documents:
+        for result in document:
+            if isinstance(result, Mapping):
+                name = str(result["name"])
+                evaluated = int(result.get("evaluated_count", 0))
+                violations = len(result.get("violations", ()))
+            else:
+                name = str(result.name)
+                evaluated = int(result.evaluated_count)
+                violations = len(result.violations)
+            counts = totals.setdefault(name, {"evaluated": 0, "violations": 0, "documents_present": 0})
+            counts["evaluated"] += evaluated
+            counts["violations"] += violations
+            counts["documents_present"] += 1
+    total_evaluated = sum(counts["evaluated"] for counts in totals.values())
+    total_violations = sum(counts["violations"] for counts in totals.values())
+    documents = len(result_documents)
+    details = {
+        "definition": "1 - violation_count / evaluated_check_count",
+        "evaluated_check_count": total_evaluated,
+        "violation_count": total_violations,
+        "document_count": documents,
+        "per_constraint": {
+            name: {
+                **counts,
+                "consistency_rate": (
+                    1 - counts["violations"] / counts["evaluated"] if counts["evaluated"] else None
+                ),
+            }
+            for name, counts in sorted(totals.items())
+        },
+    }
+    consistency = 1 - total_violations / total_evaluated if total_evaluated else None
+    documents_with_any_evaluation = sum(
+        any(
+            (int(result.get("evaluated_count", 0)) if isinstance(result, Mapping) else int(result.evaluated_count)) > 0
+            for result in document
+        )
+        for document in result_documents
+    )
+    return {
+        "constraint_consistency_rate": MetricResult(
+            "constraint_consistency_rate", consistency,
+            total_evaluated - total_violations, total_evaluated, "ratio", details,
+        ),
+        "constraint_document_coverage": MetricResult(
+            "constraint_document_coverage",
+            documents_with_any_evaluation / documents if documents else None,
+            documents_with_any_evaluation, documents, "ratio", details,
+        ),
+    }
