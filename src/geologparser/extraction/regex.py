@@ -40,6 +40,9 @@ INTERVAL_PATTERN = re.compile(
 NATIVE_STRATUM_ROW_PATTERN = re.compile(
     rf"([①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳])\s+({NUMBER})\s+({NUMBER})\s+({NUMBER})(?=\s|$)"
 )
+GEOLOGICAL_HEADING_PATTERN = re.compile(
+    r"([一-鿿]{1,24}(?:岩|土))\s*[:：]"
+)
 
 
 def _confidence(region: TextRegion) -> float | None:
@@ -57,6 +60,83 @@ def _evidence_field(value, source_text: str, region: TextRegion, raw_unit: str |
         validation_status="not_validated",
         raw_unit=raw_unit,
     )
+
+
+def _union_bbox(regions: list[TextRegion]) -> list[float] | None:
+    boxes = [region.bbox for region in regions if region.bbox is not None]
+    if not boxes:
+        return None
+    return [
+        min(box[0] for box in boxes), min(box[1] for box in boxes),
+        max(box[2] for box in boxes), max(box[3] for box in boxes),
+    ]
+
+
+def _bind_native_geological_descriptions(
+    record: dict,
+    regions: list[TextRegion],
+) -> None:
+    """Bind ordered native-text geological headings only at equal cardinality."""
+    headings: list[tuple[TextRegion, re.Match[str], str]] = []
+    for region in regions:
+        collapsed = re.sub(r"\s+", " ", region.text).strip()
+        match = GEOLOGICAL_HEADING_PATTERN.search(collapsed)
+        if match:
+            headings.append((region, match, collapsed))
+    headings.sort(key=lambda item: (item[0].page, item[0].bbox[0] if item[0].bbox else float("inf")))
+    if not headings or len(headings) != len(record["intervals"]):
+        return
+
+    ordered_regions = sorted(
+        [region for region in regions if region.bbox is not None],
+        key=lambda region: (region.page, region.bbox[0], region.bbox[1]),
+    )
+    for index, (heading_region, heading_match, heading_text) in enumerate(headings):
+        start_x = heading_region.bbox[0]
+        end_x = (
+            headings[index + 1][0].bbox[0]
+            if index + 1 < len(headings) and headings[index + 1][0].page == heading_region.page
+            else float("inf")
+        )
+        source_regions: list[TextRegion] = []
+        fragments: list[str] = []
+        for candidate in ordered_regions:
+            if candidate.page != heading_region.page or not start_x <= candidate.bbox[0] < end_x:
+                continue
+            collapsed = re.sub(r"\s+", " ", candidate.text).strip()
+            if candidate is heading_region:
+                fragment = collapsed[heading_match.start():]
+            else:
+                if sum("\u4e00" <= character <= "\u9fff" for character in collapsed) < 4:
+                    continue
+                fragment = collapsed
+            if fragment and fragment not in fragments:
+                fragments.append(fragment)
+                source_regions.append(candidate)
+        if not fragments:
+            continue
+        source_text = " / ".join(fragments)
+        description = re.sub(
+            rf"^{re.escape(heading_match.group(1))}\s*[:：]\s*", "", fragments[0], count=1,
+        )
+        if len(fragments) > 1:
+            description = "".join([description, *fragments[1:]])
+        confidence_values = [
+            region.confidence for region in source_regions if region.confidence is not None
+        ]
+        evidence = {
+            "source_page": heading_region.page,
+            "source_bbox": _union_bbox(source_regions),
+            "source_text": source_text,
+            "extraction_method": "regex",
+            "confidence": (
+                sum(confidence_values) / len(confidence_values) if confidence_values else None
+            ),
+            "validation_status": "not_validated",
+        }
+        interval = record["intervals"][index]
+        interval["lithology_raw"] = field(heading_match.group(1), **evidence)
+        interval["description_raw"] = field(description or None, **evidence)
 
 
 def extract_structured(regions: Iterable[TextRegion], source_path: Path) -> dict:
@@ -163,4 +243,5 @@ def extract_structured(regions: Iterable[TextRegion], source_path: Path) -> dict
             # source_text and is not silently repurposed as a depth.
             item["bottom_depth_m"]["source_text"] = f"elevation={elevation_text}; bottom={bottom_text}"
             record["intervals"].append(item)
+    _bind_native_geological_descriptions(record, region_list)
     return record

@@ -111,3 +111,24 @@ def test_native_stratum_row_can_precede_description_and_generic_footer_is_skippe
     assert len(result["intervals"]) == 1
     assert result["intervals"][0]["stratum_code_raw"]["value"] == "③"
     assert result["intervals"][0]["top_depth_m"]["value"] == pytest.approx(11.3)
+
+
+def test_native_description_binding_requires_equal_ordered_heading_count(tmp_path):
+    source = tmp_path / "chinese.pdf"
+    source.write_bytes(b"%PDF-fixture")
+    regions = [
+        TextRegion(1, (10, 100, 400, 140), "① 99.00 1.00 1.00 素填土:杂色，稍湿", None, "direct_pdf_text"),
+        TextRegion(1, (20, 100, 400, 140), "以松散状为主，含少量碎石。", None, "direct_pdf_text"),
+        TextRegion(1, (50, 100, 400, 140), "② 98.00 2.00 1.00", None, "direct_pdf_text"),
+        TextRegion(1, (60, 100, 400, 140), "中风化粉砂岩:紫红色，层状构造", None, "direct_pdf_text"),
+        TextRegion(1, (70, 100, 400, 140), "岩芯呈短柱状，裂隙较发育。", None, "direct_pdf_text"),
+    ]
+    result = extract_structured(regions, source)
+    assert [item["lithology_raw"]["value"] for item in result["intervals"]] == ["素填土", "中风化粉砂岩"]
+    assert "松散状" in result["intervals"][0]["description_raw"]["value"]
+    assert "短柱状" in result["intervals"][1]["description_raw"]["value"]
+    assert result["intervals"][0]["description_raw"]["source_bbox"] == [10, 100, 400, 140]
+
+    unmatched = extract_structured(regions[:-2], source)
+    assert len(unmatched["intervals"]) == 2
+    assert all(item["lithology_raw"]["value"] is None for item in unmatched["intervals"])

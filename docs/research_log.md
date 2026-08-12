@@ -150,3 +150,25 @@
 - Next step: implement review-queue scoring and human timing instrumentation,
   then obtain an actual manual verification pass before computing any Chinese
   extraction metric.
+
+## 2026-08-12 — Conservative native layout-to-description binding
+
+- Experiment: internal engineering comparison of v002 versus v003 auto
+  proposals on the same four quarantined panels; no human Ground Truth and no
+  accuracy claim.
+- Observation: a conservative binder searches native text blocks for ordered
+  geological headings ending in `土` or `岩` followed by a colon. It binds text
+  only when heading count exactly equals extracted interval count. In v003 all
+  12 intervals received raw lithology and description evidence. Deterministic
+  review items decreased from 28 in v002 to 4 in v003; the four remaining items
+  are weak C9 sequence warnings for source codes ①→④ or ②→④.
+- Failure/risk: equal cardinality and order are template assumptions, not a
+  general layout solution. Description correctness has not been manually
+  verified. The public-source web search performed in parallel returned noisy
+  results and no new Chinese record with auditable redistribution permission.
+- Decision: if heading/interval counts differ, bind nothing and send missing
+  fields to review. Preserve source text and union bbox. Never synthesize
+  missing stratum codes from C9. Keep all v003 records status `auto`.
+- Next step: implement field-level ROI rereading candidates and ranking with
+  explicit evidence/constraint terms, then validate correction safety using
+  controlled fixtures before any automatic acceptance experiment.
