@@ -22,6 +22,36 @@ def mean_absolute_error(references: Sequence[float | None], predictions: Sequenc
     return MetricResult(name, sum(errors) / len(errors) if errors else None, sum(errors), len(errors), "same_as_input")
 
 
+def extraction_coverage(predictions: Sequence[Any], name: str = "extraction_coverage") -> MetricResult:
+    present = sum(value is not None and value != "" for value in predictions)
+    total = len(predictions)
+    return MetricResult(name, present / total if total else None, present, total, "ratio")
+
+
+def numeric_with_missing_mae(
+    references: Sequence[float | None],
+    predictions: Sequence[float | None],
+    name: str = "numeric_mae",
+) -> dict[str, MetricResult]:
+    """Return paired-value MAE together with prediction coverage.
+
+    MAE never silently treats a missing prediction as zero. Consumers must
+    report the companion coverage metric to expose abstention/extraction loss.
+    """
+    validate_pairs(references, predictions)
+    eligible_predictions = [prediction for reference, prediction in zip(references, predictions) if reference is not None]
+    eligible_references = [reference for reference in references if reference is not None]
+    paired_references = [reference for reference, prediction in zip(references, predictions) if reference is not None and prediction is not None]
+    paired_predictions = [prediction for reference, prediction in zip(references, predictions) if reference is not None and prediction is not None]
+    return {
+        name: mean_absolute_error(paired_references, paired_predictions, name),
+        f"{name}_coverage": extraction_coverage(eligible_predictions, f"{name}_coverage"),
+        f"{name}_reference_count": MetricResult(
+            f"{name}_reference_count", float(len(eligible_references)), len(eligible_references), 1.0, "count"
+        ),
+    }
+
+
 def boundary_accuracy(
     references: Sequence[float | None],
     predictions: Sequence[float | None],

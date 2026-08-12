@@ -1,0 +1,15 @@
+experiment_id: P1_B1_BGS_AUDIT_001
+purpose: public_international_pipeline_audit
+dataset_version: bgs_opengeoscience_v001_fixed_ids_4_5_6_10
+split_version: audit_all_no_training
+model: B1_tesseract_ocr_regex
+model_revision: "tesseract 4.1.1"
+prompt_version: not_applicable
+seed: null
+claims_allowed:
+  - fixed_sample_field_metrics
+  - pipeline_failure_analysis
+claims_forbidden:
+  - representative_bgs_performance
+  - chinese_benchmark_performance
+

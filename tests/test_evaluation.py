@@ -4,9 +4,11 @@ from geologparser.evaluation import (
     boundary_accuracy,
     brier_score,
     exact_match,
+    extraction_coverage,
     expected_calibration_error,
     interval_prf1,
     mean_absolute_error,
+    numeric_with_missing_mae,
 )
 
 
@@ -41,4 +43,12 @@ def test_interval_prf1_exact_id_contract():
 def test_metric_length_mismatch_is_rejected():
     with pytest.raises(ValueError):
         exact_match([1], [1, 2])
+
+
+def test_missing_numeric_predictions_require_coverage_reporting():
+    results = numeric_with_missing_mae([10.0, 20.0], [11.0, None], "depth_mae")
+    assert results["depth_mae"].value == 1.0
+    assert results["depth_mae"].denominator == 1
+    assert results["depth_mae_coverage"].value == 0.5
+    assert extraction_coverage([None, "", 4.5]).value == pytest.approx(1 / 3)
 
