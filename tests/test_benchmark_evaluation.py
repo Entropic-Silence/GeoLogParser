@@ -23,11 +23,15 @@ def test_benchmark_evaluation_reports_real_denominators_and_errors():
     reference, prediction = fixtures()
     prediction["record"]["borehole"]["final_depth_m"]["value"] = 4.6
     prediction["record"]["intervals"][0]["lithology_raw"]["value"] = "细砂"
-    metrics, errors = evaluate_benchmark([reference], [prediction])
+    metrics, errors = evaluate_benchmark(
+        [reference], [prediction], critical_error_thresholds={"final_depth_m": 0.05},
+    )
     assert metrics["document_count"] == 1
     assert metrics["borehole_fields"]["final_depth_m"]["final_depth_m_mae"]["value"] == pytest.approx(0.1)
     assert metrics["intervals"]["interval_f1"]["value"] == 1
     assert metrics["intervals"]["lithology_raw_exact_match"]["value"] < 1
+    assert metrics["borehole_fields"]["final_depth_m"]["critical_numerical_error_rate"]["value"] == 1
+    assert metrics["text"]["description_normalized_edit_similarity"]["value"] == 1
     assert any(item["error_type"] == "lithology_semantic_error" for item in errors)
 
 

@@ -43,7 +43,10 @@ def test_paper2_table_uses_gated_ablation_metrics(tmp_path: Path):
         "variants": {"full": {"disabled_modules": [], "metrics": {
             "calibration_case_count": 2, "test_case_count": 3,
             "correction": {"correction_success_rate": metric(1), "false_correction_rate": metric(0)},
-            "review": {"manual_review_recall": metric(1), "review_rate": metric(.5)},
+            "review": {
+                "manual_review_recall": metric(1), "review_rate": metric(.5),
+                "auto_accept_error_rate": metric(.25),
+            },
             "confidence": {
                 "raw_expected_calibration_error": metric(.2),
                 "calibrated_expected_calibration_error": metric(.1),
@@ -53,4 +56,5 @@ def test_paper2_table_uses_gated_ablation_metrics(tmp_path: Path):
     write_run(tmp_path, metrics, {})
     table = paper2_table([{"experiment_id": "P2", "result_path": "result", "paper_eligibility": "formal"}], tmp_path)
     assert "full" in table
+    assert "Auto-accept error" in table
     assert "human-GT-gated" in table

@@ -6,6 +6,7 @@ from geologparser.evaluation import (
     classify_field_error,
     error_distribution,
     numeric_character_error_rate,
+    normalized_edit_similarity,
     word_error_rate,
 )
 
@@ -34,6 +35,12 @@ def test_empty_reference_insertions_are_traced_not_divided_by_zero():
     result = character_error_rate([""], ["abc"])
     assert result.value is None
     assert result.details["empty_reference_insertions"] == 3
+
+
+def test_normalized_edit_similarity_is_macro_and_handles_empty_pair():
+    result = normalized_edit_similarity(["abc", ""], ["ab", ""])
+    assert result.value == pytest.approx(((2 / 3) + 1) / 2)
+    assert result.denominator == 2
 
 
 def test_error_classifier_and_distribution_preserve_unknowns():

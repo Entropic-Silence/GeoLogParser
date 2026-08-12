@@ -10,8 +10,8 @@ from geologparser.schema import validate_record
 from .errors import classify_field_error, error_distribution
 from .metrics import (
     boundary_accuracy, boundary_matched_interval_metrics, character_error_rate,
-    exact_match, match_intervals_by_boundaries, numeric_character_error_rate,
-    numeric_with_missing_mae,
+    critical_numerical_error_rate, exact_match, match_intervals_by_boundaries,
+    normalized_edit_similarity, numeric_character_error_rate, numeric_with_missing_mae,
 )
 
 
@@ -39,6 +39,7 @@ def evaluate_benchmark(
     *,
     interval_match_tolerance_m: float = 0.05,
     boundary_tolerances_m: Sequence[float] = (0.01, 0.05, 0.10),
+    critical_error_thresholds: Mapping[str, float] | None = None,
 ) -> tuple[dict[str, Any], list[dict[str, Any]]]:
     """Return metrics and traceable errors; reject non-GT references."""
     if interval_match_tolerance_m < 0 or any(value < 0 for value in boundary_tolerances_m):
@@ -105,6 +106,13 @@ def evaluate_benchmark(
         metrics["borehole_fields"][name] = {
             metric_name: metric.to_dict() for metric_name, metric in field_metrics.items()
         }
+        if critical_error_thresholds and name in critical_error_thresholds:
+            metrics["borehole_fields"][name]["critical_numerical_error_rate"] = (
+                critical_numerical_error_rate(
+                    refs, preds, threshold=critical_error_thresholds[name],
+                    name=f"{name}_critical_numerical_error_rate",
+                ).to_dict()
+            )
         for item_id, reference, prediction in zip(ids, refs, preds):
             error_type = classify_field_error(name, reference, prediction)
             if error_type:
@@ -169,8 +177,10 @@ def evaluate_benchmark(
                     "reference": ref_lithology, "prediction": pred_lithology,
                     "error_type": error_type,
                 })
-            description_references.append(str(_value(reference["description_raw"]) or ""))
-            description_predictions.append(str(_value(prediction["description_raw"]) or ""))
+            reference_description = _value(reference["description_raw"])
+            if reference_description is not None:
+                description_references.append(str(reference_description))
+                description_predictions.append(str(_value(prediction["description_raw"]) or ""))
     for name, (refs, preds) in matched_values.items():
         values = numeric_with_missing_mae(refs, preds, f"matched_{name}_mae")
         metrics["intervals"][name] = {key: value.to_dict() for key, value in values.items()}
@@ -186,6 +196,10 @@ def evaluate_benchmark(
     ).to_dict()
     metrics["text"]["description_numeric_cer"] = numeric_character_error_rate(
         description_references, description_predictions,
+    ).to_dict()
+    metrics["text"]["description_normalized_edit_similarity"] = normalized_edit_similarity(
+        description_references, description_predictions,
+        name="description_normalized_edit_similarity",
     ).to_dict()
     metrics["error_distribution"] = error_distribution(errors)
     return metrics, errors

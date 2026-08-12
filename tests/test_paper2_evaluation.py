@@ -71,3 +71,24 @@ def test_ablation_matrix_rejects_case_set_drift():
             "full": {"disabled_modules": [], "cases": cases},
             "minus_vlm": {"disabled_modules": ["vlm"], "cases": changed},
         })
+
+
+def test_minus_calibration_really_bypasses_temperature_scaling():
+    cases = [
+        case("fit", "calibration", 1, 2, "NEEDS_REVIEW", None, .5, 0, True),
+        case("test", "test", 1, 2, "ACCEPT_PROPOSAL", 1, .8, 1, False),
+    ]
+    result = evaluate_paper2_ablation_matrix({
+        "full": {"disabled_modules": [], "cases": cases},
+        "minus_calibration": {"disabled_modules": ["calibration"], "cases": cases},
+    })
+    full = result["variants"]["full"]["metrics"]
+    removed = result["variants"]["minus_calibration"]["metrics"]
+    assert full["calibration_applied"] is True
+    assert full["temperature"] is not None
+    assert removed["calibration_applied"] is False
+    assert removed["temperature"] is None
+    assert (
+        removed["confidence"]["raw_expected_calibration_error"]["value"]
+        == removed["confidence"]["calibrated_expected_calibration_error"]["value"]
+    )

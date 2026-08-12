@@ -27,7 +27,7 @@ EXPECTED_ABLATION_VARIANTS = {
 
 
 def evaluate_paper2_cases(
-    cases: Sequence[Mapping[str, Any]], *, bins: int = 10,
+    cases: Sequence[Mapping[str, Any]], *, bins: int = 10, apply_calibration: bool = True,
 ) -> dict[str, Any]:
     """Evaluate correction, triage, and held-out confidence calibration.
 
@@ -61,16 +61,21 @@ def evaluate_paper2_cases(
     test_cases = [case for case in cases if case["calibration_partition"] == "test"]
     if not fit_cases or not test_cases:
         raise ValueError("disjoint non-empty calibration and test partitions are required")
-    scaler = TemperatureScaler.fit(
-        [int(case["correctness_label"]) for case in fit_cases],
-        [float(case["confidence"]) for case in fit_cases],
-    )
     references = [case["reference"] for case in test_cases]
     originals = [case["original"] for case in test_cases]
     decisions = [case["decision"] for case in test_cases]
     labels = [int(case["correctness_label"]) for case in test_cases]
     raw_confidences = [float(case["confidence"]) for case in test_cases]
-    calibrated = scaler.transform(raw_confidences)
+    if apply_calibration:
+        scaler = TemperatureScaler.fit(
+            [int(case["correctness_label"]) for case in fit_cases],
+            [float(case["confidence"]) for case in fit_cases],
+        )
+        calibrated = scaler.transform(raw_confidences)
+        temperature = scaler.temperature
+    else:
+        calibrated = list(raw_confidences)
+        temperature = None
     safety = correction_safety_metrics(references, originals, decisions)
     review = review_detection_metrics(
         [bool(case["needs_review_label"]) for case in test_cases], decisions,
@@ -83,7 +88,8 @@ def evaluate_paper2_cases(
         "protocol": "paper2_ground_truth_gated_v001",
         "calibration_case_count": len(fit_cases),
         "test_case_count": len(test_cases),
-        "temperature": scaler.temperature,
+        "calibration_applied": apply_calibration,
+        "temperature": temperature,
         "correction": {name: result.to_dict() for name, result in safety.items()},
         "review": {name: result.to_dict() for name, result in review.items()},
         "confidence": {
@@ -132,7 +138,9 @@ def evaluate_paper2_ablation_matrix(
             raise ValueError(f"variant {name} does not use the identical GT case set")
         output[name] = {
             "disabled_modules": list(disabled),
-            "metrics": evaluate_paper2_cases(cases, bins=bins),
+            "metrics": evaluate_paper2_cases(
+                cases, bins=bins, apply_calibration=name != "minus_calibration",
+            ),
         }
     return {
         "protocol": "paper2_one_module_ablation_matrix_v001",

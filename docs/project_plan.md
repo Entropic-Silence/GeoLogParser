@@ -62,7 +62,9 @@ experiment metadata, prompts, baselines, and paper planning were missing.
   **COMPLETED** on public/quarantined audit inputs; GT-based formal comparison
   **NOT COMPLETED**.
 - Phase 4 evaluation API, boundary matching, coverage and calibration metrics:
-  **COMPLETED v001**, subject to dataset-driven threshold validation.
+  **COMPLETED v001**; configurable critical-numerical-error, normalized text
+  similarity, hierarchical auxiliary, and auto-accept-risk metrics are now
+  implemented, subject to dataset-driven threshold/ontology validation.
 - Phase 5 annotation backend/UI and auto proposals: **COMPLETED v001**; a
   separate revisioned CAD privacy/content-review UI and eligibility gate are
   **COMPLETED v001**; actual manual/double/expert geological annotations are

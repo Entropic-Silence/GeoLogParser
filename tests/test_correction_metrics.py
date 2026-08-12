@@ -31,3 +31,5 @@ def test_review_detection_reports_recall_and_rate():
     assert metrics["manual_review_recall"].value == 0.5
     assert metrics["manual_review_precision"].value == 0.5
     assert metrics["review_rate"].value == 2 / 3
+    assert metrics["auto_accept_rate"].value == 1 / 3
+    assert metrics["auto_accept_error_rate"].value == 1

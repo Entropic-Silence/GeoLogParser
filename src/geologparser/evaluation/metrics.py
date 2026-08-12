@@ -95,6 +95,117 @@ def numeric_character_error_rate(
     )
 
 
+def normalized_edit_similarity(
+    references: Sequence[str], predictions: Sequence[str], *, unit: str = "character",
+    name: str = "normalized_edit_similarity",
+) -> MetricResult:
+    """Macro normalized Levenshtein similarity with explicit empty semantics."""
+    validate_pairs(references, predictions)
+    if unit not in {"character", "word"}:
+        raise ValueError("unit must be character or word")
+    transform = (lambda value: list(value)) if unit == "character" else (lambda value: value.split())
+    similarities = []
+    for reference, prediction in zip(references, predictions):
+        if not isinstance(reference, str) or not isinstance(prediction, str):
+            raise TypeError("normalized edit similarity inputs must be strings")
+        reference_units, prediction_units = transform(reference), transform(prediction)
+        denominator = max(len(reference_units), len(prediction_units))
+        similarities.append(
+            1.0 if denominator == 0 else 1 - _levenshtein(reference_units, prediction_units) / denominator
+        )
+    return MetricResult(
+        name, sum(similarities) / len(similarities) if similarities else None,
+        sum(similarities), len(similarities), "similarity",
+        {"aggregation": "macro", "unit": unit, "normalizer": "max_reference_prediction_length"},
+    )
+
+
+def critical_numerical_error_rate(
+    references: Sequence[float | None], predictions: Sequence[float | None], *,
+    threshold: float, name: str = "critical_numerical_error_rate",
+) -> MetricResult:
+    """Rate of missing or over-threshold predictions on present numeric GT."""
+    validate_pairs(references, predictions)
+    if threshold < 0:
+        raise ValueError("critical numerical threshold must be non-negative")
+    decimal_threshold = Decimal(str(threshold))
+    eligible = [(reference, prediction) for reference, prediction in zip(references, predictions) if reference is not None]
+    missing_predictions = sum(prediction is None for _, prediction in eligible)
+    over_threshold = sum(
+        abs(Decimal(str(reference)) - Decimal(str(prediction))) > decimal_threshold
+        for reference, prediction in eligible if prediction is not None
+    )
+    critical = missing_predictions + over_threshold
+    return MetricResult(
+        name, critical / len(eligible) if eligible else None, critical, len(eligible), "ratio",
+        {
+            "threshold": threshold, "comparison": "absolute_error > threshold",
+            "missing_prediction_is_critical": True,
+            "missing_prediction_count": missing_predictions,
+            "over_threshold_count": over_threshold,
+            "missing_reference_count": len(references) - len(eligible),
+        },
+    )
+
+
+def hierarchical_classification_metrics(
+    reference_paths: Sequence[Sequence[str] | None],
+    prediction_paths: Sequence[Sequence[str] | None],
+) -> dict[str, MetricResult]:
+    """Micro ancestor-set P/R/F1 plus path exact match from supplied paths."""
+    validate_pairs(reference_paths, prediction_paths)
+    reference_sets: list[set[str]] = []
+    prediction_sets: list[set[str]] = []
+    exact = 0
+    for reference, prediction in zip(reference_paths, prediction_paths):
+        reference_tuple = tuple(reference or ())
+        prediction_tuple = tuple(prediction or ())
+        if len(set(reference_tuple)) != len(reference_tuple) or len(set(prediction_tuple)) != len(prediction_tuple):
+            raise ValueError("ontology paths must not repeat a node")
+        if not reference_tuple:
+            continue
+        reference_sets.append(set(reference_tuple))
+        prediction_sets.append(set(prediction_tuple))
+        exact += reference_tuple == prediction_tuple
+    true_positive = sum(len(reference & prediction) for reference, prediction in zip(reference_sets, prediction_sets))
+    predicted = sum(len(path) for path in prediction_sets)
+    reference = sum(len(path) for path in reference_sets)
+    precision = true_positive / predicted if predicted else None
+    recall = true_positive / reference if reference else None
+    f1 = (
+        2 * precision * recall / (precision + recall)
+        if precision is not None and recall is not None and precision + recall else None
+    )
+    details = {
+        "aggregation": "micro_ancestor_set", "auxiliary_metric": True,
+        "does_not_replace_exact_match": True,
+    }
+    return {
+        "hierarchical_precision": MetricResult(
+            "hierarchical_precision", precision, true_positive, predicted, "ratio", details,
+        ),
+        "hierarchical_recall": MetricResult(
+            "hierarchical_recall", recall, true_positive, reference, "ratio", details,
+        ),
+        "hierarchical_f1": MetricResult(
+            "hierarchical_f1", f1, 0.0 if f1 is None else f1,
+            1.0 if f1 is not None else 0.0, "ratio", details,
+        ),
+        "hierarchical_path_exact_match": MetricResult(
+            "hierarchical_path_exact_match", exact / len(reference_sets) if reference_sets else None,
+            exact, len(reference_sets), "ratio", details | {
+                "missing_reference_path_count": len(reference_paths) - len(reference_sets),
+            },
+        ),
+        "hierarchical_prediction_coverage": MetricResult(
+            "hierarchical_prediction_coverage",
+            sum(bool(path) for path in prediction_sets) / len(prediction_sets) if prediction_sets else None,
+            sum(bool(path) for path in prediction_sets), len(prediction_sets), "ratio",
+            details | {"denominator": "non-missing reference ontology paths"},
+        ),
+    }
+
+
 def exact_match(references: Sequence[Any], predictions: Sequence[Any], name: str = "exact_match") -> MetricResult:
     validate_pairs(references, predictions)
     correct = sum(reference == prediction for reference, prediction in zip(references, predictions))

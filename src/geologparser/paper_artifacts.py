@@ -170,6 +170,7 @@ def paper2_table(entries: list[dict], repository_root: Path) -> str:
                 ratio(correction["false_correction_rate"]),
                 ratio(review["manual_review_recall"]),
                 ratio(review["review_rate"]),
+                ratio(review["auto_accept_error_rate"]),
                 number(confidence["raw_expected_calibration_error"]["value"]),
                 number(confidence["calibrated_expected_calibration_error"]["value"]),
                 entry["paper_eligibility"],
@@ -182,8 +183,8 @@ def paper2_table(entries: list[dict], repository_root: Path) -> str:
         )
     return "\n".join([
         "<!-- AUTO-GENERATED. DO NOT EDIT. -->",
-        "| Experiment | Variant | Disabled | Calibration n | Test n | Correction success | FCR | Review recall | Review rate | Raw ECE | Calibrated ECE | Eligibility |",
-        "|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---|",
+        "| Experiment | Variant | Disabled | Calibration n | Test n | Correction success | FCR | Review recall | Review rate | Auto-accept error | Raw ECE | Calibrated ECE | Eligibility |",
+        "|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|",
         *rows, "",
         "Rows are generated only from human-GT-gated, identical-case, one-module-at-a-time ablation matrices.",
     ]) + "\n"

@@ -2,9 +2,12 @@
 
 ## Levels
 
-1. Character: CER, WER, and a separately reported numeric CER (`TBD` adapter).
+1. Character: CER, whitespace-token WER, and numeric CER over digits, decimal
+   points, and signs. Chinese WER requires the caller to provide and version a
+   segmentation; the metric never silently chooses a segmenter.
 2. Field: exact match for identifiers/categories; MAE and threshold accuracy for
-   numeric fields; normalized description similarity (`TBD` method).
+   numeric fields; macro normalized Levenshtein description similarity, where
+   each pair is normalized by its larger reference/prediction length.
 3. Interval: precision/recall/F1 under an explicit matching strategy; top,
    bottom, and thickness MAE; boundary accuracy at ±0.01/0.05/0.10 m.
 4. Geology: report each constraint rate separately. An aggregate GCR remains
@@ -40,12 +43,30 @@ reliability diagram. Bin count and binning strategy are part of run metadata.
 Review/abstention evaluation additionally reports coverage, risk, review recall,
 and auto-accept error rate.
 
+The Paper II `minus_calibration` variant leaves raw confidence unchanged and
+records `calibration_applied: false` and `temperature: null`; every other
+variant fits the scaler on the common calibration partition and evaluates only
+the common test partition.
+
 ## Proposed-method safety metrics
 
-- Critical Numerical Error Rate: formal error threshold per field is `TBD`.
+- Critical Numerical Error Rate: among non-null numeric GT fields, a missing
+  prediction or absolute error strictly greater than the configured field
+  threshold is critical. Threshold equality is accepted. Formal per-field
+  thresholds remain `TBD` until frozen from domain requirements/validation data;
+  the evaluator accepts them as experiment configuration and never hard-codes
+  a universal value.
 - False Correction Rate: incorrect automatic corrections / all automatic
   corrections, with correctness judged against ground truth.
 - Manual Review Recall: erroneous fields sent to review / all erroneous fields.
+- Auto-Accept Error Rate: review-required fields not sent to review / all
+  auto-accepted fields. Zero auto-accepted fields yields `null`.
+
+Hierarchical lithology evaluation consumes root-to-leaf paths supplied by a
+versioned ontology adapter and reports micro ancestor-set precision/recall/F1
+plus path exact match. It never infers ancestry from strings and is explicitly
+auxiliary to raw/normalized lithology Exact Match. Ontology population from
+rights-cleared observed terms remains `NOT COMPLETED`.
 
 No aggregate metric replaces its component results.
 
@@ -66,8 +87,9 @@ rejects missing/extra/duplicate IDs, validates every prediction against the
 schema, and writes an immutable run. It reports categorical exact match,
 numeric MAE plus coverage/reference counts, boundary-matched interval P/R/F1,
 matched boundary/thickness MAE, boundary accuracy at ±0.01/0.05/0.10 m,
-lithology exact match, description CER/numeric CER, and a traceable error
-distribution. This runner is implemented; formal Padova/Chinese values remain
+   lithology exact match, description CER/numeric CER/normalized edit
+   similarity, optionally configured critical numerical error, and a traceable
+   error distribution. This runner is implemented; formal Padova/Chinese values remain
 `TBD` because no human GT snapshot exists yet.
 
 ## Constraint coverage

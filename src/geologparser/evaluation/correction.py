@@ -74,6 +74,7 @@ def review_detection_metrics(
     true_positive = sum(label and prediction for label, prediction in zip(needs_review_labels, predicted))
     false_positive = sum(not label and prediction for label, prediction in zip(needs_review_labels, predicted))
     false_negative = sum(label and not prediction for label, prediction in zip(needs_review_labels, predicted))
+    auto_accepted = sum(not prediction for prediction in predicted)
     precision_denominator = true_positive + false_positive
     recall_denominator = true_positive + false_negative
     return {
@@ -88,5 +89,14 @@ def review_detection_metrics(
         "review_rate": MetricResult(
             "review_rate", sum(predicted) / len(predicted) if predicted else None,
             sum(predicted), len(predicted), "ratio",
+        ),
+        "auto_accept_rate": MetricResult(
+            "auto_accept_rate", auto_accepted / len(predicted) if predicted else None,
+            auto_accepted, len(predicted), "ratio",
+        ),
+        "auto_accept_error_rate": MetricResult(
+            "auto_accept_error_rate", false_negative / auto_accepted if auto_accepted else None,
+            false_negative, auto_accepted, "ratio",
+            {"definition": "review-required labels not sent to review / all auto-accepted fields"},
         ),
     }

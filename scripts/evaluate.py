@@ -37,8 +37,22 @@ def main() -> None:
     parser.add_argument("--model-revision", required=True)
     parser.add_argument("--prompt-version", default="not_applicable")
     parser.add_argument("--interval-tolerance-m", type=float, default=0.05)
+    parser.add_argument(
+        "--critical-threshold", action="append", default=[], metavar="FIELD=VALUE",
+        help="Optional versioned critical-error threshold; repeat for numeric borehole fields.",
+    )
     parser.add_argument("--results-root", type=Path, default=ROOT / "results")
     arguments = parser.parse_args()
+    critical_thresholds = {}
+    for specification in arguments.critical_threshold:
+        try:
+            field, raw_value = specification.split("=", 1)
+            value = float(raw_value)
+        except ValueError as exc:
+            raise ValueError(f"invalid critical threshold: {specification}") from exc
+        if not field or value < 0:
+            raise ValueError(f"invalid critical threshold: {specification}")
+        critical_thresholds[field] = value
     commit = subprocess.run(
         ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True, capture_output=True, check=True,
     ).stdout.strip()
@@ -56,12 +70,14 @@ def main() -> None:
             "predictions_sha256": sha256(arguments.predictions),
             "interval_matching_tolerance_m": arguments.interval_tolerance_m,
             "boundary_accuracy_tolerances_m": [0.01, 0.05, 0.10],
+            "critical_error_thresholds": critical_thresholds or None,
         },
     })
     try:
         metrics, errors = evaluate_benchmark(
             read_jsonl(arguments.ground_truth), read_jsonl(arguments.predictions),
             interval_match_tolerance_m=arguments.interval_tolerance_m,
+            critical_error_thresholds=critical_thresholds or None,
         )
     except Exception:
         # Preserve the immutable failed run and make the failure visible.
