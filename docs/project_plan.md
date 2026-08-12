@@ -2,9 +2,10 @@
 
 ## Current objective
 
-Establish a tested, traceable research foundation without model training:
-environment snapshot, repository, schema, constraints, data registry, minimal
-baseline, evaluation API, and paper boundaries.
+Convert the completed research foundation into a rights-cleared, manually
+verified Chinese benchmark and execute Paper I B1–B6. In parallel, mature the
+already implemented Paper II/III method and workflow components without making
+empirical claims before suitable labels and spatial data exist.
 
 ## What existed at start
 
@@ -48,3 +49,28 @@ experiment metadata, prompts, baselines, and paper planning were missing.
 - Dataset access, license, redistribution, citation, and access date are logged
   before ingestion.
 
+## Status audit — 2026-08-12
+
+- Phase 0 environment/repository/experiment framework: **COMPLETED**.
+- Phase 1 v001 Schema and synthetic examples/tests: **COMPLETED**.
+- Phase 2 public data validation: BGS fixed sample **COMPLETED**; diverse
+  rights-cleared Chinese sources **NOT COMPLETED**.
+- Phase 3 baselines: Tesseract+regex and RapidOCR+regex audits **COMPLETED**;
+  OCR+LLM/Layout/VLM/Fusion runs **NOT COMPLETED**.
+- Phase 4 evaluation API, boundary matching, coverage and calibration metrics:
+  **COMPLETED v001**, subject to dataset-driven threshold validation.
+- Phase 5 annotation backend/UI and auto proposals: **COMPLETED v001**; actual
+  manual/double/expert annotations **NOT COMPLETED**.
+- Phase 6 Paper I benchmark/splits/degradation/failure analysis: infrastructure
+  **PARTIAL**; publishable data and experiments **NOT COMPLETED**.
+- Phase 7 C1–C10: **COMPLETED v001** with tests.
+- Phase 8 constraint-guided ROI rereading/ranking: **COMPLETED v001** with
+  controlled tests; multimodal field trial **NOT COMPLETED**.
+- Phase 9 Paper II experiments/ablations/calibration/FCR: **NOT COMPLETED**.
+- Phase 10 database/export: SQLite/GeoJSON **COMPLETED v001**; Parquet/XLSX and
+  validated spatial case **NOT COMPLETED**.
+- Phase 11 3D/error propagation: IDW synthetic protocol **COMPLETED**; real 3D
+  workflow and multi-seed study **NOT COMPLETED**.
+- Phase 12 Paper III downstream/human study: **NOT COMPLETED**.
+- Paper manuscripts: complete sectioned research drafts with generated audit
+  tables and honest `TBD`; final publishable papers **NOT COMPLETED**.

@@ -9,16 +9,23 @@ The current milestone is deliberately narrow:
 single borehole-log PDF/JPG/PNG -> JSON/CSV
 ```
 
-This repository does **not** contain a trained model or a benchmark result yet.
-Unrun experiments and unknown quantities are reported as `TBD`.
+This repository contains executable engineering baselines and immutable audit
+runs. It does **not** yet contain a rights-cleared Chinese benchmark, a trained
+project model, or publishable headline results. Unrun experiments and unknown
+quantities are reported as `TBD`.
 
 ## First-round capabilities
 
-- Borehole JSON Schema v0.0.1 with field-level provenance.
-- Five non-corrective geological constraints.
-- Adapter-based OCR/direct-PDF-text baseline and conservative regex extractor.
-- Model-independent evaluation primitives.
-- Dataset licensing registry and three-paper research roadmap.
+- Borehole JSON Schema v001 with source/display bboxes and field provenance.
+- Ten non-mutating geological constraints (C1–C10).
+- Tesseract and RapidOCR adapters, mixed/native/scanned PDF routing, panel-aware
+  native text extraction, and conservative layout/regex extraction.
+- Boundary-aware interval matching, constraint coverage, ECE/Brier, review
+  queue, confidence fusion, and temperature calibration primitives.
+- Constraint-guided ROI rereading and abstaining candidate ranker.
+- Revisioned local annotation UI with evidence highlighting and timing events.
+- SQLite/GeoJSON export and a transparent synthetic IDW propagation protocol.
+- Immutable experiment indexes and generated three-paper result tables.
 
 ## Storage policy
 
@@ -40,8 +47,13 @@ Optional document backends are installed separately:
 
 ```bash
 python -m pip install -e '.[pdf,ocr]'
+python -m pip install -r requirements-ocr-rapidocr.txt
+python -m pip install -r requirements-annotation.txt
 ```
 
 See `docs/environment_report.md`, `docs/research_scope.md`, and
 `docs/project_plan.md` before adding a model or dataset.
 
+Current limitations are explicit: rights-cleared Chinese benchmark data,
+manual/expert Ground Truth, B2–B6 model runs, Paper II empirical ablations, and
+Paper III real-site/human studies are `NOT COMPLETED`.
