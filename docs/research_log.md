@@ -20,6 +20,29 @@
   files, then review and anonymize eligible PDF/PNG derivatives before human
   annotation. Accuracy experiments remain blocked until verified GT exists.
 
+## 2026-08-12 — Mendeley DWG full automatic content pre-screen
+
+- Experiment: automatic acquisition audit `full_prescreen_v001`; not human
+  review, annotation, or benchmark evidence. Source manifest SHA256 is
+  `431ea76ee9534316c181c8df53ed0474b932ef907fe166a2537c70cb130ff58a`.
+- Observation: pinned `dwgread 0.14` converted all 33 drawings to transient
+  minJSON without a process failure. All 33 contained Chinese text and 30/33
+  triggered at least one conservative disclosure-risk category. Aggregate
+  string-level signals included 203 borehole/log matches and 5,569 geological
+  description matches. These are keyword occurrence counts, not document
+  labels or accuracy metrics.
+- Limitation: lack of a keyword hit does not prove a drawing is safe. The JSON
+  diagnostic did not reproduce the SVG converter's `MTEXT ignored` warning;
+  converter-specific completeness therefore remains unresolved. No drawing in
+  this full pass received human visual review.
+- Decision: retain all 33 as `benchmark_eligible: false`. Prioritize the three
+  automatically low-risk drawings for visual review, while treating them as
+  equally quarantined until a human decision is recorded. Store only hashes and
+  category counts in the audit manifest; do not place raw extracted text in Git.
+- Next step: produce reviewable, versioned derivatives with a renderer that
+  preserves CAD text, then complete privacy/location and third-party-content
+  review before annotation.
+
 ## 2026-08-12 — Reproducible B2 text-only LLM rerun
 
 - Experiment: `P1_B2_QWEN3VL4B_TEXT_UNIPD_AUDIT_003`, recorded code commit

@@ -29,6 +29,9 @@ Verified on 2026-08-12. The structured facts and URLs live in
   and remaining 32 drawings stay quarantined pending complete conversion,
   privacy/sensitive-location review, third-party-content screening, and a
   deliberate PDF/PNG derivative policy. They are not eligible benchmark pages.
+  An automatic `dwgread` text pre-screen subsequently found Chinese text in all
+  33 and conservatively risk-flagged 30; this prioritizes human review but does
+  not clear the other three.
 
 ## Accessible licence, dataset inspection incomplete
 
