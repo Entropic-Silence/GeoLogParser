@@ -14,6 +14,19 @@ Run panel rendering with:
 ```
 
 The Sanming manifest is internal quarantine material and cannot be released or
-counted in the benchmark. The interactive left-image/right-fields browser,
-bbox click highlighting, review queue, field re-reading, and export controls
-remain `NOT COMPLETED`.
+counted in the benchmark. Build proposals and start the local UI with:
+
+```bash
+.venv/bin/python scripts/build_annotation_proposals.py \
+  /data/GeoLogParser/artifacts/annotation/sanming_quarantine_v001/panel_manifest.jsonl \
+  /data/GeoLogParser/artifacts/annotation/sanming_quarantine_v001/annotations
+.venv/bin/uvicorn app.server:app --host 127.0.0.1 --port 8000
+```
+
+The UI provides panel switching, header/interval editing, evidence inspection,
+Schema + C1–C10 validation, workflow status, and conflict-safe revisioned saves.
+For original native-PDF evidence, bbox is in unrotated PDF points while the UI
+image is rendered pixels; until explicit transform metadata is added, clicking
+such evidence shows page/source text and intentionally does not draw a false
+rectangle. Pixel-space OCR bbox highlighting is implemented. Review queue,
+field re-reading, and CSV/XLSX export remain `NOT COMPLETED`.

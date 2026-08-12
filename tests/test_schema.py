@@ -13,6 +13,7 @@ def test_schema_declares_v001_and_provenance():
     schema = load_schema()
     assert schema["properties"]["schema_version"]["const"] == "v001"
     assert "source_bbox" in schema["$defs"]["evidence"]["required"]
+    assert "display_bbox" in schema["$defs"]["evidence"]["properties"]
     assert "raw_unit" in schema["$defs"]["evidence"]["properties"]
 
 
@@ -26,4 +27,3 @@ def test_unknown_top_level_property_is_rejected():
     record["invented"] = 1
     with pytest.raises(Exception):
         validate_record(record)
-

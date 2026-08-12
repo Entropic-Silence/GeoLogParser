@@ -1,0 +1,23 @@
+:root { font-family: system-ui, sans-serif; color: #17212b; background: #eef2f5; }
+body { margin: 0; }
+header { min-height: 48px; padding: 8px 14px; display: flex; gap: 10px; align-items: center; background: #183a56; color: white; }
+h1 { font-size: 18px; margin: 0 16px 0 0; }
+button, input, select { font: inherit; }
+button { cursor: pointer; padding: 5px 10px; }
+#message { margin-left: auto; }
+main { display: grid; grid-template-columns: minmax(420px, 52vw) 1fr; height: calc(100vh - 64px); }
+#viewer { overflow: auto; padding: 14px; background: #59646d; }
+#image-stage { position: relative; width: fit-content; margin: auto; }
+#panel-image { display: block; max-width: none; width: 1000px; height: auto; background: white; }
+#highlight { display: none; position: absolute; pointer-events: none; border: 3px solid #ff3b30; background: rgb(255 59 48 / 18%); box-sizing: border-box; }
+#editor { padding: 14px; overflow: auto; background: white; }
+h2 { font-size: 16px; margin: 8px 0; }
+.field-row { display: grid; grid-template-columns: 160px 1fr 80px; gap: 6px; margin-bottom: 5px; }
+.field-row input { min-width: 0; }
+.field-row button { font-size: 12px; }
+table { border-collapse: collapse; width: 100%; font-size: 12px; }
+th, td { border: 1px solid #bbc5cc; padding: 3px; vertical-align: top; }
+td input, td textarea { width: 100%; box-sizing: border-box; border: 0; background: #f8fafb; }
+td textarea { min-height: 48px; }
+#validation-output { white-space: pre-wrap; background: #f3f5f7; padding: 8px; max-height: 250px; overflow: auto; }
+@media (max-width: 900px) { main { grid-template-columns: 1fr; height: auto; } #viewer { height: 65vh; } }

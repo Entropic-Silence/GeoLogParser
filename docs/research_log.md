@@ -127,3 +127,26 @@
 - Next step: exploit the candidate's native Unicode text layer through a
   panel-aware adapter for internal schema validation, while continuing the
   independent rights-clearance process.
+
+## 2026-08-12 — Local annotation UI and auto-proposal validation
+
+- Experiment: engineering validation only; no accuracy metric. A panel-aware
+  PyMuPDF adapter, conservative native-text extractor, revisioned FastAPI API,
+  and browser editor were exercised on the four quarantined panels.
+- Observation: v002 produced four revision-1 `auto` proposals with 2, 3, 4,
+  and 3 extracted intervals for ZK2, ZK9, ZK11, and ZK14. The API listed all
+  four records, returned the image and page, and ran Schema+C1–C10 validation.
+  HTTP smoke responses were 200. Original PDF-point evidence is preserved; a
+  tested rotation/clip/scale transform adds separate rendered-pixel bboxes for
+  UI highlighting.
+- Failure: the first v002 render attempt failed because page rotation metadata
+  was read after the PDF context closed. The single generated intermediate PNG
+  was deleted, a real-PDF lifecycle regression test was added, and v002 was
+  rebuilt from an empty destination. FastAPI's TestClient emits one upstream
+  warning about future `httpx2`; dependency checks otherwise pass.
+- Decision: all proposals remain status `auto`; none is Ground Truth. Save uses
+  optimistic revision checks and archives prior JSON. Quarantined images and
+  annotations remain under `/data` and are not committed or redistributed.
+- Next step: implement review-queue scoring and human timing instrumentation,
+  then obtain an actual manual verification pass before computing any Chinese
+  extraction metric.

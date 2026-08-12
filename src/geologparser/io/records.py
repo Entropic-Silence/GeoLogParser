@@ -10,6 +10,7 @@ def field(
     *,
     source_page: int | None = None,
     source_bbox: list[float] | None = None,
+    display_bbox: list[float] | None = None,
     source_text: str | None = None,
     extraction_method: str = "unknown",
     confidence: float | None = None,
@@ -21,6 +22,7 @@ def field(
         "value": value,
         "source_page": source_page,
         "source_bbox": source_bbox,
+        "display_bbox": display_bbox,
         "source_text": source_text,
         "extraction_method": extraction_method,
         "confidence": confidence,
@@ -73,4 +75,3 @@ def empty_interval(interval_id: str) -> dict[str, Any]:
     for name in ("top_depth_m", "bottom_depth_m", "thickness_m") + INTERVAL_STRING_FIELDS:
         result[name] = field()
     return result
-

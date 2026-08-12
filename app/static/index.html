@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GeoLogParser Annotation</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <h1>GeoLogParser Annotation</h1>
+    <select id="annotation-list"></select>
+    <label>Annotator <input id="annotator" value="local-reviewer"></label>
+    <select id="status">
+      <option value="single_verified">single_verified</option>
+      <option value="double_verified">double_verified</option>
+      <option value="expert_verified">expert_verified</option>
+      <option value="auto">auto</option>
+    </select>
+    <button id="validate">Validate</button>
+    <button id="save">Save revision</button>
+    <span id="message"></span>
+  </header>
+  <main>
+    <section id="viewer">
+      <div id="image-stage"><img id="panel-image" alt="borehole panel"><div id="highlight"></div></div>
+    </section>
+    <section id="editor">
+      <h2>Borehole fields</h2>
+      <div id="borehole-fields"></div>
+      <h2>Intervals</h2>
+      <table><thead><tr><th>ID</th><th>Top</th><th>Bottom</th><th>Thickness</th><th>Code</th><th>Lithology</th><th>Description</th></tr></thead><tbody id="intervals"></tbody></table>
+      <button id="add-interval">Add interval</button>
+      <h2>Validation</h2>
+      <pre id="validation-output">Not run</pre>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>

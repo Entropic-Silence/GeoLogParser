@@ -62,6 +62,13 @@ def render_panel(spec: PanelSpec, output_path: Path, dpi: int = 150) -> dict[str
         )
         pixmap = page.get_pixmap(matrix=pymupdf.Matrix(dpi / 72, dpi / 72), clip=clip, alpha=False)
         pixmap.save(output_path)
+        rotation_degrees = page.rotation
+        rotation_matrix = [
+            page.rotation_matrix.a, page.rotation_matrix.b, page.rotation_matrix.c,
+            page.rotation_matrix.d, page.rotation_matrix.e, page.rotation_matrix.f,
+        ]
+        page_rect = [visual_rect.x0, visual_rect.y0, visual_rect.x1, visual_rect.y1]
+        visual_clip = [clip.x0, clip.y0, clip.x1, clip.y1]
     return {
         **asdict(spec),
         "source_sha256": sha256_file(source),
@@ -71,7 +78,42 @@ def render_panel(spec: PanelSpec, output_path: Path, dpi: int = 150) -> dict[str
         "rendered_width_px": pixmap.width,
         "rendered_height_px": pixmap.height,
         "bbox_coordinate_space": "normalized_0_1_visual_page",
+        "source_pdf_page_rect": page_rect,
+        "source_pdf_rotation_degrees": rotation_degrees,
+        "source_pdf_rotation_matrix": rotation_matrix,
+        "visual_clip_points": visual_clip,
     }
+
+
+def pdf_bbox_to_rendered_pixels(
+    pdf_bbox: tuple[float, float, float, float] | list[float],
+    panel: Mapping[str, Any],
+) -> list[float]:
+    """Transform an unrotated PDF-point bbox into rendered panel pixels."""
+    required = {
+        "source_pdf_rotation_matrix", "visual_clip_points",
+        "rendered_width_px", "rendered_height_px",
+    }
+    missing = required - panel.keys()
+    if missing:
+        raise ValueError(f"panel lacks transform metadata: {', '.join(sorted(missing))}")
+    try:
+        import pymupdf
+    except ImportError as exc:
+        raise RuntimeError("bbox transformation requires PyMuPDF") from exc
+    matrix = pymupdf.Matrix(*panel["source_pdf_rotation_matrix"])
+    source_rect = pymupdf.Rect(*pdf_bbox)
+    visual_rect = source_rect * matrix
+    clip = pymupdf.Rect(*panel["visual_clip_points"])
+    scale_x = float(panel["rendered_width_px"]) / clip.width
+    scale_y = float(panel["rendered_height_px"]) / clip.height
+    result = [
+        (visual_rect.x0 - clip.x0) * scale_x,
+        (visual_rect.y0 - clip.y0) * scale_y,
+        (visual_rect.x1 - clip.x0) * scale_x,
+        (visual_rect.y1 - clip.y0) * scale_y,
+    ]
+    return [max(0.0, value) for value in result]
 
 
 def create_annotation(

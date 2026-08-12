@@ -1,0 +1,55 @@
+import json
+from pathlib import Path
+
+import pytest
+
+from geologparser.annotation import create_annotation, save_annotation
+
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def build_client(tmp_path: Path):
+    pytest.importorskip("fastapi")
+    from fastapi.testclient import TestClient
+    from geologparser.annotation_api import create_app
+    annotation_root = tmp_path / "annotations"
+    annotation_root.mkdir()
+    image = tmp_path / "panel.png"
+    image.write_bytes(b"png fixture")
+    record = json.loads((ROOT / "examples/boreholes/synthetic_valid.json").read_text(encoding="utf-8"))
+    annotation = create_annotation(
+        "test-panel", {"panel_id": "test-panel", "rendered_path": str(image)},
+        record, "AUTO", "auto",
+    )
+    save_annotation(annotation, annotation_root / "test-panel.json")
+    return TestClient(create_app(annotation_root, ROOT / "app/static")), annotation_root
+
+
+def test_annotation_api_lists_loads_and_validates(tmp_path: Path):
+    client, _ = build_client(tmp_path)
+    items = client.get("/api/annotations").json()
+    assert items[0]["annotation_id"] == "test-panel"
+    annotation = client.get("/api/annotations/test-panel").json()
+    validated = client.post("/api/validate", json={"record": annotation["record"]}).json()
+    assert validated["schema_valid"] is True
+    assert len(validated["constraints"]) == 10
+
+
+def test_annotation_api_saves_revision_and_rejects_stale_update(tmp_path: Path):
+    client, annotation_root = build_client(tmp_path)
+    annotation = client.get("/api/annotations/test-panel").json()
+    payload = {
+        "base_revision": 1, "record": annotation["record"],
+        "annotator_id": "reviewer-1", "annotation_status": "single_verified",
+    }
+    response = client.put("/api/annotations/test-panel", json=payload)
+    assert response.status_code == 200
+    assert response.json()["revision"] == 2
+    assert (annotation_root / "history/test-panel/revision_0001.json").is_file()
+    assert client.put("/api/annotations/test-panel", json=payload).status_code == 409
+
+
+def test_annotation_api_rejects_path_traversal(tmp_path: Path):
+    client, _ = build_client(tmp_path)
+    assert client.get("/api/annotations/%2E%2E%2Fsecret").status_code in {400, 404}

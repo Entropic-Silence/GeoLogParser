@@ -17,6 +17,7 @@ schema = ["jsonschema>=4.18,<5"]
 pdf = ["PyMuPDF>=1.24,<2"]
 ocr = []
 ocr-rapidocr = ["rapidocr_onnxruntime==1.4.4", "onnxruntime==1.23.2"]
+annotation = ["fastapi==0.141.1", "uvicorn[standard]==0.52.1"]
 dev = ["pytest>=8,<9", "jsonschema>=4.18,<5", "PyYAML>=6,<7"]
 
 [project.scripts]

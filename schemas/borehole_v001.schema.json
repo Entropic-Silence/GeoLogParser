@@ -35,6 +35,7 @@
       "properties": {
         "source_page": {"type": ["integer", "null"], "minimum": 1},
         "source_bbox": {"oneOf": [{"$ref": "#/$defs/bbox"}, {"type": "null"}]},
+        "display_bbox": {"oneOf": [{"$ref": "#/$defs/bbox"}, {"type": "null"}]},
         "source_text": {"type": ["string", "null"]},
         "extraction_method": {
           "type": "string",
