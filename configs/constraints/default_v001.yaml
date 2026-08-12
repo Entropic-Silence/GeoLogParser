@@ -18,4 +18,24 @@ final_depth_consistency:
   enabled: true
   tolerance_m: "0.05"
   severity: warning
-
+groundwater_reasonableness:
+  enabled: true
+  severity: high_risk_warning
+percentage_range:
+  enabled: true
+  fields: [rqd_percent, core_recovery_percent]
+  minimum: "0"
+  maximum: "100"
+  severity: error
+coordinate_format:
+  enabled: true
+  minimum_digits: 4
+  maximum_digits: 12
+  confusables: [O/0, I/1, l/1]
+  severity: warning
+stratum_code_sequence:
+  enabled: true
+  severity: weak_warning
+field_type_consistency:
+  enabled: true
+  severity: error

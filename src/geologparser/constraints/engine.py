@@ -12,6 +12,13 @@ from .depth import (
     MonotonicityConstraint,
     ThicknessConsistencyConstraint,
 )
+from .semantic import (
+    CoordinateFormatConstraint,
+    FieldTypeConsistencyConstraint,
+    GroundwaterReasonablenessConstraint,
+    PercentageRangeConstraint,
+    StratumCodeSequenceConstraint,
+)
 
 
 class ConstraintEngine:
@@ -29,5 +36,9 @@ def default_engine(tolerance_m: str = "0.05") -> ConstraintEngine:
         ContinuityConstraint(tolerance_m),
         MonotonicityConstraint(),
         FinalDepthConsistencyConstraint(tolerance_m),
+        GroundwaterReasonablenessConstraint(),
+        PercentageRangeConstraint(),
+        CoordinateFormatConstraint(),
+        StratumCodeSequenceConstraint(),
+        FieldTypeConsistencyConstraint(),
     ))
-
