@@ -1,0 +1,21 @@
+dataset_id: bgs_opengeoscience_v001
+status: acquired_small_audit_sample
+access_date: "2026-08-12"
+source: https://www.bgs.ac.uk/information-hub/scanned-records/
+api_layer: https://map.bgs.ac.uk/arcgis/rest/services/GeoIndex_Onshore/boreholes/MapServer/0
+scan_api_template: https://api.bgs.ac.uk/sobi-scans/v1/borehole/scans/items/{bgs_id}
+license: OGL-UK-3.0
+attribution: "Contains British Geological Survey materials © UKRI 2026"
+fixed_ids: [4, 5, 6, 10]
+actual_downloaded_documents: 4
+actual_downloaded_pages: 20
+purpose:
+  - public_pipeline_validation
+  - international_transfer_test
+  - schema_debugging
+not_for_claim:
+  - chinese_benchmark_size
+  - representative_bgs_performance
+storage_root: /data/GeoLogParser/datasets/public/bgs_v001
+privacy_note: "Public historical records may contain site/location names; preserve source terms and do not conflate public access with absence of sensitivity."
+

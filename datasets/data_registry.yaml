@@ -15,16 +15,16 @@ datasets:
     access_date: "2026-08-12"
     language: English
     format: borehole record scans/PDF and index metadata
-    scale: "catalogue describes over one million onshore borehole, shaft and well records; exact downloadable log subset TBD"
-    downloadable: conditional
-    access_status: "official viewer page directly accessible; bulk/API access must still be verified"
-    license: "BGS terms; exact data-product licence TBD"
-    allowed_usage: "research use subject to BGS data/product terms; verify per downloaded item"
-    redistribution: unclear
-    redistribution_policy: "do not redistribute files until the exact record/product licence is captured"
+    scale: "official live layer returned 995909 direct-API scan records with positive LENGTH on 2026-08-12; project acquired 4 documents/20 pages only"
+    downloadable: true
+    access_status: "official viewer, ArcGIS index layer, and direct scan API verified"
+    license: Open Government Licence v3.0
+    allowed_usage: "reuse under OGL v3.0 with BGS acknowledgement and source-term compliance"
+    redistribution: allowed_with_conditions
+    redistribution_policy: "include 'Contains British Geological Survey materials © UKRI [year]' and OGL/source notices"
     paper_fit: [paper1_public_pipeline_validation, paper1_international_transfer]
-    status: license_unclear
-    verification_notes: "Official borehole-record and terms pages both returned HTTP 200; the page describes direct online access to onshore scanned records. Exact item/product terms still require capture."
+    status: acquired_small_audit_sample
+    verification_notes: "Official scanned-record page states OGL delivery and acknowledgement. Fixed IDs 4,5,6,10 downloaded to /data with SHA256 manifest; PDFs have print=yes/copy=no permission flags, which are recorded rather than bypassed."
 
   - id: usgs_geolog_locator
     name: GeoLog Locator
