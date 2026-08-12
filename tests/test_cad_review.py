@@ -43,3 +43,25 @@ def test_cad_review_api_rejects_eligibility_with_conversion_warning(tmp_path):
     response=TestClient(app).put("/api/items/D001/review",json=value)
     assert response.status_code==422
     assert not (tmp_path/"reviews/D001.json").exists()
+
+
+def test_cad_review_api_exposes_technical_diagnostics(tmp_path):
+    derivative_root=tmp_path/"derivatives";item=derivative_root/"D001";item.mkdir(parents=True)
+    image=item/"model.png";image.write_bytes(b"fixture")
+    import hashlib
+    row=derivative();row.update({
+        "png_sha256":hashlib.sha256(b"fixture").hexdigest(),
+        "technical_render_status":"renderer_emitted_empty_raster",
+        "visual_fidelity_status":"not_assessed",
+        "raster_is_placeholder":True,
+        "coverage":{"entity_coverage":0.25,"missing_entity_type_counts":{"TEXT":3}},
+    })
+    (derivative_root/"manifest.jsonl").write_text(json.dumps(row)+"\n")
+    static=tmp_path/"static";static.mkdir();(static/"index.html").write_text("ok");(static/"app.js").write_text("");(static/"style.css").write_text("")
+    app=create_cad_review_app(derivative_root/"manifest.jsonl",derivative_root,tmp_path/"reviews",static,ROOT/"schemas/cad_content_review_v001.schema.json")
+    from fastapi.testclient import TestClient
+    result=TestClient(app).get("/api/items").json()[0]
+    assert result["technical_render_status"]=="renderer_emitted_empty_raster"
+    assert result["entity_coverage"]==0.25
+    assert result["missing_entity_type_counts"]=={"TEXT":3}
+    assert result["raster_is_placeholder"] is True

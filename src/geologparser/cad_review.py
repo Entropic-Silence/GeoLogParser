@@ -138,6 +138,13 @@ def create_cad_review_app(
                 "source_record_id": identifier,
                 "pixel_dimensions": row["pixel_dimensions"],
                 "conversion_may_be_incomplete": row["conversion_may_be_incomplete"],
+                "technical_render_status": row.get("technical_render_status", "not_recorded"),
+                "visual_fidelity_status": row.get("visual_fidelity_status", "not_recorded"),
+                "entity_coverage": row.get("coverage", {}).get("entity_coverage"),
+                "missing_entity_type_counts": row.get("coverage", {}).get(
+                    "missing_entity_type_counts", {}
+                ),
+                "raster_is_placeholder": row.get("raster_is_placeholder", False),
                 "review": review,
             })
         return items

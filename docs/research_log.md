@@ -616,6 +616,41 @@
   then freeze GT, split manifests, critical-error thresholds, and ontology
   version before formal experiments.
 
+## 2026-08-12 — Full Mendeley DWG rendering audit and renderer failure taxonomy
+
+- Objective: generate review-only rasters for all 33 rights-recorded Mendeley
+  DWGs without equating a converter return code, emitted SVG IDs, or a
+  machine-readable drawing inventory with visual completeness.
+- Preserved failure 1: `full_derivatives_v001_failed_strict_reader` contains
+  LibreDWG DXFs rejected by ezdxf's strict reader because of invalid
+  `SORTENTSTABLE` handle ordering.
+- Preserved failure 2: `full_derivatives_v002_failed_mixed_sortents_repair`
+  records an unsuccessful repair attempt; observed sequences mixed `(331,5)`,
+  `(5,331)`, `(331,331)`, and odd tails, so a hand-written DXF rewrite was
+  abandoned rather than silently discard source semantics.
+- Preserved failure 3: `full_derivatives_v003` is the unrepaired strict-reader
+  route. `full_svg_derivatives_v001_superseded_status_label_error` produced the
+  correct artifact classes but used an ambiguous technical-status label; it is
+  retained and explicitly superseded, not treated as a result.
+- Final audit: `full_svg_derivatives_v002` converts source DWG directly with
+  LibreDWG `dwg2SVG`, reconciles renderer IDs against source `minJSON`, checks
+  finite positive viewBox geometry, verifies non-transparent raster content,
+  and trims excess transparent space. Unsupported entities are not repaired or
+  overlaid using inferred coordinates.
+- Observation: 20/33 files yielded a non-empty review raster; 11/33 yielded an
+  empty raster; 2/33 emitted invalid sentinel geometry. None achieved complete
+  entity-ID coverage. Across 789,244 source graphical entities, 538,740 source
+  IDs appeared in SVG. These counts measure structural renderer coverage, not
+  geometric or semantic correctness. The manifest SHA256 is
+  `10b618f35a9ca322379e07a9924f849f72ce1436311f037e258af843b69fdc74`.
+- Safety state: all 33 records retain `conversion_may_be_incomplete=true`,
+  `visual_fidelity_status=not_assessed`, `human_visual_review_status=not_reviewed`,
+  and `benchmark_eligible=false`. Human review count and Ground Truth count are
+  both zero. The 33 CAD files are not counted as Phase-1 benchmark pages.
+- Decision: use the 20 non-empty derivatives only to triage content/privacy and
+  renderer failure. A source-faithful CAD conversion route or source-side PDF
+  export remains necessary before any can enter annotation.
+
 ## 2026-08-12 — Ground-Truth progress and draft-export UI gate
 
 - Objective: reduce manual-review friction without weakening the human Ground

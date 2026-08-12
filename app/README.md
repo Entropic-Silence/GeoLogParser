@@ -67,9 +67,25 @@ cannot be mistaken for geological Ground Truth annotation:
 
 The service verifies derivative hashes, stores revisioned human decisions, and
 rejects `eligible_for_annotation` when the derivative manifest reports an
-incomplete conversion. All current Mendeley priority derivatives have that
-warning, so they may only be excluded, kept internal, or sent for repair and
-re-review. Content review never sets `benchmark_eligible` directly.
+incomplete conversion. Its default root is the 33-item SVG audit
+`full_svg_derivatives_v002`: 20 items contain a trimmed review raster, 11 are
+empty-render placeholders, and two have invalid-geometry placeholders. Every
+item has a conversion warning, so none may be promoted by this UI. Entity-ID
+coverage is displayed as a structural diagnostic, never as visual fidelity.
+Content review never sets `benchmark_eligible` directly.
+
+Reproduce that immutable, review-only audit with:
+
+```bash
+.venv/bin/python scripts/render_mendeley_dwg_svg_derivatives.py \
+  /data/GeoLogParser/datasets/public/mendeley_borehole_logs_v002/raw/Borehole.logs.collection.zip \
+  /data/GeoLogParser/datasets/public/mendeley_borehole_logs_v002/metadata/manifest.jsonl \
+  /data/GeoLogParser/datasets/public/mendeley_borehole_logs_v002/audit/full_svg_derivatives_v002 \
+  /data/GeoLogParser/tools/prefix/libredwg-0.14/bin/dwg2SVG \
+  /data/GeoLogParser/tools/prefix/libredwg-0.14/bin/dwgread \
+  --library-dir /data/GeoLogParser/tools/prefix/libredwg-0.14/lib \
+  --output-width 2000
+```
 
 For a non-human structural/text reconciliation of the three priority
 derivatives, run:

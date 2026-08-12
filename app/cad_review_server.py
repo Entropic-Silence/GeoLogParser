@@ -9,7 +9,7 @@ from geologparser.cad_review import create_cad_review_app
 ROOT = Path(__file__).resolve().parents[1]
 DERIVATIVE_ROOT = Path(os.environ.get(
     "GEOLOGPARSER_CAD_DERIVATIVE_ROOT",
-    "/data/GeoLogParser/datasets/public/mendeley_borehole_logs_v002/audit/priority_derivatives_v001",
+    "/data/GeoLogParser/datasets/public/mendeley_borehole_logs_v002/audit/full_svg_derivatives_v002",
 ))
 REVIEW_ROOT = Path(os.environ.get(
     "GEOLOGPARSER_CAD_REVIEW_ROOT",
