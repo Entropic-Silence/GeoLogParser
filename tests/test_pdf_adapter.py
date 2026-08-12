@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pytest
 
-from geologparser.pdf import PdftotextAdapter
+from geologparser.pdf import PdftotextAdapter, PyMuPDFPanelTextAdapter
 from geologparser.ocr import TextRegion
 from geologparser.pipeline import run_minimal_baseline
 
@@ -108,3 +108,25 @@ def test_scanned_pdf_uses_injected_ocr_adapter(tmp_path):
     assert len(adapter.paths) == 1
     assert regions[0].page == 1
     assert record["borehole"]["borehole_id"]["value"] == "INJECTED-01"
+
+
+@pytest.mark.skipif(shutil.which("gs") is None, reason="PDF fixture tool unavailable")
+def test_panel_text_adapter_separates_visual_halves_on_rotated_page(tmp_path):
+    postscript = tmp_path / "fixture.ps"
+    pdf = tmp_path / "fixture.pdf"
+    postscript.write_text(
+        "%!PS-Adobe-3.0\n<< /PageSize [842 595] >> setpagedevice\n"
+        "/Courier findfont 20 scalefont setfont\n"
+        "72 500 moveto (LEFT_BOREHOLE) show\n"
+        "500 500 moveto (RIGHT_BOREHOLE) show\nshowpage\n",
+        encoding="ascii",
+    )
+    subprocess.run(
+        ["gs", "-q", "-dNOPAUSE", "-dBATCH", "-sDEVICE=pdfwrite", f"-sOutputFile={pdf}", str(postscript)],
+        check=True,
+    )
+    adapter = PyMuPDFPanelTextAdapter()
+    left = " ".join(region.text for region in adapter.extract_panel(pdf, 1, (0, 0, 0.5, 1)))
+    right = " ".join(region.text for region in adapter.extract_panel(pdf, 1, (0.5, 0, 1, 1)))
+    assert "LEFT_BOREHOLE" in left and "RIGHT_BOREHOLE" not in left
+    assert "RIGHT_BOREHOLE" in right and "LEFT_BOREHOLE" not in right

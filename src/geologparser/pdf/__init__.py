@@ -1,7 +1,7 @@
 from .detection import PDFDetectionConfig, PDFDetectionResult, PDFPageEvidence, detect_pdf
-from .direct import PdftotextAdapter, PyMuPDFTextAdapter
+from .direct import PdftotextAdapter, PyMuPDFPanelTextAdapter, PyMuPDFTextAdapter
 
 __all__ = [
     "PDFDetectionConfig", "PDFDetectionResult", "PDFPageEvidence",
-    "PdftotextAdapter", "PyMuPDFTextAdapter", "detect_pdf",
+    "PdftotextAdapter", "PyMuPDFPanelTextAdapter", "PyMuPDFTextAdapter", "detect_pdf",
 ]
