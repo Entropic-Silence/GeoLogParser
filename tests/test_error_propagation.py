@@ -5,7 +5,7 @@ import pytest
 
 from geologparser.evaluation import (
     SurfacePoint, aggregate_repeated_metrics, boundary_surface_points, idw_predict, perturb_interval_boundaries,
-    surface_error_metrics,
+    spatial_model_readiness, surface_error_metrics,
 )
 
 
@@ -69,3 +69,16 @@ def test_surface_error_metrics_and_empty_case():
     assert metrics["mae_m"] == pytest.approx(0.15)
     assert metrics["rmse_m"] == pytest.approx((0.05 / 2) ** 0.5)
     assert surface_error_metrics([], [])["mae_m"] is None
+
+
+def test_spatial_model_readiness_requires_human_collar_and_boundary():
+    source = records()
+    for record in source:
+        record["borehole"]["coordinate_system"]["value"] = "EPSG:4326"
+        record["borehole"]["collar_elevation_m"]["validation_status"] = "human_verified"
+        record["intervals"][0]["bottom_depth_m"]["validation_status"] = "human_verified"
+    assert spatial_model_readiness(source, 0)["ready"] is True
+    source[0]["borehole"]["collar_elevation_m"]["validation_status"] = "needs_review"
+    result = spatial_model_readiness(source, 0)
+    assert result["ready"] is False
+    assert "COLLAR_ELEVATION_NOT_HUMAN_VERIFIED" in result["rejected"][0]["reasons"]

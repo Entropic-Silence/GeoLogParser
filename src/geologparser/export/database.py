@@ -166,3 +166,85 @@ def write_geojson(records: Iterable[Mapping[str, Any]], path: Path) -> None:
     }
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(collection, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def write_geopackage(records: Iterable[Mapping[str, Any]], path: Path) -> None:
+    """Write a QGIS-compatible point layer with coordinate uncertainty fields."""
+    try:
+        import pyarrow as pa
+        import pyogrio
+        from pyproj import CRS
+        from shapely import to_wkb
+        from shapely.geometry import Point
+    except ImportError as exc:
+        raise RuntimeError("GeoPackage export requires pyarrow, pyogrio, pyproj, and shapely") from exc
+    if path.exists():
+        raise FileExistsError(f"GeoPackage already exists: {path}")
+    rows = []
+    systems = set()
+    for record in records:
+        borehole = record["borehole"]
+        x, y = _value(borehole["x_coordinate"]), _value(borehole["y_coordinate"])
+        if x is None or y is None:
+            continue
+        system = _value(borehole["coordinate_system"])
+        systems.add(system)
+        rows.append({
+            "document_id": record["document"]["document_id"],
+            "borehole_id": _value(borehole["borehole_id"]),
+            "x_coordinate": float(x), "y_coordinate": float(y),
+            "coordinate_system": system,
+            "coordinate_validation_status": borehole["x_coordinate"].get("validation_status"),
+            "coordinate_warning_codes": json.dumps(
+                sorted(set(borehole["x_coordinate"].get("warning_codes", []))
+                       | set(borehole["y_coordinate"].get("warning_codes", []))),
+                ensure_ascii=False,
+            ),
+            "collar_elevation_m": _value(borehole["collar_elevation_m"]),
+            "final_depth_m": _value(borehole["final_depth_m"]),
+            "source_file": record["document"]["source_file"],
+            # Avoid Arrow null-only columns, which OGR cannot materialize as a
+            # field when all records lack a source hash.
+            "source_sha256": record["document"].get("source_sha256") or "",
+            "geometry": to_wkb(Point(float(x), float(y)), hex=False),
+        })
+    if not rows:
+        raise ValueError("GeoPackage export requires at least one located borehole")
+    if len(systems) != 1 or None in systems:
+        raise ValueError("GeoPackage export requires exactly one known coordinate system")
+    system = next(iter(systems))
+    import re
+    match = re.fullmatch(r"EPSG:(\d+)", str(system), flags=re.IGNORECASE)
+    if not match:
+        raise ValueError("coordinate_system must use an explicit EPSG:<code> identifier")
+    # Explicit types keep all-null optional numeric/text columns writable by
+    # OGR (Arrow's inferred ``null`` type has no corresponding GPKG field).
+    table = pa.table({
+        "document_id": pa.array([row["document_id"] for row in rows], type=pa.string()),
+        "borehole_id": pa.array([row["borehole_id"] for row in rows], type=pa.string()),
+        "x_coordinate": pa.array([row["x_coordinate"] for row in rows], type=pa.float64()),
+        "y_coordinate": pa.array([row["y_coordinate"] for row in rows], type=pa.float64()),
+        "coordinate_system": pa.array([row["coordinate_system"] for row in rows], type=pa.string()),
+        "coordinate_validation_status": pa.array(
+            [row["coordinate_validation_status"] for row in rows], type=pa.string(),
+        ),
+        "coordinate_warning_codes": pa.array(
+            [row["coordinate_warning_codes"] for row in rows], type=pa.string(),
+        ),
+        "collar_elevation_m": pa.array([row["collar_elevation_m"] for row in rows], type=pa.float64()),
+        "final_depth_m": pa.array([row["final_depth_m"] for row in rows], type=pa.float64()),
+        "source_file": pa.array([row["source_file"] for row in rows], type=pa.string()),
+        "source_sha256": pa.array([row["source_sha256"] for row in rows], type=pa.string()),
+        "geometry": pa.array([row["geometry"] for row in rows], type=pa.binary()),
+    })
+    path.parent.mkdir(parents=True, exist_ok=True)
+    pyogrio.write_arrow(
+        table, path, layer="boreholes", driver="GPKG", geometry_name="geometry",
+        geometry_type="Point", crs=CRS.from_epsg(int(match.group(1))).to_wkt(),
+        dataset_metadata={
+            "GEologparser_scope": "traceable point export; coordinate status is not Ground Truth",
+        },
+        layer_metadata={
+            "coordinate_warning": "honor coordinate_validation_status and coordinate_warning_codes",
+        },
+    )

@@ -61,6 +61,60 @@ def boundary_surface_points(
     return points
 
 
+def spatial_model_readiness(
+    records: Sequence[Mapping[str, Any]], interval_index: int,
+    boundary: str = "bottom_depth_m", minimum_points: int = 3,
+) -> dict[str, Any]:
+    """Gate real surface modelling on spatial and human stratigraphic evidence."""
+    if minimum_points < 3:
+        raise ValueError("minimum_points must be at least 3 for a surface")
+    if boundary not in {"top_depth_m", "bottom_depth_m"}:
+        raise ValueError("boundary must be top_depth_m or bottom_depth_m")
+    eligible, rejected = [], []
+    coordinate_systems = set()
+    for record in records:
+        document_id = str(record["document"]["document_id"])
+        reasons = []
+        borehole = record["borehole"]
+        for name in ("x_coordinate", "y_coordinate", "coordinate_system"):
+            if borehole[name].get("value") is None:
+                reasons.append(f"MISSING_{name.upper()}")
+        system = borehole["coordinate_system"].get("value")
+        if system is not None:
+            coordinate_systems.add(str(system))
+        collar = borehole["collar_elevation_m"]
+        if collar.get("value") is None:
+            reasons.append("MISSING_COLLAR_ELEVATION")
+        elif collar.get("validation_status") != "human_verified":
+            reasons.append("COLLAR_ELEVATION_NOT_HUMAN_VERIFIED")
+        intervals = record.get("intervals", [])
+        if interval_index >= len(intervals):
+            reasons.append("MISSING_TARGET_INTERVAL")
+        else:
+            envelope = intervals[interval_index][boundary]
+            if envelope.get("value") is None:
+                reasons.append("MISSING_TARGET_BOUNDARY")
+            elif envelope.get("validation_status") != "human_verified":
+                reasons.append("TARGET_BOUNDARY_NOT_HUMAN_VERIFIED")
+        if reasons:
+            rejected.append({"document_id": document_id, "reasons": reasons})
+        else:
+            eligible.append(document_id)
+    global_reasons = []
+    if len(coordinate_systems) > 1:
+        global_reasons.append("MIXED_COORDINATE_SYSTEMS")
+    if len(eligible) < minimum_points:
+        global_reasons.append("INSUFFICIENT_ELIGIBLE_POINTS")
+    return {
+        "ready": not global_reasons and len(eligible) >= minimum_points,
+        "minimum_points": minimum_points, "eligible_count": len(eligible),
+        "eligible_document_ids": eligible, "rejected": rejected,
+        "coordinate_systems": sorted(coordinate_systems),
+        "global_reasons": global_reasons,
+        "coordinate_note": "source-provided coordinate status is retained separately; readiness does not certify survey accuracy",
+    }
+
+
 def perturb_interval_boundaries(
     records: Sequence[Mapping[str, Any]],
     magnitude_m: float,

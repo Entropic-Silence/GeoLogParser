@@ -73,8 +73,10 @@ experiment metadata, prompts, baselines, and paper planning were missing.
 - Phase 8 constraint-guided ROI rereading/ranking: **COMPLETED v001** with
   controlled tests; multimodal field trial **NOT COMPLETED**.
 - Phase 9 Paper II experiments/ablations/calibration/FCR: **NOT COMPLETED**.
-- Phase 10 database/export: SQLite/CSV/JSON/XLSX/Parquet/GeoJSON/GeoParquet
-  **COMPLETED v001**; GeoPackage and a validated spatial case **NOT COMPLETED**.
+- Phase 10 database/export: SQLite/CSV/JSON/XLSX/Parquet/GeoJSON/GeoParquet/
+  GeoPackage **COMPLETED v001**; a validated interval-bearing spatial case is
+  **NOT COMPLETED**. A source-coordinate-only Padova snapshot exists with all
+  coordinate fields marked unverified/needs-review.
 - Phase 11 3D/error propagation: IDW synthetic single- and 30-seed protocol
   runs **COMPLETED**; real 3D workflow **NOT COMPLETED**.
 - Phase 12 Paper III downstream/human study: **NOT COMPLETED**.

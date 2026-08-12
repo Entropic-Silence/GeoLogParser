@@ -2,7 +2,7 @@ import json
 import sqlite3
 from pathlib import Path
 
-from geologparser.export import write_geojson, write_sqlite
+from geologparser.export import write_geojson, write_geopackage, write_sqlite
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -48,3 +48,21 @@ def test_geojson_skips_missing_coordinates_and_does_not_transform(tmp_path: Path
     assert len(collection["features"]) == 1
     assert collection["features"][0]["geometry"]["coordinates"] == [329168, 405889]
     assert collection["metadata"]["coordinate_systems"] == ["EPSG:27700"]
+
+
+def test_geopackage_writes_point_layer_with_coordinate_status(tmp_path: Path):
+    pytest = __import__("pytest")
+    pytest.importorskip("pyogrio")
+    import pyogrio
+    located = record()
+    located["borehole"]["x_coordinate"].update({"value": 12.1, "validation_status": "needs_review", "warning_codes": ["SOURCE_COORDINATE_UNVERIFIED"]})
+    located["borehole"]["y_coordinate"].update({"value": 45.2, "validation_status": "needs_review", "warning_codes": ["SOURCE_COORDINATE_UNVERIFIED"]})
+    located["borehole"]["coordinate_system"]["value"] = "EPSG:4326"
+    path = tmp_path / "boreholes.gpkg"
+    write_geopackage([located], path)
+    metadata, table = pyogrio.read_arrow(path, layer="boreholes")
+    assert table.num_rows == 1
+    assert table["coordinate_validation_status"][0].as_py() == "needs_review"
+    assert metadata["crs"] == "EPSG:4326"
+    with pytest.raises(FileExistsError):
+        write_geopackage([located], path)

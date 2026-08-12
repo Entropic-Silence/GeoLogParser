@@ -1,5 +1,27 @@
 # Research log
 
+## 2026-08-12 — Padova source-coordinate GIS export
+
+- Experiment: exported one point per source borehole (not one per page) from the
+  audited Padova KMZ link into SQLite, GeoJSON, GeoParquet, and GeoPackage.
+- Observation: all four outputs contain 11 located boreholes; SQLite contains
+  zero intervals. GeoPackage layer `boreholes` reports `EPSG:4326`, and all 11
+  coordinate statuses are `needs_review`. Output SHA256 values are recorded in
+  `/data/GeoLogParser/artifacts/spatial/unipd_source_catalog_v001/summary.json`;
+  Paper III real-model metrics are null.
+- Failure: the first GeoPackage write exposed an OGR incompatibility with
+  Arrow null-only inferred fields because collar elevation/final depth are
+  absent. The incomplete output directory was quarantined then deleted after
+  identifying its four generated files. Explicit nullable field types fixed
+  the export; the clean version was rebuilt from scratch.
+- Decision: add fixed `pyogrio`/`pyproj` export dependencies and a GeoPackage
+  writer preserving coordinate status/warnings. A separate readiness gate now
+  requires at least three eligible points, one CRS, and human-verified collar
+  elevations and target boundaries before surface modelling. Source coordinate
+  presence does not certify survey accuracy.
+- Next step: derive collar elevation and intervals only through human review;
+  then run the readiness gate before any real IDW/GemPy/PyVista workflow.
+
 ## 2026-08-12 — Paper II ablation protocol gate
 
 - Experiment: implemented the immutable Paper II ablation runner and paper-table

@@ -5,7 +5,7 @@ from .paper2 import evaluate_paper2_ablation_matrix, evaluate_paper2_cases
 from .errors import ERROR_TAXONOMY_V001, classify_field_error, error_distribution
 from .error_propagation import (
     SurfacePoint, aggregate_repeated_metrics, boundary_surface_points, idw_predict, perturb_interval_boundaries,
-    surface_error_metrics,
+    spatial_model_readiness, surface_error_metrics,
 )
 from .metrics import (
     IntervalMatch,
@@ -33,7 +33,7 @@ __all__ = [
     "exact_match", "extraction_coverage", "expected_calibration_error", "interval_prf1",
     "match_intervals_by_boundaries", "mean_absolute_error", "numeric_with_missing_mae",
     "boundary_surface_points", "idw_predict", "perturb_interval_boundaries",
-    "surface_error_metrics", "aggregate_repeated_metrics", "ERROR_TAXONOMY_V001", "classify_field_error",
+    "surface_error_metrics", "spatial_model_readiness", "aggregate_repeated_metrics", "ERROR_TAXONOMY_V001", "classify_field_error",
     "error_distribution", "character_error_rate", "numeric_character_error_rate",
     "sequence_error_rate", "word_error_rate",
     "correction_safety_metrics", "review_detection_metrics",
