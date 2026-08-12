@@ -4,7 +4,9 @@ import json
 import pytest
 
 from geologparser.annotation import create_annotation
-from geologparser.annotation_export import annotation_agreement, export_verified_annotations
+from geologparser.annotation_export import (
+    annotation_agreement, export_verified_annotations, ground_truth_gate,
+)
 
 
 def record(root):
@@ -17,13 +19,30 @@ def test_verified_export_rejects_auto_and_accepts_human(tmp_path, request):
     annotations.mkdir()
     auto = create_annotation("A", {"panel_id": "A"}, record(root), "AUTO", "auto")
     (annotations / "A.json").write_text(json.dumps(auto))
-    with pytest.raises(ValueError, match="not human-verified"):
+    with pytest.raises(ValueError, match="Ground Truth gate"):
         export_verified_annotations(annotations, tmp_path / "gt.jsonl")
     human = create_annotation("A", {"panel_id": "A"}, record(root), "annotator-1", "single_verified")
     (annotations / "A.json").write_text(json.dumps(human))
     result = export_verified_annotations(annotations, tmp_path / "gt.jsonl")
     assert result["annotation_count"] == 1
     assert len(result["sha256"]) == 64
+
+
+def test_ground_truth_gate_rejects_status_only_and_empty_intervals(request):
+    root = request.config.rootpath
+    source = record(root)
+    source["intervals"] = []
+    annotation = create_annotation("A", {"panel_id": "A"}, source, "reviewer", "single_verified")
+    assert "NO_INTERVALS" in ground_truth_gate(annotation)
+    assert ground_truth_gate(annotation, require_intervals=False) == []
+
+
+def test_ground_truth_gate_requires_populated_interval_fields_to_be_human_confirmed(request):
+    root = request.config.rootpath
+    annotation = create_annotation("A", {"panel_id": "A"}, record(root), "reviewer", "single_verified")
+    annotation["record"]["intervals"][0]["top_depth_m"]["extraction_method"] = "vlm"
+    failures = ground_truth_gate(annotation)
+    assert "FIELD_NOT_HUMAN_AUTHORED:intervals[0].top_depth_m" in failures
 
 
 def test_annotation_agreement_reports_numeric_difference(request):

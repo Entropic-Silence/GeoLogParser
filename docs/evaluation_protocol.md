@@ -49,6 +49,25 @@ and auto-accept error rate.
 
 No aggregate metric replaces its component results.
 
+## Ground Truth and dataset runner
+
+The paper-facing evaluator accepts annotation envelopes only after the Ground
+Truth gate passes. A human status alone is insufficient: log pages require at
+least one interval; every MVP interval value must be present, explicitly
+human-authored, field-level `human_verified`, and page-traceable. Populated MVP
+borehole fields must likewise be human-authored and verified. A reviewer may
+explicitly export a verified non-log page with no intervals, but that exception
+must be selected at export time and recorded by the surrounding dataset build.
+
+`scripts/evaluate.py` joins references and predictions by exact annotation ID,
+rejects missing/extra/duplicate IDs, validates every prediction against the
+schema, and writes an immutable run. It reports categorical exact match,
+numeric MAE plus coverage/reference counts, boundary-matched interval P/R/F1,
+matched boundary/thickness MAE, boundary accuracy at ±0.01/0.05/0.10 m,
+lithology exact match, description CER/numeric CER, and a traceable error
+distribution. This runner is implemented; formal Padova/Chinese values remain
+`TBD` because no human GT snapshot exists yet.
+
 ## Constraint coverage
 
 The implemented audit summary computes `1 - violations/evaluated_checks` only

@@ -1,5 +1,23 @@
 # Research log
 
+## 2026-08-12 — Result-derived annotation pack and GT evaluator
+
+- Experiment: transformed the immutable Padova B6 audit predictions into a new
+  review-only annotation pack. The source predictions SHA256 is
+  `bf44f8c06acde38f3cf97b2dc3db2efe20d617dd59d6c92b82f79f1278fbb226`.
+- Observation: the pack contains 15 auto annotations and 87 proposed
+  intervals, compared with zero intervals in the initial direct-text proposals.
+  Human-verified annotation count is still zero and accuracy remains null.
+- Failure: the earlier verified-annotation exporter trusted a human document
+  status without checking interval completeness or field-level human
+  confirmation. That could have admitted a status-only zero-interval record.
+- Decision: enforce a GT content/provenance gate and replace the dataset-level
+  evaluation placeholder with an ID-aligned, schema-validating runner that
+  preserves metric denominators and traceable errors. An identity synthetic
+  smoke test passed but is not indexed or used as paper evidence.
+- Next step: use the new B6 pack for actual human review; export GT only after
+  the gate passes, then evaluate the frozen B1–B6 predictions.
+
 ## 2026-08-12 — Padova annotation-to-spatial catalog gate
 
 - Experiment: linked the 15 existing page-level annotation proposals to 11

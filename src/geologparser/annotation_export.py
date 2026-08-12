@@ -8,13 +8,55 @@ from pathlib import Path
 from typing import Any, Mapping, Sequence
 
 from geologparser.annotation import validate_annotation
-from geologparser.evaluation import exact_match, numeric_with_missing_mae
 
 
 HUMAN_STATUSES = {"single_verified", "double_verified", "expert_verified"}
+MVP_BOREHOLE_FIELDS = (
+    "borehole_id", "collar_elevation_m", "final_depth_m", "groundwater_depth_m",
+)
+MVP_INTERVAL_FIELDS = (
+    "top_depth_m", "bottom_depth_m", "thickness_m", "lithology_raw", "description_raw",
+)
 
 
-def export_verified_annotations(annotation_root: Path, destination: Path) -> dict[str, Any]:
+def ground_truth_gate(
+    annotation: Mapping[str, Any], *, require_intervals: bool = True,
+) -> list[str]:
+    """Return explicit reasons a human-status annotation is not exportable GT."""
+    failures = []
+    if annotation.get("annotation_status") not in HUMAN_STATUSES:
+        failures.append("ANNOTATION_NOT_HUMAN_VERIFIED")
+    record = annotation.get("record", {})
+    intervals = record.get("intervals", [])
+    if require_intervals and not intervals:
+        failures.append("NO_INTERVALS")
+    # A missing document-level value is legitimate, but any populated GT value
+    # must have been explicitly confirmed by a human and remain traceable.
+    for name in MVP_BOREHOLE_FIELDS:
+        envelope = record.get("borehole", {}).get(name, {})
+        if envelope.get("value") is not None:
+            if envelope.get("validation_status") != "human_verified":
+                failures.append(f"FIELD_NOT_HUMAN_VERIFIED:borehole.{name}")
+            if envelope.get("extraction_method") != "human":
+                failures.append(f"FIELD_NOT_HUMAN_AUTHORED:borehole.{name}")
+    for index, interval in enumerate(intervals):
+        for name in MVP_INTERVAL_FIELDS:
+            envelope = interval.get(name, {})
+            if envelope.get("value") is None:
+                failures.append(f"MISSING_INTERVAL_FIELD:intervals[{index}].{name}")
+                continue
+            if envelope.get("validation_status") != "human_verified":
+                failures.append(f"FIELD_NOT_HUMAN_VERIFIED:intervals[{index}].{name}")
+            if envelope.get("extraction_method") != "human":
+                failures.append(f"FIELD_NOT_HUMAN_AUTHORED:intervals[{index}].{name}")
+            if envelope.get("source_page") is None:
+                failures.append(f"MISSING_SOURCE_PAGE:intervals[{index}].{name}")
+    return failures
+
+
+def export_verified_annotations(
+    annotation_root: Path, destination: Path, *, require_intervals: bool = True,
+) -> dict[str, Any]:
     """Write JSONL only when every source annotation is human-verified."""
     paths = sorted(annotation_root.glob("*.json"))
     if not paths:
@@ -23,8 +65,12 @@ def export_verified_annotations(annotation_root: Path, destination: Path) -> dic
     for path in paths:
         annotation = json.loads(path.read_text(encoding="utf-8"))
         validate_annotation(annotation)
-        if annotation["annotation_status"] not in HUMAN_STATUSES:
-            raise ValueError(f"annotation {annotation['annotation_id']} is not human-verified")
+        failures = ground_truth_gate(annotation, require_intervals=require_intervals)
+        if failures:
+            raise ValueError(
+                f"annotation {annotation['annotation_id']} failed Ground Truth gate: "
+                + ", ".join(failures)
+            )
         annotations.append(annotation)
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(
@@ -51,6 +97,10 @@ def annotation_agreement(
     Reports exact header agreement and boundary numeric agreement. It does not
     infer that matching annotator IDs constitute independent annotation.
     """
+    # Local import prevents the GT gate from depending on the evaluation
+    # package initializer, which itself exposes the benchmark evaluator.
+    from geologparser.evaluation.metrics import exact_match, numeric_with_missing_mae
+
     left = {str(item["annotation_id"]): item for item in first}
     right = {str(item["annotation_id"]): item for item in second}
     if set(left) != set(right):
