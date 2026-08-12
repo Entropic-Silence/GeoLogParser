@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://geologparser.org/schemas/borehole_v001.schema.json",
+  "title": "GeoLogParser borehole record v001",
+  "description": "Traceable structured output for one borehole log. Missing values are null; no field may be guessed.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "document", "borehole", "intervals"],
+  "properties": {
+    "schema_version": {"const": "v001"},
+    "document": {"$ref": "#/$defs/document"},
+    "borehole": {"$ref": "#/$defs/borehole"},
+    "intervals": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/interval"}
+    }
+  },
+  "$defs": {
+    "bbox": {
+      "type": "array",
+      "description": "[x1,y1,x2,y2] in the declared page coordinate space.",
+      "prefixItems": [
+        {"type": "number"}, {"type": "number"},
+        {"type": "number"}, {"type": "number"}
+      ],
+      "minItems": 4,
+      "maxItems": 4
+    },
+    "evidence": {
+      "type": "object",
+      "required": [
+        "source_page", "source_bbox", "source_text", "extraction_method",
+        "confidence", "validation_status", "warning_codes"
+      ],
+      "properties": {
+        "source_page": {"type": ["integer", "null"], "minimum": 1},
+        "source_bbox": {"oneOf": [{"$ref": "#/$defs/bbox"}, {"type": "null"}]},
+        "source_text": {"type": ["string", "null"]},
+        "extraction_method": {
+          "type": "string",
+          "enum": ["human", "direct_pdf_text", "ocr", "regex", "llm", "vlm", "fusion", "derived", "unknown"]
+        },
+        "confidence": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "validation_status": {
+          "type": "string",
+          "enum": ["not_validated", "passed", "warning", "failed", "needs_review", "human_verified"]
+        },
+        "warning_codes": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "raw_unit": {"type": ["string", "null"]}
+      }
+    },
+    "string_field": {
+      "allOf": [
+        {"$ref": "#/$defs/evidence"},
+        {
+          "type": "object",
+          "required": ["value"],
+          "properties": {"value": {"type": ["string", "null"]}}
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "number_field": {
+      "allOf": [
+        {"$ref": "#/$defs/evidence"},
+        {
+          "type": "object",
+          "required": ["value"],
+          "properties": {"value": {"type": ["number", "null"]}}
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "date_field": {
+      "allOf": [
+        {"$ref": "#/$defs/evidence"},
+        {
+          "type": "object",
+          "required": ["value"],
+          "properties": {"value": {"type": ["string", "null"], "format": "date"}}
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "document": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["document_id", "source_file", "document_type", "page_count", "bbox_coordinate_space"],
+      "properties": {
+        "document_id": {"type": "string", "minLength": 1},
+        "source_file": {"type": "string", "minLength": 1},
+        "document_type": {"enum": ["native_pdf", "scanned_pdf", "image", "mixed_pdf", "unknown"]},
+        "page_count": {"type": "integer", "minimum": 1},
+        "bbox_coordinate_space": {"enum": ["pixels", "pdf_points", "normalized_0_1", "unknown"]},
+        "source_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+        "metadata": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "template_id": {"type": ["string", "null"]},
+            "project_id": {"type": ["string", "null"]},
+            "source_id": {"type": ["string", "null"]},
+            "quality": {"enum": ["low", "medium", "high", "unknown", null]},
+            "contains_stamp": {"type": ["boolean", "null"]},
+            "contains_handwriting": {"type": ["boolean", "null"]},
+            "dpi": {"type": ["number", "null"], "exclusiveMinimum": 0}
+          }
+        }
+      }
+    },
+    "borehole": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "borehole_id", "project_name", "page_id", "x_coordinate", "y_coordinate",
+        "coordinate_system", "collar_elevation_m", "final_depth_m",
+        "groundwater_depth_m", "groundwater_elevation_m", "drilling_date"
+      ],
+      "properties": {
+        "borehole_id": {"$ref": "#/$defs/string_field"},
+        "project_name": {"$ref": "#/$defs/string_field"},
+        "page_id": {"$ref": "#/$defs/string_field"},
+        "x_coordinate": {"$ref": "#/$defs/number_field"},
+        "y_coordinate": {"$ref": "#/$defs/number_field"},
+        "coordinate_system": {"$ref": "#/$defs/string_field"},
+        "collar_elevation_m": {"$ref": "#/$defs/number_field"},
+        "final_depth_m": {"$ref": "#/$defs/number_field"},
+        "groundwater_depth_m": {"$ref": "#/$defs/number_field"},
+        "groundwater_elevation_m": {"$ref": "#/$defs/number_field"},
+        "drilling_date": {"$ref": "#/$defs/date_field"}
+      }
+    },
+    "interval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "interval_id", "top_depth_m", "bottom_depth_m", "thickness_m",
+        "stratum_code_raw", "stratum_code_normalized", "lithology_raw",
+        "lithology_normalized", "description_raw", "description_normalized",
+        "weathering", "color", "consistency_or_density", "moisture",
+        "structure", "inclusions"
+      ],
+      "properties": {
+        "interval_id": {"type": "string", "minLength": 1},
+        "top_depth_m": {"$ref": "#/$defs/number_field"},
+        "bottom_depth_m": {"$ref": "#/$defs/number_field"},
+        "thickness_m": {"$ref": "#/$defs/number_field"},
+        "stratum_code_raw": {"$ref": "#/$defs/string_field"},
+        "stratum_code_normalized": {"$ref": "#/$defs/string_field"},
+        "lithology_raw": {"$ref": "#/$defs/string_field"},
+        "lithology_normalized": {"$ref": "#/$defs/string_field"},
+        "description_raw": {"$ref": "#/$defs/string_field"},
+        "description_normalized": {"$ref": "#/$defs/string_field"},
+        "weathering": {"$ref": "#/$defs/string_field"},
+        "color": {"$ref": "#/$defs/string_field"},
+        "consistency_or_density": {"$ref": "#/$defs/string_field"},
+        "moisture": {"$ref": "#/$defs/string_field"},
+        "structure": {"$ref": "#/$defs/string_field"},
+        "inclusions": {"$ref": "#/$defs/string_field"}
+      }
+    }
+  }
+}

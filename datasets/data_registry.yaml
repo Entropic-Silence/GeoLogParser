@@ -1,0 +1,122 @@
+registry_version: v001
+last_verified_utc: "2026-08-12"
+policy:
+  listing_is_permission_to_download: false
+  redistribution_requires_explicit_verification: true
+  large_asset_root: /data/GeoLogParser/datasets
+  unknown_values: TBD
+
+datasets:
+  - id: bgs_onshore_borehole_records
+    name: BGS onshore borehole records and scans
+    source_organization: British Geological Survey
+    url: https://www.bgs.ac.uk/information-hub/borehole-records/
+    license_url: https://www.bgs.ac.uk/legal-and-policy/terms-of-use/
+    access_date: "2026-08-12"
+    language: English
+    format: borehole record scans/PDF and index metadata
+    scale: "catalogue describes over one million onshore borehole, shaft and well records; exact downloadable log subset TBD"
+    downloadable: conditional
+    access_status: "official viewer page directly accessible; bulk/API access must still be verified"
+    license: "BGS terms; exact data-product licence TBD"
+    allowed_usage: "research use subject to BGS data/product terms; verify per downloaded item"
+    redistribution: unclear
+    redistribution_policy: "do not redistribute files until the exact record/product licence is captured"
+    paper_fit: [paper1_public_pipeline_validation, paper1_international_transfer]
+    status: license_unclear
+    verification_notes: "Official borehole-record and terms pages both returned HTTP 200; the page describes direct online access to onshore scanned records. Exact item/product terms still require capture."
+
+  - id: usgs_geolog_locator
+    name: GeoLog Locator
+    source_organization: U.S. Geological Survey
+    url: https://www.usgs.gov/tools/geolog-locator
+    license_url: https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits
+    access_date: "2026-08-12"
+    language: English
+    format: digitized geophysical borehole logs; image/PDF formats vary
+    scale: TBD
+    downloadable: conditional
+    access_status: "official site blocked automated verification with HTTP 403 from this host; browser/manual verification required"
+    license: "USGS-authored data are generally public domain, but third-party material and item-level restrictions must be checked"
+    allowed_usage: TBD
+    redistribution: conditional
+    redistribution_policy: "redistribute only item-level verified public-domain content with provenance"
+    paper_fit: [paper1_public_pipeline_validation, paper1_international_transfer]
+    status: needs_manual_verification
+    verification_notes: "Both tool and copyright pages returned HTTP 403 on 2026-08-12; no files downloaded."
+
+  - id: new_zealand_geotechnical_database
+    name: New Zealand Geotechnical Database (NZGD)
+    source_organization: New Zealand Geotechnical Database / participating agencies
+    url: https://www.nzgd.org.nz/
+    license_url: https://www.nzgd.org.nz/
+    access_date: "2026-08-12"
+    language: English
+    format: geotechnical investigation records including borehole logs; exact export formats TBD
+    scale: TBD
+    downloadable: account_or_terms_dependent
+    access_status: "landing page accessible; dataset access and terms require interactive/manual verification"
+    license: unclear
+    allowed_usage: TBD
+    redistribution: unclear
+    redistribution_policy: "metadata-only registration; do not download/redistribute until terms are recorded"
+    paper_fit: [paper1_public_pipeline_validation, paper1_international_transfer, paper3_case_study_candidate]
+    status: access_or_license_unclear
+    verification_notes: "Landing page returned HTTP 200 but did not expose sufficiently auditable terms in the command-line response."
+
+  - id: netherlands_bro_borehole_research
+    name: Basisregistratie Ondergrond (BRO) borehole research domain
+    source_organization: Geological Survey of the Netherlands / Dutch government
+    url: https://www.bro-productomgeving.nl/bpo/latest/
+    license_url: TBD
+    access_date: "2026-08-12"
+    language: Dutch
+    format: standardized digital subsurface data; suitability as legacy page images TBD
+    scale: TBD
+    downloadable: true
+    access_status: "official product environment accessible"
+    license: "TBD; a guessed general licence URL returned HTTP 404 and was removed"
+    allowed_usage: "likely open-data use, subject to exact dataset licence verification"
+    redistribution: conditional
+    redistribution_policy: "redistribute only after dataset-specific licence and attribution are captured"
+    paper_fit: [paper1_schema_validation, paper3_database_interoperability]
+    status: directly_accessible_but_format_fit_tbd
+    verification_notes: "Official product environment returned HTTP 200. Primarily useful for schema/database interoperability; legacy scanned-log relevance and exact dataset licence are not yet established."
+
+  - id: ontario_water_well_records
+    name: Ontario water well records
+    source_organization: Government of Ontario
+    url: https://data.ontario.ca/dataset/well-records
+    license_url: https://www.ontario.ca/page/open-government-licence-ontario
+    access_date: "2026-08-12"
+    language: English
+    format: structured well-record data and/or record services; page-image availability TBD
+    scale: TBD
+    downloadable: true
+    access_status: "open-data licence page accessible; dataset page returned HTTP 429 from this host, so resource inventory needs browser/manual verification"
+    license: Open Government Licence - Ontario
+    allowed_usage: "copy, modify, publish, translate, adapt, distribute, or otherwise use subject to attribution and licence exclusions"
+    redistribution: allowed_with_conditions
+    redistribution_policy: "retain attribution, source links, and licence notice; review excluded information and item-level terms"
+    paper_fit: [paper1_schema_validation, paper3_database_interoperability]
+    status: license_verified_dataset_fit_tbd
+    verification_notes: "Official licence page returned HTTP 200; dataset page returned HTTP 429. This source may be structured rather than document-image ground truth, so it cannot be presented as a borehole-log image benchmark without inspection."
+
+  - id: chinese_engineering_borehole_logs
+    name: Chinese engineering borehole-log benchmark candidates
+    source_organization: TBD (multiple sources required)
+    url: TBD
+    license_url: TBD
+    access_date: null
+    language: Chinese
+    format: PDF/JPG/PNG
+    scale: "target only: 500–1000 pages and 5000–10000 intervals; actual = TBD"
+    downloadable: false
+    access_status: "NOT ACQUIRED; requires rights-cleared institutional/public sources"
+    license: TBD
+    allowed_usage: TBD
+    redistribution: false
+    redistribution_policy: "no use or release until permission, privacy, and sensitive-location review are documented"
+    paper_fit: [paper1_core, paper2_core, paper3_if_spatially_coherent]
+    status: not_acquired
+    verification_notes: "No Chinese source is claimed in this first-round registry. Public benchmark construction remains the primary project risk."

@@ -1,0 +1,17 @@
+experiment_id: P0_SYNTHETIC_OCR_SMOKE_002
+purpose: engineering_connectivity_only
+dataset_version: synthetic_postscript_fixture_v001
+split_version: not_applicable
+model: tesseract_eng_cpu_smoke
+model_revision: "4.1.1"
+prompt_version: not_applicable
+seed: null
+config:
+  ocr_language: eng
+  psm: 6
+  constraint_tolerance_m: "0.05"
+claims_allowed:
+  - pipeline_completed
+claims_forbidden:
+  - benchmark_accuracy
+  - real_document_performance

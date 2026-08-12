@@ -1,0 +1,21 @@
+version: v001
+depth_validity:
+  enabled: true
+  severity: error
+thickness_consistency:
+  enabled: true
+  tolerance_m: "0.05"
+  severity: warning
+continuity:
+  enabled: true
+  tolerance_m: "0.05"
+  severity: warning
+monotonicity:
+  enabled: true
+  tolerance_m: "0.00"
+  severity: error
+final_depth_consistency:
+  enabled: true
+  tolerance_m: "0.05"
+  severity: warning
+

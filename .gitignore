@@ -1,0 +1,26 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+.idea/
+.vscode/
+.env
+
+# Runtime outputs are immutable and intentionally not versioned wholesale.
+results/**
+!results/.gitkeep
+!results/**/.gitkeep
+
+# Large or restricted data belong on /data/GeoLogParser.
+datasets/public/**
+!datasets/public/.gitkeep
+datasets/raw/
+datasets/processed/
+/models/
+/cache/

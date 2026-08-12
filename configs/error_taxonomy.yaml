@@ -1,0 +1,19 @@
+version: v001
+errors:
+  - OCR_digit_error
+  - OCR_character_error
+  - decimal_point_error
+  - column_misalignment
+  - row_merge
+  - row_split
+  - interval_boundary_error
+  - missing_interval
+  - duplicate_interval
+  - lithology_semantic_error
+  - normalization_error
+  - hallucination
+  - layout_error
+  - constraint_false_positive
+  - constraint_false_negative
+  - re_read_failure
+

@@ -1,0 +1,4 @@
+# Reproducible minimal development environment. Model-specific dependencies are
+# intentionally kept in separate future lock files/adapters.
+-e .[dev,pdf,ocr]
+

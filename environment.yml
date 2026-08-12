@@ -1,0 +1,11 @@
+name: geologparser
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - tesseract
+  - tesseract-langpack-chi_sim
+  - poppler
+  - pip:
+      - -e .[dev,pdf]

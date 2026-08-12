@@ -1,0 +1,24 @@
+version: v001
+selection_status: not_benchmarked
+ocr_models:
+  - id: tesseract_chi_sim
+    adapter: tesseract
+    role: cpu_smoke_test
+    revision: system_package
+  - id: paddleocr_candidate
+    adapter: paddleocr
+    role: chinese_ocr_baseline
+    revision: TBD
+layout_models:
+  - id: layout_candidate
+    adapter: TBD
+    revision: TBD
+vlm_models:
+  - id: local_document_vlm_candidate
+    adapter: transformers_or_vllm
+    revision: TBD
+llm_models:
+  - id: local_llm_candidate
+    adapter: openai_compatible_or_llama_cpp
+    revision: TBD
+

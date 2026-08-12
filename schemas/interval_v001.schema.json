@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://geologparser.org/schemas/interval_v001.schema.json",
+  "title": "GeoLogParser interval record v001",
+  "description": "Standalone validation entry point for an interval; canonical definition remains in borehole_v001.",
+  "$ref": "borehole_v001.schema.json#/$defs/interval"
+}
+

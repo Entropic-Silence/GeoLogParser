@@ -1,0 +1,449 @@
+{
+  "schema_version": "v001",
+  "document": {
+    "document_id": "synthetic-SYN-ZK01",
+    "source_file": "synthetic/SYN-ZK01.png",
+    "document_type": "image",
+    "page_count": 1,
+    "bbox_coordinate_space": "unknown",
+    "source_sha256": null,
+    "metadata": {
+      "template_id": "SYNTH-T01",
+      "project_id": "SYNTH-P01",
+      "source_id": "SYNTH",
+      "quality": "high",
+      "contains_stamp": false,
+      "contains_handwriting": false,
+      "dpi": 300
+    }
+  },
+  "borehole": {
+    "borehole_id": {
+      "value": "SYN-ZK01",
+      "source_page": 1,
+      "source_bbox": null,
+      "source_text": "SYN-ZK01",
+      "extraction_method": "human",
+      "confidence": 1.0,
+      "validation_status": "human_verified",
+      "warning_codes": []
+    },
+    "project_name": {
+      "value": "仅用于测试的合成项目",
+      "source_page": 1,
+      "source_bbox": null,
+      "source_text": "仅用于测试的合成项目",
+      "extraction_method": "human",
+      "confidence": 1.0,
+      "validation_status": "human_verified",
+      "warning_codes": []
+    },
+    "page_id": {
+      "value": "1",
+      "source_page": 1,
+      "source_bbox": null,
+      "source_text": "1",
+      "extraction_method": "human",
+      "confidence": 1.0,
+      "validation_status": "human_verified",
+      "warning_codes": []
+    },
+    "coordinate_system": {
+      "value": null,
+      "source_page": null,
+      "source_bbox": null,
+      "source_text": null,
+      "extraction_method": "unknown",
+      "confidence": null,
+      "validation_status": "not_validated",
+      "warning_codes": []
+    },
+    "x_coordinate": {
+      "value": null,
+      "source_page": null,
+      "source_bbox": null,
+      "source_text": null,
+      "extraction_method": "unknown",
+      "confidence": null,
+      "validation_status": "not_validated",
+      "warning_codes": []
+    },
+    "y_coordinate": {
+      "value": null,
+      "source_page": null,
+      "source_bbox": null,
+      "source_text": null,
+      "extraction_method": "unknown",
+      "confidence": null,
+      "validation_status": "not_validated",
+      "warning_codes": []
+    },
+    "collar_elevation_m": {
+      "value": 42.6,
+      "source_page": 1,
+      "source_bbox": null,
+      "source_text": "42.60",
+      "extraction_method": "human",
+      "confidence": 1.0,
+      "validation_status": "human_verified",
+      "warning_codes": [],
+      "raw_unit": "m"
+    },
+    "final_depth_m": {
+      "value": 4.5,
+      "source_page": 1,
+      "source_bbox": null,
+      "source_text": "4.50",
+      "extraction_method": "human",
+      "confidence": 1.0,
+      "validation_status": "human_verified",
+      "warning_codes": [],
+      "raw_unit": "m"
+    },
+    "groundwater_depth_m": {
+      "value": 2.1,
+      "source_page": 1,
+      "source_bbox": null,
+      "source_text": "2.10",
+      "extraction_method": "human",
+      "confidence": 1.0,
+      "validation_status": "human_verified",
+      "warning_codes": [],
+      "raw_unit": "m"
+    },
+    "groundwater_elevation_m": {
+      "value": null,
+      "source_page": null,
+      "source_bbox": null,
+      "source_text": null,
+      "extraction_method": "unknown",
+      "confidence": null,
+      "validation_status": "not_validated",
+      "warning_codes": []
+    },
+    "drilling_date": {
+      "value": null,
+      "source_page": null,
+      "source_bbox": null,
+      "source_text": null,
+      "extraction_method": "unknown",
+      "confidence": null,
+      "validation_status": "not_validated",
+      "warning_codes": []
+    }
+  },
+  "intervals": [
+    {
+      "interval_id": "I001",
+      "top_depth_m": {
+        "value": 0.0,
+        "source_page": 1,
+        "source_bbox": null,
+        "source_text": "0.00",
+        "extraction_method": "human",
+        "confidence": 1.0,
+        "validation_status": "human_verified",
+        "warning_codes": [],
+        "raw_unit": "m"
+      },
+      "bottom_depth_m": {
+        "value": 1.2,
+        "source_page": 1,
+        "source_bbox": null,
+        "source_text": "1.20",
+        "extraction_method": "human",
+        "confidence": 1.0,
+        "validation_status": "human_verified",
+        "warning_codes": [],
+        "raw_unit": "m"
+      },
+      "thickness_m": {
+        "value": 1.2,
+        "source_page": 1,
+        "source_bbox": null,
+        "source_text": "1.20",
+        "extraction_method": "human",
+        "confidence": 1.0,
+        "validation_status": "human_verified",
+        "warning_codes": [],
+        "raw_unit": "m"
+      },
+      "stratum_code_raw": {
+        "value": null,
+        "source_page": null,
+        "source_bbox": null,
+        "source_text": null,
+        "extraction_method": "unknown",
+        "confidence": null,
+        "validation_status": "not_validated",
+        "warning_codes": []
+      },
+      "stratum_code_normalized": {
+        "value": null,
+        "source_page": null,
+        "source_bbox": null,
+        "source_text": null,
+        "extraction_method": "unknown",
+        "confidence": null,
+        "validation_status": "not_validated",
+        "warning_codes": []
+      },
+      "lithology_raw": {
+        "value": "杂填土",
+        "source_page": 1,
+        "source_bbox": null,
+        "source_text": "杂填土",
+        "extraction_method": "human",
+        "confidence": 1.0,
+        "validation_status": "human_verified",
+        "warning_codes": []
+      },
+      "lithology_normalized": {
+        "value": "杂填土",
+        "source_page": 1,
+        "source_bbox": null,
+        "source_text": "杂填土",
+        "extraction_method": "human",
+        "confidence": 1.0,
+        "validation_status": "human_verified",
+        "warning_codes": []
+      },
+      "description_raw": {
+        "value": "灰褐色，松散",
+        "source_page": 1,
+        "source_bbox": null,
+        "source_text": "灰褐色，松散",
+        "extraction_method": "human",
+        "confidence": 1.0,
+        "validation_status": "human_verified",
+        "warning_codes": []
+      },
+      "description_normalized": {
+        "value": "灰褐色，松散",
+        "source_page": 1,
+        "source_bbox": null,
+        "source_text": "灰褐色，松散",
+        "extraction_method": "human",
+        "confidence": 1.0,
+        "validation_status": "human_verified",
+        "warning_codes": []
+      },
+      "weathering": {
+        "value": null,
+        "source_page": null,
+        "source_bbox": null,
+        "source_text": null,
+        "extraction_method": "unknown",
+        "confidence": null,
+        "validation_status": "not_validated",
+        "warning_codes": []
+      },
+      "color": {
+        "value": null,
+        "source_page": null,
+        "source_bbox": null,
+        "source_text": null,
+        "extraction_method": "unknown",
+        "confidence": null,
+        "validation_status": "not_validated",
+        "warning_codes": []
+      },
+      "consistency_or_density": {
+        "value": null,
+        "source_page": null,
+        "source_bbox": null,
+        "source_text": null,
+        "extraction_method": "unknown",
+        "confidence": null,
+        "validation_status": "not_validated",
+        "warning_codes": []
+      },
+      "moisture": {
+        "value": null,
+        "source_page": null,
+        "source_bbox": null,
+        "source_text": null,
+        "extraction_method": "unknown",
+        "confidence": null,
+        "validation_status": "not_validated",
+        "warning_codes": []
+      },
+      "structure": {
+        "value": null,
+        "source_page": null,
+        "source_bbox": null,
+        "source_text": null,
+        "extraction_method": "unknown",
+        "confidence": null,
+        "validation_status": "not_validated",
+        "warning_codes": []
+      },
+      "inclusions": {
+        "value": null,
+        "source_page": null,
+        "source_bbox": null,
+        "source_text": null,
+        "extraction_method": "unknown",
+        "confidence": null,
+        "validation_status": "not_validated",
+        "warning_codes": []
+      }
+    },
+    {
+      "interval_id": "I002",
+      "top_depth_m": {
+        "value": 1.2,
+        "source_page": 1,
+        "source_bbox": null,
+        "source_text": "1.20",
+        "extraction_method": "human",
+        "confidence": 1.0,
+        "validation_status": "human_verified",
+        "warning_codes": [],
+        "raw_unit": "m"
+      },
+      "bottom_depth_m": {
+        "value": 4.5,
+        "source_page": 1,
+        "source_bbox": null,
+        "source_text": "4.50",
+        "extraction_method": "human",
+        "confidence": 1.0,
+        "validation_status": "human_verified",
+        "warning_codes": [],
+        "raw_unit": "m"
+      },
+      "thickness_m": {
+        "value": 3.3,
+        "source_page": 1,
+        "source_bbox": null,
+        "source_text": "3.30",
+        "extraction_method": "human",
+        "confidence": 1.0,
+        "validation_status": "human_verified",
+        "warning_codes": [],
+        "raw_unit": "m"
+      },
+      "stratum_code_raw": {
+        "value": null,
+        "source_page": null,
+        "source_bbox": null,
+        "source_text": null,
+        "extraction_method": "unknown",
+        "confidence": null,
+        "validation_status": "not_validated",
+        "warning_codes": []
+      },
+      "stratum_code_normalized": {
+        "value": null,
+        "source_page": null,
+        "source_bbox": null,
+        "source_text": null,
+        "extraction_method": "unknown",
+        "confidence": null,
+        "validation_status": "not_validated",
+        "warning_codes": []
+      },
+      "lithology_raw": {
+        "value": "亚粘土",
+        "source_page": 1,
+        "source_bbox": null,
+        "source_text": "亚粘土",
+        "extraction_method": "human",
+        "confidence": 1.0,
+        "validation_status": "human_verified",
+        "warning_codes": []
+      },
+      "lithology_normalized": {
+        "value": "粉质黏土",
+        "source_page": 1,
+        "source_bbox": null,
+        "source_text": "粉质黏土",
+        "extraction_method": "human",
+        "confidence": 1.0,
+        "validation_status": "human_verified",
+        "warning_codes": []
+      },
+      "description_raw": {
+        "value": "黄褐色，可塑",
+        "source_page": 1,
+        "source_bbox": null,
+        "source_text": "黄褐色，可塑",
+        "extraction_method": "human",
+        "confidence": 1.0,
+        "validation_status": "human_verified",
+        "warning_codes": []
+      },
+      "description_normalized": {
+        "value": "黄褐色，可塑",
+        "source_page": 1,
+        "source_bbox": null,
+        "source_text": "黄褐色，可塑",
+        "extraction_method": "human",
+        "confidence": 1.0,
+        "validation_status": "human_verified",
+        "warning_codes": []
+      },
+      "weathering": {
+        "value": null,
+        "source_page": null,
+        "source_bbox": null,
+        "source_text": null,
+        "extraction_method": "unknown",
+        "confidence": null,
+        "validation_status": "not_validated",
+        "warning_codes": []
+      },
+      "color": {
+        "value": null,
+        "source_page": null,
+        "source_bbox": null,
+        "source_text": null,
+        "extraction_method": "unknown",
+        "confidence": null,
+        "validation_status": "not_validated",
+        "warning_codes": []
+      },
+      "consistency_or_density": {
+        "value": null,
+        "source_page": null,
+        "source_bbox": null,
+        "source_text": null,
+        "extraction_method": "unknown",
+        "confidence": null,
+        "validation_status": "not_validated",
+        "warning_codes": []
+      },
+      "moisture": {
+        "value": null,
+        "source_page": null,
+        "source_bbox": null,
+        "source_text": null,
+        "extraction_method": "unknown",
+        "confidence": null,
+        "validation_status": "not_validated",
+        "warning_codes": []
+      },
+      "structure": {
+        "value": null,
+        "source_page": null,
+        "source_bbox": null,
+        "source_text": null,
+        "extraction_method": "unknown",
+        "confidence": null,
+        "validation_status": "not_validated",
+        "warning_codes": []
+      },
+      "inclusions": {
+        "value": null,
+        "source_page": null,
+        "source_bbox": null,
+        "source_text": null,
+        "extraction_method": "unknown",
+        "confidence": null,
+        "validation_status": "not_validated",
+        "warning_codes": []
+      }
+    }
+  ]
+}
