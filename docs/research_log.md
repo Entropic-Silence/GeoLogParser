@@ -104,3 +104,26 @@
   and depth columns far apart and require explicit layout reasoning.
 - Next step: formalize interval matching and constraint-coverage summaries,
   then implement column-aware layout evidence before claiming interval metrics.
+
+## 2026-08-12 — Quarantined Chinese panel-rendering validation
+
+- Experiment: engineering validation only; no benchmark ID and no accuracy
+  metric. Source is the rights-unverified Sanming public-web candidate PDF,
+  SHA256 `a227f24191cee7613d313c75dbc103ce6f36c3b7144b0d9626c07bfcb7f767ef`.
+- Observation: pages 44–45 are A3 pages containing two boreholes each. A
+  normalized half-page panel manifest produced four independent 150 dpi PNGs
+  (ZK2, ZK9, ZK11, ZK14), each about 1241×1755 pixels. The generated manifest
+  stores source/render hashes, page, crop, DPI, project/template quarantine IDs,
+  and a prohibition-pending-rights-review flag. Visual inspection confirmed the
+  primary panel header and table are retained.
+- Failure/risk: pages visibly contain exact coordinates, project information,
+  stamps, signatures, and company details; narrow neighboring border remnants
+  occur at the half-page seam. Rights, privacy, and sensitive-location review
+  are incomplete. These four panels are not counted as released or
+  rights-cleared benchmark pages.
+- Decision: keep rendered images and generated manifest under `/data` only.
+  Treat a panel, not a physical PDF page, as the one-borehole annotation unit.
+  Annotation saves are revisioned and preserve prior JSON in history.
+- Next step: exploit the candidate's native Unicode text layer through a
+  panel-aware adapter for internal schema validation, while continuing the
+  independent rights-clearance process.

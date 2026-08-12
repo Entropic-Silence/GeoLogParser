@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://geologparser.org/schemas/annotation_v001.schema.json",
+  "title": "GeoLogParser annotation envelope v001",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "annotation_schema_version", "annotation_id", "revision",
+    "annotation_status", "annotator_id", "created_at", "updated_at",
+    "panel", "record"
+  ],
+  "properties": {
+    "annotation_schema_version": {"const": "v001"},
+    "annotation_id": {"type": "string", "minLength": 1},
+    "revision": {"type": "integer", "minimum": 1},
+    "annotation_status": {
+      "enum": ["auto", "single_verified", "double_verified", "expert_verified"]
+    },
+    "annotator_id": {"type": "string", "minLength": 1},
+    "created_at": {"type": "string", "format": "date-time"},
+    "updated_at": {"type": "string", "format": "date-time"},
+    "panel": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["panel_id"],
+      "properties": {"panel_id": {"type": "string", "minLength": 1}}
+    },
+    "record": {"type": "object"}
+  }
+}
