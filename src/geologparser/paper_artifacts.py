@@ -149,3 +149,41 @@ def paper3_table(entries: list[dict], repository_root: Path) -> str:
         *rows, "",
         "These rows are synthetic protocol results only; they are not evidence of real geological-model sensitivity. Multi-seed rows show mean ± sample standard deviation across seeds.",
     ]) + "\n"
+
+
+def paper2_table(entries: list[dict], repository_root: Path) -> str:
+    rows = []
+    for entry in entries:
+        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
+        if metrics.get("protocol") != "paper2_one_module_ablation_matrix_v001":
+            continue
+        for variant_name, variant in metrics["variants"].items():
+            values = variant["metrics"]
+            correction = values["correction"]
+            review = values["review"]
+            confidence = values["confidence"]
+            rows.append("| " + " | ".join([
+                entry["experiment_id"], variant_name,
+                ", ".join(variant["disabled_modules"]) or "none",
+                str(values["calibration_case_count"]), str(values["test_case_count"]),
+                ratio(correction["correction_success_rate"]),
+                ratio(correction["false_correction_rate"]),
+                ratio(review["manual_review_recall"]),
+                ratio(review["review_rate"]),
+                number(confidence["raw_expected_calibration_error"]["value"]),
+                number(confidence["calibrated_expected_calibration_error"]["value"]),
+                entry["paper_eligibility"],
+            ]) + " |")
+    if not rows:
+        return (
+            "<!-- AUTO-GENERATED. DO NOT EDIT. -->\n\n"
+            "No Paper II experiment is indexed yet. Main, ablation, calibration, "
+            "review-recall, and false-correction results are `TBD`.\n"
+        )
+    return "\n".join([
+        "<!-- AUTO-GENERATED. DO NOT EDIT. -->",
+        "| Experiment | Variant | Disabled | Calibration n | Test n | Correction success | FCR | Review recall | Review rate | Raw ECE | Calibrated ECE | Eligibility |",
+        "|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---|",
+        *rows, "",
+        "Rows are generated only from human-GT-gated, identical-case, one-module-at-a-time ablation matrices.",
+    ]) + "\n"

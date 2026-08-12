@@ -14,6 +14,16 @@ REQUIRED_CASE_KEYS = {
     "case_id", "reference", "original", "decision", "needs_review_label",
     "confidence", "correctness_label", "calibration_partition",
 }
+EXPECTED_ABLATION_VARIANTS = {
+    "full": (),
+    "minus_constraints": ("constraints",),
+    "minus_rereading": ("rereading",),
+    "minus_layout": ("layout",),
+    "minus_ocr": ("ocr",),
+    "minus_vlm": ("vlm",),
+    "minus_normalization": ("normalization",),
+    "minus_calibration": ("calibration",),
+}
 
 
 def evaluate_paper2_cases(
@@ -82,4 +92,52 @@ def evaluate_paper2_cases(
             "calibrated_brier_score": calibrated_brier.to_dict(),
             "calibrated_expected_calibration_error": calibrated_ece.to_dict(),
         },
+    }
+
+
+def evaluate_paper2_ablation_matrix(
+    variants: Mapping[str, Mapping[str, Any]], *, bins: int = 10,
+) -> dict[str, Any]:
+    """Evaluate one-module-at-a-time variants on exactly the same GT cases."""
+    if not variants:
+        raise ValueError("Paper II ablation matrix requires variants")
+    unknown = set(variants) - set(EXPECTED_ABLATION_VARIANTS)
+    if unknown:
+        raise ValueError(f"unknown ablation variants: {', '.join(sorted(unknown))}")
+    if "full" not in variants:
+        raise ValueError("ablation matrix requires a full variant")
+    canonical_cases: dict[str, tuple[Any, ...]] | None = None
+    output = {}
+    for name, variant in variants.items():
+        disabled = tuple(variant.get("disabled_modules", ()))
+        if disabled != EXPECTED_ABLATION_VARIANTS[name]:
+            raise ValueError(
+                f"variant {name} must disable exactly {EXPECTED_ABLATION_VARIANTS[name]}, got {disabled}"
+            )
+        cases = variant.get("cases")
+        if not isinstance(cases, Sequence) or isinstance(cases, (str, bytes)):
+            raise ValueError(f"variant {name} cases must be a sequence")
+        identity = {
+            str(case.get("case_id")): (
+                case.get("reference"), case.get("original"), case.get("needs_review_label"),
+                case.get("calibration_partition"), case.get("ground_truth_status"),
+            )
+            for case in cases
+        }
+        if len(identity) != len(cases):
+            raise ValueError(f"variant {name} has duplicate case IDs")
+        if canonical_cases is None:
+            canonical_cases = identity
+        elif identity != canonical_cases:
+            raise ValueError(f"variant {name} does not use the identical GT case set")
+        output[name] = {
+            "disabled_modules": list(disabled),
+            "metrics": evaluate_paper2_cases(cases, bins=bins),
+        }
+    return {
+        "protocol": "paper2_one_module_ablation_matrix_v001",
+        "case_count": len(canonical_cases or {}),
+        "variant_count": len(output),
+        "complete_expected_matrix": set(output) == set(EXPECTED_ABLATION_VARIANTS),
+        "variants": output,
     }

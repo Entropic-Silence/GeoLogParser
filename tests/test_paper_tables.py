@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 
-from geologparser.paper_artifacts import paper1_table, paper3_table
+from geologparser.paper_artifacts import paper1_table, paper2_table, paper3_table
 
 
 def write_run(root: Path, metrics: dict, run: dict):
@@ -34,3 +34,23 @@ def test_paper3_table_is_labelled_protocol_only(tmp_path: Path, monkeypatch):
     table = paper3_table([{"experiment_id": "E", "result_path": "result", "paper_eligibility": "protocol_only"}], tmp_path)
     assert "protocol_only" in table
     assert "not evidence" in table
+
+
+def test_paper2_table_uses_gated_ablation_metrics(tmp_path: Path):
+    metric = lambda value: {"value": value, "numerator": value, "denominator": 1}
+    metrics = {
+        "protocol": "paper2_one_module_ablation_matrix_v001",
+        "variants": {"full": {"disabled_modules": [], "metrics": {
+            "calibration_case_count": 2, "test_case_count": 3,
+            "correction": {"correction_success_rate": metric(1), "false_correction_rate": metric(0)},
+            "review": {"manual_review_recall": metric(1), "review_rate": metric(.5)},
+            "confidence": {
+                "raw_expected_calibration_error": metric(.2),
+                "calibrated_expected_calibration_error": metric(.1),
+            },
+        }}},
+    }
+    write_run(tmp_path, metrics, {})
+    table = paper2_table([{"experiment_id": "P2", "result_path": "result", "paper_eligibility": "formal"}], tmp_path)
+    assert "full" in table
+    assert "human-GT-gated" in table

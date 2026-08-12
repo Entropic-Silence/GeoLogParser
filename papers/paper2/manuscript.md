@@ -36,7 +36,7 @@ Raw and normalized terms are separate. Ontology coverage is data-driven and sour
 
 ## 4. Experimental Design
 
-Data and splits follow Paper I without redefining the benchmark. Baselines are single-pass B1–B6. The full method is compared with one-module-at-a-time ablations: −constraints, −rereading, −layout, −OCR, −VLM, −normalization, and −calibration. Seeds/repeats, model revisions, prompts, and compute are recorded. Exact configurations are `TBD`.
+Data and splits follow Paper I without redefining the benchmark. Baselines are single-pass B1–B6. The full method is compared with one-module-at-a-time ablations: −constraints, −rereading, −layout, −OCR, −VLM, −normalization, and −calibration. The implemented ablation runner rejects case-set drift and any named variant that disables more or fewer modules than its declared single removal; all variants share exact case IDs, references, originals, review labels, GT status, and calibration/test partition. Seeds/repeats, model revisions, prompts, and compute are recorded. Exact empirical configurations are `TBD`.
 
 Primary metrics include interval/field scores, critical numerical error rate (`TBD` field thresholds), geological component consistency and coverage, manual-review recall, review rate, auto-accept risk, and false correction rate. FCR is incorrect automatic corrections divided by all automatic corrections; zero corrections yields undefined, not zero.
 

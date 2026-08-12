@@ -1,5 +1,21 @@
 # Research log
 
+## 2026-08-12 — Paper II ablation protocol gate
+
+- Experiment: implemented the immutable Paper II ablation runner and paper-table
+  renderer; no empirical Paper II run was created because no human-verified
+  correction case set exists.
+- Observation: the evaluator now verifies identical case IDs, references,
+  originals, review labels, partitions, and GT statuses across variants. Named
+  ablations may disable exactly one declared module; the full variant disables
+  none. The expected matrix contains full plus seven single-module removals.
+- Decision: reject case-set drift and multi-module removals before calculating
+  FCR, correction success, review recall/rate, Brier score, or ECE. Create
+  `experiments/paper2/result_index.jsonl` and generate Paper II tables from
+  hashes using the same mechanism as Papers I/III.
+- Next step: build real field-level cases from reviewed GT, freeze disjoint
+  calibration/test partitions, then run the complete eight-variant matrix.
+
 ## 2026-08-12 — Parameterized Padova degradation inputs
 
 - Experiment: generated deterministic synthetic degradations for all 15 Padova

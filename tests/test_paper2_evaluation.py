@@ -1,6 +1,6 @@
 import pytest
 
-from geologparser.evaluation.paper2 import evaluate_paper2_cases
+from geologparser.evaluation.paper2 import evaluate_paper2_ablation_matrix, evaluate_paper2_cases
 
 
 def case(case_id, partition, reference, original, status, accepted, confidence, correct, review):
@@ -39,3 +39,35 @@ def test_paper2_evaluation_rejects_auto_ground_truth():
     cases[0]["ground_truth_status"] = "auto"
     with pytest.raises(ValueError, match="not human-verified"):
         evaluate_paper2_cases(cases)
+
+
+def test_ablation_matrix_requires_identical_cases_and_one_module_removal():
+    cases = [
+        case("fit", "calibration", 1, 2, "NEEDS_REVIEW", None, .5, 0, True),
+        case("test", "test", 1, 2, "ACCEPT_PROPOSAL", 1, .8, 1, False),
+    ]
+    result = evaluate_paper2_ablation_matrix({
+        "full": {"disabled_modules": [], "cases": cases},
+        "minus_constraints": {"disabled_modules": ["constraints"], "cases": cases},
+    })
+    assert result["variant_count"] == 2
+    assert result["complete_expected_matrix"] is False
+    with pytest.raises(ValueError, match="disable exactly"):
+        evaluate_paper2_ablation_matrix({
+            "full": {"disabled_modules": [], "cases": cases},
+            "minus_constraints": {"disabled_modules": ["constraints", "rereading"], "cases": cases},
+        })
+
+
+def test_ablation_matrix_rejects_case_set_drift():
+    cases = [
+        case("fit", "calibration", 1, 2, "NEEDS_REVIEW", None, .5, 0, True),
+        case("test", "test", 1, 2, "ACCEPT_PROPOSAL", 1, .8, 1, False),
+    ]
+    changed = [dict(item) for item in cases]
+    changed[1]["reference"] = 9
+    with pytest.raises(ValueError, match="identical GT case set"):
+        evaluate_paper2_ablation_matrix({
+            "full": {"disabled_modules": [], "cases": cases},
+            "minus_vlm": {"disabled_modules": ["vlm"], "cases": changed},
+        })
