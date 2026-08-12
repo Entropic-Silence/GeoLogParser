@@ -26,7 +26,7 @@ The first evaluation scope includes borehole ID, collar elevation, final depth, 
 
 ### 4.1 Sources and rights
 
-Every item records organization, URL, access date, licence, usage, redistribution policy, and citation. Public BGS audit material is governed by its captured OGL terms. A University of Padova CC BY 4.0 dataset (DOI `10.25430/researchdata.cab.unipd.it.00001663`) contributes 11 international borehole PDFs/15 native-PDF pages after archive hash verification. All 15 pages have rendered, hashed `auto` proposals but remain unannotated by a human. A CC BY 4.0 Mendeley Chinese candidate (DOI `10.17632/vcpz47r3sv.2`) contains 33 DWGs; automatic text screening confirmed Chinese content in all 33 and conservatively risk-flagged 30. Review-only derivatives of the other three still carry conversion-completeness warnings and have zero human content reviews, so no DWG is counted as a phase-1 page or Ground Truth. Other Chinese web candidates remain in quarantine because item-level redistribution, privacy, stamps, signatures, and precise-location review are incomplete. Four additional CGS DOI records remain metadata-only because no identifiable item licence was found. Therefore the rights-cleared Chinese benchmark currently has `TBD` documents/pages/intervals and is not released.
+Every item records organization, URL, access date, licence, usage, redistribution policy, and citation. Public BGS audit material is governed by its captured OGL terms. A University of Padova CC BY 4.0 dataset (DOI `10.25430/researchdata.cab.unipd.it.00001663`) contributes 11 international borehole PDFs/15 native-PDF pages after archive hash verification. All 15 pages have rendered, hashed `auto` proposals but remain unannotated by a human. A CC BY 4.0 Mendeley Chinese candidate (DOI `10.17632/vcpz47r3sv.2`) contains 33 DWGs; automatic text screening confirmed Chinese content in all 33 and conservatively risk-flagged 30. Review-only derivatives of the other three retain converter warnings. A source-DWG/derivative-DXF inventory audit nevertheless matched 1,244, 1,905, and 7,173 modelspace entity handles and the ordered hashes of 363, 537, and 611 text entities. This narrows structural/text-loss risk but is not pixel fidelity, privacy clearance, or human review; no DWG is counted as a phase-1 page or Ground Truth. Other Chinese web candidates remain in quarantine because item-level redistribution, privacy, stamps, signatures, and precise-location review are incomplete. Additional CGS/SAGE/Zenodo DOI records remain metadata-only or out of scope because file inventory, image-log fit, access, or identifiable item licensing is absent. Therefore the rights-cleared Chinese benchmark currently has `TBD` documents/pages/intervals and is not released.
 
 ### 4.2 Annotation
 
@@ -46,7 +46,7 @@ B1 OCR+regex; B2 OCR+LLM; B3 OCR+layout+rules; B4 zero-shot VLM; B5 few-shot VLM
 
 ## 6. Evaluation
 
-Level 1: CER, WER, numeric CER. Level 2: exact categorical matches; numeric coverage plus paired MAE. Level 3: order-preserving, boundary-aware interval precision/recall/F1 and boundary MAE/accuracy at ±0.01/0.05/0.10 m. Level 4: component geological consistency with explicit evaluated coverage. Hierarchical lithology metrics supplement, never replace, exact match. Latency, RAM/VRAM, tokens, and cost are logged.
+Level 1: CER, explicitly segmented WER, and numeric CER. Level 2: exact categorical matches, macro normalized description edit similarity, and numeric coverage plus paired MAE. Level 3: order-preserving, boundary-aware interval precision/recall/F1 and boundary MAE/accuracy at ±0.01/0.05/0.10 m. Level 4: component geological consistency with explicit evaluated coverage. Hierarchical lithology paths provide auxiliary ancestor-set precision/recall/F1 and never replace exact match. Latency, RAM/VRAM, tokens, and cost are logged.
 
 Error taxonomy includes OCR digit/character/decimal errors, layout/column/row errors, interval errors, semantic/normalization errors, hallucination, constraint errors, and reread failures.
 
@@ -73,6 +73,10 @@ Experiment IDs, Git commits, dataset/split/model/prompt versions, seed, hardware
 ## 10. Conclusion
 
 We present the executable definition and infrastructure for a provenance-aware Chinese borehole-log benchmark. A publishable conclusion about model performance or split leakage is `TBD` until the rights-cleared dataset and required experiments are complete.
+
+The repository's auto-generated [publication-readiness audit](../../docs/generated/publication_readiness.md)
+currently reports zero exportable human-GT annotations and zero formal Paper I
+runs. Audit-only results above do not satisfy the completion gate.
 
 ## References
 

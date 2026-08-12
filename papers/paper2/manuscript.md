@@ -41,9 +41,9 @@ is a design figure, not an empirical result.
 
 Data and splits follow Paper I without redefining the benchmark. Baselines are single-pass B1–B6. The full method is compared with one-module-at-a-time ablations: −constraints, −rereading, −layout, −OCR, −VLM, −normalization, and −calibration. The implemented ablation runner rejects case-set drift and any named variant that disables more or fewer modules than its declared single removal; all variants share exact case IDs, references, originals, review labels, GT status, and calibration/test partition. Seeds/repeats, model revisions, prompts, and compute are recorded. Exact empirical configurations are `TBD`.
 
-Primary metrics include interval/field scores, critical numerical error rate (`TBD` field thresholds), geological component consistency and coverage, manual-review recall, review rate, auto-accept risk, and false correction rate. FCR is incorrect automatic corrections divided by all automatic corrections; zero corrections yields undefined, not zero.
+Primary metrics include interval/field scores, critical numerical error rate (`TBD` field thresholds), geological component consistency and coverage, manual-review recall, review rate, auto-accept error rate, and false correction rate. Critical numerical error counts a missing prediction or absolute error above a configured field threshold among present numeric GT; threshold equality is accepted and the domain thresholds remain frozen experiment inputs rather than universal constants. Auto-accept error rate is review-required fields not sent to review divided by all auto-accepted fields. FCR is incorrect automatic corrections divided by all automatic corrections; zero corrections or zero auto-accepted fields yields undefined, not zero.
 
-The implemented Paper II evaluator refuses `auto` labels, requires human-verified cases, and requires disjoint calibration and test partitions before fitting temperature scaling or reporting correction/review/calibration metrics. This prevents engineering audits from entering the formal result table.
+The implemented Paper II evaluator refuses `auto` labels, requires human-verified cases, and requires disjoint calibration and test partitions before fitting temperature scaling or reporting correction/review/calibration metrics. The `−calibration` ablation explicitly bypasses temperature scaling rather than merely relabelling an otherwise identical run. This prevents engineering audits and ineffective module toggles from entering the formal result table.
 
 ## 5. Results
 
@@ -64,6 +64,10 @@ ROI crops, candidates, component scores, before/after violations, proposals, and
 ## 9. Conclusion
 
 We provide an implemented non-mutating constraint and rereading architecture designed for safe geological structuring. Whether it improves extraction and lowers critical error/FCR is `TBD` pending the full Paper II experiment suite.
+
+The repository's auto-generated [publication-readiness audit](../../docs/generated/publication_readiness.md)
+currently reports zero formal Paper II runs; software tests and design diagrams
+do not satisfy the empirical completion gate.
 
 ## References
 

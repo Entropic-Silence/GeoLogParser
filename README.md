@@ -14,6 +14,11 @@ runs. It does **not** yet contain a rights-cleared Chinese benchmark, a trained
 project model, or publishable headline results. Unrun experiments and unknown
 quantities are reported as `TBD`.
 
+The machine-derived publication gate is
+[docs/generated/publication_readiness.md](docs/generated/publication_readiness.md).
+It excludes audit-only, failure-analysis, and protocol-only runs from formal
+paper completion and currently reports zero exportable human Ground Truth.
+
 ## First-round capabilities
 
 - Borehole JSON Schema v001 with source/display bboxes and field provenance.

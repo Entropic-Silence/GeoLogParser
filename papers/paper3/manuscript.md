@@ -56,6 +56,10 @@ Database and surface artifacts will be linked to extraction experiment IDs and h
 
 We define and partially implement a traceable path from legacy logs to geological surfaces and human review measurements. The central claim—whether constraint QC improves real downstream stability and efficiency—remains `TBD` until the full real-data study is complete.
 
+The repository's auto-generated [publication-readiness audit](../../docs/generated/publication_readiness.md)
+currently reports zero formal Paper III runs; both indexed propagation runs are
+protocol-only and cannot satisfy the real downstream completion gate.
+
 ## References
 
 Shared bibliography: [../references.bib](../references.bib). Citation metadata and permitted claim scope are logged in [../../docs/literature_evidence.yaml](../../docs/literature_evidence.yaml).

@@ -583,3 +583,35 @@
   intervals, while others produced interval candidates from textual ranges;
   neither behavior is scored as correct. Results are structured-output and
   coverage evidence only.
+## 2026-08-12 — CAD fidelity reconciliation and reliability metrics
+
+- Objective: narrow the conversion uncertainty for the three automatically
+  low-risk Mendeley DWG candidates without treating an automatic check as
+  human review or Ground Truth.
+- First failed audit: `priority_fidelity_v001` compared LibreDWG database
+  objects (layers/styles/dictionaries) with DXF modelspace entities and
+  therefore produced a population mismatch. The directory was preserved as
+  `priority_fidelity_v001_superseded_object_scope_error`; it is not a research
+  result and is not entered in a paper result index.
+- Corrected audit: `priority_fidelity_v002` restricts the source population to
+  graphical entities. MENDELEY_DWG_009, 010, and 011 matched 1,244/1,244,
+  1,905/1,905, and 7,173/7,173 source/derivative handles. Their 363, 537, and
+  611 ordered text entities also matched by SHA256. Manifest SHA256:
+  `0a5af970a16bbec9bd5dc8cdb849d529eeec4e67e817cce85c9a74454b4371cb`.
+- Limitation: inventory equivalence does not establish pixel fidelity, correct
+  fonts, privacy clearance, third-party rights, human visual completeness,
+  benchmark eligibility, or geological correctness. Human reviews and
+  eligible items remain zero.
+- Evaluation implementation: added configurable Critical Numerical Error Rate
+  (missing prediction or absolute error above a supplied threshold), macro
+  normalized edit similarity, auxiliary hierarchy-path precision/recall/F1,
+  auto-accept rate, and auto-accept error rate. Domain thresholds and the
+  observed-term ontology remain `TBD`; no empirical Paper I/II result was
+  created.
+- Source triage: registered SAGE/Figshare China site-classification metadata,
+  Dryad Gonghe core-stress data, and two distinct Xiong'an DOI records. None
+  supplies a newly verified phase-1 image source. No file or claimed headline
+  borehole count was added to project inventory.
+- Next step: human-review the public Padova annotations and Mendeley content,
+  then freeze GT, split manifests, critical-error thresholds, and ontology
+  version before formal experiments.
