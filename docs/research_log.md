@@ -221,6 +221,18 @@
 - Next step: acquire/verify real GT, run B5 and B6 on eligible splits, and add
   a constrained rereading audit against human-corrected numerical fields.
 
+## 2026-08-12 — Qwen3-VL B5 few-shot engineering audit
+
+- Experiment: `P1_B5_QWEN3VL4B_SANMING_AUDIT_001`; same four quarantine
+  panels/model/runtime as B4, versioned prompt `vlm_extract_fewshot_v001`.
+- Observation: 1/4 responses were Schema-valid; three hit the 1,024-token cap.
+  Mean inference latency was 59.300853 s/image and peak allocated memory was
+  9,293,797,376 bytes. The one valid record emitted three intervals with three
+  constraint violations.
+- Decision: record B5 as a negative audit result. Do not claim few-shot
+  improvement or accuracy without human GT. Future prompt changes get a new
+  version and experiment ID; B5 v001 remains immutable.
+
 ## 2026-08-12 — Multi-seed Paper III protocol validation
 
 - Experiment: `P3_SYNTHETIC_ERROR_PROPAGATION_MULTISEED_001`; 30 deterministic

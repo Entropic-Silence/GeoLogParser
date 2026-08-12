@@ -1,4 +1,5 @@
 from .evaluator import Evaluator
+from .correction import correction_safety_metrics, review_detection_metrics
 from .errors import ERROR_TAXONOMY_V001, classify_field_error, error_distribution
 from .error_propagation import (
     SurfacePoint, aggregate_repeated_metrics, boundary_surface_points, idw_predict, perturb_interval_boundaries,
@@ -33,4 +34,5 @@ __all__ = [
     "surface_error_metrics", "aggregate_repeated_metrics", "ERROR_TAXONOMY_V001", "classify_field_error",
     "error_distribution", "character_error_rate", "numeric_character_error_rate",
     "sequence_error_rate", "word_error_rate",
+    "correction_safety_metrics", "review_detection_metrics",
 ]
