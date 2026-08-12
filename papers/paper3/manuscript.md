@@ -12,7 +12,7 @@ This contribution boundary is workflow and error propagation. It reuses extracti
 
 ## 2. Related Work
 
-Verified literature on borehole databases, stratigraphic correlation, spatial interpolation, implicit 3D modelling, uncertainty propagation, and human-AI data entry is `TBD`.
+Shepard's irregular-data interpolation provides the provenance for the transparent inverse-distance baseline used in our controlled propagation protocol [@shepard1968interpolation]. It is intentionally not treated as a universal geological model. GemPy demonstrates an open-source route to stochastic geological modelling and inversion [@delavarga2019gempy], which motivates a later interoperable model adapter rather than making GemPy a prerequisite for document extraction. The 2024 borehole OCR/database study by Han and Suh connects document recognition to structured borehole data in an applied setting [@han2024boreholeocr]. Rigorous literature synthesis on stratigraphic-correlation uncertainty, error propagation from extraction, and controlled human-AI data-entry studies remains `[CITATION TO VERIFY]`.
 
 ## 3. Workflow
 
@@ -52,4 +52,4 @@ We define and partially implement a traceable path from legacy logs to geologica
 
 ## References
 
-`[CITATIONS TO VERIFY]`
+Shared bibliography: [../references.bib](../references.bib). Citation metadata and permitted claim scope are logged in [../../docs/literature_evidence.yaml](../../docs/literature_evidence.yaml).

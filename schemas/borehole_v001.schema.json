@@ -39,7 +39,7 @@
         "source_text": {"type": ["string", "null"]},
         "extraction_method": {
           "type": "string",
-          "enum": ["human", "direct_pdf_text", "ocr", "regex", "llm", "vlm", "fusion", "derived", "unknown"]
+          "enum": ["human", "direct_pdf_text", "ocr", "layout", "regex", "llm", "vlm", "fusion", "derived", "unknown"]
         },
         "confidence": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
         "validation_status": {

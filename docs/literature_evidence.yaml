@@ -1,0 +1,53 @@
+verification_date_utc: "2026-08-12"
+policy:
+  metadata_verified_does_not_imply_full_text_claim_verified: true
+  unverified_claim_marker: "[CITATION TO VERIFY]"
+sources:
+  - key: smith2007tesseract
+    identifier: 10.1109/ICDAR.2007.4376991
+    metadata_verified_via: Crossref
+    claim_scope: "existence, title, authorship, venue, year, and page range only"
+  - key: xu2020layoutlm
+    identifier: 10.1145/3394486.3403172
+    metadata_verified_via: Crossref
+    claim_scope: "text-layout pretraining task framing stated in verified title; no performance claim used"
+  - key: xu2021layoutlmv2
+    identifier: 10.18653/v1/2021.acl-long.201
+    metadata_verified_via: Crossref and ACL Anthology landing page
+    claim_scope: "visually rich multimodal document pretraining; no benchmark number used"
+  - key: zhong2019publaynet
+    identifier: 10.1109/ICDAR.2019.00166
+    metadata_verified_via: Crossref
+    claim_scope: "document-layout dataset existence; no size/performance number used"
+  - key: pfitzmann2022doclaynet
+    identifier: 10.1145/3534678.3539043
+    metadata_verified_via: Crossref
+    claim_scope: "human-annotated document-layout dataset existence; no size/performance number used"
+  - key: han2024boreholeocr
+    identifier: 10.9719/EEG.2024.57.5.473
+    metadata_verified_via: Crossref, OpenAlex, and Semantic Scholar
+    claim_scope: "directly related borehole-log OCR/database study existence and scope from verified title; full-text effect claims not used"
+  - key: guo2017calibration
+    identifier: https://proceedings.mlr.press/v70/guo17a.html
+    metadata_verified_via: official PMLR landing-page citation metadata
+    claim_scope: "modern neural-network calibration and temperature scaling context"
+  - key: brier1950verification
+    identifier: "10.1175/1520-0493(1950)078<0001:VOFEIT>2.0.CO;2"
+    metadata_verified_via: Crossref
+    claim_scope: "provenance of probability verification/Brier score"
+  - key: roberts2017crossvalidation
+    identifier: 10.1111/ecog.02881
+    metadata_verified_via: Crossref
+    claim_scope: "structured/dependent-data cross-validation context; no numerical conclusion used"
+  - key: cohen1960agreement
+    identifier: 10.1177/001316446002000104
+    metadata_verified_via: Crossref
+    claim_scope: "provenance of Cohen's nominal-scale agreement coefficient"
+  - key: shepard1968interpolation
+    identifier: 10.1145/800186.810616
+    metadata_verified_via: Crossref
+    claim_scope: "provenance of the transparent inverse-distance interpolation baseline"
+  - key: delavarga2019gempy
+    identifier: 10.5194/gmd-12-1-2019
+    metadata_verified_via: Crossref
+    claim_scope: "GemPy open-source stochastic geological modelling system existence"

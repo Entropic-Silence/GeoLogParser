@@ -297,3 +297,17 @@
 - Next step: complete and index Padova B4/B6 audits, then manually validate the
   public annotations. B4/B6 audits without human GT remain coverage/failure
   evidence only.
+
+## 2026-08-12 — B3 positioned-text layout audit
+
+- Experiment: `P1_B3_LAYOUT_UNIPD_AUDIT_001` over all 15 public Padova pages.
+- Observation: PS1/PS2 pages contain repeated, positioned textual depth ranges,
+  while GS/TS/TPS boundaries are primarily vector graphics. A conservative
+  dominant-x-column rule emitted 46 unverified intervals on 5/15 pages and
+  abstained on the remaining ten. It triggered three constraint violations
+  across 367 evaluations and required 0.039417 s/page mean CPU time.
+- Limitation: all references remain `auto`; interval correctness is unknown.
+  The rule cannot parse vector-only scales and positional description binding
+  is template-sensitive. These counts are coverage evidence, not accuracy.
+- Decision: retain abstention as an explicit cross-template failure rather than
+  weaken the minimum-column evidence rule. Formal B3 metrics await human GT.

@@ -12,7 +12,9 @@ RQ1 tests constraint benefit; RQ2 compares constraint-guided rereading to single
 
 ## 2. Related Work
 
-Verified discussion of multimodal document extraction, constrained decoding, self-correction, uncertainty calibration, and geological ontologies is `TBD`. Citations will be inserted only after source verification.
+Multimodal document encoders demonstrate why text should be modelled jointly with page layout and visual evidence [@xu2020layoutlm; @xu2021layoutlmv2], but borehole reliability additionally depends on numerical and stratigraphic relations absent from generic document labels. The directly related borehole-log OCR/database study of Han and Suh confirms that this is an active applied extraction problem [@han2024boreholeocr]; the present paper isolates a different question: whether explicit, non-mutating geological constraints and targeted rereading improve safety.
+
+Modern classifiers can be poorly calibrated, motivating post-hoc calibration such as temperature scaling [@guo2017calibration]. We therefore distinguish raw model confidence from an engineering confidence assembled from extraction, agreement, constraint, OCR, and layout evidence, and assess it with both calibration error and the proper squared-probability score introduced by Brier [@brier1950verification]. Literature on constrained decoding, multimodal self-correction, and geological terminology ontologies still requires a verified systematic review and is marked `[CITATION TO VERIFY]` rather than inferred from unverified search snippets.
 
 ## 3. Method
 
@@ -62,4 +64,4 @@ We provide an implemented non-mutating constraint and rereading architecture des
 
 ## References
 
-`[CITATIONS TO VERIFY]`
+Shared bibliography: [../references.bib](../references.bib). Citation metadata and permitted claim scope are logged in [../../docs/literature_evidence.yaml](../../docs/literature_evidence.yaml).
