@@ -1,5 +1,21 @@
 # Research log
 
+## 2026-08-12 — Traceable paper-figure generation
+
+- Experiment: generated five figures from hashed result indexes/manifests:
+  Paper I audit coverage and degradation-input distribution; Paper II method
+  schematic; Paper III Padova source locations and synthetic error propagation.
+- Observation: the source-coordinate plot separates Grizzaga, Panaro, and
+  Tagliamento into distant site groups. Treating all 11 points as one local
+  interpolated surface would be geologically and spatially unjustified.
+- Decision: encode `audit`, `protocol-only`, `unverified`, or `design` limits in
+  plot titles/captions. Store output SHA256 values and source manifest hashes in
+  `papers/figure_manifest.json`. Do not generate absent Paper II performance or
+  real Paper III model figures.
+- Next step: once formal experiments exist, add accuracy/generalization,
+  calibration, FCR, review-efficiency, and real-site downstream figures through
+  the same generated-only path.
+
 ## 2026-08-12 — Padova source-coordinate GIS export
 
 - Experiment: exported one point per source borehole (not one per page) from the

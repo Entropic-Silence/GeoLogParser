@@ -162,6 +162,36 @@ is `requirements-vlm.txt`; this runtime is not mixed into `.venv`.
    foundation round. Their age makes them a smoke-test baseline, not an assumed
    competitive OCR system.
 
+## Verified project model/runtime inventory after engineering audits
+
+Rechecked on 2026-08-12 after the baseline runs:
+
+- Qwen3-VL-4B-Instruct revision
+  `ebb281ec70b05090aa6165b016eac8ec08e71b17`, Apache-2.0, resides on the
+  mechanical volume at
+  `/data/GeoLogParser/models/huggingface/Qwen3-VL-4B-Instruct` (8.3 GiB).
+  Weight SHA256 values are
+  `30a01a0556622645a3cce87b655bbbbbc1f170c196099f1b666c93202c3339a9`
+  and
+  `046296a2a387efb43b0c997d5833c789604d168834f6e0d3064bf7bb13d002a6`;
+  `config.json` SHA256 is
+  `edac7703329133edfc53e46ac0081835144c99d7eebf28b71c732694d435224d`.
+- The dedicated `/root/venvs/ai` runtime imports PyTorch 2.13.0+cu130,
+  Transformers 5.14.1, Accelerate 1.14.0, Torchvision 0.28.0+cu130,
+  Safetensors 0.8.0, Tokenizers 0.22.2, Pillow 12.3.0, and
+  huggingface-hub 1.24.0. This runtime produced the indexed B2/B4/B5/B6 audits.
+- RapidOCR model assets occupy about 16 MiB under
+  `/data/GeoLogParser/models/rapidocr`; exact ONNX hashes are frozen in
+  `configs/models/registry_v001.yaml`. The project `.venv` currently provides
+  RapidOCR 1.4.4 and ONNX Runtime 1.23.2.
+- GeoPackage support was added with Pyogrio 0.11.1 and Pyproj 3.7.1. GemPy,
+  PyVista, VTK, GeoPandas, PaddleOCR, vLLM, Ollama, and llama.cpp remain absent
+  from the project runtime. Their absence blocks optional adapters, not the
+  implemented schema/constraint/evaluation/export paths.
+- Current disk check: SSD `/` has about 263 GiB available; mechanical `/data`
+  has about 4.5 TiB available. Large models, datasets, and robustness derivatives
+  remain under `/data`; code and small random-access artifacts remain on SSD.
+
 ## GPU worker pause/restore mapping
 
 Read-only Docker inspection on 2026-08-12 verified that each miner has restart

@@ -1,0 +1,35 @@
+{
+  "outputs": [
+    {
+      "path": "paper1/generated/figures/audit_coverage.png",
+      "sha256": "cf1b17210f8a8362e31005c4c2687d5791f506973160e901f8882b987e4129ed"
+    },
+    {
+      "path": "paper1/generated/figures/degradation_inputs.png",
+      "sha256": "96ba230d3c91970c8cb2a874083fd045b2f3b933002d050012811ab43dabf149"
+    },
+    {
+      "path": "paper2/generated/figures/method_schematic.png",
+      "sha256": "608d92634c9ea7787d57bdee184554a54e8aa745bf18d52bd32fc7b1b11a1457"
+    },
+    {
+      "path": "paper3/generated/figures/padova_locations.png",
+      "sha256": "354c3ebb82ae7a1d735d2bfa158f8fddf8fa01969ac688d0fb3debbb6635fb3d"
+    },
+    {
+      "path": "paper3/generated/figures/synthetic_error_propagation.png",
+      "sha256": "664d69bc34b7f5d3aef919ca06e1ce9aee153aaadab48e1fa144c78406c13d8a"
+    }
+  ],
+  "scope": "auto-generated traceable figures; individual captions retain audit/protocol/design limits",
+  "source_manifests": {
+    "degradation": {
+      "path": "/data/GeoLogParser/artifacts/robustness/unipd_degradation_v001/degradation_manifest.jsonl",
+      "sha256": "ca6bc6d6f2eff3df6916b3a87d43f24df6dacb13f4e924048b79120a339c5ba9"
+    },
+    "locations": {
+      "path": "/data/GeoLogParser/datasets/public/unipd_levee_geotech_v001/metadata/location_v001/borehole_locations.jsonl",
+      "sha256": "106e7daaf45a6692bbd2a57e2557114cc190a99f1c21897a289dc7c934eba137"
+    }
+  }
+}

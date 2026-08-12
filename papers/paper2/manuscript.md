@@ -34,6 +34,9 @@ Violations locate provenance bboxes. The system pads and upscales the ROI, runs 
 
 Raw and normalized terms are separate. Ontology coverage is data-driven and source standards/periods are recorded. Confidence fusion renormalizes available extraction, agreement, constraint, OCR, and layout components. Temperature scaling is fitted only on labelled validation observations. ECE, Brier, and reliability curves evaluate calibration.
 
+The auto-generated [method schematic](generated/figures/method_schematic.png)
+is a design figure, not an empirical result.
+
 ## 4. Experimental Design
 
 Data and splits follow Paper I without redefining the benchmark. Baselines are single-pass B1–B6. The full method is compared with one-module-at-a-time ablations: −constraints, −rereading, −layout, −OCR, −VLM, −normalization, and −calibration. The implemented ablation runner rejects case-set drift and any named variant that disables more or fewer modules than its declared single removal; all variants share exact case IDs, references, originals, review labels, GT status, and calibration/test partition. Seeds/repeats, model revisions, prompts, and compute are recorded. Exact empirical configurations are `TBD`.

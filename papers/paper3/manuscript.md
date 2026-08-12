@@ -34,6 +34,12 @@ The database preserves source hash, raw/normalized values, page/bbox/text, metho
 
 See [generated/current_results.md](generated/current_results.md). The tables contain synthetic protocol results only. A 30-seed extension now exercises mean/std and explicitly named normal-approximation confidence intervals for perturbations 0.01–1.00 m. At 1.00 m, synthetic surface MAE was 0.662470 ± 0.110565 m across seeds. This four-artificial-borehole fixture is not a real geological sensitivity estimate. Real-site sensitivity, raw/QC/GT comparison, 3D figures, uncertainty, human time, and statistical analysis remain `TBD`.
 
+The [Padova source-location plot](generated/figures/padova_locations.png) shows
+three separated site groups and therefore rules out interpolation across the
+whole collection as one local surface. Coordinates remain source-provided and
+unverified. The [synthetic propagation curve](generated/figures/synthetic_error_propagation.png)
+is explicitly protocol-only and must not be interpreted as real-site response.
+
 ## 7. Human-in-the-Loop Evaluation
 
 Planned measures are manual-entry time, AI inference time, AI+correction time, auto-accept rate, review rate, post-review error, and fields corrected/minute. Sessions must use anonymized annotator IDs, fixed instructions, counterbalanced task order where feasible, and real event timestamps. Sample size and analysis are `TBD`.
