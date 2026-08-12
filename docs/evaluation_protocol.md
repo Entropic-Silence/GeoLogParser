@@ -19,10 +19,19 @@ produce `null`, never zero. Dataset aggregation must be micro/macro-labelled.
 
 ## Interval matching
 
-The v001 function supports exact interval IDs for API testing only. Paper runs
-must select and version a boundary-aware bipartite matching protocol before
-claiming interval P/R/F1. The matching threshold and tie-breaking policy belong
-in the experiment config.
+The paper-facing v001 strategy is
+`order_preserving_max_cardinality_then_min_error_v001`. A reference/prediction
+pair is eligible only when both top- and bottom-boundary absolute errors are at
+or below the configured inclusive tolerance. Dynamic programming maximizes the
+number of matches and then minimizes the summed top+bottom boundary error.
+Matches preserve depth order, so strata cannot cross. Intervals with a missing
+top or bottom cannot match. Unmatched reference and prediction counts are
+always emitted beside micro precision/recall/F1 and matched-boundary MAE.
+
+The earlier exact-ID function remains an API-test helper only and is not
+eligible for paper interval claims. Every experiment records the matching
+strategy version and tolerance; primary tolerance is still `TBD` pending an
+annotation-resolution study, while ±0.01/0.05/0.10 m remain required reports.
 
 ## Confidence
 
@@ -39,4 +48,3 @@ and auto-accept error rate.
 - Manual Review Recall: erroneous fields sent to review / all erroneous fields.
 
 No aggregate metric replaces its component results.
-

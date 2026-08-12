@@ -4,7 +4,8 @@ from __future__ import annotations
 
 from decimal import Decimal
 from math import floor
-from typing import Any, Sequence
+from dataclasses import dataclass
+from typing import Any, Mapping, Sequence
 
 from .types import MetricResult, validate_pairs
 
@@ -130,4 +131,128 @@ def interval_prf1(reference_ids: Sequence[set[str]], prediction_ids: Sequence[se
         "interval_precision": MetricResult("interval_precision", precision, true_positive, precision_denominator, "ratio"),
         "interval_recall": MetricResult("interval_recall", recall, true_positive, recall_denominator, "ratio"),
         "interval_f1": MetricResult("interval_f1", f1, 0.0 if f1 is None else f1, 1.0 if f1 is not None else 0.0, "ratio"),
+    }
+
+
+@dataclass(frozen=True)
+class IntervalMatch:
+    reference_index: int
+    prediction_index: int
+    top_error_m: float
+    bottom_error_m: float
+
+
+def _boundary_pair(interval: Mapping[str, Any]) -> tuple[Decimal, Decimal] | None:
+    def value(name: str) -> Any:
+        candidate = interval.get(name)
+        return candidate.get("value") if isinstance(candidate, Mapping) else candidate
+
+    top = value("top_depth_m")
+    bottom = value("bottom_depth_m")
+    if top is None or bottom is None:
+        return None
+    try:
+        return Decimal(str(top)), Decimal(str(bottom))
+    except Exception:
+        return None
+
+
+def match_intervals_by_boundaries(
+    references: Sequence[Mapping[str, Any]],
+    predictions: Sequence[Mapping[str, Any]],
+    tolerance_m: float = 0.05,
+) -> tuple[list[IntervalMatch], list[int], list[int]]:
+    """Order-preserving maximum-cardinality boundary matching.
+
+    A pair is eligible only when both top and bottom errors are within the
+    inclusive tolerance. Dynamic programming first maximizes match count, then
+    minimizes summed top+bottom error. Order preservation prevents crossed
+    matches between successive strata. Missing boundaries cannot match.
+    """
+    if tolerance_m < 0:
+        raise ValueError("tolerance must be non-negative")
+    tolerance = Decimal(str(tolerance_m))
+    ref_pairs = [_boundary_pair(interval) for interval in references]
+    pred_pairs = [_boundary_pair(interval) for interval in predictions]
+    # Each cell stores (match_count, negative_total_error, match_path).
+    table: list[list[tuple[int, Decimal, tuple[tuple[int, int, Decimal, Decimal], ...]]]] = [
+        [(0, Decimal("0"), ()) for _ in range(len(predictions) + 1)]
+        for _ in range(len(references) + 1)
+    ]
+    for ref_index in range(1, len(references) + 1):
+        for pred_index in range(1, len(predictions) + 1):
+            candidates = [table[ref_index - 1][pred_index], table[ref_index][pred_index - 1]]
+            ref_pair = ref_pairs[ref_index - 1]
+            pred_pair = pred_pairs[pred_index - 1]
+            if ref_pair is not None and pred_pair is not None:
+                top_error = abs(ref_pair[0] - pred_pair[0])
+                bottom_error = abs(ref_pair[1] - pred_pair[1])
+                if top_error <= tolerance and bottom_error <= tolerance:
+                    previous = table[ref_index - 1][pred_index - 1]
+                    candidates.append((
+                        previous[0] + 1,
+                        previous[1] - top_error - bottom_error,
+                        previous[2] + ((ref_index - 1, pred_index - 1, top_error, bottom_error),),
+                    ))
+            table[ref_index][pred_index] = max(candidates, key=lambda item: (item[0], item[1]))
+    path = table[-1][-1][2]
+    matches = [IntervalMatch(i, j, float(top_error), float(bottom_error)) for i, j, top_error, bottom_error in path]
+    matched_references = {match.reference_index for match in matches}
+    matched_predictions = {match.prediction_index for match in matches}
+    return (
+        matches,
+        [index for index in range(len(references)) if index not in matched_references],
+        [index for index in range(len(predictions)) if index not in matched_predictions],
+    )
+
+
+def boundary_matched_interval_metrics(
+    reference_documents: Sequence[Sequence[Mapping[str, Any]]],
+    prediction_documents: Sequence[Sequence[Mapping[str, Any]]],
+    tolerance_m: float = 0.05,
+) -> dict[str, MetricResult]:
+    """Micro interval P/R/F1 and boundary error for the v001 matcher."""
+    validate_pairs(reference_documents, prediction_documents)
+    matches: list[IntervalMatch] = []
+    reference_count = sum(len(intervals) for intervals in reference_documents)
+    prediction_count = sum(len(intervals) for intervals in prediction_documents)
+    unmatched_reference_count = 0
+    unmatched_prediction_count = 0
+    for references, predictions in zip(reference_documents, prediction_documents):
+        document_matches, unmatched_references, unmatched_predictions = match_intervals_by_boundaries(
+            references, predictions, tolerance_m,
+        )
+        matches.extend(document_matches)
+        unmatched_reference_count += len(unmatched_references)
+        unmatched_prediction_count += len(unmatched_predictions)
+    true_positive = len(matches)
+    precision = true_positive / prediction_count if prediction_count else None
+    recall = true_positive / reference_count if reference_count else None
+    f1 = (
+        2 * precision * recall / (precision + recall)
+        if precision is not None and recall is not None and precision + recall else None
+    )
+    top_error_sum = sum(match.top_error_m for match in matches)
+    bottom_error_sum = sum(match.bottom_error_m for match in matches)
+    details = {
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "tolerance_m": tolerance_m,
+        "reference_count": reference_count,
+        "prediction_count": prediction_count,
+        "matched_count": true_positive,
+        "unmatched_reference_count": unmatched_reference_count,
+        "unmatched_prediction_count": unmatched_prediction_count,
+    }
+    return {
+        "interval_precision": MetricResult("interval_precision", precision, true_positive, prediction_count, "ratio", details),
+        "interval_recall": MetricResult("interval_recall", recall, true_positive, reference_count, "ratio", details),
+        "interval_f1": MetricResult("interval_f1", f1, 0.0 if f1 is None else f1, 1.0 if f1 is not None else 0.0, "ratio", details),
+        "matched_top_boundary_mae_m": MetricResult(
+            "matched_top_boundary_mae_m", top_error_sum / true_positive if true_positive else None,
+            top_error_sum, true_positive, "m", details,
+        ),
+        "matched_bottom_boundary_mae_m": MetricResult(
+            "matched_bottom_boundary_mae_m", bottom_error_sum / true_positive if true_positive else None,
+            bottom_error_sum, true_positive, "m", details,
+        ),
     }
