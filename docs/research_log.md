@@ -85,3 +85,22 @@
 - Next step: inspect region geometry on a frozen page, implement backend-neutral
   aggregation with provenance-preserving union bboxes, and compare both raw and
   aggregated extraction without overwriting either audit.
+
+## 2026-08-12 — RapidOCR BGS header-spacing repair audit
+
+- Experiment: `P1_B1_RAPIDOCR_BGS_AUDIT_002`; new immutable run after one
+  tested extractor change allowing OCR-deleted spaces in the literal
+  `British National Grid` header. No model, input, DPI, or metadata-GT change.
+- Observation: borehole-ID exact match and coordinate coverage were both 4/4;
+  coordinate paired-value MAE was zero for both axes. Total runtime was
+  70.116934 seconds (3.505847 seconds/page) and peak process RSS was 968,728
+  KiB. These are audit-sample measurements, not representative estimates.
+- Failure: final-depth coverage remained 0/4 and no intervals were emitted.
+  C8 evaluated two coordinate fields per document; other constraints remained
+  unevaluated. Thus the repair resolves one extraction-interface error only.
+- Decision: freeze both pre-fix and post-fix experiments, so the effect is
+  traceable rather than overwritten. Do not expand the regex to join distant
+  columns using y proximity: the historical BGS tables place geological text
+  and depth columns far apart and require explicit layout reasoning.
+- Next step: formalize interval matching and constraint-coverage summaries,
+  then implement column-aware layout evidence before claiming interval metrics.
