@@ -39,21 +39,30 @@ class PdftotextAdapter:
     name = "pdftotext_direct_text"
 
     def extract(self, path: Path) -> list[TextRegion]:
+        return self.extract_pages(path, None)
+
+    def extract_pages(self, path: Path, pages: set[int] | None) -> list[TextRegion]:
         import shutil
         import subprocess
 
         executable = shutil.which("pdftotext")
         if executable is None:
             raise OCRBackendUnavailable("The pdftotext executable is not installed or not on PATH.")
-        completed = subprocess.run(
-            [executable, "-layout", str(path), "-"],
-            text=True, capture_output=True, check=False,
-        )
-        if completed.returncode != 0:
-            raise OCRBackendUnavailable(f"pdftotext failed ({completed.returncode}): {completed.stderr.strip()}")
         regions = []
-        for page_number, page_text in enumerate(completed.stdout.split("\f"), start=1):
-            if page_text.strip():
+        page_numbers = sorted(pages) if pages is not None else [None]
+        for requested_page in page_numbers:
+            page_args = [] if requested_page is None else ["-f", str(requested_page), "-l", str(requested_page)]
+            completed = subprocess.run(
+                [executable, *page_args, "-layout", str(path), "-"],
+                text=True, capture_output=True, check=False,
+            )
+            if completed.returncode != 0:
+                raise OCRBackendUnavailable(f"pdftotext failed ({completed.returncode}): {completed.stderr.strip()}")
+            extracted_pages = completed.stdout.split("\f")
+            for offset, page_text in enumerate(extracted_pages):
+                if not page_text.strip():
+                    continue
+                page_number = requested_page if requested_page is not None else offset + 1
                 regions.append(TextRegion(
                     page=page_number, bbox=None, text=page_text.strip(), confidence=None,
                     method="direct_pdf_text",

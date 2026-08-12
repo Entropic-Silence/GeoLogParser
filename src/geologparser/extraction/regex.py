@@ -13,11 +13,15 @@ from geologparser.ocr.base import TextRegion
 
 NUMBER = r"[-+]?\d+(?:\.\d+)?"
 HEADER_PATTERNS = {
-    "borehole_id": re.compile(r"(?:钻孔编号|钻孔号|孔号|borehole\s*(?:id|no\.?))\s*[:：]?\s*([A-Za-z0-9_.-]+)", re.I),
+    "borehole_id": re.compile(r"(?:钻孔编号|钻孔号|孔号|borehole\s*(?:id|no\.?)|BGS\s*Reference)\s*[:：]?\s*([A-Za-z0-9_./-]+)", re.I),
     "collar_elevation_m": re.compile(rf"(?:孔口高程|孔口标高|collar\s*elevation)\s*[:：]?\s*({NUMBER})\s*(?:m|米)?", re.I),
     "final_depth_m": re.compile(rf"(?:终孔深度|孔深|final\s*depth)\s*[:：]?\s*({NUMBER})\s*(?:m|米)?", re.I),
     "groundwater_depth_m": re.compile(rf"(?:地下水(?:位)?埋深|water\s*depth)\s*[:：]?\s*({NUMBER})\s*(?:m|米)?", re.I),
 }
+BRITISH_GRID_PATTERN = re.compile(
+    rf"British\s+National\s+Grid\s*\((\d+)\)\s*[:：]\s*({NUMBER})\s*[,，]\s*({NUMBER})",
+    re.I,
+)
 INTERVAL_PATTERN = re.compile(
     rf"^\s*({NUMBER})\s+({NUMBER})\s+({NUMBER})\s+([^\d\s][^\s]*)\s*(.*)$"
 )
@@ -43,7 +47,10 @@ def _evidence_field(value, source_text: str, region: TextRegion, raw_unit: str |
 def extract_structured(regions: Iterable[TextRegion], source_path: Path) -> dict:
     region_list = list(regions)
     extension = source_path.suffix.lower()
-    document_type = "native_pdf" if extension == ".pdf" and any(r.method == "direct_pdf_text" for r in region_list) else (
+    methods = {region.method for region in region_list}
+    document_type = (
+        "mixed_pdf" if extension == ".pdf" and {"direct_pdf_text", "ocr"} <= methods else
+        "native_pdf" if extension == ".pdf" and "direct_pdf_text" in methods else
         "scanned_pdf" if extension == ".pdf" else "image"
     )
     record = empty_borehole_record(source_path.stem, str(source_path), document_type)
@@ -55,6 +62,18 @@ def extract_structured(regions: Iterable[TextRegion], source_path: Path) -> dict
 
     for region in region_list:
         for line in region.text.splitlines():
+            grid_match = BRITISH_GRID_PATTERN.search(line)
+            if grid_match:
+                coordinate_system, x_value, y_value = grid_match.groups()
+                record["borehole"]["coordinate_system"] = _evidence_field(
+                    f"EPSG:{coordinate_system}", grid_match.group(0), region
+                )
+                record["borehole"]["x_coordinate"] = _evidence_field(
+                    float(x_value), x_value, region
+                )
+                record["borehole"]["y_coordinate"] = _evidence_field(
+                    float(y_value), y_value, region
+                )
             for name, pattern in HEADER_PATTERNS.items():
                 if record["borehole"][name]["value"] is not None:
                     continue
@@ -79,4 +98,3 @@ def extract_structured(regions: Iterable[TextRegion], source_path: Path) -> dict
                     item["description_raw"] = _evidence_field(description, description, region)
                 record["intervals"].append(item)
     return record
-

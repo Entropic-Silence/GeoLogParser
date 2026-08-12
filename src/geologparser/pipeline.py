@@ -10,7 +10,7 @@ from pathlib import Path
 
 from geologparser.extraction import extract_structured
 from geologparser.ocr import OCRBackendUnavailable, TesseractOCRAdapter, TextRegion
-from geologparser.pdf import PdftotextAdapter, PyMuPDFTextAdapter
+from geologparser.pdf import PdftotextAdapter, detect_pdf
 
 
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".tif", ".tiff", ".bmp", ".webp"}
@@ -21,30 +21,30 @@ def extract_text_regions(path: Path, ocr_language: str = "chi_sim+eng") -> list[
     if extension in IMAGE_EXTENSIONS:
         return TesseractOCRAdapter(language=ocr_language).extract(path)
     if extension == ".pdf":
-        try:
-            direct = PyMuPDFTextAdapter().extract(path)
-        except OCRBackendUnavailable:
-            direct = PdftotextAdapter().extract(path)
-        if any(region.text.strip() for region in direct):
-            return direct
+        detection = detect_pdf(path)
+        native_pages = {page.page for page in detection.pages if page.classification == "native"}
+        scanned_pages = {page.page for page in detection.pages if page.classification == "scanned"}
+        regions = PdftotextAdapter().extract_pages(path, native_pages) if native_pages else []
+        if not scanned_pages:
+            return regions
         renderer = shutil.which("pdftoppm")
         if renderer is None:
             raise OCRBackendUnavailable("Scanned-PDF OCR requires pdftoppm (Poppler).")
         with tempfile.TemporaryDirectory(prefix="geologparser-pdf-") as temporary:
             prefix = Path(temporary) / "page"
-            completed = subprocess.run(
-                [renderer, "-png", "-r", "300", str(path), str(prefix)],
-                text=True, capture_output=True, check=False,
-            )
-            if completed.returncode != 0:
-                raise OCRBackendUnavailable(f"pdftoppm failed ({completed.returncode}): {completed.stderr.strip()}")
-            page_paths = sorted(Path(temporary).glob("page-*.png"))
-            if not page_paths:
-                raise OCRBackendUnavailable("pdftoppm emitted no page images")
-            regions = []
             adapter = TesseractOCRAdapter(language=ocr_language)
-            for page_number, page_path in enumerate(page_paths, start=1):
+            for page_number in sorted(scanned_pages):
+                completed = subprocess.run(
+                    [renderer, "-f", str(page_number), "-l", str(page_number), "-singlefile", "-png", "-r", "300", str(path), str(prefix)],
+                    text=True, capture_output=True, check=False,
+                )
+                if completed.returncode != 0:
+                    raise OCRBackendUnavailable(f"pdftoppm failed ({completed.returncode}): {completed.stderr.strip()}")
+                page_path = prefix.with_suffix(".png")
+                if not page_path.exists():
+                    raise OCRBackendUnavailable("pdftoppm emitted no page image")
                 regions.extend(replace(region, page=page_number) for region in adapter.extract(page_path))
+                page_path.unlink()
             return regions
     if extension == ".txt":
         return [TextRegion(page=1, bbox=None, text=path.read_text(encoding="utf-8"), confidence=None, method="unknown")]

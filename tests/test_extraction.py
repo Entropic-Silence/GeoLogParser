@@ -21,3 +21,18 @@ def test_regex_extractor_is_conservative_and_preserves_evidence(tmp_path):
     assert result["intervals"][0]["bottom_depth_m"]["source_bbox"] == [10, 20, 300, 60]
     assert result["borehole"]["groundwater_depth_m"]["value"] is None
     validate_record(result)
+
+
+def test_bgs_reference_and_grid_header_are_extracted_without_metadata_injection(tmp_path):
+    source = tmp_path / "bgs.pdf"
+    source.write_bytes(b"%PDF-fixture")
+    region = TextRegion(
+        page=1, bbox=(0, 0, 500, 100), confidence=0.88, method="ocr",
+        text="BGS ID: 10 : BGS Reference: SD20NE9\nBritish National Grid (27700) : 328244, 408488",
+    )
+    result = extract_structured([region], source)
+    assert result["borehole"]["borehole_id"]["value"] == "SD20NE9"
+    assert result["borehole"]["coordinate_system"]["value"] == "EPSG:27700"
+    assert result["borehole"]["x_coordinate"]["value"] == 328244
+    assert result["borehole"]["y_coordinate"]["value"] == 408488
+    assert result["borehole"]["final_depth_m"]["value"] is None
