@@ -17,6 +17,7 @@ def number(value, decimals: int = 3) -> str:
 
 def paper1_table(entries: list[dict], repository_root: Path) -> str:
     ocr_rows = []
+    llm_rows = []
     layout_rows = []
     vlm_rows = []
     fusion_rows = []
@@ -24,7 +25,16 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
     for entry in entries:
         metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
         run = json.loads((repository_root / entry["result_path"] / "run.json").read_text())
-        if "items_with_any_interval" in metrics:
+        if "input_tokens_total" in metrics:
+            llm_rows.append("| " + " | ".join([
+                entry["experiment_id"], run["model"], str(metrics["items"]),
+                f'{metrics["schema_valid_responses"]}/{metrics["items"]} ({metrics["structured_parse_rate"]:.3f})',
+                str(metrics["emitted_intervals"]), str(metrics["constraint_evaluations"]),
+                str(metrics["constraint_violations"]), str(metrics["input_tokens_total"]),
+                number(metrics["latency_mean_seconds_per_page"]),
+                number(metrics["peak_gpu_memory_bytes"] / 1024**3), entry["paper_eligibility"],
+            ]) + " |")
+        elif "items_with_any_interval" in metrics:
             layout_rows.append("| " + " | ".join([
                 entry["experiment_id"], run["model"], str(metrics["items"]),
                 f'{metrics["items_with_any_interval"]}/{metrics["items"]}',
@@ -79,6 +89,11 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
         "| Experiment | Model | Borehole ID EM | X coverage | X paired MAE | Final-depth coverage | Emitted intervals | s/page | Eligibility |",
         "|---|---|---:|---:|---:|---:|---:|---:|---|",
         *ocr_rows, "",
+        "### B2 text-only LLM engineering audits",
+        "",
+        "| Experiment | Model | Pages | Schema-valid | Emitted intervals | Constraint evals | Violations | Input tokens | s/page | Peak GiB | Eligibility |",
+        "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---|",
+        *llm_rows, "",
         "### B3 positioned-text layout engineering audits",
         "",
         "| Experiment | Model | Pages | Pages with intervals | Emitted intervals | Constraint evals | Violations | s/page | Eligibility |",

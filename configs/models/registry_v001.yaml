@@ -1,5 +1,5 @@
 version: v001
-selection_status: first_vlm_selected_not_benchmarked
+selection_status: first_vlm_and_text_channel_engineering_audits_executed_no_formal_gt
 ocr_models:
   - id: tesseract_chi_sim
     adapter: tesseract
@@ -47,6 +47,13 @@ vlm_models:
     license: Qwen-Research
     status: not_selected_due_to_noncommercial_research_license
 llm_models:
-  - id: local_llm_candidate
-    adapter: openai_compatible_or_llama_cpp
-    revision: TBD
+  - id: qwen3_vl_4b_text_channel
+    upstream_id: Qwen/Qwen3-VL-4B-Instruct
+    adapter: qwen3_vl_text_transformers
+    role: B2_text_only_engineering_audit
+    revision: ebb281ec70b05090aa6165b016eac8ec08e71b17
+    license: Apache-2.0
+    local_path: /data/GeoLogParser/models/huggingface/Qwen3-VL-4B-Instruct
+    runtime: /root/venvs/ai
+    input_policy: "flattened positioned native-PDF/OCR text only; no image tensor"
+    status: engineering_audit_only_no_human_gt

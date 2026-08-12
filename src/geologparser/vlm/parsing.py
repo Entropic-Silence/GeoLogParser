@@ -83,6 +83,7 @@ def compact_payload_to_record(
     document_id: str,
     source_file: Path,
     source_sha256: str | None = None,
+    extraction_method: str = "vlm",
 ) -> dict[str, Any]:
     """Normalize only declared fields; absent/invalid values remain unknown.
 
@@ -90,7 +91,10 @@ def compact_payload_to_record(
     therefore has a null bbox and stays ``needs_review`` until grounded or
     human verified.
     """
-    record = empty_borehole_record(document_id, str(source_file), "image")
+    if extraction_method not in {"vlm", "llm"}:
+        raise ValueError("compact payload extraction_method must be vlm or llm")
+    warning_code = f"{extraction_method.upper()}_UNGROUNDED"
+    record = empty_borehole_record(document_id, str(source_file), "image" if extraction_method == "vlm" else "unknown")
     record["document"]["source_sha256"] = source_sha256
     borehole = payload.get("borehole", {})
     if not isinstance(borehole, Mapping):
@@ -102,10 +106,10 @@ def compact_payload_to_record(
             value,
             source_page=1,
             source_text=_source_text(raw),
-            extraction_method="vlm",
+            extraction_method=extraction_method,
             confidence=None,
             validation_status="needs_review" if value is not None else "not_validated",
-            warning_codes=["VLM_UNGROUNDED"] if value is not None else [],
+            warning_codes=[warning_code] if value is not None else [],
             raw_unit="m" if name.endswith("_m") and value is not None else None,
         )
     intervals = payload.get("intervals", [])
@@ -124,13 +128,12 @@ def compact_payload_to_record(
                 value,
                 source_page=1,
                 source_text=_source_text(raw),
-                extraction_method="vlm",
+                extraction_method=extraction_method,
                 confidence=None,
                 validation_status="needs_review" if value is not None else "not_validated",
-                warning_codes=["VLM_UNGROUNDED"] if value is not None else [],
+                warning_codes=[warning_code] if value is not None else [],
                 raw_unit="m" if name.endswith("_m") and value is not None else None,
             )
         if has_value:
             record["intervals"].append(interval)
     return record
-

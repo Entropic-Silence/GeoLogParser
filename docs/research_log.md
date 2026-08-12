@@ -329,3 +329,22 @@
 - Limitation: GeoPackage and real spatial case-study export remain unrun; the
   current records do not provide a rights-cleared, human-validated coherent
   site.
+
+## 2026-08-12 — B2 text-only local LLM audit
+
+- Failed run: `P1_B2_QWEN3VL4B_TEXT_UNIPD_AUDIT_001` created its immutable
+  directory and then failed before model loading because PyMuPDF was absent
+  from the isolated AI environment. The failure was frozen and indexed; the
+  runtime dependency was then installed without altering `_001`.
+- Completed run: `P1_B2_QWEN3VL4B_TEXT_UNIPD_AUDIT_002`; 15 Padova pages,
+  Qwen3-VL-4B language stack at revision `ebb281ec...`, no image input,
+  deterministic decoding, prompt `llm_extract_v001`, and 1,536 output-token
+  cap. Native positioned text hashes were stored per page.
+- Observation: 13/15 responses were Schema-valid; two hit the token cap. Valid
+  responses emitted 74 unverified intervals, with eight violations across 538
+  constraint evaluations. Mean inference time was 35.331825 s/page; peak
+  allocated GPU memory was 9,296,219,648 bytes. Total input was 11,973 tokens.
+- Limitation: no human GT exists. Some vector-only depth templates produced no
+  intervals, while others produced interval candidates from textual ranges;
+  neither behavior is scored as correct. Results are structured-output and
+  coverage evidence only.

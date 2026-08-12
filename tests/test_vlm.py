@@ -34,3 +34,12 @@ def test_compact_vlm_payload_is_schema_valid_and_ungrounded():
 def test_parse_json_object_requires_object():
     with pytest.raises(ValueError):
         parse_json_object(json.dumps([]))
+
+
+def test_compact_payload_supports_text_only_llm_provenance():
+    record = compact_payload_to_record(
+        {"borehole": {"borehole_id": "BH1"}, "intervals": []},
+        document_id="D", source_file=Path("source.pdf"), extraction_method="llm",
+    )
+    assert record["borehole"]["borehole_id"]["extraction_method"] == "llm"
+    assert record["borehole"]["borehole_id"]["warning_codes"] == ["LLM_UNGROUNDED"]
