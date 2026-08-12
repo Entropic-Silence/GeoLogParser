@@ -112,11 +112,11 @@ datasets:
     format: PDF/JPG/PNG
     scale: "target only: 500–1000 pages and 5000–10000 intervals; actual = TBD"
     downloadable: false
-    access_status: "NOT ACQUIRED; requires rights-cleared institutional/public sources"
+    access_status: "three public-web candidates acquired into quarantine; no candidate is cleared for benchmark release"
     license: TBD
     allowed_usage: TBD
     redistribution: false
     redistribution_policy: "no use or release until permission, privacy, and sensitive-location review are documented"
     paper_fit: [paper1_core, paper2_core, paper3_if_spatially_coherent]
-    status: not_acquired
-    verification_notes: "No Chinese source is claimed in this first-round registry. Public benchmark construction remains the primary project risk."
+    status: candidates_quarantined_rights_unverified
+    verification_notes: "Quarantine snapshot chinese_public_web_20260812 contains three PDFs: one blank field form, one 58-page public-procurement attachment with four usable logs on pages 44–45, and one delivery-specification attachment. Exact source URLs, item licence, redistribution permission, privacy, stamps, and sensitive project-location fields remain unverified; none is counted as benchmark data."

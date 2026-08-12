@@ -29,11 +29,21 @@ Verified on 2026-08-12. The structured facts and URLs live in
   access/licence conditions were not available in the command-line response.
   Account/terms review is required before download.
 
-## Not acquired
+## Chinese candidates quarantined — not rights-cleared
 
-- **Chinese benchmark sources:** `NOT COMPLETED`. No Chinese documents, page
-  counts, interval counts, licences, or publication permissions are claimed.
-  Rights-cleared source diversity is the main Paper I risk.
+- **Chinese benchmark sources:** `NOT COMPLETED`. Three public-web PDFs were
+  frozen in
+  `/data/GeoLogParser/datasets/candidates_quarantine/chinese_public_web_20260812`
+  for internal technical and rights review only. One is a blank borehole-log
+  form; one 58-page procurement attachment contains four modern Chinese logs on
+  pages 44–45; one specifies delivery content rather than containing logs.
+- The four visible log panels include project name, borehole ID, coordinates,
+  elevation, final depth, groundwater depth, interval boundaries/thickness, and
+  descriptions. The two PDF pages also contain stamps and precise public
+  project details. Exact item URLs/licence terms, redistribution authorization,
+  privacy treatment, and sensitive-location review are not yet documented.
+  Therefore the actual rights-cleared benchmark page and interval counts remain
+  zero, and no metric from these pages is a Paper I benchmark result.
 
-No protected or unclear-license file was downloaded during this survey.
-
+No quarantined candidate is eligible for redistribution until its rights record
+and privacy decision are complete.

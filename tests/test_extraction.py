@@ -36,3 +36,17 @@ def test_bgs_reference_and_grid_header_are_extracted_without_metadata_injection(
     assert result["borehole"]["x_coordinate"]["value"] == 328244
     assert result["borehole"]["y_coordinate"]["value"] == 408488
     assert result["borehole"]["final_depth_m"]["value"] is None
+
+
+def test_bgs_grid_header_tolerates_ocr_deleted_spaces(tmp_path):
+    source = tmp_path / "bgs.pdf"
+    source.write_bytes(b"%PDF-fixture")
+    region = TextRegion(
+        page=1, bbox=(10, 20, 300, 60), confidence=0.97, method="ocr",
+        text="BritishNationalGrid (27700) :329168,405889",
+    )
+    result = extract_structured([region], source)
+    assert result["borehole"]["coordinate_system"]["value"] == "EPSG:27700"
+    assert result["borehole"]["x_coordinate"]["value"] == 329168
+    assert result["borehole"]["y_coordinate"]["value"] == 405889
+    assert result["borehole"]["x_coordinate"]["source_bbox"] == [10, 20, 300, 60]

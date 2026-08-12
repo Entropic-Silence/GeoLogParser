@@ -19,7 +19,7 @@ HEADER_PATTERNS = {
     "groundwater_depth_m": re.compile(rf"(?:地下水(?:位)?埋深|water\s*depth)\s*[:：]?\s*({NUMBER})\s*(?:m|米)?", re.I),
 }
 BRITISH_GRID_PATTERN = re.compile(
-    rf"British\s+National\s+Grid\s*\((\d+)\)\s*[:：]\s*({NUMBER})\s*[,，]\s*({NUMBER})",
+    rf"British\s*National\s*Grid\s*\((\d+)\)\s*[:：]\s*({NUMBER})\s*[,，]\s*({NUMBER})",
     re.I,
 )
 INTERVAL_PATTERN = re.compile(
