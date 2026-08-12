@@ -41,7 +41,8 @@
     },
     "redactions_required": {"type": "boolean", "default": false},
     "notes": {"type": ["string", "null"]},
-    "benchmark_eligible": {"const": false}
+    "benchmark_eligible": {"const": false},
+    "revision": {"type": "integer", "minimum": 1}
   },
   "$defs": {
     "check": {

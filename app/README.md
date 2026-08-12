@@ -52,3 +52,18 @@ After real review, create a frozen GT snapshot with:
 
 The command deliberately fails if even one item remains `auto`; it never
 promotes auto proposals to Ground Truth.
+
+## Quarantined CAD content review
+
+CAD derivatives use a separate UI and storage root so a privacy/content review
+cannot be mistaken for geological Ground Truth annotation:
+
+```bash
+.venv/bin/uvicorn app.cad_review_server:app --host 127.0.0.1 --port 8001
+```
+
+The service verifies derivative hashes, stores revisioned human decisions, and
+rejects `eligible_for_annotation` when the derivative manifest reports an
+incomplete conversion. All current Mendeley priority derivatives have that
+warning, so they may only be excluded, kept internal, or sent for repair and
+re-review. Content review never sets `benchmark_eligible` directly.

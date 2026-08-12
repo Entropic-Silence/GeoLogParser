@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CAD Content Review</title><link rel="stylesheet" href="/style.css"></head>
+<body>
+  <header><h1>CAD Content Review</h1><select id="items"></select><label>Reviewer <input id="reviewer" value="local-reviewer"></label><button id="save">Save review</button><span id="message"></span></header>
+  <main>
+    <section id="viewer"><img id="image" alt="quarantined CAD derivative"></section>
+    <section id="form">
+      <div class="warning" id="warning"></div>
+      <label>Decision <select id="decision"><option>exclude</option><option>internal_only</option><option>anonymize_then_review</option><option>eligible_for_annotation</option></select></label>
+      <label><input type="checkbox" id="single"> Single-borehole log</label>
+      <label><input type="checkbox" id="complete"> Conversion visually complete</label>
+      <label><input type="checkbox" id="redactions"> Redactions required</label>
+      <h2>Disclosure checks</h2><div id="checks"></div>
+      <label>Notes<textarea id="notes"></textarea></label>
+      <pre id="existing"></pre>
+    </section>
+  </main><script src="/app.js"></script>
+</body></html>
