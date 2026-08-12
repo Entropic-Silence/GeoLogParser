@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/geologparser/cad_content_review_v001.schema.json",
+  "title": "GeoLogParser CAD content review v001",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "review_schema_version", "source_record_id", "source_sha256",
+    "derivative_sha256", "reviewer_id", "reviewed_at", "decision",
+    "single_borehole_log", "conversion_complete", "checks",
+    "benchmark_eligible"
+  ],
+  "properties": {
+    "review_schema_version": {"const": "cad_content_review_v001"},
+    "source_record_id": {"type": "string", "minLength": 1},
+    "source_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "derivative_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "reviewer_id": {"type": "string", "minLength": 1},
+    "reviewed_at": {"type": "string", "format": "date-time"},
+    "decision": {
+      "enum": ["exclude", "internal_only", "anonymize_then_review", "eligible_for_annotation"]
+    },
+    "single_borehole_log": {"type": "boolean"},
+    "conversion_complete": {"type": "boolean"},
+    "checks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "organization_or_project", "person_or_signature", "contact_or_address",
+        "coordinates_or_sensitive_location", "stamp_or_watermark",
+        "third_party_content"
+      ],
+      "properties": {
+        "organization_or_project": {"$ref": "#/$defs/check"},
+        "person_or_signature": {"$ref": "#/$defs/check"},
+        "contact_or_address": {"$ref": "#/$defs/check"},
+        "coordinates_or_sensitive_location": {"$ref": "#/$defs/check"},
+        "stamp_or_watermark": {"$ref": "#/$defs/check"},
+        "third_party_content": {"$ref": "#/$defs/check"}
+      }
+    },
+    "redactions_required": {"type": "boolean", "default": false},
+    "notes": {"type": ["string", "null"]},
+    "benchmark_eligible": {"const": false}
+  },
+  "$defs": {
+    "check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status"],
+      "properties": {
+        "status": {"enum": ["absent", "present", "uncertain"]},
+        "notes": {"type": ["string", "null"]}
+      }
+    }
+  }
+}

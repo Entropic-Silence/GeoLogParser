@@ -1,0 +1,4 @@
+# Optional acquisition-audit stack. Not required by the extraction runtime.
+ezdxf==1.4.3
+matplotlib==3.10.5
+CairoSVG==2.8.2
