@@ -48,6 +48,15 @@ def test_coordinate_confusable_and_digit_length_are_separate_violations():
     assert not any("collar_elevation" in field for violation in result.violations for field in violation.affected_fields)
 
 
+def test_coordinate_header_words_do_not_trigger_confusable_warning():
+    source = {"borehole": {
+        "collar_elevation_m": field(35.22, source_text="Elevation: 35,22 m"),
+    }, "intervals": []}
+    result = CoordinateFormatConstraint().evaluate(source)
+    assert result.evaluated_count == 1
+    assert result.violations == ()
+
+
 def test_stratum_sequence_is_weak_and_handles_circled_numbers():
     source = {"intervals": [
         {"stratum_code_raw": field("①")},

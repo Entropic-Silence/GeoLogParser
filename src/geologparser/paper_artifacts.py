@@ -18,6 +18,7 @@ def number(value, decimals: int = 3) -> str:
 def paper1_table(entries: list[dict], repository_root: Path) -> str:
     ocr_rows = []
     vlm_rows = []
+    native_rows = []
     for entry in entries:
         metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
         run = json.loads((repository_root / entry["result_path"] / "run.json").read_text())
@@ -42,6 +43,14 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
                 number(metrics["peak_gpu_memory_bytes"] / 1024**3),
                 entry["paper_eligibility"],
             ]) + " |")
+        elif "documents_with_borehole_id" in metrics:
+            native_rows.append("| " + " | ".join([
+                entry["experiment_id"], run["model"], str(metrics["documents"]),
+                f'{metrics["documents_with_borehole_id"]}/{metrics["documents"]}',
+                f'{metrics["documents_with_final_depth"]}/{metrics["documents"]}',
+                str(metrics["emitted_intervals"]), str(metrics["constraint_violations"]),
+                number(metrics["latency_seconds_per_page"]), entry["paper_eligibility"],
+            ]) + " |")
     return "\n".join([
         "<!-- AUTO-GENERATED. DO NOT EDIT. -->",
         "### OCR + regex audits",
@@ -54,6 +63,11 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
         "| Experiment | Model | Images | Schema-valid | Emitted intervals | Constraint evals | Violations | s/image | Peak GiB | Eligibility |",
         "|---|---|---:|---:|---:|---:|---:|---:|---:|---|",
         *vlm_rows, "",
+        "### Public native-PDF engineering audits",
+        "",
+        "| Experiment | Model | Documents | Borehole-ID coverage | Final-depth coverage | Emitted intervals | Violations | s/page | Eligibility |",
+        "|---|---|---:|---:|---:|---:|---:|---:|---|",
+        *native_rows, "",
         "All rows are audit-only and not representative benchmark estimates. `TBD` paired MAE indicates zero paired predictions, not zero error. VLM audits have no human Ground Truth, so they report parse/diagnostic behavior rather than accuracy.",
     ]) + "\n"
 

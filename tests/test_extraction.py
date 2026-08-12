@@ -54,6 +54,21 @@ def test_bgs_grid_header_tolerates_ocr_deleted_spaces(tmp_path):
     assert result["borehole"]["x_coordinate"]["source_bbox"] == [10, 20, 300, 60]
 
 
+def test_international_headers_support_plain_borehole_and_decimal_comma(tmp_path):
+    source = tmp_path / "italian.pdf"
+    source.write_bytes(b"%PDF-fixture")
+    region = TextRegion(
+        page=1, bbox=(0, 0, 500, 100), confidence=None, method="direct_pdf_text",
+        text="Borehole: P S1\nElevation: 35,22 m above sea level\nWater table: -5,80 m",
+    )
+    result = extract_structured([region], source)
+    assert result["borehole"]["borehole_id"]["value"] == "PS1"
+    assert result["borehole"]["collar_elevation_m"]["value"] == 35.22
+    assert result["borehole"]["groundwater_depth_m"]["value"] == -5.8
+    compact = TextRegion(1, None, "BOREHOLE: TPS7 CLIENT: Example", None, "direct_pdf_text")
+    assert extract_structured([compact], source)["borehole"]["borehole_id"]["value"] == "TPS7"
+
+
 def test_native_multiline_chinese_header_preserves_block_evidence(tmp_path):
     source = tmp_path / "chinese.pdf"
     source.write_bytes(b"%PDF-fixture")

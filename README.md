@@ -49,6 +49,7 @@ Optional document backends are installed separately:
 python -m pip install -e '.[pdf,ocr]'
 python -m pip install -r requirements-ocr-rapidocr.txt
 python -m pip install -r requirements-annotation.txt
+python -m pip install -r requirements-export.txt
 ```
 
 See `docs/environment_report.md`, `docs/research_scope.md`, and

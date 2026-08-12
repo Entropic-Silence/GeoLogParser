@@ -107,7 +107,11 @@ class CoordinateFormatConstraint(GeologicalConstraint):
                 continue
             evaluated += 1
             raw_text = str(raw) if raw is not None else str(value)
-            if re.search(r"[OoIl]", raw_text):
+            # Inspect a compact numeric token, not header words such as
+            # ``Elevation`` that naturally contain i/l. Mixed alphanumeric
+            # tokens like 29229O remain suspicious.
+            confusable_token = re.search(r"(?<![A-Za-z])[-+]?\d[0-9.,OoIl+-]*[OoIl][0-9.,OoIl+-]*(?![A-Za-z])", raw_text)
+            if confusable_token:
                 violations.append(ConstraintViolation(
                     code="NUMERIC_OCR_CONFUSABLE", affected_fields=(f"borehole.{name}",),
                     reason="numeric source text contains O/0 or I/l/1 confusable characters",

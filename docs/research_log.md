@@ -246,3 +246,27 @@
   geological conclusion.
 - Next step: replace the fixture with a rights-cleared spatially coherent site
   and compare human GT, raw AI, and constraint-validated surfaces.
+
+## 2026-08-12 — CC BY 4.0 Padova borehole-log source acquisition
+
+- Dataset: University of Padova DOI
+  `10.25430/researchdata.cab.unipd.it.00001663`. Repository JSON records public
+  file 14335 under CC BY 4.0, size 15,986,769 bytes, and MD5
+  `030f545f07da0abcb06ca4ead715bf9c`.
+- Observation: the download matched MD5; local archive SHA256 is
+  `f07bdd15f7bef34bd2697274c1f472b85a9a359b21ea7fece52012e27cf60163`.
+  The borehole subset has 11 PDFs/15 native-PDF pages. A fixed manifest stores
+  per-document SHA256, page type, DOI, licence, and unannotated status.
+- Engineering finding: direct text extraction after international-header and
+  decimal-comma support covers all 11 borehole IDs but no final depths or
+  intervals. Geological descriptions survive in the text layer while most
+  depth boundaries are graphical/layout evidence. This is not an accuracy
+  result because no project human GT exists.
+- Source-quality warning: file `TS5.pdf` visibly reports `BOREHOLE: TS2` in its
+  header. The project does not decide whether filename or header is correct
+  without source clarification/human annotation.
+- Failure/fix: real headers exposed over-greedy ID capture and C8 matching the
+  `i/l` in the word `Elevation`. Each repair received tests and a new audit ID;
+  prior runs remain unchanged.
+- Decision: this source is eligible for international/public validation and
+  annotation with attribution, but cannot satisfy the Chinese Paper I core.

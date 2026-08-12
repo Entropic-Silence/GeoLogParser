@@ -5,10 +5,16 @@ Verified on 2026-08-12. The structured facts and URLs live in
 
 ## Directly accessible now
 
-- **BGS borehole records:** official viewer/information page and terms page both
-  responded. It advertises online scanned onshore borehole records. Individual
-  product licensing and bulk access still require capture, so files are not yet
-  cleared for redistribution.
+- **University of Padova levee geotechnical dataset:** DOI
+  `10.25430/researchdata.cab.unipd.it.00001663`. Repository JSON records public
+  file 14335 under CC BY 4.0 with a 15,986,769-byte size and MD5. The downloaded
+  ZIP matched that MD5 and contains 11 borehole-log PDFs (15 native-PDF pages),
+  plus CPT/laboratory files. This is directly usable, with attribution, as an
+  international pipeline/transfer source. It is not a Chinese benchmark and is
+  not yet manually annotated.
+- **BGS borehole records:** OGL terms and a fixed four-document/20-page audit
+  sample are acquired and hashed. BGS source acknowledgement and item terms
+  must accompany any redistribution.
 - **Dutch BRO product environment:** official technical environment responded
   and is useful for database/schema interoperability. Its value as a legacy
   scanned-log image source and exact dataset licence are `TBD`.

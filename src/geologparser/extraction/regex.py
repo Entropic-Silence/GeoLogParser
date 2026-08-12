@@ -14,11 +14,12 @@ from geologparser.ocr.base import TextRegion
 
 
 NUMBER = r"[-+]?\d+(?:\.\d+)?"
+LOCALIZED_NUMBER = r"[-+]?\d+(?:[.,]\d+)?"
 HEADER_PATTERNS = {
-    "borehole_id": re.compile(r"(?:钻\s*孔\s*编\s*号|钻\s*孔\s*号|孔\s*号|borehole\s*(?:id|no\.?)|BGS\s*Reference)\s*[:：]?\s*([A-Za-z0-9_./-]+)", re.I),
-    "collar_elevation_m": re.compile(rf"(?:孔\s*口\s*高\s*程|孔\s*口\s*标\s*高|collar\s*elevation)\s*[:：]?\s*({NUMBER})\s*(?:m|米)?", re.I),
+    "borehole_id": re.compile(r"(?:钻\s*孔\s*编\s*号|钻\s*孔\s*号|孔\s*号|borehole\s*(?:id|no\.?)?|BGS\s*Reference)\s*[:：]?\s*((?:[A-Za-z]\s+[A-Za-z0-9_./-]+)|[A-Za-z0-9_./-]+)", re.I),
+    "collar_elevation_m": re.compile(rf"(?:孔\s*口\s*高\s*程|孔\s*口\s*标\s*高|collar\s*elevation|elevation)\s*[:：]?\s*({LOCALIZED_NUMBER})\s*(?:m|米)?", re.I),
     "final_depth_m": re.compile(rf"(?:终\s*孔\s*深\s*度|孔\s*深|final\s*depth)\s*[:：]?\s*({NUMBER})\s*(?:m|米)?", re.I),
-    "groundwater_depth_m": re.compile(rf"(?:稳\s*定\s*水\s*位\s*深\s*度|地下水(?:位)?埋深|water\s*depth)\s*[:：]?\s*({NUMBER})\s*(?:m|米)?", re.I),
+    "groundwater_depth_m": re.compile(rf"(?:稳\s*定\s*水\s*位\s*深\s*度|地下水(?:位)?埋深|water\s*(?:table|depth))\s*[:：]?\s*({LOCALIZED_NUMBER})\s*(?:m|米)?", re.I),
 }
 PROJECT_NAME_PATTERN = re.compile(
     r"工程\s*名称\s*[:：]?\s*(.+?)(?=工\s*程\s*编\s*号|$)", re.I,
@@ -60,6 +61,10 @@ def _evidence_field(value, source_text: str, region: TextRegion, raw_unit: str |
         validation_status="not_validated",
         raw_unit=raw_unit,
     )
+
+
+def _numeric(raw_value: str) -> float:
+    return float(raw_value.replace(",", "."))
 
 
 def _union_bbox(regions: list[TextRegion]) -> list[float] | None:
@@ -207,7 +212,7 @@ def extract_structured(regions: Iterable[TextRegion], source_path: Path) -> dict
                 if not match:
                     continue
                 raw_value = match.group(1)
-                value = raw_value if name == "borehole_id" else float(raw_value)
+                value = re.sub(r"\s+", "", raw_value) if name == "borehole_id" else _numeric(raw_value)
                 record["borehole"][name] = _evidence_field(
                     value, match.group(0), region, None if name == "borehole_id" else "m"
                 )
