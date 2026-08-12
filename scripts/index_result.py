@@ -7,7 +7,7 @@ import argparse
 import json
 from pathlib import Path
 
-from geologparser.result_index import HASH_PATHS, file_sha256
+from geologparser.result_index import HASH_PATHS, file_sha256, formal_evidence_errors
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -43,6 +43,10 @@ def main() -> None:
         **{hash_key: file_sha256(arguments.result_path / filename) for hash_key, filename in HASH_PATHS.items()},
         "paper_eligibility": arguments.paper_eligibility,
     }
+    metrics = json.loads((arguments.result_path / "metrics.json").read_text(encoding="utf-8"))
+    evidence_errors = formal_evidence_errors(entry, run, metrics)
+    if evidence_errors:
+        raise ValueError("formal evidence gate failed: " + "; ".join(evidence_errors))
     arguments.index_path.parent.mkdir(parents=True, exist_ok=True)
     with arguments.index_path.open("a", encoding="utf-8") as stream:
         stream.write(json.dumps(entry, ensure_ascii=False, separators=(",", ":")) + "\n")

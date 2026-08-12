@@ -30,15 +30,17 @@ def ground_truth_gate(
     intervals = record.get("intervals", [])
     if require_intervals and not intervals:
         failures.append("NO_INTERVALS")
-    # A missing document-level value is legitimate, but any populated GT value
-    # must have been explicitly confirmed by a human and remain traceable.
+    # A missing document-level value is legitimate only after a reviewer has
+    # explicitly confirmed absence.  Otherwise an unreviewed model abstention
+    # would silently become a Ground Truth null.
     for name in MVP_BOREHOLE_FIELDS:
         envelope = record.get("borehole", {}).get(name, {})
-        if envelope.get("value") is not None:
-            if envelope.get("validation_status") != "human_verified":
-                failures.append(f"FIELD_NOT_HUMAN_VERIFIED:borehole.{name}")
-            if envelope.get("extraction_method") != "human":
-                failures.append(f"FIELD_NOT_HUMAN_AUTHORED:borehole.{name}")
+        if envelope.get("validation_status") != "human_verified":
+            failures.append(f"FIELD_NOT_HUMAN_VERIFIED:borehole.{name}")
+        if envelope.get("extraction_method") != "human":
+            failures.append(f"FIELD_NOT_HUMAN_AUTHORED:borehole.{name}")
+        if envelope.get("source_page") is None:
+            failures.append(f"MISSING_SOURCE_PAGE:borehole.{name}")
     for index, interval in enumerate(intervals):
         for name in MVP_INTERVAL_FIELDS:
             envelope = interval.get(name, {})

@@ -632,3 +632,10 @@
 - Verification: API/export regression tests cover JSON/CSV/XLSX draft labels,
   status counts, and verified-collection rejection. Real Padova GT count
   remains zero because no human review was performed by the automated agent.
+- GT semantic repair: MVP borehole-level `null` values now require the same
+  human-authored, human-verified, page-traceable evidence as interval nulls;
+  unreviewed model abstention can no longer silently become “confirmed absent.”
+- Formal-index gate: `formal_benchmark`, `formal_method`, and
+  `formal_downstream` labels now require a frozen GT SHA256 plus paper-specific
+  protocol evidence. Both index creation and later hash verification reject
+  unsupported formal labels.

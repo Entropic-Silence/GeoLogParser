@@ -77,8 +77,9 @@ Truth gate passes. A human status alone is insufficient: log pages require at
 least one interval; every MVP interval field must be explicitly human-authored,
 field-level `human_verified`, and page-traceable. A verified `null` is valid and
 means that the reviewer confirmed the source does not report that field; an
-unreviewed `null` is not GT. Populated MVP borehole fields must likewise be
-human-authored and verified. A reviewer may
+unreviewed `null` is not GT. Every MVP borehole field, including a null that
+means “confirmed absent,” must likewise be human-authored, human-verified, and
+page-traceable. A reviewer may
 explicitly export a verified non-log page with no intervals, but that exception
 must be selected at export time and recorded by the surrounding dataset build.
 
@@ -91,6 +92,18 @@ matched boundary/thickness MAE, boundary accuracy at ±0.01/0.05/0.10 m,
    similarity, optionally configured critical numerical error, and a traceable
    error distribution. This runner is implemented; formal Padova/Chinese values remain
 `TBD` because no human GT snapshot exists yet.
+
+## Formal result indexing gate
+
+An immutable run can be labelled `formal_benchmark`, `formal_method`, or
+`formal_downstream` only when `run.json` carries a 64-character GT snapshot
+SHA256 and the split does not declare `no_ground_truth`. Paper I additionally
+requires the human-GT benchmark metrics scope and a positive document count;
+Paper II requires the complete eight-variant ablation protocol; Paper III
+requires `human_verified_real_site` and a `raw_vs_qc_vs_ground_truth`
+comparison. The index writer and verifier both enforce these conditions.
+Audit-only, failure-analysis, and synthetic protocol runs remain admissible
+without GT but can never satisfy publication readiness.
 
 ## Constraint coverage
 

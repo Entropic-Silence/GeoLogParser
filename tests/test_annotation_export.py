@@ -56,6 +56,31 @@ def test_ground_truth_gate_accepts_human_confirmed_null_as_absent_source_field(r
     assert ground_truth_gate(annotation) == []
 
 
+def test_ground_truth_gate_rejects_unreviewed_null_borehole_field(request):
+    root = request.config.rootpath
+    annotation = create_annotation("A", {"panel_id": "A"}, record(root), "reviewer", "single_verified")
+    field = annotation["record"]["borehole"]["groundwater_depth_m"]
+    field.update({
+        "value": None, "source_page": None, "extraction_method": "vlm",
+        "validation_status": "needs_review",
+    })
+    failures = ground_truth_gate(annotation)
+    assert "FIELD_NOT_HUMAN_VERIFIED:borehole.groundwater_depth_m" in failures
+    assert "FIELD_NOT_HUMAN_AUTHORED:borehole.groundwater_depth_m" in failures
+    assert "MISSING_SOURCE_PAGE:borehole.groundwater_depth_m" in failures
+
+
+def test_ground_truth_gate_accepts_human_confirmed_null_borehole_field(request):
+    root = request.config.rootpath
+    annotation = create_annotation("A", {"panel_id": "A"}, record(root), "reviewer", "single_verified")
+    field = annotation["record"]["borehole"]["groundwater_depth_m"]
+    field.update({
+        "value": None, "source_page": 1, "extraction_method": "human",
+        "validation_status": "human_verified",
+    })
+    assert ground_truth_gate(annotation) == []
+
+
 def test_annotation_agreement_reports_numeric_difference(request):
     root = request.config.rootpath
     first = create_annotation("A", {"panel_id": "A"}, record(root), "one", "single_verified")

@@ -7,8 +7,9 @@
       "ground_truth_exportable_count": 0,
       "ground_truth_gate_failure_counts": {
         "ANNOTATION_NOT_HUMAN_VERIFIED": 15,
-        "FIELD_NOT_HUMAN_AUTHORED": 474,
-        "FIELD_NOT_HUMAN_VERIFIED": 474,
+        "FIELD_NOT_HUMAN_AUTHORED": 495,
+        "FIELD_NOT_HUMAN_VERIFIED": 495,
+        "MISSING_SOURCE_PAGE": 21,
         "NO_INTERVALS": 4
       },
       "status_counts": {
@@ -22,7 +23,7 @@
     "paper2_formal_results_exist": false,
     "paper3_formal_results_exist": false
   },
-  "generated_at_utc": "2026-08-12T22:26:52.974869+00:00",
+  "generated_at_utc": "2026-08-12T22:33:33.466700+00:00",
   "ground_truth_exportable_count": 0,
   "interpretation": "A false gate must remain NOT COMPLETED/TBD; audit-only, failure-analysis, and protocol-only runs cannot satisfy formal empirical completion.",
   "paper_indexes": {
