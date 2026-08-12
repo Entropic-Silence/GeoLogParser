@@ -38,7 +38,7 @@ Metadata covers source, project, template, native/scanned/image type, resolution
 
 ### 4.4 Degradation benchmark
 
-Real and synthetic degradation cover resolution, blur, noise, skew, JPEG compression, contrast reduction, broken lines, watermarks, stamps, and occlusion. Every synthetic parameter and source hash is saved. Training variants never enter test. Severity grids are `TBD`.
+Real and synthetic degradation cover resolution, blur, noise, skew, JPEG compression, contrast reduction, broken lines, watermarks, stamps, and occlusion. Every synthetic parameter and source hash is saved. A protocol-only Padova input set now contains 270 deterministic derivatives (15 pages × 18 profiles), with manifest SHA256 `ca6bc6d6f2eff3df6916b3a87d43f24df6dacb13f4e924048b79120a339c5ba9`; it has no accuracy values because the source pages are not human-annotated. Training variants never enter test. Chinese benchmark severity grids and measured curves remain `TBD`.
 
 ## 5. Baselines
 

@@ -1,5 +1,24 @@
 # Research log
 
+## 2026-08-12 — Parameterized Padova degradation inputs
+
+- Experiment: generated deterministic synthetic degradations for all 15 Padova
+  rendered pages using 18 profiles spanning resolution, blur, noise, skew, JPEG
+  compression, contrast, broken lines, watermark, stamp, and partial occlusion.
+- Observation: 270 derived images occupy approximately 285 MB on the mechanical
+  data volume. Degradation manifest SHA256 is
+  `ca6bc6d6f2eff3df6916b3a87d43f24df6dacb13f4e924048b79120a339c5ba9`;
+  source panel manifest SHA256 is
+  `2ee38b8da430075df80a4b3c16a4739838b4320ecbc73ce18dcfcbcb1ac79e2a`.
+- Limitation: this is a robustness input set, not a robustness result. Accuracy
+  is null because the source pages still lack human GT.
+- Decision: record exact operation order, parameters, seeds, and source/output
+  hashes. Replace the preprocessing and split-builder placeholders with
+  executable CLIs; keep the generated images outside Git under `/data`.
+- Next step: after GT is frozen, run identical extraction adapters on clean and
+  degraded images and report performance by profile/severity rather than only
+  an overall mean.
+
 ## 2026-08-12 — Result-derived annotation pack and GT evaluator
 
 - Experiment: transformed the immutable Padova B6 audit predictions into a new
