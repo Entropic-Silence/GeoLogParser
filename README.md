@@ -24,7 +24,10 @@ quantities are reported as `TBD`.
   queue, confidence fusion, and temperature calibration primitives.
 - Constraint-guided ROI rereading and abstaining candidate ranker.
 - Revisioned local annotation UI with evidence highlighting and timing events.
-- SQLite/GeoJSON export and a transparent synthetic IDW propagation protocol.
+- Revisioned CAD privacy/content-review gate and traceable DWG→DXF→PNG audit
+  derivatives, kept outside the phase-1 input contract.
+- SQLite/CSV/JSON/XLSX/Parquet/GeoJSON/GeoParquet export and a transparent
+  multi-seed synthetic IDW propagation protocol.
 - Immutable experiment indexes and generated three-paper result tables.
 
 ## Storage policy
@@ -50,11 +53,13 @@ python -m pip install -e '.[pdf,ocr]'
 python -m pip install -r requirements-ocr-rapidocr.txt
 python -m pip install -r requirements-annotation.txt
 python -m pip install -r requirements-export.txt
+python -m pip install -r requirements-cad-audit.txt  # acquisition audit only
 ```
 
 See `docs/environment_report.md`, `docs/research_scope.md`, and
 `docs/project_plan.md` before adding a model or dataset.
 
-Current limitations are explicit: rights-cleared Chinese benchmark data,
-manual/expert Ground Truth, B2–B6 model runs, Paper II empirical ablations, and
-Paper III real-site/human studies are `NOT COMPLETED`.
+Current limitations are explicit: rights-cleared Chinese benchmark pages and
+manual/expert Ground Truth are `NOT COMPLETED`; B2–B6 have engineering audits
+but no GT-based formal comparison; Paper II empirical ablations and Paper III
+real-site/human studies are also `NOT COMPLETED`.

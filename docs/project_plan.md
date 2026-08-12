@@ -53,24 +53,30 @@ experiment metadata, prompts, baselines, and paper planning were missing.
 
 - Phase 0 environment/repository/experiment framework: **COMPLETED**.
 - Phase 1 v001 Schema and synthetic examples/tests: **COMPLETED**.
-- Phase 2 public data validation: BGS fixed sample **COMPLETED**; diverse
-  rights-cleared Chinese sources **NOT COMPLETED**.
-- Phase 3 baselines: Tesseract+regex and RapidOCR+regex audits **COMPLETED**;
-  OCR+LLM/Layout/VLM/Fusion runs **NOT COMPLETED**.
+- Phase 2 public data validation: BGS and Padova audit samples **COMPLETED**;
+  one CC BY Chinese DWG collection acquired and automatically pre-screened,
+  but its review derivatives remain quarantined/incomplete; a diverse
+  rights-cleared Chinese page-image benchmark is **NOT COMPLETED**.
+- Phase 3 baselines: Tesseract+regex, RapidOCR+regex, B2 text-only local LLM,
+  B3 positioned-text layout, B4/B5 VLM, and conservative B6 engineering audits
+  **COMPLETED** on public/quarantined audit inputs; GT-based formal comparison
+  **NOT COMPLETED**.
 - Phase 4 evaluation API, boundary matching, coverage and calibration metrics:
   **COMPLETED v001**, subject to dataset-driven threshold validation.
-- Phase 5 annotation backend/UI and auto proposals: **COMPLETED v001**; actual
-  manual/double/expert annotations **NOT COMPLETED**.
+- Phase 5 annotation backend/UI and auto proposals: **COMPLETED v001**; a
+  separate revisioned CAD privacy/content-review UI and eligibility gate are
+  **COMPLETED v001**; actual manual/double/expert geological annotations are
+  **NOT COMPLETED**.
 - Phase 6 Paper I benchmark/splits/degradation/failure analysis: infrastructure
   **PARTIAL**; publishable data and experiments **NOT COMPLETED**.
 - Phase 7 C1–C10: **COMPLETED v001** with tests.
 - Phase 8 constraint-guided ROI rereading/ranking: **COMPLETED v001** with
   controlled tests; multimodal field trial **NOT COMPLETED**.
 - Phase 9 Paper II experiments/ablations/calibration/FCR: **NOT COMPLETED**.
-- Phase 10 database/export: SQLite/GeoJSON **COMPLETED v001**; Parquet/XLSX and
-  validated spatial case **NOT COMPLETED**.
-- Phase 11 3D/error propagation: IDW synthetic protocol **COMPLETED**; real 3D
-  workflow and multi-seed study **NOT COMPLETED**.
+- Phase 10 database/export: SQLite/CSV/JSON/XLSX/Parquet/GeoJSON/GeoParquet
+  **COMPLETED v001**; GeoPackage and a validated spatial case **NOT COMPLETED**.
+- Phase 11 3D/error propagation: IDW synthetic single- and 30-seed protocol
+  runs **COMPLETED**; real 3D workflow **NOT COMPLETED**.
 - Phase 12 Paper III downstream/human study: **NOT COMPLETED**.
 - Paper manuscripts: complete sectioned research drafts with generated audit
   tables and honest `TBD`; final publishable papers **NOT COMPLETED**.
