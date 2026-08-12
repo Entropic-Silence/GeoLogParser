@@ -677,6 +677,30 @@
   drawn bbox selection, real human-corrected case accuracy, false correction
   rate, and Paper II effect sizes remain `TBD`.
 
+## 2026-08-12 — Synthetic PyVista interoperability protocol
+
+- Objective: establish a stable Paper III surface exchange path without
+  coupling extraction/evaluation code to a rapidly changing geological-model
+  API or claiming that a synthetic interpolated surface is a real 3D model.
+- Implementation: a dependency-neutral `SurfaceGrid` converts IDW elevations on
+  a strictly ordered regular grid to deterministic triangle topology. The
+  optional PyVista adapter writes VTK PolyData (`.vtp`) with `elevation_m` point
+  data and an off-screen PNG. PyVista 0.48.4 and VTK 9.6.2 are pinned in the
+  `paper3-3d` optional dependency group.
+- Real run: `P3_SYNTHETIC_PYVISTA_INTEROP_001` used the four-borehole synthetic
+  fixture, boundary index 0, IDW power 2, and an 11×11 grid. It wrote 121 points
+  and 200 triangle cells with elevation bounds 96.8–100.8 m. The VTP SHA256 is
+  `283830930242804c7fa378972153c93a0da317c10a099739b8e13604fa62478b` and the
+  PNG SHA256 is
+  `ade2507596b32db5ab15e9898c8007b948f9536d68ce226eea640c6b249c98b5`.
+- Evidence boundary: the run is indexed as `protocol_only`; its screenshot is
+  an interoperability artifact, not real geology, model accuracy, QC benefit,
+  or Paper III empirical evidence. It used CPU/off-screen rendering and did not
+  pause mining.
+- Decision: retain GemPy as a separate future adapter after a coherent,
+  human-verified interval-bearing site passes the existing readiness gate.
+  Real raw-vs-QC-vs-GT 3D comparison remains `TBD`.
+
 ## 2026-08-12 — Ground-Truth progress and draft-export UI gate
 
 - Objective: reduce manual-review friction without weakening the human Ground

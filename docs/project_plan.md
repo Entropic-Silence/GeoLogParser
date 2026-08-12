@@ -84,7 +84,8 @@ experiment metadata, prompts, baselines, and paper planning were missing.
   **NOT COMPLETED**. A source-coordinate-only Padova snapshot exists with all
   coordinate fields marked unverified/needs-review.
 - Phase 11 3D/error propagation: IDW synthetic single- and 30-seed protocol
-  runs **COMPLETED**; real 3D workflow **NOT COMPLETED**.
+  runs and a hash-indexed PyVista/VTP interoperability run are **COMPLETED**;
+  GemPy integration and a real human-verified 3D workflow are **NOT COMPLETED**.
 - Phase 12 Paper III downstream/human study: **NOT COMPLETED**.
 - Paper manuscripts: complete sectioned research drafts with generated audit
   tables and honest `TBD`; final publishable papers **NOT COMPLETED**.

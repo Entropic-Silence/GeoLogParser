@@ -184,9 +184,11 @@ Rechecked on 2026-08-12 after the baseline runs:
   `/data/GeoLogParser/models/rapidocr`; exact ONNX hashes are frozen in
   `configs/models/registry_v001.yaml`. The project `.venv` currently provides
   RapidOCR 1.4.4 and ONNX Runtime 1.23.2.
-- GeoPackage support was added with Pyogrio 0.11.1 and Pyproj 3.7.1. GemPy,
-  PyVista, VTK, GeoPandas, PaddleOCR, vLLM, Ollama, and llama.cpp remain absent
-  from the project runtime. Their absence blocks optional adapters, not the
+- GeoPackage support was added with Pyogrio 0.11.1 and Pyproj 3.7.1. PyVista
+  0.48.4 and VTK 9.6.2 are now installed in the project virtual environment
+  for CPU/off-screen Paper III interoperability checks. GemPy, GeoPandas,
+  PaddleOCR, vLLM, Ollama, and llama.cpp remain absent from the project
+  runtime. Their absence blocks optional adapters, not the
   implemented schema/constraint/evaluation/export paths.
 - Current disk check: SSD `/` has about 263 GiB available; mechanical `/data`
   has about 4.5 TiB available. Large models, datasets, and robustness derivatives
