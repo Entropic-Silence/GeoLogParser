@@ -62,3 +62,26 @@
 - Next step: add an independently packaged OCR backend, rerun the identical
   fixed-ID audit under a new experiment ID, and freeze a backend-neutral
   prediction/evaluation protocol before expanding the sample.
+
+## 2026-08-12 — Fixed-ID BGS RapidOCR audit
+
+- Experiment: `P1_B1_RAPIDOCR_BGS_AUDIT_001`; identical four-document,
+  20-page input and 300 dpi rendering as the Tesseract audit. Runtime was
+  RapidOCR ONNX Runtime 1.4.4/1.23.2 on CPU; model files and SHA256 values are
+  recorded in `run.json` and the model registry.
+- Observation: borehole-ID exact match was 4/4. Runtime was 70.504828 seconds
+  (3.525241 seconds/page), with peak process RSS 892,068 KiB. These values are
+  measurements from this process and this fixed audit sample only.
+- Failure: coordinate coverage, final-depth coverage, and interval emission
+  were all zero. Consequently all paired MAEs are undefined (`null`) and all
+  C1–C10 results had `evaluated_count=0`. The OCR detector returned many small
+  regions (154–457 per document), while the conservative extractor expects
+  coherent lines; this is a region-aggregation/interface failure rather than
+  evidence that the underlying page lacks text.
+- Decision: freeze this failed run unchanged. Do not interpret 4/4 ID match as
+  overall extraction success, and do not interpret unevaluated constraints as
+  consistency. Add an explicit, tested spatial line-aggregation stage and use
+  a new experiment ID for any rerun.
+- Next step: inspect region geometry on a frozen page, implement backend-neutral
+  aggregation with provenance-preserving union bboxes, and compare both raw and
+  aggregated extraction without overwriting either audit.
