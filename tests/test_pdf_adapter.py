@@ -1,10 +1,26 @@
 import shutil
 import subprocess
+from pathlib import Path
 
 import pytest
 
 from geologparser.pdf import PdftotextAdapter
+from geologparser.ocr import TextRegion
 from geologparser.pipeline import run_minimal_baseline
+
+
+class RecordingOCRAdapter:
+    name = "recording"
+
+    def __init__(self):
+        self.paths: list[Path] = []
+
+    def extract(self, path: Path) -> list[TextRegion]:
+        self.paths.append(path)
+        return [TextRegion(
+            page=1, bbox=(0, 0, 100, 20), confidence=0.9, method="ocr",
+            text="Borehole ID: INJECTED-01 Final Depth: 2.00 m",
+        )]
 
 
 @pytest.mark.skipif(shutil.which("gs") is None or shutil.which("pdftotext") is None, reason="PDF system tools unavailable")
@@ -68,3 +84,27 @@ def test_image_only_pdf_uses_ocr_pipeline(tmp_path):
     assert any(region.method == "ocr" for region in regions)
     assert record["borehole"]["final_depth_m"]["value"] == 4.5
     assert len(record["intervals"]) == 1
+
+
+@pytest.mark.skipif(
+    any(shutil.which(tool) is None for tool in ("gs", "pdftotext", "pdftoppm")),
+    reason="scanned-PDF rendering tools unavailable",
+)
+def test_scanned_pdf_uses_injected_ocr_adapter(tmp_path):
+    postscript = tmp_path / "fixture.ps"
+    pdf = tmp_path / "scanned.pdf"
+    postscript.write_text(
+        "%!PS-Adobe-3.0\n<< /PageSize [595 842] >> setpagedevice\n"
+        "/Courier findfont 24 scalefont setfont\n"
+        "72 730 moveto (raster outlines only) true charpath fill\nshowpage\n",
+        encoding="ascii",
+    )
+    subprocess.run(
+        ["gs", "-q", "-dNOPAUSE", "-dBATCH", "-sDEVICE=pdfwrite", f"-sOutputFile={pdf}", str(postscript)],
+        check=True,
+    )
+    adapter = RecordingOCRAdapter()
+    regions, record = run_minimal_baseline(pdf, ocr_adapter=adapter, render_dpi=144)
+    assert len(adapter.paths) == 1
+    assert regions[0].page == 1
+    assert record["borehole"]["borehole_id"]["value"] == "INJECTED-01"

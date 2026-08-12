@@ -1,0 +1,4 @@
+# CPU-only reproducible OCR backend. Direct model copies and hashes are listed
+# in configs/models/registry_v001.yaml and stored under /data/GeoLogParser.
+rapidocr_onnxruntime==1.4.4
+onnxruntime==1.23.2

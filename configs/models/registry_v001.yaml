@@ -9,6 +9,19 @@ ocr_models:
     adapter: paddleocr
     role: chinese_ocr_baseline
     revision: TBD
+  - id: rapidocr_onnxruntime_ppocrv4
+    adapter: rapidocr_onnxruntime
+    role: cpu_chinese_english_ocr_baseline
+    package_revision: 1.4.4
+    runtime_revision: onnxruntime_1.23.2
+    model_root: /data/GeoLogParser/models/rapidocr
+    models:
+      - file: ch_PP-OCRv4_det_infer.onnx
+        sha256: d2a7720d45a54257208b1e13e36a8479894cb74155a5efe29462512d42f49da9
+      - file: ch_PP-OCRv4_rec_infer.onnx
+        sha256: 48fc40f24f6d2a207a2b1091d3437eb3cc3eb6b676dc3ef9c37384005483683b
+      - file: ch_ppocr_mobile_v2.0_cls_infer.onnx
+        sha256: e47acedf663230f8863ff1ab0e64dd2d82b838fceb5957146dab185a89d6215c
 layout_models:
   - id: layout_candidate
     adapter: TBD
@@ -21,4 +34,3 @@ llm_models:
   - id: local_llm_candidate
     adapter: openai_compatible_or_llama_cpp
     revision: TBD
-

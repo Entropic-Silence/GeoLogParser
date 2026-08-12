@@ -9,17 +9,23 @@ from dataclasses import replace
 from pathlib import Path
 
 from geologparser.extraction import extract_structured
-from geologparser.ocr import OCRBackendUnavailable, TesseractOCRAdapter, TextRegion
+from geologparser.ocr import OCRAdapter, OCRBackendUnavailable, TesseractOCRAdapter, TextRegion
 from geologparser.pdf import PdftotextAdapter, detect_pdf
 
 
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".tif", ".tiff", ".bmp", ".webp"}
 
 
-def extract_text_regions(path: Path, ocr_language: str = "chi_sim+eng") -> list[TextRegion]:
+def extract_text_regions(
+    path: Path,
+    ocr_language: str = "chi_sim+eng",
+    ocr_adapter: OCRAdapter | None = None,
+    render_dpi: int = 300,
+) -> list[TextRegion]:
+    adapter = ocr_adapter or TesseractOCRAdapter(language=ocr_language)
     extension = path.suffix.lower()
     if extension in IMAGE_EXTENSIONS:
-        return TesseractOCRAdapter(language=ocr_language).extract(path)
+        return adapter.extract(path)
     if extension == ".pdf":
         detection = detect_pdf(path)
         native_pages = {page.page for page in detection.pages if page.classification == "native"}
@@ -32,10 +38,9 @@ def extract_text_regions(path: Path, ocr_language: str = "chi_sim+eng") -> list[
             raise OCRBackendUnavailable("Scanned-PDF OCR requires pdftoppm (Poppler).")
         with tempfile.TemporaryDirectory(prefix="geologparser-pdf-") as temporary:
             prefix = Path(temporary) / "page"
-            adapter = TesseractOCRAdapter(language=ocr_language)
             for page_number in sorted(scanned_pages):
                 completed = subprocess.run(
-                    [renderer, "-f", str(page_number), "-l", str(page_number), "-singlefile", "-png", "-r", "300", str(path), str(prefix)],
+                    [renderer, "-f", str(page_number), "-l", str(page_number), "-singlefile", "-png", "-r", str(render_dpi), str(path), str(prefix)],
                     text=True, capture_output=True, check=False,
                 )
                 if completed.returncode != 0:
@@ -51,6 +56,13 @@ def extract_text_regions(path: Path, ocr_language: str = "chi_sim+eng") -> list[
     raise ValueError(f"Unsupported input extension: {extension}")
 
 
-def run_minimal_baseline(path: Path, ocr_language: str = "chi_sim+eng") -> tuple[list[TextRegion], dict]:
-    regions = extract_text_regions(path, ocr_language=ocr_language)
+def run_minimal_baseline(
+    path: Path,
+    ocr_language: str = "chi_sim+eng",
+    ocr_adapter: OCRAdapter | None = None,
+    render_dpi: int = 300,
+) -> tuple[list[TextRegion], dict]:
+    regions = extract_text_regions(
+        path, ocr_language=ocr_language, ocr_adapter=ocr_adapter, render_dpi=render_dpi,
+    )
     return regions, extract_structured(regions, path)
