@@ -1,6 +1,8 @@
 const boreholeNames = ["borehole_id","project_name","x_coordinate","y_coordinate","coordinate_system","collar_elevation_m","final_depth_m","groundwater_depth_m","groundwater_elevation_m","drilling_date"];
 const numericNames = new Set(["x_coordinate","y_coordinate","collar_elevation_m","final_depth_m","groundwater_depth_m","groundwater_elevation_m","top_depth_m","bottom_depth_m","thickness_m"]);
 let annotation = null;
+let reviewSession = null;
+let originalRecord = null;
 
 function setEnvelopeValue(envelope, raw, name) {
   envelope.value = raw === "" ? null : (numericNames.has(name) ? Number(raw) : raw);
@@ -58,10 +60,13 @@ async function loadList() {
   items.forEach(item=>{const option=document.createElement("option"); option.value=item.annotation_id; option.textContent=`${item.borehole_id??item.annotation_id} [${item.annotation_status} r${item.revision}]`; select.append(option);});
   select.onchange=()=>load(select.value); if(items.length) await load(items[0].annotation_id);
 }
-async function load(id) { annotation=await (await fetch(`/api/annotations/${id}`)).json(); render(); }
+async function load(id) { annotation=await (await fetch(`/api/annotations/${id}`)).json(); originalRecord=structuredClone(annotation.record); reviewSession=null; render(); await loadReviewQueue(); }
 async function validate() { const response=await fetch("/api/validate",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({record:annotation.record})}); document.querySelector("#validation-output").textContent=JSON.stringify(await response.json(),null,2); }
-async function save() { const response=await fetch(`/api/annotations/${annotation.annotation_id}`,{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify({base_revision:annotation.revision,record:annotation.record,annotator_id:document.querySelector("#annotator").value,annotation_status:document.querySelector("#status").value})}); if(!response.ok){document.querySelector("#message").textContent=await response.text();return;} annotation=await response.json(); document.querySelector("#message").textContent=`Saved revision ${annotation.revision}`; render(); }
+function countCorrections(a,b){let n=0;for(const name of boreholeNames)if(JSON.stringify(a.borehole[name].value)!==JSON.stringify(b.borehole[name].value))n++;const count=Math.max(a.intervals.length,b.intervals.length);for(let i=0;i<count;i++){if(!a.intervals[i]||!b.intervals[i]){n++;continue;}for(const name of ["top_depth_m","bottom_depth_m","thickness_m","stratum_code_raw","lithology_raw","description_raw"])if(JSON.stringify(a.intervals[i][name].value)!==JSON.stringify(b.intervals[i][name].value))n++;}return n;}
+async function loadReviewQueue(){const all=await(await fetch("/api/review-queue")).json();document.querySelector("#review-output").textContent=JSON.stringify(all.filter(x=>x.annotation_id===annotation.annotation_id),null,2);}
+async function startReview(){const response=await fetch("/api/review-sessions/start",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({annotation_id:annotation.annotation_id,annotator_id:document.querySelector("#annotator").value})});reviewSession=await response.json();document.querySelector("#message").textContent=`Timer started ${reviewSession.session_id}`;}
+async function save() { const corrected=countCorrections(originalRecord,annotation.record), response=await fetch(`/api/annotations/${annotation.annotation_id}`,{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify({base_revision:annotation.revision,record:annotation.record,annotator_id:document.querySelector("#annotator").value,annotation_status:document.querySelector("#status").value})}); if(!response.ok){document.querySelector("#message").textContent=await response.text();return;} annotation=await response.json();if(reviewSession){await fetch(`/api/review-sessions/${reviewSession.session_id}/complete`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({corrected_fields:corrected})});reviewSession=null;}originalRecord=structuredClone(annotation.record);document.querySelector("#message").textContent=`Saved revision ${annotation.revision}; corrected fields ${corrected}`;render();await loadReviewQueue();}
 
-document.querySelector("#validate").onclick=validate; document.querySelector("#save").onclick=save;
+document.querySelector("#validate").onclick=validate; document.querySelector("#start-review").onclick=startReview; document.querySelector("#save").onclick=save;
 document.querySelector("#add-interval").onclick=()=>{const template=structuredClone(annotation.record.intervals.at(-1)); template.interval_id=`I${String(annotation.record.intervals.length+1).padStart(3,"0")}`; Object.values(template).forEach(v=>{if(v&&typeof v==="object"&&"value" in v){v.value=null;v.source_bbox=null;v.source_text=null;v.extraction_method="human";}}); annotation.record.intervals.push(template);render();};
 loadList();

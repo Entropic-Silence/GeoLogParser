@@ -9,9 +9,10 @@ from typing import Any
 from geologparser.annotation import revise_annotation, save_annotation, validate_annotation
 from geologparser.constraints import default_engine
 from geologparser.schema import validate_record
+from geologparser.review import TimingEventStore, build_review_queue, review_items_to_dict
 
 
-def create_app(annotation_root: Path, static_root: Path):
+def create_app(annotation_root: Path, static_root: Path, timing_log: Path | None = None):
     try:
         from fastapi import FastAPI, HTTPException
         from fastapi.responses import FileResponse, HTMLResponse
@@ -21,6 +22,7 @@ def create_app(annotation_root: Path, static_root: Path):
     annotation_root = Path(annotation_root).resolve()
     static_root = Path(static_root).resolve()
     app = FastAPI(title="GeoLogParser Annotation API", version="v001")
+    timing_store = TimingEventStore(timing_log or annotation_root / "events" / "review_timing.jsonl")
 
     def annotation_path(annotation_id: str) -> Path:
         safe = Path(annotation_id).name
@@ -68,6 +70,26 @@ def create_app(annotation_root: Path, static_root: Path):
         if not image_path.is_file():
             raise HTTPException(404, "panel image not found")
         return FileResponse(image_path, media_type="image/png")
+
+    @app.get("/api/review-queue")
+    def review_queue():
+        queue = []
+        for path in sorted(annotation_root.glob("*.json")):
+            annotation = json.loads(path.read_text(encoding="utf-8"))
+            queue.extend(build_review_queue(annotation["annotation_id"], annotation["record"]))
+        return review_items_to_dict(queue)
+
+    @app.post("/api/review-sessions/start")
+    def start_review(payload: dict[str, Any]):
+        annotation_path(str(payload["annotation_id"]))
+        return timing_store.start(str(payload["annotation_id"]), str(payload["annotator_id"]))
+
+    @app.post("/api/review-sessions/{session_id}/complete")
+    def complete_review(session_id: str, payload: dict[str, Any]):
+        try:
+            return timing_store.complete(session_id, int(payload.get("corrected_fields", 0)))
+        except ValueError as exc:
+            raise HTTPException(422, str(exc)) from exc
 
     @app.post("/api/validate")
     def validate(payload: dict[str, Any]):

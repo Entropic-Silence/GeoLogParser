@@ -53,3 +53,20 @@ def test_annotation_api_saves_revision_and_rejects_stale_update(tmp_path: Path):
 def test_annotation_api_rejects_path_traversal(tmp_path: Path):
     client, _ = build_client(tmp_path)
     assert client.get("/api/annotations/%2E%2E%2Fsecret").status_code in {400, 404}
+
+
+def test_annotation_api_review_queue_and_timing(tmp_path: Path):
+    client, annotation_root = build_client(tmp_path)
+    queue = client.get("/api/review-queue").json()
+    assert isinstance(queue, list)
+    started = client.post("/api/review-sessions/start", json={
+        "annotation_id": "test-panel", "annotator_id": "reviewer-1",
+    }).json()
+    completed = client.post(
+        f"/api/review-sessions/{started['session_id']}/complete",
+        json={"corrected_fields": 2},
+    )
+    assert completed.status_code == 200
+    assert completed.json()["corrected_fields"] == 2
+    events = (annotation_root / "events/review_timing.jsonl").read_text().splitlines()
+    assert [json.loads(line)["event"] for line in events] == ["review_started", "review_completed"]
