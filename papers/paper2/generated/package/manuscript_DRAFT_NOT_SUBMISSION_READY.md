@@ -1,3 +1,8 @@
+<!-- AUTO-GENERATED REVIEW BUNDLE. DO NOT EDIT. -->
+> Package status: **DRAFT_NOT_SUBMISSION_READY**
+> This bundle combines the versioned manuscript and generated results for review.
+> Blockers: unresolved TBD/citation markers remain; no formal experiment is indexed.
+
 # Geology-Constrained Multimodal Structured Information Extraction from Borehole Logs
 
 ## Abstract
@@ -72,3 +77,9 @@ do not satisfy the empirical completion gate.
 ## References
 
 Shared bibliography: [../references.bib](../references.bib). Citation metadata and permitted claim scope are logged in [../../docs/literature_evidence.yaml](../../docs/literature_evidence.yaml).
+
+# Appendix: Machine-Generated Current Results
+
+<!-- AUTO-GENERATED. DO NOT EDIT. -->
+
+No Paper II experiment is indexed yet. Main, ablation, calibration, review-recall, and false-correction results are `TBD`.

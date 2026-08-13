@@ -724,3 +724,33 @@
   `formal_downstream` labels now require a frozen GT SHA256 plus paper-specific
   protocol evidence. Both index creation and later hash verification reject
   unsupported formal labels.
+
+## 2026-08-13 — Evidence-gated manuscript review packages
+
+- Objective: make the three evolving manuscripts independently auditable while
+  preventing structurally complete drafts, audit runs, or synthetic protocols
+  from being presented as submission-ready research evidence.
+- Implementation: `scripts/build_paper_packages.py` checks required sections,
+  BibTeX keys, local links, result-index hashes, unresolved `TBD`/citation
+  markers, formal experiment counts, manuscript hashes, and versioned claim
+  tags. It emits per-paper evidence audits and explicitly labelled review
+  bundles plus a top-level package manifest.
+- Claim trace: manuscript numeric claims now point through
+  `papers/claim_registry.json` to immutable source files. In addition to source
+  SHA256 verification, registry assertions check exact JSON-pointer values and
+  read-only SQLite table counts. The Padova catalog claim is bound to 11
+  source-provided unverified coordinate records and zero intervals. The
+  quarantined Sanming connectivity claim is bound to four auto boreholes, 12
+  intervals, and 224 field-provenance rows. Neither is Ground Truth or formal
+  downstream evidence.
+- Verification: negative tests prove that changed source bytes, unregistered
+  manuscript tags, unused registry claims, mismatched indexed metric hashes,
+  and incorrect JSON/SQLite numeric assertions fail the structural audit.
+  Current package audits report no missing tags, unused tags, or claim-source
+  errors.
+- Evidence boundary: Paper I, II, and III each pass the structural package
+  audit but have zero formal experiment runs and unresolved `TBD` markers. All
+  three packages are therefore labelled `DRAFT_NOT_SUBMISSION_READY`.
+- Next step: a human reviewer must verify the public Padova annotation pack and
+  produce a frozen Ground Truth snapshot before any formal benchmark, Paper II
+  ablation, or Paper III raw-vs-QC-vs-GT result can be generated.

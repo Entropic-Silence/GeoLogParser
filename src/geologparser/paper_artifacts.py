@@ -120,6 +120,7 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
 
 def paper3_table(entries: list[dict], repository_root: Path) -> str:
     rows = []
+    interoperability_rows = []
     for entry in entries:
         metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
         for condition in metrics.get("conditions", []):
@@ -142,12 +143,29 @@ def paper3_table(entries: list[dict], repository_root: Path) -> str:
                     number(condition["mae_m"], 6), number(condition["rmse_m"], 6),
                     number(condition["max_abs_error_m"], 6), entry["paper_eligibility"],
                 ]) + " |")
+        if "surface_vtp_sha256" in metrics:
+            interoperability_rows.append("| " + " | ".join([
+                entry["experiment_id"], str(metrics["point_count"]),
+                str(metrics["triangle_cell_count"]),
+                ", ".join(number(value, 3) for value in metrics["bounds"]),
+                metrics["surface_vtp_sha256"], metrics["surface_png_sha256"],
+                entry["paper_eligibility"],
+            ]) + " |")
     return "\n".join([
         "<!-- AUTO-GENERATED. DO NOT EDIT. -->",
+        "### Synthetic error-propagation protocol",
+        "",
         "| Experiment | Perturbation (m) | Seed | Repetitions/grid points | Surface MAE (m) | RMSE (m) | Max abs. error (m) | Eligibility |",
         "|---|---:|---:|---:|---:|---:|---:|---|",
         *rows, "",
         "These rows are synthetic protocol results only; they are not evidence of real geological-model sensitivity. Multi-seed rows show mean ± sample standard deviation across seeds.",
+        "",
+        "### Synthetic 3D interoperability protocol",
+        "",
+        "| Experiment | Points | Triangle cells | Bounds (x0, x1, y0, y1, z0, z1) | VTP SHA256 | PNG SHA256 | Eligibility |",
+        "|---|---:|---:|---|---|---|---|",
+        *interoperability_rows, "",
+        "Interoperability rows establish reproducible artifact generation only; they do not establish geological validity or real-site performance.",
     ]) + "\n"
 
 

@@ -36,6 +36,22 @@ def test_paper3_table_is_labelled_protocol_only(tmp_path: Path, monkeypatch):
     assert "not evidence" in table
 
 
+def test_paper3_table_includes_hash_traceable_pyvista_interop(tmp_path: Path):
+    metrics = {
+        "point_count": 9, "triangle_cell_count": 8,
+        "bounds": [0, 1, 0, 1, 98, 100],
+        "surface_vtp_sha256": "a" * 64, "surface_png_sha256": "b" * 64,
+    }
+    write_run(tmp_path, metrics, {})
+    table = paper3_table([{
+        "experiment_id": "P3_INTEROP", "result_path": "result",
+        "paper_eligibility": "protocol_only",
+    }], tmp_path)
+    assert "Synthetic 3D interoperability" in table
+    assert "P3_INTEROP" in table
+    assert "a" * 64 in table
+
+
 def test_paper2_table_uses_gated_ablation_metrics(tmp_path: Path):
     metric = lambda value: {"value": value, "numerator": value, "denominator": 1}
     metrics = {

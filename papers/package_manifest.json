@@ -1,0 +1,38 @@
+{
+  "all_submission_ready": false,
+  "bibliography_path": "papers/references.bib",
+  "bibliography_sha256": "4078d231d015ac8ac40320362da4ce7b1e7492ece4305cb61d43c2fb26a32b2b",
+  "claim_registry_path": "papers/claim_registry.json",
+  "claim_registry_sha256": "0317ff6758271e18a269f89326dfd374bfe5f44f10bd9842acb9ee98591086b6",
+  "package_schema_version": "paper_packages_v001",
+  "papers": [
+    {
+      "evidence_audit_path": "paper1/generated/package/evidence_audit.json",
+      "evidence_audit_sha256": "add1fe29aa2042397b87f0996f0452ea955649e25d3591ddcd68e22334dcef63",
+      "package_label": "DRAFT_NOT_SUBMISSION_READY",
+      "paper": "paper1",
+      "review_bundle_path": "paper1/generated/package/manuscript_DRAFT_NOT_SUBMISSION_READY.md",
+      "review_bundle_sha256": "910901a8be8c8b38b2cca26f4cee1c59c36e83e7dd92da6a3f4026ae4dd203c8",
+      "submission_ready": false
+    },
+    {
+      "evidence_audit_path": "paper2/generated/package/evidence_audit.json",
+      "evidence_audit_sha256": "5fa29e5855e5199f6d49ad2aec7b8872a1ec9e87882b6ebe7385ddc6aa8a8d29",
+      "package_label": "DRAFT_NOT_SUBMISSION_READY",
+      "paper": "paper2",
+      "review_bundle_path": "paper2/generated/package/manuscript_DRAFT_NOT_SUBMISSION_READY.md",
+      "review_bundle_sha256": "9c5edb1715560960d2037d3343dd067dc7d6ba1d2b5f222a41eb6ffaae969fe9",
+      "submission_ready": false
+    },
+    {
+      "evidence_audit_path": "paper3/generated/package/evidence_audit.json",
+      "evidence_audit_sha256": "5f33bebf15fdd66d61f3f7dc96dfe616cf9a244ef718014f0ee45855124270ff",
+      "package_label": "DRAFT_NOT_SUBMISSION_READY",
+      "paper": "paper3",
+      "review_bundle_path": "paper3/generated/package/manuscript_DRAFT_NOT_SUBMISSION_READY.md",
+      "review_bundle_sha256": "d3bbff5c5fe71a0d36baf7f921c63d0de1955e6de9ff55805401edbc5f7286b4",
+      "submission_ready": false
+    }
+  ],
+  "scope": "traceable review packages; submission readiness is evidence-gated"
+}

@@ -1,0 +1,209 @@
+{
+  "claim_registry_version": "paper_claims_v001",
+  "interpretation": "Evidence tags trace manuscript numeric claims to immutable files; they do not promote audit/protocol data to formal evidence.",
+  "claims": {
+    "p1.padova_inventory": {
+      "paper": "paper1",
+      "scope": "11 unique source records and 15 rendered pages; rights/annotation state is described separately",
+      "source_path": "/data/GeoLogParser/artifacts/annotation/unipd_levee_geotech_v001/panel_manifest.jsonl",
+      "source_sha256": "2ee38b8da430075df80a4b3c16a4739838b4320ecbc73ce18dcfcbcb1ac79e2a",
+      "assertions": [
+        {"type": "jsonl_row_count", "expected": 15},
+        {"type": "jsonl_pointer_unique_count", "pointer": "/source_sha256", "expected": 11}
+      ]
+    },
+    "p1.cad_full_svg": {
+      "paper": "paper1",
+      "scope": "33-item technical SVG/raster audit summary; structural coverage is not visual fidelity",
+      "source_path": "/data/GeoLogParser/datasets/public/mendeley_borehole_logs_v002/audit/full_svg_derivatives_v002/summary.json",
+      "source_sha256": "94ac064a1c2f67262a7c23b9478baf2d3fa8b229c3bf5609365a86604ef655e7",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/items", "expected": 33},
+        {"type": "json_pointer_equals", "pointer": "/source_entity_count", "expected": 789244},
+        {"type": "json_pointer_equals", "pointer": "/rendered_source_entity_count", "expected": 538740},
+        {"type": "json_pointer_equals", "pointer": "/technical_render_status_counts/review_raster_created_with_missing_or_extra_entity_ids", "expected": 20},
+        {"type": "json_pointer_equals", "pointer": "/technical_render_status_counts/renderer_emitted_empty_raster", "expected": 11},
+        {"type": "json_pointer_equals", "pointer": "/technical_render_status_counts/renderer_emitted_invalid_svg_geometry", "expected": 2},
+        {"type": "json_pointer_equals", "pointer": "/items_with_complete_entity_id_coverage", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/benchmark_eligible_items", "expected": 0}
+      ]
+    },
+    "p1.cad_priority_fidelity": {
+      "paper": "paper1",
+      "scope": "three-item structural/text inventory reconciliation; not pixel fidelity",
+      "source_path": "/data/GeoLogParser/datasets/public/mendeley_borehole_logs_v002/audit/priority_fidelity_v002/fidelity_manifest.jsonl",
+      "source_sha256": "0a5af970a16bbec9bd5dc8cdb849d529eeec4e67e817cce85c9a74454b4371cb",
+      "assertions": [
+        {"type": "jsonl_row_count", "expected": 3},
+        {"type": "jsonl_pointer_sequence_equals", "pointer": "/comparison/source_entity_count", "expected": [1244, 1905, 7173]},
+        {"type": "jsonl_pointer_sequence_equals", "pointer": "/comparison/source_text_entity_count", "expected": [363, 537, 611]},
+        {"type": "jsonl_pointer_sequence_equals", "pointer": "/benchmark_eligible", "expected": [false, false, false]}
+      ]
+    },
+    "p1.degradation_inventory": {
+      "paper": "paper1",
+      "scope": "270 deterministic derivatives from 15 panels and 18 profiles; no performance values",
+      "source_path": "/data/GeoLogParser/artifacts/robustness/unipd_degradation_v001/summary.json",
+      "source_sha256": "62b001b386b38761f4fb518a1f33613df306a90c7c094e045222494db2804532",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/derived_images", "expected": 270},
+        {"type": "json_pointer_equals", "pointer": "/source_panels", "expected": 15},
+        {"type": "json_pointer_equals", "pointer": "/profiles", "expected": 18},
+        {"type": "json_pointer_equals", "pointer": "/degradation_manifest_sha256", "expected": "ca6bc6d6f2eff3df6916b3a87d43f24df6dacb13f4e924048b79120a339c5ba9"},
+        {"type": "json_pointer_equals", "pointer": "/accuracy_metrics", "expected": null}
+      ]
+    },
+    "p1.b4_sanming": {
+      "paper": "paper1", "experiment_id": "P1_B4_QWEN3VL4B_SANMING_AUDIT_001",
+      "source_path": "results/2026-08-12/P1_B4_QWEN3VL4B_SANMING_AUDIT_001/metrics.json",
+      "source_sha256": "f561841332551fc85cf347231ee2be96ab1a39d0c3dc0824090e677a2a1abe79",
+      "scope": "audit-only parse, output, constraint, latency, and resource diagnostics",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/items", "expected": 4},
+        {"type": "json_pointer_equals", "pointer": "/schema_valid_responses", "expected": 3},
+        {"type": "json_pointer_equals", "pointer": "/responses_hitting_max_new_tokens", "expected": 1},
+        {"type": "json_pointer_equals", "pointer": "/emitted_intervals", "expected": 8},
+        {"type": "json_pointer_equals", "pointer": "/constraint_evaluations", "expected": 82},
+        {"type": "json_pointer_equals", "pointer": "/constraint_violations", "expected": 20},
+        {"type": "json_pointer_equals", "pointer": "/latency_mean_seconds_per_image", "expected": 50.63732405375049},
+        {"type": "json_pointer_equals", "pointer": "/peak_gpu_memory_bytes", "expected": 9291707392}
+      ]
+    },
+    "p1.b5_sanming": {
+      "paper": "paper1", "experiment_id": "P1_B5_QWEN3VL4B_SANMING_AUDIT_001",
+      "source_path": "results/2026-08-12/P1_B5_QWEN3VL4B_SANMING_AUDIT_001/metrics.json",
+      "source_sha256": "50c7effc2c762e22efd74ffd363e3f9cc088a164d140530417554007638f1f2f",
+      "scope": "audit-only parse, output, latency, and resource diagnostics",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/items", "expected": 4},
+        {"type": "json_pointer_equals", "pointer": "/schema_valid_responses", "expected": 1},
+        {"type": "json_pointer_equals", "pointer": "/responses_hitting_max_new_tokens", "expected": 3},
+        {"type": "json_pointer_equals", "pointer": "/latency_mean_seconds_per_image", "expected": 59.30085306549881}
+      ]
+    },
+    "p1.b4_bgs": {
+      "paper": "paper1", "experiment_id": "P1_B4_QWEN3VL4B_BGS_AUDIT_001",
+      "source_path": "results/2026-08-12/P1_B4_QWEN3VL4B_BGS_AUDIT_001/metrics.json",
+      "source_sha256": "0f126d7d76930ae227e79c751d22db8aed36ca3d2e29a97c6cda96e9c56fd1c8",
+      "scope": "audit-only parse/coverage failure and latency",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/items", "expected": 4},
+        {"type": "json_pointer_equals", "pointer": "/schema_valid_responses", "expected": 4},
+        {"type": "json_pointer_equals", "pointer": "/emitted_intervals", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/latency_mean_seconds_per_image", "expected": 6.397402415001125}
+      ]
+    },
+    "p1.directpdf_padova": {
+      "paper": "paper1", "experiment_id": "P1_DIRECTPDF_UNIPD_AUDIT_004",
+      "source_path": "results/2026-08-12/P1_DIRECTPDF_UNIPD_AUDIT_004/metrics.json",
+      "source_sha256": "891b17ffbb0690cce62e810e8bd8cece27243228bf1a9e7ff9ff7b835f77d4b3",
+      "scope": "audit-only native-PDF coverage and latency",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/documents", "expected": 11},
+        {"type": "json_pointer_equals", "pointer": "/pages", "expected": 15},
+        {"type": "json_pointer_equals", "pointer": "/documents_with_borehole_id", "expected": 11},
+        {"type": "json_pointer_equals", "pointer": "/emitted_intervals", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/latency_seconds_per_page", "expected": 0.1250204013340408}
+      ]
+    },
+    "p1.b2_padova": {
+      "paper": "paper1", "experiment_id": "P1_B2_QWEN3VL4B_TEXT_UNIPD_AUDIT_002",
+      "source_path": "results/2026-08-12/P1_B2_QWEN3VL4B_TEXT_UNIPD_AUDIT_002/metrics.json",
+      "source_sha256": "2a80b77f16de21189577c0dcd4ca1ec10538e599f4f5a527bdca1f72fa64c7b6",
+      "scope": "audit-only text-LLM parse, output, constraint, latency, and resource diagnostics",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/items", "expected": 15},
+        {"type": "json_pointer_equals", "pointer": "/schema_valid_responses", "expected": 13},
+        {"type": "json_pointer_equals", "pointer": "/emitted_intervals", "expected": 74},
+        {"type": "json_pointer_equals", "pointer": "/responses_hitting_max_new_tokens", "expected": 2},
+        {"type": "json_pointer_equals", "pointer": "/latency_mean_seconds_per_page", "expected": 35.33182509473506},
+        {"type": "json_pointer_equals", "pointer": "/peak_gpu_memory_bytes", "expected": 9296219648}
+      ]
+    },
+    "p1.b3_padova": {
+      "paper": "paper1", "experiment_id": "P1_B3_LAYOUT_UNIPD_AUDIT_001",
+      "source_path": "results/2026-08-12/P1_B3_LAYOUT_UNIPD_AUDIT_001/metrics.json",
+      "source_sha256": "414dedda8787e8df49156f6bcdbc7e81d317e56bbb80c493ee0ebb05243b2b51",
+      "scope": "audit-only positioned-text output/abstention and latency",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/items", "expected": 15},
+        {"type": "json_pointer_equals", "pointer": "/items_with_any_interval", "expected": 5},
+        {"type": "json_pointer_equals", "pointer": "/emitted_intervals", "expected": 46},
+        {"type": "json_pointer_equals", "pointer": "/latency_mean_seconds_per_page", "expected": 0.03941656913278469}
+      ]
+    },
+    "p1.b4_padova": {
+      "paper": "paper1", "experiment_id": "P1_B4_QWEN3VL4B_UNIPD_AUDIT_001",
+      "source_path": "results/2026-08-12/P1_B4_QWEN3VL4B_UNIPD_AUDIT_001/metrics.json",
+      "source_sha256": "10280d8b97775c10690ba869a8df1c2fab0424df64f33303d6c6538527c95b71",
+      "scope": "audit-only VLM parse, output, latency, and resource diagnostics",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/items", "expected": 15},
+        {"type": "json_pointer_equals", "pointer": "/schema_valid_responses", "expected": 11},
+        {"type": "json_pointer_equals", "pointer": "/emitted_intervals", "expected": 87},
+        {"type": "json_pointer_equals", "pointer": "/responses_hitting_max_new_tokens", "expected": 4},
+        {"type": "json_pointer_equals", "pointer": "/latency_mean_seconds_per_image", "expected": 60.9868831081995},
+        {"type": "json_pointer_equals", "pointer": "/peak_gpu_memory_bytes", "expected": 9355471872}
+      ]
+    },
+    "p1.b6_padova": {
+      "paper": "paper1", "experiment_id": "P1_B6_QWEN3VL4B_UNIPD_AUDIT_001",
+      "source_path": "results/2026-08-12/P1_B6_QWEN3VL4B_UNIPD_AUDIT_001/metrics.json",
+      "source_sha256": "f85794f2fe2b28aaf6ecb01b4ed3e5d03c99358912f0782756a461b84d4faf6f",
+      "scope": "audit-only fusion decision counts",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/items_with_schema_valid_vlm_record", "expected": 11},
+        {"type": "json_pointer_equals", "pointer": "/fusion_decision_counts/agreement_keep_grounded_provenance", "expected": 17},
+        {"type": "json_pointer_equals", "pointer": "/fusion_decision_counts/disagreement_keep_grounded_needs_review", "expected": 1},
+        {"type": "json_pointer_equals", "pointer": "/fusion_decision_counts/visual_only_needs_review", "expected": 34},
+        {"type": "json_pointer_equals", "pointer": "/fusion_decision_counts/vlm_unavailable_keep_grounded", "expected": 4}
+      ]
+    },
+    "p3.idw_multiseed": {
+      "paper": "paper3", "experiment_id": "P3_SYNTHETIC_ERROR_PROPAGATION_MULTISEED_001",
+      "source_path": "results/2026-08-12/P3_SYNTHETIC_ERROR_PROPAGATION_MULTISEED_001/metrics.json",
+      "source_sha256": "55fa2479c232d58f6bffa51cdfcc26443b2cf72178b505aaee393f0f073dcf27",
+      "scope": "synthetic protocol-only multi-seed surface errors",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/conditions/4/magnitude_m", "expected": 1.0},
+        {"type": "json_pointer_equals", "pointer": "/conditions/4/repetitions", "expected": 30},
+        {"type": "json_pointer_equals", "pointer": "/conditions/4/mae_m/mean", "expected": 0.6624701252348287},
+        {"type": "json_pointer_equals", "pointer": "/conditions/4/mae_m/std", "expected": 0.1105650290281023}
+      ]
+    },
+    "p3.padova_spatial_catalog": {
+      "paper": "paper3",
+      "source_path": "/data/GeoLogParser/artifacts/spatial/unipd_source_catalog_v001/summary.json",
+      "source_sha256": "27dd4267013ac81a2271736384650a6b900dd01231c6989f6b436c818e69ebc4",
+      "scope": "source-provided, unverified Padova coordinate catalog; not interval Ground Truth or a 3D model",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/boreholes", "expected": 11},
+        {"type": "json_pointer_equals", "pointer": "/intervals", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/coordinate_validation_status", "expected": "source_provided_unverified"}
+      ]
+    },
+    "p3.sanming_database_connectivity": {
+      "paper": "paper3",
+      "source_path": "/data/GeoLogParser/artifacts/paper3/sanming_quarantine_auto_v001/boreholes.sqlite",
+      "source_sha256": "52a860230739968408a90c5d9aa7762f65eb659cb74fd4b24f294b08fca127a1",
+      "scope": "quarantine-only auto-extraction database connectivity counts; not human Ground Truth or releasable data",
+      "assertions": [
+        {"type": "sqlite_row_count", "table": "boreholes", "expected": 4},
+        {"type": "sqlite_row_count", "table": "intervals", "expected": 12},
+        {"type": "sqlite_row_count", "table": "field_provenance", "expected": 224}
+      ]
+    },
+    "p3.pyvista_interop": {
+      "paper": "paper3", "experiment_id": "P3_SYNTHETIC_PYVISTA_INTEROP_001",
+      "source_path": "results/2026-08-12/P3_SYNTHETIC_PYVISTA_INTEROP_001/metrics.json",
+      "source_sha256": "895c2e7b75bc901c3e9fc800d139fea70532ff5e0c362a4a3963b1c34d45aecf",
+      "scope": "synthetic protocol-only PyVista artifact interoperability",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/point_count", "expected": 121},
+        {"type": "json_pointer_equals", "pointer": "/triangle_cell_count", "expected": 200},
+        {"type": "json_pointer_equals", "pointer": "/surface_vtp_sha256", "expected": "283830930242804c7fa378972153c93a0da317c10a099739b8e13604fa62478b"},
+        {"type": "json_pointer_equals", "pointer": "/surface_png_sha256", "expected": "ade2507596b32db5ab15e9898c8007b948f9536d68ce226eea640c6b249c98b5"}
+      ]
+    }
+  }
+}

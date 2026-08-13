@@ -1,0 +1,81 @@
+{
+  "blockers": [
+    "unresolved TBD/citation markers remain",
+    "no formal experiment is indexed"
+  ],
+  "broken_local_links": [],
+  "citation_keys": [
+    "brier1950verification",
+    "guo2017calibration",
+    "han2024boreholeocr",
+    "xu2020layoutlm",
+    "xu2021layoutlmv2"
+  ],
+  "claim_registry_path": "papers/claim_registry.json",
+  "claim_registry_sha256": "0317ff6758271e18a269f89326dfd374bfe5f44f10bd9842acb9ee98591086b6",
+  "claim_source_errors": [],
+  "evidence_tags": [],
+  "formal_experiment_count": 0,
+  "headings": [
+    "Abstract",
+    "1. Introduction",
+    "2. Related Work",
+    "3. Method",
+    "4. Experimental Design",
+    "5. Results",
+    "6. Failure Analysis",
+    "7. Discussion",
+    "8. Reproducibility, Safety, and Ethics",
+    "9. Conclusion",
+    "References"
+  ],
+  "indexed_experiment_count": 0,
+  "local_links": [
+    {
+      "exists": true,
+      "resolved_path": "papers/paper2/generated/figures/method_schematic.png",
+      "sha256": "608d92634c9ea7787d57bdee184554a54e8aa745bf18d52bd32fc7b1b11a1457",
+      "target": "generated/figures/method_schematic.png"
+    },
+    {
+      "exists": true,
+      "resolved_path": "papers/paper2/generated/current_results.md",
+      "sha256": "7416215f09a3208da646fcd5ef5bf171048197673a39471caedcccbde62bca09",
+      "target": "generated/current_results.md"
+    },
+    {
+      "exists": true,
+      "resolved_path": "docs/generated/publication_readiness.md",
+      "sha256": "a7d3d15847e672474bc77d5e995b3beae9ac45fee2786ecdbedce85263c23653",
+      "target": "../../docs/generated/publication_readiness.md"
+    },
+    {
+      "exists": true,
+      "resolved_path": "papers/references.bib",
+      "sha256": "4078d231d015ac8ac40320362da4ce7b1e7492ece4305cb61d43c2fb26a32b2b",
+      "target": "../references.bib"
+    },
+    {
+      "exists": true,
+      "resolved_path": "docs/literature_evidence.yaml",
+      "sha256": "d30b5678e7e4d4bcc3f9563b53dff731b8f10d235e81d5f2beb0545f4667063b",
+      "target": "../../docs/literature_evidence.yaml"
+    }
+  ],
+  "manuscript_path": "papers/paper2/manuscript.md",
+  "manuscript_sha256": "53c9e1ee1f97cb85d63b22239675d788d6c748bf26bde44ccac03b9bc34a96d2",
+  "missing_bibliography_keys": [],
+  "missing_claim_registrations": [],
+  "missing_required_sections": [],
+  "package_label": "DRAFT_NOT_SUBMISSION_READY",
+  "paper": "paper2",
+  "registered_evidence_tags": [],
+  "result_index_errors": [],
+  "result_index_path": "experiments/paper2/result_index.jsonl",
+  "result_index_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "structurally_complete": true,
+  "submission_ready": false,
+  "tbd_or_citation_marker_count": 7,
+  "unused_claim_registrations": [],
+  "word_count": 1176
+}
