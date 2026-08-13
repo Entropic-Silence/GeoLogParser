@@ -142,7 +142,7 @@ def test_paper3_table_separates_structured_source_from_synthetic(tmp_path: Path)
     )
     assert "P3_SOURCE" not in synthetic_section
     assert "P3_SOURCE" in source_section
-    assert "not AI extraction" in source_section
+    assert "not image-derived automated extraction" in source_section
 
 
 def test_paper2_table_uses_gated_ablation_metrics(tmp_path: Path):

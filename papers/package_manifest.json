@@ -28,11 +28,11 @@
     },
     {
       "evidence_audit_path": "paper3/generated/package/evidence_audit.json",
-      "evidence_audit_sha256": "756174718953af726c9a8aaf281ecda6d2d08db0dd2d905a91d4e62302aa8acc",
+      "evidence_audit_sha256": "2eef139c51a11354c05ffea458240453ae28dac29b03700938df3f3962d3971e",
       "package_label": "DRAFT_NOT_SUBMISSION_READY",
       "paper": "paper3",
       "review_bundle_path": "paper3/generated/package/manuscript_DRAFT_NOT_SUBMISSION_READY.md",
-      "review_bundle_sha256": "d5d4e05a8aed75563198cf131d9ea0eeb9aa1b9638efbf71460a4a9f80aed6a2",
+      "review_bundle_sha256": "1d0e276d6a4df0cbd70dee208f460a5f5542122b071ead84a5991771e849ea02",
       "submission_ready": false
     }
   ],

@@ -22,7 +22,7 @@
     },
     {
       "path": "paper3/generated/figures/coal602_source_proxy.png",
-      "sha256": "e1793f7d1dcdc2f4de3a5710c807d92fbad52f6d456ab5ae373bc3a0fd7daa13"
+      "sha256": "1677211e892782771aa99c52dca98fc154130eef04f5c14690fb71539791cc04"
     }
   ],
   "scope": "auto-generated traceable figures; individual captions retain audit/protocol/design limits",

@@ -26,7 +26,7 @@ These rows are synthetic protocol results only; they are not evidence of real ge
 | P3_COAL602_SOURCE_ROOF_PROXY_PROTOCOL_001 | 0.50 | multiple | 30 | 0.131606 ± 0.013952 | 0.181193 ± 0.012088 | 0.496435 ± 0.001052 | protocol_only |
 | P3_COAL602_SOURCE_ROOF_PROXY_PROTOCOL_001 | 1.00 | multiple | 30 | 0.260428 ± 0.018737 | 0.361223 ± 0.020639 | 0.992077 ± 0.003371 | protocol_only |
 
-These rows use source-reported tabular values with origin-suppressed local coordinates. They are protocol-development evidence only, not AI extraction, Ground Truth, constraint-QC, true geological-surface, absolute-location, or formal downstream evidence. Multi-seed rows show mean ± sample standard deviation across seeds.
+These rows use source-reported tabular values with origin-suppressed local coordinates. They are protocol-development evidence only, not image-derived automated extraction, a geological reference, constraint-QC, a true geological surface, absolute-location evidence, or formal downstream evidence. Multi-seed rows show mean ± sample standard deviation across seeds.
 
 ### Synthetic 3D interoperability protocol
 

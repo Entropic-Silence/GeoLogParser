@@ -153,7 +153,7 @@ def save_source_field_propagation(
     axis.errorbar(x, y, yerr=errors, marker="o", capsize=4, color="#3a7d44")
     axis.set_xlabel("Injected source-field perturbation magnitude (m)")
     axis.set_ylabel("IDW proxy-surface MAE (m)")
-    axis.set_title("Licensed structured-source protocol only\n(not AI, GT, QC, or a geological model)")
+    axis.set_title("Licensed structured-source protocol only\n(not image-derived extraction, reference, QC, or a geological model)")
     axis.grid(alpha=.25)
     axis.text(
         .02, .96,

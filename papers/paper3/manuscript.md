@@ -1,8 +1,8 @@
-# From Legacy Borehole Logs to Structured Geological Models: An Automated AI-Assisted Workflow
+# From Legacy Borehole Logs to Structured Geological Models: An Automated Extraction and Error-Propagation Workflow
 
 ## Abstract
 
-This paper studies the downstream consequences of automatically structured legacy borehole logs. The workflow exports provenance-bearing extraction into SQLite and GeoJSON, performs quality control, correlates stratigraphic boundaries, and evaluates how controlled extraction errors propagate to geological surfaces and human review effort. A traceable database exporter, transparent IDW error-propagation baseline, and PyVista/VTP surface adapter are implemented. Synthetic four-borehole runs validate the propagation and interoperability protocols but are not real-world evidence. A separate 602-record licensed structured-source run validates origin-suppressed, multi-seed source-field perturbation mechanics; it is neither AI output nor geological Ground Truth. Spatially coherent human Ground Truth, raw-versus-validated-versus-human comparisons, real 3D modelling, and timed human studies are `TBD`.
+This paper studies the downstream consequences of automatically structured legacy borehole logs. The workflow exports provenance-bearing extraction into SQLite and GeoJSON, performs quality control, correlates stratigraphic boundaries, and evaluates how controlled extraction errors propagate to geological surfaces and human review effort. A traceable database exporter, transparent IDW error-propagation baseline, and PyVista/VTP surface adapter are implemented. Synthetic four-borehole runs validate the propagation and interoperability protocols but are not real-world evidence. A separate 602-record licensed structured-source run validates origin-suppressed, multi-seed source-field perturbation mechanics; it is neither image-derived automated extraction output nor a geological reference. Spatially coherent reference records, raw-versus-validated-versus-reference comparisons, real 3D modelling, and timed human studies are `TBD`.
 
 ## 1. Introduction
 
@@ -14,7 +14,7 @@ This contribution boundary is workflow and error propagation. It reuses extracti
 
 Shepard's irregular-data interpolation provides the provenance for the transparent inverse-distance baseline used in our controlled propagation protocol [@shepard1968interpolation]. It is intentionally not treated as a universal geological model. GemPy demonstrates an open-source route to stochastic geological modelling and inversion [@delavarga2019gempy], which motivates a later interoperable model adapter rather than making GemPy a prerequisite for document extraction. The 2024 borehole OCR/database study by Han and Suh connects document recognition to structured borehole data in an applied setting, but does not evaluate extraction-error propagation into a geological surface [@han2024boreholeocr].
 
-Downstream uncertainty begins before interpolation. In a designed cross-section experiment, Lark et al. compared geologists' interpreted contact elevations with withheld boreholes and quantified modeller/site variation, showing why interpretation uncertainty must be separated from document-extraction error [@lark2014crosssection]. Pakyuz-Charrier et al. explicitly propagated drillhole path and log uncertainty through alternative 3D model realizations with Monte Carlo perturbations [@pakyuzcharrier2018drillhole]. Paper III isolates an earlier error source—machine structuring of legacy logs—and holds the downstream correlation/interpolation configuration fixed when comparing raw extraction, constraint-validated extraction, and human GT. Interactive-machine-learning literature further argues that users and learning systems must be studied together [@amershi2014interactive]; it motivates a timed, event-logged human study here but supplies no transferable GeoLogParser time-saving estimate.
+Downstream uncertainty begins before interpolation. In a designed cross-section experiment, Lark et al. compared geologists' interpreted contact elevations with withheld boreholes and quantified modeller/site variation, showing why interpretation uncertainty must be separated from document-extraction error [@lark2014crosssection]. Pakyuz-Charrier et al. explicitly propagated drillhole path and log uncertainty through alternative 3D model realizations with Monte Carlo perturbations [@pakyuzcharrier2018drillhole]. Paper III isolates an earlier error source—automated structuring of legacy logs—and holds the downstream correlation/interpolation configuration fixed when comparing raw automated extraction, constraint-validated extraction, and reference records. Interactive-machine-learning literature further argues that users and learning systems must be studied together [@amershi2014interactive]; it motivates a timed, event-logged human study here but supplies no transferable GeoLogParser time-saving estimate.
 
 ## 3. Workflow
 
@@ -28,7 +28,7 @@ For a selected correlated boundary, depth is converted to elevation as collar el
 
 Protocol development additionally uses a CC BY 4.0 workbook containing 602 complete, unique directional gas-drainage borehole records. Its audit records numeric local X/Y/Z and roof-depth fields, but no CRS, and flags precise-location review as pending. <!-- evidence:p3.coal602_source_audit --> The source Y/X values are translated independently to zero-origin local `u/v`; the translation origin and source identifiers are not persisted. Source-reported No. 3 coal-roof depth is interpolated only as a scalar surface proxy on a 41 by 41 grid clipped to the collar-coordinate convex hull. It is not converted to elevation or named a coal-seam surface because trajectory and field-reference semantics are not established by the released files.
 
-The main comparison will be raw AI extraction versus constraint-validated extraction versus human GT using identical correlation/interpolation settings. Error types will also be injected separately: depth, missing interval, wrong lithology correlation, coordinate, and elevation. Exact site, grid, model, and repetitions are `TBD`.
+The main comparison will be raw automated extraction versus constraint-validated extraction versus reference records using identical correlation/interpolation settings. Error types will also be injected separately: depth, missing interval, wrong lithology correlation, coordinate, and elevation. Exact site, grid, model, and repetitions are `TBD`.
 
 ## 5. Database and Interoperability
 
@@ -51,7 +51,7 @@ interpretation limits described above.
 
 ## 7. Human-in-the-Loop Evaluation
 
-Planned measures are manual-entry time, AI inference time, AI+correction time, auto-accept rate, review rate, post-review error, and fields corrected/minute. Sessions must use anonymized annotator IDs, fixed instructions, counterbalanced task order where feasible, and real event timestamps. Sample size and analysis are `TBD`.
+Planned measures are manual-entry time, automated extraction time, extraction-plus-correction time, auto-accept rate, review rate, post-review error, and fields corrected/minute. Sessions must use anonymized annotator IDs, fixed instructions, counterbalanced task order where feasible, and real event timestamps. Sample size and analysis are `TBD`.
 
 ## 8. Discussion and Threats to Validity
 

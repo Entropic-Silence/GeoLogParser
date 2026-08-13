@@ -46,7 +46,7 @@
     {
       "exists": true,
       "resolved_path": "papers/paper3/generated/current_results.md",
-      "sha256": "946dd280f275be23f6d3a3fc35d14a84208eddfbd10846885f8d030b0209fe48",
+      "sha256": "e29929de94b67c885a0e6e514d1cf72a9648e2d1e30a247d7039a35e219bc184",
       "target": "generated/current_results.md"
     },
     {
@@ -64,7 +64,7 @@
     {
       "exists": true,
       "resolved_path": "papers/paper3/generated/figures/coal602_source_proxy.png",
-      "sha256": "e1793f7d1dcdc2f4de3a5710c807d92fbad52f6d456ab5ae373bc3a0fd7daa13",
+      "sha256": "1677211e892782771aa99c52dca98fc154130eef04f5c14690fb71539791cc04",
       "target": "generated/figures/coal602_source_proxy.png"
     },
     {
@@ -87,7 +87,7 @@
     }
   ],
   "manuscript_path": "papers/paper3/manuscript.md",
-  "manuscript_sha256": "9a2b7887d1a4caf389dc33764f567a036aaf7d03bea6414e27ffa1421d401462",
+  "manuscript_sha256": "b230cdb064fa2e82c37873abce8db05f7deccb6df4502f78a5a780646e61656b",
   "missing_bibliography_keys": [],
   "missing_claim_registrations": [],
   "missing_literature_evidence_keys": [],
@@ -109,5 +109,5 @@
   "submission_ready": false,
   "tbd_or_citation_marker_count": 6,
   "unused_claim_registrations": [],
-  "word_count": 1451
+  "word_count": 1454
 }

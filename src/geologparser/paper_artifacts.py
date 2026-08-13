@@ -235,7 +235,7 @@ def paper3_table(entries: list[dict], repository_root: Path) -> str:
         "| Experiment | Perturbation (m) | Seed | Repetitions/grid points | Proxy-surface MAE (m) | RMSE (m) | Max abs. error (m) | Eligibility |",
         "|---|---:|---:|---:|---:|---:|---:|---|",
         *source_protocol_rows, "",
-        "These rows use source-reported tabular values with origin-suppressed local coordinates. They are protocol-development evidence only, not AI extraction, Ground Truth, constraint-QC, true geological-surface, absolute-location, or formal downstream evidence. Multi-seed rows show mean ± sample standard deviation across seeds.",
+        "These rows use source-reported tabular values with origin-suppressed local coordinates. They are protocol-development evidence only, not image-derived automated extraction, a geological reference, constraint-QC, a true geological surface, absolute-location evidence, or formal downstream evidence. Multi-seed rows show mean ± sample standard deviation across seeds.",
         "",
         "### Synthetic 3D interoperability protocol",
         "",

@@ -141,7 +141,7 @@ def main() -> None:
             "idw_power": 2.0,
             "claims_allowed": config["claims_allowed"],
             "claims_forbidden": config["claims_forbidden"],
-            "scope": "licensed source-field protocol development; not AI, GT, QC, or geological-model evidence",
+            "scope": "licensed source-field protocol development; not image-derived automated extraction, reference, QC, or geological-model evidence",
         },
     })
 
