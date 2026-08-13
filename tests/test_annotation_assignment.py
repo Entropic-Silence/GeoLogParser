@@ -7,7 +7,8 @@ from PIL import Image
 
 from geologparser.annotation import create_annotation, revise_annotation, save_annotation
 from geologparser.annotation_assignment import (
-    build_blinded_annotation_pack, compare_blinded_annotation_tracks,
+    build_adjudication_pack, build_blinded_annotation_pack,
+    compare_blinded_annotation_tracks,
 )
 from geologparser.datasets.manifest import sha256_file
 
@@ -140,3 +141,73 @@ def test_compare_tracks_rejects_same_annotator_identity(tmp_path: Path):
         compare_blinded_annotation_tracks(
             track_a, track_b, output / "agreement.json",
         )
+
+
+def test_adjudication_pack_freezes_disagreements_without_creating_gt(tmp_path: Path):
+    source = source_pack(tmp_path)
+    output = tmp_path / "pack"
+    build_blinded_annotation_pack(
+        source, output, {"track_a": "reviewer-A", "track_b": "reviewer-B"},
+    )
+    track_a = output / "tracks/track_a/annotations"
+    track_b = output / "tracks/track_b/annotations"
+    verify_track(track_a, "reviewer-A")
+    verify_track(track_b, "reviewer-B", change=True)
+    agreement = output / "agreement/pre_adjudication.json"
+    compare_blinded_annotation_tracks(track_a, track_b, agreement)
+    adjudication = output / "adjudication/v001"
+    result = build_adjudication_pack(agreement, track_a, track_b, adjudication)
+    assert result["case_count"] == 2
+    assert result["pending_adjudication_count"] == 2
+    assert result["pending_confirmation_count"] == 0
+    assert result["automatic_final_records_created"] == 0
+    assert result["manifest_sha256"] == sha256_file(
+        adjudication / "adjudication_manifest.json"
+    )
+    case = json.loads((adjudication / "cases/P0/case.json").read_text())
+    assert case["status"] == "adjudication_pending"
+    assert case["automatic_final_record_created"] is False
+    assert case["disagreements"][0]["field_path"] == "intervals[0].bottom_depth_m"
+    assert not (adjudication / "cases/P0/final.json").exists()
+    with pytest.raises(FileExistsError):
+        build_adjudication_pack(agreement, track_a, track_b, adjudication)
+
+
+def test_adjudication_pack_requires_confirmation_even_for_equal_records(tmp_path: Path):
+    source = source_pack(tmp_path)
+    output = tmp_path / "pack"
+    build_blinded_annotation_pack(
+        source, output, {"track_a": "reviewer-A", "track_b": "reviewer-B"},
+    )
+    track_a = output / "tracks/track_a/annotations"
+    track_b = output / "tracks/track_b/annotations"
+    verify_track(track_a, "reviewer-A")
+    verify_track(track_b, "reviewer-B")
+    agreement = output / "agreement.json"
+    compare_blinded_annotation_tracks(track_a, track_b, agreement)
+    adjudication = output / "adjudication"
+    result = build_adjudication_pack(agreement, track_a, track_b, adjudication)
+    assert result["pending_adjudication_count"] == 0
+    assert result["pending_confirmation_count"] == 2
+    assert all(item["status"] == "confirmation_pending" for item in result["cases"])
+
+
+def test_adjudication_pack_rejects_track_mutation_after_agreement(tmp_path: Path):
+    source = source_pack(tmp_path)
+    output = tmp_path / "pack"
+    build_blinded_annotation_pack(
+        source, output, {"track_a": "reviewer-A", "track_b": "reviewer-B"},
+    )
+    track_a = output / "tracks/track_a/annotations"
+    track_b = output / "tracks/track_b/annotations"
+    verify_track(track_a, "reviewer-A")
+    verify_track(track_b, "reviewer-B")
+    agreement = output / "agreement.json"
+    compare_blinded_annotation_tracks(track_a, track_b, agreement)
+    path = track_b / "P0.json"
+    path.write_text(path.read_text() + "\n")
+    with pytest.raises(ValueError, match="changed after agreement"):
+        build_adjudication_pack(
+            agreement, track_a, track_b, output / "adjudication",
+        )
+    assert not (output / "adjudication").exists()

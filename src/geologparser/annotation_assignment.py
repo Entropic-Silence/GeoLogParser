@@ -172,3 +172,124 @@ def compare_blinded_annotation_tracks(
         encoding="utf-8",
     )
     return payload | {"output_path": str(destination), "sha256": sha256_file(destination)}
+
+
+def build_adjudication_pack(
+    agreement_path: Path,
+    first_root: Path,
+    second_root: Path,
+    output_root: Path,
+) -> dict[str, Any]:
+    """Freeze both reviewer records for adjudication without creating final GT."""
+    agreement_path = Path(agreement_path).resolve()
+    first_root, second_root = Path(first_root).resolve(), Path(second_root).resolve()
+    output_root = Path(output_root).resolve()
+    if output_root.exists():
+        raise FileExistsError(f"adjudication output already exists: {output_root}")
+    if not agreement_path.is_file():
+        raise FileNotFoundError(agreement_path)
+    agreement_payload = json.loads(agreement_path.read_text(encoding="utf-8"))
+    if agreement_payload.get("agreement_schema_version") != "blinded_pre_adjudication_agreement_v001":
+        raise ValueError("unsupported or missing pre-adjudication agreement schema")
+    if Path(agreement_payload["first_annotation_root"]).resolve() != first_root:
+        raise ValueError("first annotation root differs from frozen agreement")
+    if Path(agreement_payload["second_annotation_root"]).resolve() != second_root:
+        raise ValueError("second annotation root differs from frozen agreement")
+
+    expected = agreement_payload["annotation_file_sha256"]
+    collections: list[dict[str, tuple[Path, dict[str, Any]]]] = []
+    for label, root in (("first", first_root), ("second", second_root)):
+        items: dict[str, tuple[Path, dict[str, Any]]] = {}
+        for path in _annotation_paths(root):
+            annotation = json.loads(path.read_text(encoding="utf-8"))
+            validate_annotation(annotation)
+            annotation_id = str(annotation["annotation_id"])
+            if annotation_id in items:
+                raise ValueError(f"duplicate annotation ID in {label} track: {annotation_id}")
+            items[annotation_id] = (path, annotation)
+        if set(items) != set(expected[label]):
+            raise ValueError(f"{label} annotation IDs differ from frozen agreement")
+        for annotation_id, (path, _) in items.items():
+            if sha256_file(path) != expected[label][annotation_id]:
+                raise ValueError(
+                    f"{label} annotation changed after agreement: {annotation_id}"
+                )
+        collections.append(items)
+
+    disagreements_by_id: dict[str, list[dict[str, Any]]] = {}
+    for disagreement in agreement_payload["agreement"].get("disagreements", []):
+        disagreements_by_id.setdefault(disagreement["annotation_id"], []).append(disagreement)
+
+    output_root.parent.mkdir(parents=True, exist_ok=True)
+    staging_root = Path(tempfile.mkdtemp(
+        prefix=f".{output_root.name}.building-", dir=output_root.parent,
+    ))
+    try:
+        case_rows = []
+        for annotation_id in sorted(collections[0]):
+            case_root = staging_root / "cases" / annotation_id
+            case_root.mkdir(parents=True, exist_ok=False)
+            first_path, first_annotation = collections[0][annotation_id]
+            second_path, second_annotation = collections[1][annotation_id]
+            shutil.copy2(first_path, case_root / "first.json")
+            shutil.copy2(second_path, case_root / "second.json")
+            disagreements = disagreements_by_id.get(annotation_id, [])
+            hashes = agreement_payload["agreement"]["document_record_hashes"][annotation_id]
+            case = {
+                "adjudication_case_schema_version": "adjudication_case_v001",
+                "annotation_id": annotation_id,
+                "status": "adjudication_pending" if disagreements else "confirmation_pending",
+                "disagreement_count": len(disagreements),
+                "disagreements": disagreements,
+                "records_equal": hashes["equal"],
+                "record_sha256": hashes,
+                "first_annotator_id": first_annotation["annotator_id"],
+                "second_annotator_id": second_annotation["annotator_id"],
+                "automatic_final_record_created": False,
+            }
+            case_path = case_root / "case.json"
+            case_path.write_text(
+                json.dumps(case, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+                encoding="utf-8",
+            )
+            case_rows.append({
+                "annotation_id": annotation_id,
+                "status": case["status"],
+                "disagreement_count": len(disagreements),
+                "case_sha256": sha256_file(case_path),
+                "first_annotation_sha256": sha256_file(case_root / "first.json"),
+                "second_annotation_sha256": sha256_file(case_root / "second.json"),
+            })
+        manifest = {
+            "adjudication_manifest_schema_version": "adjudication_pack_v001",
+            "created_at": datetime.now(timezone.utc).isoformat(),
+            "agreement_path": str(agreement_path),
+            "agreement_sha256": sha256_file(agreement_path),
+            "case_count": len(case_rows),
+            "pending_adjudication_count": sum(
+                item["status"] == "adjudication_pending" for item in case_rows
+            ),
+            "pending_confirmation_count": sum(
+                item["status"] == "confirmation_pending" for item in case_rows
+            ),
+            "automatic_final_records_created": 0,
+            "cases": case_rows,
+            "interpretation": (
+                "frozen reviewer evidence for human adjudication; not final Ground Truth"
+            ),
+        }
+        staging_manifest = staging_root / "adjudication_manifest.json"
+        staging_manifest.write_text(
+            json.dumps(manifest, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+            encoding="utf-8",
+        )
+        os.replace(staging_root, output_root)
+        manifest_path = output_root / "adjudication_manifest.json"
+        return manifest | {
+            "output_path": str(output_root),
+            "manifest_sha256": sha256_file(manifest_path),
+        }
+    except Exception:
+        if staging_root.exists():
+            shutil.rmtree(staging_root)
+        raise

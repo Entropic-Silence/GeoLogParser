@@ -865,3 +865,19 @@
   an adversarial filesystem boundary. Reviewer protocol or separate OS
   permissions are still required. Actual human assignment, agreement,
   adjudication, and Ground Truth remain `NOT COMPLETED`.
+
+## 2026-08-13 — Pre-adjudication field-difference protocol
+
+- Objective: preserve reviewer disagreement at field level before any answer is
+  reconciled into final Ground Truth.
+- Implementation: agreement output now lists every v001 borehole/interval value
+  difference, interval count/ID mismatch, affected document, and both record
+  hashes. A separate immutable adjudication-pack builder rechecks every frozen
+  annotation file hash and copies both reviewer records plus the discrepancy
+  list into case directories.
+- Safety: the builder creates zero final records. Disagreements are marked
+  `adjudication_pending`; equal records remain `confirmation_pending` because
+  agreement alone is not evidence that either answer matches the source.
+- Verification: tests cover differing/equal tracks, immutable outputs, and
+  mutation after agreement. Actual Padova agreement and adjudication remain
+  `NOT COMPLETED` because both real tracks still contain only `auto` seeds.

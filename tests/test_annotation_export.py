@@ -124,6 +124,16 @@ def test_annotation_agreement_reports_numeric_difference(request):
     assert result["document_count"] == 1
     assert result["boundary"]["boundary_agreement_mae_m"]["value"] > 0
     assert result["independent_annotator_ids"]["disjoint"] is True
+    assert result["disagreement_count"] == 1
+    assert result["documents_with_disagreement"] == ["A"]
+    assert result["disagreements"] == [{
+        "annotation_id": "A",
+        "field_path": "intervals[0].bottom_depth_m",
+        "category": "interval_field_value",
+        "first_value": first["record"]["intervals"][0]["bottom_depth_m"]["value"],
+        "second_value": second["record"]["intervals"][0]["bottom_depth_m"]["value"],
+    }]
+    assert result["document_record_hashes"]["A"]["equal"] is False
 
 
 def test_annotation_agreement_rejects_reused_annotator_identity(request):

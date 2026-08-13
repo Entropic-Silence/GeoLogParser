@@ -124,6 +124,26 @@ output. Agreement is measured before adjudication and is not final GT. Any
 disagreement must be adjudicated separately; the exact adjudicated record must
 then receive the required final attestations.
 
+The agreement artifact includes every differing v001 field value, interval
+count/ID difference, per-document record hashes, and aggregate metrics. Only
+after that immutable artifact exists may the non-GT adjudication pack be built:
+
+```bash
+.venv/bin/python scripts/build_adjudication_pack.py \
+  /data/GeoLogParser/artifacts/annotation/unipd_blinded_duplicate_v001/agreement/pre_adjudication_v001.json \
+  /data/GeoLogParser/artifacts/annotation/unipd_blinded_duplicate_v001/tracks/track_a/annotations \
+  /data/GeoLogParser/artifacts/annotation/unipd_blinded_duplicate_v001/tracks/track_b/annotations \
+  /data/GeoLogParser/artifacts/annotation/unipd_blinded_duplicate_v001/adjudication/v001
+```
+
+The builder rechecks every frozen track file hash. It writes both reviewer
+records and a case-level discrepancy list, but deliberately writes no
+`final.json`. Differing cases are `adjudication_pending`; byte-identical records
+are still `confirmation_pending`. A human adjudicator must inspect source
+evidence, create the final record through the annotation service, and obtain
+the configured record-bound attestations. Agreement and adjudication artifacts
+are evidence about annotation quality, not automatic Ground Truth.
+
 After real review, create a frozen GT snapshot with:
 
 ```bash

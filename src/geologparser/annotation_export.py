@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
-from geologparser.annotation import matching_attestations, validate_annotation
+from geologparser.annotation import matching_attestations, record_sha256, validate_annotation
 
 
 HUMAN_STATUSES = {"single_verified", "double_verified", "expert_verified"}
@@ -125,6 +125,8 @@ def annotation_agreement(
     # package initializer, which itself exposes the benchmark evaluator.
     from geologparser.evaluation.metrics import exact_match, numeric_with_missing_mae
 
+    for annotation in (*first, *second):
+        validate_annotation(annotation)
     left = {str(item["annotation_id"]): item for item in first}
     right = {str(item["annotation_id"]): item for item in second}
     if len(left) != len(first) or len(right) != len(second):
@@ -147,18 +149,64 @@ def annotation_agreement(
         predictions = [right[item]["record"]["borehole"][name]["value"] for item in ids]
         categorical[name] = exact_match(references, predictions, f"{name}_agreement").to_dict()
     boundary_left, boundary_right = [], []
+    disagreements: list[dict[str, Any]] = []
+    document_record_hashes: dict[str, dict[str, Any]] = {}
     unmatched_interval_documents = 0
     for item in ids:
+        first_record = left[item]["record"]
+        second_record = right[item]["record"]
+        first_hash, second_hash = record_sha256(first_record), record_sha256(second_record)
+        document_record_hashes[item] = {
+            "first": first_hash, "second": second_hash, "equal": first_hash == second_hash,
+        }
+        for name in first_record["borehole"]:
+            first_value = first_record["borehole"][name]["value"]
+            second_value = second_record["borehole"][name]["value"]
+            if first_value != second_value:
+                disagreements.append({
+                    "annotation_id": item,
+                    "field_path": f"borehole.{name}",
+                    "category": "borehole_field_value",
+                    "first_value": first_value,
+                    "second_value": second_value,
+                })
         left_intervals = left[item]["record"]["intervals"]
         right_intervals = right[item]["record"]["intervals"]
         if len(left_intervals) != len(right_intervals):
             unmatched_interval_documents += 1
+            disagreements.append({
+                "annotation_id": item,
+                "field_path": "intervals",
+                "category": "interval_count",
+                "first_value": len(left_intervals),
+                "second_value": len(right_intervals),
+            })
             continue
-        for first_interval, second_interval in zip(left_intervals, right_intervals):
+        for index, (first_interval, second_interval) in enumerate(zip(left_intervals, right_intervals)):
+            if first_interval["interval_id"] != second_interval["interval_id"]:
+                disagreements.append({
+                    "annotation_id": item,
+                    "field_path": f"intervals[{index}].interval_id",
+                    "category": "interval_id",
+                    "first_value": first_interval["interval_id"],
+                    "second_value": second_interval["interval_id"],
+                })
+            for name in (key for key in first_interval if key != "interval_id"):
+                first_value = first_interval[name]["value"]
+                second_value = second_interval[name]["value"]
+                if first_value != second_value:
+                    disagreements.append({
+                        "annotation_id": item,
+                        "field_path": f"intervals[{index}].{name}",
+                        "category": "interval_field_value",
+                        "first_value": first_value,
+                        "second_value": second_value,
+                    })
             for name in ("top_depth_m", "bottom_depth_m", "thickness_m"):
                 boundary_left.append(first_interval[name]["value"])
                 boundary_right.append(second_interval[name]["value"])
     numeric = numeric_with_missing_mae(boundary_left, boundary_right, "boundary_agreement_mae_m")
+    disagreement_documents = sorted({item["annotation_id"] for item in disagreements})
     return {
         "document_count": len(ids), "categorical": categorical,
         "independent_annotator_ids": {
@@ -167,4 +215,8 @@ def annotation_agreement(
         },
         "boundary": {name: metric.to_dict() for name, metric in numeric.items()},
         "documents_excluded_for_interval_count_mismatch": unmatched_interval_documents,
+        "document_record_hashes": document_record_hashes,
+        "disagreement_count": len(disagreements),
+        "documents_with_disagreement": disagreement_documents,
+        "disagreements": disagreements,
     }
