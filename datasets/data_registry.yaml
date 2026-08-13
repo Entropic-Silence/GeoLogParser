@@ -7,7 +7,7 @@ policy:
   unknown_values: TBD
 
 datasets:
-  - id: mendeley_sedlog_drilling_cores_v001
+  - id: mendeley_sedlog_drilling_cores_v002
     name: "SedLog drilling cores from two transects"
     source_organization: Mendeley Data
     url: https://data.mendeley.com/datasets/v6k9s36pbm/1
@@ -18,14 +18,14 @@ datasets:
     format: "one native PDF containing 18 long-form SedLog lithology columns"
     scale: "verified public file: 10,549,922 bytes; 1 PDF; 18 pages; 18/18 pages expose native text"
     downloadable: true
-    access_status: "public anonymous file inventory and download verified"
+    access_status: "frozen anonymous inventory, reacquisition, page manifest, and source-review pack verified"
     license: Creative Commons Attribution 4.0 International
     allowed_usage: "share and adapt with attribution and indication of changes"
     redistribution: allowed_with_conditions
     redistribution_policy: "retain creator/DOI/CC BY 4.0 attribution and modification notice; inspect source references before redistributing derived page assets"
     paper_fit: [paper1_international_transfer, paper1_layout_stress_test]
-    status: acquired_rights_verified_format_verified_unannotated
-    verification_notes: "Anonymous Mendeley file API listed one PDF with SHA256 007d26b081677478bd0534b26309c696871c6735237eac7669c53ac7e8e6dd02; the acquired file matched. Programmatic and visual review confirmed one digitised SedLog lithology column per page, with English legends, depth axes, lithology patterns, and structure/fossil symbols. Most GeoLogParser MVP header and text-description fields are absent. Human GT pages and benchmark-eligible pages remain zero. It is not Chinese Benchmark data."
+    status: acquired_content_manifested_source_review_pending_unannotated
+    verification_notes: "Anonymous Mendeley file API listed one PDF with SHA256 007d26b081677478bd0534b26309c696871c6735237eac7669c53ac7e8e6dd02; the v002 reacquisition matched. Automated content triage provisionally classifies 18 native-PDF pages as digitised SedLog lithology columns and binds every page to frozen inventory, acquisition, and classification-config hashes. A separate 180 DPI source-review pack preserves all 18 unusually tall pages, but all remain unreviewed by a human. Most GeoLogParser MVP header and text-description fields appear absent from automated inspection. Human content/privacy review, annotation eligibility, human GT, and benchmark eligibility remain zero. It is not Chinese Benchmark data."
 
   - id: mendeley_subsurface_slopes_logs_v001
     name: "Data for novel subsurface slopes hazardous mapping with engineering geologic and geophysical characterizations"

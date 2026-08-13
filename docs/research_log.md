@@ -1190,3 +1190,31 @@
   regex extractor, but a one-page unreviewed source cannot support an accuracy
   or generalization claim. Both runs remain `audit_only`, with null accuracy,
   zero human review, and zero human GT. No GPU was used.
+
+## 2026-08-13 — SedLog evidence normalization and source-review queue
+
+- Problem: the original SedLog acquisition record predated the frozen
+  Mendeley acquisition and page-content contracts and described project-agent
+  visual inspection with language that could be mistaken for an independent
+  human source review.
+- Acquisition: the one public PDF was reacquired from frozen official inventory
+  evidence into the mechanical-disk v002 dataset directory. Its 10,549,922
+  bytes and SHA256
+  `007d26b081677478bd0534b26309c696871c6735237eac7669c53ac7e8e6dd02`
+  matched the inventory. Acquisition SHA256 is
+  `2c58aaa361285c6aa46a5ad2d2c192ec01d0f6cab9cfa3d083a913fe71835c5f`.
+- Content evidence: a versioned automated classification config covers exactly
+  18/18 native-PDF pages and labels them provisional digitised SedLog lithology
+  columns. Content manifest SHA256 is
+  `a00f9079cc9fb5a5ae5bc8328cdedfa6222b193a141bb58ced8f32a36a24b0af`;
+  classification is not human review.
+- Review pack: 18 complete 180 DPI renders range from 1,120 to 1,345 pixels
+  wide and 6,228 to 14,495 pixels high. Every PNG hash was verified, including
+  exact HTTP delivery for the first and last items. Review-pack manifest SHA256
+  is `85d8cba35d615a7be4e33b010374df07c2600b9f72d3e32fef6974cc69bb5833`.
+  Review-status SHA256 is
+  `9f2cfa3fc49929fc6e961b339cdfb9e5a1a4c14b409f127997fe9e214b7cc4ca`.
+- Boundary: all 18 items remain unreviewed; annotation eligibility, benchmark
+  eligibility, and human GT are zero. The source is English international
+  layout/transfer material, never Chinese core-Benchmark data. The independent
+  review UI runs on port 8003. No GPU was used.

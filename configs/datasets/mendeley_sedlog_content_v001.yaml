@@ -1,0 +1,21 @@
+dataset_id: v6k9s36pbm
+record_prefix: MENDELEY_SEDLOG
+language: English
+review:
+  provenance: automated_project_agent_content_triage_20260813
+  human_content_review: false
+  human_privacy_review: false
+content_rules:
+  - rule_id: digitised_sedlog_lithology_columns
+    filename_globs: ["SedLog drilling cores.pdf"]
+    page_ranges: [[1, 18]]
+    content_class: digitised_sedlog_lithology_column
+    phase1_scope: international_candidate
+    classification_status: provisional_automated_review
+    paper_fit: [paper1_international_transfer, paper1_layout_stress_test]
+    eligibility_blockers:
+      - NO_HUMAN_GROUND_TRUTH
+      - NOT_CHINESE_CORE_BENCHMARK
+      - HUMAN_CONTENT_AND_PRIVACY_REVIEW_NOT_COMPLETED
+      - MVP_HEADER_AND_DESCRIPTION_FIELDS_MOSTLY_ABSENT
+    notes: "Long-form SedLog lithology columns; most GeoLogParser MVP header and text-description fields are absent."

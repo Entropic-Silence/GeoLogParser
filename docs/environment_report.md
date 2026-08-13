@@ -142,7 +142,12 @@ is `requirements-vlm.txt`; this runtime is not mixed into `.venv`.
 - Numerous image/video diffusion weights and LoRAs exist under `/data`.
 - No complete Chinese document OCR, layout, or document-VLM checkpoint was
   identified by the bounded scan on 2026-08-12.
-- Exact reusable model inventory and license audit: `TBD` before model baseline.
+- Project-selected runtime inventory is frozen in
+  `configs/models/registry_v001.yaml`: Tesseract 4.1.1, RapidOCR 1.4.4 with
+  ONNX Runtime 1.23.2 and three hashed OCR weights, the hash-bound B3
+  positioned-text heuristic, and Qwen3-VL-4B-Instruct revision
+  `ebb281ec...`. This is a bounded GeoLogParser inventory, not a claim that all
+  unrelated host model assets have been licensed or audited.
 
 ## Compatibility and operational risks
 
@@ -173,6 +178,10 @@ Rechecked on 2026-08-12 after the baseline runs:
   `ebb281ec70b05090aa6165b016eac8ec08e71b17`, Apache-2.0, resides on the
   mechanical volume at
   `/data/GeoLogParser/models/huggingface/Qwen3-VL-4B-Instruct` (8.3 GiB).
+- The isolated `/root/venvs/ai` audit runtime currently reports Transformers
+  5.14.1, PyTorch 2.13.0, and Accelerate 1.14.0. The lightweight project venv
+  reports RapidOCR 1.4.4 and ONNX Runtime 1.23.2. PaddleOCR and a learned layout
+  model are not installed or selected; the registry records that explicitly.
   Weight SHA256 values are
   `30a01a0556622645a3cce87b655bbbbbc1f170c196099f1b666c93202c3339a9`
   and

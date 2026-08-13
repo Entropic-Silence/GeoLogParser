@@ -128,11 +128,13 @@ as human content, privacy, or geological review.
   privacy review and benchmark eligibility therefore remain at zero.
 - **Mendeley SedLog drilling cores:** DOI `10.17632/v6k9s36pbm.1`, CC BY 4.0.
   The public file is a 10,549,922-byte, 18-page native PDF; the download matched
-  repository SHA256 `007d26b...e6dd02`. Visual and programmatic review confirmed
-  one long-form SedLog lithology column per page. It is English/non-Chinese and
-  lacks most MVP header and text-description fields, so it is retained only for
-  international transfer and unusual-layout testing. Human GT and
-  Benchmark-eligible page counts are both zero.
+  repository SHA256 `007d26b...e6dd02`. Automated content triage provisionally
+  classifies all 18 pages as long-form SedLog lithology columns. The English,
+  non-Chinese source appears to lack most MVP header and text-description fields,
+  so it is retained only for international transfer and unusual-layout testing.
+  A hash-bound 180 DPI review pack is available, but all 18 pages still require
+  independent human content/privacy review. Annotation-eligible, human-GT, and
+  Benchmark-eligible page counts are all zero.
 
 ## Accessible licence, dataset inspection incomplete
 

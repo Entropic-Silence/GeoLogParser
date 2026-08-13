@@ -54,9 +54,10 @@ experiment metadata, prompts, baselines, and paper planning were missing.
 - Phase 0 environment/repository/experiment framework: **COMPLETED**.
 - Phase 1 v001 Schema and synthetic examples/tests: **COMPLETED**.
 - Phase 2 public data validation: BGS and Padova audit samples **COMPLETED**;
-  a frozen follow-up added 28 provisional international engineering-log pages
-  and one international stratigraphic-column page, plus programmatically
-  excluded non-log material; all remain unannotated and benchmark-ineligible;
+  a frozen follow-up added 28 provisional international engineering-log pages,
+  one international stratigraphic-column page, and 18 unusually tall SedLog
+  lithology-column candidates, plus programmatically excluded non-log material;
+  all remain human-unreviewed, unannotated, and benchmark-ineligible;
   one CC BY Chinese DWG collection acquired and automatically pre-screened,
   but its priority derivatives show unresolved cross-renderer disagreement and
   remain quarantined/incomplete; a diverse

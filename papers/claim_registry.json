@@ -55,6 +55,36 @@
         {"type": "json_pointer_equals", "pointer": "/benchmark_eligible_count", "expected": 0}
       ]
     },
+    "p1.sedlog_content": {
+      "paper": "paper1",
+      "scope": "automated page-content triage of one CC BY international SedLog source; not human review, Ground Truth, or benchmark evidence",
+      "source_path": "/data/GeoLogParser/datasets/public/mendeley_sedlog_drilling_cores_v002/metadata/content_summary.json",
+      "source_sha256": "bd0f0f204f197d18b84d9fb502b75ffdef4dea090259b7b34600634052915fd8",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/page_or_image_count", "expected": 18},
+        {"type": "json_pointer_equals", "pointer": "/content_class_counts/digitised_sedlog_lithology_column", "expected": 18},
+        {"type": "json_pointer_equals", "pointer": "/document_type_counts/native_pdf", "expected": 18},
+        {"type": "json_pointer_equals", "pointer": "/human_content_review_count", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/human_ground_truth_count", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/benchmark_eligible_count", "expected": 0}
+      ]
+    },
+    "p1.sedlog_source_review": {
+      "paper": "paper1",
+      "scope": "live SedLog human source-review queue status; rendering and automated triage are not human review or Ground Truth",
+      "source_path": "/data/GeoLogParser/artifacts/source_review/sedlog_candidates_v001/review_status.json",
+      "source_sha256": "9f2cfa3fc49929fc6e961b339cdfb9e5a1a4c14b409f127997fe9e214b7cc4ca",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/review_item_count", "expected": 18},
+        {"type": "json_pointer_equals", "pointer": "/reviewed_item_count", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/unreviewed_item_count", "expected": 18},
+        {"type": "json_pointer_equals", "pointer": "/annotation_eligible_count", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/human_ground_truth_count", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/benchmark_eligible_count", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/review_complete", "expected": false},
+        {"type": "json_pointer_equals", "pointer": "/pack_manifest_sha256", "expected": "85d8cba35d615a7be4e33b010374df07c2600b9f72d3e32fef6974cc69bb5833"}
+      ]
+    },
     "p1.slopes_tesseract_coverage": {
       "paper": "paper1",
       "experiment_id": "P1_B1_TESSERACT_SLOPES_AUDIT_001",
