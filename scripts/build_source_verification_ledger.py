@@ -101,6 +101,15 @@ def status_for(record: dict[str, Any], local_dir: Path | None) -> tuple[str, str
     return "CLAIM_CAPTURED", "USE_WITH_CAUTION", ["licence claim is recorded from repository metadata; final item/content review remains required"]
 
 
+def submission_decision(verification_status: str, local_dir: Path | None) -> str:
+    """Map internal evidence states to the four-value pre-submission vocabulary."""
+    if verification_status == "SYNTHETIC_KNOWN_GT":
+        return "ELIGIBLE_INTERNAL_ONLY"
+    if verification_status == "CLAIM_CAPTURED" and local_dir and local_dir.exists():
+        return "ELIGIBLE_INTERNAL_ONLY"
+    return "AMBIGUOUS"
+
+
 def build() -> dict[str, Any]:
     registry = yaml.safe_load((ROOT / "datasets/data_registry.yaml").read_text(encoding="utf-8"))
     records: list[dict[str, Any]] = []
@@ -114,18 +123,25 @@ def build() -> dict[str, Any]:
             "source_id": sid,
             "source_name": source.get("name"),
             "url": source.get("url"),
+            "source_url": source.get("url"),
             "doi": source.get("doi"),
             "publisher": source.get("source_organization"),
+            "citation": source.get("name") + (f"; DOI: {source['doi']}" if source.get("doi") else ""),
             "retrieval_date": source.get("access_date"),
             "local_paths": [str(local_dir)] if local_dir and local_dir.exists() else [],
             "file_count_in_local_snapshot": len(files),
             "local_snapshot_inventory_sha256": aggregate,
             "manifest_evidence": manifest_rows,
             "access_method": source.get("access_status"),
+            "terms_of_use": source.get("license_url"),
             "claimed_license": source.get("license"),
             "license_url": source.get("license_url"),
+            "commercial_use": "not_verified",
+            "personal_information_risk": "not_assessed",
+            "sensitive_location_risk": "not_assessed",
             "verification_status": verification_status,
             "internal_decision": decision,
+            "decision": submission_decision(verification_status, local_dir),
             "risks": risks,
             "experiments_or_papers": source.get("paper_fit", []),
             "requires_human_check_before_submission": True,
@@ -140,18 +156,25 @@ def build() -> dict[str, Any]:
         "source_id": "synthetic_borehole_logs_v001",
         "source_name": "GeoLogParser programmatically generated borehole logs",
         "url": None,
+        "source_url": None,
         "doi": None,
         "publisher": "GeoLogParser project",
+        "citation": "GeoLogParser synthetic borehole-log generator (dataset synthetic_borehole_logs_v001)",
         "retrieval_date": "2026-08-13",
         "local_paths": [str(synthetic)],
         "file_count_in_local_snapshot": len(files),
         "local_snapshot_inventory_sha256": aggregate,
         "manifest_evidence": [r for r in rows if r["relative_path"] in {"manifest.jsonl", "summary.json"}],
         "access_method": "generated locally by scripts/generate_synthetic_dataset.py",
+        "terms_of_use": None,
         "claimed_license": "project-generated; release licence TBD",
         "license_url": None,
+        "commercial_use": "not_verified",
+        "personal_information_risk": "not_applicable_to_generated_values",
+        "sensitive_location_risk": "not_applicable_to_generated_values",
         "verification_status": "SYNTHETIC_KNOWN_GT",
         "internal_decision": "INTERNAL_USE",
+        "decision": "ELIGIBLE_INTERNAL_ONLY",
         "risks": ["synthetic distribution may not represent real document variation", "release licence and generated font assets require final review"],
         "experiments_or_papers": ["paper1_controlled_robustness", "paper2_constraint_protocol", "paper3_error_propagation_protocol"],
         "requires_human_check_before_submission": True,

@@ -15,8 +15,10 @@ records:
 - source_id: mendeley_sedlog_drilling_cores_v002
   source_name: SedLog drilling cores from two transects
   url: https://data.mendeley.com/datasets/v6k9s36pbm/1
+  source_url: https://data.mendeley.com/datasets/v6k9s36pbm/1
   doi: 10.17632/v6k9s36pbm.1
   publisher: Mendeley Data
+  citation: 'SedLog drilling cores from two transects; DOI: 10.17632/v6k9s36pbm.1'
   retrieval_date: '2026-08-13'
   local_paths:
   - /data/GeoLogParser/datasets/public/mendeley_sedlog_drilling_cores_v002
@@ -34,10 +36,15 @@ records:
     sha256: 893ce2b2ee193aeeff865d7b52b6f94070139dcac163511d7a4ea11ed3821d0d
   access_method: frozen anonymous inventory, reacquisition, page manifest, and source-review
     pack verified
+  terms_of_use: https://creativecommons.org/licenses/by/4.0/legalcode
   claimed_license: Creative Commons Attribution 4.0 International
   license_url: https://creativecommons.org/licenses/by/4.0/legalcode
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
   verification_status: CLAIM_CAPTURED
   internal_decision: USE_WITH_CAUTION
+  decision: ELIGIBLE_INTERNAL_ONLY
   risks:
   - licence claim is recorded from repository metadata; final item/content review
     remains required
@@ -65,8 +72,11 @@ records:
   source_name: Data for novel subsurface slopes hazardous mapping with engineering
     geologic and geophysical characterizations
   url: https://data.mendeley.com/datasets/3tvtj4xnbn/1
+  source_url: https://data.mendeley.com/datasets/3tvtj4xnbn/1
   doi: 10.17632/3tvtj4xnbn.1
   publisher: Mendeley Data
+  citation: 'Data for novel subsurface slopes hazardous mapping with engineering geologic
+    and geophysical characterizations; DOI: 10.17632/3tvtj4xnbn.1'
   retrieval_date: '2026-08-13'
   local_paths:
   - /data/GeoLogParser/datasets/public/mendeley_subsurface_slopes_logs_v001
@@ -84,10 +94,15 @@ records:
     sha256: d19062ca042b739579a01dc89277b1bcbe9436585b4c58b945839cbaea92597f
   access_method: complete anonymous public inventory inspected; selected PDF/JPG/PNG
     acquisition and SHA256 verification completed
+  terms_of_use: https://creativecommons.org/licenses/by/4.0/legalcode
   claimed_license: Creative Commons Attribution 4.0 International
   license_url: https://creativecommons.org/licenses/by/4.0/legalcode
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
   verification_status: CLAIM_CAPTURED
   internal_decision: USE_WITH_CAUTION
+  decision: ELIGIBLE_INTERNAL_ONLY
   risks:
   - licence claim is recorded from repository metadata; final item/content review
     remains required
@@ -116,8 +131,11 @@ records:
   source_name: 14C constraints to the Holocene aggradation of three major tributary
     valleys of the Tiber River in Rome
   url: https://data.mendeley.com/datasets/gb4bx3mnyd/1
+  source_url: https://data.mendeley.com/datasets/gb4bx3mnyd/1
   doi: 10.17632/gb4bx3mnyd.1
   publisher: Mendeley Data
+  citation: '14C constraints to the Holocene aggradation of three major tributary
+    valleys of the Tiber River in Rome; DOI: 10.17632/gb4bx3mnyd.1'
   retrieval_date: '2026-08-13'
   local_paths:
   - /data/GeoLogParser/datasets/public/mendeley_tiber_borehole_pdf_v001
@@ -135,10 +153,15 @@ records:
     sha256: 78d52a25691427a999865d17f84ca59e37730db3b2ce358169a02bbe7cd73f18
   access_method: complete anonymous public inventory, download, SHA256, and page count
     verified
+  terms_of_use: https://creativecommons.org/licenses/by/4.0/legalcode
   claimed_license: Creative Commons Attribution 4.0 International
   license_url: https://creativecommons.org/licenses/by/4.0/legalcode
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
   verification_status: CLAIM_CAPTURED
   internal_decision: USE_WITH_CAUTION
+  decision: ELIGIBLE_INTERNAL_ONLY
   risks:
   - licence claim is recorded from repository metadata; final item/content review
     remains required
@@ -162,8 +185,10 @@ records:
 - source_id: mendeley_guaiba_cores_pdf_v001
   source_name: Raw and Refined Data - Guaiba Lake Borehole Cores (LG)
   url: https://data.mendeley.com/datasets/rw765fzx8s/1
+  source_url: https://data.mendeley.com/datasets/rw765fzx8s/1
   doi: 10.17632/rw765fzx8s.1
   publisher: Mendeley Data
+  citation: 'Raw and Refined Data - Guaiba Lake Borehole Cores (LG); DOI: 10.17632/rw765fzx8s.1'
   retrieval_date: '2026-08-13'
   local_paths:
   - /data/GeoLogParser/datasets/public/mendeley_guaiba_cores_pdf_v001
@@ -181,10 +206,15 @@ records:
     sha256: f320fab901043b7ad884d616ba45c7640c63aed177c6105e09c0841df60f19e5
   access_method: complete anonymous public inventory, download, SHA256, and page count
     verified
+  terms_of_use: https://creativecommons.org/licenses/by/4.0/legalcode
   claimed_license: Creative Commons Attribution 4.0 International
   license_url: https://creativecommons.org/licenses/by/4.0/legalcode
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
   verification_status: CLAIM_CAPTURED
   internal_decision: USE_WITH_CAUTION
+  decision: ELIGIBLE_INTERNAL_ONLY
   risks:
   - format/content is outside the Phase-I page-image contract
   experiments_or_papers:
@@ -207,8 +237,11 @@ records:
   source_name: Supplementary data to Underground Coal Fire Detection at Mined-Out
     Area by Borehole Drilling Method
   url: https://data.mendeley.com/datasets/xb3bjrt9v7/1
+  source_url: https://data.mendeley.com/datasets/xb3bjrt9v7/1
   doi: 10.17632/xb3bjrt9v7.1
   publisher: Mendeley Data
+  citation: 'Supplementary data to Underground Coal Fire Detection at Mined-Out Area
+    by Borehole Drilling Method; DOI: 10.17632/xb3bjrt9v7.1'
   retrieval_date: '2026-08-13'
   local_paths: []
   file_count_in_local_snapshot: 0
@@ -216,10 +249,15 @@ records:
   manifest_evidence: []
   access_method: complete anonymous dataset inventory verified; not downloaded because
     format is outside phase 1
+  terms_of_use: https://creativecommons.org/licenses/by/4.0/legalcode
   claimed_license: Creative Commons Attribution 4.0 International
   license_url: https://creativecommons.org/licenses/by/4.0/legalcode
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
   verification_status: CLAIM_CAPTURED
   internal_decision: USE_WITH_CAUTION
+  decision: AMBIGUOUS
   risks:
   - licence claim is recorded from repository metadata; final item/content review
     remains required
@@ -237,8 +275,11 @@ records:
   source_name: Drillings reveal the late Quaternary activity of the Liaocheng-Lankao
     fault
   url: https://figshare.com/articles/dataset/The_lithology_description_of_Bachengsi_boreholes_and_Yunhe_boreholes_/21159142/2
+  source_url: https://figshare.com/articles/dataset/The_lithology_description_of_Bachengsi_boreholes_and_Yunhe_boreholes_/21159142/2
   doi: 10.6084/m9.figshare.21159142.v2
   publisher: Figshare
+  citation: 'Drillings reveal the late Quaternary activity of the Liaocheng-Lankao
+    fault; DOI: 10.6084/m9.figshare.21159142.v2'
   retrieval_date: '2026-08-13'
   local_paths: []
   file_count_in_local_snapshot: 0
@@ -246,10 +287,15 @@ records:
   manifest_evidence: []
   access_method: DataCite metadata accessible; Figshare item, version, and download
     endpoints all returned HTTP 403 from this host
+  terms_of_use: https://creativecommons.org/licenses/by/4.0/legalcode
   claimed_license: Creative Commons Attribution 4.0 International at metadata record
   license_url: https://creativecommons.org/licenses/by/4.0/legalcode
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
   verification_status: CLAIM_CAPTURED
   internal_decision: USE_WITH_CAUTION
+  decision: AMBIGUOUS
   risks:
   - licence claim is recorded from repository metadata; final item/content review
     remains required
@@ -268,8 +314,11 @@ records:
   source_name: 'Geotechnical investigation of Tagliamento, Panaro and Grizzaga levee
     soils: CPTs, Boreholes and Laboratory tests'
   url: https://researchdata.cab.unipd.it/id/eprint/1663
+  source_url: https://researchdata.cab.unipd.it/id/eprint/1663
   doi: 10.25430/researchdata.cab.unipd.it.00001663
   publisher: University of Padova Research Data repository
+  citation: 'Geotechnical investigation of Tagliamento, Panaro and Grizzaga levee
+    soils: CPTs, Boreholes and Laboratory tests; DOI: 10.25430/researchdata.cab.unipd.it.00001663'
   retrieval_date: '2026-08-12'
   local_paths:
   - /data/GeoLogParser/datasets/public/unipd_levee_geotech_v001
@@ -283,10 +332,15 @@ records:
     size_bytes: 5357
     sha256: 18aa0c4ca10d7c5195cdc2509e2bab51840528a210ea69a1b6d9728fa0544ba3
   access_method: public file-level repository download verified
+  terms_of_use: https://creativecommons.org/licenses/by/4.0/
   claimed_license: Creative Commons Attribution 4.0 International
   license_url: https://creativecommons.org/licenses/by/4.0/
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
   verification_status: CLAIM_CAPTURED
   internal_decision: USE_WITH_CAUTION
+  decision: ELIGIBLE_INTERNAL_ONLY
   risks:
   - licence claim is recorded from repository metadata; final item/content review
     remains required
@@ -311,8 +365,10 @@ records:
 - source_id: mendeley_borehole_log_collection_v002
   source_name: Borehole log Collection
   url: https://data.mendeley.com/datasets/vcpz47r3sv/2
+  source_url: https://data.mendeley.com/datasets/vcpz47r3sv/2
   doi: 10.17632/vcpz47r3sv.2
   publisher: Mendeley Data
+  citation: 'Borehole log Collection; DOI: 10.17632/vcpz47r3sv.2'
   retrieval_date: '2026-08-12'
   local_paths:
   - /data/GeoLogParser/datasets/public/mendeley_borehole_logs_v002
@@ -350,10 +406,15 @@ records:
     size_bytes: 20100
     sha256: 431ea76ee9534316c181c8df53ed0474b932ef907fe166a2537c70cb130ff58a
   access_method: public anonymous repository download verified
+  terms_of_use: https://creativecommons.org/licenses/by/4.0/legalcode
   claimed_license: Creative Commons Attribution 4.0 International
   license_url: https://creativecommons.org/licenses/by/4.0/legalcode
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
   verification_status: CLAIM_CAPTURED
   internal_decision: USE_WITH_CAUTION
+  decision: ELIGIBLE_INTERNAL_ONLY
   risks:
   - licence claim is recorded from repository metadata; final item/content review
     remains required
@@ -387,8 +448,10 @@ records:
 - source_id: bgs_onshore_borehole_records
   source_name: BGS onshore borehole records and scans
   url: https://www.bgs.ac.uk/information-hub/borehole-records/
+  source_url: https://www.bgs.ac.uk/information-hub/borehole-records/
   doi: null
   publisher: British Geological Survey
+  citation: BGS onshore borehole records and scans
   retrieval_date: '2026-08-12'
   local_paths:
   - /data/GeoLogParser/datasets/public/bgs_v001
@@ -399,10 +462,15 @@ records:
     size_bytes: 3188
     sha256: 7847e402293971684919626bea3555276dcd386433ed1634fadad4b955cb3ce5
   access_method: official viewer, ArcGIS index layer, and direct scan API verified
+  terms_of_use: https://www.bgs.ac.uk/legal-and-policy/terms-of-use/
   claimed_license: Open Government Licence v3.0
   license_url: https://www.bgs.ac.uk/legal-and-policy/terms-of-use/
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
   verification_status: CLAIM_CAPTURED
   internal_decision: USE_WITH_CAUTION
+  decision: ELIGIBLE_INTERNAL_ONLY
   risks:
   - licence claim is recorded from repository metadata; final item/content review
     remains required
@@ -423,8 +491,10 @@ records:
 - source_id: usgs_geolog_locator
   source_name: GeoLog Locator
   url: https://www.usgs.gov/tools/geolog-locator
+  source_url: https://www.usgs.gov/tools/geolog-locator
   doi: null
   publisher: U.S. Geological Survey
+  citation: GeoLog Locator
   retrieval_date: '2026-08-12'
   local_paths: []
   file_count_in_local_snapshot: 0
@@ -432,11 +502,16 @@ records:
   manifest_evidence: []
   access_method: official site blocked automated verification with HTTP 403 from this
     host; browser/manual verification required
+  terms_of_use: https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits
   claimed_license: USGS-authored data are generally public domain, but third-party
     material and item-level restrictions must be checked
   license_url: https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
   verification_status: UNVERIFIED_SOURCE
   internal_decision: QUARANTINE_INTERNAL_ONLY
+  decision: AMBIGUOUS
   risks:
   - file-level rights or content scope are incomplete
   experiments_or_papers:
@@ -451,8 +526,10 @@ records:
 - source_id: new_zealand_geotechnical_database
   source_name: New Zealand Geotechnical Database (NZGD)
   url: https://www.nzgd.org.nz/
+  source_url: https://www.nzgd.org.nz/
   doi: null
   publisher: New Zealand Geotechnical Database / participating agencies
+  citation: New Zealand Geotechnical Database (NZGD)
   retrieval_date: '2026-08-12'
   local_paths: []
   file_count_in_local_snapshot: 0
@@ -460,10 +537,15 @@ records:
   manifest_evidence: []
   access_method: landing page accessible; dataset access and terms require interactive/manual
     verification
+  terms_of_use: https://www.nzgd.org.nz/
   claimed_license: unclear
   license_url: https://www.nzgd.org.nz/
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
   verification_status: UNVERIFIED_SOURCE
   internal_decision: QUARANTINE_INTERNAL_ONLY
+  decision: AMBIGUOUS
   risks:
   - file-level rights or content scope are incomplete
   experiments_or_papers:
@@ -479,18 +561,25 @@ records:
 - source_id: netherlands_bro_borehole_research
   source_name: Basisregistratie Ondergrond (BRO) borehole research domain
   url: https://www.bro-productomgeving.nl/bpo/latest/
+  source_url: https://www.bro-productomgeving.nl/bpo/latest/
   doi: null
   publisher: Geological Survey of the Netherlands / Dutch government
+  citation: Basisregistratie Ondergrond (BRO) borehole research domain
   retrieval_date: '2026-08-12'
   local_paths: []
   file_count_in_local_snapshot: 0
   local_snapshot_inventory_sha256: null
   manifest_evidence: []
   access_method: official product environment accessible
+  terms_of_use: TBD
   claimed_license: TBD; a guessed general licence URL returned HTTP 404 and was removed
   license_url: TBD
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
   verification_status: CLAIM_CAPTURED
   internal_decision: USE_WITH_CAUTION
+  decision: AMBIGUOUS
   risks:
   - licence claim is recorded from repository metadata; final item/content review
     remains required
@@ -507,8 +596,10 @@ records:
 - source_id: ontario_water_well_records
   source_name: Ontario water well records
   url: https://data.ontario.ca/dataset/well-records
+  source_url: https://data.ontario.ca/dataset/well-records
   doi: null
   publisher: Government of Ontario
+  citation: Ontario water well records
   retrieval_date: '2026-08-12'
   local_paths: []
   file_count_in_local_snapshot: 0
@@ -516,10 +607,15 @@ records:
   manifest_evidence: []
   access_method: open-data licence page accessible; dataset page returned HTTP 429
     from this host, so resource inventory needs browser/manual verification
+  terms_of_use: https://www.ontario.ca/page/open-government-licence-ontario
   claimed_license: Open Government Licence - Ontario
   license_url: https://www.ontario.ca/page/open-government-licence-ontario
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
   verification_status: CLAIM_CAPTURED
   internal_decision: USE_WITH_CAUTION
+  decision: AMBIGUOUS
   risks:
   - licence claim is recorded from repository metadata; final item/content review
     remains required
@@ -536,8 +632,10 @@ records:
 - source_id: chinese_engineering_borehole_logs
   source_name: Chinese engineering borehole-log benchmark candidates
   url: TBD
+  source_url: TBD
   doi: null
   publisher: TBD (multiple sources required)
+  citation: Chinese engineering borehole-log benchmark candidates
   retrieval_date: null
   local_paths:
   - /data/GeoLogParser/datasets/candidates_quarantine/chinese_public_web_20260812
@@ -546,10 +644,15 @@ records:
   manifest_evidence: []
   access_method: three public-web candidates acquired into quarantine; no candidate
     is cleared for benchmark release
+  terms_of_use: TBD
   claimed_license: TBD
   license_url: TBD
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
   verification_status: UNVERIFIED_SOURCE
   internal_decision: QUARANTINE_INTERNAL_ONLY
+  decision: AMBIGUOUS
   risks:
   - source URLs and item-level terms not captured
   - project names/stamps/precise locations may be present
@@ -572,8 +675,11 @@ records:
   source_name: Quaternary borehole database for 1:50,000 Shaliu River Map-sheet of
     Hebei Province, China
   url: http://dcc.cgs.gov.cn/cn/geologicalData/details/doi/10.35080/data.A.2020.P12
+  source_url: http://dcc.cgs.gov.cn/cn/geologicalData/details/doi/10.35080/data.A.2020.P12
   doi: 10.35080/data.A.2020.P12
   publisher: China Geological Survey data center
+  citation: 'Quaternary borehole database for 1:50,000 Shaliu River Map-sheet of Hebei
+    Province, China; DOI: 10.35080/data.A.2020.P12'
   retrieval_date: '2026-08-12'
   local_paths: []
   file_count_in_local_snapshot: 0
@@ -581,10 +687,15 @@ records:
   manifest_evidence: []
   access_method: DataCite metadata accessible; DOI target timed out from this host;
     no file downloaded
+  terms_of_use: TBD
   claimed_license: unclear
   license_url: TBD
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
   verification_status: UNVERIFIED_SOURCE
   internal_decision: QUARANTINE_INTERNAL_ONLY
+  decision: AMBIGUOUS
   risks:
   - file-level rights or content scope are incomplete
   experiments_or_papers:
@@ -601,8 +712,11 @@ records:
   source_name: Dataset of Boreholes Drilled in the Coalfield of Wucaiwan Area in Eastern
     Margin of Junggar Basin, Xinjiang
   url: http://dcc.cgs.gov.cn/cn/geologicalData/details/doi/10.35080/data.H.2020.P19
+  source_url: http://dcc.cgs.gov.cn/cn/geologicalData/details/doi/10.35080/data.H.2020.P19
   doi: 10.35080/data.H.2020.P19
   publisher: China Geological Survey data center
+  citation: 'Dataset of Boreholes Drilled in the Coalfield of Wucaiwan Area in Eastern
+    Margin of Junggar Basin, Xinjiang; DOI: 10.35080/data.H.2020.P19'
   retrieval_date: '2026-08-12'
   local_paths: []
   file_count_in_local_snapshot: 0
@@ -610,10 +724,15 @@ records:
   manifest_evidence: []
   access_method: DataCite metadata accessible; DOI target timed out from this host;
     no file downloaded
+  terms_of_use: TBD
   claimed_license: unclear
   license_url: TBD
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
   verification_status: UNVERIFIED_SOURCE
   internal_decision: QUARANTINE_INTERNAL_ONLY
+  decision: AMBIGUOUS
   risks:
   - file-level rights or content scope are incomplete
   experiments_or_papers:
@@ -628,8 +747,11 @@ records:
   source_name: Borehole Databases and 3D Geological Model of Jurassic-Cretaceous Strata
     in Dongsheng Area, North Ordos Basin
   url: http://dcc.cgs.gov.cn/cn/geologicalData/details/doi/10.35080/data.H.2020.P20
+  source_url: http://dcc.cgs.gov.cn/cn/geologicalData/details/doi/10.35080/data.H.2020.P20
   doi: 10.35080/data.H.2020.P20
   publisher: China Geological Survey data center
+  citation: 'Borehole Databases and 3D Geological Model of Jurassic-Cretaceous Strata
+    in Dongsheng Area, North Ordos Basin; DOI: 10.35080/data.H.2020.P20'
   retrieval_date: '2026-08-12'
   local_paths: []
   file_count_in_local_snapshot: 0
@@ -637,10 +759,15 @@ records:
   manifest_evidence: []
   access_method: DataCite metadata accessible; no download attempted because item
     rights and access conditions are unverified
+  terms_of_use: TBD
   claimed_license: unclear
   license_url: TBD
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
   verification_status: UNVERIFIED_SOURCE
   internal_decision: QUARANTINE_INTERNAL_ONLY
+  decision: AMBIGUOUS
   risks:
   - file-level rights or content scope are incomplete
   experiments_or_papers:
@@ -655,18 +782,25 @@ records:
 - source_id: cgs_panggezhuang_regional_geology
   source_name: 北京庞各庄幅(J50E003010)1:50,000区域地质调查数据集
   url: http://dcc.cgs.gov.cn/cn/geologicalData/details/doi/10.35080/data.C.2021.P25
+  source_url: http://dcc.cgs.gov.cn/cn/geologicalData/details/doi/10.35080/data.C.2021.P25
   doi: 10.35080/data.C.2021.P25
   publisher: China Geological Survey data center
+  citation: '北京庞各庄幅(J50E003010)1:50,000区域地质调查数据集; DOI: 10.35080/data.C.2021.P25'
   retrieval_date: '2026-08-12'
   local_paths: []
   file_count_in_local_snapshot: 0
   local_snapshot_inventory_sha256: null
   manifest_evidence: []
   access_method: DataCite metadata accessible; DOI target not verified; no file downloaded
+  terms_of_use: TBD
   claimed_license: unclear
   license_url: TBD
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
   verification_status: UNVERIFIED_SOURCE
   internal_decision: QUARANTINE_INTERNAL_ONLY
+  decision: AMBIGUOUS
   risks:
   - file-level rights or content scope are incomplete
   experiments_or_papers:
@@ -681,8 +815,11 @@ records:
   source_name: Development of Regional Shear Wave Velocity Extrapolation Models for
     Mainland China Using Geological Environmental Zoning
   url: https://zenodo.org/doi/10.5281/zenodo.15400683
+  source_url: https://zenodo.org/doi/10.5281/zenodo.15400683
   doi: 10.5281/zenodo.15400683
   publisher: Zenodo
+  citation: 'Development of Regional Shear Wave Velocity Extrapolation Models for
+    Mainland China Using Geological Environmental Zoning; DOI: 10.5281/zenodo.15400683'
   retrieval_date: '2026-08-12'
   local_paths: []
   file_count_in_local_snapshot: 0
@@ -690,10 +827,15 @@ records:
   manifest_evidence: []
   access_method: DataCite metadata accessible; Zenodo records/files API unreachable
     from this host during verification
+  terms_of_use: https://creativecommons.org/licenses/by/4.0/legalcode
   claimed_license: Creative Commons Attribution 4.0 International
   license_url: https://creativecommons.org/licenses/by/4.0/legalcode
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
   verification_status: CLAIM_CAPTURED
   internal_decision: USE_WITH_CAUTION
+  decision: AMBIGUOUS
   risks:
   - licence claim is recorded from repository metadata; final item/content review
     remains required
@@ -712,8 +854,11 @@ records:
   source_name: Site classification scheme based on geological age and genesis for
     Xinjiang and the Capital Metropolitan areas of China
   url: https://sage.figshare.com/collections/Site_classification_scheme_based_on_geological_age_and_genesis_for_Xinjiang_and_the_Capital_Metropolitan_areas_of_China/6961823/1
+  source_url: https://sage.figshare.com/collections/Site_classification_scheme_based_on_geological_age_and_genesis_for_Xinjiang_and_the_Capital_Metropolitan_areas_of_China/6961823/1
   doi: 10.25384/sage.c.6961823.v1
   publisher: SAGE Journals / Figshare
+  citation: 'Site classification scheme based on geological age and genesis for Xinjiang
+    and the Capital Metropolitan areas of China; DOI: 10.25384/sage.c.6961823.v1'
   retrieval_date: '2026-08-12'
   local_paths: []
   file_count_in_local_snapshot: 0
@@ -721,10 +866,15 @@ records:
   manifest_evidence: []
   access_method: DataCite metadata accessible; SAGE Figshare API returned HTTP 403
     from this host
+  terms_of_use: https://creativecommons.org/licenses/by/4.0/legalcode
   claimed_license: Creative Commons Attribution 4.0 International
   license_url: https://creativecommons.org/licenses/by/4.0/legalcode
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
   verification_status: CLAIM_CAPTURED
   internal_decision: USE_WITH_CAUTION
+  decision: AMBIGUOUS
   risks:
   - licence claim is recorded from repository metadata; final item/content review
     remains required
@@ -742,8 +892,11 @@ records:
   source_name: Reservoir in-situ stress state determined by retrieved granite cores
     from the Gonghe enhanced geothermal system
   url: https://datadryad.org/dataset/doi:10.5061/dryad.9kd51c5sp
+  source_url: https://datadryad.org/dataset/doi:10.5061/dryad.9kd51c5sp
   doi: 10.5061/dryad.9kd51c5sp
   publisher: Dryad
+  citation: 'Reservoir in-situ stress state determined by retrieved granite cores
+    from the Gonghe enhanced geothermal system; DOI: 10.5061/dryad.9kd51c5sp'
   retrieval_date: '2026-08-12'
   local_paths: []
   file_count_in_local_snapshot: 0
@@ -751,10 +904,15 @@ records:
   manifest_evidence: []
   access_method: metadata and CC0 rights verified through DataCite; files not downloaded
     because task fit is poor
+  terms_of_use: https://creativecommons.org/publicdomain/zero/1.0/legalcode
   claimed_license: Creative Commons Zero v1.0 Universal
   license_url: https://creativecommons.org/publicdomain/zero/1.0/legalcode
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
   verification_status: CLAIM_CAPTURED
   internal_decision: USE_WITH_CAUTION
+  decision: AMBIGUOUS
   risks:
   - format/content is outside the Phase-I page-image contract
   experiments_or_papers:
@@ -770,18 +928,26 @@ records:
   source_name: Integration of Engineering Geological Investigation Data and Construction
     of a 3D Geological Structure Model in the Xiong’an New Area
   url: http://dcc.ngac.org.cn/en//geologicalData/details/doi/10.35080/data.D.2019.P23
+  source_url: http://dcc.ngac.org.cn/en//geologicalData/details/doi/10.35080/data.D.2019.P23
   doi: 10.35080/data.D.2019.P23
   publisher: Geoscientific Data & Discovery Publishing System
+  citation: 'Integration of Engineering Geological Investigation Data and Construction
+    of a 3D Geological Structure Model in the Xiong’an New Area; DOI: 10.35080/data.D.2019.P23'
   retrieval_date: '2026-08-12'
   local_paths: []
   file_count_in_local_snapshot: 0
   local_snapshot_inventory_sha256: null
   manifest_evidence: []
   access_method: DataCite metadata only
+  terms_of_use: TBD
   claimed_license: unclear
   license_url: TBD
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
   verification_status: UNVERIFIED_SOURCE
   internal_decision: QUARANTINE_INTERNAL_ONLY
+  decision: AMBIGUOUS
   risks:
   - file-level rights or content scope are incomplete
   experiments_or_papers:
@@ -796,18 +962,25 @@ records:
 - source_id: cgs_xiongan_3d_model_dataset_v001
   source_name: 雄安新区工程地质三维结构模型数据集
   url: http://datacite.lib.tsinghua.edu.cn/datacite/Resolution/Handler?doi=10.23650/data.d.2019.p23
+  source_url: http://datacite.lib.tsinghua.edu.cn/datacite/Resolution/Handler?doi=10.23650/data.d.2019.p23
   doi: 10.23650/data.d.2019.p23
   publisher: Geoscientific Data and Discovery Publishing
+  citation: '雄安新区工程地质三维结构模型数据集; DOI: 10.23650/data.d.2019.p23'
   retrieval_date: '2026-08-12'
   local_paths: []
   file_count_in_local_snapshot: 0
   local_snapshot_inventory_sha256: null
   manifest_evidence: []
   access_method: DataCite metadata only; no content URL exposed
+  terms_of_use: TBD
   claimed_license: unclear
   license_url: TBD
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
   verification_status: UNVERIFIED_SOURCE
   internal_decision: QUARANTINE_INTERNAL_ONLY
+  decision: AMBIGUOUS
   risks:
   - file-level rights or content scope are incomplete
   experiments_or_papers:
@@ -822,8 +995,10 @@ records:
 - source_id: mendeley_binhai_cptu_borehole_v002
   source_name: Binhai/BH-CPTU/10-44
   url: https://data.mendeley.com/datasets/vkjwwb8zsh/2
+  source_url: https://data.mendeley.com/datasets/vkjwwb8zsh/2
   doi: 10.17632/vkjwwb8zsh.2
   publisher: Mendeley Data
+  citation: 'Binhai/BH-CPTU/10-44; DOI: 10.17632/vkjwwb8zsh.2'
   retrieval_date: '2026-08-13'
   local_paths:
   - /data/GeoLogParser/datasets/public/mendeley_binhai_cptu_borehole_v002
@@ -838,10 +1013,15 @@ records:
     sha256: cf829de4488335bb18648aa915ed694e747ccad4ee36cae5e35164ca6a02ed1b
   access_method: public anonymous inventory, download, SHA256, and workbook structure
     verified
+  terms_of_use: https://creativecommons.org/licenses/by/4.0/legalcode
   claimed_license: Creative Commons Attribution 4.0 International
   license_url: https://creativecommons.org/licenses/by/4.0/legalcode
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
   verification_status: CLAIM_CAPTURED
   internal_decision: USE_WITH_CAUTION
+  decision: ELIGIBLE_INTERNAL_ONLY
   risks:
   - licence claim is recorded from repository metadata; final item/content review
     remains required
@@ -869,8 +1049,11 @@ records:
   source_name: 'Data for: Formation mechanism analysis of karst collapses in Jinshuizha,
     Wuhan, China'
   url: https://data.mendeley.com/datasets/g7gzd8jfyn/1
+  source_url: https://data.mendeley.com/datasets/g7gzd8jfyn/1
   doi: 10.17632/g7gzd8jfyn.1
   publisher: Mendeley Data
+  citation: 'Data for: Formation mechanism analysis of karst collapses in Jinshuizha,
+    Wuhan, China; DOI: 10.17632/g7gzd8jfyn.1'
   retrieval_date: '2026-08-13'
   local_paths: []
   file_count_in_local_snapshot: 0
@@ -878,10 +1061,15 @@ records:
   manifest_evidence: []
   access_method: anonymous file inventory accessible; DataCite simultaneously exposes
     embargoedAccess and CC BY 4.0
+  terms_of_use: https://creativecommons.org/licenses/by/4.0/legalcode
   claimed_license: 'metadata conflict: CC BY 4.0 plus embargoedAccess'
   license_url: https://creativecommons.org/licenses/by/4.0/legalcode
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
   verification_status: RIGHTS_CONFLICT
   internal_decision: QUARANTINE_INTERNAL_ONLY
+  decision: AMBIGUOUS
   risks:
   - repository metadata contains conflicting access/licence signals
   experiments_or_papers:
@@ -896,18 +1084,25 @@ records:
 - source_id: mendeley_prd_clay_boreholes_v001
   source_name: PRD-CLAY/6/3664
   url: https://data.mendeley.com/datasets/jr8gcyhsff/1
+  source_url: https://data.mendeley.com/datasets/jr8gcyhsff/1
   doi: 10.17632/jr8gcyhsff.1
   publisher: Mendeley Data
+  citation: 'PRD-CLAY/6/3664; DOI: 10.17632/jr8gcyhsff.1'
   retrieval_date: '2026-08-13'
   local_paths: []
   file_count_in_local_snapshot: 0
   local_snapshot_inventory_sha256: null
   manifest_evidence: []
   access_method: public anonymous file inventory verified; file not downloaded
+  terms_of_use: https://creativecommons.org/licenses/by/4.0/legalcode
   claimed_license: Creative Commons Attribution 4.0 International
   license_url: https://creativecommons.org/licenses/by/4.0/legalcode
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
   verification_status: CLAIM_CAPTURED
   internal_decision: USE_WITH_CAUTION
+  decision: AMBIGUOUS
   risks:
   - licence claim is recorded from repository metadata; final item/content review
     remains required
@@ -923,8 +1118,11 @@ records:
   source_name: Minimum reproducible dataset and code for IDW-ResUnet-based 3D coal
     seam modeling
   url: https://data.mendeley.com/datasets/33z3d5r6xk/1
+  source_url: https://data.mendeley.com/datasets/33z3d5r6xk/1
   doi: 10.17632/33z3d5r6xk.1
   publisher: Mendeley Data
+  citation: 'Minimum reproducible dataset and code for IDW-ResUnet-based 3D coal seam
+    modeling; DOI: 10.17632/33z3d5r6xk.1'
   retrieval_date: '2026-08-13'
   local_paths:
   - /data/GeoLogParser/datasets/public/mendeley_coal_boreholes_602_v001
@@ -939,10 +1137,15 @@ records:
     sha256: 72e9976eab413d084af0afca76b860dfc7e3ac65c7dbfd087bb7f4f7329794d2
   access_method: public anonymous inventory, download, SHA256, and workbook structure
     verified
+  terms_of_use: https://creativecommons.org/licenses/by/4.0/legalcode
   claimed_license: Creative Commons Attribution 4.0 International
   license_url: https://creativecommons.org/licenses/by/4.0/legalcode
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
   verification_status: CLAIM_CAPTURED
   internal_decision: USE_WITH_CAUTION
+  decision: ELIGIBLE_INTERNAL_ONLY
   risks:
   - licence claim is recorded from repository metadata; final item/content review
     remains required
@@ -967,18 +1170,26 @@ records:
   source_name: Mineralogical, geochemical, and geophysical logs of the Lower Cretaceous
     Shahezi Formation
   url: https://data.mendeley.com/datasets/fgn2chjdnz/2
+  source_url: https://data.mendeley.com/datasets/fgn2chjdnz/2
   doi: 10.17632/fgn2chjdnz.2
   publisher: Mendeley Data
+  citation: 'Mineralogical, geochemical, and geophysical logs of the Lower Cretaceous
+    Shahezi Formation; DOI: 10.17632/fgn2chjdnz.2'
   retrieval_date: '2026-08-13'
   local_paths: []
   file_count_in_local_snapshot: 0
   local_snapshot_inventory_sha256: null
   manifest_evidence: []
   access_method: public anonymous file inventory verified; file not downloaded
+  terms_of_use: https://creativecommons.org/licenses/by/4.0/legalcode
   claimed_license: Creative Commons Attribution 4.0 International
   license_url: https://creativecommons.org/licenses/by/4.0/legalcode
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
   verification_status: CLAIM_CAPTURED
   internal_decision: USE_WITH_CAUTION
+  decision: AMBIGUOUS
   risks:
   - licence claim is recorded from repository metadata; final item/content review
     remains required
@@ -993,8 +1204,10 @@ records:
 - source_id: zenodo_wudalianchi_borehole_modeling_v001
   source_name: Borehole data for geological modeling Jiang, Xue
   url: https://zenodo.org/doi/10.5281/zenodo.14696781
+  source_url: https://zenodo.org/doi/10.5281/zenodo.14696781
   doi: 10.5281/zenodo.14696781
   publisher: Zenodo
+  citation: 'Borehole data for geological modeling Jiang, Xue; DOI: 10.5281/zenodo.14696781'
   retrieval_date: '2026-08-13'
   local_paths: []
   file_count_in_local_snapshot: 0
@@ -1002,10 +1215,15 @@ records:
   manifest_evidence: []
   access_method: DataCite metadata accessible; Zenodo record API refused connection
     from this host
+  terms_of_use: https://creativecommons.org/licenses/by/4.0/legalcode
   claimed_license: Creative Commons Attribution 4.0 International
   license_url: https://creativecommons.org/licenses/by/4.0/legalcode
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
   verification_status: CLAIM_CAPTURED
   internal_decision: USE_WITH_CAUTION
+  decision: AMBIGUOUS
   risks:
   - licence claim is recorded from repository metadata; final item/content review
     remains required
@@ -1021,18 +1239,25 @@ records:
 - source_id: cgs_yinchuan_pingluo_engineering_boreholes_v001
   source_name: 2017年银川盆地1:50 000平罗站幅工程地质钻孔及取样土工试验数据集
   url: http://dcc.cgs.gov.cn/cn/geologicalData/details/doi/10.35080/data.D.2019.P3
+  source_url: http://dcc.cgs.gov.cn/cn/geologicalData/details/doi/10.35080/data.D.2019.P3
   doi: 10.35080/10.35080/data.d.2019.p3
   publisher: China Geological Survey data center
+  citation: '2017年银川盆地1:50 000平罗站幅工程地质钻孔及取样土工试验数据集; DOI: 10.35080/10.35080/data.d.2019.p3'
   retrieval_date: '2026-08-13'
   local_paths: []
   file_count_in_local_snapshot: 0
   local_snapshot_inventory_sha256: null
   manifest_evidence: []
   access_method: DataCite metadata only; no file inventory or rights statement
+  terms_of_use: TBD
   claimed_license: unclear
   license_url: TBD
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
   verification_status: UNVERIFIED_SOURCE
   internal_decision: QUARANTINE_INTERNAL_ONLY
+  decision: AMBIGUOUS
   risks:
   - file-level rights or content scope are incomplete
   experiments_or_papers:
@@ -1048,18 +1273,26 @@ records:
   source_name: 'Luhuatai in the Yinchuan Basin for the 1:50,000 Map: Dataset from
     Engineering Geology Boreholes, Samples and Geotechnical Tests'
   url: http://dcc.cgs.gov.cn/en/geologicalData/details/doi/10.35080/data.D.2018.P12
+  source_url: http://dcc.cgs.gov.cn/en/geologicalData/details/doi/10.35080/data.D.2018.P12
   doi: 10.35080/data.d.2018.p12
   publisher: China Geological Survey data center
+  citation: 'Luhuatai in the Yinchuan Basin for the 1:50,000 Map: Dataset from Engineering
+    Geology Boreholes, Samples and Geotechnical Tests; DOI: 10.35080/data.d.2018.p12'
   retrieval_date: '2026-08-13'
   local_paths: []
   file_count_in_local_snapshot: 0
   local_snapshot_inventory_sha256: null
   manifest_evidence: []
   access_method: DataCite metadata only; no file inventory or rights statement
+  terms_of_use: TBD
   claimed_license: unclear
   license_url: TBD
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
   verification_status: UNVERIFIED_SOURCE
   internal_decision: QUARANTINE_INTERNAL_ONLY
+  decision: AMBIGUOUS
   risks:
   - file-level rights or content scope are incomplete
   experiments_or_papers:
@@ -1074,18 +1307,26 @@ records:
   source_name: 1:50 000 Engineering Geological Survey and Geotechnical Test Dataset
     of the Doumen Map-Sheet
   url: http://dcc.cgs.gov.cn/en/geologicalData/details/doi/10.35080/data.D.2019.P22
+  source_url: http://dcc.cgs.gov.cn/en/geologicalData/details/doi/10.35080/data.D.2019.P22
   doi: 10.35080/data.d.2019.p22
   publisher: China Geological Survey data center
+  citation: '1:50 000 Engineering Geological Survey and Geotechnical Test Dataset
+    of the Doumen Map-Sheet; DOI: 10.35080/data.d.2019.p22'
   retrieval_date: '2026-08-13'
   local_paths: []
   file_count_in_local_snapshot: 0
   local_snapshot_inventory_sha256: null
   manifest_evidence: []
   access_method: DataCite metadata only; no file inventory or rights statement
+  terms_of_use: TBD
   claimed_license: unclear
   license_url: TBD
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
   verification_status: UNVERIFIED_SOURCE
   internal_decision: QUARANTINE_INTERNAL_ONLY
+  decision: AMBIGUOUS
   risks:
   - file-level rights or content scope are incomplete
   experiments_or_papers:
@@ -1101,8 +1342,11 @@ records:
   source_name: Integration of Borehole Data and 3D Geological Modeling of the Huangling
     Area
   url: http://dcc.cgs.gov.cn/cn/geologicalData/details/doi/10.35080/data.H.2020.P21
+  source_url: http://dcc.cgs.gov.cn/cn/geologicalData/details/doi/10.35080/data.H.2020.P21
   doi: 10.35080/data.h.2020.p21
   publisher: China Geological Survey data center
+  citation: 'Integration of Borehole Data and 3D Geological Modeling of the Huangling
+    Area; DOI: 10.35080/data.h.2020.p21'
   retrieval_date: '2026-08-13'
   local_paths: []
   file_count_in_local_snapshot: 0
@@ -1110,10 +1354,15 @@ records:
   manifest_evidence: []
   access_method: DataCite metadata only; rights entry is an institutional URL, not
     a licence
+  terms_of_use: TBD
   claimed_license: unclear
   license_url: TBD
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
   verification_status: UNVERIFIED_SOURCE
   internal_decision: QUARANTINE_INTERNAL_ONLY
+  decision: AMBIGUOUS
   risks:
   - file-level rights or content scope are incomplete
   experiments_or_papers:
@@ -1128,8 +1377,10 @@ records:
 - source_id: synthetic_borehole_logs_v001
   source_name: GeoLogParser programmatically generated borehole logs
   url: null
+  source_url: null
   doi: null
   publisher: GeoLogParser project
+  citation: GeoLogParser synthetic borehole-log generator (dataset synthetic_borehole_logs_v001)
   retrieval_date: '2026-08-13'
   local_paths:
   - /data/GeoLogParser/datasets/synthetic_borehole_logs_v001
@@ -1143,10 +1394,15 @@ records:
     size_bytes: 393
     sha256: 48523a3016a40463581c220ecefae831930d13f303c7649766012c282638b562
   access_method: generated locally by scripts/generate_synthetic_dataset.py
+  terms_of_use: null
   claimed_license: project-generated; release licence TBD
   license_url: null
+  commercial_use: not_verified
+  personal_information_risk: not_applicable_to_generated_values
+  sensitive_location_risk: not_applicable_to_generated_values
   verification_status: SYNTHETIC_KNOWN_GT
   internal_decision: INTERNAL_USE
+  decision: ELIGIBLE_INTERNAL_ONLY
   risks:
   - synthetic distribution may not represent real document variation
   - release licence and generated font assets require final review
