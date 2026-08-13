@@ -1,5 +1,26 @@
 # Research log
 
+## 2026-08-13 — Human-gated page source-review queue
+
+- Experiment: source-review workflow construction, not a human review or
+  extraction experiment. Two international content manifests contributed 29
+  candidate pages; a third manifest contributed no in-scope rows.
+- Observation: 180-DPI rendering produced 29 hash-bound PNGs (28 engineering
+  borelogs and one stratigraphic column). The pack manifest SHA256 is
+  `b3211ad6ea46a0d7a1925be47df24e593312ec1096529738b92db6427b83186b`.
+  Full-resolution technical inspection confirmed that one page from each source
+  is legible, but this model inspection is not logged as human content/privacy
+  review.
+- Decision: separate page-source review from geological annotation. A page can
+  become `annotation_eligible` only after a self-attested human reviewer records
+  phase-1 fit, render completeness, and an action for each disclosure class.
+  The review can never set `benchmark_eligible` or create Ground Truth. Reject
+  partial eligible-manifest export until every pack item is reviewed.
+- Current status: 29 unreviewed, zero annotation-eligible, zero
+  Benchmark-eligible, and zero Ground Truth pages.
+- Next step: obtain real human content/privacy decisions, then create auto
+  extraction proposals only for the frozen eligible subset.
+
 ## 2026-08-13 — Focused open-metadata survey and page-content manifests
 
 - Experiment: read-only metadata survey plus selected public acquisition and

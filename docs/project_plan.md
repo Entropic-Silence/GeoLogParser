@@ -71,7 +71,10 @@ experiment metadata, prompts, baselines, and paper planning were missing.
   implemented, subject to dataset-driven threshold/ontology validation.
 - Phase 5 annotation backend/UI and auto proposals: **COMPLETED v001**; a
   separate revisioned CAD privacy/content-review UI and eligibility gate are
-  **COMPLETED v001**. The primary UI reports exact GT-gate/progress status,
+  **COMPLETED v001**. A separate PDF/image source-review pack, revisioned UI,
+  disclosure-action checks, and all-items-before-export gate are also
+  **COMPLETED v001**; the current 29 international candidates remain entirely
+  unreviewed by a human. The primary UI reports exact GT-gate/progress status,
   labels per-page exports as draft until eligible, and refuses incomplete GT
   collection export. Record-hash attestations now prevent unsupported double/
   expert status. A two-track, full-overlap Padova assignment has been frozen

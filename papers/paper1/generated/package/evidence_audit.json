@@ -15,7 +15,7 @@
     "zhong2019publaynet"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "711f949fd8ac884bfe74e4e385f2a05a25aa3c60467aa870a297846936d7125d",
+  "claim_registry_sha256": "b9e9a24c9ea1bb9571f7c596bf6971721787f35ca4672bd82c8c25dbb09c7956",
   "claim_source_errors": [],
   "evidence_tags": [
     "p1.b2_padova",
@@ -29,6 +29,7 @@
     "p1.cad_priority_fidelity",
     "p1.degradation_inventory",
     "p1.directpdf_padova",
+    "p1.international_source_review",
     "p1.padova_annotation_assignment",
     "p1.padova_inventory",
     "p1.slopes_content",
@@ -89,7 +90,7 @@
     }
   ],
   "manuscript_path": "papers/paper1/manuscript.md",
-  "manuscript_sha256": "fac7eb6d49644599bb59bcf2901c57dec7dcf9bdd28f267261e8020394c25c5e",
+  "manuscript_sha256": "c07fba704dd0d0c48a6e17ab67ad7ae8ef5e767c08c9ff13d0ebd9b0bd831536",
   "missing_bibliography_keys": [],
   "missing_claim_registrations": [],
   "missing_required_sections": [],
@@ -107,6 +108,7 @@
     "p1.cad_priority_fidelity",
     "p1.degradation_inventory",
     "p1.directpdf_padova",
+    "p1.international_source_review",
     "p1.padova_annotation_assignment",
     "p1.padova_inventory",
     "p1.slopes_content",
@@ -119,5 +121,5 @@
   "submission_ready": false,
   "tbd_or_citation_marker_count": 10,
   "unused_claim_registrations": [],
-  "word_count": 2177
+  "word_count": 2208
 }

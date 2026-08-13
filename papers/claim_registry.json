@@ -55,6 +55,22 @@
         {"type": "json_pointer_equals", "pointer": "/benchmark_eligible_count", "expected": 0}
       ]
     },
+    "p1.international_source_review": {
+      "paper": "paper1",
+      "scope": "live human source-review queue status; rendering and model inspection are not human review or Ground Truth",
+      "source_path": "/data/GeoLogParser/artifacts/source_review/international_candidates_v001/review_status.json",
+      "source_sha256": "e06b599dd2359907a0a1851781d7a179afa456df4db068bce5d48d7f22c13ea9",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/review_item_count", "expected": 29},
+        {"type": "json_pointer_equals", "pointer": "/reviewed_item_count", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/unreviewed_item_count", "expected": 29},
+        {"type": "json_pointer_equals", "pointer": "/annotation_eligible_count", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/human_ground_truth_count", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/benchmark_eligible_count", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/review_complete", "expected": false},
+        {"type": "json_pointer_equals", "pointer": "/pack_manifest_sha256", "expected": "b3211ad6ea46a0d7a1925be47df24e593312ec1096529738b92db6427b83186b"}
+      ]
+    },
     "p1.cad_full_svg": {
       "paper": "paper1",
       "scope": "33-item technical SVG/raster audit summary; structural coverage is not visual fidelity",

@@ -70,6 +70,16 @@ The three content-manifest SHA256 values are respectively
 and `b472ba014b570bf6ae56fd2448c145f9a2bc2ab5bfcbb825bd6ed993fe24df79`.
 The newly acquired Chinese page-image candidate count is therefore zero.
 
+The 29 international candidate pages were rendered at 180 DPI into an immutable
+source-review pack under
+`/data/GeoLogParser/artifacts/source_review/international_candidates_v001`.
+Its manifest SHA256 is
+`b3211ad6ea46a0d7a1925be47df24e593312ec1096529738b92db6427b83186b`.
+The current review audit reports 29 unreviewed pages, zero annotation-eligible
+pages, zero Benchmark-eligible pages, and zero Ground Truth pages. Model visual
+inspection was used only to check rendered-image legibility and is not recorded
+as human content, privacy, or geological review.
+
 ## Directly accessible now
 
 - **University of Padova levee geotechnical dataset:** DOI
