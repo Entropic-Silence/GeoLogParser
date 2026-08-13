@@ -1,0 +1,32 @@
+{
+  "experiment_id": "P1_B1_TESSERACT_TIBER_AUDIT_001",
+  "git_commit": "650c44d2b7ac044f93eb1a7e07634c4b567f3561",
+  "date": "2026-08-13",
+  "dataset_version": "international_source_review_pack_v001",
+  "split_version": "audit_selection_no_training_no_ground_truth",
+  "model": "B1_tesseract_ocr_regex_privacy_minimized",
+  "model_revision": "tesseract 4.1.1",
+  "prompt_version": "not_applicable",
+  "seed": null,
+  "hardware": {
+    "device": "cpu",
+    "processor": "x86_64",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "3.10.12",
+    "tesseract": "tesseract 4.1.1"
+  },
+  "config": {
+    "language": "eng",
+    "psm": 6,
+    "review_pack_root": "/data/GeoLogParser/artifacts/source_review/international_candidates_v001",
+    "review_pack_manifest_sha256": "b3211ad6ea46a0d7a1925be47df24e593312ec1096529738b92db6427b83186b",
+    "dataset_id_filter": "gb4bx3mnyd",
+    "content_class_filter": "stratigraphic_borehole_column",
+    "source_content_review_status": "unreviewed",
+    "record_output_policy": "hash_and_presence_only",
+    "constraint_config_path": "/root/GeoLogParser/configs/constraints/default_v001.yaml",
+    "constraint_config_sha256": "09b560194d03d70620c090f40dc00f86d1883eaf96e3c0680be5f9bebd28ed29"
+  }
+}

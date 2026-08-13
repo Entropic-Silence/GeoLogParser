@@ -95,6 +95,38 @@
         {"type": "json_pointer_equals", "pointer": "/human_ground_truth_count", "expected": 0}
       ]
     },
+    "p1.tiber_tesseract_coverage": {
+      "paper": "paper1",
+      "experiment_id": "P1_B1_TESSERACT_TIBER_AUDIT_001",
+      "scope": "single-page privacy-minimized Tesseract OCR+regex coverage failure on an unreviewed public stratigraphic-column candidate; no accuracy claim",
+      "source_path": "results/2026-08-13/P1_B1_TESSERACT_TIBER_AUDIT_001/metrics.json",
+      "source_sha256": "2f7179f2cb7a37980a2ff98aa9e8db70570d158b74ad389bf4952bbcee9f8a54",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/selected_items", "expected": 1},
+        {"type": "json_pointer_equals", "pointer": "/completed_items", "expected": 1},
+        {"type": "json_pointer_equals", "pointer": "/ocr_regions", "expected": 34},
+        {"type": "json_pointer_equals", "pointer": "/items_with_any_borehole_field", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/items_with_any_interval", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/accuracy_metrics", "expected": null},
+        {"type": "json_pointer_equals", "pointer": "/human_ground_truth_count", "expected": 0}
+      ]
+    },
+    "p1.tiber_rapidocr_coverage": {
+      "paper": "paper1",
+      "experiment_id": "P1_B1_RAPIDOCR_TIBER_AUDIT_001",
+      "scope": "single-page privacy-minimized RapidOCR+regex coverage failure on an unreviewed public stratigraphic-column candidate; no accuracy claim",
+      "source_path": "results/2026-08-13/P1_B1_RAPIDOCR_TIBER_AUDIT_001/metrics.json",
+      "source_sha256": "a23497ef30e126e632957f4f3a241e9789c1b07bcd0f6cad418a49222c520b02",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/selected_items", "expected": 1},
+        {"type": "json_pointer_equals", "pointer": "/completed_items", "expected": 1},
+        {"type": "json_pointer_equals", "pointer": "/ocr_regions", "expected": 47},
+        {"type": "json_pointer_equals", "pointer": "/items_with_any_borehole_field", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/items_with_any_interval", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/accuracy_metrics", "expected": null},
+        {"type": "json_pointer_equals", "pointer": "/human_ground_truth_count", "expected": 0}
+      ]
+    },
     "p1.international_source_review": {
       "paper": "paper1",
       "scope": "live human source-review queue status; rendering and model inspection are not human review or Ground Truth",

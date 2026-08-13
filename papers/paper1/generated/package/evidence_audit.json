@@ -15,7 +15,7 @@
     "zhong2019publaynet"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "d8ab27d933143f0b74bcca15dd7edf113ab27c52858d7165e0cb99fe76d26327",
+  "claim_registry_sha256": "debc6d9b0fc18c6f0ea9f2ae1ed0fc49113d17270cb3163d2908bb284d2349c4",
   "claim_source_errors": [],
   "evidence_tags": [
     "p1.b2_padova",
@@ -35,7 +35,9 @@
     "p1.slopes_content",
     "p1.slopes_rapidocr_coverage",
     "p1.slopes_tesseract_coverage",
-    "p1.tiber_content"
+    "p1.tiber_content",
+    "p1.tiber_rapidocr_coverage",
+    "p1.tiber_tesseract_coverage"
   ],
   "formal_experiment_count": 0,
   "headings": [
@@ -52,12 +54,12 @@
     "10. Conclusion",
     "References"
   ],
-  "indexed_experiment_count": 23,
+  "indexed_experiment_count": 25,
   "local_links": [
     {
       "exists": true,
       "resolved_path": "papers/paper1/generated/current_results.md",
-      "sha256": "beb00b8e3cd2ff0480146f81601cd05a2d6c1617185cebc448ce1bc46fef106d",
+      "sha256": "eeeea9735dee0a58897c0d94e7c3a43cf38f2f9ab481e884829104f0337f0f0d",
       "target": "generated/current_results.md"
     },
     {
@@ -75,7 +77,7 @@
     {
       "exists": true,
       "resolved_path": "docs/generated/publication_readiness.md",
-      "sha256": "096457c5e4d93d752acee74f472a0ef0a3fadea6f856efb667a86e6771ba938d",
+      "sha256": "5b3f8eda041175ff0b71ec758c9cc63b8c7b947bcc5f3ba25c3bb69148fa434d",
       "target": "../../docs/generated/publication_readiness.md"
     },
     {
@@ -92,7 +94,7 @@
     }
   ],
   "manuscript_path": "papers/paper1/manuscript.md",
-  "manuscript_sha256": "a0336a4c283218f2b44bbf44c4284113c6db1f6fc4dd1bb1c037e6eab14e4d50",
+  "manuscript_sha256": "5395fcf3f2e2e93e535cb1dedb78bc659eb251434f5672b1ef880c3f9f2e84f5",
   "missing_bibliography_keys": [],
   "missing_claim_registrations": [],
   "missing_required_sections": [],
@@ -116,14 +118,16 @@
     "p1.slopes_content",
     "p1.slopes_rapidocr_coverage",
     "p1.slopes_tesseract_coverage",
-    "p1.tiber_content"
+    "p1.tiber_content",
+    "p1.tiber_rapidocr_coverage",
+    "p1.tiber_tesseract_coverage"
   ],
   "result_index_errors": [],
   "result_index_path": "experiments/paper1/result_index.jsonl",
-  "result_index_sha256": "232e3d55b0726db5790512ec2f201ed93bcedc1439e75f0a1092c67788cecc9c",
+  "result_index_sha256": "2abbf064adc6ff1aba6c6ee869b0b25048d8cfb9e9a15152060ffb9f31ee021b",
   "structurally_complete": true,
   "submission_ready": false,
   "tbd_or_citation_marker_count": 10,
   "unused_claim_registrations": [],
-  "word_count": 2317
+  "word_count": 2361
 }

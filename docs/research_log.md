@@ -1172,3 +1172,21 @@
   coverage motivates layout-aware proposal generation after source review; it
   is not evidence of a model-performance difference. No GPU was used and
   mining was not interrupted.
+
+## 2026-08-13 — Single-page Tiber OCR coverage failure
+
+- Objective: apply the same frozen-input, privacy-minimized B1 path to the only
+  automatically triaged Tiber stratigraphic-column candidate, providing a
+  different layout class without treating one page as a benchmark.
+- Runs: `P1_B1_TESSERACT_TIBER_AUDIT_001` and
+  `P1_B1_RAPIDOCR_TIBER_AUDIT_001` each completed the one selected page without
+  a runtime failure. Tesseract produced 34 OCR text regions and RapidOCR 47,
+  but neither downstream regex path emitted a borehole-level target field or
+  interval candidate. Metrics SHA256 values are respectively
+  `2f7179f2cb7a37980a2ff98aa9e8db70570d158b74ad389bf4952bbcee9f8a54`
+  and `a23497ef30e126e632957f4f3a241e9789c1b07bcd0f6cad418a49222c520b02`.
+- Interpretation: this is a template-specific structured-coverage failure. It
+  shows that OCR text availability is insufficient for the current generic
+  regex extractor, but a one-page unreviewed source cannot support an accuracy
+  or generalization claim. Both runs remain `audit_only`, with null accuracy,
+  zero human review, and zero human GT. No GPU was used.
