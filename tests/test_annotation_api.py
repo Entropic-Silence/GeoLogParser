@@ -17,7 +17,10 @@ class FakeRereadAdapter:
         return [TextRegion(1, (0, 0, 10, 10), "1.20", 0.99, "ocr")]
 
 
-def build_client(tmp_path: Path, *, expert_annotator_ids=None):
+def build_client(
+    tmp_path: Path, *, expert_annotator_ids=None, allowed_annotator_ids=None,
+    fixed_annotator_id=None,
+):
     pytest.importorskip("fastapi")
     from fastapi.testclient import TestClient
     from geologparser.annotation_api import create_app
@@ -36,6 +39,8 @@ def build_client(tmp_path: Path, *, expert_annotator_ids=None):
         annotation_root, ROOT / "app/static", reread_root=tmp_path / "reread",
         reread_adapters=[FakeRereadAdapter()],
         expert_annotator_ids=expert_annotator_ids,
+        allowed_annotator_ids=allowed_annotator_ids,
+        fixed_annotator_id=fixed_annotator_id,
     )), annotation_root
 
 
@@ -51,6 +56,8 @@ def test_annotation_api_lists_loads_and_validates(tmp_path: Path):
     status = client.get("/api/status").json()
     assert status["annotation_count"] == 1
     assert status["ground_truth_exportable_count"] == 0
+    assert status["fixed_annotator_id"] is None
+    assert status["client_annotator_editable"] is True
     annotation = client.get("/api/annotations/test-panel").json()
     validated = client.post("/api/validate", json={"record": annotation["record"]}).json()
     assert validated["schema_valid"] is True
@@ -356,3 +363,36 @@ def test_api_track_allowlist_rejects_other_reviewer_identity(tmp_path: Path):
         "annotator_id": "reviewer-A", "annotation_status": "single_verified",
     })
     assert allowed.status_code == 200
+
+
+def test_api_server_fixed_actor_is_used_and_client_cannot_override(tmp_path: Path):
+    client, _ = build_client(
+        tmp_path, allowed_annotator_ids={"reviewer-A"}, fixed_annotator_id="reviewer-A",
+    )
+    status = client.get("/api/status").json()
+    assert status["fixed_annotator_id"] == "reviewer-A"
+    assert status["client_annotator_editable"] is False
+    annotation = client.get("/api/annotations/test-panel").json()
+    denied = client.put("/api/annotations/test-panel", json={
+        "base_revision": 1, "record": annotation["record"],
+        "annotator_id": "reviewer-B", "annotation_status": "single_verified",
+    })
+    assert denied.status_code == 422
+    assert "server-fixed actor" in denied.json()["detail"]
+    accepted = client.put("/api/annotations/test-panel", json={
+        "base_revision": 1, "record": annotation["record"],
+        "annotator_id": "reviewer-A", "annotation_status": "single_verified",
+    })
+    assert accepted.status_code == 200
+    assert accepted.json()["annotator_id"] == "reviewer-A"
+    assert accepted.json()["verification_attestations"][-1]["annotator_id"] == "reviewer-A"
+
+
+def test_api_rejects_fixed_actor_outside_allowlist(tmp_path: Path):
+    pytest.importorskip("fastapi")
+    from geologparser.annotation_api import create_app
+    with pytest.raises(ValueError, match="fixed annotator ID"):
+        create_app(
+            tmp_path, ROOT / "app/static", reread_adapters=[FakeRereadAdapter()],
+            allowed_annotator_ids={"reviewer-A"}, fixed_annotator_id="reviewer-B",
+        )

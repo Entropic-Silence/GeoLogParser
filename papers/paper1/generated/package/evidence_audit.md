@@ -2,7 +2,7 @@
 # paper1 evidence audit
 
 Package: **DRAFT_NOT_SUBMISSION_READY**
-Manuscript words: **2073**; unresolved markers: **10**.
+Manuscript words: **2090**; unresolved markers: **10**.
 Indexed runs: **21**; formal runs: **0**.
 Structural audit: **PASSED**.
 
@@ -13,7 +13,7 @@ Structural audit: **PASSED**.
 
 ## Trace
 
-- Manuscript SHA256: `fa9f9013a1e951f7f680461628241feed263f3e7cbb7d27818664fcb5b894a3f`
+- Manuscript SHA256: `a11526a07497b60358198435572abeec7ce41b5f0c75c27541646eeaa3333a53`
 - Result-index SHA256: `a4514bff27ca70e40a1a96caadbabb76b22cac71f8d078ff3053ae54b85d32a3`
 - Citation keys: cohen1960agreement, han2024boreholeocr, pfitzmann2022doclaynet, roberts2017crossvalidation, smith2007tesseract, xu2020layoutlm, xu2021layoutlmv2, zhong2019publaynet
 - Broken local links: none

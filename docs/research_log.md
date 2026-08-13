@@ -897,3 +897,21 @@
 - Publication boundary: Paper I cites these as workflow-readiness counts only.
   The publication-readiness GT count continues to use a final GT root, so
   duplicate tracks cannot inflate dataset or human annotation counts.
+
+## 2026-08-13 — Server-fixed annotation-track actor
+
+- Objective: stop treating a browser-supplied reviewer string as the identity
+  control for blinded tracks.
+- Implementation: a track service may now fix its actor ID server-side. Saves,
+  bbox bindings, and timing sessions reject any conflicting client ID and use
+  the fixed actor for attestations. The UI reads the fixed ID from status and
+  makes the annotator field read-only.
+- Real negative smoke: Track A exposed `padova-reviewer-a` as fixed and rejected
+  a Track B save with HTTP 422. The target annotation SHA256 remained
+  `76376c6c0277580eaeebf41991885dd1bebf7a1172bc49f6787c9d5322407f0c`,
+  revision 1, status `auto`, with zero attestations.
+- Limitation: a fixed service actor binds a process to a task track; it does not
+  authenticate the human at the keyboard. Authenticated accounts, consent,
+  qualifications, and supervision remain deployment/study requirements.
+- Verification: full suite passed with 267 tests and 15 upstream deprecation
+  warnings; all three paper packages remain `DRAFT_NOT_SUBMISSION_READY`.

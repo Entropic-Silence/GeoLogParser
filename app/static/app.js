@@ -96,7 +96,7 @@ function renderGate(item) {
   gate.textContent=(failures.length?`NOT GT — ${failures.join("; ")}`:"Ground Truth gate PASSED for this annotation")+` | ${evidence}`;
 }
 
-async function loadStatus(){const status=await(await fetch("/api/status")).json();document.querySelector("#progress").textContent=`GT progress: ${status.ground_truth_exportable_count}/${status.annotation_count}; statuses=${JSON.stringify(status.status_counts)}; failures=${JSON.stringify(status.ground_truth_gate_failure_counts)}`;}
+async function loadStatus(){const status=await(await fetch("/api/status")).json(),annotator=document.querySelector("#annotator");if(status.fixed_annotator_id){annotator.value=status.fixed_annotator_id;annotator.readOnly=true;}else{annotator.readOnly=false;}document.querySelector("#progress").textContent=`GT progress: ${status.ground_truth_exportable_count}/${status.annotation_count}; statuses=${JSON.stringify(status.status_counts)}; failures=${JSON.stringify(status.ground_truth_gate_failure_counts)}`;}
 
 function renumberIntervals(){annotation.record.intervals.forEach((interval,index)=>{interval.interval_id=`I${String(index+1).padStart(3,"0")}`;});}
 

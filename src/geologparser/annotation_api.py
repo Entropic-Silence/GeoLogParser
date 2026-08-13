@@ -28,6 +28,7 @@ def create_app(
     reread_root: Path | None = None, reread_adapters=None,
     expert_annotator_ids: set[str] | None = None,
     allowed_annotator_ids: set[str] | None = None,
+    fixed_annotator_id: str | None = None,
 ):
     try:
         from fastapi import FastAPI, HTTPException
@@ -47,8 +48,18 @@ def create_app(
         {validate_annotator_id(item) for item in allowed_annotator_ids}
         if allowed_annotator_ids is not None else None
     )
+    fixed_annotator_id = (
+        validate_annotator_id(fixed_annotator_id)
+        if fixed_annotator_id is not None else None
+    )
     if allowed_annotator_ids is not None and not expert_annotator_ids <= allowed_annotator_ids:
         raise ValueError("expert annotator IDs must be included in the allowed annotator IDs")
+    if (
+        fixed_annotator_id is not None
+        and allowed_annotator_ids is not None
+        and fixed_annotator_id not in allowed_annotator_ids
+    ):
+        raise ValueError("fixed annotator ID must be included in the allowed annotator IDs")
     if reread_adapters is None:
         reread_adapters = [TesseractOCRAdapter(language="chi_sim+eng", psm=7)]
 
@@ -62,6 +73,10 @@ def create_app(
         return path
 
     def authorize_annotator(value: Any) -> str:
+        if fixed_annotator_id is not None:
+            if value is not None and value != fixed_annotator_id:
+                raise ValueError("client annotator_id differs from the server-fixed actor")
+            return fixed_annotator_id
         annotator_id = validate_annotator_id(value)
         if allowed_annotator_ids is not None and annotator_id not in allowed_annotator_ids:
             raise ValueError("annotator_id is not authorized for this annotation track")
@@ -125,6 +140,8 @@ def create_app(
             "ground_truth_exportable_count": exportable,
             "ground_truth_complete": total > 0 and exportable == total,
             "ground_truth_gate_failure_counts": dict(sorted(failure_counts.items())),
+            "fixed_annotator_id": fixed_annotator_id,
+            "client_annotator_editable": fixed_annotator_id is None,
         }
 
     @app.get("/api/annotations/{annotation_id}")

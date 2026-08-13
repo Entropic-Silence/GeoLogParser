@@ -99,15 +99,17 @@ anonymous track ID and serve only that directory, for example:
 ```bash
 GEOLOGPARSER_ANNOTATION_ROOT=/data/GeoLogParser/artifacts/annotation/unipd_blinded_duplicate_v001/tracks/track_a/annotations \
 GEOLOGPARSER_ALLOWED_ANNOTATOR_IDS=padova-reviewer-a \
+GEOLOGPARSER_FIXED_ANNOTATOR_ID=padova-reviewer-a \
   .venv/bin/uvicorn app.server:app --host 127.0.0.1 --port 8011
 ```
 
 Run track B from its own annotation root and a different port/process. The
-allowlist prevents cross-track saves through the service interface. Both roots
-still reside on a shared host filesystem, so this is not an OS security
-boundary; use separate Unix accounts/permissions or supervised reviewer
-sessions when adversarial access is a concern. Reviewers must not inspect peer
-files before agreement is frozen.
+server-fixed actor is used for saves, bbox bindings, and timing events; the
+browser cannot select the peer actor. This binds a service instance to a track,
+but does not authenticate the human operating the browser. Both roots still
+reside on a shared host filesystem, so this is not an OS security boundary; use
+separate authenticated accounts/permissions or supervised reviewer sessions.
+Reviewers must not inspect peer files before agreement is frozen.
 
 After every page in both tracks independently passes the single-review GT gate,
 freeze pre-adjudication agreement with:
