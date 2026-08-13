@@ -27,6 +27,8 @@ def test_proposal_keeps_auto_status_and_experiment_lineage():
     assert proposal["annotator_id"] == "AUTO_EXPERIMENT:EXP_001"
     assert proposal["record"]["document"]["metadata"]["annotation_proposal_experiment_id"] == "EXP_001"
     assert proposal["record"]["intervals"][0]["top_depth_m"]["display_bbox"] is not None
+    assert proposal["record"]["intervals"][0]["top_depth_m"]["display_bbox_source"] == "pdf_transform_v001"
+    assert proposal["record"]["intervals"][0]["top_depth_m"]["display_bbox_annotator_id"] is None
 
 
 def test_proposal_rejects_mismatched_panel_identity():

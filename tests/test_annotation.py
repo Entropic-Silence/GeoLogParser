@@ -7,7 +7,7 @@ import pytest
 
 from geologparser.annotation import (
     PanelSpec, create_annotation, human_empty_interval, pdf_bbox_to_rendered_pixels, render_panel,
-    revise_annotation, save_annotation,
+    revise_annotation, save_annotation, validate_display_bbox,
 )
 
 
@@ -21,6 +21,12 @@ def sample_record():
 def test_panel_spec_rejects_invalid_bounds():
     with pytest.raises(ValueError):
         PanelSpec("x", "/tmp/x.pdf", 1, (0.5, 0, 0.4, 1)).validate()
+
+
+@pytest.mark.parametrize("value", [float("inf"), float("-inf"), float("nan")])
+def test_display_bbox_rejects_nonfinite_coordinates(value):
+    with pytest.raises(ValueError, match="finite"):
+        validate_display_bbox([0, 0, value, 10], {"rendered_width_px": 200, "rendered_height_px": 100})
 
 
 def test_human_empty_interval_is_schema_ready_without_invented_values():

@@ -45,6 +45,8 @@ def main() -> None:
             ]:
                 if isinstance(envelope, dict) and envelope.get("source_bbox") is not None:
                     envelope["display_bbox"] = pdf_bbox_to_rendered_pixels(envelope["source_bbox"], panel)
+                    envelope["display_bbox_source"] = "pdf_transform_v001"
+                    envelope["display_bbox_annotator_id"] = None
             record["document"]["document_id"] = panel_id
             record["document"]["page_count"] = 1
             record["document"]["metadata"].update({

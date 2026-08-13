@@ -24,8 +24,9 @@ INTERVAL_COLUMNS = (
 )
 PROVENANCE_COLUMNS = (
     "document_id", "field_path", "value_json", "source_page", "source_bbox_json",
-    "display_bbox_json", "source_text", "extraction_method", "confidence",
-    "validation_status", "warning_codes_json", "raw_unit",
+    "display_bbox_json", "display_bbox_source", "display_bbox_annotator_id",
+    "source_text", "extraction_method", "confidence", "validation_status",
+    "warning_codes_json", "raw_unit",
 )
 
 
@@ -63,6 +64,8 @@ def tabular_rows(records: Iterable[Mapping[str, Any]]) -> dict[str, list[dict[st
                 "source_page": envelope.get("source_page"),
                 "source_bbox_json": json.dumps(envelope.get("source_bbox")),
                 "display_bbox_json": json.dumps(envelope.get("display_bbox")),
+                "display_bbox_source": envelope.get("display_bbox_source"),
+                "display_bbox_annotator_id": envelope.get("display_bbox_annotator_id"),
                 "source_text": envelope.get("source_text"),
                 "extraction_method": envelope.get("extraction_method", "unknown"),
                 "confidence": envelope.get("confidence"),

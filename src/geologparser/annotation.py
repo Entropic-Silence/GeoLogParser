@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 
+import copy
 import json
+import math
 import os
 from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
@@ -12,9 +14,113 @@ from typing import Any, Mapping
 from geologparser.datasets.manifest import sha256_file
 from geologparser.io.records import empty_interval
 from geologparser.schema import validate_record
+from geologparser.rereading import get_field
 
 
 ANNOTATION_STATUSES = {"auto", "single_verified", "double_verified", "expert_verified"}
+
+
+def validate_annotator_id(annotator_id: Any) -> str:
+    """Return a stripped, non-empty human or system actor identifier."""
+    if not isinstance(annotator_id, str) or not annotator_id.strip():
+        raise ValueError("annotator_id must be a non-empty string")
+    return annotator_id.strip()
+
+
+def validate_display_bbox(
+    bbox: Any, panel: Mapping[str, Any], *, require_dimensions: bool = True,
+) -> list[float]:
+    """Validate a rendered-image pixel bbox without clamping or guessing."""
+    if not isinstance(bbox, (list, tuple)) or len(bbox) != 4:
+        raise ValueError("display bbox must contain four coordinates")
+    try:
+        values = [float(value) for value in bbox]
+    except (TypeError, ValueError) as exc:
+        raise ValueError("display bbox must be numeric") from exc
+    if not all(math.isfinite(value) for value in values):
+        raise ValueError("display bbox must contain finite coordinates")
+    x1, y1, x2, y2 = values
+    if not (0 <= x1 < x2 and 0 <= y1 < y2):
+        raise ValueError("display bbox must satisfy 0 <= x1 < x2 and 0 <= y1 < y2")
+    width, height = panel.get("rendered_width_px"), panel.get("rendered_height_px")
+    if width is None or height is None:
+        rendered_path = panel.get("rendered_path")
+        if rendered_path:
+            try:
+                from PIL import Image
+                with Image.open(rendered_path) as image:
+                    width, height = image.size
+            except (FileNotFoundError, OSError):
+                pass
+    if width is None or height is None:
+        if require_dimensions:
+            raise ValueError("panel lacks rendered image dimensions")
+    elif x2 > float(width) or y2 > float(height):
+        raise ValueError("display bbox exceeds rendered image bounds")
+    return values
+
+
+def bind_human_display_bbox(
+    record: Mapping[str, Any], field_path: str, bbox: Any,
+    panel: Mapping[str, Any], annotator_id: str,
+) -> dict[str, Any]:
+    """Return a record with human-drawn display evidence; field truth is unchanged."""
+    annotator_id = validate_annotator_id(annotator_id)
+    values = validate_display_bbox(bbox, panel)
+    revised = copy.deepcopy(record)
+    envelope = get_field(revised, field_path)
+    envelope["display_bbox"] = values
+    envelope["display_bbox_source"] = "human_drawn"
+    envelope["display_bbox_annotator_id"] = annotator_id
+    if envelope.get("source_page") is None:
+        envelope["source_page"] = panel.get("source_page")
+    validate_record(revised)
+    return revised
+
+
+def validate_display_bbox_edits(
+    previous: Mapping[str, Any], revised: Mapping[str, Any],
+    panel: Mapping[str, Any], annotator_id: str,
+) -> None:
+    """Require changed display evidence to be bounded and human-attributed."""
+    annotator_id = validate_annotator_id(annotator_id)
+    previous_envelopes = _field_envelopes(previous)
+    for path, envelope in _field_envelopes(revised).items():
+        prior = previous_envelopes.get(path, {})
+        signature = (
+            envelope.get("display_bbox"), envelope.get("display_bbox_source"),
+            envelope.get("display_bbox_annotator_id"),
+        )
+        prior_signature = (
+            prior.get("display_bbox"), prior.get("display_bbox_source"),
+            prior.get("display_bbox_annotator_id"),
+        )
+        if signature == prior_signature:
+            continue
+        if envelope.get("display_bbox") is None:
+            if envelope.get("display_bbox_source") is not None or envelope.get("display_bbox_annotator_id") is not None:
+                raise ValueError(f"{path}: cleared display bbox must clear its provenance")
+            continue
+        validate_display_bbox(envelope["display_bbox"], panel)
+        if envelope.get("display_bbox_source") != "human_drawn":
+            raise ValueError(f"{path}: changed display bbox must be human_drawn")
+        if envelope.get("display_bbox_annotator_id") != annotator_id:
+            raise ValueError(f"{path}: display bbox annotator does not match save annotator")
+
+
+def _field_envelopes(record: Mapping[str, Any]) -> dict[str, Mapping[str, Any]]:
+    result = {
+        f"borehole.{name}": envelope
+        for name, envelope in record.get("borehole", {}).items()
+        if isinstance(envelope, Mapping)
+    }
+    for index, interval in enumerate(record.get("intervals", ())):
+        result.update({
+            f"intervals[{index}].{name}": envelope
+            for name, envelope in interval.items()
+            if name != "interval_id" and isinstance(envelope, Mapping)
+        })
+    return result
 
 
 def human_empty_interval(interval_id: str, source_page: int) -> dict[str, Any]:

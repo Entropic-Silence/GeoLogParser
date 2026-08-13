@@ -14,6 +14,8 @@ def test_schema_declares_v001_and_provenance():
     assert schema["properties"]["schema_version"]["const"] == "v001"
     assert "source_bbox" in schema["$defs"]["evidence"]["required"]
     assert "display_bbox" in schema["$defs"]["evidence"]["properties"]
+    assert "display_bbox_source" in schema["$defs"]["evidence"]["properties"]
+    assert "display_bbox_annotator_id" in schema["$defs"]["evidence"]["properties"]
     assert "raw_unit" in schema["$defs"]["evidence"]["properties"]
 
 

@@ -35,6 +35,53 @@ def test_sqlite_upsert_replaces_interval_projection_without_duplicates(tmp_path:
         assert connection.execute("SELECT count(*) FROM intervals").fetchone()[0] == 1
 
 
+def test_sqlite_export_preserves_human_display_bbox_provenance_and_migrates(tmp_path: Path):
+    path = tmp_path / "legacy.sqlite"
+    with sqlite3.connect(path) as connection:
+        connection.execute("""
+            CREATE TABLE field_provenance (
+                document_id TEXT NOT NULL,
+                field_path TEXT NOT NULL,
+                value_json TEXT,
+                source_page INTEGER,
+                source_bbox_json TEXT,
+                display_bbox_json TEXT,
+                source_text TEXT,
+                extraction_method TEXT NOT NULL,
+                confidence REAL,
+                validation_status TEXT NOT NULL,
+                warning_codes_json TEXT NOT NULL,
+                raw_unit TEXT,
+                PRIMARY KEY (document_id, field_path)
+            )
+        """)
+        assert "display_bbox_source" not in {
+            row[1] for row in connection.execute("PRAGMA table_info(field_provenance)")
+        }
+    source = record()
+    envelope = source["borehole"]["final_depth_m"]
+    envelope.update({
+        "display_bbox": [1, 2, 30, 40], "display_bbox_source": "human_drawn",
+        "display_bbox_annotator_id": "reviewer-1",
+    })
+    write_sqlite([source], path)
+    with sqlite3.connect(path) as connection:
+        row = connection.execute(
+            "SELECT display_bbox_source, display_bbox_annotator_id "
+            "FROM field_provenance WHERE field_path='borehole.final_depth_m'"
+        ).fetchone()
+        assert row == ("human_drawn", "reviewer-1")
+        columns = {row[1] for row in connection.execute("PRAGMA table_info(field_provenance)")}
+        assert {"display_bbox_source", "display_bbox_annotator_id"} <= columns
+        # A second initialization must preserve migrated columns and inserts.
+    write_sqlite([source], path)
+    with sqlite3.connect(path) as connection:
+        assert connection.execute(
+            "SELECT display_bbox_annotator_id FROM field_provenance "
+            "WHERE field_path='borehole.final_depth_m'"
+        ).fetchone()[0] == "reviewer-1"
+
+
 def test_geojson_skips_missing_coordinates_and_does_not_transform(tmp_path: Path):
     located = record()
     located["borehole"]["coordinate_system"]["value"] = "EPSG:27700"

@@ -25,6 +25,8 @@ def proposal_from_prediction(
     ]:
         if envelope.get("source_bbox") is not None and envelope.get("display_bbox") is None:
             envelope["display_bbox"] = pdf_bbox_to_rendered_pixels(envelope["source_bbox"], panel)
+            envelope["display_bbox_source"] = "pdf_transform_v001"
+            envelope["display_bbox_annotator_id"] = None
     record["document"]["metadata"].update({
         "annotation_proposal_experiment_id": experiment_id,
         "annotation_proposal_status": "auto_needs_human_verification",

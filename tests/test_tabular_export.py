@@ -23,6 +23,18 @@ def test_tabular_rows_keep_raw_normalized_and_provenance():
     assert provenance["intervals[0].bottom_depth_m"]["source_text"] == source["intervals"][0]["bottom_depth_m"]["source_text"]
 
 
+def test_tabular_rows_preserve_human_display_bbox_provenance():
+    source = record()
+    source["borehole"]["final_depth_m"].update({
+        "display_bbox": [1, 2, 30, 40], "display_bbox_source": "human_drawn",
+        "display_bbox_annotator_id": "reviewer-1",
+    })
+    rows = tabular_rows([source])
+    row = next(item for item in rows["provenance"] if item["field_path"] == "borehole.final_depth_m")
+    assert row["display_bbox_source"] == "human_drawn"
+    assert row["display_bbox_annotator_id"] == "reviewer-1"
+
+
 def test_xlsx_has_three_traceable_sheets(tmp_path):
     path = tmp_path / "boreholes.xlsx"
     write_xlsx([record()], path)

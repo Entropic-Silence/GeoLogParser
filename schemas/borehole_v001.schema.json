@@ -36,6 +36,11 @@
         "source_page": {"type": ["integer", "null"], "minimum": 1},
         "source_bbox": {"oneOf": [{"$ref": "#/$defs/bbox"}, {"type": "null"}]},
         "display_bbox": {"oneOf": [{"$ref": "#/$defs/bbox"}, {"type": "null"}]},
+        "display_bbox_source": {
+          "type": ["string", "null"],
+          "enum": ["pdf_transform_v001", "model_grounded", "human_drawn", "unknown", null]
+        },
+        "display_bbox_annotator_id": {"type": ["string", "null"], "minLength": 1},
         "source_text": {"type": ["string", "null"]},
         "extraction_method": {
           "type": "string",

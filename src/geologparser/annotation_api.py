@@ -10,7 +10,9 @@ import tempfile
 from typing import Any
 
 from geologparser.annotation import (
-    human_empty_interval, revise_annotation, save_annotation, validate_annotation,
+    bind_human_display_bbox, human_empty_interval, revise_annotation, save_annotation,
+    validate_annotation, validate_annotator_id, validate_display_bbox,
+    validate_display_bbox_edits,
 )
 from geologparser.annotation_export import ground_truth_gate
 from geologparser.annotation_reread import run_annotation_reread
@@ -245,13 +247,36 @@ def create_app(
                 validate_record(payload["record"])
                 annotation = dict(annotation)
                 annotation["record"] = payload["record"]
+            bbox_pixels = payload.get("bbox_pixels")
+            if bbox_pixels is not None:
+                bbox_pixels = validate_display_bbox(bbox_pixels, annotation["panel"])
             return run_annotation_reread(
                 annotation, str(payload["field_path"]), reread_adapters, reread_root,
-                bbox_pixels=payload.get("bbox_pixels"),
+                bbox_pixels=bbox_pixels,
                 padding_pixels=int(payload.get("padding_pixels", 12)),
                 scale=float(payload.get("scale", 3.0)),
             )
         except (KeyError, TypeError, ValueError, FileNotFoundError, OCRBackendUnavailable) as exc:
+            raise HTTPException(422, str(exc)) from exc
+
+    @app.post("/api/annotations/{annotation_id}/display-bbox")
+    def bind_display_bbox(annotation_id: str, payload: dict[str, Any]):
+        annotation = json.loads(annotation_path(annotation_id).read_text(encoding="utf-8"))
+        if payload.get("base_revision") != annotation["revision"]:
+            raise HTTPException(409, "revision conflict; reload before binding evidence")
+        try:
+            record = payload.get("record", annotation["record"])
+            validate_record(record)
+            annotator_id = validate_annotator_id(payload.get("annotator_id"))
+            return {
+                "record": bind_human_display_bbox(
+                    record, str(payload["field_path"]), payload["bbox_pixels"],
+                    annotation["panel"], annotator_id,
+                ),
+                "persisted": False,
+                "validation_status_changed": False,
+            }
+        except (KeyError, TypeError, ValueError) as exc:
             raise HTTPException(422, str(exc)) from exc
 
     @app.get("/api/rereading/{annotation_id}/{run_id}/roi")
@@ -282,8 +307,13 @@ def create_app(
             raise HTTPException(409, "revision conflict; reload before saving")
         status = payload.get("annotation_status", "single_verified")
         try:
+            annotator_id = validate_annotator_id(payload.get("annotator_id"))
+            validate_display_bbox_edits(
+                current["record"], payload["record"], current["panel"],
+                annotator_id,
+            )
             revised = revise_annotation(
-                current, payload["record"], str(payload["annotator_id"]), str(status),
+                current, payload["record"], annotator_id, str(status),
             )
             save_annotation(revised, path)
         except Exception as exc:

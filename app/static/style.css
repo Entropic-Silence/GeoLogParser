@@ -8,14 +8,17 @@ button { cursor: pointer; padding: 5px 10px; }
 main { display: grid; grid-template-columns: minmax(420px, 52vw) 1fr; height: calc(100vh - 64px); }
 #viewer { overflow: auto; padding: 14px; background: #59646d; }
 #image-stage { position: relative; width: fit-content; margin: auto; }
+#image-stage.drawing { cursor: crosshair; user-select: none; }
 #panel-image { display: block; max-width: none; width: 1000px; height: auto; background: white; }
 #highlight { display: none; position: absolute; pointer-events: none; border: 3px solid #ff3b30; background: rgb(255 59 48 / 18%); box-sizing: border-box; }
+#drawn-bbox { display: none; position: absolute; pointer-events: none; border: 3px dashed #00796b; background: rgb(0 121 107 / 15%); box-sizing: border-box; }
 #editor { padding: 14px; overflow: auto; background: white; }
 #progress, #gate-status { padding: 8px; margin-bottom: 7px; border: 1px solid #bbc5cc; background: #f3f5f7; }
 #gate-status.failed { border-color: #cc7a00; background: #fff2cc; }
 #gate-status.passed { border-color: #31845b; background: #e5f5ec; }
 .exports { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
 #reread-panel { padding: 8px; margin-bottom: 10px; border: 1px solid #7297b3; background: #edf6fc; }
+#reread-panel button { margin: 3px 2px; }
 #reread-output { white-space: pre-wrap; max-height: 220px; overflow: auto; margin: 7px 0 0; background: white; padding: 7px; }
 #reread-roi { display: none; margin-top: 7px; max-width: 100%; max-height: 180px; border: 2px solid #17212b; image-rendering: auto; }
 h2 { font-size: 16px; margin: 8px 0; }

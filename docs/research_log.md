@@ -799,3 +799,25 @@
   index verification rejects nested artifact tampering or path escape.
 - Evidence boundary: source annotations are `auto`, therefore accuracy, FCR,
   method benefit, calibration, and statistical significance remain `TBD`.
+
+## 2026-08-13 — Human-drawn field evidence for annotation and re-reading
+
+- Objective: let a reviewer replace an overly broad display ROI without
+  overwriting the immutable source PDF bbox or silently confirming a value.
+- Implementation: the annotation UI records a drawn rectangle in rendered
+  image pixels, supports non-persistent numeric re-reading from the draft ROI,
+  and can bind the rectangle locally as `human_drawn`. The API validates finite,
+  ordered coordinates against the rendered image dimensions and requires the
+  saving annotator to match the bbox annotator. Binding preserves the field
+  value, extraction method, validation status, and original `source_bbox`.
+- Provenance: v001 field envelopes now optionally retain
+  `display_bbox_source` and `display_bbox_annotator_id`. Native-PDF conversions
+  are marked `pdf_transform_v001`; SQLite initialization migrates legacy
+  `field_provenance` tables in place, and tabular exports retain both columns.
+- Verification: API regression tests cover invalid bounds, non-finite values,
+  non-persistence, annotator mismatch, revision history, and temporary reread
+  behavior. The full suite passed with 244 tests and 15 upstream deprecation
+  warnings; JavaScript syntax and whitespace checks passed.
+- Research boundary: no human values were entered and no auto proposal was
+  promoted. Padova Ground Truth remains 0 pages; Paper I/II/III empirical
+  claims and submission readiness remain `TBD`.

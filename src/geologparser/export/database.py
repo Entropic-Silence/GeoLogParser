@@ -53,6 +53,8 @@ def initialize_database(connection: sqlite3.Connection) -> None:
         source_page INTEGER,
         source_bbox_json TEXT,
         display_bbox_json TEXT,
+        display_bbox_source TEXT,
+        display_bbox_annotator_id TEXT,
         source_text TEXT,
         extraction_method TEXT NOT NULL,
         confidence REAL,
@@ -63,6 +65,10 @@ def initialize_database(connection: sqlite3.Connection) -> None:
         FOREIGN KEY (document_id) REFERENCES boreholes(document_id) ON DELETE CASCADE
     );
     """)
+    columns = {row[1] for row in connection.execute("PRAGMA table_info(field_provenance)")}
+    for name in ("display_bbox_source", "display_bbox_annotator_id"):
+        if name not in columns:
+            connection.execute(f"ALTER TABLE field_provenance ADD COLUMN {name} TEXT")
 
 
 def _provenance_rows(record: Mapping[str, Any]):
@@ -113,11 +119,17 @@ def upsert_record(connection: sqlite3.Connection, record: Mapping[str, Any]) -> 
     connection.execute("DELETE FROM field_provenance WHERE document_id = ?", (document_id,))
     for row_document_id, field_path, envelope in _provenance_rows(record):
         connection.execute("""
-            INSERT INTO field_provenance VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            INSERT INTO field_provenance (
+              document_id, field_path, value_json, source_page,
+              source_bbox_json, display_bbox_json, display_bbox_source,
+              display_bbox_annotator_id, source_text, extraction_method,
+              confidence, validation_status, warning_codes_json, raw_unit
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """, (
             row_document_id, field_path, json.dumps(envelope.get("value"), ensure_ascii=False),
             envelope.get("source_page"), json.dumps(envelope.get("source_bbox")),
-            json.dumps(envelope.get("display_bbox")), envelope.get("source_text"),
+            json.dumps(envelope.get("display_bbox")), envelope.get("display_bbox_source"),
+            envelope.get("display_bbox_annotator_id"), envelope.get("source_text"),
             envelope.get("extraction_method", "unknown"), envelope.get("confidence"),
             envelope.get("validation_status", "not_validated"),
             json.dumps(envelope.get("warning_codes", []), ensure_ascii=False),

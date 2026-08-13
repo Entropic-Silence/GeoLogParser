@@ -25,7 +25,7 @@
   </header>
   <main>
     <section id="viewer">
-      <div id="image-stage"><img id="panel-image" alt="borehole panel"><div id="highlight"></div></div>
+      <div id="image-stage"><img id="panel-image" alt="borehole panel"><div id="highlight"></div><div id="drawn-bbox"></div></div>
     </section>
     <section id="editor">
       <div id="progress">Loading Ground Truth status…</div>
@@ -37,7 +37,10 @@
         <button id="download-verified">Download verified GT JSONL</button>
       </div>
       <div id="reread-panel">
-        <strong>Selected numeric field:</strong> <code id="selected-field">none</code>
+        <strong>Selected field:</strong> <code id="selected-field">none</code>
+        <button id="draw-bbox" disabled>Draw bbox</button>
+        <button id="bind-bbox" disabled>Bind bbox to field</button>
+        <button id="clear-bbox" disabled>Clear draft</button>
         <button id="reread-field" disabled>Re-read ROI</button>
         <button id="apply-reread" disabled>Apply proposal locally</button>
         <img id="reread-roi" alt="Re-read ROI evidence">

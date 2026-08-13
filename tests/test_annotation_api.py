@@ -122,8 +122,12 @@ def test_verified_collection_export_fails_with_traceable_reasons(tmp_path: Path)
 def test_annotation_api_reread_is_revision_gated_and_non_mutating(tmp_path: Path):
     client, _ = build_client(tmp_path)
     annotation = client.get("/api/annotations/test-panel").json()
-    annotation["record"]["intervals"][1]["top_depth_m"].update({
-        "value": 1.5, "display_bbox": [10, 10, 60, 40],
+    envelope = annotation["record"]["intervals"][1]["top_depth_m"]
+    envelope.update({
+        "value": 1.5,
+        "display_bbox": [10, 10, 60, 40],
+        "display_bbox_source": "human_drawn",
+        "display_bbox_annotator_id": "fixture",
     })
     # Persist the deliberately inconsistent fixture through the ordinary
     # revisioned route so the re-read endpoint operates on server state.
@@ -152,9 +156,16 @@ def test_annotation_api_reread_is_revision_gated_and_non_mutating(tmp_path: Path
 def test_annotation_reread_uses_current_unsaved_record(tmp_path: Path):
     client, _ = build_client(tmp_path)
     annotation = client.get("/api/annotations/test-panel").json()
-    annotation["record"]["intervals"][1]["top_depth_m"].update({
-        "value": 1.5, "display_bbox": [10, 10, 60, 40],
+    bound = client.post("/api/annotations/test-panel/display-bbox", json={
+        "base_revision": 1,
+        "field_path": "intervals[1].top_depth_m",
+        "bbox_pixels": [10, 10, 60, 40],
+        "annotator_id": "reviewer-1",
+        "record": annotation["record"],
     })
+    assert bound.status_code == 200
+    annotation["record"] = bound.json()["record"]
+    annotation["record"]["intervals"][1]["top_depth_m"]["value"] = 1.5
     annotation["record"]["borehole"]["project_name"]["value"] = "unsaved local edit"
     response = client.post("/api/annotations/test-panel/reread", json={
         "base_revision": 1, "field_path": "intervals[1].top_depth_m",
@@ -166,3 +177,108 @@ def test_annotation_reread_uses_current_unsaved_record(tmp_path: Path):
     # Re-reading remains non-mutating until a later explicit save.
     server = client.get("/api/annotations/test-panel").json()
     assert server["record"]["borehole"]["project_name"]["value"] != "unsaved local edit"
+
+
+@pytest.mark.parametrize("bbox", [
+    [-1, 0, 10, 10], [10, 0, 10, 10], [20, 0, 10, 10],
+    [0, 0, 201, 10], [0, 0, 10, 101], [0, 0, 10], [0, 0, "x", 10],
+])
+def test_annotation_api_rejects_invalid_display_bbox(tmp_path: Path, bbox):
+    client, _ = build_client(tmp_path)
+    response = client.post("/api/annotations/test-panel/display-bbox", json={
+        "base_revision": 1,
+        "field_path": "borehole.final_depth_m",
+        "bbox_pixels": bbox,
+        "annotator_id": "reviewer-1",
+    })
+    assert response.status_code == 422
+
+
+def test_display_bbox_binding_is_non_persistent_and_preserves_field_truth(tmp_path: Path):
+    client, annotation_root = build_client(tmp_path)
+    before = client.get("/api/annotations/test-panel").json()
+    path = "borehole.final_depth_m"
+    prior = before["record"]["borehole"]["final_depth_m"]
+    response = client.post("/api/annotations/test-panel/display-bbox", json={
+        "base_revision": 1,
+        "field_path": path,
+        "bbox_pixels": [10, 20, 80, 60],
+        "annotator_id": "reviewer-1",
+        "record": before["record"],
+    })
+    assert response.status_code == 200
+    result = response.json()
+    bound = result["record"]["borehole"]["final_depth_m"]
+    assert result["persisted"] is False
+    assert result["validation_status_changed"] is False
+    assert bound["value"] == prior["value"]
+    assert bound["validation_status"] == prior["validation_status"]
+    assert bound["extraction_method"] == prior["extraction_method"]
+    assert bound["source_bbox"] == prior["source_bbox"]
+    assert bound["display_bbox"] == [10.0, 20.0, 80.0, 60.0]
+    assert bound["display_bbox_source"] == "human_drawn"
+    assert bound["display_bbox_annotator_id"] == "reviewer-1"
+    assert client.get("/api/annotations/test-panel").json() == before
+    assert not (annotation_root / "history/test-panel").exists()
+
+
+def test_display_bbox_save_requires_matching_annotator_and_archives_history(tmp_path: Path):
+    client, annotation_root = build_client(tmp_path)
+    annotation = client.get("/api/annotations/test-panel").json()
+    bound = client.post("/api/annotations/test-panel/display-bbox", json={
+        "base_revision": 1,
+        "field_path": "borehole.final_depth_m",
+        "bbox_pixels": [10, 20, 80, 60],
+        "annotator_id": "reviewer-1",
+        "record": annotation["record"],
+    }).json()["record"]
+    mismatch = client.put("/api/annotations/test-panel", json={
+        "base_revision": 1, "record": bound, "annotator_id": "reviewer-2",
+        "annotation_status": "auto",
+    })
+    assert mismatch.status_code == 422
+    assert "annotator does not match" in mismatch.json()["detail"]
+    saved = client.put("/api/annotations/test-panel", json={
+        "base_revision": 1, "record": bound, "annotator_id": "reviewer-1",
+        "annotation_status": "auto",
+    })
+    assert saved.status_code == 200
+    assert saved.json()["revision"] == 2
+    history = annotation_root / "history/test-panel/revision_0001.json"
+    assert history.is_file()
+    archived = json.loads(history.read_text(encoding="utf-8"))
+    assert archived["record"]["borehole"]["final_depth_m"].get("display_bbox") is None
+
+
+def test_display_bbox_endpoints_require_nonempty_annotator(tmp_path: Path):
+    client, _ = build_client(tmp_path)
+    annotation = client.get("/api/annotations/test-panel").json()
+    payload = {
+        "base_revision": 1,
+        "field_path": "borehole.final_depth_m",
+        "bbox_pixels": [10, 20, 80, 60],
+    }
+    assert client.post("/api/annotations/test-panel/display-bbox", json=payload).status_code == 422
+    save = client.put("/api/annotations/test-panel", json={
+        "base_revision": 1,
+        "record": annotation["record"],
+        "annotation_status": "auto",
+    })
+    assert save.status_code == 422
+
+
+def test_temporary_display_bbox_reread_does_not_modify_record(tmp_path: Path):
+    client, _ = build_client(tmp_path)
+    before = client.get("/api/annotations/test-panel").json()
+    response = client.post("/api/annotations/test-panel/reread", json={
+        "base_revision": 1,
+        "field_path": "borehole.final_depth_m",
+        "bbox_pixels": [10, 10, 60, 40],
+        "record": before["record"],
+    })
+    assert response.status_code == 200
+    result = response.json()
+    assert result["parameters"]["padding_pixels"] == 12
+    assert result["crop"]["bbox_pixels"] == [0, 0, 72, 52]
+    after = client.get("/api/annotations/test-panel").json()
+    assert after == before

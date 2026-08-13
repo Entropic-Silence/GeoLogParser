@@ -39,9 +39,15 @@ Schema + C1–C10 validation, review queue, append-only timing events, and
 conflict-safe revisioned saves. It now displays collection-level GT progress
 and exact per-page GT-gate failures. Per-page JSON/CSV/XLSX exports are always
 labelled `DRAFT_NOT_GT` until that annotation passes the human gate; the
-collection JSONL endpoint refuses download unless every page passes. Native-PDF proposal builders store both source
-PDF points and transformed rendered-pixel bboxes, so eligible evidence is
-highlighted in the displayed panel. Standalone CSV/XLSX/Parquet exporters are
+collection JSONL endpoint refuses download unless every page passes.
+Native-PDF proposal builders store both source PDF points and transformed
+rendered-pixel bboxes, so eligible evidence is highlighted in the displayed
+panel. A reviewer may draw a tighter field bbox, use it temporarily for a
+numeric ROI re-read, or bind it locally to the field. Bound boxes are marked
+`human_drawn` with the saving annotator ID; they do not replace `source_bbox`,
+confirm the value, or persist until the ordinary revisioned save succeeds.
+SQLite/XLSX/Parquet exports preserve that display-bbox provenance.
+Standalone CSV/XLSX/Parquet exporters are
 implemented in the library and exposed as review-time downloads. Numeric fields
 with rendered-pixel evidence can now trigger high-resolution ROI readers. The
 default web process remains CPU-only Tesseract; an optional local VLM reader is
@@ -52,7 +58,8 @@ freezes its crop, reader output/audit, ranking decision, source-panel hash, and
 result hash under the annotation artifact root. Re-reading is
 non-mutating: even an accepted candidate is applied locally as `needs_review`
 and requires explicit human confirmation plus the ordinary revisioned save.
-The default UI does not yet expose a VLM toggle or a user-drawn bbox.
+The default UI does not expose a VLM toggle; VLM use remains an explicitly
+configured experiment path.
 
 After real review, create a frozen GT snapshot with:
 
