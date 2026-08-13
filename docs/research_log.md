@@ -1366,6 +1366,21 @@
   reference. Consequently these results support a real metadata and critical
   failure analysis, not a complete borehole-log extraction benchmark.
 
+## 2026-08-13 — Real metadata consensus and abstention study
+
+- Added a reference-blinded decision policy over the matched 300-DPI
+  Tesseract/RapidOCR BGS first-pass outputs. The policy accepts only equal,
+  non-null values from both readers; authoritative references are consulted
+  only after decisions are frozen for scoring.
+- `P2_BGS_METADATA_CONSENSUS_ABSTENTION_001` evaluated 124 field decisions
+  across 31 documents. It auto-accepted 87/124 fields (coverage 0.7016) with
+  1.000 accepted accuracy, routed 37 fields to review, and captured all 37
+  observed errors/omissions (review recall 1.000).
+- Field results: borehole ID accepted 25/31 at 1.000 accuracy; X and Y each
+  accepted 31/31 at 1.000 accuracy; final depth accepted 0/31 and routed all
+  cases to review. The outcome demonstrates a real coverage–reliability tradeoff
+  for authoritative metadata, not a geological-constraint or interval result.
+
 ## 2026-08-13 — Autonomous data-tier and controlled benchmark track
 
 - Objective: remove the human source-review UI from the only path of project

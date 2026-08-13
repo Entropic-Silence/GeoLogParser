@@ -106,6 +106,23 @@ def test_formal_paper_specific_protocol_gates():
     )
 
 
+def test_formal_authoritative_metadata_method_requires_narrow_scope():
+    run = {"config": {"ground_truth_sha256": "a" * 64}, "split_version": "same_source_v001"}
+    assert formal_evidence_errors(
+        {"paper_eligibility": "formal_authoritative_metadata_method"}, run,
+        {
+            "scope": "authoritative-metadata consensus/abstention evaluation",
+            "reference_ground_truth_tier": "AUTHORITATIVE_METADATA",
+            "document_count": 31,
+            "interval_ground_truth_available": False,
+        },
+    ) == []
+    assert formal_evidence_errors(
+        {"paper_eligibility": "formal_authoritative_metadata_method"}, run,
+        {"scope": "human-GT benchmark evaluation", "document_count": 31},
+    )
+
+
 def test_nonformal_labels_do_not_require_ground_truth_evidence():
     assert formal_evidence_errors(
         {"paper_eligibility": "audit_only"}, {"config": {}}, {},

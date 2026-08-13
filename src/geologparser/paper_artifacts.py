@@ -288,8 +288,21 @@ def paper3_table(entries: list[dict], repository_root: Path) -> str:
 def paper2_table(entries: list[dict], repository_root: Path) -> str:
     rows = []
     audit_rows = []
+    authoritative_rows = []
     for entry in entries:
         metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
+        if metrics.get("scope") == "authoritative-metadata consensus/abstention evaluation":
+            for field, values in metrics["by_field"].items():
+                authoritative_rows.append("| " + " | ".join([
+                    entry["experiment_id"], field, str(values["reference_count"]),
+                    str(values["accepted_count"]), ratio({
+                        "value": values["coverage"], "numerator": values["accepted_count"],
+                        "denominator": values["reference_count"],
+                    }),
+                    number(values["accepted_accuracy"]),
+                    str(values["review_count"]), number(values["manual_review_recall"]),
+                    entry["paper_eligibility"],
+                ]) + " |")
         if "vlm_schema_valid_count" in metrics:
             audit_rows.append("| " + " | ".join([
                 entry["experiment_id"], str(metrics["case_count"]),
@@ -337,6 +350,12 @@ def paper2_table(entries: list[dict], repository_root: Path) -> str:
     ])
     return "\n".join([
         "<!-- AUTO-GENERATED. DO NOT EDIT. -->",
+        "### Real authoritative-metadata consensus and abstention", "",
+        "| Experiment | Field | Reference n | Auto-accepted | Coverage | Accepted accuracy | Review | Review recall | Eligibility |",
+        "|---|---|---:|---:|---:|---:|---:|---:|---|",
+        *authoritative_rows, "",
+        "The decision policy accepts only equal non-null values from two independent OCR readers. References are consulted only after decisions are frozen. This is real metadata-field evidence; interval/lithology effects remain unmeasured.",
+        "",
         "### Public ROI engineering audit (no Ground Truth)", "",
         "| Experiment | Cases | VLM JSON-valid | VLM uncertain | OCR/VLM numeric-agreement cases | Accept proposals | Needs review | VLM s/ROI | Peak GiB | Eligibility |",
         "|---|---:|---:|---:|---:|---:|---:|---:|---:|---|",

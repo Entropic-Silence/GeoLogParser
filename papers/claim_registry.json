@@ -1374,6 +1374,55 @@
         }
       ],
       "source_sha256": "49d53034edc18299b38ee646d1e4a92bb76d7c552f68efecfbabeb546155358c"
+    },
+    "p2.bgs_metadata_consensus": {
+      "paper": "paper2",
+      "experiment_id": "P2_BGS_METADATA_CONSENSUS_ABSTENTION_001",
+      "scope": "real 31-document BGS authoritative-metadata consensus/abstention evaluation; no interval/lithology reference",
+      "source_path": "results/2026-08-13/P2_BGS_METADATA_CONSENSUS_ABSTENTION_001/metrics.json",
+      "source_sha256": "741b06eab95fc7532637c925c3d9a53bfa807e46d8211cbcf3ab6698f97302ab",
+      "assertions": [
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/document_count",
+          "expected": 31
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/field_decision_count",
+          "expected": 124
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/overall/accepted_count",
+          "expected": 87
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/overall/coverage",
+          "expected": 0.7016129032258065
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/overall/accepted_accuracy",
+          "expected": 1.0
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/overall/review_needed_count",
+          "expected": 37
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/overall/manual_review_recall",
+          "expected": 1.0
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/by_field/final_depth_m/accepted_count",
+          "expected": 0
+        }
+      ]
     }
   }
 }
