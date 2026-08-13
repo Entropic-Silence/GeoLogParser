@@ -44,3 +44,16 @@ def test_benchmark_evaluation_rejects_auto_gt_and_id_mismatch():
     prediction["item_id"] = "OTHER"
     with pytest.raises(ValueError, match="ID sets differ"):
         evaluate_benchmark([reference], [prediction])
+
+
+def test_explicit_silver_reference_track_is_separately_named():
+    reference, prediction = fixtures()
+    reference["annotation_status"] = "auto"
+    reference["ground_truth_tier"] = "SILVER_HIGH_CONFIDENCE"
+    reference["human_ground_truth"] = False
+    metrics, errors = evaluate_benchmark(
+        [reference], [prediction], reference_policy="silver",
+    )
+    assert not errors
+    assert metrics["scope"] == "machine-adjudicated-silver-agreement evaluation"
+    assert metrics["reference_ground_truth_tier"] == "SILVER"

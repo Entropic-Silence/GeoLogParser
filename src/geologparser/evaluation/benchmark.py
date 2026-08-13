@@ -40,13 +40,22 @@ def evaluate_benchmark(
     interval_match_tolerance_m: float = 0.05,
     boundary_tolerances_m: Sequence[float] = (0.01, 0.05, 0.10),
     critical_error_thresholds: Mapping[str, float] | None = None,
+    reference_policy: str = "human",
 ) -> tuple[dict[str, Any], list[dict[str, Any]]]:
-    """Return metrics and traceable errors; reject non-GT references."""
+    """Return metrics and traceable errors.
+
+    ``reference_policy='human'`` is the publication benchmark default and
+    rejects machine labels.  ``reference_policy='silver'`` is an explicit,
+    separately named agreement track for machine-adjudicated references; it
+    never changes the meaning of human-GT metrics.
+    """
+    if reference_policy not in {"human", "silver"}:
+        raise ValueError("reference_policy must be 'human' or 'silver'")
     if interval_match_tolerance_m < 0 or any(value < 0 for value in boundary_tolerances_m):
         raise ValueError("tolerances must be non-negative")
     reference_by_id: dict[str, Mapping[str, Any]] = {}
     for annotation in references:
-        failures = ground_truth_gate(annotation)
+        failures = ground_truth_gate(annotation) if reference_policy == "human" else _silver_gate(annotation)
         if failures:
             raise ValueError(
                 f"reference {annotation.get('annotation_id')} failed Ground Truth gate: "
@@ -79,7 +88,13 @@ def evaluate_benchmark(
     reference_records = [reference_by_id[item]["record"] for item in ids]
     prediction_records = [prediction_by_id[item] for item in ids]
     metrics: dict[str, Any] = {
-        "scope": "human-GT benchmark evaluation",
+        "scope": (
+            "human-GT benchmark evaluation"
+            if reference_policy == "human" else
+            "machine-adjudicated-silver-agreement evaluation"
+        ),
+        "reference_policy": reference_policy,
+        "reference_ground_truth_tier": "GOLD" if reference_policy == "human" else "SILVER",
         "document_count": len(ids),
         "interval_matching": {
             "strategy": "order_preserving_max_cardinality_then_min_error_v001",
@@ -203,3 +218,15 @@ def evaluate_benchmark(
     ).to_dict()
     metrics["error_distribution"] = error_distribution(errors)
     return metrics, errors
+
+
+def _silver_gate(annotation: Mapping[str, Any]) -> list[str]:
+    """Validate the minimal provenance contract for a Silver reference row."""
+    failures: list[str] = []
+    if str(annotation.get("ground_truth_tier", "")).upper() not in {"SILVER", "SILVER_HIGH_CONFIDENCE", "SILVER_UNCERTAIN"}:
+        failures.append("REFERENCE_NOT_SILVER")
+    if not annotation.get("record"):
+        failures.append("MISSING_SILVER_RECORD")
+    if annotation.get("human_ground_truth") is True:
+        failures.append("SILVER_ROW_CLAIMS_HUMAN_GT")
+    return failures
