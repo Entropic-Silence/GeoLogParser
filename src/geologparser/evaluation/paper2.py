@@ -28,6 +28,7 @@ EXPECTED_ABLATION_VARIANTS = {
 
 def evaluate_paper2_cases(
     cases: Sequence[Mapping[str, Any]], *, bins: int = 10, apply_calibration: bool = True,
+    ground_truth_policy: str = "human",
 ) -> dict[str, Any]:
     """Evaluate correction, triage, and held-out confidence calibration.
 
@@ -35,6 +36,8 @@ def evaluate_paper2_cases(
     computed only on the disjoint ``test`` partition. This API deliberately
     rejects auto labels and unknown GT status.
     """
+    if ground_truth_policy not in {"human", "synthetic"}:
+        raise ValueError("ground_truth_policy must be human or synthetic")
     if not cases:
         raise ValueError("Paper II evaluation requires cases")
     seen: set[str] = set()
@@ -46,8 +49,11 @@ def evaluate_paper2_cases(
         if case_id in seen:
             raise ValueError(f"duplicate case_id: {case_id}")
         seen.add(case_id)
-        if case.get("ground_truth_status") not in {"single_verified", "double_verified", "expert_verified"}:
-            raise ValueError(f"case {case_id} is not human-verified Ground Truth")
+        allowed_statuses = {"single_verified", "double_verified", "expert_verified"} if ground_truth_policy == "human" else {"synthetic"}
+        if case.get("ground_truth_status") not in allowed_statuses:
+            if ground_truth_policy == "human":
+                raise ValueError(f"case {case_id} is not human-verified Ground Truth")
+            raise ValueError(f"case {case_id} does not satisfy synthetic reference policy")
         if case["calibration_partition"] not in {"calibration", "test"}:
             raise ValueError("calibration_partition must be calibration or test")
         if not isinstance(case["decision"], Mapping):
@@ -85,7 +91,8 @@ def evaluate_paper2_cases(
     calibrated_brier = brier_score(labels, calibrated)
     calibrated_ece = expected_calibration_error(labels, calibrated, bins=bins)
     return {
-        "protocol": "paper2_ground_truth_gated_v001",
+        "protocol": "paper2_ground_truth_gated_v001" if ground_truth_policy == "human" else "paper2_synthetic_controlled_v001",
+        "ground_truth_policy": ground_truth_policy,
         "calibration_case_count": len(fit_cases),
         "test_case_count": len(test_cases),
         "calibration_applied": apply_calibration,
@@ -102,7 +109,7 @@ def evaluate_paper2_cases(
 
 
 def evaluate_paper2_ablation_matrix(
-    variants: Mapping[str, Mapping[str, Any]], *, bins: int = 10,
+    variants: Mapping[str, Mapping[str, Any]], *, bins: int = 10, ground_truth_policy: str = "human",
 ) -> dict[str, Any]:
     """Evaluate one-module-at-a-time variants on exactly the same GT cases."""
     if not variants:
@@ -139,11 +146,12 @@ def evaluate_paper2_ablation_matrix(
         output[name] = {
             "disabled_modules": list(disabled),
             "metrics": evaluate_paper2_cases(
-                cases, bins=bins, apply_calibration=name != "minus_calibration",
+                cases, bins=bins, apply_calibration=name != "minus_calibration", ground_truth_policy=ground_truth_policy,
             ),
         }
     return {
         "protocol": "paper2_one_module_ablation_matrix_v001",
+        "ground_truth_policy": ground_truth_policy,
         "case_count": len(canonical_cases or {}),
         "variant_count": len(output),
         "complete_expected_matrix": set(output) == set(EXPECTED_ABLATION_VARIANTS),

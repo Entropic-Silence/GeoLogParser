@@ -36,6 +36,7 @@ def main() -> None:
     parser.add_argument("--model-revision", required=True)
     parser.add_argument("--prompt-version", required=True)
     parser.add_argument("--bins", type=int, default=10)
+    parser.add_argument("--ground-truth-policy", choices=("human", "synthetic"), default="human")
     parser.add_argument("--results-root", type=Path, default=ROOT / "results")
     arguments = parser.parse_args()
     config = json.loads(arguments.matrix_config.read_text(encoding="utf-8"))
@@ -62,11 +63,12 @@ def main() -> None:
             "matrix_config_path": str(arguments.matrix_config.resolve()),
             "matrix_config_sha256": sha256(arguments.matrix_config),
             "case_files": case_files, "calibration_bins": arguments.bins,
-            "requirement": "identical human-GT cases; zero or one disabled module per variant",
+            "requirement": f"identical {arguments.ground_truth_policy} cases; zero or one disabled module per variant",
+            "ground_truth_policy": arguments.ground_truth_policy,
         },
     })
     try:
-        metrics = evaluate_paper2_ablation_matrix(variants, bins=arguments.bins)
+        metrics = evaluate_paper2_ablation_matrix(variants, bins=arguments.bins, ground_truth_policy=arguments.ground_truth_policy)
     except Exception:
         (run / "run.log").write_text("status=failed\n", encoding="utf-8")
         raise

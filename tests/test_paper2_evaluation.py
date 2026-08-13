@@ -41,6 +41,18 @@ def test_paper2_evaluation_rejects_auto_ground_truth():
         evaluate_paper2_cases(cases)
 
 
+def test_paper2_synthetic_policy_is_explicit_and_separate():
+    cases = [
+        case("fit", "calibration", 1, 2, "NEEDS_REVIEW", None, .5, 0, True),
+        case("test", "test", 1, 2, "ACCEPT_PROPOSAL", 1, .8, 1, False),
+    ]
+    for item in cases:
+        item["ground_truth_status"] = "synthetic"
+    result = evaluate_paper2_cases(cases, ground_truth_policy="synthetic")
+    assert result["protocol"] == "paper2_synthetic_controlled_v001"
+    assert result["ground_truth_policy"] == "synthetic"
+
+
 def test_ablation_matrix_requires_identical_cases_and_one_module_removal():
     cases = [
         case("fit", "calibration", 1, 2, "NEEDS_REVIEW", None, .5, 0, True),

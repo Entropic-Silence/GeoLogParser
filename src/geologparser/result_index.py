@@ -15,7 +15,7 @@ HASH_PATHS = {
     "run_log_sha256": "run.log",
 }
 ARTIFACT_MANIFEST = "artifact_manifest.json"
-FORMAL_ELIGIBILITY = {"formal_benchmark", "formal_silver_benchmark", "formal_method", "formal_downstream"}
+FORMAL_ELIGIBILITY = {"formal_benchmark", "formal_silver_benchmark", "formal_method", "formal_synthetic_method", "formal_downstream"}
 
 
 def formal_evidence_errors(entry: dict, run: dict, metrics: dict) -> list[str]:
@@ -42,11 +42,13 @@ def formal_evidence_errors(entry: dict, run: dict, metrics: dict) -> list[str]:
             errors.append("formal_benchmark requires human-GT benchmark metrics scope")
         if not isinstance(metrics.get("document_count"), int) or metrics.get("document_count", 0) <= 0:
             errors.append("formal_benchmark requires a positive document_count")
-    elif eligibility == "formal_method":
+    elif eligibility in {"formal_method", "formal_synthetic_method"}:
         if metrics.get("protocol") != "paper2_one_module_ablation_matrix_v001":
             errors.append("formal_method requires Paper II ablation protocol")
         if metrics.get("complete_expected_matrix") is not True:
             errors.append("formal_method requires the complete expected ablation matrix")
+        if eligibility == "formal_synthetic_method" and metrics.get("ground_truth_policy") != "synthetic":
+            errors.append("formal_synthetic_method requires synthetic reference policy")
     elif eligibility == "formal_downstream":
         if metrics.get("data_status") != "human_verified_real_site":
             errors.append("formal_downstream requires human_verified_real_site data_status")
