@@ -12,6 +12,22 @@
         {"type": "jsonl_pointer_unique_count", "pointer": "/source_sha256", "expected": 11}
       ]
     },
+    "p1.padova_annotation_assignment": {
+      "paper": "paper1",
+      "scope": "live two-track Padova annotation-task status; task generation is not human annotation, agreement, or Ground Truth",
+      "source_path": "/data/GeoLogParser/artifacts/annotation/unipd_blinded_duplicate_v001/status/current.json",
+      "source_sha256": "3906f8297d8a70b01e2b4af4ae1956a4d1b58eddbaa2ef16521192d663864d3e",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/source_annotation_count", "expected": 15},
+        {"type": "json_pointer_equals", "pointer": "/track_count", "expected": 2},
+        {"type": "json_pointer_equals", "pointer": "/total_track_annotations", "expected": 30},
+        {"type": "json_pointer_equals", "pointer": "/total_effective_attestations", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/total_ground_truth_exportable_annotations", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/agreement_artifact_count", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/adjudication_manifest_count", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/human_review_complete", "expected": false}
+      ]
+    },
     "p1.cad_full_svg": {
       "paper": "paper1",
       "scope": "33-item technical SVG/raster audit summary; structural coverage is not visual fidelity",

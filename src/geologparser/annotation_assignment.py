@@ -10,7 +10,9 @@ import shutil
 import tempfile
 from typing import Any, Mapping
 
-from geologparser.annotation import record_sha256, validate_annotation, validate_annotator_id
+from geologparser.annotation import (
+    matching_attestations, record_sha256, validate_annotation, validate_annotator_id,
+)
 from geologparser.annotation_export import annotation_agreement, ground_truth_gate
 from geologparser.datasets.manifest import sha256_file
 
@@ -293,3 +295,97 @@ def build_adjudication_pack(
         if staging_root.exists():
             shutil.rmtree(staging_root)
         raise
+
+
+def audit_annotation_assignment(
+    assignment_root: Path,
+    destination: Path,
+) -> dict[str, Any]:
+    """Derive current duplicate-review progress without promoting any record."""
+    assignment_root, destination = Path(assignment_root).resolve(), Path(destination).resolve()
+    manifest_path = assignment_root / "assignment_manifest.json"
+    if not manifest_path.is_file():
+        raise FileNotFoundError(manifest_path)
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    if manifest.get("assignment_schema_version") != "blinded_duplicate_annotation_v001":
+        raise ValueError("unsupported annotation assignment schema")
+    expected_ids = {str(item["annotation_id"]) for item in manifest["source_items"]}
+    if len(expected_ids) != len(manifest["source_items"]):
+        raise ValueError("assignment manifest contains duplicate annotation IDs")
+    tracks = []
+    for track in manifest["tracks"]:
+        root = Path(track["annotation_root"]).resolve()
+        annotations = []
+        statuses: dict[str, int] = {}
+        effective_attestations = 0
+        exportable = 0
+        identifiers: set[str] = set()
+        for path in _annotation_paths(root):
+            annotation = json.loads(path.read_text(encoding="utf-8"))
+            validate_annotation(annotation)
+            annotation_id = str(annotation["annotation_id"])
+            if annotation_id in identifiers:
+                raise ValueError(
+                    f"track {track['track_id']} contains duplicate annotation ID: {annotation_id}"
+                )
+            identifiers.add(annotation_id)
+            status = str(annotation["annotation_status"])
+            statuses[status] = statuses.get(status, 0) + 1
+            effective_attestations += len(matching_attestations(annotation))
+            exportable += not ground_truth_gate(annotation)
+            annotations.append({
+                "annotation_id": annotation_id,
+                "annotation_sha256": sha256_file(path),
+                "record_sha256": record_sha256(annotation["record"]),
+                "revision": annotation["revision"],
+                "annotation_status": status,
+                "effective_attestation_count": len(matching_attestations(annotation)),
+                "ground_truth_exportable": not ground_truth_gate(annotation),
+            })
+        if identifiers != expected_ids:
+            raise ValueError(
+                f"track {track['track_id']} annotation IDs differ from assignment manifest"
+            )
+        tracks.append({
+            "track_id": track["track_id"],
+            "assigned_annotator_id": track["assigned_annotator_id"],
+            "annotation_root": str(root),
+            "annotation_count": len(annotations),
+            "status_counts": dict(sorted(statuses.items())),
+            "effective_attestation_count": effective_attestations,
+            "ground_truth_exportable_count": exportable,
+            "annotations": annotations,
+        })
+    agreement_files = sorted((assignment_root / "agreement").glob("*.json"))
+    adjudication_files = sorted(assignment_root.glob("adjudication/**/adjudication_manifest.json"))
+    report = {
+        "assignment_audit_schema_version": "annotation_assignment_status_v001",
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "assignment_root": str(assignment_root),
+        "assignment_manifest_path": str(manifest_path),
+        "assignment_manifest_sha256": sha256_file(manifest_path),
+        "source_annotation_count": len(expected_ids),
+        "track_count": len(tracks),
+        "tracks": tracks,
+        "total_track_annotations": sum(item["annotation_count"] for item in tracks),
+        "total_effective_attestations": sum(
+            item["effective_attestation_count"] for item in tracks
+        ),
+        "total_ground_truth_exportable_annotations": sum(
+            item["ground_truth_exportable_count"] for item in tracks
+        ),
+        "agreement_artifact_count": len(agreement_files),
+        "adjudication_manifest_count": len(adjudication_files),
+        "human_review_complete": all(
+            item["ground_truth_exportable_count"] == item["annotation_count"] for item in tracks
+        ),
+        "interpretation": (
+            "live assignment progress audit; task generation is not human annotation"
+        ),
+    }
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    destination.write_text(
+        json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
+    return report | {"output_path": str(destination), "sha256": sha256_file(destination)}

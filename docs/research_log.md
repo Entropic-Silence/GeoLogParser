@@ -881,3 +881,19 @@
 - Verification: tests cover differing/equal tracks, immutable outputs, and
   mutation after agreement. Actual Padova agreement and adjudication remain
   `NOT COMPLETED` because both real tracks still contain only `auto` seeds.
+
+## 2026-08-13 — Traceable duplicate-annotation status audit
+
+- Objective: report task preparation separately from actual human progress and
+  prevent the two copies of each page from being counted as two GT pages.
+- Implementation: a live status audit validates each track's annotation-ID set
+  against the assignment manifest and records per-file/revision/status/record
+  hashes, effective attestations, GT gate counts, and agreement/adjudication
+  artifact counts.
+- Real snapshot: the Padova task has 15 source pages, two tracks, and 30 task
+  files; all remain `auto`. Effective attestations, GT-exportable track items,
+  agreement artifacts, and adjudication manifests are all zero. Snapshot SHA256
+  is `3906f8297d8a70b01e2b4af4ae1956a4d1b58eddbaa2ef16521192d663864d3e`.
+- Publication boundary: Paper I cites these as workflow-readiness counts only.
+  The publication-readiness GT count continues to use a final GT root, so
+  duplicate tracks cannot inflate dataset or human annotation counts.

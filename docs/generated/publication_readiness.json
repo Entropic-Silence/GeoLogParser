@@ -23,7 +23,7 @@
     "paper2_formal_results_exist": false,
     "paper3_formal_results_exist": false
   },
-  "generated_at_utc": "2026-08-12T22:33:33.466700+00:00",
+  "generated_at_utc": "2026-08-13T03:06:48.239228+00:00",
   "ground_truth_exportable_count": 0,
   "interpretation": "A false gate must remain NOT COMPLETED/TBD; audit-only, failure-analysis, and protocol-only runs cannot satisfy formal empirical completion.",
   "paper_indexes": {
@@ -38,20 +38,22 @@
       "indexed_experiment_count": 21
     },
     "paper2": {
-      "eligibility_counts": {},
+      "eligibility_counts": {
+        "audit_only": 1
+      },
       "formal_experiment_count": 0,
       "index_path": "/root/GeoLogParser/experiments/paper2/result_index.jsonl",
-      "index_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "indexed_experiment_count": 0
+      "index_sha256": "605a306798dcc0ed65af351213a2ca2cacb0fbf0a32109ab4101a8b5d5237194",
+      "indexed_experiment_count": 1
     },
     "paper3": {
       "eligibility_counts": {
-        "protocol_only": 2
+        "protocol_only": 3
       },
       "formal_experiment_count": 0,
       "index_path": "/root/GeoLogParser/experiments/paper3/result_index.jsonl",
-      "index_sha256": "2fc3a2b98fd40f26e774a0259cb101844fc345e8972d433f1c0c9a86dbf9234d",
-      "indexed_experiment_count": 2
+      "index_sha256": "4f19c865b3e6c8ae6ae043992d73da1bee79ad52a69234d9e66eaffdbe13a85e",
+      "indexed_experiment_count": 3
     }
   },
   "readiness_schema_version": "publication_readiness_v001",

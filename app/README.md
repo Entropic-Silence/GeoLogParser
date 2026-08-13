@@ -144,6 +144,20 @@ evidence, create the final record through the annotation service, and obtain
 the configured record-bound attestations. Agreement and adjudication artifacts
 are evidence about annotation quality, not automatic Ground Truth.
 
+Regenerate the current assignment-progress snapshot at any time with:
+
+```bash
+.venv/bin/python scripts/audit_annotation_assignment.py \
+  /data/GeoLogParser/artifacts/annotation/unipd_blinded_duplicate_v001 \
+  /data/GeoLogParser/artifacts/annotation/unipd_blinded_duplicate_v001/status/current.json
+```
+
+This live audit checks track ID completeness and reports status, revision,
+record/file hashes, effective attestations, GT-gate progress, agreement files,
+and adjudication manifests. It is separate from publication readiness so the
+same 15 pages are not double-counted merely because they appear in two reviewer
+tracks.
+
 After real review, create a frozen GT snapshot with:
 
 ```bash

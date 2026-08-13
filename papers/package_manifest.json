@@ -3,21 +3,21 @@
   "bibliography_path": "papers/references.bib",
   "bibliography_sha256": "4078d231d015ac8ac40320362da4ce7b1e7492ece4305cb61d43c2fb26a32b2b",
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "0d77dd737fce09978435078f7a5c959b160e3c1ff24a4a3178f47c766de7227b",
+  "claim_registry_sha256": "74b298a2eb8d8377c3a2f772f8e9515cc6f068e4f02c83327703dd78ca256d09",
   "package_schema_version": "paper_packages_v001",
   "papers": [
     {
       "evidence_audit_path": "paper1/generated/package/evidence_audit.json",
-      "evidence_audit_sha256": "e8ed5f0a98fc8e0b7bc49ee35fbdd338aae628871e73027f6e1e597408860846",
+      "evidence_audit_sha256": "0a463fb40a640a0ed34f91294a2338df64d8b9f7a7614aaba72afaeeb06a410e",
       "package_label": "DRAFT_NOT_SUBMISSION_READY",
       "paper": "paper1",
       "review_bundle_path": "paper1/generated/package/manuscript_DRAFT_NOT_SUBMISSION_READY.md",
-      "review_bundle_sha256": "910901a8be8c8b38b2cca26f4cee1c59c36e83e7dd92da6a3f4026ae4dd203c8",
+      "review_bundle_sha256": "cca589a2441cb66da5fa6cb65955c1666c86184790633c3fe66e66afe134b1e1",
       "submission_ready": false
     },
     {
       "evidence_audit_path": "paper2/generated/package/evidence_audit.json",
-      "evidence_audit_sha256": "04cc01b8df0ac0df8498823801d545cffda281aaefecfbac062665153ea48f81",
+      "evidence_audit_sha256": "3ef632aaf68f0acf766e0492a732d76e7cc80151aa517f68e646d031bd339b0a",
       "package_label": "DRAFT_NOT_SUBMISSION_READY",
       "paper": "paper2",
       "review_bundle_path": "paper2/generated/package/manuscript_DRAFT_NOT_SUBMISSION_READY.md",
@@ -26,7 +26,7 @@
     },
     {
       "evidence_audit_path": "paper3/generated/package/evidence_audit.json",
-      "evidence_audit_sha256": "0bbc22de700e7ddea697ee52f6373b905fa7ac4c024dbf94ebb025a96145f3ec",
+      "evidence_audit_sha256": "11b04a96b58e13f2928b5f2d8f8feed6e86033875d0e1ecc09b605da3b06412e",
       "package_label": "DRAFT_NOT_SUBMISSION_READY",
       "paper": "paper3",
       "review_bundle_path": "paper3/generated/package/manuscript_DRAFT_NOT_SUBMISSION_READY.md",

@@ -7,7 +7,7 @@ from PIL import Image
 
 from geologparser.annotation import create_annotation, revise_annotation, save_annotation
 from geologparser.annotation_assignment import (
-    build_adjudication_pack, build_blinded_annotation_pack,
+    audit_annotation_assignment, build_adjudication_pack, build_blinded_annotation_pack,
     compare_blinded_annotation_tracks,
 )
 from geologparser.datasets.manifest import sha256_file
@@ -211,3 +211,46 @@ def test_adjudication_pack_rejects_track_mutation_after_agreement(tmp_path: Path
             agreement, track_a, track_b, output / "adjudication",
         )
     assert not (output / "adjudication").exists()
+
+
+def test_assignment_status_audit_reports_real_review_progress(tmp_path: Path):
+    source = source_pack(tmp_path)
+    output = tmp_path / "pack"
+    build_blinded_annotation_pack(
+        source, output, {"track_a": "reviewer-A", "track_b": "reviewer-B"},
+    )
+    destination = output / "status/current.json"
+    initial = audit_annotation_assignment(output, destination)
+    assert initial["source_annotation_count"] == 2
+    assert initial["track_count"] == 2
+    assert initial["total_track_annotations"] == 4
+    assert initial["total_effective_attestations"] == 0
+    assert initial["total_ground_truth_exportable_annotations"] == 0
+    assert initial["agreement_artifact_count"] == 0
+    assert initial["adjudication_manifest_count"] == 0
+    assert initial["human_review_complete"] is False
+    assert all(item["status_counts"] == {"auto": 2} for item in initial["tracks"])
+    assert initial["sha256"] == sha256_file(destination)
+
+    verify_track(output / "tracks/track_a/annotations", "reviewer-A")
+    partial = audit_annotation_assignment(output, destination)
+    assert partial["total_effective_attestations"] == 2
+    assert partial["total_ground_truth_exportable_annotations"] == 2
+    assert partial["human_review_complete"] is False
+
+    verify_track(output / "tracks/track_b/annotations", "reviewer-B")
+    complete = audit_annotation_assignment(output, destination)
+    assert complete["total_effective_attestations"] == 4
+    assert complete["total_ground_truth_exportable_annotations"] == 4
+    assert complete["human_review_complete"] is True
+
+
+def test_assignment_status_audit_rejects_track_id_drift(tmp_path: Path):
+    source = source_pack(tmp_path)
+    output = tmp_path / "pack"
+    build_blinded_annotation_pack(
+        source, output, {"track_a": "reviewer-A", "track_b": "reviewer-B"},
+    )
+    (output / "tracks/track_b/annotations/P1.json").unlink()
+    with pytest.raises(ValueError, match="IDs differ"):
+        audit_annotation_assignment(output, output / "status.json")
