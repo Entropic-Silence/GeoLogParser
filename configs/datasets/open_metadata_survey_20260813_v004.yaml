@@ -1,0 +1,62 @@
+# Canonical rerun after v003. v004 labels candidate classification as automated
+# project-agent metadata triage instead of implying a real human review.
+# Superseded v001-v003 artifacts remain unchanged for failure-history traceability.
+
+survey_id: chinese_borehole_open_metadata_20260813_v004
+
+datacite_queries:
+  - {id: zh_borehole_column, query: "钻孔 AND 柱状图", page_size: 100}
+  - {id: zh_engineering_geology, query: "工程地质 AND 钻孔", page_size: 100}
+  - {id: mendeley_borehole, query: 'publisher:"Mendeley Data" AND borehole', page_size: 100}
+  - {id: china_borehole, query: "China AND borehole", page_size: 100}
+  - {id: figshare_china_borehole, query: "publisher:figshare AND borehole AND China", page_size: 100}
+
+datacite_dois:
+  - {id: mendeley_dwg_logs, doi: 10.17632/vcpz47r3sv.2}
+  - {id: mendeley_sedlog_pdf, doi: 10.17632/v6k9s36pbm.1}
+  - {id: mendeley_binhai_tables, doi: 10.17632/vkjwwb8zsh.2}
+  - {id: mendeley_prd_docx, doi: 10.17632/jr8gcyhsff.1}
+  - {id: mendeley_wuhan_csv, doi: 10.17632/g7gzd8jfyn.1}
+  - {id: mendeley_coal_602, doi: 10.17632/33z3d5r6xk.1}
+  - {id: mendeley_songliao_xlsx, doi: 10.17632/fgn2chjdnz.2}
+  - {id: zenodo_wudalianchi, doi: 10.5281/zenodo.14696781}
+  - {id: zenodo_shear_velocity, doi: 10.5281/zenodo.15400683}
+  - {id: cgs_panggezhuang, doi: 10.35080/data.c.2021.p25}
+  - {id: cgs_dongsheng, doi: 10.35080/data.h.2020.p20}
+  - {id: cgs_huangling, doi: 10.35080/data.h.2020.p21}
+  - {id: cgs_pingluo, doi: 10.35080/10.35080/data.d.2019.p3}
+  - {id: cgs_luhuatai, doi: 10.35080/data.d.2018.p12}
+  - {id: cgs_doumen, doi: 10.35080/data.d.2019.p22}
+
+mendeley_file_probes:
+  - {id: mendeley_dwg_logs, dataset_id: vcpz47r3sv, version: 2, doi: 10.17632/vcpz47r3sv.2}
+  - {id: mendeley_sedlog_pdf, dataset_id: v6k9s36pbm, version: 1, doi: 10.17632/v6k9s36pbm.1}
+  - {id: mendeley_binhai_tables, dataset_id: vkjwwb8zsh, version: 2, doi: 10.17632/vkjwwb8zsh.2}
+  - {id: mendeley_prd_docx, dataset_id: jr8gcyhsff, version: 1, doi: 10.17632/jr8gcyhsff.1}
+  - {id: mendeley_wuhan_csv, dataset_id: g7gzd8jfyn, version: 1, doi: 10.17632/g7gzd8jfyn.1}
+  - {id: mendeley_coal_602, dataset_id: 33z3d5r6xk, version: 1, doi: 10.17632/33z3d5r6xk.1}
+  - {id: mendeley_songliao_xlsx, dataset_id: fgn2chjdnz, version: 2, doi: 10.17632/fgn2chjdnz.2}
+
+repository_probes:
+  - {id: figshare_search, provider: figshare_search, query: "borehole log China", limit: 10}
+  - {id: mendeley_search, provider: mendeley_search, query: "borehole log China", limit: 10}
+  - {id: zenodo_shear_velocity, provider: zenodo_record, record_id: "15400683"}
+  - {id: sage_figshare_collection, provider: url_status, url: "https://api.figshare.com/v2/collections/6961823/articles", accept: application/json}
+  - {id: cgs_panggezhuang_item, provider: url_status, url: "http://dcc.cgs.gov.cn/cn/geologicalData/details/doi/10.35080/data.C.2021.P25"}
+
+candidate_reviews:
+  - {doi: 10.17632/v6k9s36pbm.1, disposition: phase1_content_review_candidate, license_status: verified_open, source_fit: international_transfer_only, reason: "One 18-page CC BY 4.0 native PDF contains digitised SedLog columns. It is English/non-Chinese and lacks most MVP borehole fields, so it is transfer/layout material only."}
+  - {doi: 10.17632/vcpz47r3sv.2, disposition: cad_conversion_review_pending, license_status: verified_open, source_fit: chinese_cad_candidate, reason: "Chinese DWG logs are outside the phase-1 input contract; rendering, privacy, embedded rights, and human review remain unresolved."}
+  - {doi: 10.17632/vkjwwb8zsh.2, disposition: paper3_structured_candidate, license_status: verified_open, source_fit: structured_geotechnical_data, reason: "The inventory contains 44 XLSX files and no phase-1 page image."}
+  - {doi: 10.17632/jr8gcyhsff.1, disposition: format_out_of_scope, license_status: verified_open, source_fit: structured_geotechnical_data, reason: "The inventory contains one DOCX and no phase-1 page image."}
+  - {doi: 10.17632/g7gzd8jfyn.1, disposition: paper3_structured_candidate_embargo_conflict, license_status: metadata_conflict, source_fit: structured_spatial_lithology, reason: "Metadata describes CSV lithology/location records and exposes CC BY 4.0 together with embargoedAccess; no log image is declared."}
+  - {doi: 10.17632/33z3d5r6xk.1, disposition: paper3_structured_candidate, license_status: verified_open, source_fit: structured_coal_borehole_data, reason: "The inventory is XLSX/code only, and the description states that the full engineering dataset is confidential."}
+  - {doi: 10.17632/fgn2chjdnz.2, disposition: format_out_of_scope, license_status: verified_open, source_fit: geophysical_log_table, reason: "One XLSX contains geophysical/mineralogical logs, not a legacy column image."}
+  - {doi: 10.5281/zenodo.14696781, disposition: files_uninspected, license_status: verified_open_metadata, source_fit: paper3_candidate, reason: "CC BY metadata concerns borehole data for 3D modeling, but no file inventory or image format is evidenced."}
+  - {doi: 10.5281/zenodo.15400683, disposition: files_uninspected, license_status: verified_open_metadata, source_fit: paper3_candidate, reason: "CC BY metadata reports shear-wave measurements, but no file inventory or column-image evidence is available."}
+  - {doi: 10.35080/data.c.2021.p25, disposition: rights_and_files_unverified, license_status: unclear, source_fit: chinese_image_candidate, reason: "Description lists two lithological columns, but there is no reusable licence or file inventory."}
+  - {doi: 10.35080/data.h.2020.p20, disposition: rights_and_files_unverified, license_status: unclear, source_fit: chinese_jpg_atlas_candidate, reason: "Metadata lists JPG atlas content, but the rights entry is only an institutional URL and files are uninspected."}
+  - {doi: 10.35080/data.h.2020.p21, disposition: format_out_of_scope_rights_unclear, license_status: unclear, source_fit: paper3_database_candidate, reason: "Metadata describes MapGIS/database/model artifacts; its rights entry is not a licence."}
+  - {doi: 10.35080/10.35080/data.d.2019.p3, disposition: format_and_rights_unverified, license_status: unclear, source_fit: structured_engineering_data_candidate, reason: "Metadata describes 14 boreholes and tests but exposes no format, inventory, or rights grant."}
+  - {doi: 10.35080/data.d.2018.p12, disposition: format_and_rights_unverified, license_status: unclear, source_fit: structured_engineering_data_candidate, reason: "Metadata describes 14 engineering boreholes but exposes no file format or reusable licence."}
+  - {doi: 10.35080/data.d.2019.p22, disposition: format_and_rights_unverified, license_status: unclear, source_fit: structured_engineering_data_candidate, reason: "Metadata reports borehole records and field photos, but no log-page format, inventory, or reusable licence."}
