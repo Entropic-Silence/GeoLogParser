@@ -1238,3 +1238,33 @@
   of zero geological errors or an interval-recall estimate. Accuracy remains
   null; human review and human GT remain zero. Persisted predictions contain
   hashes/counts only. No GPU was used.
+
+## 2026-08-13 — Manuscript literature-evidence audit
+
+- Objective: replace unresolved related-work placeholders only where verified
+  metadata and inspected source text support a bounded claim, without altering
+  any empirical `TBD` or publication-readiness state.
+- Full-text evidence: archived the published Han and Suh borehole-log article,
+  the EMNLP grammar-constrained-decoding paper, the BGS lithology-vocabulary
+  paper, and the Solid Earth borehole-interpretation uncertainty paper under
+  `/data/GeoLogParser/artifacts/literature`. SHA256 values are recorded in
+  `docs/literature_evidence.yaml`; PDFs and extracted text are not committed.
+- Han and Suh comparison: verified 47 Korean abandoned-mine reports, 908
+  borehole-log pages, five manually assigned types, an 8:2 page split for
+  type classification, and Type-1-only spreadsheet structuring. Their OCR
+  comparison is example/qualitative rather than GeoLogParser's field/interval
+  protocol, so their classification score is not reused or treated as a
+  structured-extraction baseline.
+- Additional scope: verified that grammar constraints address formal output
+  validity rather than factual geology; that published lithology schemes are
+  hierarchical and purpose-dependent; and that uncertainty in interpreted
+  contacts/drillhole observations can propagate into downstream models.
+  Interactive-ML literature motivates measuring users but provides no project
+  time-saving effect size.
+- Engineering gate: the paper-package audit now requires every manuscript
+  citation key to have a structured literature-evidence entry with identifier,
+  verification source/level, and permitted claim scope. Missing or malformed
+  entries fail structural completeness.
+- Boundary: all three manuscripts retain their formal empirical `TBD` values,
+  zero-formal-run status, and `DRAFT_NOT_SUBMISSION_READY` label. No GPU was
+  used and mining was not interrupted.

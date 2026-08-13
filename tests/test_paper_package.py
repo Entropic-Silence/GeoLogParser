@@ -85,6 +85,46 @@ def test_paper_audit_reports_missing_citation_link_section_and_tbd(tmp_path: Pat
     assert audit["tbd_or_citation_marker_count"] == 1
 
 
+def test_paper_audit_requires_structured_literature_evidence_when_configured(tmp_path: Path):
+    manuscript, bibliography, index = fixture(tmp_path)
+    evidence = tmp_path / "literature_evidence.yaml"
+    evidence.write_text(
+        "sources:\n"
+        "  - key: other\n"
+        "    identifier: doi:other\n"
+        "    metadata_verified_via: Crossref\n"
+        "    verification_level: metadata_only\n"
+        "    claim_scope: existence only\n"
+    )
+    audit = audit_manuscript(
+        "paper1", manuscript, bibliography, index, tmp_path,
+        literature_evidence=evidence,
+    )
+    assert audit["missing_literature_evidence_keys"] == ["known"]
+    assert audit["structurally_complete"] is False
+    assert "citation keys missing from literature evidence registry" in audit["blockers"]
+
+
+def test_paper_audit_accepts_complete_literature_evidence(tmp_path: Path):
+    manuscript, bibliography, index = fixture(tmp_path)
+    evidence = tmp_path / "literature_evidence.yaml"
+    evidence.write_text(
+        "sources:\n"
+        "  - key: known\n"
+        "    identifier: doi:known\n"
+        "    metadata_verified_via: Crossref\n"
+        "    verification_level: metadata_only\n"
+        "    claim_scope: existence only\n"
+    )
+    audit = audit_manuscript(
+        "paper1", manuscript, bibliography, index, tmp_path,
+        literature_evidence=evidence,
+    )
+    assert audit["missing_literature_evidence_keys"] == []
+    assert audit["literature_evidence_errors"] == []
+    assert audit["structurally_complete"] is True
+
+
 def test_review_bundle_is_explicitly_labelled():
     audit = {"package_label": "DRAFT_NOT_SUBMISSION_READY", "blockers": ["TBD remains"]}
     result = review_bundle("# Manuscript\n", "| result |\n", audit)

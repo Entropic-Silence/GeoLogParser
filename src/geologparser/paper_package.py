@@ -9,6 +9,8 @@ import re
 import sqlite3
 from typing import Any, Mapping, Sequence
 
+import yaml
+
 from geologparser.result_index import FORMAL_ELIGIBILITY, verify_index
 
 
@@ -48,6 +50,40 @@ def _portable_path(path: Path, repository_root: Path) -> str:
         return str(resolved.relative_to(repository_root.resolve()))
     except ValueError:
         return str(resolved)
+
+
+def _literature_evidence(
+    registry_path: Path,
+) -> tuple[set[str], list[str]]:
+    """Return documented citation keys and registry-structure errors."""
+    errors: list[str] = []
+    try:
+        document = yaml.safe_load(registry_path.read_text(encoding="utf-8"))
+    except (OSError, yaml.YAMLError) as exc:
+        return set(), [f"literature evidence registry could not be read: {exc}"]
+    if not isinstance(document, Mapping):
+        return set(), ["literature evidence registry must be a mapping"]
+    sources = document.get("sources")
+    if not isinstance(sources, list):
+        return set(), ["literature evidence registry sources must be a list"]
+    keys: set[str] = set()
+    required = ("key", "identifier", "metadata_verified_via", "verification_level", "claim_scope")
+    for index, source in enumerate(sources):
+        if not isinstance(source, Mapping):
+            errors.append(f"literature source {index} must be a mapping")
+            continue
+        key = source.get("key")
+        if not isinstance(key, str) or not key.strip():
+            errors.append(f"literature source {index} has no valid key")
+            continue
+        if key in keys:
+            errors.append(f"duplicate literature evidence key: {key}")
+        keys.add(key)
+        for field in required[1:]:
+            value = source.get(field)
+            if not isinstance(value, str) or not value.strip():
+                errors.append(f"literature source {key} has no valid {field}")
+    return keys, errors
 
 
 def _local_links(
@@ -161,6 +197,7 @@ def _claim_assertion_errors(claim_id: str, source_path: Path, claim: Mapping[str
 def audit_manuscript(
     paper: str, manuscript: Path, bibliography: Path, result_index: Path,
     repository_root: Path, claim_registry: Path | None = None,
+    literature_evidence: Path | None = None,
 ) -> dict[str, Any]:
     text = manuscript.read_text(encoding="utf-8")
     bibliography_text = bibliography.read_text(encoding="utf-8")
@@ -168,6 +205,19 @@ def audit_manuscript(
     citations = sorted(set(CITATION_PATTERN.findall(text)))
     bibliography_keys = set(BIB_KEY_PATTERN.findall(bibliography_text))
     missing_citations = sorted(set(citations) - bibliography_keys)
+    literature_evidence_keys: set[str] = set()
+    literature_evidence_errors: list[str] = []
+    missing_literature_evidence: list[str] = []
+    if literature_evidence is not None:
+        if literature_evidence.is_file():
+            literature_evidence_keys, literature_evidence_errors = _literature_evidence(
+                literature_evidence
+            )
+            missing_literature_evidence = sorted(set(citations) - literature_evidence_keys)
+        else:
+            literature_evidence_errors.append(
+                f"literature evidence registry is missing: {literature_evidence}"
+            )
     local_links, missing_links = _local_links(manuscript, text, repository_root)
     index_errors = verify_index(result_index, repository_root)
     rows = [
@@ -212,12 +262,17 @@ def audit_manuscript(
     structural_complete = not (
         missing_sections or missing_citations or missing_links or index_errors
         or missing_claim_registrations or unused_claim_registrations or claim_errors
+        or missing_literature_evidence or literature_evidence_errors
     )
     blockers = []
     if missing_sections:
         blockers.append("missing required manuscript sections")
     if missing_citations:
         blockers.append("citation keys missing from bibliography")
+    if missing_literature_evidence:
+        blockers.append("citation keys missing from literature evidence registry")
+    if literature_evidence_errors:
+        blockers.append("literature evidence registry verification failed")
     if missing_links:
         blockers.append("broken local manuscript links")
     if index_errors:
@@ -242,6 +297,15 @@ def audit_manuscript(
         "missing_required_sections": missing_sections,
         "citation_keys": citations,
         "missing_bibliography_keys": missing_citations,
+        "literature_evidence_path": (
+            _portable_path(literature_evidence, repository_root) if literature_evidence else None
+        ),
+        "literature_evidence_sha256": (
+            sha256(literature_evidence)
+            if literature_evidence is not None and literature_evidence.is_file() else None
+        ),
+        "missing_literature_evidence_keys": missing_literature_evidence,
+        "literature_evidence_errors": literature_evidence_errors,
         "local_links": local_links,
         "broken_local_links": missing_links,
         "tbd_or_citation_marker_count": len(markers),
@@ -298,6 +362,10 @@ def evidence_markdown(audit: Mapping[str, Any]) -> str:
         f"- Manuscript SHA256: `{audit['manuscript_sha256']}`",
         f"- Result-index SHA256: `{audit['result_index_sha256']}`",
         f"- Citation keys: {', '.join(audit['citation_keys']) or 'none'}",
+        "- Missing literature-evidence keys: "
+        f"{', '.join(audit['missing_literature_evidence_keys']) or 'none'}",
+        "- Literature-evidence errors: "
+        f"{', '.join(audit['literature_evidence_errors']) or 'none'}",
         f"- Broken local links: {', '.join(audit['broken_local_links']) or 'none'}",
         f"- Missing required sections: {', '.join(audit['missing_required_sections']) or 'none'}",
         f"- Evidence tags: {', '.join(audit['evidence_tags']) or 'none'}",

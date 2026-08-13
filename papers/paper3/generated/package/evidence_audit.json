@@ -5,8 +5,11 @@
   ],
   "broken_local_links": [],
   "citation_keys": [
+    "amershi2014interactive",
     "delavarga2019gempy",
     "han2024boreholeocr",
+    "lark2014crosssection",
+    "pakyuzcharrier2018drillhole",
     "shepard1968interpolation"
   ],
   "claim_registry_path": "papers/claim_registry.json",
@@ -36,6 +39,9 @@
     "References"
   ],
   "indexed_experiment_count": 4,
+  "literature_evidence_errors": [],
+  "literature_evidence_path": "docs/literature_evidence.yaml",
+  "literature_evidence_sha256": "d36dcd2badac6ba03fcd9842f3a5e7623885fd8f1e55966dceb75eb1795734f5",
   "local_links": [
     {
       "exists": true,
@@ -64,26 +70,27 @@
     {
       "exists": true,
       "resolved_path": "docs/generated/publication_readiness.md",
-      "sha256": "c7efe6d8c3ac10412a21dd17ce9c6a54b13fbe3c09a2ba1406e736bfabe4bf7e",
+      "sha256": "f3f3b9740f31d2579dc71e3f17cd771cdc413d620344c94c259d3f1599a28423",
       "target": "../../docs/generated/publication_readiness.md"
     },
     {
       "exists": true,
       "resolved_path": "papers/references.bib",
-      "sha256": "4078d231d015ac8ac40320362da4ce7b1e7492ece4305cb61d43c2fb26a32b2b",
+      "sha256": "0e1128f75327e013e3168af7326dc48a5f61b480e7c6bbeb2aa6f46ec7fc1bbd",
       "target": "../references.bib"
     },
     {
       "exists": true,
       "resolved_path": "docs/literature_evidence.yaml",
-      "sha256": "d30b5678e7e4d4bcc3f9563b53dff731b8f10d235e81d5f2beb0545f4667063b",
+      "sha256": "d36dcd2badac6ba03fcd9842f3a5e7623885fd8f1e55966dceb75eb1795734f5",
       "target": "../../docs/literature_evidence.yaml"
     }
   ],
   "manuscript_path": "papers/paper3/manuscript.md",
-  "manuscript_sha256": "7ad2babb5eba9b3ed18ce48709c0d6baf914037810900d2b24a13d602b4602ef",
+  "manuscript_sha256": "9a2b7887d1a4caf389dc33764f567a036aaf7d03bea6414e27ffa1421d401462",
   "missing_bibliography_keys": [],
   "missing_claim_registrations": [],
+  "missing_literature_evidence_keys": [],
   "missing_required_sections": [],
   "package_label": "DRAFT_NOT_SUBMISSION_READY",
   "paper": "paper3",
@@ -100,7 +107,7 @@
   "result_index_sha256": "c4531a69375f1078a0621df63f94d794f0055ef5cc9c79df41be8acdd380813c",
   "structurally_complete": true,
   "submission_ready": false,
-  "tbd_or_citation_marker_count": 7,
+  "tbd_or_citation_marker_count": 6,
   "unused_claim_registrations": [],
-  "word_count": 1345
+  "word_count": 1451
 }

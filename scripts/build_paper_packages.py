@@ -19,6 +19,7 @@ def main() -> None:
     arguments = parser.parse_args()
     bibliography = arguments.paper_root / "references.bib"
     claim_registry = arguments.paper_root / "claim_registry.json"
+    literature_evidence = ROOT / "docs" / "literature_evidence.yaml"
     package_rows = []
     for paper in ("paper1", "paper2", "paper3"):
         paper_root = arguments.paper_root / paper
@@ -27,6 +28,7 @@ def main() -> None:
         index = ROOT / "experiments" / paper / "result_index.jsonl"
         audit = audit_manuscript(
             paper, manuscript, bibliography, index, ROOT, claim_registry=claim_registry,
+            literature_evidence=literature_evidence,
         )
         output_root = paper_root / "generated" / "package"
         output_root.mkdir(parents=True, exist_ok=True)
@@ -55,6 +57,8 @@ def main() -> None:
         "bibliography_sha256": sha256(bibliography),
         "claim_registry_path": str(claim_registry.relative_to(ROOT)),
         "claim_registry_sha256": sha256(claim_registry),
+        "literature_evidence_path": str(literature_evidence.relative_to(ROOT)),
+        "literature_evidence_sha256": sha256(literature_evidence),
         "papers": package_rows,
         "all_submission_ready": all(row["submission_ready"] for row in package_rows),
     }
