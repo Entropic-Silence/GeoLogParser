@@ -1337,6 +1337,35 @@
   These are real public-authoritative metadata results, not interval or
   lithology accuracy.
 
+## 2026-08-13 — Expanded BGS authoritative-metadata comparison
+
+- Froze 31 official BGS scan PDFs (106 pages) in
+  `/data/GeoLogParser/datasets/public/bgs_authoritative_metadata_v001`; the
+  manifest binds each `source_record_id`, official metadata row, local file,
+  size, and SHA256. Requested record 74 was unavailable and is explicitly
+  listed as missing rather than silently substituted.
+- `P1_METADATA_BGS_TESSERACT_FORMAL_003` completed on all 31 documents.
+  Borehole-ID exact match was 29/31. X/Y coverage was 31/31; one lost leading
+  X digit produced an X MAE of 9,677.419 m, while Y MAE was 0 m. Final-depth
+  coverage was 0/31. One unsupported interval was emitted. Runtime was 2.210
+  s/page on CPU.
+- `P1_METADATA_BGS_RAPIDOCR_FORMAL_001` completed on the identical frozen set.
+  Borehole-ID exact match was 31/31 and both coordinate fields had 31/31
+  coverage with zero paired MAE. Final-depth coverage was only 1/31; the sole
+  value was 192.0 m against catalogue LENGTH 58.52 m, an absolute error of
+  133.48 m. No intervals were emitted. Runtime was 3.815 s/page on CPU.
+- Because the first expanded Tesseract run used 150-DPI rendering while
+  RapidOCR used 300 DPI, a matched 300-DPI Tesseract run was added as
+  `P1_METADATA_BGS_TESSERACT_FORMAL_004`. It recovered 25/31 IDs, covered X/Y
+  on 31/31 records with zero paired MAE, covered final depth on 0/31, and
+  emitted no intervals at 3.562 s/page. Formal backend comparisons use this
+  matched-DPI run; the 150-DPI result remains separate resolution-sensitivity
+  evidence.
+- Both runs are indexed only as `formal_authoritative_metadata`. BGS catalogue
+  `LENGTH` is a final-depth proxy, and the source has no interval/lithology
+  reference. Consequently these results support a real metadata and critical
+  failure analysis, not a complete borehole-log extraction benchmark.
+
 ## 2026-08-13 — Autonomous data-tier and controlled benchmark track
 
 - Objective: remove the human source-review UI from the only path of project

@@ -454,13 +454,13 @@ records:
   citation: BGS onshore borehole records and scans
   retrieval_date: '2026-08-12'
   local_paths:
-  - /data/GeoLogParser/datasets/public/bgs_v001
-  file_count_in_local_snapshot: 54
-  local_snapshot_inventory_sha256: c7fa76b16c27723f9194dc10ee9b92c54c47d466de7606b5659b426a1c1664a2
+  - /data/GeoLogParser/datasets/public/bgs_authoritative_metadata_v001
+  file_count_in_local_snapshot: 33
+  local_snapshot_inventory_sha256: cff540ee2e8ff64b2d51903f447e51ed1b1d62824550252e0d6a517372dda478
   manifest_evidence:
   - relative_path: metadata/manifest.jsonl
-    size_bytes: 3188
-    sha256: 7847e402293971684919626bea3555276dcd386433ed1634fadad4b955cb3ce5
+    size_bytes: 26174
+    sha256: dd48dcaa71ab25326ff445c570e90d3713f430b467ff99b1095c8e7e61ddc26e
   access_method: official viewer, ArcGIS index layer, and direct scan API verified
   terms_of_use: https://www.bgs.ac.uk/legal-and-policy/terms-of-use/
   claimed_license: Open Government Licence v3.0
@@ -480,17 +480,18 @@ records:
   requires_human_check_before_submission: true
   evidence:
   - datasets/data_registry.yaml
-  - /data/GeoLogParser/datasets/public/bgs_v001/metadata/manifest.jsonl
+  - /data/GeoLogParser/datasets/public/bgs_authoritative_metadata_v001/metadata/manifest.jsonl
   - /data/GeoLogParser/datasets/public/bgs_v001/license/borehole_records_2026-08-12.html
   - /data/GeoLogParser/datasets/public/bgs_v001/license/ogl_v3_2026-08-12.html
   - /data/GeoLogParser/datasets/public/bgs_v001/license/scanned_records_2026-08-12.html
-  registry_status: acquired_small_audit_sample_authoritative_metadata_benchmark_v001
-  registry_verification_notes: 'Official scanned-record page states OGL delivery and
-    acknowledgement. Fixed IDs 4,5,6,10 downloaded to /data with SHA256 manifest;
-    PDFs have print=yes/copy=no permission flags, which are recorded rather than bypassed.
-    The BGS metadata benchmark pairs these scans by source record ID with official
-    REFERENCE/EASTING/NORTHING/LENGTH fields. It is authoritative metadata only: no
-    interval/lithology reference is present, so it cannot support interval Gold claims.'
+  registry_status: acquired_authoritative_metadata_benchmark_v001_downloaded31
+  registry_verification_notes: Official scanned-record page states OGL delivery and
+    acknowledgement. The frozen extension contains 31 documents/106 pages under /data/GeoLogParser/datasets/public/bgs_authoritative_metadata_v001,
+    with each PDF bound by SHA256 in metadata/manifest.jsonl. The BGS metadata benchmark
+    pairs scans by source record ID with official REFERENCE/EASTING/NORTHING/LENGTH
+    fields. LENGTH is treated only as a final-depth proxy. No interval/lithology reference
+    is present, so this source cannot support interval Gold claims. An earlier four-document
+    subset is retained as historical audit evidence.
 - source_id: swissgeol_boreholes_dataextraction_examples_v001
   source_name: Swissgeol boreholes data extraction public examples and repository
     fixtures

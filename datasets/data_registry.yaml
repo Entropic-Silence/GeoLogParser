@@ -175,7 +175,7 @@ datasets:
     access_date: "2026-08-12"
     language: English
     format: borehole record scans/PDF and index metadata
-    scale: "official live layer returned 995909 direct-API scan records with positive LENGTH on 2026-08-12; project acquired 4 documents/20 pages only"
+    scale: "official live layer returned 995909 direct-API scan records with positive LENGTH on 2026-08-12; project acquired a frozen 31-document/106-page metadata sub-benchmark plus an earlier 4-document audit subset"
     downloadable: true
     access_status: "official viewer, ArcGIS index layer, and direct scan API verified"
     license: Open Government Licence v3.0
@@ -183,8 +183,8 @@ datasets:
     redistribution: allowed_with_conditions
     redistribution_policy: "include 'Contains British Geological Survey materials © UKRI [year]' and OGL/source notices"
     paper_fit: [paper1_public_pipeline_validation, paper1_international_transfer]
-    status: acquired_small_audit_sample_authoritative_metadata_benchmark_v001
-    verification_notes: "Official scanned-record page states OGL delivery and acknowledgement. Fixed IDs 4,5,6,10 downloaded to /data with SHA256 manifest; PDFs have print=yes/copy=no permission flags, which are recorded rather than bypassed. The BGS metadata benchmark pairs these scans by source record ID with official REFERENCE/EASTING/NORTHING/LENGTH fields. It is authoritative metadata only: no interval/lithology reference is present, so it cannot support interval Gold claims."
+    status: acquired_authoritative_metadata_benchmark_v001_downloaded31
+    verification_notes: "Official scanned-record page states OGL delivery and acknowledgement. The frozen extension contains 31 documents/106 pages under /data/GeoLogParser/datasets/public/bgs_authoritative_metadata_v001, with each PDF bound by SHA256 in metadata/manifest.jsonl. The BGS metadata benchmark pairs scans by source record ID with official REFERENCE/EASTING/NORTHING/LENGTH fields. LENGTH is treated only as a final-depth proxy. No interval/lithology reference is present, so this source cannot support interval Gold claims. An earlier four-document subset is retained as historical audit evidence."
 
   - id: swissgeol_boreholes_dataextraction_examples_v001
     name: "Swissgeol boreholes data extraction public examples and repository fixtures"

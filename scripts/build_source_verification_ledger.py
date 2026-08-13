@@ -32,7 +32,7 @@ LOCAL_DIRS = {
     "unipd_levee_geotechnical_logs_v001": DATA_ROOT / "datasets/public/unipd_levee_geotech_v001",
     "unipd_levee_geotech_v001": DATA_ROOT / "datasets/public/unipd_levee_geotech_v001",
     "mendeley_borehole_log_collection_v002": DATA_ROOT / "datasets/public/mendeley_borehole_logs_v002",
-    "bgs_onshore_borehole_records": DATA_ROOT / "datasets/public/bgs_v001",
+    "bgs_onshore_borehole_records": DATA_ROOT / "datasets/public/bgs_authoritative_metadata_v001",
     "mendeley_binhai_cptu_borehole_v002": DATA_ROOT / "datasets/public/mendeley_binhai_cptu_borehole_v002",
     "mendeley_coal_boreholes_602_v001": DATA_ROOT / "datasets/public/mendeley_coal_boreholes_602_v001",
 }
@@ -82,6 +82,9 @@ def evidence_paths(source_id: str, local_dir: Path | None) -> list[str]:
             "configs/datasets/sanming_quarantine_panels_v001.jsonl",
             "docs/data_source_survey.md",
         ])
+    if source_id == "bgs_onshore_borehole_records" and local_dir and local_dir.exists():
+        legacy = DATA_ROOT / "datasets/public/bgs_v001/license"
+        paths.extend(str(p) for p in sorted(legacy.glob("*")) if p.is_file())
     return paths
 
 
