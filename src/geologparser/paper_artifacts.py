@@ -285,6 +285,8 @@ def paper2_table(entries: list[dict], repository_root: Path) -> str:
             ]) + " |")
         if metrics.get("protocol") != "paper2_one_module_ablation_matrix_v001":
             continue
+        if entry.get("paper_eligibility") == "failure_analysis_only":
+            continue
         for variant_name, variant in metrics["variants"].items():
             values = variant["metrics"]
             correction = values["correction"]
@@ -304,7 +306,7 @@ def paper2_table(entries: list[dict], repository_root: Path) -> str:
                 entry["paper_eligibility"],
             ]) + " |")
     formal_section = [
-        "### Human-GT-gated method and ablation results", "",
+        "### Method and ablation results", "",
         "<!-- AUTO-GENERATED. DO NOT EDIT. -->",
         "| Experiment | Variant | Disabled | Calibration n | Test n | Correction success | FCR | Review recall | Review rate | Auto-accept error | Raw ECE | Calibrated ECE | Eligibility |",
         "|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|",
@@ -313,7 +315,7 @@ def paper2_table(entries: list[dict], repository_root: Path) -> str:
     if not rows:
         formal_section.append("| `TBD` | `TBD` | `TBD` | `TBD` | `TBD` | `TBD` | `TBD` | `TBD` | `TBD` | `TBD` | `TBD` | `TBD` | no formal run |")
     formal_section.extend(["",
-        "Rows are generated only from human-GT-gated, identical-case, one-module-at-a-time ablation matrices.",
+        "Rows are generated from identical-case, one-module-at-a-time matrices. `formal_synthetic_method` rows are controlled Synthetic evidence and do not support human-GT claims; human-GT rows remain separately labelled.",
     ])
     return "\n".join([
         "<!-- AUTO-GENERATED. DO NOT EDIT. -->",

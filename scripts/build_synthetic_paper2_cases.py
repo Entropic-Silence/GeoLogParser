@@ -55,12 +55,13 @@ def main() -> None:
                 original = round(reference + magnitude, 2) if error else reference
                 status, accepted = decision(variant, reference, original, index)
                 confidence = min(.98, max(.05, .92 - magnitude * .25 - (0.15 if status == "NEEDS_REVIEW" else 0)))
-                correct = int((accepted == reference) if status == "ACCEPT_PROPOSAL" else (original == reference))
+                resolved = accepted if status == "ACCEPT_PROPOSAL" else original
+                correct = int(resolved == reference)
                 cases.append({
                     "case_id": f'{row["record_id"]}:bottom:{interval_index}',
                     "reference": reference, "original": original,
                     "decision": {"status": status, "accepted_value": accepted},
-                    "needs_review_label": error, "confidence": confidence,
+                    "needs_review_label": bool(error and magnitude >= 1.0), "confidence": confidence,
                     "correctness_label": correct,
                     "calibration_partition": "calibration" if document_index < 8 else "test",
                     "ground_truth_status": "synthetic",

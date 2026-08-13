@@ -65,6 +65,9 @@ def main() -> None:
             "case_files": case_files, "calibration_bins": arguments.bins,
             "requirement": f"identical {arguments.ground_truth_policy} cases; zero or one disabled module per variant",
             "ground_truth_policy": arguments.ground_truth_policy,
+            "ground_truth_sha256": hashlib.sha256(
+                "".join(case_files[name]["sha256"] for name in sorted(case_files)).encode("utf-8")
+            ).hexdigest(),
         },
     })
     try:

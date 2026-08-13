@@ -166,7 +166,7 @@ def test_paper2_table_uses_gated_ablation_metrics(tmp_path: Path):
     table = paper2_table([{"experiment_id": "P2", "result_path": "result", "paper_eligibility": "formal"}], tmp_path)
     assert "full" in table
     assert "Auto-accept error" in table
-    assert "human-GT-gated" in table
+    assert "human-GT rows remain separately labelled" in table
 
 
 def test_paper2_table_separates_roi_audit_from_formal_results(tmp_path: Path):
