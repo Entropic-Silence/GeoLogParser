@@ -15,7 +15,7 @@
     "zhong2019publaynet"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "b9e9a24c9ea1bb9571f7c596bf6971721787f35ca4672bd82c8c25dbb09c7956",
+  "claim_registry_sha256": "d8ab27d933143f0b74bcca15dd7edf113ab27c52858d7165e0cb99fe76d26327",
   "claim_source_errors": [],
   "evidence_tags": [
     "p1.b2_padova",
@@ -33,6 +33,8 @@
     "p1.padova_annotation_assignment",
     "p1.padova_inventory",
     "p1.slopes_content",
+    "p1.slopes_rapidocr_coverage",
+    "p1.slopes_tesseract_coverage",
     "p1.tiber_content"
   ],
   "formal_experiment_count": 0,
@@ -50,12 +52,12 @@
     "10. Conclusion",
     "References"
   ],
-  "indexed_experiment_count": 21,
+  "indexed_experiment_count": 23,
   "local_links": [
     {
       "exists": true,
       "resolved_path": "papers/paper1/generated/current_results.md",
-      "sha256": "5b0a90f8720ed6f7e7c1cab74f6792e032824a535ee7bd593afd2e8607663d9e",
+      "sha256": "beb00b8e3cd2ff0480146f81601cd05a2d6c1617185cebc448ce1bc46fef106d",
       "target": "generated/current_results.md"
     },
     {
@@ -90,7 +92,7 @@
     }
   ],
   "manuscript_path": "papers/paper1/manuscript.md",
-  "manuscript_sha256": "c07fba704dd0d0c48a6e17ab67ad7ae8ef5e767c08c9ff13d0ebd9b0bd831536",
+  "manuscript_sha256": "a0336a4c283218f2b44bbf44c4284113c6db1f6fc4dd1bb1c037e6eab14e4d50",
   "missing_bibliography_keys": [],
   "missing_claim_registrations": [],
   "missing_required_sections": [],
@@ -112,14 +114,16 @@
     "p1.padova_annotation_assignment",
     "p1.padova_inventory",
     "p1.slopes_content",
+    "p1.slopes_rapidocr_coverage",
+    "p1.slopes_tesseract_coverage",
     "p1.tiber_content"
   ],
   "result_index_errors": [],
   "result_index_path": "experiments/paper1/result_index.jsonl",
-  "result_index_sha256": "a4514bff27ca70e40a1a96caadbabb76b22cac71f8d078ff3053ae54b85d32a3",
+  "result_index_sha256": "232e3d55b0726db5790512ec2f201ed93bcedc1439e75f0a1092c67788cecc9c",
   "structurally_complete": true,
   "submission_ready": false,
   "tbd_or_citation_marker_count": 10,
   "unused_claim_registrations": [],
-  "word_count": 2208
+  "word_count": 2317
 }

@@ -55,6 +55,46 @@
         {"type": "json_pointer_equals", "pointer": "/benchmark_eligible_count", "expected": 0}
       ]
     },
+    "p1.slopes_tesseract_coverage": {
+      "paper": "paper1",
+      "experiment_id": "P1_B1_TESSERACT_SLOPES_AUDIT_001",
+      "scope": "privacy-minimized Tesseract OCR+regex presence and runtime diagnostics on unreviewed public candidates; no accuracy claim",
+      "source_path": "results/2026-08-13/P1_B1_TESSERACT_SLOPES_AUDIT_001/metrics.json",
+      "source_sha256": "f5b6a9a5a5573a6cdc0e5db41d10fcb63bc249c7222a424524084bff7f8d66ba",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/selected_items", "expected": 28},
+        {"type": "json_pointer_equals", "pointer": "/completed_items", "expected": 28},
+        {"type": "json_pointer_equals", "pointer": "/items_with_borehole_id", "expected": 27},
+        {"type": "json_pointer_equals", "pointer": "/items_with_any_interval", "expected": 2},
+        {"type": "json_pointer_equals", "pointer": "/emitted_intervals", "expected": 2},
+        {"type": "json_pointer_equals", "pointer": "/constraint_evaluations", "expected": 14},
+        {"type": "json_pointer_equals", "pointer": "/constraint_violations", "expected": 4},
+        {"type": "json_pointer_equals", "pointer": "/latency_mean_seconds_per_item", "expected": 1.6401253737857198},
+        {"type": "json_pointer_equals", "pointer": "/record_output_policy", "expected": "hash_and_presence_only"},
+        {"type": "json_pointer_equals", "pointer": "/accuracy_metrics", "expected": null},
+        {"type": "json_pointer_equals", "pointer": "/human_ground_truth_count", "expected": 0}
+      ]
+    },
+    "p1.slopes_rapidocr_coverage": {
+      "paper": "paper1",
+      "experiment_id": "P1_B1_RAPIDOCR_SLOPES_AUDIT_001",
+      "scope": "privacy-minimized RapidOCR+regex presence and runtime diagnostics on unreviewed public candidates; no accuracy claim",
+      "source_path": "results/2026-08-13/P1_B1_RAPIDOCR_SLOPES_AUDIT_001/metrics.json",
+      "source_sha256": "377f0540bccc1da53fc672920634139fd09343e3bef79c2f967f3b86af89fe22",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/selected_items", "expected": 28},
+        {"type": "json_pointer_equals", "pointer": "/completed_items", "expected": 28},
+        {"type": "json_pointer_equals", "pointer": "/items_with_borehole_id", "expected": 28},
+        {"type": "json_pointer_equals", "pointer": "/items_with_any_interval", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/emitted_intervals", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/constraint_evaluations", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/constraint_violations", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/latency_mean_seconds_per_item", "expected": 4.1580961258928255},
+        {"type": "json_pointer_equals", "pointer": "/record_output_policy", "expected": "hash_and_presence_only"},
+        {"type": "json_pointer_equals", "pointer": "/accuracy_metrics", "expected": null},
+        {"type": "json_pointer_equals", "pointer": "/human_ground_truth_count", "expected": 0}
+      ]
+    },
     "p1.international_source_review": {
       "paper": "paper1",
       "scope": "live human source-review queue status; rendering and model inspection are not human review or Ground Truth",

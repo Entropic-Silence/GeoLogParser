@@ -28,6 +28,27 @@ def test_paper1_table_marks_null_metric_tbd(tmp_path: Path, monkeypatch):
     assert "0/2 (0.000)" in table
 
 
+def test_paper1_table_separates_no_gt_privacy_minimized_ocr_coverage(tmp_path: Path):
+    metrics = {
+        "record_output_policy": "hash_and_presence_only",
+        "selected_items": 28, "completed_items": 28,
+        "items_with_borehole_id": 27, "items_with_final_depth": 0,
+        "items_with_any_interval": 2, "emitted_intervals": 2,
+        "ocr_regions": 1528, "constraint_evaluations": 14,
+        "constraint_violations": 4, "latency_mean_seconds_per_item": 1.64,
+        "accuracy_metrics": None, "human_ground_truth_count": 0,
+    }
+    write_run(tmp_path, metrics, {"model": "privacy-minimized-test"})
+    table = paper1_table([{
+        "experiment_id": "P1_COVERAGE", "result_path": "result",
+        "paper_eligibility": "audit_only",
+    }], tmp_path)
+    assert "Privacy-minimized OCR coverage audits" in table
+    assert "P1_COVERAGE" in table
+    assert "27/28" in table
+    assert "coverage diagnostics, not accuracy estimates" in table
+
+
 def test_paper3_table_is_labelled_protocol_only(tmp_path: Path, monkeypatch):
     metrics = {"conditions": [{"magnitude_m": .1, "seed": 1, "count": 3, "mae_m": .02, "rmse_m": .03, "max_abs_error_m": .04}]}
     write_run(tmp_path, metrics, {})

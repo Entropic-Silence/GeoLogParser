@@ -17,6 +17,7 @@ def number(value, decimals: int = 3) -> str:
 
 def paper1_table(entries: list[dict], repository_root: Path) -> str:
     ocr_rows = []
+    ocr_coverage_rows = []
     llm_rows = []
     layout_rows = []
     vlm_rows = []
@@ -25,7 +26,20 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
     for entry in entries:
         metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
         run = json.loads((repository_root / entry["result_path"] / "run.json").read_text())
-        if "input_tokens_total" in metrics:
+        if metrics.get("record_output_policy") == "hash_and_presence_only":
+            ocr_coverage_rows.append("| " + " | ".join([
+                entry["experiment_id"], run["model"],
+                f'{metrics["completed_items"]}/{metrics["selected_items"]}',
+                f'{metrics["items_with_borehole_id"]}/{metrics["completed_items"]}',
+                f'{metrics["items_with_final_depth"]}/{metrics["completed_items"]}',
+                f'{metrics["items_with_any_interval"]}/{metrics["completed_items"]}',
+                str(metrics["emitted_intervals"]), str(metrics["ocr_regions"]),
+                str(metrics["constraint_evaluations"]),
+                str(metrics["constraint_violations"]),
+                number(metrics["latency_mean_seconds_per_item"]),
+                entry["paper_eligibility"],
+            ]) + " |")
+        elif "input_tokens_total" in metrics:
             llm_rows.append("| " + " | ".join([
                 entry["experiment_id"], run["model"], str(metrics["items"]),
                 f'{metrics["schema_valid_responses"]}/{metrics["items"]} ({metrics["structured_parse_rate"]:.3f})',
@@ -89,6 +103,13 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
         "| Experiment | Model | Borehole ID EM | X coverage | X paired MAE | Final-depth coverage | Emitted intervals | s/page | Eligibility |",
         "|---|---|---:|---:|---:|---:|---:|---:|---|",
         *ocr_rows, "",
+        "### Privacy-minimized OCR coverage audits (no Ground Truth)",
+        "",
+        "| Experiment | Model | Completed pages | Borehole-ID presence | Final-depth presence | Pages with intervals | Emitted intervals | OCR regions | Constraint evals | Violations | s/page | Eligibility |",
+        "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|",
+        *ocr_coverage_rows, "",
+        "Presence and emitted-count columns are extraction coverage diagnostics, not accuracy estimates. Records and OCR text are not serialized; source pages remain unreviewed and have no human Ground Truth.",
+        "",
         "### B2 text-only LLM engineering audits",
         "",
         "| Experiment | Model | Pages | Schema-valid | Emitted intervals | Constraint evals | Violations | Input tokens | s/page | Peak GiB | Eligibility |",

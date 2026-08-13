@@ -1143,3 +1143,32 @@
   derivatives quarantined. Human visual, font, privacy, location, and embedded
   content reviews remain zero; Chinese Benchmark pages and GT remain zero. No
   GPU was used and mining was not interrupted.
+
+## 2026-08-13 — Privacy-minimized slopes OCR coverage audits
+
+- Objective: exercise the B1 OCR-to-regex path on all 28 automatically triaged
+  engineering-log candidates from the CC BY 4.0 slopes source while preserving
+  the source-review and Ground Truth gates.
+- Evidence boundary: both runs consumed the frozen 180 DPI review-pack PNGs
+  only after preflight verification of the pack manifest, all selected image
+  hashes, and all original PDF hashes. OCR pixel boxes were retained only as
+  rendered-image `display_bbox` evidence in ephemeral records; PDF
+  `source_bbox` remained null. Persisted predictions contain presence/count
+  diagnostics and full-record hashes, not OCR text or extracted field values.
+- Tesseract run: `P1_B1_TESSERACT_SLOPES_AUDIT_001` completed 28/28 pages with
+  no page failures. It emitted borehole-ID candidates on 27 pages and two
+  interval candidates on two pages; 14 constraint checks produced four
+  violations. Mean CPU latency was 1.6401253737857198 s/page. Metrics SHA256 is
+  `f5b6a9a5a5573a6cdc0e5db41d10fcb63bc249c7222a424524084bff7f8d66ba`.
+- RapidOCR run: `P1_B1_RAPIDOCR_SLOPES_AUDIT_001` completed 28/28 pages with no
+  page failures after verifying all three ONNX model hashes. It emitted
+  borehole-ID candidates on 28 pages and no interval candidates. Mean CPU
+  latency was 4.1580961258928255 s/page. Metrics SHA256 is
+  `377f0540bccc1da53fc672920634139fd09343e3bef79c2f967f3b86af89fe22`.
+- Interpretation: field presence and emitted intervals measure extraction-path
+  coverage only. They do not establish correctness or rank the OCR engines.
+  Both runs explicitly set `accuracy_metrics=null`, human review and human GT
+  counts to zero, and Paper I eligibility to `audit_only`. The weak interval
+  coverage motivates layout-aware proposal generation after source review; it
+  is not evidence of a model-performance difference. No GPU was used and
+  mining was not interrupted.
