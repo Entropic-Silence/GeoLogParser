@@ -11,7 +11,10 @@ from uuid import uuid4
 
 from geologparser.datasets.manifest import sha256_file
 from geologparser.ocr import OCRAdapter
-from geologparser.rereading import decide_reread, decision_to_dict, get_field, reread_numeric_roi
+from geologparser.rereading import (
+    AuditedROIReader, decide_reread, decision_to_dict, get_field,
+    reread_numeric_roi_audited,
+)
 
 
 NUMERIC_FIELDS = {
@@ -54,7 +57,8 @@ def resolve_reread_bbox(
 
 
 def run_annotation_reread(
-    annotation: Mapping[str, Any], field_path: str, adapters: Sequence[OCRAdapter],
+    annotation: Mapping[str, Any], field_path: str,
+    adapters: Sequence[OCRAdapter | AuditedROIReader],
     run_root: Path, *, bbox_pixels: Sequence[float] | None = None,
     padding_pixels: int = 12, scale: float = 3.0,
 ) -> dict[str, Any]:
@@ -80,7 +84,7 @@ def run_annotation_reread(
     run_directory.mkdir(parents=True, exist_ok=False)
     crop_path = run_directory / "roi.png"
     try:
-        crop, candidates, outputs = reread_numeric_roi(
+        crop, candidates, outputs, reader_audits = reread_numeric_roi_audited(
             source_path, bbox, crop_path, adapters,
             padding_pixels=padding_pixels, scale=scale,
         )
@@ -100,6 +104,7 @@ def run_annotation_reread(
             "ocr_outputs": {
                 name: [asdict(region) for region in regions] for name, regions in outputs.items()
             },
+            "reader_audits": reader_audits,
             "decision": decision_to_dict(decision),
             "interpretation": (
                 "non-mutating candidate proposal; a human must inspect evidence and explicitly confirm"

@@ -5,7 +5,7 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Sequence
+from typing import Any, Mapping, Protocol, Sequence
 
 from geologparser.ocr import OCRAdapter, TextRegion
 
@@ -21,6 +21,18 @@ class ROICrop:
     bbox_pixels: tuple[int, int, int, int]
     scale: float
     output_path: str
+
+
+@dataclass(frozen=True)
+class ROIReaderOutput:
+    regions: tuple[TextRegion, ...]
+    audit: Mapping[str, Any]
+
+
+class AuditedROIReader(Protocol):
+    name: str
+
+    def read(self, path: Path) -> ROIReaderOutput: ...
 
 
 def crop_roi(
@@ -71,8 +83,8 @@ def numeric_candidates_from_regions(
             candidate = Candidate(
                 value=value, source=source, source_text=raw,
                 model_confidence=region.confidence,
-                pixel_evidence=region.confidence,
-                layout_confidence=1.0,
+                pixel_evidence=region.confidence if region.method != "vlm" else None,
+                layout_confidence=1.0 if region.method != "vlm" else None,
             )
             existing = candidates.get(key)
             if existing is None or (candidate.model_confidence or 0) > (existing.model_confidence or 0):
@@ -88,11 +100,38 @@ def reread_numeric_roi(
     padding_pixels: int = 8,
     scale: float = 2.0,
 ) -> tuple[ROICrop, list[Candidate], dict[str, list[TextRegion]]]:
+    crop, candidates, outputs, _ = reread_numeric_roi_audited(
+        source_path, bbox_pixels, output_path, adapters,
+        padding_pixels=padding_pixels, scale=scale,
+    )
+    return crop, candidates, outputs
+
+
+def reread_numeric_roi_audited(
+    source_path: Path,
+    bbox_pixels: Sequence[float],
+    output_path: Path,
+    adapters: Sequence[OCRAdapter | AuditedROIReader],
+    padding_pixels: int = 8,
+    scale: float = 2.0,
+) -> tuple[
+    ROICrop, list[Candidate], dict[str, list[TextRegion]], dict[str, Mapping[str, Any]],
+]:
     crop = crop_roi(source_path, bbox_pixels, output_path, padding_pixels, scale)
     all_candidates: list[Candidate] = []
     outputs: dict[str, list[TextRegion]] = {}
+    audits: dict[str, Mapping[str, Any]] = {}
     for adapter in adapters:
-        regions = adapter.extract(Path(crop.output_path))
+        if hasattr(adapter, "read"):
+            output = adapter.read(Path(crop.output_path))
+            regions = list(output.regions)
+            audits[adapter.name] = dict(output.audit)
+        else:
+            regions = adapter.extract(Path(crop.output_path))
+            audits[adapter.name] = {
+                "adapter_type": "ocr",
+                "region_count": len(regions),
+            }
         outputs[adapter.name] = regions
         all_candidates.extend(numeric_candidates_from_regions(regions, adapter.name))
-    return crop, all_candidates, outputs
+    return crop, all_candidates, outputs, audits

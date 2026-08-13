@@ -43,12 +43,16 @@ collection JSONL endpoint refuses download unless every page passes. Native-PDF 
 PDF points and transformed rendered-pixel bboxes, so eligible evidence is
 highlighted in the displayed panel. Standalone CSV/XLSX/Parquet exporters are
 implemented in the library and exposed as review-time downloads. Numeric fields
-with rendered-pixel evidence can now trigger a high-resolution Tesseract ROI
-re-read. Each run freezes its crop, OCR output, ranking decision, source-panel
-hash, and result hash under the annotation artifact root. Re-reading is
+with rendered-pixel evidence can now trigger high-resolution ROI readers. The
+default web process remains CPU-only Tesseract; an optional local VLM reader is
+available to versioned experiment scripts and must be injected explicitly into
+the API process. VLM numeric tokens carry no model confidence or token bbox
+unless a later calibration/grounding experiment establishes them. Each run
+freezes its crop, reader output/audit, ranking decision, source-panel hash, and
+result hash under the annotation artifact root. Re-reading is
 non-mutating: even an accepted candidate is applied locally as `needs_review`
 and requires explicit human confirmation plus the ordinary revisioned save.
-The UI does not yet expose a VLM ROI adapter or a user-drawn bbox.
+The default UI does not yet expose a VLM toggle or a user-drawn bbox.
 
 After real review, create a frozen GT snapshot with:
 

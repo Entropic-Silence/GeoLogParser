@@ -1,0 +1,2 @@
+{"case_id":"UNIPD_GS1_COLLAR_ELEVATION","annotation_path":"/data/GeoLogParser/artifacts/annotation/unipd_levee_geotech_v001/annotations/UNIPD_GS1_P001.json","field_path":"borehole.collar_elevation_m","purpose":"public unverified field-level multimodal re-reading audit; not Ground Truth"}
+{"case_id":"UNIPD_GS1_GROUNDWATER_DEPTH","annotation_path":"/data/GeoLogParser/artifacts/annotation/unipd_levee_geotech_v001/annotations/UNIPD_GS1_P001.json","field_path":"borehole.groundwater_depth_m","purpose":"public unverified field-level multimodal re-reading audit; not Ground Truth"}

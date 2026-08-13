@@ -5,6 +5,7 @@ import pytest
 
 from geologparser.annotation_reread import resolve_reread_bbox, run_annotation_reread
 from geologparser.ocr import TextRegion
+from geologparser.rereading import ROIReaderOutput
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -15,6 +16,16 @@ class FakeAdapter:
 
     def extract(self, _path):
         return [TextRegion(1, (0, 0, 20, 10), "1.20", 0.99, "ocr")]
+
+
+class FakeAuditedReader:
+    name = "fake_vlm"
+
+    def read(self, _path):
+        return ROIReaderOutput(
+            (TextRegion(1, None, "1.20", None, "vlm"),),
+            {"adapter_type": "vlm", "parse_status": "valid"},
+        )
 
 
 def annotation(tmp_path: Path):
@@ -49,6 +60,19 @@ def test_annotation_reread_persists_non_mutating_evidence(tmp_path):
     assert (run / "result.json").is_file()
     assert len(result["result_sha256"]) == 64
     assert json.dumps(value["record"], sort_keys=True) == original
+
+
+def test_annotation_reread_persists_reader_specific_audit(tmp_path):
+    result = run_annotation_reread(
+        annotation(tmp_path), "intervals[1].top_depth_m",
+        [FakeAdapter(), FakeAuditedReader()], tmp_path / "runs",
+        padding_pixels=0, scale=1,
+    )
+    assert result["reader_audits"]["fake_ocr"] == {
+        "adapter_type": "ocr", "region_count": 1,
+    }
+    assert result["reader_audits"]["fake_vlm"]["parse_status"] == "valid"
+    assert result["decision"]["status"] == "ACCEPT_PROPOSAL"
 
 
 def test_bbox_resolution_refuses_unmapped_pdf_coordinates(tmp_path):
