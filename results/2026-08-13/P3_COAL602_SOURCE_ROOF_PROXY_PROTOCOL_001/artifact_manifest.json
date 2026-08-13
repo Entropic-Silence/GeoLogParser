@@ -1,0 +1,5 @@
+{
+  "artifact_manifest_schema_version": "experiment_artifacts_v001",
+  "artifacts": [],
+  "scope": "recursive non-core experiment artifacts; core files are hashed by result index"
+}

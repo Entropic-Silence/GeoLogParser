@@ -52,6 +52,29 @@ def test_paper3_table_includes_hash_traceable_pyvista_interop(tmp_path: Path):
     assert "a" * 64 in table
 
 
+def test_paper3_table_separates_structured_source_from_synthetic(tmp_path: Path):
+    metrics = {
+        "data_status": "licensed_source_structured_data_pending_human_spatial_review",
+        "conditions": [{
+            "magnitude_m": 1.0, "repetitions": 30,
+            "mae_m": {"mean": 0.2, "std": 0.01},
+            "rmse_m": {"mean": 0.3, "std": 0.02},
+            "max_abs_error_m": {"mean": 0.9, "std": 0.03},
+        }],
+    }
+    write_run(tmp_path, metrics, {})
+    table = paper3_table([{
+        "experiment_id": "P3_SOURCE", "result_path": "result",
+        "paper_eligibility": "protocol_only",
+    }], tmp_path)
+    synthetic_section, source_section = table.split(
+        "### Licensed structured-source field proxy protocol"
+    )
+    assert "P3_SOURCE" not in synthetic_section
+    assert "P3_SOURCE" in source_section
+    assert "not AI extraction" in source_section
+
+
 def test_paper2_table_uses_gated_ablation_metrics(tmp_path: Path):
     metric = lambda value: {"value": value, "numerator": value, "denominator": 1}
     metrics = {

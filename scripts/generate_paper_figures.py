@@ -10,7 +10,7 @@ from pathlib import Path
 
 from geologparser.paper_figures import (
     save_audit_coverage, save_degradation_profiles, save_error_propagation,
-    save_method_schematic, save_padova_locations,
+    save_method_schematic, save_padova_locations, save_source_field_propagation,
 )
 from geologparser.result_index import verify_index
 
@@ -53,6 +53,8 @@ def main() -> None:
     outputs.append(paper3 / "padova_locations.png")
     save_error_propagation(indexes["paper3"], ROOT, paper3 / "synthetic_error_propagation.png")
     outputs.append(paper3 / "synthetic_error_propagation.png")
+    save_source_field_propagation(indexes["paper3"], ROOT, paper3 / "coal602_source_proxy.png")
+    outputs.append(paper3 / "coal602_source_proxy.png")
     manifest = {
         "scope": "auto-generated traceable figures; individual captions retain audit/protocol/design limits",
         "source_manifests": {

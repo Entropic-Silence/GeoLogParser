@@ -19,6 +19,10 @@
     {
       "path": "paper3/generated/figures/synthetic_error_propagation.png",
       "sha256": "664d69bc34b7f5d3aef919ca06e1ce9aee153aaadab48e1fa144c78406c13d8a"
+    },
+    {
+      "path": "paper3/generated/figures/coal602_source_proxy.png",
+      "sha256": "e1793f7d1dcdc2f4de3a5710c807d92fbad52f6d456ab5ae373bc3a0fd7daa13"
     }
   ],
   "scope": "auto-generated traceable figures; individual captions retain audit/protocol/design limits",

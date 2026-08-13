@@ -2,8 +2,8 @@
 # paper3 evidence audit
 
 Package: **DRAFT_NOT_SUBMISSION_READY**
-Manuscript words: **1094**; unresolved markers: **7**.
-Indexed runs: **3**; formal runs: **0**.
+Manuscript words: **1345**; unresolved markers: **7**.
+Indexed runs: **4**; formal runs: **0**.
 Structural audit: **PASSED**.
 
 ## Blockers
@@ -13,10 +13,10 @@ Structural audit: **PASSED**.
 
 ## Trace
 
-- Manuscript SHA256: `fcd7cb8646d6245a9f3c263d6e1288840534704fdf9e72be51f701a6e4def319`
-- Result-index SHA256: `4f19c865b3e6c8ae6ae043992d73da1bee79ad52a69234d9e66eaffdbe13a85e`
+- Manuscript SHA256: `7ad2babb5eba9b3ed18ce48709c0d6baf914037810900d2b24a13d602b4602ef`
+- Result-index SHA256: `c4531a69375f1078a0621df63f94d794f0055ef5cc9c79df41be8acdd380813c`
 - Citation keys: delavarga2019gempy, han2024boreholeocr, shepard1968interpolation
 - Broken local links: none
 - Missing required sections: none
-- Evidence tags: p3.idw_multiseed, p3.padova_spatial_catalog, p3.pyvista_interop, p3.sanming_database_connectivity
+- Evidence tags: p3.coal602_source_audit, p3.coal602_source_proxy, p3.idw_multiseed, p3.padova_spatial_catalog, p3.pyvista_interop, p3.sanming_database_connectivity
 - Claim-source errors: none

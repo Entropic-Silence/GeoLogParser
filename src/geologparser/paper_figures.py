@@ -101,7 +101,11 @@ def save_error_propagation(entries: Sequence[Mapping[str, Any]], repository_root
     for entry in entries:
         metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
         conditions = metrics.get("conditions", [])
-        if conditions and isinstance(conditions[0].get("mae_m"), Mapping):
+        if (
+            conditions
+            and isinstance(conditions[0].get("mae_m"), Mapping)
+            and metrics.get("data_status") != "licensed_source_structured_data_pending_human_spatial_review"
+        ):
             candidates.append((entry, conditions))
     if not candidates:
         raise ValueError("no multi-seed error-propagation result is indexed")
@@ -117,6 +121,43 @@ def save_error_propagation(entries: Sequence[Mapping[str, Any]], repository_root
     axis.set_title("Protocol-only synthetic propagation\n(not real geological sensitivity)")
     axis.grid(alpha=.25)
     axis.text(.02, .96, entry["experiment_id"], transform=axis.transAxes, va="top", fontsize=7)
+    fig.tight_layout()
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(destination, dpi=180)
+    plt.close(fig)
+
+
+def save_source_field_propagation(
+    entries: Sequence[Mapping[str, Any]], repository_root: Path, destination: Path,
+) -> None:
+    """Plot only licensed structured-source proxy results, never formal results."""
+
+    candidates = []
+    for entry in entries:
+        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
+        if metrics.get("data_status") != "licensed_source_structured_data_pending_human_spatial_review":
+            continue
+        conditions = metrics.get("conditions", [])
+        if conditions and isinstance(conditions[0].get("mae_m"), Mapping):
+            candidates.append((entry, metrics, conditions))
+    if not candidates:
+        raise ValueError("no licensed structured-source proxy result is indexed")
+    entry, metrics, conditions = candidates[-1]
+    x = [condition["magnitude_m"] for condition in conditions]
+    y = [condition["mae_m"]["mean"] for condition in conditions]
+    errors = [condition["mae_m"]["std"] for condition in conditions]
+    plt = _plt()
+    fig, axis = plt.subplots(figsize=(7, 5))
+    axis.errorbar(x, y, yerr=errors, marker="o", capsize=4, color="#3a7d44")
+    axis.set_xlabel("Injected source-field perturbation magnitude (m)")
+    axis.set_ylabel("IDW proxy-surface MAE (m)")
+    axis.set_title("Licensed structured-source protocol only\n(not AI, GT, QC, or a geological model)")
+    axis.grid(alpha=.25)
+    axis.text(
+        .02, .96,
+        f'{entry["experiment_id"]}\nn={metrics["source_record_count"]} source records',
+        transform=axis.transAxes, va="top", fontsize=7,
+    )
     fig.tight_layout()
     destination.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(destination, dpi=180)

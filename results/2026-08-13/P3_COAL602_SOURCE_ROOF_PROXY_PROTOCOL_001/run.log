@@ -1,0 +1,9 @@
+status=completed
+scope=licensed_source_field_protocol_only
+source_records=602
+query_points=80
+repetitions=30
+coordinate_origin_persisted=false
+source_identifiers_persisted=false
+gpu_used=false
+latency_seconds_total=4.402825972

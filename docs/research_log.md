@@ -1005,3 +1005,26 @@
   images, AI extractions, constraint-validated predictions, or human Ground
   Truth. Formal experiment counts and manuscript status therefore remain
   unchanged. No GPU was used and mining was not interrupted.
+
+## 2026-08-13 — Coal-602 source-field propagation protocol
+
+- Objective: exercise Paper III's multi-seed spatial perturbation mechanics on
+  a licensed, non-synthetic record pattern without misrepresenting structured
+  source rows as AI output or human Ground Truth.
+- Privacy boundary: source Y/X were translated to zero-origin local `u/v`.
+  Neither the translation origin, original borehole IDs, absolute coordinates,
+  nor gridded proxy values were persisted in experiment outputs. The protocol
+  preserves source/audit hashes and aggregate extents only; this is not a human
+  privacy or sensitive-location clearance.
+- Run: `P3_COAL602_SOURCE_ROOF_PROXY_PROTOCOL_001` used 602 source records, a
+  41 by 41 grid clipped to 80 convex-hull points, five perturbation magnitudes,
+  and 30 deterministic seeds per magnitude. CPU runtime was 4.402825972 s; no
+  GPU was used and mining was not interrupted.
+- Observation: at independent signed 1.00 m perturbations of source-reported
+  roof depth, the IDW proxy-surface MAE was 0.2604278413437194 m with sample
+  standard deviation 0.018737111659730712 m. Metrics SHA256 is
+  `85fc812b25b622831f5714ea297c9e2b320ea31f2b67da6db8bfa81873647b94`.
+- Claim boundary: the result is `protocol_only`. It is not an extraction metric,
+  QC comparison, true coal-seam surface, geological sensitivity estimate,
+  Ground Truth study, or formal Paper III experiment. Formal Paper III run count
+  remains zero.

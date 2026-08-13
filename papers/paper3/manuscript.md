@@ -2,7 +2,7 @@
 
 ## Abstract
 
-This paper studies the downstream consequences of automatically structured legacy borehole logs. The workflow exports provenance-bearing extraction into SQLite and GeoJSON, performs quality control, correlates stratigraphic boundaries, and evaluates how controlled extraction errors propagate to geological surfaces and human review effort. A traceable database exporter, transparent IDW error-propagation baseline, and PyVista/VTP surface adapter are implemented. Synthetic four-borehole runs validate the propagation and interoperability protocols but are not real-world evidence. Spatially coherent human Ground Truth, raw-versus-validated-versus-human comparisons, real 3D modelling, and timed human studies are `TBD`.
+This paper studies the downstream consequences of automatically structured legacy borehole logs. The workflow exports provenance-bearing extraction into SQLite and GeoJSON, performs quality control, correlates stratigraphic boundaries, and evaluates how controlled extraction errors propagate to geological surfaces and human review effort. A traceable database exporter, transparent IDW error-propagation baseline, and PyVista/VTP surface adapter are implemented. Synthetic four-borehole runs validate the propagation and interoperability protocols but are not real-world evidence. A separate 602-record licensed structured-source run validates origin-suppressed, multi-seed source-field perturbation mechanics; it is neither AI output nor geological Ground Truth. Spatially coherent human Ground Truth, raw-versus-validated-versus-human comparisons, real 3D modelling, and timed human studies are `TBD`.
 
 ## 1. Introduction
 
@@ -24,6 +24,8 @@ Human review is triggered by missing MVP fields, low confidence, field warnings,
 
 For a selected correlated boundary, depth is converted to elevation as collar elevation minus depth. A transparent IDW baseline interpolates the surface. Controlled perturbations of 0.01, 0.05, 0.10, 0.50, and 1.00 m are applied with recorded seeds; shared interval boundaries remain continuous and thickness is recomputed. Surface MAE, RMSE, and maximum absolute error are evaluated on a fixed grid. Formal experiments require multiple seeds and confidence intervals.
 
+Protocol development additionally uses a CC BY 4.0 workbook containing 602 complete, unique directional gas-drainage borehole records. Its audit records numeric local X/Y/Z and roof-depth fields, but no CRS, and flags precise-location review as pending. <!-- evidence:p3.coal602_source_audit --> The source Y/X values are translated independently to zero-origin local `u/v`; the translation origin and source identifiers are not persisted. Source-reported No. 3 coal-roof depth is interpolated only as a scalar surface proxy on a 41 by 41 grid clipped to the collar-coordinate convex hull. It is not converted to elevation or named a coal-seam surface because trajectory and field-reference semantics are not established by the released files.
+
 The main comparison will be raw AI extraction versus constraint-validated extraction versus human GT using identical correlation/interpolation settings. Error types will also be injected separately: depth, missing interval, wrong lithology correlation, coordinate, and elevation. Exact site, grid, model, and repetitions are `TBD`.
 
 ## 5. Database and Interoperability
@@ -32,13 +34,18 @@ The database preserves source hash, raw/normalized values, page/bbox/text, metho
 
 ## 6. Results
 
-See [generated/current_results.md](generated/current_results.md). The tables contain synthetic protocol results only. A 30-seed extension now exercises mean/std and explicitly named normal-approximation confidence intervals for perturbations 0.01–1.00 m. At 1.00 m, synthetic surface MAE was 0.662470 ± 0.110565 m across seeds. <!-- evidence:p3.idw_multiseed --> A separate indexed PyVista interoperability run wrote 121 points and 200 triangle cells, with VTP and PNG hashes reported in the generated table. <!-- evidence:p3.pyvista_interop --> These four-artificial-borehole artifacts are neither a real geological sensitivity estimate nor a real 3D model. Real-site sensitivity, raw/QC/GT comparison, real 3D figures, uncertainty, human time, and statistical analysis remain `TBD`.
+See [generated/current_results.md](generated/current_results.md). A 30-seed synthetic extension exercises mean/std and explicitly named normal-approximation confidence intervals for perturbations 0.01–1.00 m. At 1.00 m, synthetic surface MAE was 0.662470 ± 0.110565 m across seeds. <!-- evidence:p3.idw_multiseed --> A separate indexed PyVista interoperability run wrote 121 points and 200 triangle cells, with VTP and PNG hashes reported in the generated table. <!-- evidence:p3.pyvista_interop --> These four-artificial-borehole artifacts are neither a real geological sensitivity estimate nor a real 3D model.
+
+The 602-record structured-source protocol used 30 seeds per magnitude and 80 convex-hull grid points. Under independent signed 1.00 m perturbations of the source-reported roof-depth scalar, proxy-surface MAE was 0.260428 ± 0.018737 m; the output persisted neither absolute coordinate origin nor source identifiers. <!-- evidence:p3.coal602_source_proxy --> This is a deterministic response of one source-field/IDW protocol, not extraction accuracy, a constraint-QC effect, Ground Truth agreement, a true coal-seam surface, or a privacy clearance. Real-site sensitivity from image-derived records, raw/QC/GT comparison, real 3D figures, human time, and confirmatory statistical analysis remain `TBD`.
 
 The [Padova source-location plot](generated/figures/padova_locations.png) shows
 three separated site groups and therefore rules out interpolation across the
 whole collection as one local surface. Coordinates remain source-provided and
 unverified. The [synthetic propagation curve](generated/figures/synthetic_error_propagation.png)
 is explicitly protocol-only and must not be interpreted as real-site response.
+The [structured-source proxy curve](generated/figures/coal602_source_proxy.png)
+is kept separate from the synthetic curve and carries the same non-formal
+interpretation limits described above.
 
 ## 7. Human-in-the-Loop Evaluation
 
@@ -46,7 +53,7 @@ Planned measures are manual-entry time, AI inference time, AI+correction time, a
 
 ## 8. Discussion and Threats to Validity
 
-The synthetic smoke shows that the code responds to controlled perturbations, not that real geology has the same response. IDW is a transparent baseline rather than a universal geological model. Correlation errors, anisotropy, structural geology, spatial sampling, and model choice may dominate boundary noise. Rights-cleared spatial coherence is the largest current data risk.
+The synthetic smoke shows that the code responds to controlled perturbations, not that real geology has the same response. The structured-source run improves scale and spatial-pattern realism for protocol development but still lacks image-derived predictions, human GT, CRS confirmation, trajectory reconstruction, and field-reference verification. IDW is a transparent baseline rather than a universal geological model. Correlation errors, anisotropy, structural geology, spatial sampling, and model choice may dominate boundary noise. Rights-cleared spatial coherence remains a major data risk.
 
 ## 9. Reproducibility and Ethics
 
@@ -57,8 +64,8 @@ Database and surface artifacts will be linked to extraction experiment IDs and h
 We define and partially implement a traceable path from legacy logs to geological surfaces and human review measurements. The central claim—whether constraint QC improves real downstream stability and efficiency—remains `TBD` until the full real-data study is complete.
 
 The repository's auto-generated [publication-readiness audit](../../docs/generated/publication_readiness.md)
-currently reports zero formal Paper III runs; the two propagation runs and one
-PyVista interoperability run are protocol-only and cannot satisfy the real
+currently reports zero formal Paper III runs; the synthetic runs, structured-source
+proxy run, and PyVista interoperability run are protocol-only and cannot satisfy the real
 downstream completion gate.
 
 ## References

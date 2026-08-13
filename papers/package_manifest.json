@@ -3,12 +3,12 @@
   "bibliography_path": "papers/references.bib",
   "bibliography_sha256": "4078d231d015ac8ac40320362da4ce7b1e7492ece4305cb61d43c2fb26a32b2b",
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "74b298a2eb8d8377c3a2f772f8e9515cc6f068e4f02c83327703dd78ca256d09",
+  "claim_registry_sha256": "56f21e1983d9789c64c043d84f0cffd38a7a00333b3b9e9cf9596dc13ccc4719",
   "package_schema_version": "paper_packages_v001",
   "papers": [
     {
       "evidence_audit_path": "paper1/generated/package/evidence_audit.json",
-      "evidence_audit_sha256": "9b70f6f8f78596bd83ba99ba75e6952deafc64c3f53acde45d43cc2f16dec2f8",
+      "evidence_audit_sha256": "dc45d1c34c1bebbe5e7803ce8f1fe3d628edd5fe59177c97a11cfa828cebe340",
       "package_label": "DRAFT_NOT_SUBMISSION_READY",
       "paper": "paper1",
       "review_bundle_path": "paper1/generated/package/manuscript_DRAFT_NOT_SUBMISSION_READY.md",
@@ -17,7 +17,7 @@
     },
     {
       "evidence_audit_path": "paper2/generated/package/evidence_audit.json",
-      "evidence_audit_sha256": "3ef632aaf68f0acf766e0492a732d76e7cc80151aa517f68e646d031bd339b0a",
+      "evidence_audit_sha256": "1f283465529bf9341b6971a70dbd2a1e75580b5e844c93aadcf4415eb9632c18",
       "package_label": "DRAFT_NOT_SUBMISSION_READY",
       "paper": "paper2",
       "review_bundle_path": "paper2/generated/package/manuscript_DRAFT_NOT_SUBMISSION_READY.md",
@@ -26,11 +26,11 @@
     },
     {
       "evidence_audit_path": "paper3/generated/package/evidence_audit.json",
-      "evidence_audit_sha256": "11b04a96b58e13f2928b5f2d8f8feed6e86033875d0e1ecc09b605da3b06412e",
+      "evidence_audit_sha256": "cac2fde42a5d8c56cddae1861a56e406b89a9f8682320a7bcd38cb18f5eae016",
       "package_label": "DRAFT_NOT_SUBMISSION_READY",
       "paper": "paper3",
       "review_bundle_path": "paper3/generated/package/manuscript_DRAFT_NOT_SUBMISSION_READY.md",
-      "review_bundle_sha256": "d3bbff5c5fe71a0d36baf7f921c63d0de1955e6de9ff55805401edbc5f7286b4",
+      "review_bundle_sha256": "560d0437e4d3d1d00fee86934e58d1717fce3f39960ce19ed56efe079e6f8a29",
       "submission_ready": false
     }
   ],

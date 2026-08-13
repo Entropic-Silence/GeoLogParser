@@ -206,6 +206,41 @@
         {"type": "json_pointer_equals", "pointer": "/conditions/4/mae_m/std", "expected": 0.1105650290281023}
       ]
     },
+    "p3.coal602_source_audit": {
+      "paper": "paper3",
+      "source_path": "/data/GeoLogParser/artifacts/structured_data_audits/mendeley_coal_boreholes_602_v001_audit_v002/structured_content_audit.json",
+      "source_sha256": "261bee6cdd7b400476aa34c19046034303c2114cf4f26c5cb1c5e0151f852b21",
+      "scope": "licensed structured-source content audit; not AI output, Ground Truth, privacy clearance, or a formal experiment",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/content_audit/record_count", "expected": 602},
+        {"type": "json_pointer_equals", "pointer": "/content_audit/unique_borehole_id_count", "expected": 602},
+        {"type": "json_pointer_equals", "pointer": "/content_audit/source_data_role", "expected": "source_structured_data"},
+        {"type": "json_pointer_equals", "pointer": "/content_audit/spatial_metadata/coordinate_reference_system_declared_in_released_files", "expected": false},
+        {"type": "json_pointer_equals", "pointer": "/content_audit/spatial_metadata/privacy_and_sensitive_location_review", "expected": "pending_human_review"},
+        {"type": "json_pointer_equals", "pointer": "/content_audit/formal_use_status", "expected": "candidate_pending_human_and_spatial_review"}
+      ]
+    },
+    "p3.coal602_source_proxy": {
+      "paper": "paper3",
+      "experiment_id": "P3_COAL602_SOURCE_ROOF_PROXY_PROTOCOL_001",
+      "source_path": "results/2026-08-13/P3_COAL602_SOURCE_ROOF_PROXY_PROTOCOL_001/metrics.json",
+      "source_sha256": "85fc812b25b622831f5714ea297c9e2b320ea31f2b67da6db8bfa81873647b94",
+      "scope": "licensed structured-source, origin-suppressed, protocol-only field-proxy perturbation; not AI, GT, QC, a true geological surface, or formal downstream evidence",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/source_record_count", "expected": 602},
+        {"type": "json_pointer_equals", "pointer": "/query_points_within_convex_hull", "expected": 80},
+        {"type": "json_pointer_equals", "pointer": "/coordinate_origin_persisted", "expected": false},
+        {"type": "json_pointer_equals", "pointer": "/source_identifier_values_persisted", "expected": false},
+        {"type": "json_pointer_equals", "pointer": "/conditions/4/magnitude_m", "expected": 1.0},
+        {"type": "json_pointer_equals", "pointer": "/conditions/4/repetitions", "expected": 30},
+        {"type": "json_pointer_equals", "pointer": "/conditions/4/mae_m/mean", "expected": 0.2604278413437194},
+        {"type": "json_pointer_equals", "pointer": "/conditions/4/mae_m/std", "expected": 0.018737111659730712},
+        {"type": "json_pointer_equals", "pointer": "/accuracy_metrics", "expected": null},
+        {"type": "json_pointer_equals", "pointer": "/constraint_qc_effect", "expected": null},
+        {"type": "json_pointer_equals", "pointer": "/human_ground_truth_comparison", "expected": null},
+        {"type": "json_pointer_equals", "pointer": "/real_geological_model_metrics", "expected": null}
+      ]
+    },
     "p3.padova_spatial_catalog": {
       "paper": "paper3",
       "source_path": "/data/GeoLogParser/artifacts/spatial/unipd_source_catalog_v001/summary.json",

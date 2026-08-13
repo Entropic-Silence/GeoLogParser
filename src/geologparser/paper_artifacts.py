@@ -119,30 +119,33 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
 
 
 def paper3_table(entries: list[dict], repository_root: Path) -> str:
-    rows = []
+    synthetic_rows = []
+    source_protocol_rows = []
     interoperability_rows = []
     for entry in entries:
         metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
+        source_protocol = metrics.get("data_status") == "licensed_source_structured_data_pending_human_spatial_review"
         for condition in metrics.get("conditions", []):
             if isinstance(condition.get("mae_m"), dict):
                 mae = condition["mae_m"]
                 rmse = condition["rmse_m"]
                 maximum = condition["max_abs_error_m"]
-                rows.append("| " + " | ".join([
+                row = "| " + " | ".join([
                     entry["experiment_id"], number(condition["magnitude_m"], 2),
                     "multiple", str(condition["repetitions"]),
                     f'{number(mae["mean"], 6)} ± {number(mae["std"], 6)}',
                     f'{number(rmse["mean"], 6)} ± {number(rmse["std"], 6)}',
                     f'{number(maximum["mean"], 6)} ± {number(maximum["std"], 6)}',
                     entry["paper_eligibility"],
-                ]) + " |")
+                ]) + " |"
             else:
-                rows.append("| " + " | ".join([
+                row = "| " + " | ".join([
                     entry["experiment_id"], number(condition["magnitude_m"], 2),
                     str(condition["seed"]), str(condition["count"]),
                     number(condition["mae_m"], 6), number(condition["rmse_m"], 6),
                     number(condition["max_abs_error_m"], 6), entry["paper_eligibility"],
-                ]) + " |")
+                ]) + " |"
+            (source_protocol_rows if source_protocol else synthetic_rows).append(row)
         if "surface_vtp_sha256" in metrics:
             interoperability_rows.append("| " + " | ".join([
                 entry["experiment_id"], str(metrics["point_count"]),
@@ -157,8 +160,15 @@ def paper3_table(entries: list[dict], repository_root: Path) -> str:
         "",
         "| Experiment | Perturbation (m) | Seed | Repetitions/grid points | Surface MAE (m) | RMSE (m) | Max abs. error (m) | Eligibility |",
         "|---|---:|---:|---:|---:|---:|---:|---|",
-        *rows, "",
+        *synthetic_rows, "",
         "These rows are synthetic protocol results only; they are not evidence of real geological-model sensitivity. Multi-seed rows show mean ± sample standard deviation across seeds.",
+        "",
+        "### Licensed structured-source field proxy protocol",
+        "",
+        "| Experiment | Perturbation (m) | Seed | Repetitions/grid points | Proxy-surface MAE (m) | RMSE (m) | Max abs. error (m) | Eligibility |",
+        "|---|---:|---:|---:|---:|---:|---:|---|",
+        *source_protocol_rows, "",
+        "These rows use source-reported tabular values with origin-suppressed local coordinates. They are protocol-development evidence only, not AI extraction, Ground Truth, constraint-QC, true geological-surface, absolute-location, or formal downstream evidence. Multi-seed rows show mean ± sample standard deviation across seeds.",
         "",
         "### Synthetic 3D interoperability protocol",
         "",
