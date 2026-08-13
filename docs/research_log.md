@@ -1068,3 +1068,31 @@
   the discrepancy as abstract scope versus public inventory, not as evidence
   that the stated data do not exist elsewhere. No additional files were
   downloaded, no GPU was used, and formal experiment counts remain unchanged.
+
+## 2026-08-13 — Priority CAD headless-renderer feasibility audit
+
+- Objective: test whether the installed LibreCAD can provide a second explicit
+  batch export for the three prioritized Chinese DWGs and quantify only the
+  technical pixel occupancy of existing independent rasters.
+- LibreCAD result: version 2.1.3 help advertises file opening and debug level,
+  with no PDF/PNG/print/export flag. All three isolated `offscreen` probes
+  stayed in the GUI event loop for the configured three seconds and were
+  terminated; no fatal Qt marker and no export were observed. This is not proof
+  that each DXF parsed completely.
+- Raster result: ezdxf PNGs for all three were nonblank. The LibreDWG-SVG chain
+  produced explicit invalid-geometry placeholders for 009/010, making those
+  pairs not comparable. For 011, normalized foreground IoU was
+  `0.0005905677887454653`; symmetric F1 with a two-pixel grid tolerance was
+  `0.003955665965985095`, below the configured 0.50 diagnostic threshold.
+  This is renderer disagreement, not a fidelity verdict or model metric.
+- Preserved failure: v001 used nearest-neighbour reduction, which could erase
+  one-pixel CAD lines and yielded a spurious exact-zero overlap. It remains
+  immutable under `priority_renderer_audit_v001_superseded_nearest_downsampling_error`.
+  v002 corrected the resampling; canonical v003 additionally verifies the DXF
+  hashes and records the audit-script hash. It uses BOX aggregation followed by
+  a nonzero threshold, with a thin-line regression test. Canonical manifest
+  SHA256 is `51173c63c25dbe3f47a339a6f4a3429faed1e622bf63339cd2cd770ff4dca4d9`.
+- Decision: stop this LibreCAD batch-export route. Keep all 33 DWGs and all
+  derivatives quarantined. Human visual, font, privacy, location, and embedded
+  content reviews remain zero; Chinese Benchmark pages and GT remain zero. No
+  GPU was used and mining was not interrupted.

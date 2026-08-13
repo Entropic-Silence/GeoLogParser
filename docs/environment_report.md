@@ -131,6 +131,9 @@ is `requirements-vlm.txt`; this runtime is not mixed into `.venv`.
 - `nvcc`: `not found`; unavailable: [Errno 2] No such file or directory: 'nvcc'
 - `ollama`: `not found`; unavailable: [Errno 2] No such file or directory: 'ollama'
 - `llama-cli`: `not found`; unavailable: [Errno 2] No such file or directory: 'llama-cli'
+- `librecad`: `/usr/bin/librecad`; LibreCAD 2.1.3 help exposes file opening and
+  debug options but no advertised batch PDF/PNG export option. Offscreen GUI
+  startup probes are audit-only and produced no exports.
 
 ## Locally observed model assets
 

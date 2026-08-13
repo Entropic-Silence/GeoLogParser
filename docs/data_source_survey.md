@@ -73,8 +73,15 @@ metadata remained accessible for those DOI-bearing candidates.
   and ordered-text inventory matches for all three: 1,244 entities/363 text,
   1,905/537, and 7,173/611. This is stronger conversion evidence than warning
   parsing alone, but it does not verify fonts, pixel appearance, privacy,
-  rights of embedded content, or geological correctness. Human review and
-  benchmark eligibility therefore remain at zero.
+  rights of embedded content, or geological correctness. A subsequent
+  cross-renderer raster audit could not compare items 009/010 because the
+  LibreDWG-SVG outputs were invalid-geometry placeholders. For item 011, both
+  outputs were nonblank but normalized foreground IoU was
+  `0.0005905677887454653` and two-pixel-tolerance bidirectional F1 was
+  `0.003955665965985095`; this establishes renderer disagreement, not which
+  output is correct. LibreCAD 2.1.3 offered no advertised batch-export option
+  and offscreen GUI-start probes produced zero exports. Human visual/font/
+  privacy review and benchmark eligibility therefore remain at zero.
 - **Mendeley SedLog drilling cores:** DOI `10.17632/v6k9s36pbm.1`, CC BY 4.0.
   The public file is a 10,549,922-byte, 18-page native PDF; the download matched
   repository SHA256 `007d26b...e6dd02`. Visual and programmatic review confirmed

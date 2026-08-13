@@ -30,6 +30,30 @@ narrows structural/text-loss risk but does not override converter warnings or
 prove pixel fidelity, correct font substitution, privacy, rights, or geological
 correctness. Human visual/content review remains mandatory.
 
+## Technical raster comparison
+
+Independent raster paths may be compared only as a diagnostic. For each image,
+estimate the border background, threshold a foreground mask, record the content
+bbox and foreground fraction, and normalize the content to a fixed occupancy
+grid. Use area aggregation before thresholding: nearest-neighbour downsampling
+can erase one-pixel CAD lines. Record raw IoU and a symmetric, tolerance-aware
+coverage F1 together with all thresholds.
+
+A placeholder, blank image, or invalid renderer geometry makes a pair
+`not_comparable`. Known missing entities do not prevent an occupancy diagnostic,
+but they must set conversion-incomplete evidence and prevent a fidelity claim.
+Low cross-renderer overlap is evidence of disagreement, not evidence identifying
+which rendering is correct. High overlap is also insufficient to prove accurate
+text, fonts, geometry, privacy, or rights. Therefore this diagnostic must retain
+`visual_fidelity_status: not_assessed` until a real reviewer completes the
+separate checklist.
+
+LibreCAD 2.1.3 may be used as an isolated offscreen startup probe, but its
+documented/help command line exposes no PDF/PNG/print/export option. A process
+that stays open without a fatal Qt error shows only that the GUI event loop
+started; it does not prove complete parsing and creates no review derivative.
+Do not automate GUI menus or infer export success from a timeout.
+
 The installed fallback for Chinese glyphs is `DroidSansFallbackFull.ttf`.
 Replacing a missing CAD font is a visible derivative transform; it must be
 recorded and never treated as original pixel evidence.

@@ -55,7 +55,8 @@ experiment metadata, prompts, baselines, and paper planning were missing.
 - Phase 1 v001 Schema and synthetic examples/tests: **COMPLETED**.
 - Phase 2 public data validation: BGS and Padova audit samples **COMPLETED**;
   one CC BY Chinese DWG collection acquired and automatically pre-screened,
-  but its review derivatives remain quarantined/incomplete; a diverse
+  but its priority derivatives show unresolved cross-renderer disagreement and
+  remain quarantined/incomplete; a diverse
   rights-cleared Chinese page-image benchmark is **NOT COMPLETED**.
 - Phase 3 baselines: Tesseract+regex, RapidOCR+regex, B2 text-only local LLM,
   B3 positioned-text layout, B4/B5 VLM, and conservative B6 engineering audits
