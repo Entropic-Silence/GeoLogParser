@@ -20,6 +20,7 @@ DATACITE_API = "https://api.datacite.org/dois"
 FIGSHARE_SEARCH_API = "https://api.figshare.com/v2/articles/search"
 MENDELEY_SEARCH_API = "https://api.data.mendeley.com/datasets"
 MENDELEY_FILES_API = "https://data.mendeley.com/public-api/datasets"
+MENDELEY_PUBLIC_DATASET_API = "https://data.mendeley.com/public-api/datasets"
 ZENODO_RECORD_API = "https://zenodo.org/api/records"
 SURVEY_USER_AGENT = "GeoLogParser-Metadata-Survey/0.1 (+https://github.com/GeoLogParser)"
 SURVEY_TOOL_VERSION = "open_metadata_survey_v001"
@@ -143,6 +144,19 @@ def _request_specs(config: Mapping[str, Any]) -> list[dict[str, Any]]:
             "dataset_id": dataset_id,
             "version": version,
         })
+    for item in config.get("mendeley_dataset_probes", []):
+        request_id = _require_identifier(item.get("id"), field="Mendeley dataset probe id")
+        dataset_id = _require_identifier(item.get("dataset_id"), field="Mendeley dataset id")
+        specs.append({
+            "id": f"mendeley_dataset_{request_id}",
+            "kind": "mendeley_dataset",
+            "method": "GET",
+            "url": f"{MENDELEY_PUBLIC_DATASET_API}/{dataset_id}",
+            "headers": {"Accept": "application/json"},
+            "body": None,
+            "doi": str(item["doi"]).lower(),
+            "dataset_id": dataset_id,
+        })
     for item in config.get("repository_probes", []):
         request_id = _require_identifier(item.get("id"), field="repository probe id")
         provider = str(item["provider"])
@@ -239,10 +253,9 @@ def _merge_record(target: dict[str, Any], incoming: Mapping[str, Any]) -> None:
         target["descriptions"] = incoming.get("descriptions", [])
 
 
-def _file_inventory(spec: Mapping[str, Any], payload: Any, result: FetchResult) -> dict[str, Any]:
-    files = payload if isinstance(payload, list) else []
+def _normalize_mendeley_files(files: Any) -> list[dict[str, Any]]:
     normalized = []
-    for item in files:
+    for item in files if isinstance(files, list) else []:
         if not isinstance(item, Mapping):
             continue
         details = item.get("content_details") or {}
@@ -254,8 +267,14 @@ def _file_inventory(spec: Mapping[str, Any], payload: Any, result: FetchResult) 
             "sha256": details.get("sha256_hash"),
             "status": item.get("status"),
         })
+    return normalized
+
+
+def _file_inventory(spec: Mapping[str, Any], payload: Any, result: FetchResult) -> dict[str, Any]:
+    normalized = _normalize_mendeley_files(payload)
     content_types = sorted({str(item["content_type"]) for item in normalized if item.get("content_type")})
     return {
+        "inventory_source": "mendeley_root_files_api",
         "doi": spec["doi"],
         "dataset_id": spec["dataset_id"],
         "version": spec["version"],
@@ -266,6 +285,49 @@ def _file_inventory(spec: Mapping[str, Any], payload: Any, result: FetchResult) 
         "content_types": content_types,
         "files": normalized,
     }
+
+
+def _dataset_inventory(
+    spec: Mapping[str, Any], payload: Any, result: FetchResult,
+) -> dict[str, Any]:
+    dataset = payload if isinstance(payload, Mapping) else {}
+    normalized = _normalize_mendeley_files(dataset.get("files"))
+    content_types = sorted({str(item["content_type"]) for item in normalized if item.get("content_type")})
+    versions = dataset.get("versions") if isinstance(dataset.get("versions"), list) else []
+    licence = dataset.get("data_licence") if isinstance(dataset.get("data_licence"), Mapping) else {}
+    return {
+        "inventory_source": "mendeley_public_dataset_api",
+        "doi": spec["doi"],
+        "dataset_id": spec["dataset_id"],
+        "version": dataset.get("version"),
+        "available": dataset.get("available"),
+        "http_status": result.status,
+        "request_error": result.error,
+        "file_count": len(normalized) if result.status == 200 and isinstance(payload, Mapping) else None,
+        "total_size_bytes": sum(int(item["size_bytes"]) for item in normalized if isinstance(item.get("size_bytes"), int)),
+        "content_types": content_types,
+        "files": normalized,
+        "published_versions": [
+            {key: item.get(key) for key in ("version", "available", "publish_date")}
+            for item in versions if isinstance(item, Mapping)
+        ],
+        "license": {
+            key: licence.get(key) for key in ("short_name", "full_name", "url")
+        } if licence else None,
+    }
+
+
+def _preferred_inventory(
+    inventories: list[dict[str, Any]], doi: str,
+) -> dict[str, Any] | None:
+    candidates = [item for item in inventories if item["doi"] == doi]
+    if not candidates:
+        return None
+    return max(candidates, key=lambda item: (
+        item.get("http_status") == 200,
+        item.get("file_count") if isinstance(item.get("file_count"), int) else -1,
+        item.get("inventory_source") == "mendeley_public_dataset_api",
+    ))
 
 
 def _artifact_manifest(root: Path, *, exclude: set[str] | None = None) -> list[dict[str, Any]]:
@@ -419,19 +481,26 @@ def run_open_metadata_survey(
                         records[record["doi"]] = record
             elif spec["kind"] == "mendeley_files":
                 inventories.append(_file_inventory(spec, payload, result))
+            elif spec["kind"] == "mendeley_dataset":
+                inventories.append(_dataset_inventory(spec, payload, result))
 
         record_rows = sorted(records.values(), key=lambda item: item["doi"])
         reviews = {str(item["doi"]).lower(): dict(item) for item in config.get("candidate_reviews", [])}
         reviewed_rows = []
         for doi, review in sorted(reviews.items()):
             record = records.get(doi)
-            inventory = next((item for item in inventories if item["doi"] == doi), None)
+            matching_inventories = [item for item in inventories if item["doi"] == doi]
+            inventory = _preferred_inventory(inventories, doi)
             reviewed_rows.append({
                 "doi": doi,
                 "metadata_found": record is not None,
                 "metadata": record,
                 "review": review,
                 "file_inventory": inventory,
+                "file_inventory_count": len(matching_inventories),
+                "file_inventory_sources": sorted({
+                    str(item.get("inventory_source")) for item in matching_inventories
+                }),
                 "phase1_content_review_candidate": _is_phase1_content_review_candidate(review, inventory),
                 "benchmark_eligible": False,
             })

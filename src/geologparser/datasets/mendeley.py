@@ -52,8 +52,10 @@ def _safe_filename(value: Any) -> str:
 
 def _validated_inventory(path: Path, dataset_id: str) -> list[dict[str, Any]]:
     payload = json.loads(path.read_text(encoding="utf-8"))
+    if isinstance(payload, dict):
+        payload = payload.get("files")
     if not isinstance(payload, list) or not payload:
-        raise ValueError("Mendeley inventory must be a non-empty JSON list")
+        raise ValueError("Mendeley inventory must be a non-empty JSON list or dataset object with files")
     rows: list[dict[str, Any]] = []
     filenames: set[str] = set()
     for item in payload:
@@ -98,12 +100,21 @@ def acquire_frozen_mendeley_inventory(
     access_date: str | None = None,
     timeout: float = 300.0,
     downloader: Downloader | None = None,
+    content_types: set[str] | None = None,
 ) -> dict[str, Any]:
-    """Download and verify every file listed in a frozen public inventory."""
+    """Download and verify selected files from a frozen public inventory."""
 
     if destination.exists():
         raise FileExistsError(f"refusing to overwrite acquired dataset: {destination}")
     inventory_rows = _validated_inventory(inventory_path, dataset_id)
+    selected_types = sorted(content_types) if content_types is not None else None
+    selected_rows = (
+        [row for row in inventory_rows if row.get("content_type") in content_types]
+        if content_types is not None
+        else inventory_rows
+    )
+    if not selected_rows:
+        raise ValueError("Mendeley inventory selection contains no files")
     acquisition_date = access_date or date.today().isoformat()
     download = downloader or _default_downloader
     destination.parent.mkdir(parents=True, exist_ok=True)
@@ -114,7 +125,7 @@ def acquire_frozen_mendeley_inventory(
         raw_root.mkdir()
         metadata_root.mkdir()
         acquired_rows = []
-        for row in inventory_rows:
+        for row in selected_rows:
             body = download(row["download_url"], timeout)
             if len(body) != row["size_bytes"]:
                 raise ValueError(f"download size mismatch for {row['filename']}")
@@ -135,7 +146,7 @@ def acquire_frozen_mendeley_inventory(
             encoding="utf-8",
         )
         evidence = {
-            "acquisition_schema_version": "mendeley_frozen_inventory_v001",
+            "acquisition_schema_version": "mendeley_frozen_inventory_v002",
             "dataset_id": dataset_id,
             "dataset_doi": dataset_doi.lower(),
             "dataset_version": dataset_version,
@@ -143,6 +154,9 @@ def acquire_frozen_mendeley_inventory(
             "access_date": acquisition_date,
             "source_inventory_path": str(inventory_path),
             "source_inventory_sha256": _sha256_file(inventory_path),
+            "source_inventory_file_count": len(inventory_rows),
+            "content_type_filter": selected_types,
+            "selected_file_count": len(selected_rows),
             "file_count": len(acquired_rows),
             "total_size_bytes": sum(row["size_bytes"] for row in acquired_rows),
             "files": acquired_rows,

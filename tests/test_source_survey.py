@@ -140,6 +140,59 @@ def test_survey_only_marks_open_pdf_inventory_for_content_review(tmp_path: Path)
     assert reviewed["benchmark_eligible"] is False
 
 
+def test_survey_prefers_complete_mendeley_dataset_inventory_over_empty_root(tmp_path: Path):
+    doi = "10.17632/nested.1"
+
+    def fetcher(method, url, headers, body, timeout):
+        if "/files?" in url:
+            return _response([])
+        if "/public-api/datasets/nested" in url:
+            return _response({
+                "id": "nested",
+                "version": 1,
+                "available": True,
+                "data_licence": {"short_name": "CC BY 4.0", "url": "https://license"},
+                "files": [{
+                    "filename": "nested/logs.pdf",
+                    "id": "file-1",
+                    "content_details": {
+                        "content_type": "application/pdf", "size": 10,
+                        "sha256_hash": "a" * 64,
+                    },
+                    "status": "COMPLETED",
+                }],
+                "versions": [{"version": 1, "available": True, "publish_date": "2026-01-01"}],
+            })
+        return _response({
+            "data": [{"id": doi, "attributes": {"doi": doi, "titles": [{"title": "Logs"}]}}],
+            "meta": {"total": 1},
+        })
+
+    config = {
+        "survey_id": "nested_survey_v001",
+        "datacite_queries": [{"id": "logs", "query": "logs"}],
+        "mendeley_file_probes": [{
+            "id": "nested_root", "dataset_id": "nested", "version": 1, "doi": doi,
+        }],
+        "mendeley_dataset_probes": [{
+            "id": "nested_complete", "dataset_id": "nested", "doi": doi,
+        }],
+        "candidate_reviews": [{
+            "doi": doi,
+            "disposition": "phase1_content_review_candidate",
+            "license_status": "verified_open",
+        }],
+    }
+    destination = tmp_path / "survey"
+    summary = run_open_metadata_survey(config, destination, fetcher=fetcher)
+    reviewed = json.loads((destination / "reviewed_candidates.jsonl").read_text())
+    assert summary["mendeley_file_inventory_count"] == 2
+    assert reviewed["file_inventory_count"] == 2
+    assert reviewed["file_inventory"]["inventory_source"] == "mendeley_public_dataset_api"
+    assert reviewed["file_inventory"]["file_count"] == 1
+    assert reviewed["phase1_content_review_candidate"] is True
+
+
 def test_survey_verifier_rejects_tampered_response(tmp_path: Path):
     def fetcher(method, url, headers, body, timeout):
         return _response({"data": [], "meta": {"total": 0}})

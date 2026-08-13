@@ -1,0 +1,57 @@
+# Focused follow-up to v004. This run verifies complete anonymous Mendeley
+# dataset inventories for selected records and preserves Figshare access
+# failures. Candidate triage remains automated and cannot grant eligibility.
+
+survey_id: chinese_borehole_open_metadata_20260813_v005
+
+datacite_queries:
+  - {id: zh_comprehensive_borehole_column, query: '"综合柱状图" AND 钻孔', page_size: 100}
+  - {id: zh_lithology_borehole, query: '岩性 AND 钻孔 AND 数据集', page_size: 100}
+
+datacite_dois:
+  - {id: mendeley_subsurface_slopes, doi: 10.17632/3tvtj4xnbn.1}
+  - {id: mendeley_tiber_log, doi: 10.17632/gb4bx3mnyd.1}
+  - {id: mendeley_guaiba_cores, doi: 10.17632/rw765fzx8s.1}
+  - {id: mendeley_urumqi_lithology, doi: 10.17632/xb3bjrt9v7.1}
+  - {id: figshare_china_core_logs, doi: 10.6084/m9.figshare.21159142.v2}
+
+mendeley_file_probes:
+  - {id: mendeley_urumqi_root, dataset_id: xb3bjrt9v7, version: 1, doi: 10.17632/xb3bjrt9v7.1}
+
+mendeley_dataset_probes:
+  - {id: mendeley_subsurface_slopes, dataset_id: 3tvtj4xnbn, doi: 10.17632/3tvtj4xnbn.1}
+  - {id: mendeley_tiber_log, dataset_id: gb4bx3mnyd, doi: 10.17632/gb4bx3mnyd.1}
+  - {id: mendeley_guaiba_cores, dataset_id: rw765fzx8s, doi: 10.17632/rw765fzx8s.1}
+  - {id: mendeley_urumqi_lithology, dataset_id: xb3bjrt9v7, doi: 10.17632/xb3bjrt9v7.1}
+
+repository_probes:
+  - {id: figshare_china_core_item, provider: url_status, url: "https://api.figshare.com/v2/articles/21159142", accept: application/json}
+  - {id: figshare_china_core_version, provider: url_status, url: "https://api.figshare.com/v2/articles/21159142/versions/2", accept: application/json}
+  - {id: figshare_china_core_download, provider: url_status, url: "https://figshare.com/ndownloader/articles/21159142/versions/2", accept: application/octet-stream}
+
+candidate_reviews:
+  - doi: 10.17632/3tvtj4xnbn.1
+    disposition: phase1_content_review_candidate
+    license_status: verified_open
+    source_fit: international_borehole_pdf_candidate
+    reason: "Anonymous metadata inspection indicates multiple BH-named PDFs and image files under CC BY 4.0. File names are discovery evidence only; actual log content and privacy require acquisition and review."
+  - doi: 10.17632/gb4bx3mnyd.1
+    disposition: phase1_content_review_candidate
+    license_status: verified_open
+    source_fit: international_stratigraphic_pdf_candidate
+    reason: "The complete public inventory exposes one PDF under CC BY 4.0, but its title alone does not prove a borehole-column layout."
+  - doi: 10.17632/rw765fzx8s.1
+    disposition: phase1_content_review_candidate
+    license_status: verified_open
+    source_fit: international_spt_core_pdf_candidate
+    reason: "The complete public inventory exposes one PDF under CC BY 4.0. The PDF must be inspected before deciding whether it contains page-level logs."
+  - doi: 10.17632/xb3bjrt9v7.1
+    disposition: format_out_of_scope_structured_candidate
+    license_status: verified_open
+    source_fit: chinese_structured_lithology_candidate
+    reason: "The complete public dataset API exposes repeated XLSX lithology/temperature files and no PDF/JPG/PNG; it is not a phase-1 page-image source."
+  - doi: 10.6084/m9.figshare.21159142.v2
+    disposition: files_uninspected_repository_blocked
+    license_status: verified_open_metadata
+    source_fit: chinese_core_photo_and_lithology_candidate
+    reason: "CC BY 4.0 metadata describes detailed lithology and complete core photos for 11 Chinese boreholes, but item, version, and download endpoints return HTTP 403 from this host."

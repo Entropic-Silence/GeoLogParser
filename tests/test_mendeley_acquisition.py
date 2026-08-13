@@ -89,3 +89,39 @@ def test_acquisition_refuses_overwrite(tmp_path: Path):
             dataset_version=1,
             license_id="CC-BY-4.0",
         )
+
+
+def test_dataset_object_inventory_supports_explicit_content_filter(tmp_path: Path):
+    pdf, workbook = b"pdf", b"xlsx"
+    inventory = tmp_path / "inventory.json"
+    inventory.write_text(json.dumps({"files": [
+        {
+            "filename": "log.pdf", "id": "pdf-id",
+            "content_details": {
+                "download_url": "https://data.mendeley.com/public-files/datasets/test123/files/pdf-id/file_downloaded",
+                "sha256_hash": hashlib.sha256(pdf).hexdigest(),
+                "size": len(pdf), "content_type": "application/pdf",
+            },
+        },
+        {
+            "filename": "data.xlsx", "id": "xlsx-id",
+            "content_details": {
+                "download_url": "https://data.mendeley.com/public-files/datasets/test123/files/xlsx-id/file_downloaded",
+                "sha256_hash": hashlib.sha256(workbook).hexdigest(),
+                "size": len(workbook),
+                "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            },
+        },
+    ]}))
+    destination = tmp_path / "dataset"
+    result = acquire_frozen_mendeley_inventory(
+        inventory, destination, dataset_id="test123", dataset_doi="10.17632/test123.1",
+        dataset_version=1, license_id="CC-BY-4.0", content_types={"application/pdf"},
+        downloader=lambda url, timeout: pdf,
+    )
+    assert result["source_inventory_file_count"] == 2
+    assert result["selected_file_count"] == 1
+    assert result["content_type_filter"] == ["application/pdf"]
+    assert (destination / "raw/log.pdf").is_file()
+    assert not (destination / "raw/data.xlsx").exists()
+    assert verify_mendeley_acquisition(destination)["verified"] is True
