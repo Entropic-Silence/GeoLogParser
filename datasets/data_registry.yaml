@@ -27,6 +27,106 @@ datasets:
     status: acquired_rights_verified_format_verified_unannotated
     verification_notes: "Anonymous Mendeley file API listed one PDF with SHA256 007d26b081677478bd0534b26309c696871c6735237eac7669c53ac7e8e6dd02; the acquired file matched. Programmatic and visual review confirmed one digitised SedLog lithology column per page, with English legends, depth axes, lithology patterns, and structure/fossil symbols. Most GeoLogParser MVP header and text-description fields are absent. Human GT pages and benchmark-eligible pages remain zero. It is not Chinese Benchmark data."
 
+  - id: mendeley_subsurface_slopes_logs_v001
+    name: "Data for novel subsurface slopes hazardous mapping with engineering geologic and geophysical characterizations"
+    source_organization: Mendeley Data
+    url: https://data.mendeley.com/datasets/3tvtj4xnbn/1
+    doi: 10.17632/3tvtj4xnbn.1
+    license_url: https://creativecommons.org/licenses/by/4.0/legalcode
+    access_date: "2026-08-13"
+    language: English
+    format: "28 single-page vector PDFs without extractable text, 17 PNG, and 1 JPG acquired; one DWG and one XLSX deliberately excluded"
+    scale: "verified selected acquisition: 46 files / 12,170,189 bytes; provisional page-level content manifest: 28 engineering borelogs and 18 electrical-resistivity sections"
+    downloadable: true
+    access_status: "complete anonymous public inventory inspected; selected PDF/JPG/PNG acquisition and SHA256 verification completed"
+    license: Creative Commons Attribution 4.0 International
+    allowed_usage: "share and adapt with attribution and indication of changes"
+    redistribution: allowed_with_conditions
+    redistribution_policy: "retain creator/DOI/CC BY attribution and modification notice; complete human privacy and embedded-content review before redistributing page derivatives"
+    paper_fit: [paper1_international_transfer, paper1_layout_stress_test]
+    status: acquired_content_manifested_international_candidate_unannotated
+    verification_notes: "The frozen 48-file source inventory was filtered explicitly by MIME type, leaving one DWG and one XLSX undownloaded. Acquisition SHA256 is f08265c76b4225cd4d09288c7b5e302b18dd7b9b38e08dd1dd1c4da589482ee7. The page-level content manifest (SHA256 b75f100acb9541d92f6376901bc6f79494c12b45ad328876309f8a91f203d8c2; config SHA256 ca1a9430785bbb1f36bd5d87d6294354512654fd51c9434575b788d6f0b9cb29) binds every selected file to acquisition/source/config hashes. Automated content triage classifies the 28 BH PDFs as repeated-template English engineering borelogs and the 18 RES images as out-of-scope resistivity sections. This is not human content/privacy review, Chinese Benchmark data, or Ground Truth; eligible count is zero."
+
+  - id: mendeley_tiber_borehole_pdf_v001
+    name: "14C constraints to the Holocene aggradation of three major tributary valleys of the Tiber River in Rome"
+    source_organization: Mendeley Data
+    url: https://data.mendeley.com/datasets/gb4bx3mnyd/1
+    doi: 10.17632/gb4bx3mnyd.1
+    license_url: https://creativecommons.org/licenses/by/4.0/legalcode
+    access_date: "2026-08-13"
+    language: English
+    format: "one 826,922-byte native PDF / 21 pages"
+    scale: "verified acquisition: 1 PDF / 21 pages; provisional content manifest: 1 stratigraphic-column candidate and 20 radiocarbon laboratory-report pages"
+    downloadable: true
+    access_status: "complete anonymous public inventory, download, SHA256, and page count verified"
+    license: Creative Commons Attribution 4.0 International
+    allowed_usage: "share and adapt with attribution and indication of changes"
+    redistribution: allowed_with_conditions
+    redistribution_policy: "retain creator/DOI/CC BY attribution and modification notice; complete human privacy and embedded-content review before redistributing derivatives"
+    paper_fit: [paper1_international_transfer, paper1_layout_stress_test]
+    status: acquired_content_manifested_single_page_candidate_unannotated
+    verification_notes: "Acquisition SHA256 is cede7c5bb5cd66fcdda003143633dd24922221a0efdd8ded05c01f00f47e41c7. The page-level manifest SHA256 2b4895d255a2c9da9d615c2dc9890846c88c85851211ff2d6a92d1fec68ec4f4 (config SHA256 9a65acbee09b06c6837ed158537bef1bf41152ff6f412e1c607fb26aa04bfdb0) provisionally identifies page 1 as a stratigraphic borehole-column candidate and excludes pages 2-21 as laboratory reports. The classification is automated project-agent triage, not human review. Human GT and benchmark-eligible counts are zero."
+
+  - id: mendeley_guaiba_cores_pdf_v001
+    name: "Raw and Refined Data - Guaiba Lake Borehole Cores (LG)"
+    source_organization: Mendeley Data
+    url: https://data.mendeley.com/datasets/rw765fzx8s/1
+    doi: 10.17632/rw765fzx8s.1
+    license_url: https://creativecommons.org/licenses/by/4.0/legalcode
+    access_date: "2026-08-13"
+    language: English
+    format: "one 7,405,458-byte native PDF / 38 pages"
+    scale: "verified acquisition: 1 PDF / 38 pages; all pages provisionally classified as analytical tables/plots outside phase 1"
+    downloadable: true
+    access_status: "complete anonymous public inventory, download, SHA256, and page count verified"
+    license: Creative Commons Attribution 4.0 International
+    allowed_usage: "share and adapt with attribution and indication of changes"
+    redistribution: allowed_with_conditions
+    redistribution_policy: "retain creator/DOI/CC BY attribution and modification notice; do not treat analytical attachments as borehole-column Benchmark pages"
+    paper_fit: [not_phase1_borehole_column_data]
+    status: acquired_content_manifested_out_of_scope
+    verification_notes: "Acquisition SHA256 is 0005a5aab6e1a331f7017bc06d576fc5e6e7cbe252ba5d1b8bb09db2f10be09e. The 38-row page manifest SHA256 b472ba014b570bf6ae56fd2448c145f9a2bc2ab5bfcbb825bd6ed993fe24df79 (config SHA256 10421222ca9f52dbace6a16eba7cffb86d98292ac78ceba25a54f4896b9c6051) records grain-size, geochemical, mineralogical, and related analytical material rather than phase-1 borehole columns. This negative classification remains provisional automated triage; eligible and GT counts are zero."
+
+  - id: mendeley_urumqi_lithology_temperature_v001
+    name: "Supplementary data to Underground Coal Fire Detection at Mined-Out Area by Borehole Drilling Method"
+    source_organization: Mendeley Data
+    url: https://data.mendeley.com/datasets/xb3bjrt9v7/1
+    doi: 10.17632/xb3bjrt9v7.1
+    license_url: https://creativecommons.org/licenses/by/4.0/legalcode
+    access_date: "2026-08-13"
+    language: English metadata; workbook content uninspected
+    format: "complete dataset API lists six repeated XLSX entries and no PDF/JPG/PNG"
+    scale: "six API entries / 224,553 source-reported bytes; three duplicate entries for each of two workbook hashes"
+    downloadable: true
+    access_status: "complete anonymous dataset inventory verified; not downloaded because format is outside phase 1"
+    license: Creative Commons Attribution 4.0 International
+    allowed_usage: "share and adapt with attribution, subject to workbook and sensitive-location review"
+    redistribution: conditional
+    redistribution_policy: "inspect workbook content, duplication semantics, coordinates, privacy, and embedded rights before redistribution"
+    paper_fit: [paper3_structured_database_candidate]
+    status: inventory_verified_structured_format_outside_phase1
+    verification_notes: "The root-files endpoint returned an empty inventory because files are nested, while the complete public dataset API exposed the six XLSX entries. The preferred-inventory logic preserves both responses and selects the successful inventory with more files. No page-image candidate is present."
+
+  - id: figshare_bachengsi_yunhe_core_logs_v002
+    name: "Drillings reveal the late Quaternary activity of the Liaocheng-Lankao fault"
+    source_organization: Figshare
+    url: https://figshare.com/articles/dataset/The_lithology_description_of_Bachengsi_boreholes_and_Yunhe_boreholes_/21159142/2
+    doi: 10.6084/m9.figshare.21159142.v2
+    license_url: https://creativecommons.org/licenses/by/4.0/legalcode
+    access_date: "2026-08-13"
+    language: English metadata; files uninspected
+    format: TBD
+    scale: "metadata description mentions five Bachengsi and six Yunhe boreholes; no project file/page count"
+    downloadable: unknown
+    access_status: "DataCite metadata accessible; Figshare item, version, and download endpoints all returned HTTP 403 from this host"
+    license: Creative Commons Attribution 4.0 International at metadata record
+    allowed_usage: "TBD pending file inventory and embedded-content inspection"
+    redistribution: conditional
+    redistribution_policy: "do not acquire through bypasses or redistribute until official file access, item contents, privacy, and sensitive locations are inspected"
+    paper_fit: [paper1_chinese_content_candidate, paper3_core_photo_candidate]
+    status: metadata_open_repository_blocked_files_uninspected
+    verification_notes: "The description explicitly mentions detailed lithology and complete core photos, but it does not establish borehole-column page images. All three official repository probes returned HTTP 403 and were preserved as failed evidence. Source-reported borehole counts are not project inventory counts."
+
   - id: unipd_levee_geotechnical_logs_v001
     name: "Geotechnical investigation of Tagliamento, Panaro and Grizzaga levee soils: CPTs, Boreholes and Laboratory tests"
     source_organization: University of Padova Research Data repository

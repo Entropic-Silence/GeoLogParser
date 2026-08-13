@@ -36,6 +36,40 @@ public item-level file inventories remained accessible; the Zenodo record API
 refused the connection; and the CGS item page returned HTTP 504. DataCite
 metadata remained accessible for those DOI-bearing candidates.
 
+### Focused v005 follow-up
+
+The focused run `chinese_borehole_open_metadata_20260813_v005` issued 15
+read-only requests: 12 succeeded and three Figshare endpoints returned HTTP
+403. It froze 28 unique DataCite records and five curated candidate records;
+the artifact manifest SHA256 is
+`5958654c8a41f3cf3bb18aee4e3a00412f56fc4c1725572a377f8ce7fef1fb45`.
+The exact Chinese query `"综合柱状图" AND 钻孔` returned zero records. These
+are API observations, not proof that no such public data exist.
+
+The run adds a complete anonymous Mendeley dataset probe because the older
+root-folder files endpoint can return an empty array for nested content. For a
+given DOI, all responses remain frozen, while the review view selects a
+successful inventory with the largest file count. This exposed the Urumqi
+record's repeated XLSX files but no PDF/JPG/PNG, and supplied complete
+inventories for three international candidates. The Figshare record
+`10.6084/m9.figshare.21159142.v2` has CC BY 4.0 metadata describing detailed
+lithology and core photos from 11 Chinese boreholes, but item, version, and
+download probes were all blocked; no files were acquired or counted.
+
+Three CC BY 4.0 international sources were acquired through frozen inventories
+and then passed through the same hash-bound page-content builder. The slopes
+source yielded 28 provisional English engineering-borelog candidates and 18
+out-of-scope electrical-resistivity images. The Tiber PDF yielded one
+provisional stratigraphic-column candidate and 20 excluded laboratory-report
+pages. The Guaiba PDF yielded 38 excluded analytical-attachment pages. All
+classifications are automated project-agent triage with zero human content,
+privacy, or Ground Truth review; all Benchmark eligibility flags remain false.
+The three content-manifest SHA256 values are respectively
+`b75f100acb9541d92f6376901bc6f79494c12b45ad328876309f8a91f203d8c2`,
+`2b4895d255a2c9da9d615c2dc9890846c88c85851211ff2d6a92d1fec68ec4f4`,
+and `b472ba014b570bf6ae56fd2448c145f9a2bc2ab5bfcbb825bd6ed993fe24df79`.
+The newly acquired Chinese page-image candidate count is therefore zero.
+
 ## Directly accessible now
 
 - **University of Padova levee geotechnical dataset:** DOI

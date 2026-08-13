@@ -1,5 +1,31 @@
 # Research log
 
+## 2026-08-13 — Focused open-metadata survey and page-content manifests
+
+- Experiment: read-only metadata survey plus selected public acquisition and
+  automated content triage; not a benchmark experiment or human source review.
+- Observation: v005 issued 15 requests (12 successful), froze 28 unique
+  DataCite records, and retained three HTTP 403 Figshare failures. Complete
+  Mendeley dataset inventories fixed the nested-file blind spot in the older
+  root-folder API. Three CC BY sources passed frozen acquisition verification.
+- Observation: hash-bound manifests classified 28 English engineering-borelog
+  pages and one English stratigraphic-column page as international candidates;
+  18 resistivity images, 20 laboratory-report pages, and 38 analytical pages
+  were explicitly excluded from phase 1. These counts come from generated
+  manifests rather than prose inspection totals.
+- Limitation: classification provenance is
+  `automated_project_agent_content_triage_20260813`; human content review,
+  privacy review, Ground Truth, and benchmark eligibility are all zero. The
+  newly acquired Chinese PDF/JPG/PNG candidate count is also zero. The Figshare
+  Chinese core-photo/lithology candidate remains inaccessible from this host.
+- Decision: keep download evidence (`acquisition.json`) immutable in meaning and
+  write page classifications to separate `content_manifest.jsonl` and
+  `content_summary.json` files. Require exactly one rule per page and reject
+  source hash drift, gaps, overlaps, or claimed human review in the automated
+  builder.
+- Next step: prioritize rights-cleared Chinese page images and real two-track
+  human annotation. Do not run formal Paper I/II/III comparisons without GT.
+
 ## 2026-08-12 — Traceable paper-figure generation
 
 - Experiment: generated five figures from hashed result indexes/manifests:

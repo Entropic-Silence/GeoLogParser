@@ -54,6 +54,9 @@ experiment metadata, prompts, baselines, and paper planning were missing.
 - Phase 0 environment/repository/experiment framework: **COMPLETED**.
 - Phase 1 v001 Schema and synthetic examples/tests: **COMPLETED**.
 - Phase 2 public data validation: BGS and Padova audit samples **COMPLETED**;
+  a frozen follow-up added 28 provisional international engineering-log pages
+  and one international stratigraphic-column page, plus programmatically
+  excluded non-log material; all remain unannotated and benchmark-ineligible;
   one CC BY Chinese DWG collection acquired and automatically pre-screened,
   but its priority derivatives show unresolved cross-renderer disagreement and
   remain quarantined/incomplete; a diverse
@@ -93,3 +96,16 @@ experiment metadata, prompts, baselines, and paper planning were missing.
 - Phase 12 Paper III downstream/human study: **NOT COMPLETED**.
 - Paper manuscripts: complete sectioned research drafts with generated audit
   tables and honest `TBD`; final publishable papers **NOT COMPLETED**.
+
+## Immediate next actions — 2026-08-13
+
+1. Obtain legally usable Chinese PDF/JPG/PNG borehole columns with explicit
+   redistribution/privacy records; current newly acquired Chinese page count is
+   zero.
+2. Conduct real human content/privacy review on candidate pages before adding
+   any page to the annotation pool.
+3. Run two independent geological annotation tracks and adjudication; current
+   human Ground Truth count is zero.
+4. Freeze project/template/source groups before Paper I B1-B6 formal runs.
+5. Only after GT exists, execute Paper II ablation/FCR/calibration and Paper III
+   raw-AI versus constraint-QC versus human-GT workflows.

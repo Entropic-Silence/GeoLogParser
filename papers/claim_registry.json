@@ -28,6 +28,33 @@
         {"type": "json_pointer_equals", "pointer": "/human_review_complete", "expected": false}
       ]
     },
+    "p1.slopes_content": {
+      "paper": "paper1",
+      "scope": "automated page-content triage of one CC BY international source; not human review, Ground Truth, or benchmark evidence",
+      "source_path": "/data/GeoLogParser/datasets/public/mendeley_subsurface_slopes_logs_v001/metadata/content_summary.json",
+      "source_sha256": "32d7a487f5ef0bbe07394624d8bebfab6ec863bff0f06db92e993dea2ec48909",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/content_class_counts/engineering_borehole_log", "expected": 28},
+        {"type": "json_pointer_equals", "pointer": "/content_class_counts/electrical_resistivity_section", "expected": 18},
+        {"type": "json_pointer_equals", "pointer": "/document_type_counts/vector_pdf_without_extractable_text", "expected": 28},
+        {"type": "json_pointer_equals", "pointer": "/human_content_review_count", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/human_ground_truth_count", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/benchmark_eligible_count", "expected": 0}
+      ]
+    },
+    "p1.tiber_content": {
+      "paper": "paper1",
+      "scope": "automated page-content triage of one CC BY international PDF; not human review, Ground Truth, or benchmark evidence",
+      "source_path": "/data/GeoLogParser/datasets/public/mendeley_tiber_borehole_pdf_v001/metadata/content_summary.json",
+      "source_sha256": "b969d0206e8f6383a5f4d3293de0ead2a53b6f9b6f968ca3c46783f66bcfacf7",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/content_class_counts/stratigraphic_borehole_column", "expected": 1},
+        {"type": "json_pointer_equals", "pointer": "/content_class_counts/radiocarbon_laboratory_report", "expected": 20},
+        {"type": "json_pointer_equals", "pointer": "/human_content_review_count", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/human_ground_truth_count", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/benchmark_eligible_count", "expected": 0}
+      ]
+    },
     "p1.cad_full_svg": {
       "paper": "paper1",
       "scope": "33-item technical SVG/raster audit summary; structural coverage is not visual fidelity",
