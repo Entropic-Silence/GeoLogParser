@@ -528,6 +528,7 @@ records:
   requires_human_check_before_submission: true
   evidence:
   - datasets/data_registry.yaml
+  - /data/GeoLogParser/artifacts/source_surveys/swissgeol_example_groundtruth_audit_v001.json
   registry_status: exclude_mismatched_fixture
   registry_verification_notes: 'The public example_groundtruth.json metadata fixture
     matches example_borehole_profile.pdf header values (coordinates 615790/157500,

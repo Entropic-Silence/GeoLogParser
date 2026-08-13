@@ -82,6 +82,8 @@ def evidence_paths(source_id: str, local_dir: Path | None) -> list[str]:
             "configs/datasets/sanming_quarantine_panels_v001.jsonl",
             "docs/data_source_survey.md",
         ])
+    if source_id == "swissgeol_boreholes_dataextraction_examples_v001":
+        paths.append("/data/GeoLogParser/artifacts/source_surveys/swissgeol_example_groundtruth_audit_v001.json")
     if source_id == "bgs_onshore_borehole_records" and local_dir and local_dir.exists():
         legacy = DATA_ROOT / "datasets/public/bgs_v001/license"
         paths.extend(str(p) for p in sorted(legacy.glob("*")) if p.is_file())
