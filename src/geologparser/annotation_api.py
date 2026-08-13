@@ -11,7 +11,7 @@ from typing import Any
 
 from geologparser.annotation import (
     bind_human_display_bbox, human_empty_interval, revise_annotation, save_annotation,
-    validate_annotation, validate_annotator_id, validate_display_bbox,
+    matching_attestations, validate_annotation, validate_annotator_id, validate_display_bbox,
     validate_display_bbox_edits,
 )
 from geologparser.annotation_export import ground_truth_gate
@@ -26,6 +26,7 @@ from geologparser.ocr import OCRBackendUnavailable, TesseractOCRAdapter
 def create_app(
     annotation_root: Path, static_root: Path, timing_log: Path | None = None,
     reread_root: Path | None = None, reread_adapters=None,
+    expert_annotator_ids: set[str] | None = None,
 ):
     try:
         from fastapi import FastAPI, HTTPException
@@ -38,6 +39,9 @@ def create_app(
     app = FastAPI(title="GeoLogParser Annotation API", version="v001")
     timing_store = TimingEventStore(timing_log or annotation_root / "events" / "review_timing.jsonl")
     reread_root = Path(reread_root or annotation_root / "rereading_runs").resolve()
+    expert_annotator_ids = {
+        validate_annotator_id(item) for item in (expert_annotator_ids or set())
+    }
     if reread_adapters is None:
         reread_adapters = [TesseractOCRAdapter(language="chi_sim+eng", psm=7)]
 
@@ -69,6 +73,7 @@ def create_app(
             annotation = json.loads(path.read_text(encoding="utf-8"))
             validate_annotation(annotation)
             gate_failures = ground_truth_gate(annotation)
+            attestations = matching_attestations(annotation)
             items.append({
                 "annotation_id": annotation["annotation_id"],
                 "revision": annotation["revision"],
@@ -76,6 +81,11 @@ def create_app(
                 "borehole_id": annotation["record"]["borehole"]["borehole_id"]["value"],
                 "ground_truth_exportable": not gate_failures,
                 "ground_truth_gate_failures": gate_failures,
+                "valid_attestation_count": len(attestations),
+                "valid_attestor_ids": sorted({item["annotator_id"] for item in attestations}),
+                "has_valid_expert_attestation": any(
+                    item["role"] == "expert" for item in attestations
+                ),
             })
         return items
 
@@ -201,8 +211,13 @@ def create_app(
 
     @app.post("/api/review-sessions/start")
     def start_review(payload: dict[str, Any]):
-        annotation_path(str(payload["annotation_id"]))
-        return timing_store.start(str(payload["annotation_id"]), str(payload["annotator_id"]))
+        try:
+            annotation_id = str(payload["annotation_id"])
+            annotation_path(annotation_id)
+            annotator_id = validate_annotator_id(payload.get("annotator_id"))
+            return timing_store.start(annotation_id, annotator_id)
+        except (KeyError, TypeError, ValueError) as exc:
+            raise HTTPException(422, str(exc)) from exc
 
     @app.post("/api/review-sessions/{session_id}/complete")
     def complete_review(session_id: str, payload: dict[str, Any]):
@@ -314,6 +329,7 @@ def create_app(
             )
             revised = revise_annotation(
                 current, payload["record"], annotator_id, str(status),
+                actor_role="expert" if annotator_id in expert_annotator_ids else "reviewer",
             )
             save_annotation(revised, path)
         except Exception as exc:

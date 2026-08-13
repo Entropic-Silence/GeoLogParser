@@ -61,6 +61,24 @@ and requires explicit human confirmation plus the ordinary revisioned save.
 The default UI does not expose a VLM toggle; VLM use remains an explicitly
 configured experiment path.
 
+Human verification statuses are evidence-gated. A `single_verified` save adds
+an attestation bound to the exact canonical record SHA256. `double_verified`
+requires two distinct anonymized annotator IDs to attest the same final record;
+if the second reviewer edits any field, the earlier hash no longer matches and
+the edited record must be reviewed again. `expert_verified` is accepted only
+for IDs explicitly configured on the server:
+
+```bash
+GEOLOGPARSER_EXPERT_ANNOTATOR_IDS=expert-anon-01 \
+GEOLOGPARSER_ANNOTATION_ROOT=/data/GeoLogParser/artifacts/annotation/unipd_levee_geotech_v001/annotations \
+  .venv/bin/uvicorn app.server:app --host 127.0.0.1 --port 8000
+```
+
+The UI displays the effective attestation count/IDs for the current record.
+Use stable anonymized IDs; never put names, email addresses, or other personal
+data into annotation metadata. With no expert allowlist configured, nobody can
+self-declare `expert_verified`.
+
 After real review, create a frozen GT snapshot with:
 
 ```bash

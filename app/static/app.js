@@ -91,7 +91,9 @@ function render() {
 function renderGate(item) {
   const gate=document.querySelector("#gate-status"), failures=item&&item.ground_truth_gate_failures?item.ground_truth_gate_failures:[];
   gate.className=failures.length?"failed":"passed";
-  gate.textContent=failures.length?`NOT GT — ${failures.join("; ")}`:"Ground Truth gate PASSED for this annotation";
+  const attestors=item&&item.valid_attestor_ids?item.valid_attestor_ids:[];
+  const evidence=`attestations=${item?item.valid_attestation_count:0}; attestors=${attestors.length?attestors.join(","):"none"}; expert=${item&&item.has_valid_expert_attestation?"yes":"no"}`;
+  gate.textContent=(failures.length?`NOT GT — ${failures.join("; ")}`:"Ground Truth gate PASSED for this annotation")+` | ${evidence}`;
 }
 
 async function loadStatus(){const status=await(await fetch("/api/status")).json();document.querySelector("#progress").textContent=`GT progress: ${status.ground_truth_exportable_count}/${status.annotation_count}; statuses=${JSON.stringify(status.status_counts)}; failures=${JSON.stringify(status.ground_truth_gate_failure_counts)}`;}

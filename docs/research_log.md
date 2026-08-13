@@ -821,3 +821,24 @@
 - Research boundary: no human values were entered and no auto proposal was
   promoted. Padova Ground Truth remains 0 pages; Paper I/II/III empirical
   claims and submission readiness remain `TBD`.
+
+## 2026-08-13 — Record-bound human verification attestations
+
+- Objective: prevent `double_verified` and `expert_verified` from being
+  unsupported self-reported labels.
+- Implementation: each human verification now records an anonymized actor ID,
+  role, revision, timestamp, and canonical record SHA256. Double verification
+  requires two distinct IDs on the identical final hash. Any edit invalidates
+  earlier attestations for GT gating. Expert verification additionally requires
+  a server-side allowlisted ID; the default expert allowlist is empty.
+- Export/agreement audit: GT snapshot summaries count all effective attestors,
+  not only the last saver. Agreement evaluation rejects overlapping annotator
+  ID sets. These checks establish technical identity separation; study-level
+  professional qualifications and independence still require real protocol
+  records.
+- Compatibility: legacy auto proposals without attestation metadata remain
+  readable. Pre-existing human-status records are deliberately not
+  grandfathered into GT without a hash-bound re-attestation.
+- Verification: the full pre-documentation suite passed with 254 tests and 15
+  upstream deprecation warnings. No public annotation was modified and Padova
+  Ground Truth remains 0 pages.

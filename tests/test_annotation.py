@@ -6,8 +6,9 @@ from pathlib import Path
 import pytest
 
 from geologparser.annotation import (
-    PanelSpec, create_annotation, human_empty_interval, pdf_bbox_to_rendered_pixels, render_panel,
-    revise_annotation, save_annotation, validate_display_bbox,
+    PanelSpec, create_annotation, human_empty_interval, matching_attestations,
+    pdf_bbox_to_rendered_pixels, render_panel, revise_annotation, save_annotation,
+    validate_display_bbox,
 )
 
 
@@ -61,6 +62,57 @@ def test_revision_conflict_is_rejected(tmp_path: Path):
     save_annotation(first, destination)
     with pytest.raises(ValueError, match="revision conflict"):
         save_annotation(first, destination)
+
+
+def test_legacy_auto_annotation_without_attestation_key_remains_valid():
+    annotation = create_annotation("a1", {"panel_id": "p1"}, sample_record(), "AUTO")
+    annotation.pop("verification_attestations")
+    from geologparser.annotation import validate_annotation
+    validate_annotation(annotation)
+
+
+def test_single_verification_attestation_is_bound_to_exact_record():
+    source = sample_record()
+    first = create_annotation("a1", {"panel_id": "p1"}, source, "reviewer-1", "single_verified")
+    assert [item["annotator_id"] for item in matching_attestations(first)] == ["reviewer-1"]
+    source["borehole"]["borehole_id"]["value"] = "CALLER_MUTATION"
+    assert first["record"]["borehole"]["borehole_id"]["value"] != "CALLER_MUTATION"
+    first["record"]["borehole"]["borehole_id"]["value"] = "CHANGED"
+    assert matching_attestations(first) == []
+
+
+def test_double_verification_requires_two_people_on_identical_record():
+    first = create_annotation(
+        "a1", {"panel_id": "p1"}, sample_record(), "reviewer-1", "single_verified",
+    )
+    second = revise_annotation(first, first["record"], "reviewer-2", "double_verified")
+    assert second["annotation_status"] == "double_verified"
+    assert {item["annotator_id"] for item in matching_attestations(second)} == {
+        "reviewer-1", "reviewer-2",
+    }
+
+    changed = sample_record()
+    changed["borehole"]["borehole_id"]["value"] = "CHANGED"
+    with pytest.raises(ValueError, match="two distinct annotators"):
+        revise_annotation(first, changed, "reviewer-2", "double_verified")
+    with pytest.raises(ValueError, match="two distinct annotators"):
+        revise_annotation(first, first["record"], "reviewer-1", "double_verified")
+
+
+def test_expert_verification_requires_expert_role():
+    first = create_annotation("a1", {"panel_id": "p1"}, sample_record(), "AUTO", "auto")
+    with pytest.raises(ValueError, match="configured expert"):
+        revise_annotation(first, first["record"], "reviewer-1", "expert_verified")
+    expert = revise_annotation(
+        first, first["record"], "expert-1", "expert_verified", actor_role="expert",
+    )
+    assert matching_attestations(expert)[0]["role"] == "expert"
+
+
+@pytest.mark.parametrize("status", ["double_verified", "expert_verified"])
+def test_high_assurance_status_cannot_be_claimed_at_creation(status):
+    with pytest.raises(ValueError, match="single annotation creation"):
+        create_annotation("a1", {"panel_id": "p1"}, sample_record(), "reviewer-1", status)
 
 
 def test_pdf_bbox_to_rendered_pixels_handles_identity_transform():

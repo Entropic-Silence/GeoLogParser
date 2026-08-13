@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import copy
+import hashlib
 import json
 import math
 import os
@@ -18,6 +19,7 @@ from geologparser.rereading import get_field
 
 
 ANNOTATION_STATUSES = {"auto", "single_verified", "double_verified", "expert_verified"}
+ATTESTATION_ROLES = {"reviewer", "expert"}
 
 
 def validate_annotator_id(annotator_id: Any) -> str:
@@ -25,6 +27,50 @@ def validate_annotator_id(annotator_id: Any) -> str:
     if not isinstance(annotator_id, str) or not annotator_id.strip():
         raise ValueError("annotator_id must be a non-empty string")
     return annotator_id.strip()
+
+
+def record_sha256(record: Mapping[str, Any]) -> str:
+    """Hash the exact schema record using a deterministic JSON encoding."""
+    validate_record(record)
+    payload = json.dumps(
+        record, ensure_ascii=False, sort_keys=True, separators=(",", ":"),
+        allow_nan=False,
+    ).encode("utf-8")
+    return hashlib.sha256(payload).hexdigest()
+
+
+def matching_attestations(annotation: Mapping[str, Any]) -> list[Mapping[str, Any]]:
+    """Return attestations bound to the annotation's current record bytes."""
+    digest = record_sha256(annotation["record"])
+    return [
+        attestation for attestation in annotation.get("verification_attestations", ())
+        if attestation.get("record_sha256") == digest
+    ]
+
+
+def _validate_attestations(annotation: Mapping[str, Any]) -> None:
+    attestations = annotation.get("verification_attestations", [])
+    if not isinstance(attestations, list):
+        raise ValueError("verification_attestations must be a list")
+    required = {
+        "annotator_id", "role", "record_sha256", "attested_revision", "created_at",
+    }
+    for index, attestation in enumerate(attestations):
+        if not isinstance(attestation, Mapping) or set(attestation) != required:
+            raise ValueError(f"verification attestation {index} has invalid keys")
+        validate_annotator_id(attestation["annotator_id"])
+        if attestation["role"] not in ATTESTATION_ROLES:
+            raise ValueError(f"verification attestation {index} has invalid role")
+        digest = attestation["record_sha256"]
+        if not isinstance(digest, str) or len(digest) != 64 or any(
+            character not in "0123456789abcdef" for character in digest
+        ):
+            raise ValueError(f"verification attestation {index} has invalid record hash")
+        revision = attestation["attested_revision"]
+        if not isinstance(revision, int) or not 1 <= revision <= annotation["revision"]:
+            raise ValueError(f"verification attestation {index} has invalid revision")
+        if not isinstance(attestation["created_at"], str) or not attestation["created_at"]:
+            raise ValueError(f"verification attestation {index} has invalid timestamp")
 
 
 def validate_display_bbox(
@@ -251,9 +297,15 @@ def create_annotation(
 ) -> dict[str, Any]:
     if status not in ANNOTATION_STATUSES:
         raise ValueError(f"unsupported annotation status: {status}")
+    annotator_id = validate_annotator_id(annotator_id)
+    if status in {"double_verified", "expert_verified"}:
+        raise ValueError(
+            f"{status} cannot be established by a single annotation creation"
+        )
     validate_record(record)
     now = datetime.now(timezone.utc).isoformat()
-    return {
+    frozen_record = copy.deepcopy(record)
+    annotation = {
         "annotation_schema_version": "v001",
         "annotation_id": annotation_id,
         "revision": 1,
@@ -261,9 +313,18 @@ def create_annotation(
         "annotator_id": annotator_id,
         "created_at": now,
         "updated_at": now,
-        "panel": dict(panel),
-        "record": dict(record),
+        "verification_attestations": ([{
+            "annotator_id": annotator_id,
+            "role": "reviewer",
+            "record_sha256": record_sha256(frozen_record),
+            "attested_revision": 1,
+            "created_at": now,
+        }] if status == "single_verified" else []),
+        "panel": copy.deepcopy(panel),
+        "record": frozen_record,
     }
+    validate_annotation(annotation)
+    return annotation
 
 
 def validate_annotation(annotation: Mapping[str, Any]) -> None:
@@ -280,7 +341,9 @@ def validate_annotation(annotation: Mapping[str, Any]) -> None:
         raise ValueError("unsupported annotation status")
     if not isinstance(annotation["revision"], int) or annotation["revision"] < 1:
         raise ValueError("revision must be a positive integer")
+    validate_annotator_id(annotation["annotator_id"])
     validate_record(annotation["record"])
+    _validate_attestations(annotation)
 
 
 def save_annotation(annotation: Mapping[str, Any], destination: Path) -> Path:
@@ -308,15 +371,42 @@ def revise_annotation(
     record: Mapping[str, Any],
     annotator_id: str,
     status: str,
+    *,
+    actor_role: str = "reviewer",
 ) -> dict[str, Any]:
     validate_annotation(annotation)
     if status not in ANNOTATION_STATUSES:
         raise ValueError(f"unsupported annotation status: {status}")
+    annotator_id = validate_annotator_id(annotator_id)
+    if actor_role not in ATTESTATION_ROLES:
+        raise ValueError(f"unsupported annotation actor role: {actor_role}")
     validate_record(record)
     revised = dict(annotation)
-    revised["record"] = dict(record)
+    revised["record"] = copy.deepcopy(record)
     revised["annotator_id"] = annotator_id
     revised["annotation_status"] = status
     revised["revision"] = int(annotation["revision"]) + 1
     revised["updated_at"] = datetime.now(timezone.utc).isoformat()
+    revised["verification_attestations"] = copy.deepcopy(
+        annotation.get("verification_attestations", [])
+    )
+    if status != "auto":
+        digest = record_sha256(record)
+        attestation = {
+            "annotator_id": annotator_id,
+            "role": actor_role,
+            "record_sha256": digest,
+            "attested_revision": revised["revision"],
+            "created_at": revised["updated_at"],
+        }
+        revised["verification_attestations"].append(attestation)
+        current = matching_attestations(revised)
+        reviewer_ids = {item["annotator_id"] for item in current}
+        if status == "double_verified" and len(reviewer_ids) < 2:
+            raise ValueError(
+                "double_verified requires two distinct annotators for the exact final record"
+            )
+        if status == "expert_verified" and actor_role != "expert":
+            raise ValueError("expert_verified requires a configured expert annotator")
+    validate_annotation(revised)
     return revised

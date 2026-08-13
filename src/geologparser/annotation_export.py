@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
-from geologparser.annotation import validate_annotation
+from geologparser.annotation import matching_attestations, validate_annotation
 
 
 HUMAN_STATUSES = {"single_verified", "double_verified", "expert_verified"}
@@ -26,6 +26,17 @@ def ground_truth_gate(
     failures = []
     if annotation.get("annotation_status") not in HUMAN_STATUSES:
         failures.append("ANNOTATION_NOT_HUMAN_VERIFIED")
+    else:
+        attestations = matching_attestations(annotation)
+        annotator_ids = {item["annotator_id"] for item in attestations}
+        if not attestations:
+            failures.append("MISSING_VALID_VERIFICATION_ATTESTATION")
+        if annotation.get("annotation_status") == "double_verified" and len(annotator_ids) < 2:
+            failures.append("INSUFFICIENT_INDEPENDENT_ATTESTATIONS")
+        if annotation.get("annotation_status") == "expert_verified" and not any(
+            item.get("role") == "expert" for item in attestations
+        ):
+            failures.append("MISSING_EXPERT_ATTESTATION")
     record = annotation.get("record", {})
     intervals = record.get("intervals", [])
     if require_intervals and not intervals:
@@ -80,13 +91,24 @@ def export_verified_annotations(
         encoding="utf-8",
     )
     digest = hashlib.sha256(destination.read_bytes()).hexdigest()
+    current_attestations = [
+        attestation
+        for annotation in annotations
+        for attestation in matching_attestations(annotation)
+    ]
     return {
         "annotation_count": len(annotations),
         "status_counts": {
             status: sum(annotation["annotation_status"] == status for annotation in annotations)
             for status in sorted(HUMAN_STATUSES)
         },
-        "annotator_ids": sorted({str(annotation["annotator_id"]) for annotation in annotations}),
+        "annotator_ids": sorted({
+            str(attestation["annotator_id"]) for attestation in current_attestations
+        }),
+        "valid_attestation_count": len(current_attestations),
+        "expert_attestation_count": sum(
+            attestation["role"] == "expert" for attestation in current_attestations
+        ),
         "output_path": str(destination), "sha256": digest,
     }
 
@@ -107,6 +129,14 @@ def annotation_agreement(
     right = {str(item["annotation_id"]): item for item in second}
     if set(left) != set(right):
         raise ValueError("annotation ID sets differ")
+    left_annotators = {str(item["annotator_id"]) for item in first}
+    right_annotators = {str(item["annotator_id"]) for item in second}
+    overlap = left_annotators & right_annotators
+    if overlap:
+        raise ValueError(
+            "agreement collections must use disjoint annotator IDs; overlap: "
+            + ", ".join(sorted(overlap))
+        )
     ids = sorted(left)
     borehole_fields = ("borehole_id", "project_name", "coordinate_system")
     categorical: dict[str, Any] = {}
@@ -129,6 +159,10 @@ def annotation_agreement(
     numeric = numeric_with_missing_mae(boundary_left, boundary_right, "boundary_agreement_mae_m")
     return {
         "document_count": len(ids), "categorical": categorical,
+        "independent_annotator_ids": {
+            "first": sorted(left_annotators), "second": sorted(right_annotators),
+            "disjoint": True,
+        },
         "boundary": {name: metric.to_dict() for name, metric in numeric.items()},
         "documents_excluded_for_interval_count_mismatch": unmatched_interval_documents,
     }

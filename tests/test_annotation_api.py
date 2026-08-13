@@ -17,12 +17,12 @@ class FakeRereadAdapter:
         return [TextRegion(1, (0, 0, 10, 10), "1.20", 0.99, "ocr")]
 
 
-def build_client(tmp_path: Path):
+def build_client(tmp_path: Path, *, expert_annotator_ids=None):
     pytest.importorskip("fastapi")
     from fastapi.testclient import TestClient
     from geologparser.annotation_api import create_app
     annotation_root = tmp_path / "annotations"
-    annotation_root.mkdir()
+    annotation_root.mkdir(parents=True)
     image = tmp_path / "panel.png"
     from PIL import Image
     Image.new("RGB", (200, 100), "white").save(image)
@@ -35,6 +35,7 @@ def build_client(tmp_path: Path):
     return TestClient(create_app(
         annotation_root, ROOT / "app/static", reread_root=tmp_path / "reread",
         reread_adapters=[FakeRereadAdapter()],
+        expert_annotator_ids=expert_annotator_ids,
     )), annotation_root
 
 
@@ -44,6 +45,9 @@ def test_annotation_api_lists_loads_and_validates(tmp_path: Path):
     assert items[0]["annotation_id"] == "test-panel"
     assert items[0]["ground_truth_exportable"] is False
     assert "ANNOTATION_NOT_HUMAN_VERIFIED" in items[0]["ground_truth_gate_failures"]
+    assert items[0]["valid_attestation_count"] == 0
+    assert items[0]["valid_attestor_ids"] == []
+    assert items[0]["has_valid_expert_attestation"] is False
     status = client.get("/api/status").json()
     assert status["annotation_count"] == 1
     assert status["ground_truth_exportable_count"] == 0
@@ -282,3 +286,48 @@ def test_temporary_display_bbox_reread_does_not_modify_record(tmp_path: Path):
     assert result["crop"]["bbox_pixels"] == [0, 0, 72, 52]
     after = client.get("/api/annotations/test-panel").json()
     assert after == before
+
+
+def test_api_rejects_self_reported_double_and_unconfigured_expert_status(tmp_path: Path):
+    client, _ = build_client(tmp_path)
+    annotation = client.get("/api/annotations/test-panel").json()
+    double = client.put("/api/annotations/test-panel", json={
+        "base_revision": 1, "record": annotation["record"],
+        "annotator_id": "reviewer-1", "annotation_status": "double_verified",
+    })
+    assert double.status_code == 422
+    assert "two distinct annotators" in double.json()["detail"]
+    expert = client.put("/api/annotations/test-panel", json={
+        "base_revision": 1, "record": annotation["record"],
+        "annotator_id": "reviewer-1", "annotation_status": "expert_verified",
+    })
+    assert expert.status_code == 422
+    assert "configured expert" in expert.json()["detail"]
+
+
+def test_api_allows_configured_expert_and_two_person_identical_attestation(tmp_path: Path):
+    expert_client, _ = build_client(tmp_path / "expert", expert_annotator_ids={"expert-1"})
+    annotation = expert_client.get("/api/annotations/test-panel").json()
+    expert = expert_client.put("/api/annotations/test-panel", json={
+        "base_revision": 1, "record": annotation["record"],
+        "annotator_id": "expert-1", "annotation_status": "expert_verified",
+    })
+    assert expert.status_code == 200
+    assert expert.json()["verification_attestations"][-1]["role"] == "expert"
+
+    client, _ = build_client(tmp_path / "double")
+    annotation = client.get("/api/annotations/test-panel").json()
+    first = client.put("/api/annotations/test-panel", json={
+        "base_revision": 1, "record": annotation["record"],
+        "annotator_id": "reviewer-1", "annotation_status": "single_verified",
+    })
+    assert first.status_code == 200
+    second = client.put("/api/annotations/test-panel", json={
+        "base_revision": 2, "record": first.json()["record"],
+        "annotator_id": "reviewer-2", "annotation_status": "double_verified",
+    })
+    assert second.status_code == 200
+    assert second.json()["annotation_status"] == "double_verified"
+    assert {item["annotator_id"] for item in second.json()["verification_attestations"]} == {
+        "reviewer-1", "reviewer-2",
+    }
