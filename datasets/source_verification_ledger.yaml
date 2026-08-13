@@ -484,10 +484,51 @@ records:
   - /data/GeoLogParser/datasets/public/bgs_v001/license/borehole_records_2026-08-12.html
   - /data/GeoLogParser/datasets/public/bgs_v001/license/ogl_v3_2026-08-12.html
   - /data/GeoLogParser/datasets/public/bgs_v001/license/scanned_records_2026-08-12.html
-  registry_status: acquired_small_audit_sample
-  registry_verification_notes: Official scanned-record page states OGL delivery and
+  registry_status: acquired_small_audit_sample_authoritative_metadata_benchmark_v001
+  registry_verification_notes: 'Official scanned-record page states OGL delivery and
     acknowledgement. Fixed IDs 4,5,6,10 downloaded to /data with SHA256 manifest;
     PDFs have print=yes/copy=no permission flags, which are recorded rather than bypassed.
+    The BGS metadata benchmark pairs these scans by source record ID with official
+    REFERENCE/EASTING/NORTHING/LENGTH fields. It is authoritative metadata only: no
+    interval/lithology reference is present, so it cannot support interval Gold claims.'
+- source_id: swissgeol_boreholes_dataextraction_examples_v001
+  source_name: Swissgeol boreholes data extraction public examples and repository
+    fixtures
+  url: https://github.com/swisstopo/swissgeol-boreholes-dataextraction
+  source_url: https://github.com/swisstopo/swissgeol-boreholes-dataextraction
+  doi: null
+  publisher: swisstopo
+  citation: Swissgeol boreholes data extraction public examples and repository fixtures
+  retrieval_date: '2026-08-13'
+  local_paths: []
+  file_count_in_local_snapshot: 0
+  local_snapshot_inventory_sha256: null
+  manifest_evidence: []
+  access_method: public repository clone verified at commit 3e8fdc10ba3ff158392a3a44fce2e62f6e9b0e12
+  terms_of_use: null
+  claimed_license: AGPL-3.0-only for source code; example data terms not separately
+    evidenced
+  license_url: null
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
+  verification_status: CLAIM_CAPTURED
+  internal_decision: USE_WITH_CAUTION
+  decision: AMBIGUOUS
+  risks:
+  - licence claim is recorded from repository metadata; final item/content review
+    remains required
+  experiments_or_papers:
+  - paper1_source_audit_only
+  requires_human_check_before_submission: true
+  evidence:
+  - datasets/data_registry.yaml
+  registry_status: exclude_mismatched_fixture
+  registry_verification_notes: 'The public example_layers_groundtruth.json does not
+    match example_borehole_profile.pdf: JSON contains 0–3 m gravel/sand entries, while
+    the PDF visibly contains the SST KB5 tunnel profile with approximately 0–30 m
+    slate/sandstone intervals. The fixture is retained only as negative evidence and
+    is not Gold or benchmark data.'
 - source_id: usgs_geolog_locator
   source_name: GeoLog Locator
   url: https://www.usgs.gov/tools/geolog-locator

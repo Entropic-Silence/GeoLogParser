@@ -1311,6 +1311,32 @@
   accuracy, F1, calibration, and publication readiness remain unchanged and
   unreported (`TBD`). No GPU was used.
 
+## 2026-08-13 — Swiss paired-sample audit and authoritative metadata benchmark
+
+- Inspected the public `swisstopo/swissgeol-boreholes-dataextraction` repository
+  at commit `3e8fdc10ba3ff158392a3a44fce2e62f6e9b0e12`.
+- The repository includes `example/example_borehole_profile.pdf` and
+  `example/example_layers_groundtruth.json`, but the JSON describes 0–3 m
+  gravel/sand layers while the paired PDF visibly contains the SST KB5 tunnel
+  profile with approximately 0–30 m slate/sandstone intervals. The example
+  fixture is therefore not a defensible image-to-interval reference and was
+  not promoted to Gold.
+- Repository issues document an approximately 6,550-file Thurgau collection and
+  database-derived coordinate/elevation/depth references, but the source files
+  and GT are not publicly downloadable from the cloned repository; comments
+  also document coarse-layer definitions and known GT inconsistencies. These
+  records remain a source lead, not a frozen Real Gold interval set.
+- The official BGS fixed-record sample was rerun as
+  `P1_METADATA_BGS_TESSERACT_FORMAL_002` on 2026-08-13. Four official scan PDFs
+  (20 pages) were paired by source record ID with official BGS metadata. The
+  experiment is indexed as `formal_authoritative_metadata`, with
+  `reference_ground_truth_tier=AUTHORITATIVE_METADATA`; it evaluates only
+  borehole ID and coordinate metadata because interval labels are absent.
+  Results: ID exact match 2/4 (0.5), X MAE 0 m with 4/4 coverage, Y MAE 0 m
+  with 4/4 coverage, final-depth coverage 0/4, and zero emitted intervals.
+  These are real public-authoritative metadata results, not interval or
+  lithology accuracy.
+
 ## 2026-08-13 — Autonomous data-tier and controlled benchmark track
 
 - Objective: remove the human source-review UI from the only path of project

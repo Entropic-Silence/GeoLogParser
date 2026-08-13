@@ -183,8 +183,26 @@ datasets:
     redistribution: allowed_with_conditions
     redistribution_policy: "include 'Contains British Geological Survey materials © UKRI [year]' and OGL/source notices"
     paper_fit: [paper1_public_pipeline_validation, paper1_international_transfer]
-    status: acquired_small_audit_sample
-    verification_notes: "Official scanned-record page states OGL delivery and acknowledgement. Fixed IDs 4,5,6,10 downloaded to /data with SHA256 manifest; PDFs have print=yes/copy=no permission flags, which are recorded rather than bypassed."
+    status: acquired_small_audit_sample_authoritative_metadata_benchmark_v001
+    verification_notes: "Official scanned-record page states OGL delivery and acknowledgement. Fixed IDs 4,5,6,10 downloaded to /data with SHA256 manifest; PDFs have print=yes/copy=no permission flags, which are recorded rather than bypassed. The BGS metadata benchmark pairs these scans by source record ID with official REFERENCE/EASTING/NORTHING/LENGTH fields. It is authoritative metadata only: no interval/lithology reference is present, so it cannot support interval Gold claims."
+
+  - id: swissgeol_boreholes_dataextraction_examples_v001
+    name: "Swissgeol boreholes data extraction public examples and repository fixtures"
+    source_organization: swisstopo
+    url: https://github.com/swisstopo/swissgeol-boreholes-dataextraction
+    access_date: "2026-08-13"
+    language: German/English
+    format: "repository example PDFs/PNGs and JSON fixtures"
+    scale: "5 example PDFs/PNGs and 3 JSON fixtures in the cloned repository"
+    downloadable: true
+    access_status: "public repository clone verified at commit 3e8fdc10ba3ff158392a3a44fce2e62f6e9b0e12"
+    license: AGPL-3.0-only for source code; example data terms not separately evidenced
+    allowed_usage: "internal audit only pending item-level example-data verification"
+    redistribution: prohibited_pending_verification
+    redistribution_policy: "do not redistribute example data or derived benchmark labels until item-level rights and provenance are verified"
+    paper_fit: [paper1_source_audit_only]
+    status: exclude_mismatched_fixture
+    verification_notes: "The public example_layers_groundtruth.json does not match example_borehole_profile.pdf: JSON contains 0–3 m gravel/sand entries, while the PDF visibly contains the SST KB5 tunnel profile with approximately 0–30 m slate/sandstone intervals. The fixture is retained only as negative evidence and is not Gold or benchmark data."
 
   - id: usgs_geolog_locator
     name: GeoLog Locator

@@ -41,7 +41,7 @@
     "p1.tiber_rapidocr_coverage",
     "p1.tiber_tesseract_coverage"
   ],
-  "formal_experiment_count": 2,
+  "formal_experiment_count": 3,
   "headings": [
     "Abstract",
     "1. Introduction",
@@ -56,7 +56,7 @@
     "10. Conclusion",
     "References"
   ],
-  "indexed_experiment_count": 30,
+  "indexed_experiment_count": 31,
   "literature_evidence_errors": [],
   "literature_evidence_path": "docs/literature_evidence.yaml",
   "literature_evidence_sha256": "d36dcd2badac6ba03fcd9842f3a5e7623885fd8f1e55966dceb75eb1795734f5",
@@ -64,13 +64,13 @@
     {
       "exists": true,
       "resolved_path": "papers/paper1/generated/current_results.md",
-      "sha256": "fa94c395b3c31577c2a39941774b69eccef2fda9bf1ba54be3b00ee9b82eba78",
+      "sha256": "f9a29ca730574d896cd4a4d8872064460fc5fece30a8cf0ca97dff173ba98a38",
       "target": "generated/current_results.md"
     },
     {
       "exists": true,
       "resolved_path": "papers/paper1/generated/figures/audit_coverage.png",
-      "sha256": "cf1b17210f8a8362e31005c4c2687d5791f506973160e901f8882b987e4129ed",
+      "sha256": "85a3ee16439b68b8ff738b4dfaf73828b11412da58e2893b59b5b2e407b3a435",
       "target": "generated/figures/audit_coverage.png"
     },
     {
@@ -82,7 +82,7 @@
     {
       "exists": true,
       "resolved_path": "docs/generated/publication_readiness.md",
-      "sha256": "8f8e839f457866adc86d5cd6922d8a068f39e4fc6e4ad80b434eee0cf82265f4",
+      "sha256": "1d5e531f8e6c84bb6d62d25823722720539295fd042650828f8140ac2ab01e53",
       "target": "../../docs/generated/publication_readiness.md"
     },
     {
@@ -133,7 +133,7 @@
   ],
   "result_index_errors": [],
   "result_index_path": "experiments/paper1/result_index.jsonl",
-  "result_index_sha256": "ebdf5fafc5e9112c6cab248d7bcc58f220e80d7838e11db8ea3223a8a8f66612",
+  "result_index_sha256": "ecf40d4d9692b9c5945c2cb66a574761fb64581c43982c482e7bdb9cbf4a9065",
   "structurally_complete": true,
   "submission_ready": false,
   "tbd_or_citation_marker_count": 9,

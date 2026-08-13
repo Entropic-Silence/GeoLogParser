@@ -3,7 +3,7 @@
 
 Package: **DRAFT_NOT_SUBMISSION_READY**
 Manuscript words: **2617**; unresolved markers: **9**.
-Indexed runs: **30**; formal runs: **2**.
+Indexed runs: **31**; formal runs: **3**.
 Structural audit: **PASSED**.
 
 ## Blockers
@@ -13,7 +13,7 @@ Structural audit: **PASSED**.
 ## Trace
 
 - Manuscript SHA256: `620c71e8f223c1ffe943f1edffa561ba9f9e16a4f4cb790ffbf08559b2a5ca4d`
-- Result-index SHA256: `ebdf5fafc5e9112c6cab248d7bcc58f220e80d7838e11db8ea3223a8a8f66612`
+- Result-index SHA256: `ecf40d4d9692b9c5945c2cb66a574761fb64581c43982c482e7bdb9cbf4a9065`
 - Citation keys: cohen1960agreement, han2024boreholeocr, pfitzmann2022doclaynet, roberts2017crossvalidation, smith2007tesseract, xu2020layoutlm, xu2021layoutlmv2, zhong2019publaynet
 - Missing literature-evidence keys: none
 - Literature-evidence errors: none

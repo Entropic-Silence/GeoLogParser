@@ -8,6 +8,7 @@ import platform
 import resource
 import subprocess
 import time
+from datetime import date
 from importlib.metadata import version
 from pathlib import Path
 
@@ -78,9 +79,9 @@ def main() -> None:
     run = create_run_directory(arguments.results_root, {
         "experiment_id": arguments.experiment_id,
         "git_commit": git_commit,
-        "date": "2026-08-12",
+        "date": date.today().isoformat(),
         "dataset_version": "bgs_opengeoscience_v001_fixed_ids_4_5_6_10",
-        "split_version": "audit_all_no_training",
+        "split_version": "source_record_disjoint_authoritative_metadata_v001",
         "model": model_id,
         "model_revision": backend_revision,
         "prompt_version": "not_applicable",
@@ -91,6 +92,9 @@ def main() -> None:
             "render_dpi": arguments.render_dpi, "constraint_tolerance_m": "0.05",
             "constraint_config_path": str(arguments.constraint_config.resolve()),
             "constraint_config_sha256": file_sha256(arguments.constraint_config),
+            "ground_truth_sha256": file_sha256(manifest_path),
+            "ground_truth_tier": "AUTHORITATIVE_METADATA",
+            "ground_truth_provenance": "BGS official index metadata paired by source_record_id with official scan PDF; interval labels are absent",
         },
     })
     references = {name: [] for name in ("borehole_id", "x_coordinate", "y_coordinate", "final_depth_m")}
@@ -135,6 +139,11 @@ def main() -> None:
         "sample_documents": len(rows),
         "sample_pages": sample_pages,
         "benchmark_scope": "small public audit sample; not representative BGS performance",
+        "scope": "authoritative-metadata benchmark evaluation",
+        "reference_ground_truth_tier": "AUTHORITATIVE_METADATA",
+        "document_count": len(rows),
+        "interval_ground_truth_available": False,
+        "metadata_reference_fields": ["borehole_id", "x_coordinate", "y_coordinate", "final_depth_m"],
         "borehole_id_exact_match": exact_match(references["borehole_id"], predictions["borehole_id"], "borehole_id_exact_match").to_dict(),
         "x_coordinate": {key: value.to_dict() for key, value in numeric_with_missing_mae(references["x_coordinate"], predictions["x_coordinate"], "x_coordinate_mae").items()},
         "y_coordinate": {key: value.to_dict() for key, value in numeric_with_missing_mae(references["y_coordinate"], predictions["y_coordinate"], "y_coordinate_mae").items()},

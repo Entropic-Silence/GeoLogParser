@@ -6,13 +6,13 @@ Ground-Truth-exportable annotations: **0**.
 | Gate | Status |
 |---|---|
 | `human_ground_truth_exists` | NOT COMPLETED |
-| `paper1_formal_results_exist` | NOT COMPLETED |
+| `paper1_formal_results_exist` | PASSED |
 | `paper2_formal_results_exist` | NOT COMPLETED |
 | `paper3_formal_results_exist` | NOT COMPLETED |
 
 | Paper | Indexed runs | Controlled formal | Real formal |
 |---|---:|---:|---:|
-| paper1 | 30 | 2 | 0 |
+| paper1 | 31 | 2 | 1 |
 | paper2 | 3 | 1 | 0 |
 | paper3 | 5 | 1 | 0 |
 
