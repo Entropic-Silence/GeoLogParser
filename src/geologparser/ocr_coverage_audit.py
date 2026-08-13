@@ -25,7 +25,7 @@ REQUIRED_REVIEW_ITEM_FIELDS = {
 }
 
 
-def _canonical_sha256(value: Mapping[str, Any]) -> str:
+def canonical_record_sha256(value: Mapping[str, Any]) -> str:
     body = json.dumps(
         value, ensure_ascii=False, sort_keys=True, separators=(",", ":"), allow_nan=False,
     )
@@ -128,7 +128,7 @@ def privacy_minimized_diagnostics(
         "source_file_sha256": item["source_file_sha256"],
         "rendered_sha256": item["rendered_sha256"],
         "status": "completed",
-        "record_sha256": _canonical_sha256(record),
+        "record_sha256": canonical_record_sha256(record),
         "record_serialized": False,
         "raw_ocr_text_serialized": False,
         "extracted_values_serialized": False,

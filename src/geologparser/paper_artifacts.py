@@ -18,6 +18,7 @@ def number(value, decimals: int = 3) -> str:
 def paper1_table(entries: list[dict], repository_root: Path) -> str:
     ocr_rows = []
     ocr_coverage_rows = []
+    native_coverage_rows = []
     llm_rows = []
     layout_rows = []
     vlm_rows = []
@@ -26,7 +27,22 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
     for entry in entries:
         metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
         run = json.loads((repository_root / entry["result_path"] / "run.json").read_text())
-        if metrics.get("record_output_policy") == "hash_and_presence_only":
+        if "positioned_text_layout" in metrics.get("coverage_channels", []):
+            native_coverage_rows.append("| " + " | ".join([
+                entry["experiment_id"], run["model"],
+                f'{metrics["completed_items"]}/{metrics["selected_items"]}',
+                str(metrics["text_regions"]),
+                f'{metrics["regex_items_with_borehole_id"]}/{metrics["completed_items"]}',
+                f'{metrics["regex_items_with_any_interval"]}/{metrics["completed_items"]}',
+                str(metrics["regex_emitted_intervals"]),
+                f'{metrics["layout_items_with_any_interval"]}/{metrics["completed_items"]}',
+                str(metrics["layout_emitted_intervals"]),
+                str(metrics["layout_constraint_evaluations"]),
+                str(metrics["layout_constraint_violations"]),
+                number(metrics["latency_mean_seconds_per_item"]),
+                entry["paper_eligibility"],
+            ]) + " |")
+        elif metrics.get("record_output_policy") == "hash_and_presence_only":
             ocr_coverage_rows.append("| " + " | ".join([
                 entry["experiment_id"], run["model"],
                 f'{metrics["completed_items"]}/{metrics["selected_items"]}',
@@ -109,6 +125,13 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
         "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|",
         *ocr_coverage_rows, "",
         "Presence and emitted-count columns are extraction coverage diagnostics, not accuracy estimates. Records and OCR text are not serialized; source pages remain unreviewed and have no human Ground Truth.",
+        "",
+        "### Privacy-minimized native-PDF coverage audits (no Ground Truth)",
+        "",
+        "| Experiment | Model | Completed pages | Text regions | Regex borehole-ID presence | Regex pages with intervals | Regex intervals | Layout pages with intervals | Layout intervals | Layout constraint evals | Violations | s/page | Eligibility |",
+        "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|",
+        *native_coverage_rows, "",
+        "Direct-text and positioned-layout columns are extraction-path coverage diagnostics, not accuracy estimates. Persisted rows contain hashes and counts only; source text, extracted values, and source bboxes are omitted.",
         "",
         "### B2 text-only LLM engineering audits",
         "",

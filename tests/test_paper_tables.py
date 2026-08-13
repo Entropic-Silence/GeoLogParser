@@ -49,6 +49,28 @@ def test_paper1_table_separates_no_gt_privacy_minimized_ocr_coverage(tmp_path: P
     assert "coverage diagnostics, not accuracy estimates" in table
 
 
+def test_paper1_table_separates_privacy_minimized_native_pdf_coverage(tmp_path: Path):
+    metrics = {
+        "record_output_policy": "hash_and_presence_only",
+        "coverage_channels": ["direct_text_regex", "positioned_text_layout"],
+        "selected_items": 18, "completed_items": 18, "text_regions": 120,
+        "regex_items_with_borehole_id": 0, "regex_items_with_any_interval": 0,
+        "regex_emitted_intervals": 0, "layout_items_with_any_interval": 4,
+        "layout_emitted_intervals": 12, "layout_constraint_evaluations": 84,
+        "layout_constraint_violations": 3, "latency_mean_seconds_per_item": 0.1,
+        "accuracy_metrics": None, "human_ground_truth_count": 0,
+    }
+    write_run(tmp_path, metrics, {"model": "native-privacy-minimized-test"})
+    table = paper1_table([{
+        "experiment_id": "P1_NATIVE", "result_path": "result",
+        "paper_eligibility": "audit_only",
+    }], tmp_path)
+    assert "Privacy-minimized native-PDF coverage audits" in table
+    assert "P1_NATIVE" in table
+    assert "4/18" in table
+    assert "source text, extracted values, and source bboxes are omitted" in table
+
+
 def test_paper3_table_is_labelled_protocol_only(tmp_path: Path, monkeypatch):
     metrics = {"conditions": [{"magnitude_m": .1, "seed": 1, "count": 3, "mae_m": .02, "rmse_m": .03, "max_abs_error_m": .04}]}
     write_run(tmp_path, metrics, {})
