@@ -1,6 +1,9 @@
 from pathlib import Path
 
-from geologparser.result_index import file_sha256, formal_evidence_errors, verify_index
+from geologparser.result_index import (
+    artifact_manifest_errors, file_sha256, formal_evidence_errors, verify_index,
+    write_artifact_manifest,
+)
 
 
 def test_result_index_verifies_complete_run(tmp_path: Path):
@@ -107,3 +110,63 @@ def test_nonformal_labels_do_not_require_ground_truth_evidence():
     assert formal_evidence_errors(
         {"paper_eligibility": "audit_only"}, {"config": {}}, {},
     ) == []
+
+
+def test_result_index_verifies_recursive_artifact_manifest(tmp_path: Path):
+    import json
+
+    result = tmp_path / "run"
+    nested = result / "case_artifacts/case-1"
+    nested.mkdir(parents=True)
+    for name in ("run.json", "metrics.json", "predictions.jsonl", "errors.jsonl", "run.log"):
+        (result / name).write_text("{}\n" if name.endswith(".json") else "")
+    (result / "input_manifest.json").write_text('{"case": 1}\n')
+    (nested / "roi.png").write_bytes(b"pixels")
+    manifest_path = write_artifact_manifest(result)
+    assert artifact_manifest_errors(result, manifest_path) == []
+    dataset = tmp_path / "dataset.jsonl"
+    dataset.write_text("{}\n")
+    entry = {
+        "experiment_id": "ARTIFACT_001", "result_path": "run",
+        "dataset_manifest_path": str(dataset), "dataset_manifest_sha256": file_sha256(dataset),
+        **{key: file_sha256(result / filename) for key, filename in {
+            "run_sha256": "run.json", "metrics_sha256": "metrics.json",
+            "predictions_sha256": "predictions.jsonl", "errors_sha256": "errors.jsonl",
+            "run_log_sha256": "run.log",
+        }.items()},
+        "artifact_manifest_sha256": file_sha256(manifest_path),
+    }
+    index = tmp_path / "index.jsonl"
+    index.write_text(json.dumps(entry) + "\n")
+    assert verify_index(index, tmp_path) == []
+    (nested / "roi.png").write_bytes(b"changed")
+    assert any("artifact" in error and "roi.png" in error for error in verify_index(index, tmp_path))
+
+
+def test_artifact_manifest_rejects_path_escape(tmp_path: Path):
+    import json
+
+    result = tmp_path / "run"
+    result.mkdir()
+    outside = tmp_path / "outside.txt"
+    outside.write_text("private")
+    manifest = result / "artifact_manifest.json"
+    manifest.write_text(json.dumps({
+        "artifact_manifest_schema_version": "experiment_artifacts_v001",
+        "artifacts": [{
+            "path": "../outside.txt", "size_bytes": outside.stat().st_size,
+            "sha256": file_sha256(outside),
+        }],
+    }))
+    assert artifact_manifest_errors(result, manifest) == [
+        "artifact path escapes result directory: ../outside.txt"
+    ]
+
+
+def test_artifact_manifest_rejects_unlisted_extra_file(tmp_path: Path):
+    result = tmp_path / "run"
+    result.mkdir()
+    (result / "listed.txt").write_text("listed")
+    manifest = write_artifact_manifest(result)
+    (result / "unlisted.txt").write_text("unlisted")
+    assert artifact_manifest_errors(result, manifest) == ["unlisted artifact: unlisted.txt"]

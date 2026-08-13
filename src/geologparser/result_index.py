@@ -14,6 +14,7 @@ HASH_PATHS = {
     "errors_sha256": "errors.jsonl",
     "run_log_sha256": "run.log",
 }
+ARTIFACT_MANIFEST = "artifact_manifest.json"
 FORMAL_ELIGIBILITY = {"formal_benchmark", "formal_method", "formal_downstream"}
 
 
@@ -55,6 +56,77 @@ def file_sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def write_artifact_manifest(result_path: Path) -> Path:
+    """Hash non-core run artifacts recursively using result-relative paths."""
+    result_path = result_path.resolve()
+    excluded = set(HASH_PATHS.values()) | {ARTIFACT_MANIFEST}
+    artifacts = []
+    for path in sorted(candidate for candidate in result_path.rglob("*") if candidate.is_file()):
+        relative = path.relative_to(result_path)
+        if str(relative) in excluded:
+            continue
+        artifacts.append({
+            "path": relative.as_posix(),
+            "size_bytes": path.stat().st_size,
+            "sha256": file_sha256(path),
+        })
+    manifest = {
+        "artifact_manifest_schema_version": "experiment_artifacts_v001",
+        "scope": "recursive non-core experiment artifacts; core files are hashed by result index",
+        "artifacts": artifacts,
+    }
+    destination = result_path / ARTIFACT_MANIFEST
+    destination.write_text(
+        json.dumps(manifest, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
+    return destination
+
+
+def artifact_manifest_errors(result_path: Path, manifest_path: Path) -> list[str]:
+    errors = []
+    try:
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, UnicodeDecodeError) as exc:
+        return [f"invalid artifact manifest JSON: {exc}"]
+    if manifest.get("artifact_manifest_schema_version") != "experiment_artifacts_v001":
+        errors.append("unsupported artifact manifest schema")
+    artifacts = manifest.get("artifacts")
+    if not isinstance(artifacts, list):
+        return errors + ["artifact manifest artifacts must be an array"]
+    seen = set()
+    result_path = result_path.resolve()
+    for item in artifacts:
+        if not isinstance(item, dict) or not isinstance(item.get("path"), str):
+            errors.append("artifact manifest entry is invalid")
+            continue
+        relative = Path(item["path"])
+        target = (result_path / relative).resolve()
+        if relative.is_absolute() or result_path not in target.parents:
+            errors.append(f"artifact path escapes result directory: {item['path']}")
+            continue
+        if item["path"] in seen:
+            errors.append(f"duplicate artifact path: {item['path']}")
+            continue
+        seen.add(item["path"])
+        if not target.is_file():
+            errors.append(f"missing artifact: {item['path']}")
+            continue
+        if target.stat().st_size != item.get("size_bytes"):
+            errors.append(f"artifact size mismatch: {item['path']}")
+        if file_sha256(target) != item.get("sha256"):
+            errors.append(f"artifact hash mismatch: {item['path']}")
+    excluded = set(HASH_PATHS.values()) | {ARTIFACT_MANIFEST}
+    actual = {
+        path.relative_to(result_path).as_posix()
+        for path in result_path.rglob("*")
+        if path.is_file() and path.relative_to(result_path).as_posix() not in excluded
+    }
+    for unlisted in sorted(actual - seen):
+        errors.append(f"unlisted artifact: {unlisted}")
+    return errors
+
+
 def verify_index(index_path: Path, repository_root: Path) -> list[str]:
     errors: list[str] = []
     for line_number, line in enumerate(index_path.read_text(encoding="utf-8").splitlines(), 1):
@@ -69,6 +141,17 @@ def verify_index(index_path: Path, repository_root: Path) -> list[str]:
                 errors.append(f"{experiment_id}: missing {target}")
             elif file_sha256(target) != entry[hash_key]:
                 errors.append(f"{experiment_id}: hash mismatch for {target}")
+        if "artifact_manifest_sha256" in entry:
+            artifact_manifest = result_path / ARTIFACT_MANIFEST
+            if not artifact_manifest.is_file():
+                errors.append(f"{experiment_id}: missing {artifact_manifest}")
+            elif file_sha256(artifact_manifest) != entry["artifact_manifest_sha256"]:
+                errors.append(f"{experiment_id}: hash mismatch for {artifact_manifest}")
+            else:
+                errors.extend(
+                    f"{experiment_id}: {message}"
+                    for message in artifact_manifest_errors(result_path, artifact_manifest)
+                )
         manifest = Path(entry["dataset_manifest_path"])
         if not manifest.is_absolute():
             manifest = repository_root / manifest

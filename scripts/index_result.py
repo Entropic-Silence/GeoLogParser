@@ -7,7 +7,10 @@ import argparse
 import json
 from pathlib import Path
 
-from geologparser.result_index import HASH_PATHS, file_sha256, formal_evidence_errors
+from geologparser.result_index import (
+    ARTIFACT_MANIFEST, HASH_PATHS, artifact_manifest_errors, file_sha256,
+    formal_evidence_errors,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -32,17 +35,28 @@ def main() -> None:
         relative_result = arguments.result_path.resolve().relative_to(ROOT)
     except ValueError as exc:
         raise ValueError("result path must be inside repository") from exc
+    manifest_resolved = arguments.dataset_manifest_path.resolve()
+    try:
+        indexed_manifest_path = str(manifest_resolved.relative_to(ROOT))
+    except ValueError:
+        indexed_manifest_path = str(manifest_resolved)
     entry = {
         "experiment_id": run["experiment_id"],
         "run_date": run["date"],
         "status": "completed",
         "scope": arguments.scope,
         "result_path": str(relative_result),
-        "dataset_manifest_path": str(arguments.dataset_manifest_path.resolve()),
+        "dataset_manifest_path": indexed_manifest_path,
         "dataset_manifest_sha256": file_sha256(arguments.dataset_manifest_path),
         **{hash_key: file_sha256(arguments.result_path / filename) for hash_key, filename in HASH_PATHS.items()},
         "paper_eligibility": arguments.paper_eligibility,
     }
+    artifact_manifest = arguments.result_path / ARTIFACT_MANIFEST
+    if artifact_manifest.is_file():
+        artifact_errors = artifact_manifest_errors(arguments.result_path, artifact_manifest)
+        if artifact_errors:
+            raise ValueError("artifact manifest verification failed: " + "; ".join(artifact_errors))
+        entry["artifact_manifest_sha256"] = file_sha256(artifact_manifest)
     metrics = json.loads((arguments.result_path / "metrics.json").read_text(encoding="utf-8"))
     evidence_errors = formal_evidence_errors(entry, run, metrics)
     if evidence_errors:

@@ -754,3 +754,48 @@
 - Next step: a human reviewer must verify the public Padova annotation pack and
   produce a frozen Ground Truth snapshot before any formal benchmark, Paper II
   ablation, or Paper III raw-vs-QC-vs-GT result can be generated.
+
+## 2026-08-13 — Public OCR+VLM field-ROI engineering audit
+
+- Experiment: `P2_QWEN3VL4B_TESSERACT_UNIPD_ROI_AUDIT_001`; two numeric fields
+  from the public Padova `UNIPD_GS1_P001` auto proposal, Tesseract 4.1.1 plus
+  Qwen3-VL-4B-Instruct revision
+  `ebb281ec70b05090aa6165b016eac8ec08e71b17`, strict prompt
+  `constraint_reread_numeric_v001`, greedy decoding, and no human Ground Truth.
+- Resource control: the guardian paused only `rtx5090`; the run used physical
+  GPU 0 while the other four miners continued. The worker was restored
+  immediately afterward, its container returned healthy, and GPU 0 returned to
+  100% mining utilization. The initial CLI attempt failed before artifact
+  creation because the isolated AI venv needed `PYTHONPATH=src`; the successful
+  rerun used the same unused experiment ID.
+- Observation: both VLM responses passed the strict numeric-token JSON parser,
+  neither declared uncertainty, and both cases shared at least one numeric
+  value with OCR. Both decisions remained `NEEDS_REVIEW`, so no proposal was
+  accepted. Mean VLM generation time was 3.509931 s/ROI and peak allocated GPU
+  memory was 9,032,973,312 bytes. These are engineering diagnostics, not
+  accuracy or correction-safety estimates.
+- Failure analysis: the narrow collar-elevation crop showed only `35,22` and
+  correctly remained under review because no target violation was reduced. The
+  source-provided groundwater bbox spanned multiple header cells, so both
+  readers emitted total depth `15.00` as well as water table `-5.80`. C6 favored
+  the wrong-column `15.0` candidate because it removed the negative-depth
+  warning; the run abstained because candidate scores lacked margin.
+- Safety revision: after preserving the run unchanged, candidate policy was
+  tightened so any reader that emits multiple distinct numbers from one field
+  ROI forces `NEEDS_REVIEW`. This prevents geological plausibility from
+  automatically selecting among a visibly multi-field crop.
+- Scoring repair: audit inspection also found that the then-current target
+  violation counter treated any warning in the same borehole container as if
+  it affected the selected field. This did not change either recorded decision
+  but polluted the collar-elevation before/after count. The counter now accepts
+  only an exact affected-field path or an explicitly interval-wide path, with a
+  regression test proving that groundwater warnings cannot change a collar-
+  elevation candidate's constraint score. The immutable run retains the
+  original recorded scores; future runs use the repaired implementation.
+- Trace: the run freezes source annotation/image hashes, crop parameters,
+  model/prompt/runtime metadata, raw generations, OCR regions, scores, and
+  decisions. A recursive artifact manifest additionally hashes both ROI PNGs,
+  both field-level result JSON files, and the resolved input manifest; result
+  index verification rejects nested artifact tampering or path escape.
+- Evidence boundary: source annotations are `auto`, therefore accuracy, FCR,
+  method benefit, calibration, and statistical significance remain `TBD`.

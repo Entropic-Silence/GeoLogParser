@@ -10,7 +10,7 @@
     "shepard1968interpolation"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "0317ff6758271e18a269f89326dfd374bfe5f44f10bd9842acb9ee98591086b6",
+  "claim_registry_sha256": "0d77dd737fce09978435078f7a5c959b160e3c1ff24a4a3178f47c766de7227b",
   "claim_source_errors": [],
   "evidence_tags": [
     "p3.idw_multiseed",

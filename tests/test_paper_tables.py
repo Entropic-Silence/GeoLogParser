@@ -74,3 +74,21 @@ def test_paper2_table_uses_gated_ablation_metrics(tmp_path: Path):
     assert "full" in table
     assert "Auto-accept error" in table
     assert "human-GT-gated" in table
+
+
+def test_paper2_table_separates_roi_audit_from_formal_results(tmp_path: Path):
+    metrics = {
+        "case_count": 2, "vlm_schema_valid_count": 2, "vlm_uncertain_count": 0,
+        "cross_reader_numeric_agreement_case_count": 2,
+        "accept_proposal_count": 0, "needs_review_count": 2,
+        "vlm_latency_mean_seconds_per_roi": 3.5,
+        "peak_gpu_memory_bytes": 9 * 1024**3,
+    }
+    write_run(tmp_path, metrics, {})
+    table = paper2_table([{
+        "experiment_id": "P2_ROI", "result_path": "result", "paper_eligibility": "audit_only",
+    }], tmp_path)
+    assert "Public ROI engineering audit" in table
+    assert "P2_ROI" in table
+    assert "accuracy, correction success, and FCR are undefined" in table
+    assert "no formal run" in table

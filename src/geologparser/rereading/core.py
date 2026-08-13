@@ -85,8 +85,10 @@ def _violations_for_path(record: Mapping[str, Any], path: str) -> tuple[int, int
     for result in results:
         evaluated += int(result.evaluated_count > 0)
         affected += sum(
-            path in violation.affected_fields or any(
-                field.startswith(path.rsplit(".", 1)[0]) for field in violation.affected_fields
+            any(
+                field == path
+                or (field.endswith("]") and path.startswith(field + "."))
+                for field in violation.affected_fields
             )
             for violation in result.violations
         )
@@ -142,6 +144,14 @@ def decide_reread(
     scores = rank_candidates(record, field_path, candidates)
     if not scores:
         return RereadDecision("NEEDS_REVIEW", field_path, original, None, "no_candidates", ())
+    values_by_source: dict[str, set[str]] = {}
+    for candidate in candidates:
+        values_by_source.setdefault(candidate.source, set()).add(str(candidate.value))
+    if any(len(values) > 1 for values in values_by_source.values()):
+        return RereadDecision(
+            "NEEDS_REVIEW", field_path, original, None,
+            "reader_emitted_multiple_distinct_values", tuple(scores),
+        )
     best = scores[0]
     competing = next(
         (score for score in scores[1:] if str(score.candidate.value) != str(best.candidate.value)),

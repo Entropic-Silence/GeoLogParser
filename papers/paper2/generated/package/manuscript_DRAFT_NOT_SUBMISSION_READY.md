@@ -33,7 +33,7 @@ C1 validates bottom>top. C2 checks thickness against bottom−top with configure
 
 ### 3.3 Constraint-guided rereading
 
-Violations locate provenance bboxes. The system pads and upscales the ROI, runs registered readers, parses candidates, and stores raw evidence. Ranking combines evidence confidence, cross-model agreement, layout confidence, and change in target constraint violations. Candidates sharing a value reinforce agreement. An acceptance proposal requires reduced target violations, minimum total score, and minimum margin against the best different value. Otherwise the output is `NEEDS_REVIEW`. The source record is not mutated; proposals carry an audit warning and require subsequent policy/human handling. Numeric Tesseract ROI rereading is integrated into the annotation UI with revision and source/crop hashes; a VLM ROI adapter and real multimodal field trial remain `TBD`.
+Violations locate provenance bboxes. The system pads and upscales the ROI, runs registered readers, parses candidates, and stores raw evidence. Ranking combines evidence confidence, cross-model agreement, layout confidence, and change in target constraint violations. Candidates sharing a value reinforce agreement. An acceptance proposal requires reduced target violations, minimum total score, minimum margin against the best different value, and exactly one distinct value per contributing reader; a reader that sees multiple numbers forces review because the ROI may span columns. Otherwise the output is `NEEDS_REVIEW`. The source record is not mutated; proposals carry an audit warning and require subsequent policy/human handling. Numeric Tesseract ROI rereading is integrated into the annotation UI with revision and source/crop hashes. A local Qwen3-VL ROI adapter accepts only a strict numeric-token JSON schema, assigns no uncalibrated confidence or token bbox, and withholds uncertain tokens from ranking.
 
 ### 3.4 Normalization and confidence
 
@@ -52,11 +52,11 @@ The implemented Paper II evaluator refuses `auto` labels, requires human-verifie
 
 ## 5. Results
 
-See [generated/current_results.md](generated/current_results.md). No Paper II experiment is yet indexed. Main results, ablations, constraint contribution, calibration, correction safety, and statistical tests are `TBD`.
+See [generated/current_results.md](generated/current_results.md). One two-case public Padova engineering audit is indexed, but both source annotations remain `auto`; it is not a method-effect experiment. Qwen3-VL returned schema-valid numeric-token JSON for both ROIs, OCR and VLM shared at least one numeric candidate in both cases, and both decisions remained `NEEDS_REVIEW`; no proposal was accepted. Mean VLM generation time was 3.510 s/ROI and peak allocated GPU memory was 8.413 GiB. <!-- evidence:p2.roi_reread_audit --> Accuracy, false correction rate, and method benefit are undefined. Main results, ablations, constraint contribution, calibration, correction safety, and statistical tests remain `TBD`.
 
 ## 6. Failure Analysis
 
-Planned categories are constraint false positive/negative, ambiguous ROI, OCR/VLM agreement on a wrong value, layout mislocalization, candidate omission, reread failure, normalization error, and unsafe correction. Implemented controlled tests show the policy abstains when a candidate fails to reduce violations or competing values lack margin; these tests are software verification, not empirical performance.
+Planned categories are constraint false positive/negative, ambiguous ROI, OCR/VLM agreement on a wrong value, layout mislocalization, candidate omission, reread failure, normalization error, and unsafe correction. In the public audit, the narrow elevation crop contained one field and both readers found `35.22`; it remained under review because changing to the same value did not reduce a violation. The groundwater provenance bbox spanned worksite, borehole, total depth, water table, and date cells. Both readers therefore saw `15.00` and `-5.80`; the constraint score favored `15.0` because it removed a negative-depth warning even though that number belonged to total depth. The run abstained because candidates were ambiguous. This observed failure motivated a stricter post-run policy that forces review whenever one reader emits multiple distinct numbers. It demonstrates a layout-localization hazard, not an error rate, because the source annotation is not human Ground Truth.
 
 ## 7. Discussion
 
@@ -64,15 +64,16 @@ Constraint consistency is not correctness: a plausible but wrong continuous sequ
 
 ## 8. Reproducibility, Safety, and Ethics
 
-UI-triggered numeric OCR runs already store ROI crops and hashes, raw OCR regions, candidates, component scores, before/after violations, and proposals. Future VLM evidence and subsequent human review actions must follow the same trace. Paid APIs require explicit authorization; local models are preferred for privacy. Quarantined project data remain local. Human timing is event-based; development time is never substituted.
+UI-triggered numeric runs store ROI crops and hashes, raw OCR regions, VLM generations and model revisions, prompt/configuration, candidates, component scores, before/after violations, and proposals. A recursive artifact manifest hashes each ROI and field-level result, while the result index hashes that manifest and all core outputs. Subsequent human review actions must follow the same trace. Paid APIs require explicit authorization; local models are preferred for privacy. Quarantined project data remain local. Human timing is event-based; development time is never substituted.
 
 ## 9. Conclusion
 
 We provide an implemented non-mutating constraint and rereading architecture designed for safe geological structuring. Whether it improves extraction and lowers critical error/FCR is `TBD` pending the full Paper II experiment suite.
 
 The repository's auto-generated [publication-readiness audit](../../docs/generated/publication_readiness.md)
-currently reports zero formal Paper II runs; software tests and design diagrams
-do not satisfy the empirical completion gate.
+currently reports zero formal Paper II runs; the indexed two-case ROI audit,
+software tests, and design diagrams do not satisfy the empirical completion
+gate.
 
 ## References
 
@@ -81,5 +82,19 @@ Shared bibliography: [../references.bib](../references.bib). Citation metadata a
 # Appendix: Machine-Generated Current Results
 
 <!-- AUTO-GENERATED. DO NOT EDIT. -->
+### Public ROI engineering audit (no Ground Truth)
 
-No Paper II experiment is indexed yet. Main, ablation, calibration, review-recall, and false-correction results are `TBD`.
+| Experiment | Cases | VLM JSON-valid | VLM uncertain | OCR/VLM numeric-agreement cases | Accept proposals | Needs review | VLM s/ROI | Peak GiB | Eligibility |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---|
+| P2_QWEN3VL4B_TESSERACT_UNIPD_ROI_AUDIT_001 | 2 | 2/2 | 0 | 2 | 0 | 2 | 3.510 | 8.413 | audit_only |
+
+These rows report parser, candidate-path, latency, and resource behavior only. Source annotations are `auto`; accuracy, correction success, and FCR are undefined.
+
+### Human-GT-gated method and ablation results
+
+<!-- AUTO-GENERATED. DO NOT EDIT. -->
+| Experiment | Variant | Disabled | Calibration n | Test n | Correction success | FCR | Review recall | Review rate | Auto-accept error | Raw ECE | Calibrated ECE | Eligibility |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
+| `TBD` | `TBD` | `TBD` | `TBD` | `TBD` | `TBD` | `TBD` | `TBD` | `TBD` | `TBD` | `TBD` | `TBD` | no formal run |
+
+Rows are generated only from human-GT-gated, identical-case, one-module-at-a-time ablation matrices.

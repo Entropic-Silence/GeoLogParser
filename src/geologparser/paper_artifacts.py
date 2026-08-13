@@ -171,8 +171,20 @@ def paper3_table(entries: list[dict], repository_root: Path) -> str:
 
 def paper2_table(entries: list[dict], repository_root: Path) -> str:
     rows = []
+    audit_rows = []
     for entry in entries:
         metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
+        if "vlm_schema_valid_count" in metrics:
+            audit_rows.append("| " + " | ".join([
+                entry["experiment_id"], str(metrics["case_count"]),
+                f'{metrics["vlm_schema_valid_count"]}/{metrics["case_count"]}',
+                str(metrics["vlm_uncertain_count"]),
+                str(metrics["cross_reader_numeric_agreement_case_count"]),
+                str(metrics["accept_proposal_count"]), str(metrics["needs_review_count"]),
+                number(metrics["vlm_latency_mean_seconds_per_roi"]),
+                number(metrics["peak_gpu_memory_bytes"] / 1024**3),
+                entry["paper_eligibility"],
+            ]) + " |")
         if metrics.get("protocol") != "paper2_one_module_ablation_matrix_v001":
             continue
         for variant_name, variant in metrics["variants"].items():
@@ -193,16 +205,24 @@ def paper2_table(entries: list[dict], repository_root: Path) -> str:
                 number(confidence["calibrated_expected_calibration_error"]["value"]),
                 entry["paper_eligibility"],
             ]) + " |")
-    if not rows:
-        return (
-            "<!-- AUTO-GENERATED. DO NOT EDIT. -->\n\n"
-            "No Paper II experiment is indexed yet. Main, ablation, calibration, "
-            "review-recall, and false-correction results are `TBD`.\n"
-        )
-    return "\n".join([
+    formal_section = [
+        "### Human-GT-gated method and ablation results", "",
         "<!-- AUTO-GENERATED. DO NOT EDIT. -->",
         "| Experiment | Variant | Disabled | Calibration n | Test n | Correction success | FCR | Review recall | Review rate | Auto-accept error | Raw ECE | Calibrated ECE | Eligibility |",
         "|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|",
-        *rows, "",
+        *rows,
+    ]
+    if not rows:
+        formal_section.append("| `TBD` | `TBD` | `TBD` | `TBD` | `TBD` | `TBD` | `TBD` | `TBD` | `TBD` | `TBD` | `TBD` | `TBD` | no formal run |")
+    formal_section.extend(["",
         "Rows are generated only from human-GT-gated, identical-case, one-module-at-a-time ablation matrices.",
+    ])
+    return "\n".join([
+        "<!-- AUTO-GENERATED. DO NOT EDIT. -->",
+        "### Public ROI engineering audit (no Ground Truth)", "",
+        "| Experiment | Cases | VLM JSON-valid | VLM uncertain | OCR/VLM numeric-agreement cases | Accept proposals | Needs review | VLM s/ROI | Peak GiB | Eligibility |",
+        "|---|---:|---:|---:|---:|---:|---:|---:|---:|---|",
+        *audit_rows, "",
+        "These rows report parser, candidate-path, latency, and resource behavior only. Source annotations are `auto`; accuracy, correction success, and FCR are undefined.",
+        "", *formal_section,
     ]) + "\n"

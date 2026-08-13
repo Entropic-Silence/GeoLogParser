@@ -70,3 +70,27 @@ def test_reread_without_candidates_abstains():
     decision = decide_reread(record(), "borehole.final_depth_m", [])
     assert decision.status == "NEEDS_REVIEW"
     assert decision.reason == "no_candidates"
+
+
+def test_reread_forces_review_when_one_reader_sees_multiple_values():
+    source = record()
+    source["intervals"][1]["top_depth_m"]["value"] = 1.5
+    decision = decide_reread(source, "intervals[1].top_depth_m", [
+        Candidate(1.2, "wide_roi_ocr", "1.20", 0.99, 0.99, 0.99),
+        Candidate(15.0, "wide_roi_ocr", "15.00", 0.40, 0.40, 0.99),
+        Candidate(1.2, "vlm", "1.20"),
+    ])
+    assert decision.status == "NEEDS_REVIEW"
+    assert decision.reason == "reader_emitted_multiple_distinct_values"
+    assert decision.accepted_value is None
+
+
+def test_candidate_constraint_score_ignores_unrelated_borehole_warning():
+    source = record()
+    source["borehole"]["groundwater_depth_m"]["value"] = -1.0
+    score = rank_candidates(source, "borehole.collar_elevation_m", [
+        Candidate(100.0, "ocr", "100.0", 0.9, 0.9, 0.9),
+    ])[0]
+    assert score.violations_before == 0
+    assert score.violations_after == 0
+    assert score.constraint_score == 0.5

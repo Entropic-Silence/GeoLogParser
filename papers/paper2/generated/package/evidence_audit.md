@@ -2,8 +2,8 @@
 # paper2 evidence audit
 
 Package: **DRAFT_NOT_SUBMISSION_READY**
-Manuscript words: **1176**; unresolved markers: **7**.
-Indexed runs: **0**; formal runs: **0**.
+Manuscript words: **1401**; unresolved markers: **6**.
+Indexed runs: **1**; formal runs: **0**.
 Structural audit: **PASSED**.
 
 ## Blockers
@@ -13,10 +13,10 @@ Structural audit: **PASSED**.
 
 ## Trace
 
-- Manuscript SHA256: `53c9e1ee1f97cb85d63b22239675d788d6c748bf26bde44ccac03b9bc34a96d2`
-- Result-index SHA256: `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+- Manuscript SHA256: `262e90a442fcaa33350dfa04043fa7dad967feaaeba417ff2c5d28e2ee3ebc3e`
+- Result-index SHA256: `605a306798dcc0ed65af351213a2ca2cacb0fbf0a32109ab4101a8b5d5237194`
 - Citation keys: brier1950verification, guo2017calibration, han2024boreholeocr, xu2020layoutlm, xu2021layoutlmv2
 - Broken local links: none
 - Missing required sections: none
-- Evidence tags: none
+- Evidence tags: p2.roi_reread_audit
 - Claim-source errors: none

@@ -18,6 +18,7 @@ from geologparser.annotation_reread import run_annotation_reread
 from geologparser.experiment import create_run_directory
 from geologparser.ocr import TesseractOCRAdapter
 from geologparser.rereading import VLMNumericROIAdapter
+from geologparser.result_index import write_artifact_manifest
 from geologparser.vlm import Qwen3VLTransformersAdapter
 
 
@@ -246,6 +247,7 @@ def main() -> None:
     )
     if errors:
         raise RuntimeError(f"{len(errors)} ROI case(s) failed; run is not indexable")
+    write_artifact_manifest(run)
     print(run)
 
 

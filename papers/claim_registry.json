@@ -159,6 +159,25 @@
         {"type": "json_pointer_equals", "pointer": "/fusion_decision_counts/vlm_unavailable_keep_grounded", "expected": 4}
       ]
     },
+    "p2.roi_reread_audit": {
+      "paper": "paper2",
+      "experiment_id": "P2_QWEN3VL4B_TESSERACT_UNIPD_ROI_AUDIT_001",
+      "source_path": "results/2026-08-13/P2_QWEN3VL4B_TESSERACT_UNIPD_ROI_AUDIT_001/metrics.json",
+      "source_sha256": "21e59b9eb4a80d700e3c8eddbcbab6b748415b3a37dc3fe07c8b9a11b1c7f518",
+      "scope": "two-case public auto-annotation ROI engineering audit; no accuracy, FCR, or method-effect claim",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/case_count", "expected": 2},
+        {"type": "json_pointer_equals", "pointer": "/completed_case_count", "expected": 2},
+        {"type": "json_pointer_equals", "pointer": "/vlm_schema_valid_count", "expected": 2},
+        {"type": "json_pointer_equals", "pointer": "/cross_reader_numeric_agreement_case_count", "expected": 2},
+        {"type": "json_pointer_equals", "pointer": "/accept_proposal_count", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/needs_review_count", "expected": 2},
+        {"type": "json_pointer_equals", "pointer": "/vlm_latency_mean_seconds_per_roi", "expected": 3.5099310049999985},
+        {"type": "json_pointer_equals", "pointer": "/peak_gpu_memory_bytes", "expected": 9032973312},
+        {"type": "json_pointer_equals", "pointer": "/accuracy_metrics", "expected": null},
+        {"type": "json_pointer_equals", "pointer": "/false_correction_rate", "expected": null}
+      ]
+    },
     "p3.idw_multiseed": {
       "paper": "paper3", "experiment_id": "P3_SYNTHETIC_ERROR_PROPAGATION_MULTISEED_001",
       "source_path": "results/2026-08-12/P3_SYNTHETIC_ERROR_PROPAGATION_MULTISEED_001/metrics.json",
