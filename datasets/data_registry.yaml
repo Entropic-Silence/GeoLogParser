@@ -368,18 +368,18 @@ datasets:
     doi: 10.17632/vkjwwb8zsh.2
     license_url: https://creativecommons.org/licenses/by/4.0/legalcode
     access_date: "2026-08-13"
-    language: English metadata; file-cell language uninspected
-    format: "44 XLSX files according to anonymous file inventory"
-    scale: "44 files; 5,923,040 total bytes; abstract states 44 CPTU soundings and 10 borehole records"
+    language: English metadata and English workbook headers
+    format: "44 XLSX files; each contains one seven-column CPTU measurement sheet"
+    scale: "verified acquisition: 44 files, 5,923,040 bytes, and 165,000 measurement rows; source abstract also states 10 borehole records, but no such records occur in the released v2 inventory"
     downloadable: true
-    access_status: "public anonymous file inventory verified; files not downloaded"
+    access_status: "public anonymous inventory, download, SHA256, and workbook structure verified"
     license: Creative Commons Attribution 4.0 International
     allowed_usage: "share and adapt with attribution, subject to embedded-content review"
     redistribution: conditional
-    redistribution_policy: "inspect workbook content, coordinates, privacy, and embedded rights before redistribution"
-    paper_fit: [paper3_structured_database_candidate]
-    status: file_inventory_verified_format_outside_phase1
-    verification_notes: "The frozen inventory contains XLSX only and no PDF/JPG/PNG. It is not a document-extraction Benchmark candidate and no source-reported borehole count enters project inventory."
+    redistribution_policy: "retain DOI/creator/CC BY attribution; confirm measurement units and embedded-data treatment before redistributing transformed records"
+    paper_fit: [paper3_nonspatial_cptu_protocol_development]
+    status: acquired_content_audited_ineligible_for_current_formal_experiments
+    verification_notes: "All 44 acquired files matched repository hashes. They share schema Name/X/Y/Depth/qt/fs/u2 and contain 3,750 rows each; X and Y are '*' in every row, units and CRS are absent, and no lithology/stratigraphic intervals, borehole-record tables, or laboratory tables are present. The 165,000-row count is a measurement-row count, not a borehole or GT count. Audit v002 SHA256 is 31628e74ec28aa7d7da0c8cdfd82060bd9abcd4116027339358f9808add13be0. This source is not AI output or human GT."
 
   - id: mendeley_wuhan_karst_boreholes_v001
     name: "Data for: Formation mechanism analysis of karst collapses in Jinshuizha, Wuhan, China"
@@ -428,18 +428,18 @@ datasets:
     doi: 10.17632/33z3d5r6xk.1
     license_url: https://creativecommons.org/licenses/by/4.0/legalcode
     access_date: "2026-08-13"
-    language: English metadata; workbook language uninspected
+    language: English metadata, workbook headers, and README
     format: "one 66,004-byte XLSX plus README, requirements, and entry script"
-    scale: "source abstract labels the workbook as a 602-borehole minimum dataset; files not downloaded or counted as project data"
+    scale: "verified acquisition: 4 files, 70,490 bytes; workbook contains 602 unique borehole records and 13 fields"
     downloadable: true
-    access_status: "public anonymous file inventory verified; files not downloaded"
+    access_status: "public anonymous inventory, download, SHA256, and workbook structure verified"
     license: Creative Commons Attribution 4.0 International
     allowed_usage: "share and adapt repository content with attribution"
     redistribution: conditional
-    redistribution_policy: "inspect workbook content, privacy, coordinates, and the documented confidential-data boundary before redistribution"
-    paper_fit: [paper3_error_propagation_candidate]
-    status: file_inventory_verified_structured_candidate
-    verification_notes: "The repository description states that the full engineering dataset is confidential. The public XLSX may support a controlled Paper III structured-data study after inspection, but it is not a legacy page-image source."
+    redistribution_policy: "do not redistribute transformed coordinate records before human privacy/sensitive-location and CRS review; retain DOI/creator/CC BY attribution"
+    paper_fit: [paper3_protocol_development, paper3_error_propagation_candidate]
+    status: acquired_content_audited_candidate_pending_human_spatial_review
+    verification_notes: "The workbook has 602 complete, unique directional gas-drainage borehole records with numeric X/Y/Z, final depth, No. 3 coal roof depth/thickness, and orientation fields. CRS is not declared and precise local engineering coordinates require human sensitivity review. The README contains a contact email. The released run_all.py references four scripts absent from the acquired four-file inventory, so the source workflow is not runnable as released. Audit v002 SHA256 is 261bee6cdd7b400476aa34c19046034303c2114cf4f26c5cb1c5e0151f852b21. It is source structured data, not AI extraction output or human GT, and cannot establish extraction accuracy or QC benefit."
 
   - id: mendeley_songliao_geophysical_logs_v002
     name: "Mineralogical, geochemical, and geophysical logs of the Lower Cretaceous Shahezi Formation"

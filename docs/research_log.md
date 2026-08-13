@@ -976,3 +976,32 @@
 - Publication state: the readiness audit still reports zero exportable Ground
   Truth pages and zero formal runs for Paper I, II, and III. All manuscript
   packages remain `DRAFT_NOT_SUBMISSION_READY` with unresolved `TBD` evidence.
+
+## 2026-08-13 — Licensed structured-data acquisition and content audit
+
+- Acquisition: downloaded and SHA256-verified the frozen Mendeley inventories
+  for Binhai BH-CPTU/10-44 (`44` XLSX, `5,923,040` bytes) and the coal-borehole
+  minimum release (`4` files, `70,490` bytes). The acquisition evidence SHA256
+  values are `a689d0cd41f5c1a94fae6c4e5bfeda0c10f114fb342ab390cae62557e94ea0cf`
+  and `1a808d2f89050e5cad4d6bf315a0bc1e6ffe17de8012eb6e8600f7b94b62d9ad`.
+- Binhai observation: all 44 files are seven-column CPTU sheets with 3,750 rows
+  each, for 165,000 measurement rows. X/Y are redacted as `*`; units, CRS,
+  lithology, intervals, borehole records, and laboratory tables are absent. The
+  source is ineligible for current formal Paper I-III experiments. Audit v002
+  SHA256 is `31628e74ec28aa7d7da0c8cdfd82060bd9abcd4116027339358f9808add13be0`.
+- Coal observation: the workbook has 602 unique and complete records. It exposes
+  numeric local X/Y/Z and directional borehole/coal-seam fields, but no CRS.
+  The README exposes a contact email and precise locations await human review.
+  The entrypoint references four absent scripts, so the released workflow is
+  not runnable as published. Audit v002 SHA256 is
+  `261bee6cdd7b400476aa34c19046034303c2114cf4f26c5cb1c5e0151f852b21`.
+- Constraint lesson: `roof_depth + seam_thickness > final_depth` occurs in 594
+  coal records, but those fields describe directional drilled/geometric
+  quantities with incompletely documented reference semantics. It is retained
+  as an observation and must not trigger correction. Audit v001 encoded the
+  angle relation incorrectly; it remains immutable as failed history and was
+  superseded by v002, where `zenith - inclination = 90 degrees` is verified.
+- Evidence boundary: both releases are `source_structured_data`, not document
+  images, AI extractions, constraint-validated predictions, or human Ground
+  Truth. Formal experiment counts and manuscript status therefore remain
+  unchanged. No GPU was used and mining was not interrupted.

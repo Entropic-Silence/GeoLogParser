@@ -166,14 +166,31 @@ geolocation review must be established before acquisition.
 
 ## Newly registered structured-data leads — not Paper I page images
 
-- **Binhai BH-CPTU/10-44** (`10.17632/vkjwwb8zsh.2`) exposes 44 XLSX files
-  under CC BY 4.0. It is a Paper III structured-data lead, not PDF/JPG/PNG.
+- **Binhai BH-CPTU/10-44** (`10.17632/vkjwwb8zsh.2`) was acquired under CC BY
+  4.0 and all 44 XLSX files matched repository hashes. Contrary to the broader
+  abstract description, the released v2 inventory contains only 44 CPTU
+  measurement workbooks: 165,000 rows with schema
+  `Name/X/Y/Depth/qt/fs/u2`. Every X/Y cell is `*`; units, CRS, lithology,
+  stratigraphic intervals, the stated 10 borehole records, and laboratory data
+  are absent. It is therefore ineligible for current formal experiments, but
+  can support non-spatial CPTU protocol development. Frozen content-audit v002
+  SHA256 is `31628e74ec28aa7d7da0c8cdfd82060bd9abcd4116027339358f9808add13be0`.
 - **Wuhan karst-collapse data** (`10.17632/g7gzd8jfyn.1`) describes CSV
   lithology/location data but exposes `embargoedAccess` alongside CC BY 4.0.
   The access conflict must be resolved before acquisition.
-- **PRD-CLAY** (`10.17632/jr8gcyhsff.1`), the 602-coal-borehole minimum dataset
-  (`10.17632/33z3d5r6xk.1`), and the Songliao geophysical logs
-  (`10.17632/fgn2chjdnz.2`) expose DOCX/XLSX/code rather than legacy page images.
+- **602-coal-borehole minimum dataset** (`10.17632/33z3d5r6xk.1`) was acquired
+  under CC BY 4.0. Its workbook contains 602 complete, unique directional
+  borehole records and 13 fields including numeric local X/Y/Z, final drilled
+  depth, No. 3 coal roof depth/thickness, and orientation. It is a useful Paper
+  III protocol candidate, but CRS is absent, precise locations need human
+  sensitivity review, and it is source structured data rather than AI output or
+  human GT. The published `run_all.py` references four workflow scripts that
+  are not present in the four-file release, so the source workflow is not
+  runnable as released. Frozen content-audit v002 SHA256 is
+  `261bee6cdd7b400476aa34c19046034303c2114cf4f26c5cb1c5e0151f852b21`.
+- **PRD-CLAY** (`10.17632/jr8gcyhsff.1`) and the Songliao geophysical logs
+  (`10.17632/fgn2chjdnz.2`) expose DOCX/XLSX rather than legacy page images and
+  remain unacquired structured-data leads.
 - **CGS Pingluo, Luhuatai, Doumen, and Huangling records** describe engineering
   boreholes, tests, field photos, databases, or 3D outputs. None exposes both a
   reusable licence and an inspectable Phase-1 file inventory. Abstract quantities
