@@ -7,6 +7,10 @@ from .error_propagation import (
     SurfacePoint, aggregate_repeated_metrics, boundary_surface_points, idw_predict, perturb_interval_boundaries,
     spatial_model_readiness, surface_error_metrics,
 )
+from .source_surface import (
+    SourceFieldSurface, convex_hull_xy, load_coal_602_roof_depth_surface,
+    perturb_surface_scalar, regular_queries_within_hull,
+)
 from .metrics import (
     IntervalMatch,
     boundary_matched_interval_metrics,
@@ -38,6 +42,8 @@ __all__ = [
     "match_intervals_by_boundaries", "mean_absolute_error", "numeric_with_missing_mae",
     "boundary_surface_points", "idw_predict", "perturb_interval_boundaries",
     "surface_error_metrics", "spatial_model_readiness", "aggregate_repeated_metrics", "ERROR_TAXONOMY_V001", "classify_field_error",
+    "SourceFieldSurface", "convex_hull_xy", "load_coal_602_roof_depth_surface",
+    "perturb_surface_scalar", "regular_queries_within_hull",
     "error_distribution", "character_error_rate", "numeric_character_error_rate",
     "normalized_edit_similarity",
     "sequence_error_rate", "word_error_rate",
