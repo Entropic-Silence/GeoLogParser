@@ -12,7 +12,7 @@
     "xu2021layoutlmv2"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "366c454b870aa673d42ffa23463b024b14dfe1e726f12993c612e02d64831255",
+  "claim_registry_sha256": "d48c0cef57a6cd79fcd6b9c5ef7a4602dad1be23613399316a93432609d3bc52",
   "claim_source_errors": [],
   "evidence_tags": [
     "p2.roi_reread_audit"

@@ -1,0 +1,31 @@
+{
+  "accuracy_metrics": null,
+  "accuracy_metrics_reason": "source candidates have no human Ground Truth",
+  "benchmark_eligible_count": 0,
+  "completed_items": 18,
+  "coverage_channels": [
+    "direct_text_regex",
+    "positioned_text_layout"
+  ],
+  "data_status": "public_candidates_unreviewed_no_ground_truth",
+  "failed_items": 0,
+  "human_ground_truth_count": 0,
+  "human_review_count": 0,
+  "latency_mean_seconds_per_item": 0.08669244633337156,
+  "latency_total_seconds": 1.5604640340006881,
+  "layout_constraint_evaluations": 0,
+  "layout_constraint_violations": 0,
+  "layout_emitted_intervals": 0,
+  "layout_items_with_any_interval": 0,
+  "peak_process_rss_kib": 519972,
+  "record_output_policy": "hash_and_presence_only",
+  "regex_constraint_evaluations": 0,
+  "regex_constraint_violations": 0,
+  "regex_emitted_intervals": 0,
+  "regex_items_with_any_interval": 0,
+  "regex_items_with_borehole_id": 0,
+  "scope": "privacy-minimized native-PDF regex and positioned-layout coverage audit; no accuracy claim",
+  "selected_items": 18,
+  "text_characters": 3772,
+  "text_regions": 1279
+}

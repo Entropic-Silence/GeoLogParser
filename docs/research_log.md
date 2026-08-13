@@ -1218,3 +1218,23 @@
   eligibility, and human GT are zero. The source is English international
   layout/transfer material, never Chinese core-Benchmark data. The independent
   review UI runs on port 8003. No GPU was used.
+
+## 2026-08-13 — SedLog native-text and positioned-layout coverage audit
+
+- Objective: measure only whether the existing generic regex and B3
+  positioned-depth-range paths produce structured candidates on all 18 SedLog
+  pages, without persisting unreviewed source text, field values, or bboxes.
+- Run: `P1_NATIVE_LAYOUT_SEDLOG_AUDIT_001` verified the frozen content-summary,
+  content-manifest, original PDF, regex implementation, B3 implementation, and
+  constraint-config hashes before creating the result directory. It completed
+  18/18 pages and observed 1,279 native positioned text regions.
+- Observation: generic regex emitted zero intervals, and B3 emitted zero
+  intervals. B3 requires at least three distinct explicit `top-bottom` text
+  ranges in one x-position bin; the SedLog source primarily expresses
+  lithological boundaries as graphics/depth-axis geometry. Mean combined CPU
+  latency was 0.08669244633337156 s/page. Metrics SHA256 is
+  `1672f03403ccd0a307e1ce4047d1715363d56fe507163c72911862b5655d1fe4`.
+- Boundary: this is an `audit_only` structured-coverage failure, not evidence
+  of zero geological errors or an interval-recall estimate. Accuracy remains
+  null; human review and human GT remain zero. Persisted predictions contain
+  hashes/counts only. No GPU was used.

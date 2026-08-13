@@ -15,7 +15,7 @@
     "zhong2019publaynet"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "366c454b870aa673d42ffa23463b024b14dfe1e726f12993c612e02d64831255",
+  "claim_registry_sha256": "d48c0cef57a6cd79fcd6b9c5ef7a4602dad1be23613399316a93432609d3bc52",
   "claim_source_errors": [],
   "evidence_tags": [
     "p1.b2_padova",
@@ -33,6 +33,7 @@
     "p1.padova_annotation_assignment",
     "p1.padova_inventory",
     "p1.sedlog_content",
+    "p1.sedlog_native_coverage",
     "p1.sedlog_source_review",
     "p1.slopes_content",
     "p1.slopes_rapidocr_coverage",
@@ -56,12 +57,12 @@
     "10. Conclusion",
     "References"
   ],
-  "indexed_experiment_count": 25,
+  "indexed_experiment_count": 26,
   "local_links": [
     {
       "exists": true,
       "resolved_path": "papers/paper1/generated/current_results.md",
-      "sha256": "eeeea9735dee0a58897c0d94e7c3a43cf38f2f9ab481e884829104f0337f0f0d",
+      "sha256": "c381678ae331485baeb800fd3783523a72a791e2c599d7425fa2411b9d9df389",
       "target": "generated/current_results.md"
     },
     {
@@ -96,7 +97,7 @@
     }
   ],
   "manuscript_path": "papers/paper1/manuscript.md",
-  "manuscript_sha256": "6f8bfd15be6b6d2293074c55d574baa731601231c9d9f901c4f30f9152524fcf",
+  "manuscript_sha256": "0d8577b9d61ce96cf643ed443d24a64a91e70aafd838864e78ad58ead8b4bfb0",
   "missing_bibliography_keys": [],
   "missing_claim_registrations": [],
   "missing_required_sections": [],
@@ -118,6 +119,7 @@
     "p1.padova_annotation_assignment",
     "p1.padova_inventory",
     "p1.sedlog_content",
+    "p1.sedlog_native_coverage",
     "p1.sedlog_source_review",
     "p1.slopes_content",
     "p1.slopes_rapidocr_coverage",
@@ -128,10 +130,10 @@
   ],
   "result_index_errors": [],
   "result_index_path": "experiments/paper1/result_index.jsonl",
-  "result_index_sha256": "2abbf064adc6ff1aba6c6ee869b0b25048d8cfb9e9a15152060ffb9f31ee021b",
+  "result_index_sha256": "396698dcac3f5f43828ae9fc683c56cdb22b9b66a4ba40af317c9ecbb5966f90",
   "structurally_complete": true,
   "submission_ready": false,
   "tbd_or_citation_marker_count": 10,
   "unused_claim_registrations": [],
-  "word_count": 2401
+  "word_count": 2478
 }

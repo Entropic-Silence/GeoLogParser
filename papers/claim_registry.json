@@ -85,6 +85,26 @@
         {"type": "json_pointer_equals", "pointer": "/pack_manifest_sha256", "expected": "85d8cba35d615a7be4e33b010374df07c2600b9f72d3e32fef6974cc69bb5833"}
       ]
     },
+    "p1.sedlog_native_coverage": {
+      "paper": "paper1",
+      "experiment_id": "P1_NATIVE_LAYOUT_SEDLOG_AUDIT_001",
+      "scope": "privacy-minimized native-text regex and B3 positioned-layout coverage failure on 18 unreviewed public SedLog pages; no accuracy claim",
+      "source_path": "results/2026-08-13/P1_NATIVE_LAYOUT_SEDLOG_AUDIT_001/metrics.json",
+      "source_sha256": "1672f03403ccd0a307e1ce4047d1715363d56fe507163c72911862b5655d1fe4",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/selected_items", "expected": 18},
+        {"type": "json_pointer_equals", "pointer": "/completed_items", "expected": 18},
+        {"type": "json_pointer_equals", "pointer": "/text_regions", "expected": 1279},
+        {"type": "json_pointer_equals", "pointer": "/regex_items_with_any_interval", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/regex_emitted_intervals", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/layout_items_with_any_interval", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/layout_emitted_intervals", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/latency_mean_seconds_per_item", "expected": 0.08669244633337156},
+        {"type": "json_pointer_equals", "pointer": "/record_output_policy", "expected": "hash_and_presence_only"},
+        {"type": "json_pointer_equals", "pointer": "/accuracy_metrics", "expected": null},
+        {"type": "json_pointer_equals", "pointer": "/human_ground_truth_count", "expected": 0}
+      ]
+    },
     "p1.slopes_tesseract_coverage": {
       "paper": "paper1",
       "experiment_id": "P1_B1_TESSERACT_SLOPES_AUDIT_001",
