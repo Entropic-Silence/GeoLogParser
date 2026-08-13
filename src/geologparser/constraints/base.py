@@ -20,8 +20,9 @@ class ConstraintViolation:
 @dataclass(frozen=True)
 class ConstraintResult:
     name: str
+    status: str
     passed: bool
-    score: float
+    score: float | None
     severity: str
     affected_fields: tuple[str, ...]
     reason: str
@@ -74,8 +75,9 @@ def make_result(
     if evaluated_count == 0:
         return ConstraintResult(
             name=name,
+            status="not_evaluated",
             passed=True,
-            score=1.0,
+            score=None,
             severity=severity,
             affected_fields=(),
             reason=not_evaluated_reason,
@@ -86,6 +88,7 @@ def make_result(
     passed = not violations
     return ConstraintResult(
         name=name,
+        status="passed" if passed else "violated",
         passed=passed,
         score=max(0.0, 1.0 - len(violations) / evaluated_count),
         severity=severity,
@@ -95,4 +98,3 @@ def make_result(
         evaluated_count=evaluated_count,
         violations=tuple(violations),
     )
-

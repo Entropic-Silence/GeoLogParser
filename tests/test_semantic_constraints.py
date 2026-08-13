@@ -7,6 +7,7 @@ from geologparser.constraints import (
     default_engine,
 )
 from geologparser.io import field
+import pytest
 
 
 def test_groundwater_flags_negative_and_below_final_without_correction():
@@ -33,6 +34,10 @@ def test_percentage_constraint_rejects_invalid_configured_range():
         assert "minimum" in str(error)
     else:
         raise AssertionError("invalid range must fail during configuration")
+    with pytest.raises(ValueError, match="field_names"):
+        PercentageRangeConstraint(field_names=())
+    with pytest.raises(ValueError, match="field_names"):
+        PercentageRangeConstraint(field_names="rqd_percent")
 
 
 def test_coordinate_confusable_and_digit_length_are_separate_violations():
@@ -55,6 +60,24 @@ def test_coordinate_header_words_do_not_trigger_confusable_warning():
     result = CoordinateFormatConstraint().evaluate(source)
     assert result.evaluated_count == 1
     assert result.violations == ()
+
+
+def test_coordinate_confusables_are_configuration_driven():
+    source = {"borehole": {
+        "x_coordinate": field(None, source_text="29229O"),
+        "y_coordinate": field(None, source_text="29229I"),
+    }, "intervals": []}
+    only_letter_i = CoordinateFormatConstraint(confusables=("I/1",)).evaluate(source)
+    assert [violation.affected_fields for violation in only_letter_i.violations] == [
+        ("borehole.y_coordinate",),
+    ]
+
+
+def test_coordinate_constraint_rejects_invalid_bounds_and_confusables():
+    with pytest.raises(ValueError, match="digit bounds"):
+        CoordinateFormatConstraint(minimum_digits=5, maximum_digits=4)
+    with pytest.raises(ValueError, match="unsupported"):
+        CoordinateFormatConstraint(confusables=("S/5",))
 
 
 def test_stratum_sequence_is_weak_and_handles_circled_numbers():

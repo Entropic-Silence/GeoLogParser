@@ -11,12 +11,14 @@ import subprocess
 import time
 from pathlib import Path
 
-from geologparser.constraints import default_engine
+from geologparser.constraints import load_engine_config
 from geologparser.experiment import create_run_directory
 from geologparser.extraction import fuse_records
+from geologparser.result_index import file_sha256
 
 
 ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_CONSTRAINT_CONFIG = ROOT / "configs/constraints/default_v001.yaml"
 
 
 def sha256(path: Path) -> str:
@@ -35,7 +37,9 @@ def main() -> None:
     parser.add_argument("--dataset-manifest", type=Path, required=True)
     parser.add_argument("--dataset-version", required=True)
     parser.add_argument("--results-root", type=Path, default=ROOT / "results")
+    parser.add_argument("--constraint-config", type=Path, default=DEFAULT_CONSTRAINT_CONFIG)
     arguments = parser.parse_args()
+    constraint_engine = load_engine_config(arguments.constraint_config)
     vlm_rows = {
         row["item_id"]: row for row in (
             json.loads(line) for line in arguments.vlm_predictions.read_text(encoding="utf-8").splitlines() if line
@@ -63,6 +67,8 @@ def main() -> None:
             "vlm_predictions_sha256": sha256(arguments.vlm_predictions),
             "dataset_manifest_path": str(arguments.dataset_manifest),
             "dataset_manifest_sha256": sha256(arguments.dataset_manifest),
+            "constraint_config_path": str(arguments.constraint_config.resolve()),
+            "constraint_config_sha256": file_sha256(arguments.constraint_config),
             "scope": "public unannotated B6 engineering audit; no accuracy claim",
         },
     })
@@ -81,7 +87,7 @@ def main() -> None:
                 decisions = [{"field_path": "record", "decision": "vlm_unavailable_keep_grounded"}]
                 visual_available = False
                 failures.append({"item_id": item_id, "error_type": "vlm_unavailable_for_fusion"})
-            constraints = default_engine().evaluate(record)
+            constraints = constraint_engine.evaluate(record)
             row = {
                 "item_id": item_id, "visual_record_available": visual_available,
                 "record": record, "fusion_decisions": decisions,

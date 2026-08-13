@@ -10,14 +10,16 @@ import subprocess
 import time
 from pathlib import Path
 
-from geologparser.constraints import default_engine
+from geologparser.constraints import load_engine_config
 from geologparser.experiment import create_run_directory
 from geologparser.extraction import extract_structured
 from geologparser.layout import extract_depth_column_intervals
 from geologparser.pdf import PyMuPDFPanelTextAdapter
+from geologparser.result_index import file_sha256
 
 
 ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_CONSTRAINT_CONFIG = ROOT / "configs/constraints/default_v001.yaml"
 
 
 def main() -> None:
@@ -26,7 +28,9 @@ def main() -> None:
     parser.add_argument("--manifest", type=Path, required=True)
     parser.add_argument("--dataset-version", required=True)
     parser.add_argument("--results-root", type=Path, default=ROOT / "results")
+    parser.add_argument("--constraint-config", type=Path, default=DEFAULT_CONSTRAINT_CONFIG)
     arguments = parser.parse_args()
+    constraint_engine = load_engine_config(arguments.constraint_config)
     items = [json.loads(line) for line in arguments.manifest.read_text(encoding="utf-8").splitlines() if line]
     commit = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True, capture_output=True, check=True).stdout.strip()
     run = create_run_directory(arguments.results_root, {
@@ -40,6 +44,8 @@ def main() -> None:
         "config": {
             "manifest_path": str(arguments.manifest), "x_bin_points": 12.0,
             "minimum_unique_ranges": 3,
+            "constraint_config_path": str(arguments.constraint_config.resolve()),
+            "constraint_config_sha256": file_sha256(arguments.constraint_config),
             "scope": "public auto-proposal B3 engineering audit; no accuracy claim",
         },
     })
@@ -61,7 +67,7 @@ def main() -> None:
             })
             intervals = extract_depth_column_intervals(regions)
             record["intervals"] = intervals
-            constraints = default_engine().evaluate(record)
+            constraints = constraint_engine.evaluate(record)
             row = {
                 "item_id": item["panel_id"], "text_region_count": len(regions),
                 "interval_count": len(intervals), "record": record,

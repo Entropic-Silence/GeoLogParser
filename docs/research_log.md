@@ -1028,3 +1028,25 @@
   QC comparison, true coal-seam surface, geological sensitivity estimate,
   Ground Truth study, or formal Paper III experiment. Formal Paper III run count
   remains zero.
+
+## 2026-08-13 — Constraint configuration and applicability audit
+
+- Problem: C1-C10 were implemented and non-mutating, but
+  `configs/constraints/default_v001.yaml` did not instantiate the engine. Its
+  enable flags and module parameters therefore could not serve as reproducible
+  ablation controls. Also, zero evaluated checks were serialized as
+  `passed=true, score=1.0`, which could reward missing or inapplicable data in a
+  naive aggregation.
+- Implementation: added a strict versioned YAML loader that rejects missing or
+  unknown sections/keys, validates numeric ranges, and instantiates enabled
+  modules with configured tolerance, severity, percentage fields/range, digit
+  bounds, and C8 confusables. B1-B6/native audit runners now accept
+  `--constraint-config` and freeze its path and SHA256 in future run metadata.
+- Semantics: constraint results now expose `status` as `passed`, `violated`, or
+  `not_evaluated`. The last state has `score=null` and `evaluated_count=0`;
+  `passed=true` remains only for backward compatibility. A directional-source
+  record without stratigraphic intervals produces ten `not_evaluated` results,
+  not ten successful geological checks.
+- Scope: existing immutable experiment outputs were not rewritten. New status
+  fields and config hashes apply to future runs. Formal Paper II results still
+  require human Ground Truth and the complete one-module ablation matrix.

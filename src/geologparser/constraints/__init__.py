@@ -6,7 +6,7 @@ from .depth import (
     MonotonicityConstraint,
     ThicknessConsistencyConstraint,
 )
-from .engine import ConstraintEngine, default_engine
+from .engine import ConstraintEngine, default_engine, engine_from_config, load_engine_config
 from .semantic import (
     CoordinateFormatConstraint,
     FieldTypeConsistencyConstraint,
@@ -20,6 +20,7 @@ __all__ = [
     "ContinuityConstraint", "DepthValidityConstraint",
     "FinalDepthConsistencyConstraint", "GeologicalConstraint",
     "MonotonicityConstraint", "ThicknessConsistencyConstraint", "default_engine",
+    "engine_from_config", "load_engine_config",
     "CoordinateFormatConstraint", "FieldTypeConsistencyConstraint",
     "GroundwaterReasonablenessConstraint", "PercentageRangeConstraint",
     "StratumCodeSequenceConstraint",

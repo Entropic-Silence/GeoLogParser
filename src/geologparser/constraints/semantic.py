@@ -53,6 +53,12 @@ class PercentageRangeConstraint(GeologicalConstraint):
         maximum: Decimal | str = "100",
         severity: str = "error",
     ) -> None:
+        if (
+            isinstance(field_names, (str, bytes))
+            or not field_names
+            or any(not isinstance(name, str) or not name.strip() for name in field_names)
+        ):
+            raise ValueError("percentage field_names must be a non-empty sequence of names")
         minimum_decimal = Decimal(str(minimum))
         maximum_decimal = Decimal(str(maximum))
         if minimum_decimal > maximum_decimal:
@@ -88,9 +94,23 @@ class PercentageRangeConstraint(GeologicalConstraint):
 class CoordinateFormatConstraint(GeologicalConstraint):
     name = "C8_coordinate_format"
 
-    def __init__(self, minimum_digits: int = 4, maximum_digits: int = 12, severity: str = "warning") -> None:
+    SUPPORTED_CONFUSABLES = {"O/0", "I/1", "l/1"}
+
+    def __init__(
+        self,
+        minimum_digits: int = 4,
+        maximum_digits: int = 12,
+        confusables: Sequence[str] = ("O/0", "I/1", "l/1"),
+        severity: str = "warning",
+    ) -> None:
+        if minimum_digits < 1 or maximum_digits < minimum_digits:
+            raise ValueError("coordinate digit bounds must satisfy 1 <= minimum <= maximum")
+        unsupported = set(confusables) - self.SUPPORTED_CONFUSABLES
+        if unsupported:
+            raise ValueError(f"unsupported numeric OCR confusables: {sorted(unsupported)}")
         self.minimum_digits = minimum_digits
         self.maximum_digits = maximum_digits
+        self.confusables = tuple(confusables)
         self.severity = severity
 
     def evaluate(self, record: Mapping[str, Any]):
@@ -110,7 +130,20 @@ class CoordinateFormatConstraint(GeologicalConstraint):
             # Inspect a compact numeric token, not header words such as
             # ``Elevation`` that naturally contain i/l. Mixed alphanumeric
             # tokens like 29229O remain suspicious.
-            confusable_token = re.search(r"(?<![A-Za-z])[-+]?\d[0-9.,OoIl+-]*[OoIl][0-9.,OoIl+-]*(?![A-Za-z])", raw_text)
+            configured_letters = ""
+            if "O/0" in self.confusables:
+                configured_letters += "Oo"
+            if "I/1" in self.confusables:
+                configured_letters += "I"
+            if "l/1" in self.confusables:
+                configured_letters += "l"
+            confusable_token = None
+            if configured_letters:
+                letters = re.escape(configured_letters)
+                confusable_token = re.search(
+                    rf"(?<![A-Za-z])[-+]?\d[0-9.,{letters}+-]*[{letters}][0-9.,{letters}+-]*(?![A-Za-z])",
+                    raw_text,
+                )
             if confusable_token:
                 violations.append(ConstraintViolation(
                     code="NUMERIC_OCR_CONFUSABLE", affected_fields=(f"borehole.{name}",),

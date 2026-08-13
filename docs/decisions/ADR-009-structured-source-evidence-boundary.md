@@ -40,6 +40,11 @@ not violations. In particular, no automatic correction is authorized from a
 cross-field relation until the fields' physical reference definitions are
 documented.
 
+Constraint results use three explicit states: `passed`, `violated`, and
+`not_evaluated`. A not-evaluated result retains `passed=true` only for backward
+compatibility, but its score is null and its evaluated count is zero. It must
+not contribute a successful check to consistency metrics.
+
 ## Consequences
 
 - Paper III can develop against real, licensed tabular records without leaking

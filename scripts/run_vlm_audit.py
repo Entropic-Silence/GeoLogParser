@@ -12,9 +12,10 @@ import subprocess
 from importlib.metadata import version
 from pathlib import Path
 
-from geologparser.constraints import default_engine
+from geologparser.constraints import load_engine_config
 from geologparser.experiment import create_run_directory
 from geologparser.schema import validate_record
+from geologparser.result_index import file_sha256
 from geologparser.vlm import (
     Qwen3VLTransformersAdapter,
     compact_payload_to_record,
@@ -23,6 +24,7 @@ from geologparser.vlm import (
 
 
 ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_CONSTRAINT_CONFIG = ROOT / "configs/constraints/default_v001.yaml"
 MODEL_ID = "Qwen/Qwen3-VL-4B-Instruct"
 MODEL_REVISION = "ebb281ec70b05090aa6165b016eac8ec08e71b17"
 MODEL_PATH = Path("/data/GeoLogParser/models/huggingface/Qwen3-VL-4B-Instruct")
@@ -66,7 +68,9 @@ def main() -> None:
     parser.add_argument("--min-pixels", type=int, default=256 * 28 * 28)
     parser.add_argument("--max-pixels", type=int, default=1280 * 28 * 28)
     parser.add_argument("--limit", type=int)
+    parser.add_argument("--constraint-config", type=Path, default=DEFAULT_CONSTRAINT_CONFIG)
     arguments = parser.parse_args()
+    constraint_engine = load_engine_config(arguments.constraint_config)
     if os.environ.get("CUDA_VISIBLE_DEVICES") in (None, "", "-1"):
         raise RuntimeError("set CUDA_VISIBLE_DEVICES to one explicitly selected, paused GPU")
     manifest = [
@@ -114,6 +118,8 @@ def main() -> None:
             "min_pixels": arguments.min_pixels,
             "max_pixels": arguments.max_pixels,
             "do_sample": False,
+            "constraint_config_path": str(arguments.constraint_config.resolve()),
+            "constraint_config_sha256": file_sha256(arguments.constraint_config),
             "scope": "engineering audit; no Ground Truth accuracy claim",
         },
     })
@@ -162,7 +168,7 @@ def main() -> None:
                 })
                 validate_record(record)
                 row["record"] = record
-                row["constraints"] = [constraint_dict(result) for result in default_engine().evaluate(record)]
+                row["constraints"] = [constraint_dict(result) for result in constraint_engine.evaluate(record)]
                 row["parse_status"] = "schema_valid"
             except Exception as exc:
                 row["parse_error"] = f"{type(exc).__name__}: {exc}"

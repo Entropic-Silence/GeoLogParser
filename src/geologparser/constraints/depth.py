@@ -46,6 +46,8 @@ class ThicknessConsistencyConstraint(GeologicalConstraint):
 
     def __init__(self, tolerance_m: Decimal | str = "0.05", severity: str = "warning") -> None:
         self.tolerance_m = Decimal(str(tolerance_m))
+        if self.tolerance_m < 0:
+            raise ValueError("thickness tolerance must be non-negative")
         self.severity = severity
 
     def evaluate(self, record: Mapping[str, Any]):
@@ -76,6 +78,8 @@ class ContinuityConstraint(GeologicalConstraint):
 
     def __init__(self, tolerance_m: Decimal | str = "0.05", severity: str = "warning") -> None:
         self.tolerance_m = Decimal(str(tolerance_m))
+        if self.tolerance_m < 0:
+            raise ValueError("continuity tolerance must be non-negative")
         self.severity = severity
 
     def evaluate(self, record: Mapping[str, Any]):
@@ -106,6 +110,8 @@ class MonotonicityConstraint(GeologicalConstraint):
 
     def __init__(self, tolerance_m: Decimal | str = "0.00", severity: str = "error") -> None:
         self.tolerance_m = Decimal(str(tolerance_m))
+        if self.tolerance_m < 0:
+            raise ValueError("monotonicity tolerance must be non-negative")
         self.severity = severity
 
     def evaluate(self, record: Mapping[str, Any]):
@@ -136,6 +142,8 @@ class FinalDepthConsistencyConstraint(GeologicalConstraint):
 
     def __init__(self, tolerance_m: Decimal | str = "0.05", severity: str = "warning") -> None:
         self.tolerance_m = Decimal(str(tolerance_m))
+        if self.tolerance_m < 0:
+            raise ValueError("final-depth tolerance must be non-negative")
         self.severity = severity
 
     def evaluate(self, record: Mapping[str, Any]):
@@ -155,4 +163,3 @@ class FinalDepthConsistencyConstraint(GeologicalConstraint):
                 ))
         return make_result(name=self.name, severity=self.severity, evaluated_count=evaluated,
                            violations=violations, not_evaluated_reason="final depth or last bottom is missing")
-

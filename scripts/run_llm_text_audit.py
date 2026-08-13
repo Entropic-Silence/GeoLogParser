@@ -12,15 +12,17 @@ import subprocess
 from importlib.metadata import version
 from pathlib import Path
 
-from geologparser.constraints import default_engine
+from geologparser.constraints import load_engine_config
 from geologparser.experiment import create_run_directory
 from geologparser.llm import Qwen3VLTextTransformersAdapter
 from geologparser.pdf import PyMuPDFPanelTextAdapter
 from geologparser.schema import validate_record
+from geologparser.result_index import file_sha256
 from geologparser.vlm import compact_payload_to_record, parse_json_object
 
 
 ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_CONSTRAINT_CONFIG = ROOT / "configs/constraints/default_v001.yaml"
 MODEL_ID = "Qwen/Qwen3-VL-4B-Instruct"
 MODEL_REVISION = "ebb281ec70b05090aa6165b016eac8ec08e71b17"
 MODEL_PATH = Path("/data/GeoLogParser/models/huggingface/Qwen3-VL-4B-Instruct")
@@ -44,7 +46,9 @@ def main() -> None:
     parser.add_argument("--model-path", type=Path, default=MODEL_PATH)
     parser.add_argument("--max-new-tokens", type=int, default=1536)
     parser.add_argument("--results-root", type=Path, default=ROOT / "results")
+    parser.add_argument("--constraint-config", type=Path, default=DEFAULT_CONSTRAINT_CONFIG)
     arguments = parser.parse_args()
+    constraint_engine = load_engine_config(arguments.constraint_config)
     if os.environ.get("CUDA_VISIBLE_DEVICES") in (None, "", "-1"):
         raise RuntimeError("set CUDA_VISIBLE_DEVICES to one explicitly selected, paused GPU")
     import torch
@@ -66,6 +70,8 @@ def main() -> None:
             "manifest_sha256": sha256(arguments.manifest), "prompt_path": str(arguments.prompt),
             "prompt_sha256": sha256(arguments.prompt), "max_new_tokens": arguments.max_new_tokens,
             "input_channel": "positioned native PDF text flattened in block order; no image",
+            "constraint_config_path": str(arguments.constraint_config.resolve()),
+            "constraint_config_sha256": file_sha256(arguments.constraint_config),
             "scope": "public unannotated B2 engineering audit; no accuracy claim",
         },
     })
@@ -102,7 +108,7 @@ def main() -> None:
                     "source_id": arguments.dataset_version,
                 })
                 validate_record(record)
-                constraints = default_engine().evaluate(record)
+                constraints = constraint_engine.evaluate(record)
                 row["record"] = record
                 row["constraints"] = [result.__dict__ | {"violations": [v.__dict__ for v in result.violations]} for result in constraints]
                 row["parse_status"] = "schema_valid"

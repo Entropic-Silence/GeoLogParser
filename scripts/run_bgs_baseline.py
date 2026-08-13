@@ -11,15 +11,17 @@ import time
 from importlib.metadata import version
 from pathlib import Path
 
-from geologparser.constraints import default_engine
+from geologparser.constraints import load_engine_config
 from geologparser.evaluation import exact_match, numeric_with_missing_mae
 from geologparser.experiment import create_run_directory
 from geologparser.ocr import RapidOCROnnxAdapter, TesseractOCRAdapter
 from geologparser.pdf import detect_pdf
 from geologparser.pipeline import run_minimal_baseline
+from geologparser.result_index import file_sha256
 
 
 ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_CONSTRAINT_CONFIG = ROOT / "configs/constraints/default_v001.yaml"
 RAPIDOCR_MODEL_DIR = Path("/data/GeoLogParser/models/rapidocr")
 RAPIDOCR_MODEL_HASHES = {
     "ch_PP-OCRv4_det_infer.onnx": "d2a7720d45a54257208b1e13e36a8479894cb74155a5efe29462512d42f49da9",
@@ -40,7 +42,9 @@ def main() -> None:
     parser.add_argument("--ocr-backend", choices=("tesseract", "rapidocr"), default="tesseract")
     parser.add_argument("--render-dpi", type=int, default=300)
     parser.add_argument("--rapidocr-threads", type=int, default=4)
+    parser.add_argument("--constraint-config", type=Path, default=DEFAULT_CONSTRAINT_CONFIG)
     arguments = parser.parse_args()
+    constraint_engine = load_engine_config(arguments.constraint_config)
     manifest_path = arguments.dataset_root / "metadata" / "manifest.jsonl"
     manifest = [json.loads(line) for line in manifest_path.read_text(encoding="utf-8").splitlines() if line]
     git_commit = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True, capture_output=True, check=True).stdout.strip()
@@ -85,6 +89,8 @@ def main() -> None:
         "software": software,
         "config": backend_config | {
             "render_dpi": arguments.render_dpi, "constraint_tolerance_m": "0.05",
+            "constraint_config_path": str(arguments.constraint_config.resolve()),
+            "constraint_config_sha256": file_sha256(arguments.constraint_config),
         },
     })
     references = {name: [] for name in ("borehole_id", "x_coordinate", "y_coordinate", "final_depth_m")}
@@ -110,7 +116,7 @@ def main() -> None:
             for name in references:
                 references[name].append(expected[name])
                 predictions[name].append(predicted[name])
-            constraint_results = default_engine("0.05").evaluate(record)
+            constraint_results = constraint_engine.evaluate(record)
             row = {
                 "source_record_id": item["source_record_id"],
                 "source_sha256": item["sha256"],
