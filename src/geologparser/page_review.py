@@ -9,6 +9,7 @@ import os
 from pathlib import Path
 import shutil
 import tempfile
+import threading
 from typing import Any, Iterable, Mapping
 
 import pymupdf
@@ -385,8 +386,28 @@ def audit_page_reviews(
     }
 
 
+def write_page_review_status(
+    pack_root: Path, review_root: Path, schema_path: Path, output_path: Path,
+) -> dict[str, Any]:
+    """Atomically refresh the non-GT review progress snapshot."""
+
+    result = audit_page_reviews(pack_root, review_root, schema_path)
+    output_path = Path(output_path)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = output_path.with_suffix(output_path.suffix + ".tmp")
+    temporary.write_text(
+        json.dumps(result, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
+    temporary.replace(output_path)
+    return result
+
+
 def create_page_review_app(
     pack_root: Path, review_root: Path, static_root: Path, schema_path: Path,
+    *,
+    fixed_reviewer_id: str | None = None,
+    status_output: Path | None = None,
 ):
     try:
         from fastapi import FastAPI, HTTPException
@@ -398,8 +419,15 @@ def create_page_review_app(
     review_root = Path(review_root).resolve()
     static_root = Path(static_root).resolve()
     schema_path = Path(schema_path).resolve()
+    fixed_reviewer_id = (
+        str(fixed_reviewer_id).strip() if fixed_reviewer_id is not None else None
+    )
+    if fixed_reviewer_id == "":
+        raise ValueError("fixed_reviewer_id must be non-empty when configured")
+    status_output = Path(status_output).resolve() if status_output is not None else None
     items = load_review_items(pack_root / "review_pack_manifest.jsonl")
     app = FastAPI(title="GeoLogParser Page Content Review", version="v001")
+    update_lock = threading.Lock()
 
     def get_item(identifier: str) -> dict[str, Any]:
         if Path(identifier).name != identifier or identifier not in items:
@@ -432,6 +460,16 @@ def create_page_review_app(
             result.append({**item, "review": review})
         return result
 
+    @app.get("/api/status")
+    def status():
+        result = audit_page_reviews(pack_root, review_root, schema_path)
+        return {
+            **result,
+            "fixed_reviewer_id": fixed_reviewer_id,
+            "client_reviewer_editable": fixed_reviewer_id is None,
+            "status_output_path": str(status_output) if status_output is not None else None,
+        }
+
     @app.get("/api/items/{identifier}/image")
     def image(identifier: str):
         item = get_item(identifier)
@@ -445,22 +483,35 @@ def create_page_review_app(
     @app.put("/api/items/{identifier}/review")
     def update_review(identifier: str, payload: dict[str, Any]):
         item = get_item(identifier)
-        path = review_root / f"{identifier}.json"
-        current = json.loads(path.read_text(encoding="utf-8")) if path.exists() else None
-        if current is not None:
+        with update_lock:
+            path = review_root / f"{identifier}.json"
+            current = json.loads(path.read_text(encoding="utf-8")) if path.exists() else None
+            if current is not None:
+                try:
+                    _validate_review_bindings(current, item, schema_path)
+                except Exception as exc:
+                    raise HTTPException(409, f"stored review failed verification: {exc}") from exc
+            expected_revision = current["revision"] if current else 0
+            if payload.get("base_revision", 0) != expected_revision:
+                raise HTTPException(409, "revision conflict; reload before saving")
+            if fixed_reviewer_id is not None:
+                supplied = str(payload.get("reviewer_id") or "").strip()
+                if supplied and supplied != fixed_reviewer_id:
+                    raise HTTPException(403, "reviewer_id differs from the server-fixed reviewer")
+                payload = {**payload, "reviewer_id": fixed_reviewer_id}
             try:
-                _validate_review_bindings(current, item, schema_path)
+                review = build_page_review(payload, item, expected_revision + 1)
+                validate_page_review(review, schema_path)
+                save_page_review(review, review_root)
+                progress = (
+                    write_page_review_status(
+                        pack_root, review_root, schema_path, status_output,
+                    )
+                    if status_output is not None
+                    else audit_page_reviews(pack_root, review_root, schema_path)
+                )
             except Exception as exc:
-                raise HTTPException(409, f"stored review failed verification: {exc}") from exc
-        expected_revision = current["revision"] if current else 0
-        if payload.get("base_revision", 0) != expected_revision:
-            raise HTTPException(409, "revision conflict; reload before saving")
-        try:
-            review = build_page_review(payload, item, expected_revision + 1)
-            validate_page_review(review, schema_path)
-            save_page_review(review, review_root)
-        except Exception as exc:
-            raise HTTPException(422, str(exc)) from exc
-        return review
+                raise HTTPException(422, str(exc)) from exc
+        return {"review": review, "progress": progress}
 
     return app

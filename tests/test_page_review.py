@@ -12,6 +12,7 @@ from geologparser.page_review import (
     build_page_review_pack,
     create_page_review_app,
     save_page_review,
+    write_page_review_status,
 )
 
 
@@ -150,10 +151,43 @@ def test_page_review_api_verifies_image_and_revision(tmp_path: Path):
     assert client.get("/api/items").json()[0]["review"] is None
     payload = _payload()
     payload["base_revision"] = 0
-    assert client.put("/api/items/CANDIDATE_001/review", json=payload).status_code == 200
+    saved = client.put("/api/items/CANDIDATE_001/review", json=payload)
+    assert saved.status_code == 200
+    assert saved.json()["review"]["revision"] == 1
+    assert saved.json()["progress"]["reviewed_item_count"] == 1
     assert client.put("/api/items/CANDIDATE_001/review", json=payload).status_code == 409
     (pack / "images/CANDIDATE_001.png").write_bytes(b"tampered")
     assert client.get("/api/items/CANDIDATE_001/image").status_code == 409
+
+
+def test_page_review_api_status_and_fixed_reviewer(tmp_path: Path):
+    manifest = _content_manifest(tmp_path)
+    pack = tmp_path / "pack"
+    build_page_review_pack([manifest], pack, dpi=72)
+    static = tmp_path / "static"
+    static.mkdir()
+    for name in ("index.html", "app.js", "style.css"):
+        (static / name).write_text("ok")
+    status_output = pack / "review_status.json"
+    app = create_page_review_app(
+        pack, tmp_path / "reviews", static,
+        ROOT / "schemas/page_content_review_v001.schema.json",
+        fixed_reviewer_id="human-a", status_output=status_output,
+    )
+    from fastapi.testclient import TestClient
+    client = TestClient(app)
+    status = client.get("/api/status").json()
+    assert status["reviewed_item_count"] == 0
+    assert status["fixed_reviewer_id"] == "human-a"
+    assert status["client_reviewer_editable"] is False
+    payload = _payload()
+    payload.update({"base_revision": 0, "reviewer_id": "human-b"})
+    assert client.put("/api/items/CANDIDATE_001/review", json=payload).status_code == 403
+    payload["reviewer_id"] = "human-a"
+    response = client.put("/api/items/CANDIDATE_001/review", json=payload)
+    assert response.status_code == 200
+    assert response.json()["review"]["reviewer_id"] == "human-a"
+    assert json.loads(status_output.read_text())["reviewed_item_count"] == 1
 
 
 def test_page_review_api_rejects_tampered_stored_review(tmp_path: Path):
@@ -216,3 +250,17 @@ def test_review_audit_reports_unreviewed_without_promoting(tmp_path: Path):
             ROOT / "schemas/page_content_review_v001.schema.json",
             eligible_manifest=tmp_path / "partial.jsonl",
         )
+
+
+def test_write_page_review_status_is_current_and_non_gt(tmp_path: Path):
+    manifest = _content_manifest(tmp_path)
+    pack = tmp_path / "pack"
+    build_page_review_pack([manifest], pack, dpi=72)
+    output = pack / "review_status.json"
+    result = write_page_review_status(
+        pack, tmp_path / "reviews",
+        ROOT / "schemas/page_content_review_v001.schema.json", output,
+    )
+    assert json.loads(output.read_text()) == result
+    assert result["reviewed_item_count"] == 0
+    assert result["human_ground_truth_count"] == 0

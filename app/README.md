@@ -236,6 +236,7 @@ hash-bound page-content manifests:
 Start the review UI:
 
 ```bash
+GEOLOGPARSER_PAGE_REVIEWER_ID=reviewer-anon-01 \
 .venv/bin/uvicorn app.page_review_server:app --host 0.0.0.0 --port 8002
 ```
 
@@ -247,13 +248,24 @@ item explicitly cleared and no pending redaction. The stored reviewer identity
 is self-attested by the local operator; the service does not authenticate a
 person or establish expert status.
 
+The queue defaults to unreviewed pages and supports reviewed/eligible/restricted
+filters, previous/next navigation, and 50%--200% image zoom. `Set all absent`
+only fills the disclosure form; it does not save a review or decide eligibility.
+After a successful save, the UI advances to the next unreviewed page and
+refreshes counts from `GET /api/status`. Set
+`GEOLOGPARSER_PAGE_REVIEWER_ID` to bind one service process to a stable
+anonymous reviewer ID. Without it, the human operator must enter an ID, which
+is retained only in browser local storage. Neither mode authenticates a person.
+The live `review_status.json` is written under the mutable review directory by
+default so the immutable rendered pack is not modified.
+
 Audit current status without exporting:
 
 ```bash
 .venv/bin/python scripts/audit_page_reviews.py \
   /data/GeoLogParser/artifacts/source_review/international_candidates_v001 \
   /data/GeoLogParser/artifacts/source_review/international_candidates_v001/reviews \
-  --output /data/GeoLogParser/artifacts/source_review/international_candidates_v001/review_status.json
+  --output /data/GeoLogParser/artifacts/source_review/international_candidates_v001/reviews/review_status.json
 ```
 
 After every item has a valid human decision, add `--eligible-manifest PATH` to

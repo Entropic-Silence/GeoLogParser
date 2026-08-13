@@ -1268,3 +1268,20 @@
 - Boundary: all three manuscripts retain their formal empirical `TBD` values,
   zero-formal-run status, and `DRAFT_NOT_SUBMISSION_READY` label. No GPU was
   used and mining was not interrupted.
+
+## 2026-08-13 — Source-review operator workflow
+
+- Objective: reduce avoidable navigation and form-entry overhead in the human
+  content/privacy review queue while preserving the distinction between a
+  source decision and geological Ground Truth.
+- Interface: added queue filters, previous/next controls, stable image zoom,
+  explicit reviewer-ID handling, an unsaved `Set all absent` form helper, live
+  progress, and automatic movement to the next unreviewed item after save.
+- Integrity: API saves remain revision-conflict protected, stored review
+  bindings are checked before update, a process-local lock serializes writes,
+  and the live status snapshot is atomically refreshed under the mutable review
+  root. A server-fixed reviewer ID rejects a conflicting browser-supplied ID.
+- Boundary: these changes create no review decisions. The international and
+  SedLog queues still have zero completed human reviews, zero annotation-
+  eligible pages, zero benchmark-eligible pages, and zero human GT. The form
+  helper does not save or infer eligibility. No GPU was used.

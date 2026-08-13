@@ -9,14 +9,39 @@
 <body>
   <header>
     <div class="title">GeoLogParser <span>Source Review</span></div>
+    <select id="filter" aria-label="Queue filter">
+      <option value="unreviewed">Unreviewed</option>
+      <option value="all">All</option>
+      <option value="reviewed">Reviewed</option>
+      <option value="eligible">Eligible</option>
+      <option value="restricted">Restricted</option>
+    </select>
+    <button id="previous" class="icon-button" type="button" title="Previous item" aria-label="Previous item">&lt;</button>
     <select id="items" aria-label="Review item"></select>
+    <button id="next" class="icon-button" type="button" title="Next item" aria-label="Next item">&gt;</button>
     <span id="progress"></span>
-    <label class="reviewer">Reviewer <input id="reviewer" value="local-reviewer"></label>
+    <label class="reviewer">Reviewer <input id="reviewer" autocomplete="off" placeholder="human ID"></label>
     <button id="save" type="button">Save review</button>
     <span id="message" role="status"></span>
   </header>
-  <main>
-    <section id="viewer"><img id="image" alt="source page under review"></section>
+  <div id="empty" hidden>No items in this queue view.</div>
+  <main id="workspace">
+    <section id="viewer">
+      <div class="viewer-toolbar">
+        <label>Zoom
+          <select id="zoom">
+            <option value="fit">Fit width</option>
+            <option value="50">50%</option>
+            <option value="75">75%</option>
+            <option value="100">100%</option>
+            <option value="125">125%</option>
+            <option value="150">150%</option>
+            <option value="200">200%</option>
+          </select>
+        </label>
+      </div>
+      <div id="image-scroll"><img id="image" alt="source page under review"></div>
+    </section>
     <section id="form">
       <dl id="evidence"></dl>
       <label>Decision
@@ -30,7 +55,7 @@
       <label><span>Phase-1 borehole content</span><input type="checkbox" id="phase1"></label>
       <label><span>Complete readable render</span><input type="checkbox" id="complete"></label>
       <label><span>Redactions required</span><input type="checkbox" id="redactions"></label>
-      <h2>Disclosure review</h2>
+      <div class="section-heading"><h2>Disclosure review</h2><button id="all-absent" type="button">Set all absent</button></div>
       <div id="checks"></div>
       <label class="notes">Notes<textarea id="notes"></textarea></label>
       <details><summary>Saved record</summary><pre id="existing"></pre></details>
