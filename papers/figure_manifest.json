@@ -6,7 +6,7 @@
     },
     {
       "path": "paper1/generated/figures/degradation_inputs.png",
-      "sha256": "96ba230d3c91970c8cb2a874083fd045b2f3b933002d050012811ab43dabf149"
+      "sha256": "8f5e1ab2aa32beb9c2b8af17fb924f806d756a6f225a2d6c82effc379e319969"
     },
     {
       "path": "paper2/generated/figures/method_schematic.png",
@@ -28,8 +28,8 @@
   "scope": "auto-generated traceable figures; individual captions retain audit/protocol/design limits",
   "source_manifests": {
     "degradation": {
-      "path": "/data/GeoLogParser/artifacts/robustness/unipd_degradation_v001/degradation_manifest.jsonl",
-      "sha256": "ca6bc6d6f2eff3df6916b3a87d43f24df6dacb13f4e924048b79120a339c5ba9"
+      "path": "/data/GeoLogParser/datasets/public/bgs_metadata_robustness_v001/degradation_manifest.jsonl",
+      "sha256": "5a1205c944a5cb652967b99e6478169805db35f749dffe44124076eafd766628"
     },
     "locations": {
       "path": "/data/GeoLogParser/datasets/public/unipd_levee_geotech_v001/metadata/location_v001/borehole_locations.jsonl",

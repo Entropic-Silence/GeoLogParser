@@ -123,6 +123,25 @@ def test_formal_authoritative_metadata_method_requires_narrow_scope():
     )
 
 
+def test_formal_authoritative_metadata_robustness_requires_narrow_scope():
+    run = {"config": {"ground_truth_sha256": "a" * 64}, "split_version": "controlled_v001"}
+    assert formal_evidence_errors(
+        {"paper_eligibility": "formal_authoritative_metadata_robustness"}, run,
+        {
+            "scope": "authoritative-metadata controlled-degradation evaluation",
+            "reference_ground_truth_tier": "AUTHORITATIVE_METADATA",
+            "document_count": 31,
+            "profile_count": 7,
+            "interval_ground_truth_available": False,
+            "final_depth_ground_truth_evaluated": False,
+        },
+    ) == []
+    assert formal_evidence_errors(
+        {"paper_eligibility": "formal_authoritative_metadata_robustness"}, run,
+        {"scope": "audit", "document_count": 31, "profile_count": 1},
+    )
+
+
 def test_formal_source_controlled_downstream_requires_explicit_boundary():
     run = {"config": {"ground_truth_sha256": "a" * 64}, "split_version": "controlled_v001"}
     assert formal_evidence_errors(

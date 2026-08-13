@@ -12,7 +12,7 @@ Ground-Truth-exportable annotations: **0**.
 
 | Paper | Indexed runs | Controlled formal | Real formal |
 |---|---:|---:|---:|
-| paper1 | 34 | 2 | 4 |
+| paper1 | 36 | 2 | 6 |
 | paper2 | 4 | 1 | 1 |
 | paper3 | 8 | 1 | 1 |
 

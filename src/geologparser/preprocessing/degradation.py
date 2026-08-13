@@ -58,14 +58,15 @@ def degrade_image(source: Path, destination: Path, config: DegradationConfig) ->
     if config.blur_radius:
         image = image.filter(ImageFilter.GaussianBlur(config.blur_radius))
     if config.gaussian_noise_std:
-        rng = random.Random(config.seed)
-        pixels = []
-        for pixel in image.getdata():
-            pixels.append(tuple(
-                max(0, min(255, round(channel + rng.gauss(0, config.gaussian_noise_std))))
-                for channel in pixel
-            ))
-        image.putdata(pixels)
+        try:
+            import numpy as np
+        except ImportError as exc:
+            raise RuntimeError("gaussian-noise degradation requires NumPy") from exc
+        pixels = np.asarray(image, dtype=np.float32)
+        noise = np.random.default_rng(config.seed).normal(
+            0.0, config.gaussian_noise_std, size=pixels.shape,
+        )
+        image = Image.fromarray(np.clip(np.rint(pixels + noise), 0, 255).astype(np.uint8))
     if config.contrast != 1:
         image = ImageEnhance.Contrast(image).enhance(config.contrast)
     if config.rotation_degrees:

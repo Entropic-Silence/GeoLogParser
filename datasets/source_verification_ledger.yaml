@@ -477,6 +477,7 @@ records:
   experiments_or_papers:
   - paper1_public_pipeline_validation
   - paper1_international_transfer
+  - paper1_bgs_metadata_robustness
   requires_human_check_before_submission: true
   evidence:
   - datasets/data_registry.yaml
@@ -490,8 +491,11 @@ records:
     with each PDF bound by SHA256 in metadata/manifest.jsonl. The BGS metadata benchmark
     pairs scans by source record ID with official REFERENCE/EASTING/NORTHING/LENGTH
     fields. LENGTH is treated only as a final-depth proxy. No interval/lithology reference
-    is present, so this source cannot support interval Gold claims. An earlier four-document
-    subset is retained as historical audit evidence.
+    is present, so this source cannot support interval Gold claims. The robustness
+    extension renders page 1 at 300 DPI and creates seven controlled synthetic profiles
+    (217 derived images) for ID/X/Y-only evaluation; final depth, intervals, and lithology
+    are excluded. An earlier four-document subset is retained as historical audit
+    evidence.
 - source_id: swissgeol_boreholes_dataextraction_examples_v001
   source_name: Swissgeol boreholes data extraction public examples and repository
     fixtures

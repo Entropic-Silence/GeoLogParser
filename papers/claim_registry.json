@@ -1482,6 +1482,36 @@
           "expected": false
         }
       ]
+    },
+    "p1.bgs_robustness_tesseract": {
+      "paper": "paper1",
+      "experiment_id": "P1_BGS_METADATA_ROBUSTNESS_TESSERACT_001",
+      "scope": "31 real BGS first-page scans with controlled synthetic degradation; official ID/X/Y metadata only",
+      "source_path": "results/2026-08-13/P1_BGS_METADATA_ROBUSTNESS_TESSERACT_001/metrics.json",
+      "source_sha256": "44d18fb0d1fe916b0ec40ebb5cf6c035a8f98ebd9388c63e38e6786458b0a761",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/derived_image_count", "expected": 217},
+        {"type": "json_pointer_equals", "pointer": "/profiles/clean/complete_three_field_exact/numerator", "expected": 24},
+        {"type": "json_pointer_equals", "pointer": "/profiles/blur_20/complete_three_field_exact/numerator", "expected": 15},
+        {"type": "json_pointer_equals", "pointer": "/profiles/skew_30/complete_three_field_exact/numerator", "expected": 9},
+        {"type": "json_pointer_equals", "pointer": "/profiles/skew_30/x_coordinate/x_coordinate_mae/value", "expected": 0.0},
+        {"type": "json_pointer_equals", "pointer": "/interval_ground_truth_available", "expected": false}
+      ]
+    },
+    "p1.bgs_robustness_rapidocr": {
+      "paper": "paper1",
+      "experiment_id": "P1_BGS_METADATA_ROBUSTNESS_RAPIDOCR_001",
+      "scope": "31 real BGS first-page scans with controlled synthetic degradation; official ID/X/Y metadata only",
+      "source_path": "results/2026-08-13/P1_BGS_METADATA_ROBUSTNESS_RAPIDOCR_001/metrics.json",
+      "source_sha256": "532c8cd3b0fc42b8216b045dc129dfb99a83b450c0f16b915ebc6c92fcfa30a1",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/derived_image_count", "expected": 217},
+        {"type": "json_pointer_equals", "pointer": "/profiles/clean/complete_three_field_exact/numerator", "expected": 31},
+        {"type": "json_pointer_equals", "pointer": "/profiles/skew_30/complete_three_field_exact/numerator", "expected": 31},
+        {"type": "json_pointer_equals", "pointer": "/profiles/jpeg_30/complete_three_field_exact/numerator", "expected": 7},
+        {"type": "json_pointer_equals", "pointer": "/profiles/jpeg_30/x_coordinate/x_coordinate_mae/value", "expected": 0.0},
+        {"type": "json_pointer_equals", "pointer": "/interval_ground_truth_available", "expected": false}
+      ]
     }
   }
 }

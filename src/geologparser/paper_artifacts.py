@@ -26,9 +26,24 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
     native_rows = []
     synthetic_rows = []
     silver_rows = []
+    robustness_rows = []
     for entry in entries:
         metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
         run = json.loads((repository_root / entry["result_path"] / "run.json").read_text())
+        if metrics.get("scope") == "authoritative-metadata controlled-degradation evaluation":
+            for profile, values in metrics["profiles"].items():
+                robustness_rows.append("| " + " | ".join([
+                    entry["experiment_id"], run["model"], profile,
+                    str(values["borehole_id_exact_match"]["numerator"]),
+                    str(values["x_coordinate"]["x_coordinate_mae_coverage"]["numerator"]),
+                    number(values["x_coordinate"]["x_coordinate_mae"]["value"]),
+                    str(values["y_coordinate"]["y_coordinate_mae_coverage"]["numerator"]),
+                    number(values["y_coordinate"]["y_coordinate_mae"]["value"]),
+                    str(values["complete_three_field_exact"]["numerator"]),
+                    str(values["field_omissions"]),
+                    entry["paper_eligibility"],
+                ]) + " |")
+            continue
         if metrics.get("scope") == "machine-adjudicated-silver-agreement evaluation":
             final_depth = metrics["borehole_fields"]["final_depth_m"]["final_depth_m_mae"]
             interval = metrics["intervals"]
@@ -162,6 +177,13 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
         "|---|---|---:|---:|---:|---:|---:|---:|---|",
         *silver_rows,
         "These metrics measure agreement with an explicitly machine-adjudicated Silver reference. They are not human/expert accuracy, and the reference construction channels are recorded in the source ledger and experiment configuration.",
+        "",
+        "### Real-source controlled-degradation robustness (metadata fields only)",
+        "",
+        "| Experiment | Model | Profile | ID exact | X coverage | X MAE | Y coverage | Y MAE | Complete ID/X/Y | Field omissions | Eligibility |",
+        "|---|---|---|---:|---:|---:|---:|---:|---:|---:|---|",
+        *robustness_rows,
+        "These rows use first-page borehole ID/X/Y references from official BGS metadata. Profiles are synthetic transformations of real scans; final depth, intervals, and lithology are excluded because the first-page scope does not provide those references.",
         "",
         "### Privacy-minimized OCR coverage audits (no Ground Truth)",
         "",

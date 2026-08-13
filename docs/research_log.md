@@ -1438,3 +1438,29 @@
   hard case; accuracy metrics remain null and the pack is not Gold.
 - Boundary: no public or internal source was promoted to Gold, no Human Review
   was fabricated, and no GPU was used.
+
+## 2026-08-13 — BGS first-page controlled robustness benchmark
+
+- Dataset: built `/data/GeoLogParser/datasets/public/bgs_metadata_robustness_v001`
+  from the frozen 31-document BGS authoritative-metadata manifest. Each source
+  PDF was rendered at 300 DPI on page 1 and transformed into seven deterministic
+  profiles (`clean`, resolution 0.50, blur radius 2.0, Gaussian noise 16,
+  3-degree skew, JPEG quality 30, and contrast 0.40), producing 217 derived
+  images. The degradation manifest SHA256 is
+  `5a1205c944a5cb652967b99e6478169805db35f749dffe44124076eafd766628`.
+- Scope: official borehole ID, easting, and northing only. Final depth is not
+  scored in this first-page robustness study; interval and lithology reference
+  data remain unavailable. The transformations are controlled synthetic
+  perturbations of real scans, not naturally sampled document damage.
+- Tesseract result: `P1_BGS_METADATA_ROBUSTNESS_TESSERACT_001`. Complete ID/X/Y
+  exact extraction was 24/31 on clean pages, 15/31 under blur, and 9/31 under
+  3-degree skew. Non-missing X/Y values had zero paired MAE except for two
+  gross Y-coordinate errors under 3-degree skew (paired Y MAE 54,162.4 in the
+  non-missing subset); degradation otherwise primarily caused omissions.
+- RapidOCR result: `P1_BGS_METADATA_ROBUSTNESS_RAPIDOCR_001`. Complete ID/X/Y
+  exact extraction was 31/31 on clean pages, 31/31 under 3-degree skew, and
+  7/31 under JPEG quality 30. Non-missing X/Y values again had zero paired
+  MAE. The two backends therefore exhibit distinct perturbation sensitivities.
+- Decision: index both runs as `formal_authoritative_metadata_robustness`, add
+  separate claim-registry entries, and keep all interval/lithology and
+  cross-template conclusions `TBD`.

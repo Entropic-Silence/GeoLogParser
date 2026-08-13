@@ -18,7 +18,8 @@ ARTIFACT_MANIFEST = "artifact_manifest.json"
 FORMAL_ELIGIBILITY = {
     "formal_benchmark", "formal_silver_benchmark", "formal_method", "formal_synthetic_method",
     "formal_downstream", "formal_synthetic_downstream", "formal_authoritative_metadata",
-    "formal_authoritative_metadata_method", "formal_source_controlled_downstream",
+    "formal_authoritative_metadata_method", "formal_authoritative_metadata_robustness",
+    "formal_source_controlled_downstream",
 }
 
 
@@ -66,6 +67,31 @@ def formal_evidence_errors(entry: dict, run: dict, metrics: dict) -> list[str]:
             errors.append("formal_authoritative_metadata_method requires a positive document_count")
         if metrics.get("interval_ground_truth_available") is not False:
             errors.append("formal_authoritative_metadata_method must declare interval GT unavailable")
+    elif eligibility == "formal_authoritative_metadata_robustness":
+        if metrics.get("scope") != "authoritative-metadata controlled-degradation evaluation":
+            errors.append(
+                "formal_authoritative_metadata_robustness requires controlled-degradation scope"
+            )
+        if metrics.get("reference_ground_truth_tier") != "AUTHORITATIVE_METADATA":
+            errors.append(
+                "formal_authoritative_metadata_robustness requires AUTHORITATIVE_METADATA reference tier"
+            )
+        if not isinstance(metrics.get("document_count"), int) or metrics.get("document_count", 0) <= 0:
+            errors.append(
+                "formal_authoritative_metadata_robustness requires a positive document_count"
+            )
+        if not isinstance(metrics.get("profile_count"), int) or metrics.get("profile_count", 0) < 2:
+            errors.append(
+                "formal_authoritative_metadata_robustness requires at least two profiles"
+            )
+        if metrics.get("interval_ground_truth_available") is not False:
+            errors.append(
+                "formal_authoritative_metadata_robustness must declare interval GT unavailable"
+            )
+        if metrics.get("final_depth_ground_truth_evaluated") is not False:
+            errors.append(
+                "formal_authoritative_metadata_robustness must exclude final depth"
+            )
     elif eligibility in {"formal_method", "formal_synthetic_method"}:
         if metrics.get("protocol") != "paper2_one_module_ablation_matrix_v001":
             errors.append("formal_method requires Paper II ablation protocol")
