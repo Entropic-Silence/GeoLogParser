@@ -1,0 +1,32 @@
+assignment_id: unipd_blinded_duplicate_v001
+status: created_unassigned_no_human_attestations
+created_at: "2026-08-13T02:58:47.481342+00:00"
+source_dataset_id: unipd_levee_geotech_v001
+source_annotation_root: /data/GeoLogParser/artifacts/annotation/unipd_levee_geotech_v001/annotations
+output_root: /data/GeoLogParser/artifacts/annotation/unipd_blinded_duplicate_v001
+assignment_manifest: /data/GeoLogParser/artifacts/annotation/unipd_blinded_duplicate_v001/assignment_manifest.json
+assignment_manifest_sha256: e4c18c84cd06c4ba599cca4e881fbc21bd5d4e6b976964462cee0438ae7508f2
+source_annotation_count: 15
+full_overlap: true
+tracks:
+  - track_id: track_a
+    annotator_id: padova-reviewer-a
+    human_assigned: false
+    annotation_root: /data/GeoLogParser/artifacts/annotation/unipd_blinded_duplicate_v001/tracks/track_a/annotations
+  - track_id: track_b
+    annotator_id: padova-reviewer-b
+    human_assigned: false
+    annotation_root: /data/GeoLogParser/artifacts/annotation/unipd_blinded_duplicate_v001/tracks/track_b/annotations
+policy:
+  seed_status: auto
+  agreement_before_adjudication: true
+  automatic_gt_promotion: false
+  reviewer_peer_access_prohibited: true
+  service_write_allowlist_required: true
+  shared_filesystem_security_boundary: false
+current_counts:
+  track_a_pages: 15
+  track_b_pages: 15
+  human_verified_pages: 0
+  effective_attestations: 0
+  agreement_outputs: 0

@@ -16,8 +16,14 @@ EXPERT_ANNOTATOR_IDS = {
     for item in os.environ.get("GEOLOGPARSER_EXPERT_ANNOTATOR_IDS", "").split(",")
     if item.strip()
 }
+_ALLOWED_ANNOTATOR_IDS = os.environ.get("GEOLOGPARSER_ALLOWED_ANNOTATOR_IDS")
+ALLOWED_ANNOTATOR_IDS = (
+    {item.strip() for item in _ALLOWED_ANNOTATOR_IDS.split(",") if item.strip()}
+    if _ALLOWED_ANNOTATOR_IDS is not None else None
+)
 
 app = create_app(
     ANNOTATION_ROOT, ROOT / "app" / "static",
     expert_annotator_ids=EXPERT_ANNOTATOR_IDS,
+    allowed_annotator_ids=ALLOWED_ANNOTATOR_IDS,
 )

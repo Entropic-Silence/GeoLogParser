@@ -331,3 +331,28 @@ def test_api_allows_configured_expert_and_two_person_identical_attestation(tmp_p
     assert {item["annotator_id"] for item in second.json()["verification_attestations"]} == {
         "reviewer-1", "reviewer-2",
     }
+
+
+def test_api_track_allowlist_rejects_other_reviewer_identity(tmp_path: Path):
+    client, _ = build_client(tmp_path, expert_annotator_ids=set())
+    # Rebuild with a track-specific allowlist because build_client intentionally
+    # defaults to unrestricted local review for older tests.
+    from fastapi.testclient import TestClient
+    from geologparser.annotation_api import create_app
+    annotation_root = tmp_path / "annotations"
+    restricted = TestClient(create_app(
+        annotation_root, ROOT / "app/static", reread_root=tmp_path / "restricted-reread",
+        reread_adapters=[FakeRereadAdapter()], allowed_annotator_ids={"reviewer-A"},
+    ))
+    annotation = restricted.get("/api/annotations/test-panel").json()
+    denied = restricted.put("/api/annotations/test-panel", json={
+        "base_revision": 1, "record": annotation["record"],
+        "annotator_id": "reviewer-B", "annotation_status": "single_verified",
+    })
+    assert denied.status_code == 422
+    assert "not authorized" in denied.json()["detail"]
+    allowed = restricted.put("/api/annotations/test-panel", json={
+        "base_revision": 1, "record": annotation["record"],
+        "annotator_id": "reviewer-A", "annotation_status": "single_verified",
+    })
+    assert allowed.status_code == 200

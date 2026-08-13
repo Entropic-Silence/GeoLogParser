@@ -69,8 +69,11 @@ experiment metadata, prompts, baselines, and paper planning were missing.
   separate revisioned CAD privacy/content-review UI and eligibility gate are
   **COMPLETED v001**. The primary UI reports exact GT-gate/progress status,
   labels per-page exports as draft until eligible, and refuses incomplete GT
-  collection export. Actual manual/double/expert geological annotations are
-  **NOT COMPLETED**.
+  collection export. Record-hash attestations now prevent unsupported double/
+  expert status. A two-track, full-overlap Padova assignment has been frozen
+  with service-level reviewer allowlists and pre-adjudication comparison gates;
+  both tracks remain unassigned `auto` seeds. Actual manual/double/expert
+  geological annotations are **NOT COMPLETED**.
 - Phase 6 Paper I benchmark/splits/degradation/failure analysis: infrastructure
   **PARTIAL**; publishable data and experiments **NOT COMPLETED**.
 - Phase 7 C1–C10: **COMPLETED v001** with tests.

@@ -842,3 +842,26 @@
 - Verification: the full pre-documentation suite passed with 254 tests and 15
   upstream deprecation warnings. No public annotation was modified and Padova
   Ground Truth remains 0 pages.
+
+## 2026-08-13 — Blinded duplicate Padova annotation assignment
+
+- Objective: obtain future agreement evidence from independent answers rather
+  than a second reviewer editing a visible first answer.
+- Implementation: an immutable builder copies only hash-verified `auto` seeds
+  into separate full-overlap tracks, freezes source annotation/record/image
+  hashes, and refuses existing outputs. Track services can restrict writes to a
+  single anonymized ID. A comparison command requires both complete human-GT
+  tracks, disjoint IDs, and a new output path before freezing input hashes and
+  pre-adjudication agreement.
+- Real task pack: 15 Padova pages were copied byte-identically to track A and
+  track B under `/data/GeoLogParser/artifacts/annotation/`; assignment manifest
+  SHA256 is `e4c18c84cd06c4ba599cca4e881fbc21bd5d4e6b976964462cee0438ae7508f2`.
+  Both track IDs are unassigned placeholders, every page remains `auto`, and
+  effective attestation count is zero.
+- Negative run: the real comparison command failed at the first `auto` page as
+  required and created no agreement artifact. Thus identical model seeds are
+  not counted as human agreement.
+- Limitation: separate directories/services on one shared Unix account are not
+  an adversarial filesystem boundary. Reviewer protocol or separate OS
+  permissions are still required. Actual human assignment, agreement,
+  adjudication, and Ground Truth remain `NOT COMPLETED`.

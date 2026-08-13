@@ -79,6 +79,51 @@ Use stable anonymized IDs; never put names, email addresses, or other personal
 data into annotation metadata. With no expert allowlist configured, nobody can
 self-declare `expert_verified`.
 
+For independent duplicate annotation, generate separate tracks before either
+reviewer starts. The existing Padova v001 task pack was created with:
+
+```bash
+.venv/bin/python scripts/build_blinded_annotation_pack.py \
+  /data/GeoLogParser/artifacts/annotation/unipd_levee_geotech_v001/annotations \
+  /data/GeoLogParser/artifacts/annotation/unipd_blinded_duplicate_v001 \
+  --track track_a=padova-reviewer-a \
+  --track track_b=padova-reviewer-b
+```
+
+Its assignment-manifest SHA256 is
+`e4c18c84cd06c4ba599cca4e881fbc21bd5d4e6b976964462cee0438ae7508f2`.
+Those IDs currently identify unassigned review tracks, not people, and create
+no verification attestation. Give each actual reviewer exactly one stable
+anonymous track ID and serve only that directory, for example:
+
+```bash
+GEOLOGPARSER_ANNOTATION_ROOT=/data/GeoLogParser/artifacts/annotation/unipd_blinded_duplicate_v001/tracks/track_a/annotations \
+GEOLOGPARSER_ALLOWED_ANNOTATOR_IDS=padova-reviewer-a \
+  .venv/bin/uvicorn app.server:app --host 127.0.0.1 --port 8011
+```
+
+Run track B from its own annotation root and a different port/process. The
+allowlist prevents cross-track saves through the service interface. Both roots
+still reside on a shared host filesystem, so this is not an OS security
+boundary; use separate Unix accounts/permissions or supervised reviewer
+sessions when adversarial access is a concern. Reviewers must not inspect peer
+files before agreement is frozen.
+
+After every page in both tracks independently passes the single-review GT gate,
+freeze pre-adjudication agreement with:
+
+```bash
+.venv/bin/python scripts/compare_annotation_tracks.py \
+  /data/GeoLogParser/artifacts/annotation/unipd_blinded_duplicate_v001/tracks/track_a/annotations \
+  /data/GeoLogParser/artifacts/annotation/unipd_blinded_duplicate_v001/tracks/track_b/annotations \
+  /data/GeoLogParser/artifacts/annotation/unipd_blinded_duplicate_v001/agreement/pre_adjudication_v001.json
+```
+
+The command refuses incomplete tracks, reused annotator IDs, and an existing
+output. Agreement is measured before adjudication and is not final GT. Any
+disagreement must be adjudicated separately; the exact adjudicated record must
+then receive the required final attestations.
+
 After real review, create a frozen GT snapshot with:
 
 ```bash

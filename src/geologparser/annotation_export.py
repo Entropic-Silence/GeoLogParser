@@ -127,6 +127,8 @@ def annotation_agreement(
 
     left = {str(item["annotation_id"]): item for item in first}
     right = {str(item["annotation_id"]): item for item in second}
+    if len(left) != len(first) or len(right) != len(second):
+        raise ValueError("annotation collections contain duplicate annotation IDs")
     if set(left) != set(right):
         raise ValueError("annotation ID sets differ")
     left_annotators = {str(item["annotator_id"]) for item in first}

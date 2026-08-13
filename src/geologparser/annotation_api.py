@@ -27,6 +27,7 @@ def create_app(
     annotation_root: Path, static_root: Path, timing_log: Path | None = None,
     reread_root: Path | None = None, reread_adapters=None,
     expert_annotator_ids: set[str] | None = None,
+    allowed_annotator_ids: set[str] | None = None,
 ):
     try:
         from fastapi import FastAPI, HTTPException
@@ -42,6 +43,12 @@ def create_app(
     expert_annotator_ids = {
         validate_annotator_id(item) for item in (expert_annotator_ids or set())
     }
+    allowed_annotator_ids = (
+        {validate_annotator_id(item) for item in allowed_annotator_ids}
+        if allowed_annotator_ids is not None else None
+    )
+    if allowed_annotator_ids is not None and not expert_annotator_ids <= allowed_annotator_ids:
+        raise ValueError("expert annotator IDs must be included in the allowed annotator IDs")
     if reread_adapters is None:
         reread_adapters = [TesseractOCRAdapter(language="chi_sim+eng", psm=7)]
 
@@ -53,6 +60,12 @@ def create_app(
         if not path.is_file():
             raise HTTPException(404, "annotation not found")
         return path
+
+    def authorize_annotator(value: Any) -> str:
+        annotator_id = validate_annotator_id(value)
+        if allowed_annotator_ids is not None and annotator_id not in allowed_annotator_ids:
+            raise ValueError("annotator_id is not authorized for this annotation track")
+        return annotator_id
 
     @app.get("/", response_class=HTMLResponse)
     def index():
@@ -214,7 +227,7 @@ def create_app(
         try:
             annotation_id = str(payload["annotation_id"])
             annotation_path(annotation_id)
-            annotator_id = validate_annotator_id(payload.get("annotator_id"))
+            annotator_id = authorize_annotator(payload.get("annotator_id"))
             return timing_store.start(annotation_id, annotator_id)
         except (KeyError, TypeError, ValueError) as exc:
             raise HTTPException(422, str(exc)) from exc
@@ -282,7 +295,7 @@ def create_app(
         try:
             record = payload.get("record", annotation["record"])
             validate_record(record)
-            annotator_id = validate_annotator_id(payload.get("annotator_id"))
+            annotator_id = authorize_annotator(payload.get("annotator_id"))
             return {
                 "record": bind_human_display_bbox(
                     record, str(payload["field_path"]), payload["bbox_pixels"],
@@ -322,7 +335,7 @@ def create_app(
             raise HTTPException(409, "revision conflict; reload before saving")
         status = payload.get("annotation_status", "single_verified")
         try:
-            annotator_id = validate_annotator_id(payload.get("annotator_id"))
+            annotator_id = authorize_annotator(payload.get("annotator_id"))
             validate_display_bbox_edits(
                 current["record"], payload["record"], current["panel"],
                 annotator_id,
