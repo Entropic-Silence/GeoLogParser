@@ -529,11 +529,14 @@ records:
   evidence:
   - datasets/data_registry.yaml
   registry_status: exclude_mismatched_fixture
-  registry_verification_notes: 'The public example_layers_groundtruth.json does not
-    match example_borehole_profile.pdf: JSON contains 0–3 m gravel/sand entries, while
-    the PDF visibly contains the SST KB5 tunnel profile with approximately 0–30 m
-    slate/sandstone intervals. The fixture is retained only as negative evidence and
-    is not Gold or benchmark data.'
+  registry_verification_notes: 'The public example_groundtruth.json metadata fixture
+    matches example_borehole_profile.pdf header values (coordinates 615790/157500,
+    date 1995-09-03, elevation 788.6). The public example_layers_groundtruth.json
+    does not match that PDF: JSON contains 0–3 m gravel/sand entries, while the PDF
+    visibly contains the SST KB5 tunnel profile with approximately 0–30 m slate/sandstone
+    intervals. Reproducible audit artifact: /data/GeoLogParser/artifacts/source_surveys/swissgeol_example_groundtruth_audit_v001.json.
+    The layer fixture is retained only as negative evidence and is not Gold or benchmark
+    data.'
 - source_id: usgs_geolog_locator
   source_name: GeoLog Locator
   url: https://www.usgs.gov/tools/geolog-locator

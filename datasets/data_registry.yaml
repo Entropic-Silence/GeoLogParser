@@ -202,7 +202,7 @@ datasets:
     redistribution_policy: "do not redistribute example data or derived benchmark labels until item-level rights and provenance are verified"
     paper_fit: [paper1_source_audit_only]
     status: exclude_mismatched_fixture
-    verification_notes: "The public example_layers_groundtruth.json does not match example_borehole_profile.pdf: JSON contains 0–3 m gravel/sand entries, while the PDF visibly contains the SST KB5 tunnel profile with approximately 0–30 m slate/sandstone intervals. The fixture is retained only as negative evidence and is not Gold or benchmark data."
+    verification_notes: "The public example_groundtruth.json metadata fixture matches example_borehole_profile.pdf header values (coordinates 615790/157500, date 1995-09-03, elevation 788.6). The public example_layers_groundtruth.json does not match that PDF: JSON contains 0–3 m gravel/sand entries, while the PDF visibly contains the SST KB5 tunnel profile with approximately 0–30 m slate/sandstone intervals. Reproducible audit artifact: /data/GeoLogParser/artifacts/source_surveys/swissgeol_example_groundtruth_audit_v001.json. The layer fixture is retained only as negative evidence and is not Gold or benchmark data."
 
   - id: usgs_geolog_locator
     name: GeoLog Locator

@@ -1464,3 +1464,18 @@
 - Decision: index both runs as `formal_authoritative_metadata_robustness`, add
   separate claim-registry entries, and keep all interval/lithology and
   cross-template conclusions `TBD`.
+
+## 2026-08-13 — Swissgeol example Ground-Truth pairing audit
+
+- Audited public repository commit
+  `3e8fdc10ba3ff158392a3a44fce2e62f6e9b0e12` using
+  `scripts/audit_swissgeol_example_groundtruth.py`.
+- `example_groundtruth.json` matches the visible
+  `example_borehole_profile.pdf` header: coordinates 615790/157500, drilling
+  date 1995-09-03, reference elevation 788.6, and borehole name SST KB5.
+- `example_layers_groundtruth.json` does not match the same PDF. Its shallow
+  gravel/sand layers conflict with the visible German tunnel profile, whose
+  material text includes Tonschiefer, Sandstein, Schiefer, and Kakirit.
+- Artifact: `/data/GeoLogParser/artifacts/source_surveys/`
+  `swissgeol_example_groundtruth_audit_v001.json`. Decision:
+  `EXCLUDE_MISMATCHED_FROM_GOLD`; no interval/lithology labels were promoted.

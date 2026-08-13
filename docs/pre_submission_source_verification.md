@@ -51,6 +51,11 @@ Model weights, prompts, code, and literature have their own manifests and are
 not data-source rights evidence; their licences must be checked separately in
 the release checklist.
 
+The Swissgeol example pairing audit is recorded separately at
+`/data/GeoLogParser/artifacts/source_surveys/swissgeol_example_groundtruth_audit_v001.json`.
+It confirms the metadata fixture against the example PDF but excludes the
+repository's mismatched layer fixture from Gold use.
+
 ## Human sign-off fields
 
 For each YAML record, the final reviewer should append or record in a successor
