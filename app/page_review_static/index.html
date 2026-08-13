@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>GeoLogParser Source Review</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <div class="title">GeoLogParser <span>Source Review</span></div>
+    <select id="items" aria-label="Review item"></select>
+    <span id="progress"></span>
+    <label class="reviewer">Reviewer <input id="reviewer" value="local-reviewer"></label>
+    <button id="save" type="button">Save review</button>
+    <span id="message" role="status"></span>
+  </header>
+  <main>
+    <section id="viewer"><img id="image" alt="source page under review"></section>
+    <section id="form">
+      <dl id="evidence"></dl>
+      <label>Decision
+        <select id="decision">
+          <option>internal_only</option>
+          <option>exclude</option>
+          <option>anonymize_then_review</option>
+          <option>eligible_for_annotation</option>
+        </select>
+      </label>
+      <label><span>Phase-1 borehole content</span><input type="checkbox" id="phase1"></label>
+      <label><span>Complete readable render</span><input type="checkbox" id="complete"></label>
+      <label><span>Redactions required</span><input type="checkbox" id="redactions"></label>
+      <h2>Disclosure review</h2>
+      <div id="checks"></div>
+      <label class="notes">Notes<textarea id="notes"></textarea></label>
+      <details><summary>Saved record</summary><pre id="existing"></pre></details>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>

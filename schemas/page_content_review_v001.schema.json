@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/geologparser/page_content_review_v001.schema.json",
+  "title": "GeoLogParser page content review v001",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "review_schema_version", "review_item_id", "source_file_sha256",
+    "source_acquisition_sha256", "content_config_sha256", "rendered_sha256",
+    "reviewer_id", "reviewer_provenance", "reviewed_at", "decision",
+    "phase1_borehole_content", "render_complete", "checks",
+    "redactions_required", "notes", "annotation_eligible",
+    "benchmark_eligible", "revision"
+  ],
+  "properties": {
+    "review_schema_version": {"const": "page_content_review_v001"},
+    "review_item_id": {"type": "string", "minLength": 1},
+    "source_file_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "source_acquisition_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "content_config_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "rendered_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "reviewer_id": {"type": "string", "minLength": 1},
+    "reviewer_provenance": {"const": "human_self_attested_not_identity_authenticated"},
+    "reviewed_at": {"type": "string", "format": "date-time"},
+    "decision": {
+      "enum": ["exclude", "internal_only", "anonymize_then_review", "eligible_for_annotation"]
+    },
+    "phase1_borehole_content": {"type": "boolean"},
+    "render_complete": {"type": "boolean"},
+    "checks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "organization_or_project", "person_or_signature", "contact_or_address",
+        "coordinates_or_sensitive_location", "stamp_or_watermark", "third_party_content"
+      ],
+      "properties": {
+        "organization_or_project": {"$ref": "#/$defs/check"},
+        "person_or_signature": {"$ref": "#/$defs/check"},
+        "contact_or_address": {"$ref": "#/$defs/check"},
+        "coordinates_or_sensitive_location": {"$ref": "#/$defs/check"},
+        "stamp_or_watermark": {"$ref": "#/$defs/check"},
+        "third_party_content": {"$ref": "#/$defs/check"}
+      }
+    },
+    "redactions_required": {"type": "boolean"},
+    "notes": {"type": ["string", "null"]},
+    "annotation_eligible": {"type": "boolean"},
+    "benchmark_eligible": {"const": false},
+    "revision": {"type": "integer", "minimum": 1}
+  },
+  "$defs": {
+    "check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "action", "notes"],
+      "properties": {
+        "status": {"enum": ["absent", "present", "uncertain"]},
+        "action": {"enum": ["not_applicable", "cleared", "redact", "restrict", "exclude"]},
+        "notes": {"type": ["string", "null"]}
+      }
+    }
+  }
+}

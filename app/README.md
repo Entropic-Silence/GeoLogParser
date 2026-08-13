@@ -217,3 +217,46 @@ derivatives, run:
 This audit deliberately leaves human review, privacy review, and benchmark
 eligibility false. A successful inventory match must not be presented as a
 human visual-completeness decision.
+
+## PDF/image source content review
+
+Candidate PDF pages and standalone images use a separate source-review service
+before geological annotation. Build an immutable rendered pack from one or more
+hash-bound page-content manifests:
+
+```bash
+.venv/bin/python scripts/build_page_review_pack.py \
+  /data/GeoLogParser/datasets/public/mendeley_subsurface_slopes_logs_v001/metadata/content_manifest.jsonl \
+  /data/GeoLogParser/datasets/public/mendeley_tiber_borehole_pdf_v001/metadata/content_manifest.jsonl \
+  --output-root /data/GeoLogParser/artifacts/source_review/international_candidates_v001 \
+  --phase1-scope international_candidate \
+  --dpi 180
+```
+
+Start the review UI:
+
+```bash
+.venv/bin/uvicorn app.page_review_server:app --host 0.0.0.0 --port 8002
+```
+
+The reviewer records whether the page is phase-1 borehole content, whether the
+render is complete, and the status/action for organization, person/signature,
+contact, coordinates/location, stamp/watermark, and third-party content.
+`eligible_for_annotation` requires a readable borehole page with every present
+item explicitly cleared and no pending redaction. The stored reviewer identity
+is self-attested by the local operator; the service does not authenticate a
+person or establish expert status.
+
+Audit current status without exporting:
+
+```bash
+.venv/bin/python scripts/audit_page_reviews.py \
+  /data/GeoLogParser/artifacts/source_review/international_candidates_v001 \
+  /data/GeoLogParser/artifacts/source_review/international_candidates_v001/reviews \
+  --output /data/GeoLogParser/artifacts/source_review/international_candidates_v001/review_status.json
+```
+
+After every item has a valid human decision, add `--eligible-manifest PATH` to
+freeze the subset that may enter geological annotation. Partial export is
+rejected while any item remains unreviewed. Source review never creates
+geological Ground Truth and always leaves `benchmark_eligible=false`.
