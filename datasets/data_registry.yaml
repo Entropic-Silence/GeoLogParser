@@ -370,7 +370,7 @@ datasets:
     access_date: "2026-08-13"
     language: English metadata and English workbook headers
     format: "44 XLSX files; each contains one seven-column CPTU measurement sheet"
-    scale: "verified acquisition: 44 files, 5,923,040 bytes, and 165,000 measurement rows; source abstract also states 10 borehole records, but no such records occur in the released v2 inventory"
+    scale: "verified v2 acquisition: 44 files, 5,923,040 bytes, and 165,000 measurement rows; frozen public inventories show 44 XLSX in both v1 and v2, while the abstract also states 10 borehole records"
     downloadable: true
     access_status: "public anonymous inventory, download, SHA256, and workbook structure verified"
     license: Creative Commons Attribution 4.0 International
@@ -379,7 +379,7 @@ datasets:
     redistribution_policy: "retain DOI/creator/CC BY attribution; confirm measurement units and embedded-data treatment before redistributing transformed records"
     paper_fit: [paper3_nonspatial_cptu_protocol_development]
     status: acquired_content_audited_ineligible_for_current_formal_experiments
-    verification_notes: "All 44 acquired files matched repository hashes. They share schema Name/X/Y/Depth/qt/fs/u2 and contain 3,750 rows each; X and Y are '*' in every row, units and CRS are absent, and no lithology/stratigraphic intervals, borehole-record tables, or laboratory tables are present. The 165,000-row count is a measurement-row count, not a borehole or GT count. Audit v002 SHA256 is 31628e74ec28aa7d7da0c8cdfd82060bd9abcd4116027339358f9808add13be0. This source is not AI output or human GT."
+    verification_notes: "All 44 acquired v2 files matched repository hashes. They share schema Name/X/Y/Depth/qt/fs/u2 and contain 3,750 rows each; X and Y are '*' in every row, units and CRS are absent, and no lithology/stratigraphic intervals, borehole-record tables, or laboratory tables are present. A focused frozen survey verified that public root inventories for v1 and v2 each expose exactly the same 44 A/B/C/D CPTU identifiers (v2 filenames add '_update') and no separately listed borehole/laboratory package. This establishes an abstract-to-public-inventory mismatch, not that the stated records do not exist elsewhere. Survey manifest SHA256 is bf58363dfe09af09b8b4053f8622ea2e92c84c13754ea061cd3d9746e4e66045. The 165,000-row count is a measurement-row count, not a borehole or GT count. Audit v002 SHA256 is 31628e74ec28aa7d7da0c8cdfd82060bd9abcd4116027339358f9808add13be0. This source is not AI output or human GT."
 
   - id: mendeley_wuhan_karst_boreholes_v001
     name: "Data for: Formation mechanism analysis of karst collapses in Jinshuizha, Wuhan, China"

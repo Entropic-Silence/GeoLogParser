@@ -172,7 +172,15 @@ geolocation review must be established before acquisition.
   measurement workbooks: 165,000 rows with schema
   `Name/X/Y/Depth/qt/fs/u2`. Every X/Y cell is `*`; units, CRS, lithology,
   stratigraphic intervals, the stated 10 borehole records, and laboratory data
-  are absent. It is therefore ineligible for current formal experiments, but
+  are absent from the acquired v2 files. A focused version survey then verified
+  both public root inventories: v1 has 44 XLSX/5,954,240 bytes and v2 has 44
+  XLSX/5,923,040 bytes. Both list the same A1-A16, B1-B15, C1-C5, and D1-D8
+  identifiers; v2 filenames add `_update`. Neither inventory separately lists
+  the abstract's borehole or laboratory records. This is an observed mismatch
+  between abstract scope and public file inventory, not evidence that such data
+  do not exist outside the release. The focused survey manifest SHA256 is
+  `bf58363dfe09af09b8b4053f8622ea2e92c84c13754ea061cd3d9746e4e66045`.
+  The source is therefore ineligible for current formal experiments, but
   can support non-spatial CPTU protocol development. Frozen content-audit v002
   SHA256 is `31628e74ec28aa7d7da0c8cdfd82060bd9abcd4116027339358f9808add13be0`.
 - **Wuhan karst-collapse data** (`10.17632/g7gzd8jfyn.1`) describes CSV

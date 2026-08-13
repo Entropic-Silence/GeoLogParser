@@ -1,0 +1,29 @@
+survey_id: binhai_public_version_inventory_20260813_v001
+
+datacite_dois:
+  - id: binhai_v1
+    doi: 10.17632/vkjwwb8zsh.1
+  - id: binhai_v2
+    doi: 10.17632/vkjwwb8zsh.2
+
+mendeley_file_probes:
+  - id: binhai_v1
+    dataset_id: vkjwwb8zsh
+    version: 1
+    doi: 10.17632/vkjwwb8zsh.1
+  - id: binhai_v2
+    dataset_id: vkjwwb8zsh
+    version: 2
+    doi: 10.17632/vkjwwb8zsh.2
+
+candidate_reviews:
+  - doi: 10.17632/vkjwwb8zsh.1
+    disposition: nonspatial_cptu_inventory_only
+    license_status: verified_open
+    source_fit: paper3_nonspatial_protocol_development
+    reason: "Version 1 exposes 44 XLSX filenames and no separately listed borehole-record or laboratory files."
+  - doi: 10.17632/vkjwwb8zsh.2
+    disposition: nonspatial_cptu_inventory_only
+    license_status: verified_open
+    source_fit: paper3_nonspatial_protocol_development
+    reason: "Version 2 exposes 44 updated XLSX filenames and no separately listed borehole-record or laboratory files."

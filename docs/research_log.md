@@ -1050,3 +1050,21 @@
 - Scope: existing immutable experiment outputs were not rewritten. New status
   fields and config hashes apply to future runs. Formal Paper II results still
   require human Ground Truth and the complete one-module ablation matrix.
+
+## 2026-08-13 — Binhai public-version inventory reconciliation
+
+- Objective: determine whether the 10 borehole records and laboratory tests
+  named in the Binhai abstract were present in repository version 1 but omitted
+  by the acquired version 2.
+- Frozen evidence: a focused survey captured two DataCite DOI responses and the
+  anonymous Mendeley root-file inventories for v1/v2. All four requests returned
+  HTTP 200. The verified 13-artifact manifest SHA256 is
+  `bf58363dfe09af09b8b4053f8622ea2e92c84c13754ea061cd3d9746e4e66045`.
+- Observation: v1 exposes 44 XLSX totaling 5,954,240 bytes; v2 exposes 44 XLSX
+  totaling 5,923,040 bytes. Both inventories cover A1-A16, B1-B15, C1-C5, and
+  D1-D8. Version 2 changes filenames to `_update`; neither root inventory lists
+  a separate borehole-record or laboratory package.
+- Decision: retain Binhai only for non-spatial CPTU protocol development. Phrase
+  the discrepancy as abstract scope versus public inventory, not as evidence
+  that the stated data do not exist elsewhere. No additional files were
+  downloaded, no GPU was used, and formal experiment counts remain unchanged.
