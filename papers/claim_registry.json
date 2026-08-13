@@ -2,6 +2,34 @@
   "claim_registry_version": "paper_claims_v001",
   "interpretation": "Evidence tags trace manuscript numeric claims to immutable files; they do not promote audit/protocol data to formal evidence.",
   "claims": {
+    "p2.executed_synthetic_ablation": {
+      "paper": "paper2",
+      "experiment_id": "P2_EXECUTED_SYNTHETIC_ABLATION_001",
+      "scope": "executed controlled Synthetic ranker ablation; not real-document or human-GT evidence",
+      "source_path": "results/2026-08-13/P2_EXECUTED_SYNTHETIC_ABLATION_001/metrics.json",
+      "source_sha256": "800e33358370ddbe63a2919f45b652b778d339712d4b642e4ced84edb29a99e4",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/case_count", "expected": 127},
+        {"type": "json_pointer_equals", "pointer": "/variants/full/metrics/test_case_count", "expected": 97},
+        {"type": "json_pointer_equals", "pointer": "/variants/full/metrics/correction/false_correction_rate/value", "expected": 0.0},
+        {"type": "json_pointer_equals", "pointer": "/variants/full/metrics/review/manual_review_recall/value", "expected": 1.0},
+        {"type": "json_pointer_equals", "pointer": "/variants/full/metrics/confidence/calibrated_expected_calibration_error/value", "expected": 0.03954468428346986}
+      ]
+    },
+    "p3.executed_synthetic_comparison": {
+      "paper": "paper3",
+      "experiment_id": "P3_EXECUTED_SYNTHETIC_RAW_QC_REFERENCE_001",
+      "scope": "executed controlled Synthetic raw/constrained/reference surface comparison; not real-site evidence",
+      "source_path": "results/2026-08-13/P3_EXECUTED_SYNTHETIC_RAW_QC_REFERENCE_001/metrics.json",
+      "source_sha256": "f2e565c71ba668c9f18e33b5e949e5b99bd7c95089bbfb0431991c32227ef414",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/conditions/0/raw/mae_m/mean", "expected": 0.006740703844212809},
+        {"type": "json_pointer_equals", "pointer": "/conditions/4/raw/mae_m/mean", "expected": 0.6651640973182842},
+        {"type": "json_pointer_equals", "pointer": "/conditions/0/abstentions", "expected": 120},
+        {"type": "json_pointer_equals", "pointer": "/conditions/2/accepted_corrections", "expected": 120},
+        {"type": "json_pointer_equals", "pointer": "/conditions/4/constrained/mae_m/mean", "expected": 0.0}
+      ]
+    },
     "p1.padova_inventory": {
       "paper": "paper1",
       "scope": "11 unique source records and 15 rendered pages; rights/annotation state is described separately",

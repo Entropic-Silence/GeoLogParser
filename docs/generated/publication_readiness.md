@@ -6,15 +6,15 @@ Ground-Truth-exportable annotations: **0**.
 | Gate | Status |
 |---|---|
 | `human_ground_truth_exists` | NOT COMPLETED |
-| `paper1_formal_results_exist` | PASSED |
+| `paper1_formal_results_exist` | NOT COMPLETED |
 | `paper2_formal_results_exist` | NOT COMPLETED |
 | `paper3_formal_results_exist` | NOT COMPLETED |
 
-| Paper | Indexed runs | Formal runs |
-|---|---:|---:|
-| paper1 | 30 | 2 |
-| paper2 | 3 | 0 |
-| paper3 | 4 | 0 |
+| Paper | Indexed runs | Controlled formal | Real formal |
+|---|---:|---:|---:|
+| paper1 | 30 | 2 | 0 |
+| paper2 | 3 | 1 | 0 |
+| paper3 | 5 | 1 | 0 |
 
 Audit/failure-analysis/protocol-only runs are intentionally excluded from formal counts.
 False gates require `TBD`/`NOT COMPLETED`; this file is status evidence, not a paper result.

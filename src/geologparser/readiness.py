@@ -11,7 +11,9 @@ from typing import Any, Mapping, Sequence
 from geologparser.annotation_export import ground_truth_gate
 
 
-FORMAL_ELIGIBILITY = {"formal_benchmark", "formal_silver_benchmark", "formal_method", "formal_downstream"}
+CONTROLLED_FORMAL_ELIGIBILITY = {"formal_silver_benchmark", "formal_synthetic_method", "formal_synthetic_downstream"}
+REAL_FORMAL_ELIGIBILITY = {"formal_benchmark", "formal_method", "formal_downstream"}
+FORMAL_ELIGIBILITY = CONTROLLED_FORMAL_ELIGIBILITY | REAL_FORMAL_ELIGIBILITY
 
 
 def _sha256(path: Path) -> str:
@@ -55,6 +57,12 @@ def result_index_readiness(index_path: Path) -> dict[str, Any]:
         "formal_experiment_count": sum(
             count for name, count in eligibility.items() if name in FORMAL_ELIGIBILITY
         ),
+        "real_formal_experiment_count": sum(
+            count for name, count in eligibility.items() if name in REAL_FORMAL_ELIGIBILITY
+        ),
+        "controlled_formal_experiment_count": sum(
+            count for name, count in eligibility.items() if name in CONTROLLED_FORMAL_ELIGIBILITY
+        ),
     }
 
 
@@ -64,9 +72,9 @@ def project_readiness(
     annotations = [annotation_readiness(path) for path in annotation_roots]
     indexes = {paper: result_index_readiness(path) for paper, path in paper_indexes.items()}
     gt_count = sum(value["ground_truth_exportable_count"] for value in annotations)
-    paper1_formal = indexes.get("paper1", {}).get("formal_experiment_count", 0)
-    paper2_formal = indexes.get("paper2", {}).get("formal_experiment_count", 0)
-    paper3_formal = indexes.get("paper3", {}).get("formal_experiment_count", 0)
+    paper1_formal = indexes.get("paper1", {}).get("real_formal_experiment_count", 0)
+    paper2_formal = indexes.get("paper2", {}).get("real_formal_experiment_count", 0)
+    paper3_formal = indexes.get("paper3", {}).get("real_formal_experiment_count", 0)
     gates = {
         "human_ground_truth_exists": gt_count > 0,
         "paper1_formal_results_exist": paper1_formal > 0,
@@ -105,10 +113,10 @@ def readiness_markdown(report: Mapping[str, Any]) -> str:
     ]
     for name, passed in report["gates"].items():
         lines.append(f"| `{name}` | {'PASSED' if passed else 'NOT COMPLETED'} |")
-    lines.extend(["", "| Paper | Indexed runs | Formal runs |", "|---|---:|---:|"])
+    lines.extend(["", "| Paper | Indexed runs | Controlled formal | Real formal |", "|---|---:|---:|---:|"])
     for paper, value in sorted(report["paper_indexes"].items()):
         lines.append(
-            f"| {paper} | {value['indexed_experiment_count']} | {value['formal_experiment_count']} |"
+            f"| {paper} | {value['indexed_experiment_count']} | {value['controlled_formal_experiment_count']} | {value['real_formal_experiment_count']} |"
         )
     lines.extend([
         "",

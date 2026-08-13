@@ -1,7 +1,6 @@
 {
   "blockers": [
-    "unresolved TBD/citation markers remain",
-    "no formal experiment is indexed"
+    "unresolved TBD/citation markers remain"
   ],
   "broken_local_links": [],
   "citation_keys": [
@@ -13,17 +12,18 @@
     "shepard1968interpolation"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "d48c0cef57a6cd79fcd6b9c5ef7a4602dad1be23613399316a93432609d3bc52",
+  "claim_registry_sha256": "d639d15acbfc3b9e22a5ee4799a1f321debd68d38fc9b86d6a9666a26d13ae3d",
   "claim_source_errors": [],
   "evidence_tags": [
     "p3.coal602_source_audit",
     "p3.coal602_source_proxy",
+    "p3.executed_synthetic_comparison",
     "p3.idw_multiseed",
     "p3.padova_spatial_catalog",
     "p3.pyvista_interop",
     "p3.sanming_database_connectivity"
   ],
-  "formal_experiment_count": 0,
+  "formal_experiment_count": 1,
   "headings": [
     "Abstract",
     "1. Introduction",
@@ -38,7 +38,7 @@
     "10. Conclusion",
     "References"
   ],
-  "indexed_experiment_count": 4,
+  "indexed_experiment_count": 5,
   "literature_evidence_errors": [],
   "literature_evidence_path": "docs/literature_evidence.yaml",
   "literature_evidence_sha256": "d36dcd2badac6ba03fcd9842f3a5e7623885fd8f1e55966dceb75eb1795734f5",
@@ -46,7 +46,7 @@
     {
       "exists": true,
       "resolved_path": "papers/paper3/generated/current_results.md",
-      "sha256": "e29929de94b67c885a0e6e514d1cf72a9648e2d1e30a247d7039a35e219bc184",
+      "sha256": "94a23df2e50b05393ecad987d78edfe744399fe042d669701503ff521fb08b70",
       "target": "generated/current_results.md"
     },
     {
@@ -70,7 +70,7 @@
     {
       "exists": true,
       "resolved_path": "docs/generated/publication_readiness.md",
-      "sha256": "47946931ffe682a514ee38d8cc46f2478460db7f8877ab1bf5387f6e7ea711a5",
+      "sha256": "8f8e839f457866adc86d5cd6922d8a068f39e4fc6e4ad80b434eee0cf82265f4",
       "target": "../../docs/generated/publication_readiness.md"
     },
     {
@@ -87,7 +87,7 @@
     }
   ],
   "manuscript_path": "papers/paper3/manuscript.md",
-  "manuscript_sha256": "b230cdb064fa2e82c37873abce8db05f7deccb6df4502f78a5a780646e61656b",
+  "manuscript_sha256": "86fdcf95bb1ab332cdc141845a9845dd95377c2dc2f9ab2525b1c8b344958dc5",
   "missing_bibliography_keys": [],
   "missing_claim_registrations": [],
   "missing_literature_evidence_keys": [],
@@ -97,6 +97,7 @@
   "registered_evidence_tags": [
     "p3.coal602_source_audit",
     "p3.coal602_source_proxy",
+    "p3.executed_synthetic_comparison",
     "p3.idw_multiseed",
     "p3.padova_spatial_catalog",
     "p3.pyvista_interop",
@@ -104,10 +105,10 @@
   ],
   "result_index_errors": [],
   "result_index_path": "experiments/paper3/result_index.jsonl",
-  "result_index_sha256": "c4531a69375f1078a0621df63f94d794f0055ef5cc9c79df41be8acdd380813c",
+  "result_index_sha256": "602d70c8cb8c044281488ef9c238d0a6cafce806f47804e3a98f3812ba727449",
   "structurally_complete": true,
   "submission_ready": false,
   "tbd_or_citation_marker_count": 6,
   "unused_claim_registrations": [],
-  "word_count": 1454
+  "word_count": 1585
 }

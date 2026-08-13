@@ -13,9 +13,10 @@
     "xu2021layoutlmv2"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "d48c0cef57a6cd79fcd6b9c5ef7a4602dad1be23613399316a93432609d3bc52",
+  "claim_registry_sha256": "d639d15acbfc3b9e22a5ee4799a1f321debd68d38fc9b86d6a9666a26d13ae3d",
   "claim_source_errors": [],
   "evidence_tags": [
+    "p2.executed_synthetic_ablation",
     "p2.roi_reread_audit"
   ],
   "formal_experiment_count": 1,
@@ -52,7 +53,7 @@
     {
       "exists": true,
       "resolved_path": "docs/generated/publication_readiness.md",
-      "sha256": "47946931ffe682a514ee38d8cc46f2478460db7f8877ab1bf5387f6e7ea711a5",
+      "sha256": "8f8e839f457866adc86d5cd6922d8a068f39e4fc6e4ad80b434eee0cf82265f4",
       "target": "../../docs/generated/publication_readiness.md"
     },
     {
@@ -69,7 +70,7 @@
     }
   ],
   "manuscript_path": "papers/paper2/manuscript.md",
-  "manuscript_sha256": "5f5a5cf0a4a8a73f49c9707972195497f0dd34700694d9affb1a489088c89724",
+  "manuscript_sha256": "e506d067f8adadeae999dc776dac1af65ad95800f7a69a729a2cc3f9f179878f",
   "missing_bibliography_keys": [],
   "missing_claim_registrations": [],
   "missing_literature_evidence_keys": [],
@@ -77,6 +78,7 @@
   "package_label": "DRAFT_NOT_SUBMISSION_READY",
   "paper": "paper2",
   "registered_evidence_tags": [
+    "p2.executed_synthetic_ablation",
     "p2.roi_reread_audit"
   ],
   "result_index_errors": [],
@@ -86,5 +88,5 @@
   "submission_ready": false,
   "tbd_or_citation_marker_count": 5,
   "unused_claim_registrations": [],
-  "word_count": 1634
+  "word_count": 1637
 }

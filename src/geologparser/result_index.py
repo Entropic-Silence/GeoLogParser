@@ -15,7 +15,7 @@ HASH_PATHS = {
     "run_log_sha256": "run.log",
 }
 ARTIFACT_MANIFEST = "artifact_manifest.json"
-FORMAL_ELIGIBILITY = {"formal_benchmark", "formal_silver_benchmark", "formal_method", "formal_synthetic_method", "formal_downstream"}
+FORMAL_ELIGIBILITY = {"formal_benchmark", "formal_silver_benchmark", "formal_method", "formal_synthetic_method", "formal_downstream", "formal_synthetic_downstream"}
 
 
 def formal_evidence_errors(entry: dict, run: dict, metrics: dict) -> list[str]:
@@ -49,6 +49,11 @@ def formal_evidence_errors(entry: dict, run: dict, metrics: dict) -> list[str]:
             errors.append("formal_method requires the complete expected ablation matrix")
         if eligibility == "formal_synthetic_method" and metrics.get("ground_truth_policy") != "synthetic":
             errors.append("formal_synthetic_method requires synthetic reference policy")
+    elif eligibility == "formal_synthetic_downstream":
+        if metrics.get("data_status") != "synthetic_known_reference":
+            errors.append("formal_synthetic_downstream requires synthetic known reference")
+        if metrics.get("comparison") != "raw_vs_constrained_vs_synthetic_reference":
+            errors.append("formal_synthetic_downstream requires raw/constrained/synthetic-reference comparison")
     elif eligibility == "formal_downstream":
         if metrics.get("data_status") != "human_verified_real_site":
             errors.append("formal_downstream requires human_verified_real_site data_status")

@@ -208,10 +208,21 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
 
 def paper3_table(entries: list[dict], repository_root: Path) -> str:
     synthetic_rows = []
+    comparison_rows = []
     source_protocol_rows = []
     interoperability_rows = []
     for entry in entries:
         metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
+        if metrics.get("comparison") == "raw_vs_constrained_vs_synthetic_reference":
+            for condition in metrics["conditions"]:
+                comparison_rows.append("| " + " | ".join([
+                    entry["experiment_id"], number(condition["magnitude_m"], 2),
+                    number(condition["raw"]["mae_m"]["mean"], 6),
+                    number(condition["constrained"]["mae_m"]["mean"], 6),
+                    str(condition["accepted_corrections"]), str(condition["abstentions"]),
+                    entry["paper_eligibility"],
+                ]) + " |")
+            continue
         source_protocol = metrics.get("data_status") == "licensed_source_structured_data_pending_human_spatial_review"
         for condition in metrics.get("conditions", []):
             if isinstance(condition.get("mae_m"), dict):
@@ -250,6 +261,13 @@ def paper3_table(entries: list[dict], repository_root: Path) -> str:
         "|---|---:|---:|---:|---:|---:|---:|---|",
         *synthetic_rows, "",
         "These rows are synthetic protocol results only; they are not evidence of real geological-model sensitivity. Multi-seed rows show mean ± sample standard deviation across seeds.",
+        "",
+        "### Executed Synthetic raw/constrained/reference comparison",
+        "",
+        "| Experiment | Injected boundary error (m) | Raw surface MAE (m) | Constrained surface MAE (m) | Accepted corrections | Abstentions | Eligibility |",
+        "|---|---:|---:|---:|---:|---:|---|",
+        *comparison_rows, "",
+        "This table executes the production constraint/rereading ranker and the same IDW surface for all inputs. It is controlled Synthetic algorithm evidence, not a real-site sensitivity estimate.",
         "",
         "### Licensed structured-source field proxy protocol",
         "",
