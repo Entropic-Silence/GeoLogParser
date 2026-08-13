@@ -234,6 +234,9 @@ def build_eligible_annotation_pack(
     rows, audit = _verified_eligible_rows(
         pack_root, review_root, schema_path, eligible_manifest,
     )
+    # The audit is performed against a temporary canonical file; expose the
+    # durable frozen manifest path in the persisted summary instead.
+    audit = {**audit, "eligible_manifest_path": str(eligible_manifest)}
     eligible_sha256 = sha256_file(eligible_manifest)
     adapter = ocr_adapter or TesseractOCRAdapter(language="chi_sim+eng", psm=6)
     output_root.parent.mkdir(parents=True, exist_ok=True)

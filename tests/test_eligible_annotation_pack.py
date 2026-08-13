@@ -84,6 +84,7 @@ def test_builds_native_pdf_auto_proposal_with_two_coordinate_spaces(tmp_path: Pa
     annotation = json.loads((output / "annotations/CANDIDATE_001.json").read_text())
     field = annotation["record"]["borehole"]["borehole_id"]
     assert result["proposal_count"] == 1
+    assert result["source_review_audit"]["eligible_manifest_path"] == str(eligible.resolve())
     assert result["human_verified_annotation_count"] == 0
     assert result["accuracy_metrics"] is None
     assert result["benchmark_eligible"] is False
