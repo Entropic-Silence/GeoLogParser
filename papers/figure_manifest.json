@@ -2,7 +2,7 @@
   "outputs": [
     {
       "path": "paper1/generated/figures/audit_coverage.png",
-      "sha256": "85a3ee16439b68b8ff738b4dfaf73828b11412da58e2893b59b5b2e407b3a435"
+      "sha256": "3c166930dd32611aae607b7da9e79b229f8a5773460980073eb804c649c88a96"
     },
     {
       "path": "paper1/generated/figures/degradation_inputs.png",

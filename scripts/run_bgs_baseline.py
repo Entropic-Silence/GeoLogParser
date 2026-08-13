@@ -39,6 +39,7 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--experiment-id", required=True)
     parser.add_argument("--dataset-root", type=Path, default=Path("/data/GeoLogParser/datasets/public/bgs_v001"))
+    parser.add_argument("--dataset-version", default=None)
     parser.add_argument("--results-root", type=Path, default=ROOT / "results")
     parser.add_argument("--ocr-backend", choices=("tesseract", "rapidocr"), default="tesseract")
     parser.add_argument("--render-dpi", type=int, default=300)
@@ -80,7 +81,7 @@ def main() -> None:
         "experiment_id": arguments.experiment_id,
         "git_commit": git_commit,
         "date": date.today().isoformat(),
-        "dataset_version": "bgs_opengeoscience_v001_fixed_ids_4_5_6_10",
+        "dataset_version": arguments.dataset_version or f"bgs_opengeoscience_{arguments.dataset_root.name}",
         "split_version": "source_record_disjoint_authoritative_metadata_v001",
         "model": model_id,
         "model_revision": backend_revision,
