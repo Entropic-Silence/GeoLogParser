@@ -24,6 +24,7 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
     vlm_rows = []
     fusion_rows = []
     native_rows = []
+    synthetic_rows = []
     for entry in entries:
         metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
         run = json.loads((repository_root / entry["result_path"] / "run.json").read_text())
@@ -72,6 +73,21 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
                 str(metrics["constraint_violations"]),
                 number(metrics["latency_mean_seconds_per_page"]), entry["paper_eligibility"],
             ]) + " |")
+        elif metrics.get("ground_truth_tier") == "SYNTHETIC":
+            interval = metrics["intervals"]
+            final_depth = metrics["final_depth"]
+            synthetic_rows.append("| " + " | ".join([
+                entry["experiment_id"], run["model"],
+                ratio(metrics["borehole_id_exact_match"]),
+                ratio(final_depth["final_depth_m_mae_coverage"]),
+                number(final_depth["final_depth_m_mae"]["value"]),
+                number(interval["interval_precision"]["value"]),
+                number(interval["interval_recall"]["value"]),
+                number(interval["interval_f1"]["value"]),
+                number(interval["matched_top_boundary_mae_m"]["value"]),
+                number(metrics["latency_seconds_per_page"]),
+                entry["paper_eligibility"],
+            ]) + " |")
         elif "borehole_id_exact_match" in metrics:
             ocr_rows.append("| " + " | ".join([
                 entry["experiment_id"], run["model"],
@@ -119,6 +135,13 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
         "| Experiment | Model | Borehole ID EM | X coverage | X paired MAE | Final-depth coverage | Emitted intervals | s/page | Eligibility |",
         "|---|---|---:|---:|---:|---:|---:|---:|---|",
         *ocr_rows, "",
+        "### Synthetic controlled OCR results (not Real Gold)",
+        "",
+        "| Experiment | Model | Borehole ID EM | Final-depth coverage | Final-depth MAE (m) | Interval P | Interval R | Interval F1 | Matched top MAE (m) | s/page | Eligibility |",
+        "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---|",
+        *synthetic_rows, "",
+        "These rows use programmatically known Synthetic labels. They validate controlled extraction and robustness paths but cannot establish performance on Real Gold borehole logs.",
+        "",
         "### Privacy-minimized OCR coverage audits (no Ground Truth)",
         "",
         "| Experiment | Model | Completed pages | Borehole-ID presence | Final-depth presence | Pages with intervals | Emitted intervals | OCR regions | Constraint evals | Violations | s/page | Eligibility |",

@@ -71,6 +71,33 @@ def test_paper1_table_separates_privacy_minimized_native_pdf_coverage(tmp_path: 
     assert "source text, extracted values, and source bboxes are omitted" in table
 
 
+def test_paper1_table_separates_synthetic_controlled_results(tmp_path: Path):
+    metric = lambda value, numerator=1, denominator=1: {
+        "value": value, "numerator": numerator, "denominator": denominator,
+    }
+    metrics = {
+        "ground_truth_tier": "SYNTHETIC",
+        "borehole_id_exact_match": metric(0.5, 1, 2),
+        "final_depth": {
+            "final_depth_m_mae_coverage": metric(1.0, 2, 2),
+            "final_depth_m_mae": metric(0.0, 0, 2),
+        },
+        "intervals": {
+            "interval_precision": metric(1.0), "interval_recall": metric(0.5),
+            "interval_f1": metric(2 / 3), "matched_top_boundary_mae_m": metric(0.0),
+        },
+        "latency_seconds_per_page": 0.4,
+    }
+    write_run(tmp_path, metrics, {"model": "synthetic-test"})
+    table = paper1_table([{
+        "experiment_id": "P1_SYNTH", "result_path": "result",
+        "paper_eligibility": "audit_only",
+    }], tmp_path)
+    assert "Synthetic controlled OCR results (not Real Gold)" in table
+    assert "P1_SYNTH" in table
+    assert "cannot establish performance on Real Gold" in table
+
+
 def test_paper3_table_is_labelled_protocol_only(tmp_path: Path, monkeypatch):
     metrics = {"conditions": [{"magnitude_m": .1, "seed": 1, "count": 3, "mae_m": .02, "rmse_m": .03, "max_abs_error_m": .04}]}
     write_run(tmp_path, metrics, {})

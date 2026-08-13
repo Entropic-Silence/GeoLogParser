@@ -1,5 +1,6 @@
 from .evaluator import Evaluator
 from .benchmark import evaluate_benchmark
+from .synthetic import evaluate_synthetic_controlled
 from .correction import correction_safety_metrics, review_detection_metrics
 from .paper2 import evaluate_paper2_ablation_matrix, evaluate_paper2_cases
 from .errors import ERROR_TAXONOMY_V001, classify_field_error, error_distribution
@@ -48,5 +49,5 @@ __all__ = [
     "normalized_edit_similarity",
     "sequence_error_rate", "word_error_rate",
     "correction_safety_metrics", "review_detection_metrics",
-    "evaluate_benchmark", "evaluate_paper2_ablation_matrix", "evaluate_paper2_cases",
+    "evaluate_benchmark", "evaluate_synthetic_controlled", "evaluate_paper2_ablation_matrix", "evaluate_paper2_cases",
 ]

@@ -1310,3 +1310,40 @@
   generated no project dataset or benchmark result in this run. Human GT,
   accuracy, F1, calibration, and publication readiness remain unchanged and
   unreported (`TBD`). No GPU was used.
+
+## 2026-08-13 — Autonomous data-tier and controlled benchmark track
+
+- Objective: remove the human source-review UI from the only path of project
+  progress while preserving scientific and licensing boundaries. The UI remains
+  available as an optional override, but automated compliance, Synthetic, and
+  Silver are now explicit separate data tiers.
+- Compliance: `scripts/run_automated_compliance_review.py` generated
+  `/data/GeoLogParser/artifacts/compliance/automated_compliance_v002.json`.
+  Across the 33 registry entries the automated evidence gate reported 14
+  `ELIGIBLE`, 17 `AMBIGUOUS`, and 2 `EXCLUDE` decisions. The report is explicitly
+  `review_type=automated_compliance_review`, `human_reviewed=false`; for visual
+  sources its privacy scope is text metadata only and does not establish visual
+  privacy or sensitive-location absence.
+- Synthetic data: generated immutable
+  `/data/GeoLogParser/datasets/synthetic_borehole_logs_v001` with 32 PNG pages,
+  32 schema-valid known labels, 8 template families, deterministic seed
+  `20260813`, degradation metadata, and manifest SHA256
+  `9a28a97bc69a9950b755acf203d99003f32eb439caa24952160f40f041b50acd`.
+  Labels use `ground_truth_tier=SYNTHETIC` and `validation_status=synthetic_verified`;
+  human GT remains zero.
+- Controlled OCR result: `P1_B1_SYNTHETIC_CONTROLLED_001` is preserved as
+  failure-analysis evidence (Tesseract+regex initially misread the title as
+  borehole ID on 32/32 pages). After a regex boundary fix,
+  `P1_B1_SYNTHETIC_CONTROLLED_002` measured on the same frozen 32-page set:
+  borehole-ID exact match `23/32 = 0.71875`, final-depth MAE `0 m` with 32/32
+  coverage, interval precision `1.0`, interval recall `0.7086614173`, interval
+  F1 `0.8294930876`, matched top/bottom boundary MAE `0 m`, and CPU latency
+  `0.3787452128 s/page`. These are controlled Synthetic metrics only, not Real
+  Gold benchmark results; formal Paper I count remains zero.
+- Silver protocol: added isolated Extractor A/B and adjudicator contracts that
+  produce `SILVER_HIGH_CONFIDENCE` or `SILVER_UNCERTAIN` plus constraint-bound
+  hard cases. An 8-page PSM-6 versus PSM-11 smoke produced 8
+  `SILVER_HIGH_CONFIDENCE`, 0 uncertain cases, and 1 automatically collected
+  hard case; accuracy metrics remain null and the pack is not Gold.
+- Boundary: no public or internal source was promoted to Gold, no Human Review
+  was fabricated, and no GPU was used.

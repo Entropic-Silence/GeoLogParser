@@ -22,14 +22,16 @@ def save_audit_coverage(entries: Sequence[Mapping[str, Any]], repository_root: P
     labels, ratios, counts = [], [], []
     for entry in entries:
         metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
+        if metrics.get("ground_truth_tier") == "SYNTHETIC":
+            continue
         numerator = denominator = None
         if "schema_valid_responses" in metrics:
             numerator, denominator = metrics["schema_valid_responses"], metrics["items"]
         elif "items_with_schema_valid_vlm_record" in metrics:
             numerator, denominator = metrics["items_with_schema_valid_vlm_record"], metrics["items"]
-        elif "items_with_any_interval" in metrics:
+        elif "items_with_any_interval" in metrics and "items" in metrics:
             numerator, denominator = metrics["items_with_any_interval"], metrics["items"]
-        elif "documents_with_borehole_id" in metrics:
+        elif "documents_with_borehole_id" in metrics and "documents" in metrics:
             numerator, denominator = metrics["documents_with_borehole_id"], metrics["documents"]
         elif "borehole_id_exact_match" in metrics:
             value = metrics["borehole_id_exact_match"]

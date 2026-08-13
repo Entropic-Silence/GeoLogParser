@@ -16,7 +16,7 @@ from geologparser.ocr.base import TextRegion
 NUMBER = r"[-+]?\d+(?:\.\d+)?"
 LOCALIZED_NUMBER = r"[-+]?\d+(?:[.,]\d+)?"
 HEADER_PATTERNS = {
-    "borehole_id": re.compile(r"(?:钻\s*孔\s*编\s*号|钻\s*孔\s*号|孔\s*号|borehole\s*(?:id|no\.?)?|BGS\s*Reference)\s*[:：]?\s*((?:[A-Za-z]\s+[A-Za-z0-9_./-]+)|[A-Za-z0-9_./-]+)", re.I),
+    "borehole_id": re.compile(r"(?:(?:钻\s*孔\s*编\s*号|钻\s*孔\s*号|孔\s*号|borehole\s*(?:id|no\.?)|BGS\s*Reference)\s*[:：]?|borehole\s*[:：]|(?<!BGS )\bID\s*[:：])\s*((?:[A-Za-z]\s+[A-Za-z0-9_./-]+)|[A-Za-z0-9_./-]+)", re.I),
     "collar_elevation_m": re.compile(rf"(?:孔\s*口\s*高\s*程|孔\s*口\s*标\s*高|collar\s*elevation|elevation)\s*[:：]?\s*({LOCALIZED_NUMBER})\s*(?:m|米)?", re.I),
     "final_depth_m": re.compile(rf"(?:终\s*孔\s*深\s*度|孔\s*深|final\s*depth)\s*[:：]?\s*({NUMBER})\s*(?:m|米)?", re.I),
     "groundwater_depth_m": re.compile(rf"(?:稳\s*定\s*水\s*位\s*深\s*度|地下水(?:位)?埋深|water\s*(?:table|depth))\s*[:：]?\s*({LOCALIZED_NUMBER})\s*(?:m|米)?", re.I),

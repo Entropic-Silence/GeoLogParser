@@ -44,12 +44,12 @@
         "source_text": {"type": ["string", "null"]},
         "extraction_method": {
           "type": "string",
-          "enum": ["human", "direct_pdf_text", "ocr", "layout", "regex", "llm", "vlm", "fusion", "derived", "unknown"]
+          "enum": ["human", "synthetic_ground_truth", "direct_pdf_text", "ocr", "layout", "regex", "llm", "vlm", "fusion", "derived", "unknown"]
         },
         "confidence": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
         "validation_status": {
           "type": "string",
-          "enum": ["not_validated", "passed", "warning", "failed", "needs_review", "human_verified"]
+          "enum": ["not_validated", "passed", "warning", "failed", "needs_review", "human_verified", "synthetic_verified"]
         },
         "warning_codes": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
         "raw_unit": {"type": ["string", "null"]}
