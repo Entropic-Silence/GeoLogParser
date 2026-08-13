@@ -123,6 +123,18 @@ def test_formal_authoritative_metadata_method_requires_narrow_scope():
     )
 
 
+def test_formal_source_controlled_downstream_requires_explicit_boundary():
+    run = {"config": {"ground_truth_sha256": "a" * 64}, "split_version": "controlled_v001"}
+    assert formal_evidence_errors(
+        {"paper_eligibility": "formal_source_controlled_downstream"}, run,
+        {
+            "data_status": "real_structured_source_controlled_error_injection",
+            "comparison": "raw_vs_consensus_qc_vs_source_reference",
+            "human_ground_truth_evidence": False,
+        },
+    ) == []
+
+
 def test_nonformal_labels_do_not_require_ground_truth_evidence():
     assert formal_evidence_errors(
         {"paper_eligibility": "audit_only"}, {"config": {}}, {},

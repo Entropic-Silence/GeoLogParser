@@ -18,7 +18,7 @@ ARTIFACT_MANIFEST = "artifact_manifest.json"
 FORMAL_ELIGIBILITY = {
     "formal_benchmark", "formal_silver_benchmark", "formal_method", "formal_synthetic_method",
     "formal_downstream", "formal_synthetic_downstream", "formal_authoritative_metadata",
-    "formal_authoritative_metadata_method",
+    "formal_authoritative_metadata_method", "formal_source_controlled_downstream",
 }
 
 
@@ -78,6 +78,20 @@ def formal_evidence_errors(entry: dict, run: dict, metrics: dict) -> list[str]:
             errors.append("formal_synthetic_downstream requires synthetic known reference")
         if metrics.get("comparison") != "raw_vs_constrained_vs_synthetic_reference":
             errors.append("formal_synthetic_downstream requires raw/constrained/synthetic-reference comparison")
+    elif eligibility == "formal_source_controlled_downstream":
+        if metrics.get("data_status") != "real_structured_source_controlled_error_injection":
+            errors.append(
+                "formal_source_controlled_downstream requires real structured-source controlled injection"
+            )
+        if metrics.get("comparison") not in {
+            "raw_vs_consensus_qc_vs_source_reference",
+            "raw_vs_consensus_drop_vs_mean_fusion_vs_source_reference",
+        }:
+            errors.append(
+                "formal_source_controlled_downstream requires raw/QC/source-reference comparison"
+            )
+        if metrics.get("human_ground_truth_evidence") is not False:
+            errors.append("formal_source_controlled_downstream must not claim human Ground Truth")
     elif eligibility == "formal_downstream":
         if metrics.get("data_status") != "human_verified_real_site":
             errors.append("formal_downstream requires human_verified_real_site data_status")

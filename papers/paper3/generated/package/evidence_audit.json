@@ -12,9 +12,10 @@
     "shepard1968interpolation"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "bce6171d8c35000055aee474658290c439f6ef35da2ce33de85bc8deaafcca74",
+  "claim_registry_sha256": "7e9448cf36bfa00314bf148c3489b2998c3607d1a85e0f1b168a7c85c5f5df17",
   "claim_source_errors": [],
   "evidence_tags": [
+    "p3.coal602_consensus_qc",
     "p3.coal602_source_audit",
     "p3.coal602_source_proxy",
     "p3.executed_synthetic_comparison",
@@ -23,7 +24,7 @@
     "p3.pyvista_interop",
     "p3.sanming_database_connectivity"
   ],
-  "formal_experiment_count": 1,
+  "formal_experiment_count": 2,
   "headings": [
     "Abstract",
     "1. Introduction",
@@ -38,7 +39,7 @@
     "10. Conclusion",
     "References"
   ],
-  "indexed_experiment_count": 5,
+  "indexed_experiment_count": 8,
   "literature_evidence_errors": [],
   "literature_evidence_path": "docs/literature_evidence.yaml",
   "literature_evidence_sha256": "d36dcd2badac6ba03fcd9842f3a5e7623885fd8f1e55966dceb75eb1795734f5",
@@ -46,7 +47,7 @@
     {
       "exists": true,
       "resolved_path": "papers/paper3/generated/current_results.md",
-      "sha256": "94a23df2e50b05393ecad987d78edfe744399fe042d669701503ff521fb08b70",
+      "sha256": "d41116fcb498a868717488d4066509817e2f0efbe87bd6f4d975ac1705758149",
       "target": "generated/current_results.md"
     },
     {
@@ -70,7 +71,7 @@
     {
       "exists": true,
       "resolved_path": "docs/generated/publication_readiness.md",
-      "sha256": "c7b22241c37272f6fbd9123a6e2d93c79868f2db3afdc815060316147f4096ec",
+      "sha256": "e23c044fb7b7503a834c70952207ed84c146e0750fd0879a22753fa1fb3cbeff",
       "target": "../../docs/generated/publication_readiness.md"
     },
     {
@@ -87,7 +88,7 @@
     }
   ],
   "manuscript_path": "papers/paper3/manuscript.md",
-  "manuscript_sha256": "86fdcf95bb1ab332cdc141845a9845dd95377c2dc2f9ab2525b1c8b344958dc5",
+  "manuscript_sha256": "2155893176eeb1c3ef678bcaa296f48cdfc760495bf67bcf81f40b050d8f5178",
   "missing_bibliography_keys": [],
   "missing_claim_registrations": [],
   "missing_literature_evidence_keys": [],
@@ -95,6 +96,7 @@
   "package_label": "DRAFT_NOT_SUBMISSION_READY",
   "paper": "paper3",
   "registered_evidence_tags": [
+    "p3.coal602_consensus_qc",
     "p3.coal602_source_audit",
     "p3.coal602_source_proxy",
     "p3.executed_synthetic_comparison",
@@ -105,10 +107,10 @@
   ],
   "result_index_errors": [],
   "result_index_path": "experiments/paper3/result_index.jsonl",
-  "result_index_sha256": "602d70c8cb8c044281488ef9c238d0a6cafce806f47804e3a98f3812ba727449",
+  "result_index_sha256": "2dc04f66de8a4e093c7d5a0a386ba65a95779952592c31ed1a7f8eb7881960b7",
   "structurally_complete": true,
   "submission_ready": false,
   "tbd_or_citation_marker_count": 6,
   "unused_claim_registrations": [],
-  "word_count": 1585
+  "word_count": 1825
 }

@@ -1,0 +1,16 @@
+experiment_id: P3_COAL602_CONSENSUS_QC_CONTROLLED_001
+dataset_version: mendeley_coal_boreholes_602_v001
+source_role: source_structured_data
+split_version: controlled_dual_channel_error_injection_v001
+model: idw_power_2_with_exact_consensus_qc
+model_revision: geologparser_source_consensus_qc_v001
+prompt_version: not_applicable
+base_seed: 20260813
+repetitions: 30
+grid_size: 41
+magnitudes_m: [0.01, 0.05, 0.10, 0.50, 1.00]
+per_channel_error_rate: 0.10
+source_field: source_reported_no_3_coal_roof_depth_m
+comparison: raw_vs_consensus_qc_vs_source_reference
+paper_eligibility: formal_source_controlled_downstream
+

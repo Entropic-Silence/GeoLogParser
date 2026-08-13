@@ -82,7 +82,7 @@ def main() -> None:
         "",
         "- Paper I: `RESULTS_AVAILABLE` for explicitly named machine-Silver agreement runs; Real Gold benchmark `NOT COMPLETED`.",
         "- Paper II: `RESULTS_AVAILABLE` for a real authoritative-metadata abstention study and controlled Synthetic method ablation; real interval-level ablation `NOT COMPLETED`.",
-        "- Paper III: `RESULTS_AVAILABLE` for controlled Synthetic downstream comparison; real spatial comparison `NOT COMPLETED`.",
+        "- Paper III: `RESULTS_AVAILABLE` for a real structured-source controlled spatial comparison and controlled Synthetic downstream comparison; image-derived real-site comparison `NOT COMPLETED`.",
         "",
         "## Boundary",
         "",

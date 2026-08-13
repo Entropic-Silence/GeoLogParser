@@ -1423,6 +1423,65 @@
           "expected": 0
         }
       ]
+    },
+    "p3.coal602_consensus_qc": {
+      "paper": "paper3",
+      "experiment_id": "P3_COAL602_CONSENSUS_QC_CONTROLLED_003",
+      "scope": "controlled dual-channel error injection on 602 real structured-source records with support-preserving fusion and paired statistics; not image extraction or human GT",
+      "source_path": "results/2026-08-13/P3_COAL602_CONSENSUS_QC_CONTROLLED_003/metrics.json",
+      "source_sha256": "f662322839879ca1acb4b12079c93dd6dbd096da6878a86e692151558e7acdb3",
+      "assertions": [
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/source_record_count",
+          "expected": 602
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/query_points",
+          "expected": 80
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/repetitions_per_condition",
+          "expected": 30
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/conditions/0/raw/mae_m/mean",
+          "expected": 0.0005746713029669973
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/conditions/0/qc/mae_m/mean",
+          "expected": 0.7319436601740177
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/conditions/0/mean_fusion_vs_raw_paired/relative_mae_reduction",
+          "expected": 0.21206483909104423
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/conditions/3/mean_fusion_vs_raw_paired/two_sided_exact_sign_test_p",
+          "expected": 5.947612226009369e-05
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/conditions/4/raw/mae_m/mean",
+          "expected": 0.0548850123921737
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/conditions/4/mean_fusion/mae_m/mean",
+          "expected": 0.044844227864385605
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/human_ground_truth_evidence",
+          "expected": false
+        }
+      ]
     }
   }
 }

@@ -210,6 +210,7 @@ def paper3_table(entries: list[dict], repository_root: Path) -> str:
     synthetic_rows = []
     comparison_rows = []
     source_protocol_rows = []
+    source_qc_rows = []
     interoperability_rows = []
     for entry in entries:
         metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
@@ -220,6 +221,26 @@ def paper3_table(entries: list[dict], repository_root: Path) -> str:
                     number(condition["raw"]["mae_m"]["mean"], 6),
                     number(condition["constrained"]["mae_m"]["mean"], 6),
                     str(condition["accepted_corrections"]), str(condition["abstentions"]),
+                    entry["paper_eligibility"],
+                ]) + " |")
+            continue
+        if metrics.get("comparison") in {
+            "raw_vs_consensus_qc_vs_source_reference",
+            "raw_vs_consensus_drop_vs_mean_fusion_vs_source_reference",
+        }:
+            for condition in metrics["conditions"]:
+                fused = condition.get("mean_fusion")
+                paired = condition.get("mean_fusion_vs_raw_paired")
+                source_qc_rows.append("| " + " | ".join([
+                    entry["experiment_id"], number(condition["magnitude_m"], 2),
+                    f'{number(condition["raw"]["mae_m"]["mean"], 6)} ± {number(condition["raw"]["mae_m"]["std"], 6)}',
+                    f'{number(condition["qc"]["mae_m"]["mean"], 6)} ± {number(condition["qc"]["mae_m"]["std"], 6)}',
+                    (f'{number(fused["mae_m"]["mean"], 6)} ± {number(fused["mae_m"]["std"], 6)}' if fused else "TBD"),
+                    (number(paired["relative_mae_reduction"]) if paired else "TBD"),
+                    (f'{paired["fusion_better_count"]}/{paired["n"]}' if paired else "TBD"),
+                    (f'{paired["two_sided_exact_sign_test_p"]:.3g}' if paired else "TBD"),
+                    number(condition["coverage_mean"]),
+                    str(condition["false_accepted_corruptions_total"]),
                     entry["paper_eligibility"],
                 ]) + " |")
             continue
@@ -268,6 +289,13 @@ def paper3_table(entries: list[dict], repository_root: Path) -> str:
         "|---|---:|---:|---:|---:|---:|---|",
         *comparison_rows, "",
         "This table executes the production constraint/rereading ranker and the same IDW surface for all inputs. It is controlled Synthetic algorithm evidence, not a real-site sensitivity estimate.",
+        "",
+        "### Real structured-source controlled raw/QC/reference comparison",
+        "",
+        "| Experiment | Injected error (m) | Raw MAE (m) | Consensus-drop MAE (m) | Mean-fusion MAE (m) | Relative reduction | Fusion better | Sign-test p | Retained coverage | False accepted | Eligibility |",
+        "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|",
+        *source_qc_rows, "",
+        "This controlled experiment uses 602 real source records and post-decision source-reference scoring. It is not image-extraction accuracy or human Ground Truth. Consensus deletion changes interpolation support and can worsen the surface; support-preserving fusion is reported separately.",
         "",
         "### Licensed structured-source field proxy protocol",
         "",

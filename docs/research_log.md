@@ -1381,6 +1381,27 @@
   cases to review. The outcome demonstrates a real coverage–reliability tradeoff
   for authoritative metadata, not a geological-constraint or interval result.
 
+## 2026-08-13 — Real structured-source downstream QC comparison
+
+- Added a controlled dual-channel study on 602 real structured-source records.
+  Each channel independently received a 10% rate of fixed-magnitude signed
+  scalar errors; source reference values were used only after each downstream
+  policy was frozen.
+- The first deletion-only run showed that exact-consensus rejection retained
+  about 81.5% of points but increased IDW surface MAE to approximately
+  0.73–0.74 m across all injection magnitudes. Diagnostic tests confirmed that
+  the dominant mechanism was loss of spatial support, not only same-error
+  acceptance.
+- The final indexed run `P3_COAL602_CONSENSUS_QC_CONTROLLED_003` compared raw,
+  consensus deletion, and support-preserving mean fusion over 30 paired
+  repetitions per magnitude. Mean fusion reduced surface MAE by 18.3%–22.0%
+  relative to raw, improved 26–29/30 paired repetitions per magnitude, and had
+  two-sided exact sign-test p values below `6e-5` for every magnitude.
+- Earlier v001/v002 runs remain immutable but are labelled failure-analysis or
+  audit evidence. V003 is the sole formal result from this experiment chain.
+  The source has no declared CRS and is not image-derived extraction or human
+  Ground Truth, so those claims remain out of scope.
+
 ## 2026-08-13 — Autonomous data-tier and controlled benchmark track
 
 - Objective: remove the human source-review UI from the only path of project
