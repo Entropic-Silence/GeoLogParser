@@ -1,7 +1,40 @@
 # Public data source survey — first pass
 
-Verified on 2026-08-12. The structured facts and URLs live in
+First-pass sources were verified on 2026-08-12. A frozen follow-up survey was
+completed on 2026-08-13. The structured facts and URLs live in
 `datasets/data_registry.yaml`; this document summarizes operational status.
+
+## Reproducible metadata survey — 2026-08-13
+
+The canonical run `chinese_borehole_open_metadata_20260813_v004` froze five
+DataCite queries, 15 exact DOI reads, seven anonymous Mendeley file inventories,
+and five repository reachability probes. It issued 32 read-only requests: 27
+returned HTTP 200 and five failed. The recursive artifact manifest verified 69
+files and has SHA256
+`48a4b19577d8e1e61040cbe78caba99ffa187f862c4254692fa108c443d6b540`.
+The complete evidence is under
+`/data/GeoLogParser/artifacts/source_surveys/chinese_borehole_open_metadata_20260813_v004`.
+
+The five DataCite searches reported 187, 92, 36, 16, and 15 source-side hits
+for `China AND borehole`, Mendeley+borehole, Chinese engineering geology,
+Chinese borehole+column, and Figshare+China+borehole respectively. Only the
+first page of up to 100 records was requested per query; overlap is substantial.
+After DOI deduplication, 226 metadata records were frozen. These are search
+records, not acquired datasets, pages, intervals, or Benchmark samples.
+
+Fifteen candidates were curated by the automated project agent from the frozen
+metadata; this is not real human source review. Seven
+Mendeley file inventories were accessible. Exactly one item had both a verified
+open licence and a PDF/JPG/PNG inventory: the international SedLog PDF described
+below. No newly found Chinese item passed both gates, and the survey itself is
+not authorized to declare any item Benchmark eligible. The new eligible Chinese
+Benchmark page count therefore remains zero.
+
+Failed probes were retained as evidence: Figshare search and the SAGE Figshare
+collection returned HTTP 403; Mendeley search returned HTTP 401 while known
+public item-level file inventories remained accessible; the Zenodo record API
+refused the connection; and the CGS item page returned HTTP 504. DataCite
+metadata remained accessible for those DOI-bearing candidates.
 
 ## Directly accessible now
 
@@ -42,6 +75,13 @@ Verified on 2026-08-12. The structured facts and URLs live in
   parsing alone, but it does not verify fonts, pixel appearance, privacy,
   rights of embedded content, or geological correctness. Human review and
   benchmark eligibility therefore remain at zero.
+- **Mendeley SedLog drilling cores:** DOI `10.17632/v6k9s36pbm.1`, CC BY 4.0.
+  The public file is a 10,549,922-byte, 18-page native PDF; the download matched
+  repository SHA256 `007d26b...e6dd02`. Visual and programmatic review confirmed
+  one long-form SedLog lithology column per page. It is English/non-Chinese and
+  lacks most MVP header and text-description fields, so it is retained only for
+  international transfer and unusual-layout testing. Human GT and
+  Benchmark-eligible page counts are both zero.
 
 ## Accessible licence, dataset inspection incomplete
 
@@ -123,3 +163,21 @@ geolocation review must be established before acquisition.
   distinct DOI `10.23650/data.D.2019.P23` describes a 16.5 MB OBJ/ArcGIS 3D
   model, but its rights field only says to consult the website. Neither is a
   licensed phase-1 image source, and neither was acquired.
+
+## Newly registered structured-data leads — not Paper I page images
+
+- **Binhai BH-CPTU/10-44** (`10.17632/vkjwwb8zsh.2`) exposes 44 XLSX files
+  under CC BY 4.0. It is a Paper III structured-data lead, not PDF/JPG/PNG.
+- **Wuhan karst-collapse data** (`10.17632/g7gzd8jfyn.1`) describes CSV
+  lithology/location data but exposes `embargoedAccess` alongside CC BY 4.0.
+  The access conflict must be resolved before acquisition.
+- **PRD-CLAY** (`10.17632/jr8gcyhsff.1`), the 602-coal-borehole minimum dataset
+  (`10.17632/33z3d5r6xk.1`), and the Songliao geophysical logs
+  (`10.17632/fgn2chjdnz.2`) expose DOCX/XLSX/code rather than legacy page images.
+- **CGS Pingluo, Luhuatai, Doumen, and Huangling records** describe engineering
+  boreholes, tests, field photos, databases, or 3D outputs. None exposes both a
+  reusable licence and an inspectable Phase-1 file inventory. Abstract quantities
+  remain source claims and are not project data counts.
+- **Wudalianchi borehole modeling data** (`10.5281/zenodo.14696781`) has CC BY
+  metadata but no verified file inventory because Zenodo was unreachable from
+  this host. Its current fit is Paper III metadata only.

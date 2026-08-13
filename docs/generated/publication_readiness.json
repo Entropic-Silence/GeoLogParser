@@ -23,7 +23,7 @@
     "paper2_formal_results_exist": false,
     "paper3_formal_results_exist": false
   },
-  "generated_at_utc": "2026-08-13T03:06:48.239228+00:00",
+  "generated_at_utc": "2026-08-13T03:30:50.178024+00:00",
   "ground_truth_exportable_count": 0,
   "interpretation": "A false gate must remain NOT COMPLETED/TBD; audit-only, failure-analysis, and protocol-only runs cannot satisfy formal empirical completion.",
   "paper_indexes": {

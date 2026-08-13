@@ -915,3 +915,64 @@
   qualifications, and supervision remain deployment/study requirements.
 - Verification: full suite passed with 267 tests and 15 upstream deprecation
   warnings; all three paper packages remain `DRAFT_NOT_SUBMISSION_READY`.
+
+## 2026-08-13 — Frozen Chinese borehole open-metadata survey
+
+- Objective: replace ad hoc discovery notes with a rerunnable chain from frozen
+  query to raw response, request status, candidate disposition, and file
+  inventory, without turning repository search hits into dataset counts.
+- Implementation: `survey_open_metadata.py` freezes request parameters,
+  explicit User-Agent, UTC timestamps, HTTP status, response bytes/SHA256,
+  normalized DataCite records, manually declared dispositions, anonymous
+  Mendeley file inventories, and a recursive artifact manifest. Existing output
+  directories are immutable; a verifier rejects changed/missing/extra files and
+  broken request-to-response hashes.
+- Preserved failure: v001 used Python's default browser signature and received
+  Cloudflare 1010 for all seven Mendeley file probes. v002 fixed access with a
+  stable User-Agent but did not record that effective header in request
+  evidence. v003 then used an ambiguous `manually_reviewed` count for automated
+  metadata triage. All three artifacts remain unchanged as superseded history.
+- Canonical run: v004 issued 32 read-only requests; 27 succeeded and five
+  repository probes failed. The five DataCite queries returned 226 unique DOI
+  records after overlap deduplication. Fifteen candidates were curated by the
+  automated project agent, not a human source reviewer, and
+  seven anonymous Mendeley inventories were frozen. Manifest SHA256 is
+  `48a4b19577d8e1e61040cbe78caba99ffa187f862c4254692fa108c443d6b540`.
+- Evidence boundary: source-reported query totals and abstract quantities are
+  not project data scale. The survey can create a content-review candidate but
+  is hard-coded to create zero Benchmark-eligible candidates.
+- Outcome: one open PDF content-review candidate was identified, but it is an
+  English international SedLog source. No new Chinese PDF/JPG/PNG item passed
+  both licence and file-inventory gates. Chinese Benchmark GT remains zero.
+
+## 2026-08-13 — Public SedLog PDF acquisition and content audit
+
+- Source: Mendeley DOI `10.17632/v6k9s36pbm.1`, CC BY 4.0. Anonymous inventory
+  listed one 10,549,922-byte PDF with SHA256
+  `007d26b081677478bd0534b26309c696871c6735237eac7669c53ac7e8e6dd02`;
+  the acquired file matched exactly.
+- Observation: the PDF has 18 unusually tall native-text pages. Programmatic
+  ID checks and a rendered-page review confirmed 18 SedLog lithology columns
+  with depth axes, lithology patterns, and structure/fossil symbols. It is
+  English, not Chinese, and most MVP borehole header/description fields are
+  absent.
+- Decision: retain it for Paper I international transfer and layout stress
+  testing only. The manifest explicitly sets every page `unannotated` and
+  `benchmark_eligible=false`; human GT and eligible-page counts are zero.
+- Trace: local PDF manifest SHA256 is
+  `f6b0deb3b94e09286eb3c94dd356b8f90ca72fa7d5820b46a0e291c710a88d49`.
+  No GPU was used and mining was not interrupted.
+
+## 2026-08-13 — Source-survey verification
+
+- Verification: the full Python suite passed with 275 tests and 15 upstream
+  deprecation warnings. Python compilation, all three immutable result indexes,
+  the publication-readiness audit, and all three paper-package audits passed.
+- JavaScript compatibility note: `app/static/app.js` passed `node --check` with
+  the host's Node 12.22.9. The pre-existing CAD review UI uses optional chaining
+  and nullish coalescing; Node 12's parser rejected that syntax even though it
+  is supported by the target modern browser runtime. No JavaScript files were
+  changed in this survey work.
+- Publication state: the readiness audit still reports zero exportable Ground
+  Truth pages and zero formal runs for Paper I, II, and III. All manuscript
+  packages remain `DRAFT_NOT_SUBMISSION_READY` with unresolved `TBD` evidence.

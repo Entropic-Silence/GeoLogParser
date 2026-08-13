@@ -1,5 +1,5 @@
 registry_version: v001
-last_verified_utc: "2026-08-12"
+last_verified_utc: "2026-08-13"
 policy:
   listing_is_permission_to_download: false
   redistribution_requires_explicit_verification: true
@@ -7,6 +7,26 @@ policy:
   unknown_values: TBD
 
 datasets:
+  - id: mendeley_sedlog_drilling_cores_v001
+    name: "SedLog drilling cores from two transects"
+    source_organization: Mendeley Data
+    url: https://data.mendeley.com/datasets/v6k9s36pbm/1
+    doi: 10.17632/v6k9s36pbm.1
+    license_url: https://creativecommons.org/licenses/by/4.0/legalcode
+    access_date: "2026-08-13"
+    language: English
+    format: "one native PDF containing 18 long-form SedLog lithology columns"
+    scale: "verified public file: 10,549,922 bytes; 1 PDF; 18 pages; 18/18 pages expose native text"
+    downloadable: true
+    access_status: "public anonymous file inventory and download verified"
+    license: Creative Commons Attribution 4.0 International
+    allowed_usage: "share and adapt with attribution and indication of changes"
+    redistribution: allowed_with_conditions
+    redistribution_policy: "retain creator/DOI/CC BY 4.0 attribution and modification notice; inspect source references before redistributing derived page assets"
+    paper_fit: [paper1_international_transfer, paper1_layout_stress_test]
+    status: acquired_rights_verified_format_verified_unannotated
+    verification_notes: "Anonymous Mendeley file API listed one PDF with SHA256 007d26b081677478bd0534b26309c696871c6735237eac7669c53ac7e8e6dd02; the acquired file matched. Programmatic and visual review confirmed one digitised SedLog lithology column per page, with English legends, depth axes, lithology patterns, and structure/fossil symbols. Most GeoLogParser MVP header and text-description fields are absent. Human GT pages and benchmark-eligible pages remain zero. It is not Chinese Benchmark data."
+
   - id: unipd_levee_geotechnical_logs_v001
     name: "Geotechnical investigation of Tagliamento, Panaro and Grizzaga levee soils: CPTs, Boreholes and Laboratory tests"
     source_organization: University of Padova Research Data repository
@@ -340,3 +360,203 @@ datasets:
     paper_fit: [paper3_interoperability_candidate]
     status: metadata_only_rights_unclear
     verification_notes: "The rights field says only '版权信息详见网站' and links an institutional page; this is not a reusable licence. The format is a downstream model, not a legacy page-image benchmark."
+
+  - id: mendeley_binhai_cptu_borehole_v002
+    name: "Binhai/BH-CPTU/10-44"
+    source_organization: Mendeley Data
+    url: https://data.mendeley.com/datasets/vkjwwb8zsh/2
+    doi: 10.17632/vkjwwb8zsh.2
+    license_url: https://creativecommons.org/licenses/by/4.0/legalcode
+    access_date: "2026-08-13"
+    language: English metadata; file-cell language uninspected
+    format: "44 XLSX files according to anonymous file inventory"
+    scale: "44 files; 5,923,040 total bytes; abstract states 44 CPTU soundings and 10 borehole records"
+    downloadable: true
+    access_status: "public anonymous file inventory verified; files not downloaded"
+    license: Creative Commons Attribution 4.0 International
+    allowed_usage: "share and adapt with attribution, subject to embedded-content review"
+    redistribution: conditional
+    redistribution_policy: "inspect workbook content, coordinates, privacy, and embedded rights before redistribution"
+    paper_fit: [paper3_structured_database_candidate]
+    status: file_inventory_verified_format_outside_phase1
+    verification_notes: "The frozen inventory contains XLSX only and no PDF/JPG/PNG. It is not a document-extraction Benchmark candidate and no source-reported borehole count enters project inventory."
+
+  - id: mendeley_wuhan_karst_boreholes_v001
+    name: "Data for: Formation mechanism analysis of karst collapses in Jinshuizha, Wuhan, China"
+    source_organization: Mendeley Data
+    url: https://data.mendeley.com/datasets/g7gzd8jfyn/1
+    doi: 10.17632/g7gzd8jfyn.1
+    license_url: https://creativecommons.org/licenses/by/4.0/legalcode
+    access_date: "2026-08-13"
+    language: English metadata; data language uninspected
+    format: "one 188,287-byte ZIP; description states CSV lithology/location data plus ERT and spatial files"
+    scale: "source abstract states nine boreholes; files not downloaded or counted"
+    downloadable: conditional
+    access_status: "anonymous file inventory accessible; DataCite simultaneously exposes embargoedAccess and CC BY 4.0"
+    license: "metadata conflict: CC BY 4.0 plus embargoedAccess"
+    allowed_usage: TBD
+    redistribution: unclear
+    redistribution_policy: "do not acquire or redistribute until embargo/access status and embedded geolocation/privacy terms are resolved"
+    paper_fit: [paper3_structured_spatial_candidate]
+    status: metadata_rights_conflict_format_outside_phase1
+    verification_notes: "The file inventory contains a ZIP, not a declared legacy log image. The metadata conflict is retained rather than treating the licence alone as download clearance."
+
+  - id: mendeley_prd_clay_boreholes_v001
+    name: "PRD-CLAY/6/3664"
+    source_organization: Mendeley Data
+    url: https://data.mendeley.com/datasets/jr8gcyhsff/1
+    doi: 10.17632/jr8gcyhsff.1
+    license_url: https://creativecommons.org/licenses/by/4.0/legalcode
+    access_date: "2026-08-13"
+    language: English metadata; document language uninspected
+    format: "one 810,424-byte DOCX according to anonymous file inventory"
+    scale: "source abstract describes 34 sites; file not downloaded or counted as project data"
+    downloadable: true
+    access_status: "public anonymous file inventory verified; file not downloaded"
+    license: Creative Commons Attribution 4.0 International
+    allowed_usage: "share and adapt with attribution, subject to embedded-content review"
+    redistribution: conditional
+    redistribution_policy: "inspect DOCX content, privacy, locations, and embedded rights before redistribution"
+    paper_fit: [paper3_structured_database_candidate]
+    status: file_inventory_verified_format_outside_phase1
+    verification_notes: "DOCX is outside the first-stage PDF/JPG/PNG input contract and cannot be counted as Benchmark pages."
+
+  - id: mendeley_coal_boreholes_602_v001
+    name: "Minimum reproducible dataset and code for IDW-ResUnet-based 3D coal seam modeling"
+    source_organization: Mendeley Data
+    url: https://data.mendeley.com/datasets/33z3d5r6xk/1
+    doi: 10.17632/33z3d5r6xk.1
+    license_url: https://creativecommons.org/licenses/by/4.0/legalcode
+    access_date: "2026-08-13"
+    language: English metadata; workbook language uninspected
+    format: "one 66,004-byte XLSX plus README, requirements, and entry script"
+    scale: "source abstract labels the workbook as a 602-borehole minimum dataset; files not downloaded or counted as project data"
+    downloadable: true
+    access_status: "public anonymous file inventory verified; files not downloaded"
+    license: Creative Commons Attribution 4.0 International
+    allowed_usage: "share and adapt repository content with attribution"
+    redistribution: conditional
+    redistribution_policy: "inspect workbook content, privacy, coordinates, and the documented confidential-data boundary before redistribution"
+    paper_fit: [paper3_error_propagation_candidate]
+    status: file_inventory_verified_structured_candidate
+    verification_notes: "The repository description states that the full engineering dataset is confidential. The public XLSX may support a controlled Paper III structured-data study after inspection, but it is not a legacy page-image source."
+
+  - id: mendeley_songliao_geophysical_logs_v002
+    name: "Mineralogical, geochemical, and geophysical logs of the Lower Cretaceous Shahezi Formation"
+    source_organization: Mendeley Data
+    url: https://data.mendeley.com/datasets/fgn2chjdnz/2
+    doi: 10.17632/fgn2chjdnz.2
+    license_url: https://creativecommons.org/licenses/by/4.0/legalcode
+    access_date: "2026-08-13"
+    language: English metadata; workbook language uninspected
+    format: "one 146,610-byte XLSX according to anonymous file inventory"
+    scale: "one file; no project document/page count"
+    downloadable: true
+    access_status: "public anonymous file inventory verified; file not downloaded"
+    license: Creative Commons Attribution 4.0 International
+    allowed_usage: "share and adapt with attribution"
+    redistribution: conditional
+    redistribution_policy: "inspect workbook and embedded data rights before redistribution"
+    paper_fit: [not_phase1_borehole_column_data]
+    status: file_inventory_verified_format_outside_phase1
+    verification_notes: "Geophysical/mineralogical log tables are semantically distinct from heterogeneous legacy borehole-column page extraction."
+
+  - id: zenodo_wudalianchi_borehole_modeling_v001
+    name: "Borehole data for geological modeling Jiang, Xue"
+    source_organization: Zenodo
+    url: https://zenodo.org/doi/10.5281/zenodo.14696781
+    doi: 10.5281/zenodo.14696781
+    license_url: https://creativecommons.org/licenses/by/4.0/legalcode
+    access_date: "2026-08-13"
+    language: English metadata; files uninspected
+    format: TBD
+    scale: TBD
+    downloadable: unknown
+    access_status: "DataCite metadata accessible; Zenodo record API refused connection from this host"
+    license: Creative Commons Attribution 4.0 International
+    allowed_usage: "metadata indicates CC BY 4.0; file-level and embedded-content scope unverified"
+    redistribution: conditional
+    redistribution_policy: "do not redistribute until the exact file inventory, privacy, locations, and embedded rights are inspected"
+    paper_fit: [paper3_structured_modeling_candidate]
+    status: metadata_rights_verified_files_uninspected
+    verification_notes: "The abstract concerns a Wudalianchi 3D geological model and borehole data. No image format or file inventory is evidenced, so it is not a Paper I source."
+
+  - id: cgs_yinchuan_pingluo_engineering_boreholes_v001
+    name: "2017年银川盆地1:50 000平罗站幅工程地质钻孔及取样土工试验数据集"
+    source_organization: China Geological Survey data center
+    url: http://dcc.cgs.gov.cn/cn/geologicalData/details/doi/10.35080/data.D.2019.P3
+    doi: 10.35080/10.35080/data.d.2019.p3
+    license_url: TBD
+    access_date: "2026-08-13"
+    language: Chinese
+    format: TBD
+    scale: "abstract describes 14 boreholes, 234 samples, and 2,602 test records; no file inventory inspected"
+    downloadable: unknown
+    access_status: "DataCite metadata only; no file inventory or rights statement"
+    license: unclear
+    allowed_usage: TBD
+    redistribution: unclear
+    redistribution_policy: "do not acquire or redistribute until exact item rights and files are verified"
+    paper_fit: [paper3_structured_database_candidate]
+    status: metadata_only_format_and_rights_unverified
+    verification_notes: "This is a new structured engineering-borehole lead, not evidence of PDF/JPG/PNG log pages. Source abstract quantities are not project inventory counts."
+
+  - id: cgs_yinchuan_luhuatai_engineering_boreholes_v001
+    name: "Luhuatai in the Yinchuan Basin for the 1:50,000 Map: Dataset from Engineering Geology Boreholes, Samples and Geotechnical Tests"
+    source_organization: China Geological Survey data center
+    url: http://dcc.cgs.gov.cn/en/geologicalData/details/doi/10.35080/data.D.2018.P12
+    doi: 10.35080/data.d.2018.p12
+    license_url: TBD
+    access_date: "2026-08-13"
+    language: Chinese and English metadata
+    format: TBD
+    scale: "abstract describes 14 boreholes, 293 samples, and 1,996 test records; no file inventory inspected"
+    downloadable: unknown
+    access_status: "DataCite metadata only; no file inventory or rights statement"
+    license: unclear
+    allowed_usage: TBD
+    redistribution: unclear
+    redistribution_policy: "do not acquire or redistribute until exact item rights and files are verified"
+    paper_fit: [paper3_structured_database_candidate]
+    status: metadata_only_format_and_rights_unverified
+    verification_notes: "The record is potentially useful structured geology but does not establish legacy page images or reuse permission."
+
+  - id: cgs_doumen_engineering_geology_v001
+    name: "1:50 000 Engineering Geological Survey and Geotechnical Test Dataset of the Doumen Map-Sheet"
+    source_organization: China Geological Survey data center
+    url: http://dcc.cgs.gov.cn/en/geologicalData/details/doi/10.35080/data.D.2019.P22
+    doi: 10.35080/data.d.2019.p22
+    license_url: TBD
+    access_date: "2026-08-13"
+    language: Chinese and English metadata
+    format: TBD
+    scale: "abstract reports 13 borehole-information records and 669 field pictures among 1,774 records; no file inventory inspected"
+    downloadable: unknown
+    access_status: "DataCite metadata only; no file inventory or rights statement"
+    license: unclear
+    allowed_usage: TBD
+    redistribution: unclear
+    redistribution_policy: "do not acquire or redistribute until exact item rights, file types, and sensitive-location policy are verified"
+    paper_fit: [paper3_structured_database_candidate, paper1_metadata_only]
+    status: metadata_only_format_and_rights_unverified
+    verification_notes: "Field pictures are not necessarily borehole logs. No image-log format or permission can be inferred from the abstract."
+
+  - id: cgs_huangling_borehole_3d_v001
+    name: "Integration of Borehole Data and 3D Geological Modeling of the Huangling Area"
+    source_organization: China Geological Survey data center
+    url: http://dcc.cgs.gov.cn/cn/geologicalData/details/doi/10.35080/data.H.2020.P21
+    doi: 10.35080/data.h.2020.p21
+    license_url: TBD
+    access_date: "2026-08-13"
+    language: Chinese and English metadata
+    format: "MapGIS/database/model artifacts according to DataCite"
+    scale: "515 MB source-reported package; no files inspected"
+    downloadable: unknown
+    access_status: "DataCite metadata only; rights entry is an institutional URL, not a licence"
+    license: unclear
+    allowed_usage: TBD
+    redistribution: unclear
+    redistribution_policy: "do not acquire or redistribute until exact item terms and file inventory are verified"
+    paper_fit: [paper3_database_and_model_candidate]
+    status: metadata_only_format_outside_phase1_rights_unclear
+    verification_notes: "The record describes database and 3D modeling outputs rather than Phase-1 legacy page images. Source borehole quantities are not project inventory counts."
