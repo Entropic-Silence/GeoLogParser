@@ -272,3 +272,27 @@ After every item has a valid human decision, add `--eligible-manifest PATH` to
 freeze the subset that may enter geological annotation. Partial export is
 rejected while any item remains unreviewed. Source review never creates
 geological Ground Truth and always leaves `benchmark_eligible=false`.
+
+Only after the complete queue audit has produced a frozen eligible manifest may
+automatic extraction proposals be generated:
+
+```bash
+.venv/bin/python scripts/audit_page_reviews.py \
+  /data/GeoLogParser/artifacts/source_review/international_candidates_v001 \
+  /data/GeoLogParser/artifacts/source_review/international_candidates_v001/reviews \
+  --eligible-manifest /data/GeoLogParser/artifacts/source_review/international_candidates_v001/reviews/eligible_v001.jsonl
+.venv/bin/python scripts/build_eligible_annotation_pack.py \
+  /data/GeoLogParser/artifacts/source_review/international_candidates_v001 \
+  /data/GeoLogParser/artifacts/source_review/international_candidates_v001/reviews \
+  /data/GeoLogParser/artifacts/source_review/international_candidates_v001/reviews/eligible_v001.jsonl \
+  /data/GeoLogParser/artifacts/annotation/international_candidates_auto_v001
+```
+
+The builder re-audits every page, requires the eligible manifest byte hash to
+match that canonical audit, and rechecks source PDF, rendered PNG, and review
+JSON hashes. Native PDFs retain PDF-point `source_bbox` evidence and add a
+transform-derived display bbox. Scanned PDFs and images run OCR against the
+frozen review PNG and store only rendered-pixel display bboxes; their
+`source_bbox` remains null. The output is immutable, labelled `auto`, has zero
+human-verified annotations, null accuracy metrics, and `benchmark_eligible=false`.
+It is an extraction proposal pack, never a Ground Truth export.

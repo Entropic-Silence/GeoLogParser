@@ -38,7 +38,7 @@
         "display_bbox": {"oneOf": [{"$ref": "#/$defs/bbox"}, {"type": "null"}]},
         "display_bbox_source": {
           "type": ["string", "null"],
-          "enum": ["pdf_transform_v001", "model_grounded", "human_drawn", "unknown", null]
+          "enum": ["pdf_transform_v001", "ocr_rendered_pixels_v001", "model_grounded", "human_drawn", "unknown", null]
         },
         "display_bbox_annotator_id": {"type": ["string", "null"], "minLength": 1},
         "source_text": {"type": ["string", "null"]},

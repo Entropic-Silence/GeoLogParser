@@ -19,7 +19,8 @@ annotator who saves it. Drawing or binding a bbox never confirms the field
 value and never changes `extraction_method` or `validation_status`.
 
 Temporary bboxes may be used for a non-mutating reread without being bound to
-the record. PDF-derived display bboxes use `pdf_transform_v001`; model-grounded
+the record. PDF-derived display bboxes use `pdf_transform_v001`; OCR boxes in
+a frozen rendered review image use `ocr_rendered_pixels_v001`; model-grounded
 boxes use `model_grounded`; review boxes use `human_drawn`.
 
 ## Consequences

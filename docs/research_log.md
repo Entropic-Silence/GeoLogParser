@@ -1285,3 +1285,28 @@
   SedLog queues still have zero completed human reviews, zero annotation-
   eligible pages, zero benchmark-eligible pages, and zero human GT. The form
   helper does not save or infer eligibility. No GPU was used.
+
+## 2026-08-13 — Source-review-gated annotation proposal builder
+
+- Objective: make the transition from a completed human source/privacy review
+  to machine-generated annotation candidates explicit, reproducible, and
+  independently auditable.
+- Implementation: `build_eligible_annotation_pack` first reruns the complete
+  page-review audit into a temporary manifest and requires a byte-identical
+  eligible manifest. It then verifies review JSON, source-file, and frozen
+  rendered-image hashes before copying panels and creating revision-1 `auto`
+  annotations.
+- Coordinate policy: native PDF direct text keeps PDF-point `source_bbox` and
+  derives `display_bbox` with the frozen PDF transform. Scanned PDFs and images
+  read the frozen review PNG with the injected OCR adapter and keep OCR boxes
+  only as `display_bbox` (`ocr_rendered_pixels_v001`); pixel coordinates are
+  never represented as PDF coordinates.
+- Integrity policy: output roots are immutable; metadata binds the eligible
+  manifest, content-review revision/hash/reviewer, source acquisition/file
+  hash, rendered hash, dataset DOI/license, and explicit non-GT status. Tests
+  cover incomplete review, manifest/review/source/render tampering, both
+  coordinate modes, and overwrite refusal.
+- Boundary: no real page has passed human source review yet. The new builder
+  generated no project dataset or benchmark result in this run. Human GT,
+  accuracy, F1, calibration, and publication readiness remain unchanged and
+  unreported (`TBD`). No GPU was used.
