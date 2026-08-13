@@ -1,0 +1,20 @@
+dataset_id: rw765fzx8s
+record_prefix: MENDELEY_GUAIBA
+language: English
+review:
+  provenance: automated_project_agent_content_triage_20260813
+  human_content_review: false
+  human_privacy_review: false
+content_rules:
+  - rule_id: analytical_attachment_pages
+    filename_globs: ["Gomes et al._2026_Jacuí Delta – Research Data.pdf"]
+    content_class: sediment_core_analytical_attachment
+    phase1_scope: out_of_scope
+    classification_status: provisional_automated_review
+    paper_fit: []
+    eligibility_blockers:
+      - OUTSIDE_PHASE1_BOREHOLE_COLUMN_SCOPE
+      - NO_HUMAN_GROUND_TRUTH
+      - HUMAN_CONTENT_AND_PRIVACY_REVIEW_NOT_COMPLETED
+    notes: "Grain-size, geochemical, and mineralogical tables/plots rather than borehole-column pages."
+

@@ -1,0 +1,33 @@
+dataset_id: gb4bx3mnyd
+record_prefix: MENDELEY_TIBER
+language: English
+review:
+  provenance: automated_project_agent_content_triage_20260813
+  human_content_review: false
+  human_privacy_review: false
+content_rules:
+  - rule_id: stratigraphic_column_page
+    filename_globs: ["Radiocarbon Ages Boehole CAF-S2.pdf"]
+    page_ranges: [[1, 1]]
+    content_class: stratigraphic_borehole_column
+    phase1_scope: international_candidate
+    classification_status: provisional_automated_review
+    paper_fit: [paper1_international_transfer, paper1_layout_stress_test]
+    eligibility_blockers:
+      - NO_HUMAN_GROUND_TRUTH
+      - NOT_CHINESE_CORE_BENCHMARK
+      - HUMAN_CONTENT_AND_PRIVACY_REVIEW_NOT_COMPLETED
+    notes: "Colour stratigraphic column candidate; one page only."
+  - rule_id: radiocarbon_report_pages
+    filename_globs: ["Radiocarbon Ages Boehole CAF-S2.pdf"]
+    page_ranges: [[2, 21]]
+    content_class: radiocarbon_laboratory_report
+    phase1_scope: out_of_scope
+    classification_status: provisional_automated_review
+    paper_fit: []
+    eligibility_blockers:
+      - OUTSIDE_PHASE1_BOREHOLE_COLUMN_SCOPE
+      - NO_HUMAN_GROUND_TRUTH
+      - HUMAN_CONTENT_AND_PRIVACY_REVIEW_NOT_COMPLETED
+    notes: "Laboratory report pages rather than borehole-column pages."
+

@@ -1,0 +1,31 @@
+dataset_id: 3tvtj4xnbn
+record_prefix: MENDELEY_SLOPES
+language: English
+review:
+  provenance: automated_project_agent_content_triage_20260813
+  human_content_review: false
+  human_privacy_review: false
+content_rules:
+  - rule_id: engineering_borelog_pdf
+    filename_globs: ["BH*.pdf"]
+    content_class: engineering_borehole_log
+    phase1_scope: international_candidate
+    classification_status: provisional_automated_review
+    paper_fit: [paper1_international_transfer, paper1_layout_stress_test]
+    eligibility_blockers:
+      - NO_HUMAN_GROUND_TRUTH
+      - NOT_CHINESE_CORE_BENCHMARK
+      - HUMAN_CONTENT_AND_PRIVACY_REVIEW_NOT_COMPLETED
+    notes: "Single-project English engineering borelogs with highly repeated templates; no extractable native text was detected."
+  - rule_id: electrical_resistivity_image
+    filename_globs: ["RES *.png", "RES *.jpg"]
+    content_class: electrical_resistivity_section
+    phase1_scope: out_of_scope
+    classification_status: provisional_automated_review
+    paper_fit: []
+    eligibility_blockers:
+      - OUTSIDE_PHASE1_BOREHOLE_COLUMN_SCOPE
+      - NO_HUMAN_GROUND_TRUTH
+      - HUMAN_CONTENT_AND_PRIVACY_REVIEW_NOT_COMPLETED
+    notes: "Electrical-resistivity profile image, not a borehole-column page."
+
