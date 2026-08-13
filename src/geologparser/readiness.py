@@ -11,7 +11,7 @@ from typing import Any, Mapping, Sequence
 from geologparser.annotation_export import ground_truth_gate
 
 
-FORMAL_ELIGIBILITY = {"formal_benchmark", "formal_method", "formal_downstream"}
+FORMAL_ELIGIBILITY = {"formal_benchmark", "formal_silver_benchmark", "formal_method", "formal_downstream"}
 
 
 def _sha256(path: Path) -> str:
@@ -78,12 +78,17 @@ def project_readiness(
         "scope": "evidence-derived status; not a scientific result",
         "annotations": annotations,
         "ground_truth_exportable_count": gt_count,
+        "machine_silver_formal_count": sum(
+            value.get("eligibility_counts", {}).get("formal_silver_benchmark", 0)
+            for value in indexes.values()
+        ),
         "paper_indexes": indexes,
         "gates": gates,
         "all_three_papers_empirically_complete": all(gates.values()),
         "interpretation": (
-            "A false gate must remain NOT COMPLETED/TBD; audit-only, failure-analysis, "
-            "and protocol-only runs cannot satisfy formal empirical completion."
+            "Human-GT gates remain separate from the explicitly named machine-Silver "
+            "agreement track. Silver runs do not satisfy human-GT publication claims; "
+            "audit-only, failure-analysis, and protocol-only runs cannot satisfy formal completion."
         ),
     }
 

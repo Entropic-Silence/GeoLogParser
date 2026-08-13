@@ -25,9 +25,23 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
     fusion_rows = []
     native_rows = []
     synthetic_rows = []
+    silver_rows = []
     for entry in entries:
         metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
         run = json.loads((repository_root / entry["result_path"] / "run.json").read_text())
+        if metrics.get("scope") == "machine-adjudicated-silver-agreement evaluation":
+            final_depth = metrics["borehole_fields"]["final_depth_m"]["final_depth_m_mae"]
+            interval = metrics["intervals"]
+            silver_rows.append("| " + " | ".join([
+                entry["experiment_id"], run["model"], str(metrics["document_count"]),
+                ratio(metrics["borehole_fields"]["borehole_id"]),
+                number(final_depth["value"]),
+                number(interval["interval_precision"]["value"]),
+                number(interval["interval_recall"]["value"]),
+                number(interval["interval_f1"]["value"]),
+                entry["paper_eligibility"],
+            ]) + " |")
+            continue
         if "positioned_text_layout" in metrics.get("coverage_channels", []):
             native_coverage_rows.append("| " + " | ".join([
                 entry["experiment_id"], run["model"],
@@ -141,6 +155,13 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
         "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---|",
         *synthetic_rows, "",
         "These rows use programmatically known Synthetic labels. They validate controlled extraction and robustness paths but cannot establish performance on Real Gold borehole logs.",
+        "",
+        "### Machine-adjudicated Silver agreement benchmark (not human accuracy)",
+        "",
+        "| Experiment | Model | Pages | Borehole ID agreement | Final-depth MAE (Silver) | Interval P | Interval R | Interval F1 | Eligibility |",
+        "|---|---|---:|---:|---:|---:|---:|---:|---|",
+        *silver_rows,
+        "These metrics measure agreement with an explicitly machine-adjudicated Silver reference. They are not human/expert accuracy, and the reference construction channels are recorded in the source ledger and experiment configuration.",
         "",
         "### Privacy-minimized OCR coverage audits (no Ground Truth)",
         "",

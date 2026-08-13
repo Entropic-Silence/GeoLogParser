@@ -15,7 +15,7 @@ HASH_PATHS = {
     "run_log_sha256": "run.log",
 }
 ARTIFACT_MANIFEST = "artifact_manifest.json"
-FORMAL_ELIGIBILITY = {"formal_benchmark", "formal_method", "formal_downstream"}
+FORMAL_ELIGIBILITY = {"formal_benchmark", "formal_silver_benchmark", "formal_method", "formal_downstream"}
 
 
 def formal_evidence_errors(entry: dict, run: dict, metrics: dict) -> list[str]:
@@ -30,7 +30,14 @@ def formal_evidence_errors(entry: dict, run: dict, metrics: dict) -> list[str]:
         errors.append("formal result requires config.ground_truth_sha256")
     if "no_ground_truth" in str(run.get("split_version", "")).lower():
         errors.append("formal result split_version declares no Ground Truth")
-    if eligibility == "formal_benchmark":
+    if eligibility == "formal_silver_benchmark":
+        if metrics.get("scope") != "machine-adjudicated-silver-agreement evaluation":
+            errors.append("formal_silver_benchmark requires Silver agreement metrics scope")
+        if metrics.get("reference_ground_truth_tier") != "SILVER":
+            errors.append("formal_silver_benchmark requires SILVER reference tier")
+        if not isinstance(metrics.get("document_count"), int) or metrics.get("document_count", 0) <= 0:
+            errors.append("formal_silver_benchmark requires a positive document_count")
+    elif eligibility == "formal_benchmark":
         if metrics.get("scope") != "human-GT benchmark evaluation":
             errors.append("formal_benchmark requires human-GT benchmark metrics scope")
         if not isinstance(metrics.get("document_count"), int) or metrics.get("document_count", 0) <= 0:

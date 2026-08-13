@@ -42,6 +42,15 @@ def main() -> None:
     args = parser.parse_args()
     commit = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True,
                              capture_output=True, check=True).stdout.strip()
+    reference_rows = read_jsonl(args.reference)
+    reference_ids = {str(row.get("annotation_id") or row.get("item_id")) for row in reference_rows}
+    prediction_rows = [row for row in read_jsonl(args.predictions) if str(row.get("item_id") or row.get("annotation_id")) in reference_ids]
+    if {str(row.get("item_id") or row.get("annotation_id")) for row in prediction_rows} != reference_ids:
+        raise ValueError("prediction rows do not cover exactly the Silver reference IDs")
+    predictions_payload = "".join(json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n" for row in prediction_rows).encode("utf-8")
+    filtered_predictions_path = args.results_root / ".silver_prediction_inputs" / f"{args.experiment_id}.jsonl"
+    filtered_predictions_path.parent.mkdir(parents=True, exist_ok=True)
+    filtered_predictions_path.write_bytes(predictions_payload)
     run = create_run_directory(args.results_root, {
         "experiment_id": args.experiment_id, "git_commit": commit,
         "date": date.today().isoformat(), "dataset_version": args.dataset_version,
@@ -52,8 +61,12 @@ def main() -> None:
         "config": {
             "reference_path": str(args.reference.resolve()),
             "reference_sha256": sha256(args.reference),
-            "predictions_path": str(args.predictions.resolve()),
-            "predictions_sha256": sha256(args.predictions),
+            "ground_truth_path": str(args.reference.resolve()),
+            "ground_truth_sha256": sha256(args.reference),
+            "predictions_path": str(filtered_predictions_path.resolve()),
+            "predictions_sha256": hashlib.sha256(predictions_payload).hexdigest(),
+            "predictions_source_path": str(args.predictions.resolve()),
+            "predictions_source_sha256": sha256(args.predictions),
             "interval_matching_tolerance_m": args.interval_tolerance_m,
             "boundary_accuracy_tolerances_m": [0.01, 0.05, 0.10],
             "reference_policy": "silver",
@@ -61,7 +74,7 @@ def main() -> None:
     })
     try:
         metrics, errors = evaluate_benchmark(
-            read_jsonl(args.reference), read_jsonl(args.predictions),
+            reference_rows, prediction_rows,
             interval_match_tolerance_m=args.interval_tolerance_m,
             reference_policy="silver",
         )
@@ -69,7 +82,7 @@ def main() -> None:
         (run / "run.log").write_text("status=failed\n", encoding="utf-8")
         raise
     (run / "metrics.json").write_text(json.dumps(metrics, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    (run / "predictions.jsonl").write_bytes(args.predictions.read_bytes())
+    (run / "predictions.jsonl").write_bytes(predictions_payload)
     (run / "errors.jsonl").write_text("".join(json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n" for row in errors), encoding="utf-8")
     (run / "run.log").write_text(
         f"status=completed\ndocuments={metrics['document_count']}\nerrors={len(errors)}\nreference_policy=silver\n",

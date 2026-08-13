@@ -36,6 +36,8 @@ def main() -> None:
     synthetic = json.loads(synthetic_summary_path.read_text(encoding="utf-8")) if synthetic_summary_path.is_file() else {}
     silver_summary_path = Path("/data/GeoLogParser/artifacts/silver/synthetic_ocr_ab_v001/summary.json")
     silver = json.loads(silver_summary_path.read_text(encoding="utf-8")) if silver_summary_path.is_file() else {}
+    padova_silver_summary = Path("/data/GeoLogParser/artifacts/silver/unipd_field_silver_v003/summary.json")
+    padova_silver = json.loads(padova_silver_summary.read_text(encoding="utf-8")) if padova_silver_summary.is_file() else {}
     readiness = json.loads((ROOT / "docs/generated/publication_readiness.json").read_text(encoding="utf-8"))
     rows = []
     for paper, value in sorted(readiness.get("paper_indexes", {}).items()):
@@ -52,7 +54,7 @@ def main() -> None:
         "| Tier | Count | Meaning |",
         "|---|---:|---|",
         f"| Real Gold | 0 | No verified human/public authoritative image-to-interval GT is currently frozen |",
-        f"| Silver | {silver.get('source_item_count', 0)} | Machine-adjudicated candidate labels; not Gold |",
+        f"| Silver | {silver.get('source_item_count', 0) + padova_silver.get('source_item_count', 0)} | Machine-adjudicated candidate labels; not Gold |",
         f"| Synthetic | {synthetic.get('count', 0)} | Known programmatic labels; controlled experiments only |",
         f"| Registry entries | {len(registry.get('datasets', []))} | Candidate sources, not page/interval counts |",
         "",
@@ -69,7 +71,7 @@ def main() -> None:
         "",
         "## Formal experiments",
         "",
-        "| Paper | Formal runs | Indexed runs |",
+        "| Paper | Formal runs (incl. Silver) | Indexed runs |",
         "|---|---:|---:|",
     ])
     lines.extend(f"| {paper} | {formal} | {indexed} |" for paper, formal, indexed in rows)
@@ -77,7 +79,7 @@ def main() -> None:
         "",
         "## Paper status",
         "",
-        "- Paper I: `IMPLEMENTATION` / formal Real Gold benchmark `NOT COMPLETED`.",
+        "- Paper I: `RESULTS_AVAILABLE` for explicitly named machine-Silver agreement runs; Real Gold benchmark `NOT COMPLETED`.",
         "- Paper II: `IMPLEMENTATION` / formal Gold ablation and calibration `NOT COMPLETED`.",
         "- Paper III: `IMPLEMENTATION` / real spatial Gold downstream comparison `NOT COMPLETED`.",
         "",

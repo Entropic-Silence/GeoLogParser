@@ -1,7 +1,6 @@
 {
   "blockers": [
-    "unresolved TBD/citation markers remain",
-    "no formal experiment is indexed"
+    "unresolved TBD/citation markers remain"
   ],
   "broken_local_links": [],
   "citation_keys": [
@@ -42,7 +41,7 @@
     "p1.tiber_rapidocr_coverage",
     "p1.tiber_tesseract_coverage"
   ],
-  "formal_experiment_count": 0,
+  "formal_experiment_count": 2,
   "headings": [
     "Abstract",
     "1. Introduction",
@@ -57,7 +56,7 @@
     "10. Conclusion",
     "References"
   ],
-  "indexed_experiment_count": 28,
+  "indexed_experiment_count": 30,
   "literature_evidence_errors": [],
   "literature_evidence_path": "docs/literature_evidence.yaml",
   "literature_evidence_sha256": "d36dcd2badac6ba03fcd9842f3a5e7623885fd8f1e55966dceb75eb1795734f5",
@@ -65,7 +64,7 @@
     {
       "exists": true,
       "resolved_path": "papers/paper1/generated/current_results.md",
-      "sha256": "d69b5ac2178cc75cd6d02af19ab6b4fa485d67128334462ae16b8e5699fac72c",
+      "sha256": "fa94c395b3c31577c2a39941774b69eccef2fda9bf1ba54be3b00ee9b82eba78",
       "target": "generated/current_results.md"
     },
     {
@@ -83,7 +82,7 @@
     {
       "exists": true,
       "resolved_path": "docs/generated/publication_readiness.md",
-      "sha256": "63defde073b986901564af796d5c1fbef8ece3343fc65a318b67a05bf9fce6e3",
+      "sha256": "2df63c46fb64d2d0436ab83b1fb014d0fdebbd3a8108c015137c1aaf9d93f5e8",
       "target": "../../docs/generated/publication_readiness.md"
     },
     {
@@ -100,7 +99,7 @@
     }
   ],
   "manuscript_path": "papers/paper1/manuscript.md",
-  "manuscript_sha256": "10d28174a8d5d7aefd48f39543fa9c7f392501606205c400079cae5f312658f0",
+  "manuscript_sha256": "620c71e8f223c1ffe943f1edffa561ba9f9e16a4f4cb790ffbf08559b2a5ca4d",
   "missing_bibliography_keys": [],
   "missing_claim_registrations": [],
   "missing_literature_evidence_keys": [],
@@ -134,10 +133,10 @@
   ],
   "result_index_errors": [],
   "result_index_path": "experiments/paper1/result_index.jsonl",
-  "result_index_sha256": "285fc02744ab8b2428c0f600b1168debc8c6d2c0387cadc588073b256332e6ac",
+  "result_index_sha256": "ebdf5fafc5e9112c6cab248d7bcc58f220e80d7838e11db8ea3223a8a8f66612",
   "structurally_complete": true,
   "submission_ready": false,
   "tbd_or_citation_marker_count": 9,
   "unused_claim_registrations": [],
-  "word_count": 2512
+  "word_count": 2617
 }
