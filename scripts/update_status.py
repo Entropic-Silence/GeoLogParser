@@ -71,7 +71,7 @@ def main() -> None:
         "| Tier | Count | Meaning |",
         "|---|---:|---|",
         "| Human-verified Gold | 0 | No project annotation has yet passed the independent human Ground-Truth gate |",
-        f"| Authoritative interval Gold | {authoritative_gold_documents} documents / {authoritative_gold_intervals} intervals | Official database boundaries with exact complete agreement to an explicit table in the paired PDF; interval boundaries only; no human annotation claimed |",
+        f"| Authoritative interval Gold | {authoritative_gold_documents} documents / {authoritative_gold_intervals} intervals | Official source-agreement or explicit source-description interval references; interval boundaries only; no human annotation claimed |",
         f"| Authoritative metadata | {readiness.get('paper_indexes', {}).get('paper1', {}).get('eligibility_counts', {}).get('formal_authoritative_metadata', 0)} runs | Official metadata paired with scans; no interval/lithology labels |",
         f"| Silver | {silver.get('source_item_count', 0) + padova_silver.get('source_item_count', 0)} | Machine-adjudicated candidate labels; not Gold |",
         f"| Synthetic | {synthetic.get('count', 0)} | Known programmatic labels; controlled experiments only |",
