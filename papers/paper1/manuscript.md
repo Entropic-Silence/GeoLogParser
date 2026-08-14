@@ -37,6 +37,14 @@ hash overlap between partitions and against v002 were zero. One duplicated PDF
 group remained wholly within one partition. The current Paper I interval result
 uses only the v003 held-out partition.
 
+To probe source-disjoint transfer without promoting mismatched references to
+Gold, we also froze 42 paired PDFs from St. Gallen, Bern, Solothurn, and Vaud
+(787 official database intervals). The native-PDF audit found no complete
+explicit-table/database agreement in these four small acquisitions, so they are
+recorded as authoritative structured-source metadata and negative audit evidence,
+not as image-derived interval Gold. This source-disjoint panel therefore cannot
+yet support a cross-canton accuracy estimate. <!-- evidence:p1.cross_canton_negative_audit -->
+
 ### 4.2 Annotation
 
 The local UI shows a panel beside editable provenance-bearing fields and permits a reviewer to draw a tighter display-space evidence box without overwriting the original PDF bbox. Auto proposals have status `auto`; human stages are `single_verified`, `double_verified`, and `expert_verified`. Each human save appends an attestation bound to the canonical final-record SHA256. `double_verified` requires two distinct anonymized IDs on the identical record hash, while `expert_verified` requires a server-allowlisted expert ID. Thus an edit invalidates attestations for the earlier record rather than inheriting its status.

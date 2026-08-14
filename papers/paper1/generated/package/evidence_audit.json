@@ -14,7 +14,7 @@
     "zhong2019publaynet"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "5ab120ecfb2d64cf0df22c628bd4867514213d6e586ca691c70fd7a915012d15",
+  "claim_registry_sha256": "635c063bef8a5bc99db90d77da1f5e9d6f3a1ddd5511b2f066936249edc0bda6",
   "claim_source_errors": [],
   "evidence_tags": [
     "p1.b2_padova",
@@ -31,6 +31,7 @@
     "p1.bgs_robustness_tesseract",
     "p1.cad_full_svg",
     "p1.cad_priority_fidelity",
+    "p1.cross_canton_negative_audit",
     "p1.degradation_inventory",
     "p1.directpdf_padova",
     "p1.international_source_review",
@@ -112,7 +113,7 @@
     }
   ],
   "manuscript_path": "papers/paper1/manuscript.md",
-  "manuscript_sha256": "01ae4c1bf131a84f6b1e4e60d67a274f4ef9b48500f2dabefc53e61de93b4167",
+  "manuscript_sha256": "b2fd3c253ac4e6d68ad79a972d529f302403ac7b03bb89507655ab8f733def76",
   "missing_bibliography_keys": [],
   "missing_claim_registrations": [],
   "missing_literature_evidence_keys": [],
@@ -134,6 +135,7 @@
     "p1.bgs_robustness_tesseract",
     "p1.cad_full_svg",
     "p1.cad_priority_fidelity",
+    "p1.cross_canton_negative_audit",
     "p1.degradation_inventory",
     "p1.directpdf_padova",
     "p1.international_source_review",
@@ -158,5 +160,5 @@
   "submission_ready": false,
   "tbd_or_citation_marker_count": 9,
   "unused_claim_registrations": [],
-  "word_count": 3845
+  "word_count": 3917
 }

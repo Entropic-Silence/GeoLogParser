@@ -37,6 +37,8 @@ LOCAL_DIRS = {
     "swissgeol_thurgau_paired_v003": DATA_ROOT / "datasets/public/swissgeol_thurgau_paired_v003",
     "swissgeol_stgallen_paired_v001": DATA_ROOT / "datasets/public/swissgeol_stgallen_paired_v001",
     "swissgeol_bern_paired_v001": DATA_ROOT / "datasets/public/swissgeol_bern_paired_v001",
+    "swissgeol_solothurn_paired_v001": DATA_ROOT / "datasets/public/swissgeol_solothurn_paired_v001",
+    "swissgeol_vaud_paired_v001": DATA_ROOT / "datasets/public/swissgeol_vaud_paired_v001",
     "mendeley_binhai_cptu_borehole_v002": DATA_ROOT / "datasets/public/mendeley_binhai_cptu_borehole_v002",
     "mendeley_coal_boreholes_602_v001": DATA_ROOT / "datasets/public/mendeley_coal_boreholes_602_v001",
 }
@@ -91,6 +93,7 @@ def evidence_paths(source_id: str, local_dir: Path | None) -> list[str]:
     if source_id in {
         "swissgeol_thurgau_paired_v001", "swissgeol_thurgau_paired_v003",
         "swissgeol_stgallen_paired_v001", "swissgeol_bern_paired_v001",
+        "swissgeol_solothurn_paired_v001", "swissgeol_vaud_paired_v001",
     } and local_dir and local_dir.exists():
         paths.extend(str(local_dir / name) for name in ("dataset.json", "manifest.jsonl") if (local_dir / name).is_file())
         paths.extend(

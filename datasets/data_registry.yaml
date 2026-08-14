@@ -280,6 +280,44 @@ datasets:
     status: acquired_authoritative_metadata_no_source_agreement_gold
     verification_notes: "Frozen at /data/GeoLogParser/datasets/public/swissgeol_bern_paired_v001. Acquisition examined 67 candidates and accepted 7 with zero failures; manifest SHA256 07b08e653b64d607c5be05467d789cfb11449fa9d5c3576406b29653087e634e and dataset SHA256 11f33ec2f98afc0fe06c3448df288b59aad8d2d16c524a6ee1cf1b563a54d7d5. Native-PDF explicit-table audit found no conservatively parsed interval tables on all 7 pages; no interval Gold is claimed. Official database boundaries remain available only as authoritative structured-source metadata for transfer diagnostics. human_reviewed=false; rights status remains PENDING_MANUAL_PRE_SUBMISSION_REVIEW."
 
+  - id: swissgeol_solothurn_paired_v001
+    name: "Swissgeol Solothurn published borehole PDF/database pairing acquisition"
+    source_organization: swisstopo / swissgeol
+    url: https://boreholes.swissgeol.ch/
+    license_url: null
+    access_date: "2026-08-14"
+    language: German
+    format: "public borehole profile PDFs paired with official structured borehole and lithology API records"
+    scale: "3 PDFs paired with 45 official database intervals; explicit-table audit retained zero complete agreements"
+    downloadable: true
+    access_status: "anonymous public frontend and read API; 100 sorted candidates examined"
+    license: "TBD — source/item reuse and redistribution terms require manual pre-submission verification"
+    allowed_usage: "internal source-disjoint transfer diagnostics pending manual source-rights verification"
+    redistribution: prohibited_pending_verification
+    redistribution_policy: "do not upload or redistribute source PDFs, database records, or derived page assets before manual terms, attribution, privacy, sensitive-location, and embedded-content review"
+    paper_fit: [paper1_source_disjoint_transfer]
+    status: acquired_authoritative_metadata_no_source_agreement_gold
+    verification_notes: "Frozen at /data/GeoLogParser/datasets/public/swissgeol_solothurn_paired_v001. Manifest SHA256 6a53f8f550eaa16546bdcd660ce95e460b8fc1898dc128b31a9e6cc1f6c22649 and dataset SHA256 24a9230ba5f2699ea79fe722fe520918bc9d5211b568904e5731378cf79bede5. All three PDFs had no conservatively parsed explicit interval table; no interval Gold is claimed. One record has missing final depth, which the audit preserves as null. human_reviewed=false; rights status remains PENDING_MANUAL_PRE_SUBMISSION_REVIEW."
+
+  - id: swissgeol_vaud_paired_v001
+    name: "Swissgeol Vaud published borehole PDF/database pairing acquisition"
+    source_organization: swisstopo / swissgeol
+    url: https://boreholes.swissgeol.ch/
+    license_url: null
+    access_date: "2026-08-14"
+    language: French/German
+    format: "public borehole profile PDFs paired with official structured borehole and lithology API records"
+    scale: "6 PDFs paired with 292 official database intervals; explicit-table audit retained zero complete agreements"
+    downloadable: true
+    access_status: "anonymous public frontend and read API; all 10 candidates examined"
+    license: "TBD — source/item reuse and redistribution terms require manual pre-submission verification"
+    allowed_usage: "internal source-disjoint transfer diagnostics pending manual source-rights verification"
+    redistribution: prohibited_pending_verification
+    redistribution_policy: "do not upload or redistribute source PDFs, database records, or derived page assets before manual terms, attribution, privacy, sensitive-location, and embedded-content review"
+    paper_fit: [paper1_source_disjoint_transfer]
+    status: acquired_authoritative_metadata_no_source_agreement_gold
+    verification_notes: "Frozen at /data/GeoLogParser/datasets/public/swissgeol_vaud_paired_v001. Manifest SHA256 f1fe0621452953c7312676214a0041a6123e1b0e82f670a34624a39cb545593f and dataset SHA256 f2737707f6caafe11c80376d236b0143207894c5209fe48d119fa7c3114785b7. All six PDFs had no conservatively parsed explicit interval table; no interval Gold is claimed. human_reviewed=false; rights status remains PENDING_MANUAL_PRE_SUBMISSION_REVIEW."
+
   - id: usgs_geolog_locator
     name: GeoLog Locator
     source_organization: U.S. Geological Survey

@@ -1526,6 +1526,12 @@
         {"type": "json_pointer_equals", "pointer": "/degradation_manifest_sha256", "expected": "5a1205c944a5cb652967b99e6478169805db35f749dffe44124076eafd766628"}
       ]
     },
+    "p1.cross_canton_negative_audit": {
+      "paper": "paper1",
+      "scope": "cross-canton Swissgeol source-disjoint acquisition and negative explicit-table audit; no interval Gold claim",
+      "source_path": "datasets/source_verification_ledger.yaml",
+      "source_sha256": "676380a4f9f5363e1ddbc195b5af88f27ebe4476a34b266cd2c8a71d2495a991"
+    },
     "p1.swissgeol_authoritative_interval": {
       "paper": "paper1",
       "experiment_id": "P1_SWISSGEOL_TG_CONTENT_HELDOUT_TESSERACT_FORMAL_004",

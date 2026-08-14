@@ -15,6 +15,12 @@ from geologparser.result_index import file_sha256
 DEFAULT_ROOT = Path("/data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v001")
 
 
+def optional_final_depth(reference: dict) -> float | None:
+    """Return a numeric final depth when present; preserve missing as null."""
+    value = (reference.get("borehole") or {}).get("final_depth_m")
+    return float(value) if value is not None else None
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--dataset-root", type=Path, default=DEFAULT_ROOT)
@@ -44,7 +50,7 @@ def main() -> None:
     audit_rows, gold_rows = [], []
     for row in manifest:
         reference = json.loads(Path(row["reference_path"]).read_text(encoding="utf-8"))
-        final_depth = float(reference["borehole"]["final_depth_m"])
+        final_depth = optional_final_depth(reference)
         expected = sorted(
             (float(item["top_depth_m"]), float(item["bottom_depth_m"]))
             for item in reference["stratigraphy"]["intervals"]

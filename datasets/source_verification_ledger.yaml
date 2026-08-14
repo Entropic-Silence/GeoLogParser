@@ -774,6 +774,105 @@ records:
     no interval Gold is claimed. Official database boundaries remain available only
     as authoritative structured-source metadata for transfer diagnostics. human_reviewed=false;
     rights status remains PENDING_MANUAL_PRE_SUBMISSION_REVIEW.
+- source_id: swissgeol_solothurn_paired_v001
+  source_name: Swissgeol Solothurn published borehole PDF/database pairing acquisition
+  url: https://boreholes.swissgeol.ch/
+  source_url: https://boreholes.swissgeol.ch/
+  doi: null
+  publisher: swisstopo / swissgeol
+  citation: Swissgeol Solothurn published borehole PDF/database pairing acquisition
+  retrieval_date: '2026-08-14'
+  local_paths:
+  - /data/GeoLogParser/datasets/public/swissgeol_solothurn_paired_v001
+  file_count_in_local_snapshot: 12
+  local_snapshot_inventory_sha256: 1d8d285eae0a46327fba8edd903235dbf51582f4e9fd0276f8dc64517a9d618b
+  manifest_evidence:
+  - relative_path: gold_interval_manifest_v001.jsonl
+    size_bytes: 0
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - relative_path: manifest.jsonl
+    size_bytes: 3255
+    sha256: 6a53f8f550eaa16546bdcd660ce95e460b8fc1898dc128b31a9e6cc1f6c22649
+  access_method: anonymous public frontend and read API; 100 sorted candidates examined
+  terms_of_use: null
+  claimed_license: TBD — source/item reuse and redistribution terms require manual
+    pre-submission verification
+  license_url: null
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
+  verification_status: CLAIM_CAPTURED
+  internal_decision: USE_WITH_CAUTION
+  decision: ELIGIBLE_INTERNAL_ONLY
+  risks:
+  - licence claim is recorded from repository metadata; final item/content review
+    remains required
+  experiments_or_papers:
+  - paper1_source_disjoint_transfer
+  requires_human_check_before_submission: true
+  evidence:
+  - datasets/data_registry.yaml
+  - /data/GeoLogParser/datasets/public/swissgeol_solothurn_paired_v001/dataset.json
+  - /data/GeoLogParser/datasets/public/swissgeol_solothurn_paired_v001/manifest.jsonl
+  - /data/GeoLogParser/datasets/public/swissgeol_solothurn_paired_v001/pairing_audit_v001.jsonl
+  - /data/GeoLogParser/datasets/public/swissgeol_solothurn_paired_v001/pairing_audit_summary_v001.json
+  - /data/GeoLogParser/datasets/public/swissgeol_solothurn_paired_v001/gold_interval_manifest_v001.jsonl
+  registry_status: acquired_authoritative_metadata_no_source_agreement_gold
+  registry_verification_notes: Frozen at /data/GeoLogParser/datasets/public/swissgeol_solothurn_paired_v001.
+    Manifest SHA256 6a53f8f550eaa16546bdcd660ce95e460b8fc1898dc128b31a9e6cc1f6c22649
+    and dataset SHA256 24a9230ba5f2699ea79fe722fe520918bc9d5211b568904e5731378cf79bede5.
+    All three PDFs had no conservatively parsed explicit interval table; no interval
+    Gold is claimed. One record has missing final depth, which the audit preserves
+    as null. human_reviewed=false; rights status remains PENDING_MANUAL_PRE_SUBMISSION_REVIEW.
+- source_id: swissgeol_vaud_paired_v001
+  source_name: Swissgeol Vaud published borehole PDF/database pairing acquisition
+  url: https://boreholes.swissgeol.ch/
+  source_url: https://boreholes.swissgeol.ch/
+  doi: null
+  publisher: swisstopo / swissgeol
+  citation: Swissgeol Vaud published borehole PDF/database pairing acquisition
+  retrieval_date: '2026-08-14'
+  local_paths:
+  - /data/GeoLogParser/datasets/public/swissgeol_vaud_paired_v001
+  file_count_in_local_snapshot: 18
+  local_snapshot_inventory_sha256: 90f2f0933f060398f1dc8de42728c3983b26f33a30701e7b7931470cd4e4f2ea
+  manifest_evidence:
+  - relative_path: gold_interval_manifest_v001.jsonl
+    size_bytes: 0
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - relative_path: manifest.jsonl
+    size_bytes: 6596
+    sha256: f1fe0621452953c7312676214a0041a6123e1b0e82f670a34624a39cb545593f
+  access_method: anonymous public frontend and read API; all 10 candidates examined
+  terms_of_use: null
+  claimed_license: TBD — source/item reuse and redistribution terms require manual
+    pre-submission verification
+  license_url: null
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
+  verification_status: CLAIM_CAPTURED
+  internal_decision: USE_WITH_CAUTION
+  decision: ELIGIBLE_INTERNAL_ONLY
+  risks:
+  - licence claim is recorded from repository metadata; final item/content review
+    remains required
+  experiments_or_papers:
+  - paper1_source_disjoint_transfer
+  requires_human_check_before_submission: true
+  evidence:
+  - datasets/data_registry.yaml
+  - /data/GeoLogParser/datasets/public/swissgeol_vaud_paired_v001/dataset.json
+  - /data/GeoLogParser/datasets/public/swissgeol_vaud_paired_v001/manifest.jsonl
+  - /data/GeoLogParser/datasets/public/swissgeol_vaud_paired_v001/pairing_audit_v001.jsonl
+  - /data/GeoLogParser/datasets/public/swissgeol_vaud_paired_v001/pairing_audit_summary_v001.json
+  - /data/GeoLogParser/datasets/public/swissgeol_vaud_paired_v001/gold_interval_manifest_v001.jsonl
+  registry_status: acquired_authoritative_metadata_no_source_agreement_gold
+  registry_verification_notes: Frozen at /data/GeoLogParser/datasets/public/swissgeol_vaud_paired_v001.
+    Manifest SHA256 f1fe0621452953c7312676214a0041a6123e1b0e82f670a34624a39cb545593f
+    and dataset SHA256 f2737707f6caafe11c80376d236b0143207894c5209fe48d119fa7c3114785b7.
+    All six PDFs had no conservatively parsed explicit interval table; no interval
+    Gold is claimed. human_reviewed=false; rights status remains PENDING_MANUAL_PRE_SUBMISSION_REVIEW.
 - source_id: usgs_geolog_locator
   source_name: GeoLog Locator
   url: https://www.usgs.gov/tools/geolog-locator
