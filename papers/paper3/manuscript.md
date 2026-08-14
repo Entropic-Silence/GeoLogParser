@@ -52,6 +52,9 @@ is explicitly protocol-only and must not be interpreted as real-site response.
 The [structured-source proxy curve](generated/figures/coal602_source_proxy.png)
 is kept separate from the synthetic curve and carries the same non-formal
 interpretation limits described above.
+The [held-out image-boundary diagnostic](generated/figures/image_boundary_surface.png)
+summarizes the raw-versus-reread boundary and surface errors; its caption
+retains the authoritative-spatial-metadata limitation.
 
 ## 7. Human-in-the-Loop Evaluation
 

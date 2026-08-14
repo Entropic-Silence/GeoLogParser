@@ -78,6 +78,12 @@
     },
     {
       "exists": true,
+      "resolved_path": "papers/paper3/generated/figures/image_boundary_surface.png",
+      "sha256": "729969b0223fdc62262685a2fbd0b406383ab64bbc75e59608616b3df2661b9e",
+      "target": "generated/figures/image_boundary_surface.png"
+    },
+    {
+      "exists": true,
       "resolved_path": "docs/generated/publication_readiness.md",
       "sha256": "95e6522a8535d27491547fd5931ce0c156ecc374aeee9ff275c05eab1d775212",
       "target": "../../docs/generated/publication_readiness.md"
@@ -96,7 +102,7 @@
     }
   ],
   "manuscript_path": "papers/paper3/manuscript.md",
-  "manuscript_sha256": "cb640318ab52fb07c95b744b2577adae0bfdb11dd5a6594641e5ddfb3b327c30",
+  "manuscript_sha256": "ca78bcfb4ef8fdc094fc5423a68427cc8363c5fc5dae550f1cdf5d8ca43e611a",
   "missing_bibliography_keys": [],
   "missing_claim_registrations": [
     "p3.image_boundary_surface"
@@ -122,5 +128,5 @@
   "submission_ready": false,
   "tbd_or_citation_marker_count": 5,
   "unused_claim_registrations": [],
-  "word_count": 1972
+  "word_count": 1993
 }
