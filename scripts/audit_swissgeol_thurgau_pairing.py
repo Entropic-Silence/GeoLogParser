@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import argparse
 import json
 from pathlib import Path
 import subprocess
@@ -11,12 +12,33 @@ from geologparser.datasets.swissgeol import explicit_interval_sections
 from geologparser.result_index import file_sha256
 
 
-ROOT = Path("/data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v001")
+DEFAULT_ROOT = Path("/data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v001")
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--dataset-root", type=Path, default=DEFAULT_ROOT)
+    parser.add_argument("--audit-version", default="v001")
+    parser.add_argument("--exclude-gold-manifest", type=Path)
+    arguments = parser.parse_args()
+    root = arguments.dataset_root
+    version = arguments.audit_version
+    if not version.startswith("v") or not version[1:].isdigit():
+        raise ValueError("audit version must look like v001")
+    destinations = [
+        root / f"pairing_audit_{version}.jsonl",
+        root / f"gold_interval_manifest_{version}.jsonl",
+        root / f"pairing_audit_summary_{version}.json",
+    ]
+    if arguments.exclude_gold_manifest:
+        destinations.append(root / f"gold_interval_manifest_incremental_{version}.jsonl")
+    existing = [path for path in destinations if path.exists()]
+    if existing:
+        raise FileExistsError(
+            "immutable audit output already exists: " + ", ".join(map(str, existing))
+        )
     manifest = [
-        json.loads(line) for line in (ROOT / "manifest.jsonl").read_text(encoding="utf-8").splitlines()
+        json.loads(line) for line in (root / "manifest.jsonl").read_text(encoding="utf-8").splitlines()
         if line.strip()
     ]
     audit_rows, gold_rows = [], []
@@ -44,7 +66,7 @@ def main() -> None:
             "source_interval_candidates": sections,
             "pdf_sha256": file_sha256(Path(row["pdf_path"])),
             "reference_sha256": file_sha256(Path(row["reference_path"])),
-            "audit_method": "native_pdf_layout_explicit_table_v001",
+            "audit_method": "native_pdf_layout_explicit_table_v002_reference_independent",
             "human_reviewed": False,
         }
         audit_rows.append(audit)
@@ -57,11 +79,11 @@ def main() -> None:
                 "source_interval_evidence": exact[0],
                 "human_reviewed": False,
             })
-    (ROOT / "pairing_audit_v001.jsonl").write_text(
+    (root / f"pairing_audit_{version}.jsonl").write_text(
         "".join(json.dumps(item, ensure_ascii=False, sort_keys=True) + "\n" for item in audit_rows),
         encoding="utf-8",
     )
-    (ROOT / "gold_interval_manifest_v001.jsonl").write_text(
+    (root / f"gold_interval_manifest_{version}.jsonl").write_text(
         "".join(json.dumps(item, ensure_ascii=False, sort_keys=True) + "\n" for item in gold_rows),
         encoding="utf-8",
     )
@@ -74,8 +96,34 @@ def main() -> None:
         "human_reviewed": False,
         "rights_review": "PENDING_MANUAL_PRE_SUBMISSION_REVIEW",
         "gold_scope": "interval boundaries only",
+        "audit_method": "native_pdf_layout_explicit_table_v002_reference_independent",
+        "audit_version": version,
     }
-    (ROOT / "pairing_audit_summary_v001.json").write_text(
+    if arguments.exclude_gold_manifest:
+        excluded_rows = [
+            json.loads(line)
+            for line in arguments.exclude_gold_manifest.read_text(encoding="utf-8").splitlines()
+            if line.strip()
+        ]
+        excluded_ids = {row["record_id"] for row in excluded_rows}
+        incremental = [row for row in gold_rows if row["record_id"] not in excluded_ids]
+        incremental_path = root / f"gold_interval_manifest_incremental_{version}.jsonl"
+        incremental_path.write_text(
+            "".join(
+                json.dumps(item, ensure_ascii=False, sort_keys=True) + "\n"
+                for item in incremental
+            ),
+            encoding="utf-8",
+        )
+        summary.update({
+            "excluded_gold_manifest": str(arguments.exclude_gold_manifest),
+            "excluded_gold_manifest_sha256": file_sha256(arguments.exclude_gold_manifest),
+            "incremental_gold_documents": len(incremental),
+            "incremental_gold_intervals": sum(item["interval_count"] for item in incremental),
+            "incremental_gold_manifest": str(incremental_path),
+            "incremental_gold_manifest_sha256": file_sha256(incremental_path),
+        })
+    (root / f"pairing_audit_summary_{version}.json").write_text(
         json.dumps(summary, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
         encoding="utf-8",
     )
