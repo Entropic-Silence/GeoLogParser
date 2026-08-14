@@ -20,7 +20,7 @@ FORMAL_ELIGIBILITY = {
     "formal_downstream", "formal_synthetic_downstream", "formal_authoritative_metadata",
     "formal_authoritative_metadata_method", "formal_authoritative_metadata_robustness",
     "formal_authoritative_interval", "formal_authoritative_interval_method",
-    "formal_source_controlled_downstream",
+    "formal_source_controlled_downstream", "formal_authoritative_boundary_downstream",
 }
 
 
@@ -177,6 +177,35 @@ def formal_evidence_errors(entry: dict, run: dict, metrics: dict) -> list[str]:
             )
         if metrics.get("human_ground_truth_evidence") is not False:
             errors.append("formal_source_controlled_downstream must not claim human Ground Truth")
+    elif eligibility == "formal_authoritative_boundary_downstream":
+        if metrics.get("scope") != "real image-derived first-boundary downstream surface diagnostic":
+            errors.append(
+                "formal_authoritative_boundary_downstream requires image-boundary surface diagnostic scope"
+            )
+        if metrics.get("reference_ground_truth_tier") != "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT":
+            errors.append(
+                "formal_authoritative_boundary_downstream requires source-agreement reference tier"
+            )
+        if metrics.get("data_status") != "real_image_pdf_with_authoritative_structured_spatial_metadata":
+            errors.append(
+                "formal_authoritative_boundary_downstream requires authoritative spatial metadata status"
+            )
+        if metrics.get("comparison") != "raw_image_boundary_vs_constraint_reread_boundary_vs_authoritative_reference_surface":
+            errors.append(
+                "formal_authoritative_boundary_downstream requires raw/reread/reference surface comparison"
+            )
+        if metrics.get("prediction_reference_conditioning") != "none":
+            errors.append(
+                "formal_authoritative_boundary_downstream requires prediction_reference_conditioning=none"
+            )
+        if metrics.get("reference_blinded_decision_policy") is not True:
+            errors.append(
+                "formal_authoritative_boundary_downstream requires reference-blinded decisions"
+            )
+        if not isinstance(metrics.get("document_count"), int) or metrics.get("document_count", 0) <= 0:
+            errors.append("formal_authoritative_boundary_downstream requires a positive document_count")
+        if not isinstance(metrics.get("reference_point_count"), int) or metrics.get("reference_point_count", 0) < 3:
+            errors.append("formal_authoritative_boundary_downstream requires at least three reference points")
     elif eligibility == "formal_downstream":
         if metrics.get("data_status") != "human_verified_real_site":
             errors.append("formal_downstream requires human_verified_real_site data_status")

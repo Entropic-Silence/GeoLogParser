@@ -1,13 +1,13 @@
 <!-- AUTO-GENERATED REVIEW BUNDLE. DO NOT EDIT. -->
 > Package status: **DRAFT_NOT_SUBMISSION_READY**
 > This bundle combines the versioned manuscript and generated results for review.
-> Blockers: unresolved TBD/citation markers remain.
+> Blockers: manuscript evidence tags are absent from claim registry; unresolved TBD/citation markers remain.
 
 # From Legacy Borehole Logs to Structured Geological Models: An Automated Extraction and Error-Propagation Workflow
 
 ## Abstract
 
-This paper studies the downstream consequences of automatically structured legacy borehole logs. The workflow exports provenance-bearing extraction into SQLite and GeoJSON, performs quality control, correlates stratigraphic boundaries, and evaluates how controlled extraction errors propagate to geological surfaces and human review effort. A traceable database exporter, transparent IDW error-propagation baseline, and PyVista/VTP surface adapter are implemented. On 602 real structured-source records, a controlled dual-channel experiment found that strict consensus deletion retained approximately 81.5% of points but increased surface MAE to approximately 0.73–0.74 m. In contrast, support-preserving mean fusion reduced MAE by 18.3%–22.0% relative to a single channel across 0.01–1.00 m injections; paired exact sign-test p values were all below `6×10⁻⁵`. Thus downstream QC must account for spatial support, not only field acceptance. Image-derived raw/QC/reference comparison, real stratigraphic modelling, and timed human studies remain `TBD`.
+This paper studies the downstream consequences of automatically structured legacy borehole logs. The workflow exports provenance-bearing extraction into SQLite and GeoJSON, performs quality control, correlates stratigraphic boundaries, and evaluates how controlled extraction errors propagate to geological surfaces and human review effort. A traceable database exporter, transparent IDW error-propagation baseline, and PyVista/VTP surface adapter are implemented. On 602 real structured-source records, a controlled dual-channel experiment found that strict consensus deletion retained approximately 81.5% of points but increased surface MAE to approximately 0.73–0.74 m. In contrast, support-preserving mean fusion reduced MAE by 18.3%–22.0% relative to a single channel across 0.01–1.00 m injections; paired exact sign-test p values were all below `6×10⁻⁵`. In a separate 35-document held-out image-boundary diagnostic, rereading reduced first-boundary depth MAE from 1.471 m to 0.941 m and reference-surface MAE from 3.402 m to 3.050 m. Thus downstream QC must account for spatial support, not only field acceptance. Complete image-derived spatial metadata extraction, real stratigraphic modelling, and timed human studies remain `TBD`.
 
 ## 1. Introduction
 
@@ -33,7 +33,7 @@ For a selected correlated boundary, depth is converted to elevation as collar el
 
 Protocol development additionally uses a CC BY 4.0 workbook containing 602 complete, unique directional gas-drainage borehole records. Its audit records numeric local X/Y/Z and roof-depth fields, but no CRS, and flags precise-location review as pending. <!-- evidence:p3.coal602_source_audit --> The source Y/X values are translated independently to zero-origin local `u/v`; the translation origin and source identifiers are not persisted. Source-reported No. 3 coal-roof depth is interpolated only as a scalar surface proxy on a 41 by 41 grid clipped to the collar-coordinate convex hull. It is not converted to elevation or named a coal-seam surface because trajectory and field-reference semantics are not established by the released files.
 
-The first real structured-source comparison injects independent signed errors into two channels at a 10% per-channel rate. It compares the raw first channel, exact-consensus deletion, and a support-preserving mean of both channels against the unchanged source-reference surface. All three policies are reference-blinded; source values are used only for post-decision scoring. Image-derived comparison and other error types—missing interval, wrong lithology correlation, coordinate, and elevation—remain `TBD`.
+The first real structured-source comparison injects independent signed errors into two channels at a 10% per-channel rate. It compares the raw first channel, exact-consensus deletion, and a support-preserving mean of both channels against the unchanged source-reference surface. All three policies are reference-blinded; source values are used only for post-decision scoring. A complementary image-boundary diagnostic reuses the frozen held-out Paper II predictions and adds only authoritative coordinates and collar elevations after extraction decisions are frozen. Other error types—missing interval, wrong lithology correlation, coordinate, and elevation extraction—remain `TBD`.
 
 ## 5. Database and Interoperability
 
@@ -47,7 +47,7 @@ An executed controlled comparison now applies the production constraint/rereadin
 
 See [generated/current_results.md](generated/current_results.md). A 30-seed synthetic extension exercises mean/std and explicitly named normal-approximation confidence intervals for perturbations 0.01–1.00 m. At 1.00 m, synthetic surface MAE was 0.662470 ± 0.110565 m across seeds. <!-- evidence:p3.idw_multiseed --> A separate indexed PyVista interoperability run wrote 121 points and 200 triangle cells, with VTP and PNG hashes reported in the generated table. <!-- evidence:p3.pyvista_interop --> These four-artificial-borehole artifacts are neither a real geological sensitivity estimate nor a real 3D model.
 
-The separate single-channel 602-record source protocol used 30 seeds per magnitude and 80 convex-hull grid points. Under independent signed 1.00 m perturbations of the source-reported roof-depth scalar at every point, proxy-surface MAE was 0.260428 ± 0.018737 m; the output persisted neither absolute coordinate origin nor source identifiers. <!-- evidence:p3.coal602_source_proxy --> This is a deterministic response of one source-field/IDW protocol, not extraction accuracy, a true coal-seam surface, or a privacy clearance. Image-derived raw/QC/reference comparison, real 3D figures, human time, and confirmatory geological interpretation remain `TBD`.
+The separate single-channel 602-record source protocol used 30 seeds per magnitude and 80 convex-hull grid points. Under independent signed 1.00 m perturbations of the source-reported roof-depth scalar at every point, proxy-surface MAE was 0.260428 ± 0.018737 m; the output persisted neither absolute coordinate origin nor source identifiers. <!-- evidence:p3.coal602_source_proxy --> This is a deterministic response of one source-field/IDW protocol, not extraction accuracy, a true coal-seam surface, or a privacy clearance. The image-boundary diagnostic is reported in [generated/current_results.md](generated/current_results.md): on 35 held-out documents and 423 fixed convex-hull queries, raw versus reread surface MAE was 3.402 versus 3.050 m, with four accepted rereads and five review decisions. <!-- evidence:p3.image_boundary_surface -->
 
 The [Padova source-location plot](generated/figures/padova_locations.png) shows
 three separated site groups and therefore rules out interpolation across the
@@ -64,7 +64,7 @@ Planned measures are manual-entry time, automated extraction time, extraction-pl
 
 ## 8. Discussion and Threats to Validity
 
-The synthetic smoke shows that the code responds to controlled perturbations, not that real geology has the same response. The structured-source comparison improves scale and spatial-pattern realism and directly demonstrates that field-level abstention can degrade a surface when deletion changes support geometry. It still lacks image-derived predictions, human GT, CRS confirmation, trajectory reconstruction, and field-reference verification. IDW is a transparent baseline rather than a universal geological model. Correlation errors, anisotropy, structural geology, spatial sampling, and model choice may dominate boundary noise. Rights-cleared spatial coherence remains a major data risk.
+The synthetic smoke shows that the code responds to controlled perturbations, not that real geology has the same response. The structured-source comparison improves scale and spatial-pattern realism and directly demonstrates that field-level abstention can degrade a surface when deletion changes support geometry. The image-boundary diagnostic provides real extraction-to-surface evidence, but it uses authoritative coordinates and collar elevations, covers one canton/source family, and evaluates only the first interval boundary. It still lacks image-derived spatial metadata, human GT, CRS confirmation beyond the source label, trajectory reconstruction, real stratigraphic modelling, and field-reference verification. IDW is a transparent baseline rather than a universal geological model. Correlation errors, anisotropy, structural geology, spatial sampling, and model choice may dominate boundary noise. Rights-cleared spatial coherence remains a major data risk.
 
 ## 9. Reproducibility and Ethics
 
@@ -72,7 +72,7 @@ Database and surface artifacts will be linked to extraction experiment IDs and h
 
 ## 10. Conclusion
 
-We define and partially implement a traceable path from legacy logs to geological surfaces and human review measurements. On a 602-record real structured source, strict dual-reader deletion worsened the interpolated surface because the loss of spatial support outweighed the small injected errors, whereas support-preserving mean fusion consistently improved it. The broader claim—whether geology-aware QC improves image-derived real downstream stability and human efficiency—remains `TBD`.
+We define and partially implement a traceable path from legacy logs to geological surfaces and human review measurements. On a 602-record real structured source, strict dual-reader deletion worsened the interpolated surface because the loss of spatial support outweighed the small injected errors, whereas support-preserving mean fusion consistently improved it. On a separate 35-document held-out image-boundary diagnostic, reference-blinded rereading reduced both boundary and surface error, but the use of authoritative spatial metadata and the single-boundary design limit the claim. Whether the complete workflow improves real downstream stability across spatial fields, stratigraphic correlations, and human efficiency remains `TBD`.
 
 The repository's auto-generated [publication-readiness audit](../../docs/generated/publication_readiness.md)
 tracks the real structured-source controlled comparison separately from Synthetic
@@ -136,6 +136,14 @@ This table executes the production constraint/rereading ranker and the same IDW 
 | P3_COAL602_CONSENSUS_QC_CONTROLLED_003 | 1.00 | 0.054885 ± 0.010986 | 0.737065 ± 0.104432 | 0.044844 ± 0.005753 | 0.183 | 28/30 | 8.68e-07 | 0.817 | 85 | formal_source_controlled_downstream |
 
 This controlled experiment uses 602 real source records and post-decision source-reference scoring. It is not image-extraction accuracy or human Ground Truth. Consensus deletion changes interpolation support and can worsen the surface; support-preserving fusion is reported separately.
+
+### Real image-derived boundary to surface diagnostic
+
+| Experiment | Documents | Reference points | Query points | Raw boundary MAE (m) | Reread boundary MAE (m) | Raw surface MAE (m) | Reread surface MAE (m) | Accepted rereads | Needs review | Eligibility |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
+| P3_SWISSGEOL_TG_BOUNDARY_SURFACE_FROM_FROZEN_REREAD_002 | 35 | 35 | 423 | 1.471 | 0.941 | 3.402 | 3.050 | 4 | 5 | formal_authoritative_boundary_downstream |
+
+This diagnostic inherits frozen reference-blinded image boundaries from the Paper II held-out run. Coordinates and collar elevations are taken from the authoritative structured record; image extraction of spatial metadata is not evaluated, so this is not a complete end-to-end spatial workflow.
 
 ### Licensed structured-source field proxy protocol
 

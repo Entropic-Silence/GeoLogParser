@@ -97,7 +97,7 @@ def main() -> None:
         "",
         "- Paper I: `RESULTS_AVAILABLE` for a 35-document/80-interval PDF-content-group held-out authoritative benchmark, an earlier incremental held-out test, authoritative-metadata runs, and explicitly named machine-Silver agreement runs; representative multi-source/source-disjoint interval benchmark `NOT COMPLETED`.",
         "- Paper II: `RESULTS_AVAILABLE` for a real authoritative-metadata abstention study, a controlled Synthetic method ablation, the negative v1 held-out interval test, a positive frozen v2 held-out interval test with F1 0.857 to 0.921 and FCR 0/4, a secondary frozen-artifact parser/acceptance analysis, and a development-fitted selective-confidence analysis; broader multimodal constraint attribution and larger-sample FCR estimation `NOT COMPLETED`.",
-        "- Paper III: `RESULTS_AVAILABLE` for a real structured-source controlled spatial comparison and controlled Synthetic downstream comparison; image-derived real-site comparison `NOT COMPLETED`.",
+        "- Paper III: `RESULTS_AVAILABLE` for a real structured-source controlled spatial comparison, a controlled Synthetic downstream comparison, and a 35-document image-derived first-boundary surface diagnostic using authoritative spatial metadata; complete image-derived spatial metadata extraction, stratigraphic modelling, and timed human study `NOT COMPLETED`.",
         "",
         "## Boundary",
         "",

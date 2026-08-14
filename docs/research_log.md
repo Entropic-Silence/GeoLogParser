@@ -1695,3 +1695,27 @@
   Paper II reuses the same frozen input and first-pass baseline only to measure
   the additional rereading/correction effect; the method gain and correction
   safety are not claimed as Paper I contributions.
+
+## 2026-08-14 — Paper III image-boundary surface diagnostic
+
+- A direct attempt to apply the single-page high-resolution reread runner to
+  the full 72-document source-agreement pool stopped at a multi-page PDF. The
+  failure exposed an implementation boundary, not a scientific result; the
+  partial run is not indexed or used for claims.
+- Instead, the downstream diagnostic was computed from the already completed,
+  reference-blinded Paper II held-out predictions in
+  `P2_SWISSGEOL_TG_CONSTRAINT_REREAD_HELDOUT_V003_001`. The new run
+  `P3_SWISSGEOL_TG_BOUNDARY_SURFACE_FROM_FROZEN_REREAD_002` adds only the
+  authoritative coordinates and collar elevations after extraction decisions
+  were frozen.
+- On 35 held-out documents and 423 fixed IDW queries inside the authoritative
+  coordinate convex hull, raw first-boundary depth MAE was `1.470588 m` and
+  reread final-boundary depth MAE was `0.941176 m`. Raw surface MAE was
+  `3.401597 m`; reread surface MAE was `3.049677 m`. Four rereads were
+  accepted and five documents remained in review.
+- Scope limitation: this is not complete end-to-end spatial extraction.
+  Coordinates and collar elevations are inherited from the authoritative
+  structured record, only the first interval boundary is evaluated, and the
+  sample is a one-canton source-agreement held-out pilot. The result is indexed
+  as `formal_authoritative_boundary_downstream`, while full spatial metadata
+  extraction and real stratigraphic modelling remain `TBD`.

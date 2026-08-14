@@ -279,6 +279,7 @@ def paper3_table(entries: list[dict], repository_root: Path) -> str:
     comparison_rows = []
     source_protocol_rows = []
     source_qc_rows = []
+    image_boundary_rows = []
     interoperability_rows = []
     for entry in entries:
         metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
@@ -311,6 +312,22 @@ def paper3_table(entries: list[dict], repository_root: Path) -> str:
                     str(condition["false_accepted_corruptions_total"]),
                     entry["paper_eligibility"],
                 ]) + " |")
+            continue
+        if metrics.get("comparison") == "raw_image_boundary_vs_constraint_reread_boundary_vs_authoritative_reference_surface":
+            surface = metrics.get("surface", {})
+            raw = surface.get("raw", {})
+            final = surface.get("final", {})
+            image_boundary_rows.append("| " + " | ".join([
+                entry["experiment_id"], str(metrics.get("document_count", "TBD")),
+                str(metrics.get("reference_point_count", "TBD")),
+                str(metrics.get("query_count", "TBD")),
+                number(raw.get("boundary_mae_m")), number(final.get("boundary_mae_m")),
+                number(raw.get("surface_error", {}).get("mae_m")),
+                number(final.get("surface_error", {}).get("mae_m")),
+                str(metrics.get("accepted_reread_count", "TBD")),
+                str(metrics.get("needs_review_count", "TBD")),
+                entry["paper_eligibility"],
+            ]) + " |")
             continue
         source_protocol = metrics.get("data_status") == "licensed_source_structured_data_pending_human_spatial_review"
         for condition in metrics.get("conditions", []):
@@ -364,6 +381,13 @@ def paper3_table(entries: list[dict], repository_root: Path) -> str:
         "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|",
         *source_qc_rows, "",
         "This controlled experiment uses 602 real source records and post-decision source-reference scoring. It is not image-extraction accuracy or human Ground Truth. Consensus deletion changes interpolation support and can worsen the surface; support-preserving fusion is reported separately.",
+        "",
+        "### Real image-derived boundary to surface diagnostic",
+        "",
+        "| Experiment | Documents | Reference points | Query points | Raw boundary MAE (m) | Reread boundary MAE (m) | Raw surface MAE (m) | Reread surface MAE (m) | Accepted rereads | Needs review | Eligibility |",
+        "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|",
+        *image_boundary_rows, "",
+        "This diagnostic inherits frozen reference-blinded image boundaries from the Paper II held-out run. Coordinates and collar elevations are taken from the authoritative structured record; image extraction of spatial metadata is not evaluated, so this is not a complete end-to-end spatial workflow.",
         "",
         "### Licensed structured-source field proxy protocol",
         "",

@@ -215,6 +215,23 @@ def test_formal_source_controlled_downstream_requires_explicit_boundary():
     ) == []
 
 
+def test_formal_authoritative_boundary_downstream_requires_real_image_surface_scope():
+    run = {"config": {"ground_truth_sha256": "a" * 64}, "split_version": "heldout_v003"}
+    assert formal_evidence_errors(
+        {"paper_eligibility": "formal_authoritative_boundary_downstream"}, run,
+        {
+            "scope": "real image-derived first-boundary downstream surface diagnostic",
+            "reference_ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+            "data_status": "real_image_pdf_with_authoritative_structured_spatial_metadata",
+            "comparison": "raw_image_boundary_vs_constraint_reread_boundary_vs_authoritative_reference_surface",
+            "prediction_reference_conditioning": "none",
+            "reference_blinded_decision_policy": True,
+            "document_count": 35,
+            "reference_point_count": 35,
+        },
+    ) == []
+
+
 def test_nonformal_labels_do_not_require_ground_truth_evidence():
     assert formal_evidence_errors(
         {"paper_eligibility": "audit_only"}, {"config": {}}, {},
