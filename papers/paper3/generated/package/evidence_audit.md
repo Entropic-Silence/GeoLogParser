@@ -2,7 +2,7 @@
 # paper3 evidence audit
 
 Package: **DRAFT_NOT_SUBMISSION_READY**
-Manuscript words: **1972**; unresolved markers: **5**.
+Manuscript words: **1993**; unresolved markers: **5**.
 Indexed runs: **9**; formal runs: **3**.
 Structural audit: **FAILED**.
 
@@ -13,7 +13,7 @@ Structural audit: **FAILED**.
 
 ## Trace
 
-- Manuscript SHA256: `cb640318ab52fb07c95b744b2577adae0bfdb11dd5a6594641e5ddfb3b327c30`
+- Manuscript SHA256: `ca78bcfb4ef8fdc094fc5423a68427cc8363c5fc5dae550f1cdf5d8ca43e611a`
 - Result-index SHA256: `8c1960decbd8e84817145c9af451cd7d25f54029554a446d772c6ca10ef1423e`
 - Citation keys: amershi2014interactive, delavarga2019gempy, han2024boreholeocr, lark2014crosssection, pakyuzcharrier2018drillhole, shepard1968interpolation
 - Missing literature-evidence keys: none
