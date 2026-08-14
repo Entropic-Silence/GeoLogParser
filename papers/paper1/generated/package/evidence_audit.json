@@ -1,12 +1,13 @@
 {
   "blockers": [
-    "claim registry entries are not cited by manuscript",
     "unresolved TBD/citation markers remain"
   ],
   "broken_local_links": [],
   "citation_keys": [
+    "borkovich2025californiawcr",
     "cohen1960agreement",
     "han2024boreholeocr",
+    "haugen2025californialithology",
     "pfitzmann2022doclaynet",
     "roberts2017crossvalidation",
     "smith2007tesseract",
@@ -15,7 +16,7 @@
     "zhong2019publaynet"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "b9c25a58305463ab13a4f1d1b1a0bb76c041652dfd26e10b2ea2f4dc19140de3",
+  "claim_registry_sha256": "cdc44ecf1029fbac7775bc8b2009049bad43fbe9cfff821f7ba3603567cef2ec",
   "claim_source_errors": [],
   "evidence_tags": [
     "p1.b2_padova",
@@ -32,7 +33,14 @@
     "p1.bgs_robustness_tesseract",
     "p1.cad_full_svg",
     "p1.cad_priority_fidelity",
+    "p1.california_error_analysis",
+    "p1.california_rapidocr_gold",
+    "p1.california_tesseract_gold",
     "p1.cross_canton_negative_audit",
+    "p1.cross_canton_transfer_error_analysis_rapidocr",
+    "p1.cross_canton_transfer_error_analysis_tesseract",
+    "p1.cross_canton_transfer_rapidocr",
+    "p1.cross_canton_transfer_tesseract",
     "p1.degradation_inventory",
     "p1.directpdf_padova",
     "p1.five_canton_transfer_error_analysis_rapidocr",
@@ -59,7 +67,7 @@
     "p1.usgs142_cross_source",
     "p1.usgs144_cross_source"
   ],
-  "formal_experiment_count": 19,
+  "formal_experiment_count": 21,
   "headings": [
     "Abstract",
     "1. Introduction",
@@ -74,15 +82,15 @@
     "10. Conclusion",
     "References"
   ],
-  "indexed_experiment_count": 50,
+  "indexed_experiment_count": 52,
   "literature_evidence_errors": [],
   "literature_evidence_path": "docs/literature_evidence.yaml",
-  "literature_evidence_sha256": "d36dcd2badac6ba03fcd9842f3a5e7623885fd8f1e55966dceb75eb1795734f5",
+  "literature_evidence_sha256": "54ceff4a97757e0fe2bc0d82ad559447b75694e388747cf4f9eb58b570a7e4d9",
   "local_links": [
     {
       "exists": true,
       "resolved_path": "papers/paper1/generated/current_results.md",
-      "sha256": "ec6c39335a5d03b2ae2c532cc768a81154d32013c60cab8833cf8d4b28ae9da0",
+      "sha256": "e4ef35a7279d3214ee28022f18af5b5487b36baab09a777beaff5d781fa0cd0e",
       "target": "generated/current_results.md"
     },
     {
@@ -112,24 +120,24 @@
     {
       "exists": true,
       "resolved_path": "docs/generated/publication_readiness.md",
-      "sha256": "e0ff6f1ed585b990713b286d5a5f4fee43c06b5acfcd70564c75c383df574051",
+      "sha256": "916501134095ce70b9b40124f460f768219bab026a1f39267e4034b727e94177",
       "target": "../../docs/generated/publication_readiness.md"
     },
     {
       "exists": true,
       "resolved_path": "papers/references.bib",
-      "sha256": "0e1128f75327e013e3168af7326dc48a5f61b480e7c6bbeb2aa6f46ec7fc1bbd",
+      "sha256": "c037d042f2252755f866c89848ea876f88a699e9c99dbb8ccdcd6b6d1e8a3882",
       "target": "../references.bib"
     },
     {
       "exists": true,
       "resolved_path": "docs/literature_evidence.yaml",
-      "sha256": "d36dcd2badac6ba03fcd9842f3a5e7623885fd8f1e55966dceb75eb1795734f5",
+      "sha256": "54ceff4a97757e0fe2bc0d82ad559447b75694e388747cf4f9eb58b570a7e4d9",
       "target": "../../docs/literature_evidence.yaml"
     }
   ],
   "manuscript_path": "papers/paper1/manuscript.md",
-  "manuscript_sha256": "7cd3ad83bbe635a204cb9122a7b9c6bedaab68d2c09238105c7df834376f0ff7",
+  "manuscript_sha256": "da81e0a325d4d38969af4dd4024d3d609d1cbc25fc8c79d256837799ae7cd8cd",
   "missing_bibliography_keys": [],
   "missing_claim_registrations": [],
   "missing_literature_evidence_keys": [],
@@ -151,6 +159,9 @@
     "p1.bgs_robustness_tesseract",
     "p1.cad_full_svg",
     "p1.cad_priority_fidelity",
+    "p1.california_error_analysis",
+    "p1.california_rapidocr_gold",
+    "p1.california_tesseract_gold",
     "p1.cross_canton_negative_audit",
     "p1.cross_canton_transfer_error_analysis_rapidocr",
     "p1.cross_canton_transfer_error_analysis_tesseract",
@@ -184,15 +195,10 @@
   ],
   "result_index_errors": [],
   "result_index_path": "experiments/paper1/result_index.jsonl",
-  "result_index_sha256": "ddfcd071d6687ebfaa7bc6c874d2d95dc5631d61873c4a2194c1968dc52d24f6",
-  "structurally_complete": false,
+  "result_index_sha256": "e8949346c061836aff2eeeda6429caf703553597815c6257b4807d409c7d148a",
+  "structurally_complete": true,
   "submission_ready": false,
   "tbd_or_citation_marker_count": 9,
-  "unused_claim_registrations": [
-    "p1.cross_canton_transfer_error_analysis_rapidocr",
-    "p1.cross_canton_transfer_error_analysis_tesseract",
-    "p1.cross_canton_transfer_rapidocr",
-    "p1.cross_canton_transfer_tesseract"
-  ],
-  "word_count": 5179
+  "unused_claim_registrations": [],
+  "word_count": 5395
 }

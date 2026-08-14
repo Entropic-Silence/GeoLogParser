@@ -85,6 +85,24 @@ interval scoring. Manual pre-submission review must cover the embedded IDWR
 forms, named drillers/signatures, precise well locations, attribution, and the
 redistribution status of original or cropped page images.
 
+The California manually transcribed Gold benchmark combines two official USGS
+releases. Haugen and others (version 3.0, July 2025; DOI
+`10.5066/P9M85U0T`; ScienceBase item `632b1c93d34e71c6d67bc0bc`)
+publishes verbatim lithologic intervals keyed by USGS staff from DWR WCR images
+and documents post-entry depth-sequence and completeness checks. Borkovich and
+others (version 6.0, December 2025; DOI `10.5066/P93ICKAF`; ScienceBase item
+`64958d73d34ef77fcb01dc8f`) supplies the attributed report index and public
+links to redacted DWR images. Both USGS tables state CC0 1.0. The frozen project
+manifest contains 60 reports/850 intervals; its held-out test contains 50
+reports/48 counties/77 pages/697 intervals. The source reference is correctly
+labelled `GOLD_PUBLISHED_MANUAL_TRANSCRIPTION`, while
+`project_human_reviewed=false` records that this project did not repeat the
+source transcription review. Before submission, confirm the exact citation and
+CC0 text, the DWR/Box report-image terms, redaction scope, embedded signatures
+or identifiers, sensitive-location treatment, and whether any report image or
+crop may be reproduced. Until then, source PDFs remain local; hashes, links,
+manifests, metrics, and derived aggregate results may be audited separately.
+
 A non-overlapping successor freeze is stored at
 `/data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v003`. It contains
 160 PDFs and 767 official database intervals; the deterministic source-table

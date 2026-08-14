@@ -12,7 +12,7 @@
     "shepard1968interpolation"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "b9c25a58305463ab13a4f1d1b1a0bb76c041652dfd26e10b2ea2f4dc19140de3",
+  "claim_registry_sha256": "cdc44ecf1029fbac7775bc8b2009049bad43fbe9cfff821f7ba3603567cef2ec",
   "claim_source_errors": [],
   "evidence_tags": [
     "p3.coal602_consensus_qc",
@@ -47,7 +47,7 @@
   "indexed_experiment_count": 13,
   "literature_evidence_errors": [],
   "literature_evidence_path": "docs/literature_evidence.yaml",
-  "literature_evidence_sha256": "d36dcd2badac6ba03fcd9842f3a5e7623885fd8f1e55966dceb75eb1795734f5",
+  "literature_evidence_sha256": "54ceff4a97757e0fe2bc0d82ad559447b75694e388747cf4f9eb58b570a7e4d9",
   "local_links": [
     {
       "exists": true,
@@ -106,19 +106,19 @@
     {
       "exists": true,
       "resolved_path": "docs/generated/publication_readiness.md",
-      "sha256": "e0ff6f1ed585b990713b286d5a5f4fee43c06b5acfcd70564c75c383df574051",
+      "sha256": "916501134095ce70b9b40124f460f768219bab026a1f39267e4034b727e94177",
       "target": "../../docs/generated/publication_readiness.md"
     },
     {
       "exists": true,
       "resolved_path": "papers/references.bib",
-      "sha256": "0e1128f75327e013e3168af7326dc48a5f61b480e7c6bbeb2aa6f46ec7fc1bbd",
+      "sha256": "c037d042f2252755f866c89848ea876f88a699e9c99dbb8ccdcd6b6d1e8a3882",
       "target": "../references.bib"
     },
     {
       "exists": true,
       "resolved_path": "docs/literature_evidence.yaml",
-      "sha256": "d36dcd2badac6ba03fcd9842f3a5e7623885fd8f1e55966dceb75eb1795734f5",
+      "sha256": "54ceff4a97757e0fe2bc0d82ad559447b75694e388747cf4f9eb58b570a7e4d9",
       "target": "../../docs/literature_evidence.yaml"
     }
   ],

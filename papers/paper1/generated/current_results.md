@@ -20,6 +20,14 @@
 
 These rows use programmatically known Synthetic labels. They validate controlled extraction and robustness paths but cannot establish performance on Real Gold borehole logs.
 
+### Published manual-transcription Gold interval benchmark
+
+| Experiment | Model | Documents | Counties | Pages | Reference intervals | Predicted intervals | Documents with predictions | Interval P | Interval R | Interval F1 | Matched lithology exact | Boundary-exact documents | s/document | Eligibility |
+|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
+| P1_CALIFORNIA_WCR_RAPIDOCR_TEST_FORMAL_001 | rapidocr_generic_positioned_interval_parser_v001 | 50 | 48 | 77 | 697 | 195 | 39 | 0.892 | 0.250 | 0.390 | 75/174 (0.431) | 3/50 (0.060) | 9.374 | formal_benchmark |
+| P1_CALIFORNIA_WCR_TESSERACT_TEST_FORMAL_001 | tesseract_generic_positioned_interval_parser_v001 | 50 | 48 | 77 | 697 | 176 | 38 | 0.807 | 0.204 | 0.325 | 30/142 (0.211) | 1/50 (0.020) | 8.219 | formal_benchmark |
+The reference intervals were manually transcribed verbatim by USGS staff from California DWR well-completion-report images and received published depth-sequence and completeness checks. The project did not repeat human review of the 60-document freeze. Metrics therefore evaluate against published manual transcription, while report-image redistribution remains a separate pre-submission check.
+
 ### Held-out authoritative source-agreement interval result
 
 | Experiment | Model | Documents | Reference intervals | Predicted intervals | Interval P | Interval R | Interval F1 | Matched top MAE (m) | Matched bottom MAE (m) | Full-document exact | s/document | Eligibility |

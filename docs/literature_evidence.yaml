@@ -1,4 +1,4 @@
-verification_date_utc: "2026-08-13"
+verification_date_utc: "2026-08-14"
 policy:
   metadata_verified_does_not_imply_full_text_claim_verified: true
   unverified_claim_marker: "[CITATION TO VERIFY]"
@@ -93,3 +93,15 @@ sources:
     metadata_verified_via: Crossref publisher metadata and abstract
     verification_level: metadata_and_abstract
     claim_scope: "interactive machine-learning systems tightly couple users and models, motivating direct study of users; it does not supply a GeoLogParser efficiency effect size"
+  - key: haugen2025californialithology
+    identifier: 10.5066/P9M85U0T
+    metadata_verified_via: "official USGS FGDC metadata and local release files"
+    verification_level: official_metadata_and_data_release_reviewed
+    local_full_text_sha256: 40830d5dbe15ee64b7a918b38db4c0bb77aceb02525bac3bc5157e6f0f915891
+    claim_scope: "version 3.0 title, authorship, CC0 status, manual verbatim transcription from WCR images, absence of OCR in source production, and published interval sequencing/completeness QC"
+  - key: borkovich2025californiawcr
+    identifier: 10.5066/P93ICKAF
+    metadata_verified_via: "official USGS FGDC metadata and local release files"
+    verification_level: official_metadata_and_data_release_reviewed
+    local_full_text_sha256: c70c02284bb8db5fddd8ac8022801d2c8eddabd3e9d072c29cb7b739203e9205
+    claim_scope: "version 6.0 title, authorship, CC0 status, public redacted DWR report-link field, and source limitations"

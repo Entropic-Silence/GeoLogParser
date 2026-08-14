@@ -31,10 +31,27 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
     conditional_interval_rows = []
     development_interval_rows = []
     source_disjoint_transfer_rows = []
+    published_manual_gold_rows = []
     robustness_rows = []
     for entry in entries:
         metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
         run = json.loads((repository_root / entry["result_path"] / "run.json").read_text())
+        if metrics.get("scope") == "human-GT benchmark evaluation":
+            interval = metrics["interval_metrics"]
+            published_manual_gold_rows.append("| " + " | ".join([
+                entry["experiment_id"], run["model"], str(metrics["document_count"]),
+                str(metrics["county_count"]), str(metrics["page_count"]),
+                str(metrics["reference_interval_count"]), str(metrics["predicted_interval_count"]),
+                str(metrics["documents_with_predictions"]),
+                number(interval["interval_precision"]["value"]),
+                number(interval["interval_recall"]["value"]),
+                number(interval["interval_f1"]["value"]),
+                ratio(metrics["matched_lithology_exact"]),
+                ratio(metrics["document_boundary_exact"]),
+                number(metrics["latency_seconds_per_document_wall"]),
+                entry["paper_eligibility"],
+            ]) + " |")
+            continue
         if metrics.get("scope") == "authoritative-metadata controlled-degradation evaluation":
             for profile, values in metrics["profiles"].items():
                 robustness_rows.append("| " + " | ".join([
@@ -217,6 +234,13 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
         "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---|",
         *synthetic_rows, "",
         "These rows use programmatically known Synthetic labels. They validate controlled extraction and robustness paths but cannot establish performance on Real Gold borehole logs.",
+        "",
+        "### Published manual-transcription Gold interval benchmark",
+        "",
+        "| Experiment | Model | Documents | Counties | Pages | Reference intervals | Predicted intervals | Documents with predictions | Interval P | Interval R | Interval F1 | Matched lithology exact | Boundary-exact documents | s/document | Eligibility |",
+        "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|",
+        *published_manual_gold_rows,
+        "The reference intervals were manually transcribed verbatim by USGS staff from California DWR well-completion-report images and received published depth-sequence and completeness checks. The project did not repeat human review of the 60-document freeze. Metrics therefore evaluate against published manual transcription, while report-image redistribution remains a separate pre-submission check.",
         "",
         "### Held-out authoritative source-agreement interval result",
         "",
@@ -514,8 +538,29 @@ def paper2_table(entries: list[dict], repository_root: Path) -> str:
     interval_method_rows = []
     secondary_ablation_rows = []
     selective_rows = []
+    california_sequence_rows = []
     for entry in entries:
         metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
+        if metrics.get("comparison") == "single_pass_vs_constraint_guided_sequence_recovery":
+            raw = metrics["raw_interval_metrics"]
+            constrained = metrics["constrained_interval_metrics"]
+            taxonomy = metrics["correction_taxonomy"]
+            california_sequence_rows.append("| " + " | ".join([
+                entry["experiment_id"], str(metrics["document_count"]),
+                str(metrics["county_count"]), str(metrics["reference_interval_count"]),
+                str(metrics["candidate_count"]),
+                number(raw["interval_precision"]["value"]),
+                number(raw["interval_recall"]["value"]),
+                number(raw["interval_f1"]["value"]),
+                number(constrained["interval_precision"]["value"]),
+                number(constrained["interval_recall"]["value"]),
+                number(constrained["interval_f1"]["value"]),
+                str(taxonomy["constrained_correct_added"]),
+                str(taxonomy["constrained_incorrect_added"]),
+                str(taxonomy["raw_correct_removed"]),
+                ratio(metrics["false_correction_rate"]),
+                entry["paper_eligibility"],
+            ]) + " |")
         if metrics.get("scope") == "authoritative-metadata consensus/abstention evaluation":
             for field, values in metrics["by_field"].items():
                 authoritative_rows.append("| " + " | ".join([
@@ -620,6 +665,12 @@ def paper2_table(entries: list[dict], repository_root: Path) -> str:
         "|---|---|---:|---:|---:|---:|---:|---:|---|",
         *authoritative_rows, "",
         "The decision policy accepts only equal non-null values from two independent OCR readers. References are consulted only after decisions are frozen. This is real metadata-field evidence; interval/lithology effects remain unmeasured.",
+        "",
+        "### Published manual-transcription Gold sequence recovery", "",
+        "| Experiment | Documents | Counties | Reference intervals | Candidates | Raw P | Raw R | Raw F1 | Constrained P | Constrained R | Constrained F1 | Correct added | Incorrect added | Correct removed | FCR | Eligibility |",
+        "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|",
+        *california_sequence_rows, "",
+        "The deterministic sequence ranker was frozen on the ten-document development partition and evaluated without reference access on the fifty-document California test. FCR counts both correct raw boundaries removed and incorrect constrained boundaries added. The result shows recovery gain and a non-negligible correction hazard rather than uniformly safe automatic repair.",
         "",
         "### Held-out authoritative-interval constraint-rereading result", "",
         "| Experiment | Documents | Reference intervals | First-pass F1 | Reread F1 | Triggered | Accepted rereads | Needs review | Incorrect-doc trigger recall | Correct-doc trigger rate | Correction success | FCR | Eligibility |",

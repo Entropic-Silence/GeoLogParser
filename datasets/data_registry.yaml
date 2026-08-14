@@ -1,5 +1,5 @@
 registry_version: v001
-last_verified_utc: "2026-08-13"
+last_verified_utc: "2026-08-14"
 policy:
   listing_is_permission_to_download: false
   redistribution_requires_explicit_verification: true
@@ -866,3 +866,43 @@ datasets:
     paper_fit: [paper1_cross_source_interval_benchmark, paper1_real_error_analysis, paper1_point_depth_transfer]
     status: acquired_authoritative_interval_source_review_pending
     verification_notes: "ScienceBase item 63fccd15d34e4f7eda466a02 cites Dorn and Twining (2023). Well_Driller_Reports.zip SHA256 is 21fc4feca0f6b79adb19da339a8776d2c81d747626ae7bcb8879fe87fd02dd02 and Field_Forms.zip SHA256 is ae53f5439945ab45e2120484d2e54f2f3d8077b4b4bef6173c0b72764194c344. RaftRiver_Well1 and Well2 contain 24 and 38 explicit interval rows respectively. The other ten reports use attached sampled-depth descriptions and are excluded from interval scoring. Formal raster-only runs use no reference values during prediction."
+
+  - id: usgs_california_lithology_manual_v3_2025
+    name: "Compilation of lithologic data from selected California well completion reports (version 3.0, July 2025)"
+    source_organization: "U.S. Geological Survey and California Department of Water Resources"
+    url: https://doi.org/10.5066/P9M85U0T
+    doi: 10.5066/P9M85U0T
+    license_url: https://creativecommons.org/publicdomain/zero/1.0/legalcode
+    access_date: "2026-08-14"
+    language: English
+    format: "USGS tab-delimited interval release paired by WCR number with public redacted DWR report images"
+    scale: "602,125 data rows in Lithology_v3_2025.txt; 12,732 distinct reports paired to usable public PDF links with 225,150 valid deduplicated intervals; frozen benchmark 60 reports/850 intervals; held-out test 50 reports/77 pages/697 intervals"
+    downloadable: true
+    access_status: "official ScienceBase release and metadata acquired; manually transcribed interval data paired to public redacted DWR reports"
+    license: "Creative Commons CC0 1.0 Universal / public domain"
+    allowed_usage: "research, adaptation, and redistribution under CC0; requested USGS citation retained"
+    redistribution: allowed
+    redistribution_policy: "USGS interval table may be redistributed under CC0; original DWR report images remain local pending final image-level scope/privacy verification"
+    paper_fit: [paper1_real_gold_interval_benchmark, paper1_cross_template_generalization, paper2_constraint_sequence_recovery]
+    status: acquired_published_manual_transcription_gold_cc0
+    verification_notes: "ScienceBase item 632b1c93d34e71c6d67bc0bc. Local Lithology_v3_2025.txt is 33,552,010 bytes, MD5 e181414bae85544b417f89011b742668, SHA256 859c939ed88bbb8d248d3f07fe8893ed53c233dfe4086a2d387de130a0d138b0. The official metadata states that lithologic intervals were captured by hand from WCR images, keyed verbatim without OCR, then checked for depth sequencing, gaps, and completeness. The source transcription is therefore GOLD_PUBLISHED_MANUAL_TRANSCRIPTION even though project_human_reviewed=false. Deterministic pairing with the WCR link release yielded 12,732 reports/225,150 intervals. The frozen county-diverse subset contains 60 reports/850 intervals; its development/test split is 10/50 reports, and the held-out test contains 48 counties, 77 pages, and 697 intervals. Benchmark selection required 5-60 exact-deduplicated intervals, empty source comments, adjacent continuity >=0.99, and a public report link."
+
+  - id: usgs_california_wcr_links_v6_2025
+    name: "Attributed California Water Supply Well Completion Report Data for Selected Areas (version 6.0, December 2025)"
+    source_organization: "U.S. Geological Survey and California Department of Water Resources"
+    url: https://doi.org/10.5066/P93ICKAF
+    doi: 10.5066/P93ICKAF
+    license_url: https://creativecommons.org/publicdomain/zero/1.0/legalcode
+    access_date: "2026-08-14"
+    language: English
+    format: "USGS CSV index with public links to redacted California DWR well completion report PDFs"
+    scale: "302,511 data rows in WCR_v6_2025.csv; 283,348 public report links; 60 linked PDFs retained in california_wcr_gold_v001"
+    downloadable: true
+    access_status: "official ScienceBase CSV acquired; linked public redacted DWR Box PDFs downloaded without access-control bypass"
+    license: "Creative Commons CC0 1.0 Universal / public domain for the USGS table"
+    allowed_usage: "research, adaptation, and redistribution of the USGS table under CC0; report-image use follows the public DWR release context"
+    redistribution: conditional
+    redistribution_policy: "keep the 60 original report PDFs local until final report-image scope, embedded-content, privacy, and redistribution checks are signed off; publish hashes, source links, split, and extraction results meanwhile"
+    paper_fit: [paper1_real_gold_interval_benchmark, paper2_constraint_sequence_recovery, paper3_error_distribution_design]
+    status: acquired_public_redacted_report_links_cc0_table_images_local
+    verification_notes: "ScienceBase item 64958d73d34ef77fcb01dc8f. Local WCR_v6_2025.csv is 109,486,447 bytes, MD5 27a44594f23341c1a910e98254b2ee6f, SHA256 fd99a20b03331016f70ece13c07c178c8089858055fb907e704a8666048d7a77. The official metadata describes links to redacted publicly available DWR reports and states CC0 for the attributed table. Public Box pages exposed file names, version IDs, SHA-1 values, sizes, and downloads. The frozen 60-report local snapshot records source URL, Box file/version IDs, source SHA-1, local PDF SHA-256, page count, county, and interval provenance. project_human_reviewed=false; the reference intervals originate from the separately published manual-transcription release."

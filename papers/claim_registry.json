@@ -1530,7 +1530,7 @@
       "paper": "paper1",
       "scope": "cross-canton Swissgeol source-disjoint acquisition and negative explicit-table audit; no interval Gold claim",
       "source_path": "datasets/source_verification_ledger.yaml",
-      "source_sha256": "11ebbb8674a5920a122e71be1ee2f7e000c3cf271037d6833b78d37da6a4b437"
+      "source_sha256": "0d0f9dba9d84103dd871733bbb8198bca3202f47e97b7d7b281e2bfd133a9098"
     },
     "p1.cross_canton_transfer_tesseract": {
       "paper": "paper1",
@@ -1765,6 +1765,92 @@
         {"type": "json_pointer_equals", "pointer": "/tesseract_continuation_page_missing_interval_count", "expected": 4},
         {"type": "json_pointer_equals", "pointer": "/rapidocr_boundary_complete", "expected": true},
         {"type": "json_pointer_equals", "pointer": "/rapidocr_semantic_mismatch_count", "expected": 1}
+      ]
+    },
+    "p1.california_rapidocr_gold": {
+      "paper": "paper1",
+      "experiment_id": "P1_CALIFORNIA_WCR_RAPIDOCR_TEST_FORMAL_001",
+      "scope": "held-out 50-document/48-county California WCR benchmark against published USGS manual interval transcriptions",
+      "source_path": "results/2026-08-14/P1_CALIFORNIA_WCR_RAPIDOCR_TEST_FORMAL_001/metrics.json",
+      "source_sha256": "b6e8fc182e27b203e8c7ddbc603edf52e40706bb27004e4ce697cccd4ace8f2a",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 50},
+        {"type": "json_pointer_equals", "pointer": "/county_count", "expected": 48},
+        {"type": "json_pointer_equals", "pointer": "/page_count", "expected": 77},
+        {"type": "json_pointer_equals", "pointer": "/reference_interval_count", "expected": 697},
+        {"type": "json_pointer_equals", "pointer": "/predicted_interval_count", "expected": 195},
+        {"type": "json_pointer_equals", "pointer": "/documents_with_predictions", "expected": 39},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_precision/value", "expected": 0.8923076923076924},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_recall/value", "expected": 0.24964131994261118},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_f1/value", "expected": 0.390134529147982},
+        {"type": "json_pointer_equals", "pointer": "/matched_lithology_exact/numerator", "expected": 75},
+        {"type": "json_pointer_equals", "pointer": "/matched_lithology_exact/denominator", "expected": 174},
+        {"type": "json_pointer_equals", "pointer": "/document_boundary_exact/numerator", "expected": 3},
+        {"type": "json_pointer_equals", "pointer": "/reference_ground_truth_tier", "expected": "GOLD_PUBLISHED_MANUAL_TRANSCRIPTION"},
+        {"type": "json_pointer_equals", "pointer": "/project_human_reviewed", "expected": false},
+        {"type": "json_pointer_equals", "pointer": "/prediction_reference_conditioning", "expected": "none"}
+      ]
+    },
+    "p1.california_tesseract_gold": {
+      "paper": "paper1",
+      "experiment_id": "P1_CALIFORNIA_WCR_TESSERACT_TEST_FORMAL_001",
+      "scope": "held-out 50-document/48-county California WCR Tesseract benchmark against published USGS manual interval transcriptions",
+      "source_path": "results/2026-08-14/P1_CALIFORNIA_WCR_TESSERACT_TEST_FORMAL_001/metrics.json",
+      "source_sha256": "7aa097598fe700e67a7205886afffff5802cd47233aa78a7fcbf49d7f51bb12b",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 50},
+        {"type": "json_pointer_equals", "pointer": "/reference_interval_count", "expected": 697},
+        {"type": "json_pointer_equals", "pointer": "/predicted_interval_count", "expected": 176},
+        {"type": "json_pointer_equals", "pointer": "/documents_with_predictions", "expected": 38},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_precision/value", "expected": 0.8068181818181818},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_recall/value", "expected": 0.20373027259684362},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_f1/value", "expected": 0.32531500572737687},
+        {"type": "json_pointer_equals", "pointer": "/matched_lithology_exact/numerator", "expected": 30},
+        {"type": "json_pointer_equals", "pointer": "/matched_lithology_exact/denominator", "expected": 142},
+        {"type": "json_pointer_equals", "pointer": "/document_boundary_exact/numerator", "expected": 1},
+        {"type": "json_pointer_equals", "pointer": "/reference_ground_truth_tier", "expected": "GOLD_PUBLISHED_MANUAL_TRANSCRIPTION"},
+        {"type": "json_pointer_equals", "pointer": "/project_human_reviewed", "expected": false}
+      ]
+    },
+    "p1.california_error_analysis": {
+      "paper": "paper1",
+      "scope": "post-hoc real error-event and per-document engine comparison on the frozen California WCR held-out predictions",
+      "source_path": "experiments/paper1/analysis/california_wcr_errors_v001.json",
+      "source_sha256": "2126b96e75cf892b9613eec221c1acd36b79c9286a0cbbf5f9b59073dd8ffe0b",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/rapidocr/counts/missing", "expected": 523},
+        {"type": "json_pointer_equals", "pointer": "/rapidocr/counts/documents_without_predictions", "expected": 11},
+        {"type": "json_pointer_equals", "pointer": "/rapidocr/counts/matched_lithology_errors", "expected": 99},
+        {"type": "json_pointer_equals", "pointer": "/tesseract/counts/missing", "expected": 555},
+        {"type": "json_pointer_equals", "pointer": "/tesseract/counts/documents_without_predictions", "expected": 12},
+        {"type": "json_pointer_equals", "pointer": "/tesseract/counts/matched_lithology_errors", "expected": 112},
+        {"type": "json_pointer_equals", "pointer": "/engine_document_comparison/rapidocr_more_matches", "expected": 22},
+        {"type": "json_pointer_equals", "pointer": "/engine_document_comparison/tesseract_more_matches", "expected": 15},
+        {"type": "json_pointer_equals", "pointer": "/engine_document_comparison/equal_matches", "expected": 13}
+      ]
+    },
+    "p2.california_constraint_sequence": {
+      "paper": "paper2",
+      "experiment_id": "P2_CALIFORNIA_WCR_CONSTRAINT_TEST_FORMAL_001",
+      "scope": "reference-blinded frozen sequence-constraint recovery on 50 California WCRs and 697 published manually transcribed intervals",
+      "source_path": "results/2026-08-14/P2_CALIFORNIA_WCR_CONSTRAINT_TEST_FORMAL_001/metrics.json",
+      "source_sha256": "7d54a91f46c4ea3048d0c33719e45ab0a6701326456845ee4836800da6e84226",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 50},
+        {"type": "json_pointer_equals", "pointer": "/reference_interval_count", "expected": 697},
+        {"type": "json_pointer_equals", "pointer": "/candidate_count", "expected": 353},
+        {"type": "json_pointer_equals", "pointer": "/raw_interval_metrics/interval_f1/value", "expected": 0.390134529147982},
+        {"type": "json_pointer_equals", "pointer": "/constrained_interval_metrics/interval_f1/value", "expected": 0.5139318885448916},
+        {"type": "json_pointer_equals", "pointer": "/constrained_interval_metrics/interval_precision/value", "expected": 0.9154411764705882},
+        {"type": "json_pointer_equals", "pointer": "/constrained_interval_metrics/interval_recall/value", "expected": 0.35724533715925394},
+        {"type": "json_pointer_equals", "pointer": "/correction_taxonomy/constrained_correct_added", "expected": 81},
+        {"type": "json_pointer_equals", "pointer": "/correction_taxonomy/constrained_incorrect_added", "expected": 12},
+        {"type": "json_pointer_equals", "pointer": "/correction_taxonomy/raw_correct_removed", "expected": 6},
+        {"type": "json_pointer_equals", "pointer": "/false_correction_rate/numerator", "expected": 18},
+        {"type": "json_pointer_equals", "pointer": "/false_correction_rate/denominator", "expected": 109},
+        {"type": "json_pointer_equals", "pointer": "/false_correction_rate/value", "expected": 0.1651376146788991},
+        {"type": "json_pointer_equals", "pointer": "/reference_ground_truth_tier", "expected": "GOLD_PUBLISHED_MANUAL_TRANSCRIPTION"},
+        {"type": "json_pointer_equals", "pointer": "/reference_blinded_decision_policy", "expected": true}
       ]
     },
     "p2.swissgeol_heldout_constraint_reread": {

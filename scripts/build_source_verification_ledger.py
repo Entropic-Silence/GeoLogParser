@@ -41,6 +41,8 @@ LOCAL_DIRS = {
     "swissgeol_vaud_paired_v001": DATA_ROOT / "datasets/public/swissgeol_vaud_paired_v001",
     "mendeley_binhai_cptu_borehole_v002": DATA_ROOT / "datasets/public/mendeley_binhai_cptu_borehole_v002",
     "mendeley_coal_boreholes_602_v001": DATA_ROOT / "datasets/public/mendeley_coal_boreholes_602_v001",
+    "usgs_california_lithology_manual_v3_2025": DATA_ROOT / "datasets/public/usgs_california_lithology_v3_2025",
+    "usgs_california_wcr_links_v6_2025": DATA_ROOT / "datasets/public/usgs_california_wcr_v6_2025",
 }
 
 LOCAL_DIRS["synthetic_borehole_logs_v001"] = DATA_ROOT / "datasets/synthetic_borehole_logs_v001"
@@ -90,6 +92,15 @@ def evidence_paths(source_id: str, local_dir: Path | None) -> list[str]:
         ])
     if source_id == "swissgeol_boreholes_dataextraction_examples_v001":
         paths.append("/data/GeoLogParser/artifacts/source_surveys/swissgeol_example_groundtruth_audit_v001.json")
+    if source_id in {
+        "usgs_california_lithology_manual_v3_2025",
+        "usgs_california_wcr_links_v6_2025",
+    }:
+        paths.extend([
+            "/data/GeoLogParser/datasets/public/california_wcr_gold_v001/metadata/acquisition.json",
+            "datasets/manifests/california_wcr_gold_v001.jsonl",
+            "datasets/splits/california_wcr_gold_split_v001.json",
+        ])
     if source_id in {
         "swissgeol_thurgau_paired_v001", "swissgeol_thurgau_paired_v003",
         "swissgeol_stgallen_paired_v001", "swissgeol_bern_paired_v001",

@@ -1970,3 +1970,41 @@
   preregistered predecessor, and keep all Aargau results out of parser tuning.
   Future method development must use a separate development source or a newly
   frozen internal partition.
+
+## 2026-08-14 — California published manual-transcription Gold benchmark
+
+- Acquired the official USGS California lithology version 3.0 release (DOI
+  `10.5066/P9M85U0T`) and attributed WCR version 6.0 release (DOI
+  `10.5066/P93ICKAF`). The lithology table contains 602,125 data rows; the WCR
+  table contains 302,511 data rows and 283,348 public report links.
+- Source metadata states that USGS staff manually keyed lithologic intervals
+  verbatim from the DWR WCR images without OCR and performed post-entry depth
+  sequence, gap, and completeness checks. This is external published manual
+  Gold, not project-created annotation or machine Silver.
+- Deterministic joining produced 12,732 report candidates/225,150 intervals.
+  A county-first seeded filter froze 60 reports/850 intervals from 58 counties.
+  Ten reports were assigned to development and 50 reports/48 counties/77
+  pages/697 intervals to held-out test before backend evaluation.
+- Development-only selection compared three RapidOCR parser variants and one
+  Tesseract PSM-11 variant. The chosen RapidOCR development F1 was 0.425;
+  Tesseract development F1 was 0.477. No test result was used for selection.
+- Formal RapidOCR test `P1_CALIFORNIA_WCR_RAPIDOCR_TEST_FORMAL_001` emitted 195
+  intervals and matched 174: precision 0.8923, recall 0.2496, F1 0.3901, and
+  matched lithology exactness 75/174. Eleven of 50 reports had no prediction.
+- Formal Tesseract test `P1_CALIFORNIA_WCR_TESSERACT_TEST_FORMAL_001` emitted
+  176 intervals and matched 142: precision 0.8068, recall 0.2037, F1 0.3253,
+  and matched lithology exactness 30/142. Twelve reports had no prediction.
+- Real error analysis found RapidOCR more successful on 22 reports, Tesseract
+  on 15, and equal on 13. The primary failures were omissions (523 and 555
+  missing reference intervals), zero-output documents, column contamination,
+  and lithology corruption rather than small errors among matched boundaries.
+- Paper II formal run `P2_CALIFORNIA_WCR_CONSTRAINT_TEST_FORMAL_001` ranked 353
+  positioned candidates with monotonicity, adjacent continuity, and layout
+  stability. It raised precision/recall/F1 from 0.892/0.250/0.390 to
+  0.915/0.357/0.514. It added 81 correct and 12 incorrect boundaries, removed
+  10 incorrect and six correct boundaries, and produced FCR 18/109 = 0.165.
+  Sixteen reports improved, 29 were unchanged, and five worsened.
+- Decision: make California the primary current real Gold evidence for Papers I
+  and II. Preserve the non-negligible FCR as a central safety result. Do not
+  re-tune on the 50-report test. Next method work must fit abstention and
+  component attribution on development or a new independent freeze.
