@@ -103,6 +103,9 @@ def evidence_paths(source_id: str, local_dir: Path | None) -> list[str]:
             "/data/GeoLogParser/datasets/public/california_wcr_gold_v002/metadata/acquisition.json",
             "datasets/manifests/california_wcr_gold_v002.jsonl",
             "datasets/splits/california_wcr_gold_split_v002.json",
+            "/data/GeoLogParser/datasets/public/california_wcr_gold_v003/metadata/acquisition.json",
+            "datasets/manifests/california_wcr_gold_v003.jsonl",
+            "datasets/splits/california_wcr_gold_split_v003.json",
         ])
     if source_id in {
         "swissgeol_thurgau_paired_v001", "swissgeol_thurgau_paired_v003",

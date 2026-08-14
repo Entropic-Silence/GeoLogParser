@@ -2053,3 +2053,31 @@
   [0.0839, 0.1498]. Both independently frozen sets therefore support a
   positive sequence-recovery effect, distinct from the unresolved correction
   safety problem measured by FCR.
+
+## 2026-08-14 — Prospective California selective-correction validation
+
+- Designed `california_selective_net_expansion_v001` after inspecting v001 and
+  v002. The rule accepts a constraint-selected document sequence only when it
+  contains more intervals than the raw sequence; otherwise it retains raw and
+  abstains from correction. The configuration explicitly marks v001/v002 as
+  design evidence and forbids a prospective claim on those freezes.
+- Committed the policy and implementation before acquiring v003. Then froze
+  the next 100 deterministic eligible reports after excluding all 160 v001/v002
+  records. v003 contains 31 counties, 154 pages, 1,788 intervals, coordinates
+  for all reports, and zero predecessor overlap. Manifest SHA256 is
+  `aab4df46be806f10e2475be63ade6654cd1d4d86a28ef41ae576b0a740e7f0c1`.
+- Prospective RapidOCR produced 559 intervals and matched 449: precision 0.8032,
+  recall 0.2511, F1 0.3826, with exact lithology for 244/449 matches. Tesseract
+  produced 507 and matched 379: precision 0.7475, recall 0.2120, F1 0.3303.
+- Unselective constraints raised F1 to 0.4699 (gain 0.0872; paired document
+  bootstrap 95% interval [0.0392, 0.1392]) but incurred FCR 59/281 = 0.2100.
+  Twenty-three reports improved, 67 were unchanged, and ten worsened.
+- The frozen selective policy accepted 23/57 changed-document proposals,
+  producing F1 0.4636 and gain over raw 0.0810 [0.0342, 0.1325]. Relative to
+  unselective ranking its F1 difference was −0.0062 [−0.0154, 0.0028]. FCR
+  remained 37/188 = 0.1968 and one report worsened.
+- The failure was `WCR2014-011949`: the sequence expanded from 28 to 37
+  predictions but matches fell from 12 to 6; the constraint output added 18
+  incorrect boundaries and removed eight correct ones. This falsifies the
+  proposed net-expansion safety heuristic and motivates candidate-level risk,
+  field localization, and calibrated abstention in the next method revision.

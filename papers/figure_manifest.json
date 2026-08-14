@@ -18,7 +18,7 @@
     },
     {
       "path": "paper1/generated/figures/california_replication.png",
-      "sha256": "70ce627a51018dba268481ded38d50c6eca81ca3c2d70415e4c0a578615d1890"
+      "sha256": "d04f249c8db34d7aaa71a5eb0cdd2d45ca0bcedc9e7f19570a82e3a2a62a221b"
     },
     {
       "path": "paper2/generated/figures/method_schematic.png",
@@ -26,7 +26,7 @@
     },
     {
       "path": "paper2/generated/figures/california_replication.png",
-      "sha256": "70ce627a51018dba268481ded38d50c6eca81ca3c2d70415e4c0a578615d1890"
+      "sha256": "d04f249c8db34d7aaa71a5eb0cdd2d45ca0bcedc9e7f19570a82e3a2a62a221b"
     },
     {
       "path": "paper3/generated/figures/padova_locations.png",
@@ -61,7 +61,7 @@
   "source_manifests": {
     "california_replication": {
       "path": "/root/GeoLogParser/experiments/paper1/analysis/california_replication_statistics_v001.json",
-      "sha256": "ea77de5b1729bee4e9bf92c957908fd09cdb8df94a232d8967c690ee5bf3c0d6"
+      "sha256": "5768dc7a00521b86c783081628df916e20c8eb4887c0eb3f67e241a576e430c7"
     },
     "degradation": {
       "path": "/data/GeoLogParser/artifacts/robustness/unipd_degradation_v001/degradation_manifest.jsonl",

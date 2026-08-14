@@ -1530,7 +1530,7 @@
       "paper": "paper1",
       "scope": "cross-canton Swissgeol source-disjoint acquisition and negative explicit-table audit; no interval Gold claim",
       "source_path": "datasets/source_verification_ledger.yaml",
-      "source_sha256": "28c2952fac7880f730db820d01755f3d53f751a9ba091ae6bc36c183b4c22da3"
+      "source_sha256": "f84f0dcc8d6c863a36098e50bcc1b50ac81667192a91057bb3ebca7818fca0c7"
     },
     "p1.cross_canton_transfer_tesseract": {
       "paper": "paper1",
@@ -1889,11 +1889,68 @@
         {"type": "json_pointer_equals", "pointer": "/constraint_document_comparison/documents_worsened", "expected": 8}
       ]
     },
+    "p1.california_prospective_rapidocr": {
+      "paper": "paper1",
+      "experiment_id": "P1_CALIFORNIA_WCR_V003_RAPIDOCR_PROSPECTIVE_FORMAL_001",
+      "scope": "prospectively frozen 100-document California WCR RapidOCR benchmark disjoint from v001/v002",
+      "source_path": "results/2026-08-14/P1_CALIFORNIA_WCR_V003_RAPIDOCR_PROSPECTIVE_FORMAL_001/metrics.json",
+      "source_sha256": "bd9fe77c667a36ba4c49fbf95124e4849c4cd1342513e7e6d20f971c4e4f6311",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 100},
+        {"type": "json_pointer_equals", "pointer": "/page_count", "expected": 154},
+        {"type": "json_pointer_equals", "pointer": "/reference_interval_count", "expected": 1788},
+        {"type": "json_pointer_equals", "pointer": "/predicted_interval_count", "expected": 559},
+        {"type": "json_pointer_equals", "pointer": "/documents_with_predictions", "expected": 88},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_precision/value", "expected": 0.8032200357781754},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_recall/value", "expected": 0.2511185682326622},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_f1/value", "expected": 0.38261610566680876},
+        {"type": "json_pointer_equals", "pointer": "/matched_lithology_exact/numerator", "expected": 244},
+        {"type": "json_pointer_equals", "pointer": "/matched_lithology_exact/denominator", "expected": 449}
+      ]
+    },
+    "p1.california_prospective_tesseract": {
+      "paper": "paper1",
+      "experiment_id": "P1_CALIFORNIA_WCR_V003_TESSERACT_PROSPECTIVE_FORMAL_001",
+      "scope": "prospectively frozen 100-document California WCR Tesseract benchmark disjoint from v001/v002",
+      "source_path": "results/2026-08-14/P1_CALIFORNIA_WCR_V003_TESSERACT_PROSPECTIVE_FORMAL_001/metrics.json",
+      "source_sha256": "21d8d49197f154f39c6b2a792cdaf1cd88c709f225836f0df321c4570eeecb80",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 100},
+        {"type": "json_pointer_equals", "pointer": "/reference_interval_count", "expected": 1788},
+        {"type": "json_pointer_equals", "pointer": "/predicted_interval_count", "expected": 507},
+        {"type": "json_pointer_equals", "pointer": "/documents_with_predictions", "expected": 85},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_precision/value", "expected": 0.747534516765286},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_recall/value", "expected": 0.21196868008948547},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_f1/value", "expected": 0.3302832244008715},
+        {"type": "json_pointer_equals", "pointer": "/matched_lithology_exact/numerator", "expected": 132},
+        {"type": "json_pointer_equals", "pointer": "/matched_lithology_exact/denominator", "expected": 379}
+      ]
+    },
+    "p1.california_prospective_error_analysis": {
+      "paper": "paper1",
+      "scope": "real error-event and cross-engine analysis on the prospectively frozen California v003 predictions",
+      "source_path": "experiments/paper1/analysis/california_wcr_errors_v003.json",
+      "source_sha256": "ff7cc3ceaa6c1152447e838d4ef124f712d5d5b95f9d7934d43918c60abffee2",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/rapidocr/counts/missing", "expected": 1339},
+        {"type": "json_pointer_equals", "pointer": "/rapidocr/counts/documents_without_predictions", "expected": 12},
+        {"type": "json_pointer_equals", "pointer": "/rapidocr/counts/matched_lithology_errors", "expected": 205},
+        {"type": "json_pointer_equals", "pointer": "/tesseract/counts/missing", "expected": 1409},
+        {"type": "json_pointer_equals", "pointer": "/tesseract/counts/documents_without_predictions", "expected": 15},
+        {"type": "json_pointer_equals", "pointer": "/tesseract/counts/matched_lithology_errors", "expected": 247},
+        {"type": "json_pointer_equals", "pointer": "/engine_document_comparison/rapidocr_more_matches", "expected": 38},
+        {"type": "json_pointer_equals", "pointer": "/engine_document_comparison/tesseract_more_matches", "expected": 26},
+        {"type": "json_pointer_equals", "pointer": "/engine_document_comparison/equal_matches", "expected": 36},
+        {"type": "json_pointer_equals", "pointer": "/constraint_document_comparison/documents_improved", "expected": 23},
+        {"type": "json_pointer_equals", "pointer": "/constraint_document_comparison/documents_unchanged", "expected": 67},
+        {"type": "json_pointer_equals", "pointer": "/constraint_document_comparison/documents_worsened", "expected": 10}
+      ]
+    },
     "p1.california_replication_statistics": {
       "paper": "paper1",
-      "scope": "paired document-cluster bootstrap and fixed interval-count stratification across the two non-overlapping California freezes",
+      "scope": "paired document-cluster bootstrap and fixed interval-count stratification across three mutually disjoint California freezes",
       "source_path": "experiments/paper1/analysis/california_replication_statistics_v001.json",
-      "source_sha256": "ea77de5b1729bee4e9bf92c957908fd09cdb8df94a232d8967c690ee5bf3c0d6",
+      "source_sha256": "5768dc7a00521b86c783081628df916e20c8eb4887c0eb3f67e241a576e430c7",
       "assertions": [
         {"type": "json_pointer_equals", "pointer": "/bootstrap_repetitions", "expected": 20000},
         {"type": "json_pointer_equals", "pointer": "/freezes/v001/ocr_paired_bootstrap/delta_left_minus_right/f1/observed", "expected": 0.06481952342060515},
@@ -1902,7 +1959,10 @@
         {"type": "json_pointer_equals", "pointer": "/freezes/v002_external/ocr_paired_bootstrap/delta_left_minus_right/f1/observed", "expected": 0.10443457094358338},
         {"type": "json_pointer_equals", "pointer": "/freezes/v002_external/ocr_paired_bootstrap/delta_left_minus_right/f1/bootstrap_percentile_95_ci/0", "expected": 0.016365378987387155},
         {"type": "json_pointer_equals", "pointer": "/freezes/v002_external/ocr_paired_bootstrap/delta_left_minus_right/f1/bootstrap_percentile_95_ci/1", "expected": 0.19147235072747992},
-        {"type": "json_pointer_equals", "pointer": "/combined_descriptive/ocr_paired_bootstrap/delta_left_minus_right/f1/observed", "expected": 0.09405552001069528}
+        {"type": "json_pointer_equals", "pointer": "/freezes/v003_prospective/ocr_paired_bootstrap/delta_left_minus_right/f1/observed", "expected": 0.05233288126593727},
+        {"type": "json_pointer_equals", "pointer": "/freezes/v003_prospective/ocr_paired_bootstrap/delta_left_minus_right/f1/bootstrap_percentile_95_ci/0", "expected": -0.012845894917065075},
+        {"type": "json_pointer_equals", "pointer": "/freezes/v003_prospective/ocr_paired_bootstrap/delta_left_minus_right/f1/bootstrap_percentile_95_ci/1", "expected": 0.11893024707345082},
+        {"type": "json_pointer_equals", "pointer": "/combined_descriptive/ocr_paired_bootstrap/delta_left_minus_right/f1/observed", "expected": 0.07691222657323915}
       ]
     },
     "p2.california_constraint_sequence": {
@@ -1953,11 +2013,57 @@
         {"type": "json_pointer_equals", "pointer": "/reference_blinded_decision_policy", "expected": true}
       ]
     },
+    "p2.california_prospective_constraint_sequence": {
+      "paper": "paper2",
+      "experiment_id": "P2_CALIFORNIA_WCR_V003_CONSTRAINT_PROSPECTIVE_FORMAL_001",
+      "scope": "prospective frozen sequence-constraint evaluation on 100 California WCRs disjoint from v001/v002",
+      "source_path": "results/2026-08-14/P2_CALIFORNIA_WCR_V003_CONSTRAINT_PROSPECTIVE_FORMAL_001/metrics.json",
+      "source_sha256": "2802c6161cd982ae448167b17a1e8ca97312a412b824adf9560b35c51b93152e",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 100},
+        {"type": "json_pointer_equals", "pointer": "/reference_interval_count", "expected": 1788},
+        {"type": "json_pointer_equals", "pointer": "/candidate_count", "expected": 836},
+        {"type": "json_pointer_equals", "pointer": "/raw_interval_metrics/interval_f1/value", "expected": 0.38261610566680876},
+        {"type": "json_pointer_equals", "pointer": "/constrained_interval_metrics/interval_f1/value", "expected": 0.4698596201486375},
+        {"type": "json_pointer_equals", "pointer": "/constrained_interval_metrics/interval_precision/value", "expected": 0.8974763406940063},
+        {"type": "json_pointer_equals", "pointer": "/constrained_interval_metrics/interval_recall/value", "expected": 0.3182326621923937},
+        {"type": "json_pointer_equals", "pointer": "/correction_taxonomy/constrained_correct_added", "expected": 149},
+        {"type": "json_pointer_equals", "pointer": "/correction_taxonomy/constrained_incorrect_added", "expected": 29},
+        {"type": "json_pointer_equals", "pointer": "/correction_taxonomy/raw_correct_removed", "expected": 30},
+        {"type": "json_pointer_equals", "pointer": "/false_correction_rate/numerator", "expected": 59},
+        {"type": "json_pointer_equals", "pointer": "/false_correction_rate/denominator", "expected": 281},
+        {"type": "json_pointer_equals", "pointer": "/false_correction_rate/value", "expected": 0.2099644128113879},
+        {"type": "json_pointer_equals", "pointer": "/reference_blinded_decision_policy", "expected": true}
+      ]
+    },
+    "p2.california_prospective_selective": {
+      "paper": "paper2",
+      "experiment_id": "P2_CALIFORNIA_WCR_V003_SELECTIVE_PROSPECTIVE_FORMAL_001",
+      "scope": "prospective evaluation of the pre-frozen net-expansion selective correction policy on California v003",
+      "source_path": "results/2026-08-14/P2_CALIFORNIA_WCR_V003_SELECTIVE_PROSPECTIVE_FORMAL_001/metrics.json",
+      "source_sha256": "d00a0d4829ed53e22d4af00c558ed709dfb6649dce8be197f85c16e29892d6bd",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 100},
+        {"type": "json_pointer_equals", "pointer": "/changed_document_count", "expected": 57},
+        {"type": "json_pointer_equals", "pointer": "/accepted_correction_document_count", "expected": 23},
+        {"type": "json_pointer_equals", "pointer": "/correction_coverage/value", "expected": 0.40350877192982454},
+        {"type": "json_pointer_equals", "pointer": "/document_outcomes/improved", "expected": 19},
+        {"type": "json_pointer_equals", "pointer": "/document_outcomes/unchanged", "expected": 80},
+        {"type": "json_pointer_equals", "pointer": "/document_outcomes/worsened", "expected": 1},
+        {"type": "json_pointer_equals", "pointer": "/selective_interval_metrics/interval_precision/value", "expected": 0.8231098430813124},
+        {"type": "json_pointer_equals", "pointer": "/selective_interval_metrics/interval_recall/value", "expected": 0.3227069351230425},
+        {"type": "json_pointer_equals", "pointer": "/selective_interval_metrics/interval_f1/value", "expected": 0.46364001607071115},
+        {"type": "json_pointer_equals", "pointer": "/selective_false_correction_rate/numerator", "expected": 37},
+        {"type": "json_pointer_equals", "pointer": "/selective_false_correction_rate/denominator", "expected": 188},
+        {"type": "json_pointer_equals", "pointer": "/selective_false_correction_rate/value", "expected": 0.19680851063829788},
+        {"type": "json_pointer_equals", "pointer": "/reference_blinded_decision_policy", "expected": true}
+      ]
+    },
     "p2.california_replication_statistics": {
       "paper": "paper2",
-      "scope": "paired document-cluster bootstrap of constraint-guided sequence recovery across two non-overlapping California freezes",
+      "scope": "paired document-cluster bootstrap of constraint recovery across three disjoint freezes and prospective selective correction on v003",
       "source_path": "experiments/paper1/analysis/california_replication_statistics_v001.json",
-      "source_sha256": "ea77de5b1729bee4e9bf92c957908fd09cdb8df94a232d8967c690ee5bf3c0d6",
+      "source_sha256": "5768dc7a00521b86c783081628df916e20c8eb4887c0eb3f67e241a576e430c7",
       "assertions": [
         {"type": "json_pointer_equals", "pointer": "/freezes/v001/constraint_paired_bootstrap/delta_left_minus_right/f1/observed", "expected": 0.12379735939690956},
         {"type": "json_pointer_equals", "pointer": "/freezes/v001/constraint_paired_bootstrap/delta_left_minus_right/f1/bootstrap_percentile_95_ci/0", "expected": 0.05831341843966709},
@@ -1965,7 +2071,12 @@
         {"type": "json_pointer_equals", "pointer": "/freezes/v002_external/constraint_paired_bootstrap/delta_left_minus_right/f1/observed", "expected": 0.11375592897481279},
         {"type": "json_pointer_equals", "pointer": "/freezes/v002_external/constraint_paired_bootstrap/delta_left_minus_right/f1/bootstrap_percentile_95_ci/0", "expected": 0.07617935232982545},
         {"type": "json_pointer_equals", "pointer": "/freezes/v002_external/constraint_paired_bootstrap/delta_left_minus_right/f1/bootstrap_percentile_95_ci/1", "expected": 0.15346595888053077},
-        {"type": "json_pointer_equals", "pointer": "/combined_descriptive/constraint_paired_bootstrap/delta_left_minus_right/f1/observed", "expected": 0.11603046272027562}
+        {"type": "json_pointer_equals", "pointer": "/freezes/v003_prospective/constraint_paired_bootstrap/delta_left_minus_right/f1/observed", "expected": 0.08724351448182877},
+        {"type": "json_pointer_equals", "pointer": "/freezes/v003_prospective/constraint_paired_bootstrap/delta_left_minus_right/f1/bootstrap_percentile_95_ci/0", "expected": 0.039226826554034436},
+        {"type": "json_pointer_equals", "pointer": "/freezes/v003_prospective/constraint_paired_bootstrap/delta_left_minus_right/f1/bootstrap_percentile_95_ci/1", "expected": 0.13918669810891524},
+        {"type": "json_pointer_equals", "pointer": "/freezes/v003_prospective/selective_vs_raw_paired_bootstrap/delta_left_minus_right/f1/observed", "expected": 0.08102391040390239},
+        {"type": "json_pointer_equals", "pointer": "/freezes/v003_prospective/selective_vs_unselective_paired_bootstrap/delta_left_minus_right/f1/observed", "expected": -0.006219604077926377},
+        {"type": "json_pointer_equals", "pointer": "/combined_descriptive/constraint_paired_bootstrap/delta_left_minus_right/f1/observed", "expected": 0.10455025924263905}
       ]
     },
     "p2.swissgeol_heldout_constraint_reread": {

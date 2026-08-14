@@ -199,10 +199,11 @@ def save_california_replication(analysis_path: Path, destination: Path) -> None:
         ("OCR: RapidOCR − Tesseract", "ocr_paired_bootstrap", "#2f6f8f"),
         ("Constraint sequence − raw", "constraint_paired_bootstrap", "#b76e3b"),
     ]
-    labels = ["v001 held-out", "v002 external", "Combined\ndescriptive"]
+    labels = ["v001 held-out", "v002 external", "v003 prospective", "Combined\ndescriptive"]
     sources = [
         analysis["freezes"]["v001"],
         analysis["freezes"]["v002_external"],
+        analysis["freezes"]["v003_prospective"],
         analysis["combined_descriptive"],
     ]
     plt = _plt()
