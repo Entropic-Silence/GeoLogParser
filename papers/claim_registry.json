@@ -1530,7 +1530,7 @@
       "paper": "paper1",
       "scope": "cross-canton Swissgeol source-disjoint acquisition and negative explicit-table audit; no interval Gold claim",
       "source_path": "datasets/source_verification_ledger.yaml",
-      "source_sha256": "676380a4f9f5363e1ddbc195b5af88f27ebe4476a34b266cd2c8a71d2495a991"
+      "source_sha256": "9c8802ca1c0a5f5fb90759dcbd241939a71fe0f35ac0c305a429c350e256fd98"
     },
     "p1.swissgeol_authoritative_interval": {
       "paper": "paper1",
@@ -1645,6 +1645,55 @@
         {"type": "json_pointer_equals", "pointer": "/variants/v2_parser_v1_acceptance/interval_metrics/interval_f1/value", "expected": 0.8645161290322579},
         {"type": "json_pointer_equals", "pointer": "/variants/full_v2/interval_metrics/interval_f1/value", "expected": 0.9210526315789473},
         {"type": "json_pointer_equals", "pointer": "/variants/full_v2/document_full_exact_count", "expected": 29}
+      ]
+    },
+    "p2.swissgeol_v2_external_negative": {
+      "paper": "paper2",
+      "experiment_id": "P2_SWISSGEOL_TG_CONSTRAINT_REREAD_V2_EXTERNAL_V002_001",
+      "scope": "unchanged frozen v2 policy applied to a disjoint 20-document v002 external validation set; formal negative result",
+      "source_path": "results/2026-08-14/P2_SWISSGEOL_TG_CONSTRAINT_REREAD_V2_EXTERNAL_V002_001/metrics.json",
+      "source_sha256": "aaac117024d3e6eff9e7b0a500dc15a749b41371b13c7ef754d690f92af1fddf",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 20},
+        {"type": "json_pointer_equals", "pointer": "/reference_interval_count", "expected": 55},
+        {"type": "json_pointer_equals", "pointer": "/development_evaluation_overlap_count", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/first_pass/interval_metrics/interval_f1/value", "expected": 0.8545454545454545},
+        {"type": "json_pointer_equals", "pointer": "/constraint_reread/interval_metrics/interval_f1/value", "expected": 0.8545454545454545},
+        {"type": "json_pointer_equals", "pointer": "/accepted_reread_count", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/incorrect_document_trigger_recall/value", "expected": 0.0},
+        {"type": "json_pointer_equals", "pointer": "/false_correction_rate/value", "expected": null}
+      ]
+    },
+    "p3.image_boundary_surface": {
+      "paper": "paper3",
+      "experiment_id": "P3_SWISSGEOL_TG_BOUNDARY_SURFACE_FROM_FROZEN_REREAD_002",
+      "scope": "first ordered image-derived boundary propagated with authoritative coordinates and collar elevations",
+      "source_path": "results/2026-08-14/P3_SWISSGEOL_TG_BOUNDARY_SURFACE_FROM_FROZEN_REREAD_002/metrics.json",
+      "source_sha256": "3900a7343ec68e96530a500c05552eebe9a9c10055c797dc67db9795857cfac5",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 35},
+        {"type": "json_pointer_equals", "pointer": "/query_count", "expected": 423},
+        {"type": "json_pointer_equals", "pointer": "/surface/raw/boundary_mae_m", "expected": 1.4705882352941178},
+        {"type": "json_pointer_equals", "pointer": "/surface/final/boundary_mae_m", "expected": 0.9411764705882353},
+        {"type": "json_pointer_equals", "pointer": "/surface/raw/surface_error/mae_m", "expected": 3.40159655679205},
+        {"type": "json_pointer_equals", "pointer": "/surface/final/surface_error/mae_m", "expected": 3.049676982776966}
+      ]
+    },
+    "p3.image_multiboundary_surface": {
+      "paper": "paper3",
+      "experiment_id": "P3_SWISSGEOL_TG_MULTIBOUNDARY_SURFACE_FROM_FROZEN_REREAD_001",
+      "scope": "all four available ordered image-derived boundaries propagated without reference-guided interval repair",
+      "source_path": "results/2026-08-14/P3_SWISSGEOL_TG_MULTIBOUNDARY_SURFACE_FROM_FROZEN_REREAD_001/metrics.json",
+      "source_sha256": "70afa605dc7b02a75f083489dc17e0d2f614149c8430dee17bdee09b24e709a8",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 35},
+        {"type": "json_pointer_equals", "pointer": "/boundary_count", "expected": 4},
+        {"type": "json_pointer_equals", "pointer": "/reference_point_count", "expected": 80},
+        {"type": "json_pointer_equals", "pointer": "/aggregate/raw/boundary_mae_m", "expected": 11.17142857142857},
+        {"type": "json_pointer_equals", "pointer": "/aggregate/final/boundary_mae_m", "expected": 2.788732394366197},
+        {"type": "json_pointer_equals", "pointer": "/aggregate/raw/surface_error/mae_m", "expected": 21.396863259832898},
+        {"type": "json_pointer_equals", "pointer": "/aggregate/final/surface_error/mae_m", "expected": 20.6153593877386},
+        {"type": "json_pointer_equals", "pointer": "/per_boundary/2/variants/final/coverage", "expected": 0.5714285714285714}
       ]
     }
   }

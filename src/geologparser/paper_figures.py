@@ -224,7 +224,10 @@ def save_image_boundary_surface(
     candidates = []
     for entry in entries:
         metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
-        if metrics.get("comparison") == "raw_image_boundary_vs_constraint_reread_boundary_vs_authoritative_reference_surface":
+        if (
+            metrics.get("comparison") == "raw_image_boundary_vs_constraint_reread_boundary_vs_authoritative_reference_surface"
+            and "surface" in metrics
+        ):
             candidates.append((entry, metrics))
     if not candidates:
         raise ValueError("no image-boundary surface diagnostic is indexed")
@@ -248,6 +251,48 @@ def save_image_boundary_surface(
     fig.tight_layout()
     destination.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(destination, dpi=180, bbox_inches="tight")
+    plt.close(fig)
+
+
+def save_image_multiboundary_surface(
+    entries: Sequence[Mapping[str, Any]], repository_root: Path, destination: Path,
+) -> None:
+    """Plot per-boundary MAE and support for the real multi-boundary diagnostic."""
+    candidates = []
+    for entry in entries:
+        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
+        if metrics.get("scope") == "real image-derived multi-boundary downstream surface diagnostic":
+            candidates.append((entry, metrics))
+    if not candidates:
+        raise ValueError("no image multi-boundary surface diagnostic is indexed")
+    entry, metrics = candidates[-1]
+    rows = metrics["per_boundary"]
+    indexes = [row["boundary_index"] for row in rows]
+    raw = [row["variants"]["raw"]["surface_error"]["mae_m"] for row in rows]
+    final = [row["variants"]["final"]["surface_error"]["mae_m"] for row in rows]
+    raw_coverage = [row["variants"]["raw"]["coverage"] for row in rows]
+    final_coverage = [row["variants"]["final"]["coverage"] for row in rows]
+    plt = _plt()
+    fig, axes = plt.subplots(2, 1, figsize=(8, 7), sharex=True)
+    width = .36
+    axes[0].bar([x - width / 2 for x in indexes], raw, width=width, color="#9c755f", label="Raw")
+    axes[0].bar([x + width / 2 for x in indexes], final, width=width, color="#59a14f", label="Reread")
+    axes[0].set_ylabel("Surface MAE (m)")
+    axes[0].set_title("Held-out multi-boundary image-to-surface diagnostic")
+    axes[0].legend()
+    axes[0].grid(axis="y", alpha=.2)
+    axes[1].plot(indexes, raw_coverage, marker="o", color="#9c755f", label="Raw")
+    axes[1].plot(indexes, final_coverage, marker="o", color="#59a14f", label="Reread")
+    axes[1].set_xlabel("Ordered interval boundary index")
+    axes[1].set_ylabel("Spatial point coverage")
+    axes[1].set_ylim(0, 1.05)
+    axes[1].set_xticks(indexes)
+    axes[1].grid(alpha=.2)
+    axes[1].legend()
+    axes[1].text(.99, .04, entry["experiment_id"], transform=axes[1].transAxes, ha="right", fontsize=7)
+    fig.tight_layout()
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(destination, dpi=180)
     plt.close(fig)
 
 

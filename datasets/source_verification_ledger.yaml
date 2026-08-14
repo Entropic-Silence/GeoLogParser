@@ -1915,13 +1915,15 @@ records:
   risks:
   - exact public source record and item-level terms are not yet bound
   - precise coordinates are printed in the source
-  - consensus reference is produced by two OCR layouts of the same engine and is not independent Ground Truth
+  - cross-engine consensus remains machine transcription of the same source image and is not independent Ground Truth
   experiments_or_papers:
   - paper1_cross_source_transfer_candidate
   - paper1_failure_analysis
   requires_human_check_before_submission: true
   evidence:
   - scripts/audit_usgs151_explicit_intervals.py
+  - scripts/audit_usgs151_cross_engine.py
   - /data/GeoLogParser/artifacts/source_surveys/usgs151_explicit_intervals_v001/audit/summary.json
+  - /data/GeoLogParser/artifacts/source_surveys/usgs151_explicit_intervals_v001/cross_engine_v001/summary.json
   registry_status: acquired_machine_consensus_source_audit_not_gold
-  registry_verification_notes: Exact two-reader agreement retained 61 intervals on 40 pages from 71 PSM-11 and 61 PSM-6 parsed rows. The artifact explicitly records human_reviewed=false and is excluded from Human Gold and formal accuracy claims.
+  registry_verification_notes: Exact Tesseract dual-layout agreement retained 61 intervals. Independent RapidOCR parsing retained 67 intervals, and exact cross-engine agreement retained 57 intervals across 40 pages. The artifact explicitly records human_reviewed=false and is excluded from Human Gold and formal accuracy claims.

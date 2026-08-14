@@ -1,7 +1,6 @@
 {
   "blockers": [
     "manuscript evidence tags are absent from claim registry",
-    "claim source verification failed",
     "unresolved TBD/citation markers remain"
   ],
   "broken_local_links": [],
@@ -16,10 +15,8 @@
     "zhong2019publaynet"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "635c063bef8a5bc99db90d77da1f5e9d6f3a1ddd5511b2f066936249edc0bda6",
-  "claim_source_errors": [
-    "p1.cross_canton_negative_audit: source hash mismatch"
-  ],
+  "claim_registry_sha256": "b3c92e901f7b3a087dca29d11ee1c9fba70102300543e8763dd73e0ef548ee8e",
+  "claim_source_errors": [],
   "evidence_tags": [
     "p1.b2_padova",
     "p1.b3_padova",
@@ -102,7 +99,7 @@
     {
       "exists": true,
       "resolved_path": "docs/generated/publication_readiness.md",
-      "sha256": "ad3a55a7989508202b283dded6eab5d9ec099e2a25e0bdafdf8fb5f61c6d1fa6",
+      "sha256": "7e8515bc82a50184b6d440a215e1ccc0c40a0912b6a106340984c0054babb92f",
       "target": "../../docs/generated/publication_readiness.md"
     },
     {

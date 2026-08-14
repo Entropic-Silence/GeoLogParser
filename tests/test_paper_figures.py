@@ -5,6 +5,7 @@ from geologparser.paper_figures import (
     save_degradation_profiles,
     save_error_propagation,
     save_image_boundary_surface,
+    save_image_multiboundary_surface,
     save_method_schematic,
     save_padova_locations,
     save_source_field_propagation,
@@ -71,4 +72,25 @@ def test_image_boundary_surface_figure(tmp_path: Path):
     }))
     output = tmp_path / "image.png"
     save_image_boundary_surface([{"experiment_id": "IMAGE", "result_path": "image"}], tmp_path, output)
+    assert output.stat().st_size > 1000
+
+
+def test_image_multiboundary_surface_figure(tmp_path: Path):
+    result = tmp_path / "multi"
+    result.mkdir()
+    (result / "metrics.json").write_text(json.dumps({
+        "scope": "real image-derived multi-boundary downstream surface diagnostic",
+        "per_boundary": [
+            {"boundary_index": 1, "variants": {
+                "raw": {"coverage": .9, "surface_error": {"mae_m": 3.4}},
+                "final": {"coverage": .95, "surface_error": {"mae_m": 3.0}},
+            }},
+            {"boundary_index": 2, "variants": {
+                "raw": {"coverage": .6, "surface_error": {"mae_m": 20.0}},
+                "final": {"coverage": .7, "surface_error": {"mae_m": 18.0}},
+            }},
+        ],
+    }))
+    output = tmp_path / "multi.png"
+    save_image_multiboundary_surface([{"experiment_id": "MULTI", "result_path": "multi"}], tmp_path, output)
     assert output.stat().st_size > 1000

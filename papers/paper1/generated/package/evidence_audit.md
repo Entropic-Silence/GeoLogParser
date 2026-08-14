@@ -9,7 +9,6 @@ Structural audit: **FAILED**.
 ## Blockers
 
 - manuscript evidence tags are absent from claim registry
-- claim source verification failed
 - unresolved TBD/citation markers remain
 
 ## Trace
@@ -22,4 +21,4 @@ Structural audit: **FAILED**.
 - Broken local links: none
 - Missing required sections: none
 - Evidence tags: p1.b2_padova, p1.b3_padova, p1.b4_bgs, p1.b4_padova, p1.b4_sanming, p1.b5_sanming, p1.b6_padova, p1.bgs_metadata_rapidocr31, p1.bgs_metadata_tesseract31, p1.bgs_robustness_inventory, p1.bgs_robustness_rapidocr, p1.bgs_robustness_tesseract, p1.cad_full_svg, p1.cad_priority_fidelity, p1.cross_canton_negative_audit, p1.degradation_inventory, p1.directpdf_padova, p1.international_source_review, p1.padova_annotation_assignment, p1.padova_inventory, p1.sedlog_content, p1.sedlog_native_coverage, p1.sedlog_source_review, p1.slopes_content, p1.slopes_rapidocr_coverage, p1.slopes_tesseract_coverage, p1.swissgeol_authoritative_interval, p1.swissgeol_authoritative_interval_rapidocr, p1.tiber_content, p1.tiber_rapidocr_coverage, p1.tiber_tesseract_coverage, p1.usgs142_cross_source, p1.usgs144_cross_source
-- Claim-source errors: p1.cross_canton_negative_audit: source hash mismatch
+- Claim-source errors: none

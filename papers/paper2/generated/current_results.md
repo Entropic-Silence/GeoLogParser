@@ -16,6 +16,7 @@ The decision policy accepts only equal non-null values from two independent OCR 
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
 | P2_SWISSGEOL_TG_CONSTRAINT_REREAD_HELDOUT_001 | 20 | 55 | 0.855 | 0.855 | 1 | 0 | 1 | 0/3 (0.000) | 1/17 (0.059) | TBD | TBD | formal_authoritative_interval_method |
 | P2_SWISSGEOL_TG_CONSTRAINT_REREAD_HELDOUT_V003_001 | 35 | 80 | 0.857 | 0.921 | 9 | 4 | 5 | 7/10 (0.700) | 2/25 (0.080) | 4/4 (1.000) | 0/4 (0.000) | formal_authoritative_interval_method |
+| P2_SWISSGEOL_TG_CONSTRAINT_REREAD_V2_EXTERNAL_V002_001 | 20 | 55 | 0.855 | 0.855 | 1 | 0 | 1 | 0/3 (0.000) | 1/17 (0.059) | TBD | TBD | formal_authoritative_interval_method |
 
 Each policy was frozen on its recorded development partition before the corresponding source-agreement test was evaluated. A null FCR means no automatic correction occurred; it is not zero. The same-source, explicit-table selection remains a major limitation.
 
@@ -27,6 +28,10 @@ Each policy was frozen on its recorded development partition before the correspo
 | P2_SWISSGEOL_TG_V2_SECONDARY_ABLATION_001 | legacy_parser_first_pass | 0.871 | 0.762 | 0.813 | 23/35 | 4 | secondary_ablation_only |
 | P2_SWISSGEOL_TG_V2_SECONDARY_ABLATION_001 | v2_first_pass | 0.892 | 0.825 | 0.857 | 25/35 | 0 | secondary_ablation_only |
 | P2_SWISSGEOL_TG_V2_SECONDARY_ABLATION_001 | v2_parser_v1_acceptance | 0.893 | 0.838 | 0.865 | 26/35 | 1 | secondary_ablation_only |
+| P2_SWISSGEOL_TG_V2_EXTERNAL_V002_SECONDARY_ABLATION_001 | full_v2 | 0.855 | 0.855 | 0.855 | 17/20 | 0 | secondary_ablation_only |
+| P2_SWISSGEOL_TG_V2_EXTERNAL_V002_SECONDARY_ABLATION_001 | legacy_parser_first_pass | 0.855 | 0.855 | 0.855 | 17/20 | 0 | secondary_ablation_only |
+| P2_SWISSGEOL_TG_V2_EXTERNAL_V002_SECONDARY_ABLATION_001 | v2_first_pass | 0.855 | 0.855 | 0.855 | 17/20 | 0 | secondary_ablation_only |
+| P2_SWISSGEOL_TG_V2_EXTERNAL_V002_SECONDARY_ABLATION_001 | v2_parser_v1_acceptance | 0.855 | 0.855 | 0.855 | 17/20 | 0 | secondary_ablation_only |
 
 This component analysis was specified and executed after the full v2 held-out result was observed. It is descriptive evidence on frozen artifacts, not an independent confirmatory experiment; change counts for the legacy parser are parser differences, not automatic corrections.
 

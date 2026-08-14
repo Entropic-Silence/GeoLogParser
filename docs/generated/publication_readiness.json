@@ -23,7 +23,7 @@
     "paper2_formal_results_exist": true,
     "paper3_formal_results_exist": true
   },
-  "generated_at_utc": "2026-08-14T06:30:06.183796+00:00",
+  "generated_at_utc": "2026-08-14T06:48:52.737604+00:00",
   "ground_truth_exportable_count": 0,
   "interpretation": "Human-GT gates remain separate from the explicitly named machine-Silver agreement track. Silver runs do not satisfy human-GT publication claims; audit-only, failure-analysis, and protocol-only runs cannot satisfy formal completion.",
   "machine_silver_formal_count": 2,
@@ -51,33 +51,33 @@
       "eligibility_counts": {
         "audit_only": 1,
         "failure_analysis_only": 1,
-        "formal_authoritative_interval_method": 2,
+        "formal_authoritative_interval_method": 3,
         "formal_authoritative_metadata_method": 1,
         "formal_synthetic_method": 1,
-        "secondary_ablation_only": 1,
+        "secondary_ablation_only": 2,
         "secondary_calibration_only": 1
       },
-      "formal_experiment_count": 4,
+      "formal_experiment_count": 5,
       "index_path": "/root/GeoLogParser/experiments/paper2/result_index.jsonl",
-      "index_sha256": "ec68d4261d586a66bed9ea36833d516e4da833c5ba6484ed53cfa6190b81a4d1",
-      "indexed_experiment_count": 8,
-      "real_formal_experiment_count": 3
+      "index_sha256": "19f7b52fe3ef8e68d78f552e93817629b9b38811515dfc5ecb4f65ff91cf2514",
+      "indexed_experiment_count": 10,
+      "real_formal_experiment_count": 4
     },
     "paper3": {
       "controlled_formal_experiment_count": 1,
       "eligibility_counts": {
         "audit_only": 1,
         "failure_analysis_only": 1,
-        "formal_authoritative_boundary_downstream": 1,
+        "formal_authoritative_boundary_downstream": 2,
         "formal_source_controlled_downstream": 1,
         "formal_synthetic_downstream": 1,
         "protocol_only": 4
       },
-      "formal_experiment_count": 3,
+      "formal_experiment_count": 4,
       "index_path": "/root/GeoLogParser/experiments/paper3/result_index.jsonl",
-      "index_sha256": "8c1960decbd8e84817145c9af451cd7d25f54029554a446d772c6ca10ef1423e",
-      "indexed_experiment_count": 9,
-      "real_formal_experiment_count": 2
+      "index_sha256": "b560a4e7604f59096157f3b0450ae01f5fb79003768a8aedc7ee1955288e34e2",
+      "indexed_experiment_count": 10,
+      "real_formal_experiment_count": 3
     }
   },
   "readiness_schema_version": "publication_readiness_v001",

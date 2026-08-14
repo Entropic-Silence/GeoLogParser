@@ -55,6 +55,7 @@ This controlled experiment uses 602 real source records and post-decision source
 | Experiment | Documents | Reference points | Query points | Raw boundary MAE (m) | Reread boundary MAE (m) | Raw surface MAE (m) | Reread surface MAE (m) | Accepted rereads | Needs review | Eligibility |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
 | P3_SWISSGEOL_TG_BOUNDARY_SURFACE_FROM_FROZEN_REREAD_002 | 35 | 35 | 423 | 1.471 | 0.941 | 3.402 | 3.050 | 4 | 5 | formal_authoritative_boundary_downstream |
+| P3_SWISSGEOL_TG_MULTIBOUNDARY_SURFACE_FROM_FROZEN_REREAD_001 | 35 | 80 | 1265 | 11.171 | 2.789 | 21.397 | 20.615 | 4 | 5 | formal_authoritative_boundary_downstream |
 
 This diagnostic inherits frozen reference-blinded image boundaries from the Paper II held-out run. Coordinates and collar elevations are taken from the authoritative structured record; image extraction of spatial metadata is not evaluated, so this is not a complete end-to-end spatial workflow.
 

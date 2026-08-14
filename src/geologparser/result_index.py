@@ -178,7 +178,10 @@ def formal_evidence_errors(entry: dict, run: dict, metrics: dict) -> list[str]:
         if metrics.get("human_ground_truth_evidence") is not False:
             errors.append("formal_source_controlled_downstream must not claim human Ground Truth")
     elif eligibility == "formal_authoritative_boundary_downstream":
-        if metrics.get("scope") != "real image-derived first-boundary downstream surface diagnostic":
+        if metrics.get("scope") not in {
+            "real image-derived first-boundary downstream surface diagnostic",
+            "real image-derived multi-boundary downstream surface diagnostic",
+        }:
             errors.append(
                 "formal_authoritative_boundary_downstream requires image-boundary surface diagnostic scope"
             )
@@ -206,6 +209,11 @@ def formal_evidence_errors(entry: dict, run: dict, metrics: dict) -> list[str]:
             errors.append("formal_authoritative_boundary_downstream requires a positive document_count")
         if not isinstance(metrics.get("reference_point_count"), int) or metrics.get("reference_point_count", 0) < 3:
             errors.append("formal_authoritative_boundary_downstream requires at least three reference points")
+        if (
+            metrics.get("scope") == "real image-derived multi-boundary downstream surface diagnostic"
+            and (not isinstance(metrics.get("boundary_count"), int) or metrics.get("boundary_count", 0) < 2)
+        ):
+            errors.append("multi-boundary downstream evidence requires at least two boundaries")
     elif eligibility == "formal_downstream":
         if metrics.get("data_status") != "human_verified_real_site":
             errors.append("formal_downstream requires human_verified_real_site data_status")

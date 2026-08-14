@@ -1769,3 +1769,44 @@
   coordinate sensitivity remain unresolved. The files and derived OCR stay
   local under `/data/GeoLogParser`; the source is recorded as `AMBIGUOUS` in
   the verification ledger rather than entering the formal benchmark.
+
+## 2026-08-14 — USGS-151 cross-engine corroboration
+
+- RapidOCR/ONNX processed the same 98 frozen 250-DPI page rasters using model
+  hashes recorded in the audit output. It parsed 67 explicit lithology
+  intervals in 171.36 seconds.
+- Fifty-seven intervals agreed exactly with the earlier Tesseract PSM-6/PSM-11
+  consensus on page, normalized lithology, top depth, and bottom depth. These
+  rows cover 40 pages; four Tesseract-consensus rows and ten RapidOCR rows did
+  not agree across engines.
+- The evidence tier was strengthened to
+  `SOURCE_EXPLICIT_CROSS_ENGINE_CONSENSUS`, but remains machine transcription
+  of one source image and is not Human Gold or formal accuracy evidence.
+
+## 2026-08-14 — Frozen v2 external validation on Swissgeol v002
+
+- The Paper II v2 policy was applied without modification to the earlier
+  20-document/55-interval v002 incremental set, using the v003 development
+  partition only as the declared development manifest. Record overlap was zero.
+- First-pass and final F1 were both `0.8545454545`; 17/20 documents were exact.
+  Only one correct document triggered, no reread was accepted, and all three
+  erroneous documents evaded triggering. Incorrect-document trigger recall was
+  `0/3`; correction success and FCR were undefined because the correction
+  denominator was zero.
+- This external result does not reproduce the positive v003 held-out gain and
+  is retained as a formal negative result rather than being omitted.
+
+## 2026-08-14 — Multi-boundary image-to-surface propagation
+
+- Frozen v003 Paper II predictions were propagated for all four available
+  ordered interval-boundary positions using authoritative coordinates and
+  collar elevations. No reference-guided interval repair was used.
+- Across 80 reference boundary observations, raw and reread outputs supplied 70
+  and 71 positional observations. Aggregate boundary MAE decreased from
+  `11.1714 m` to `2.7887 m`; aggregate IDW surface MAE decreased from
+  `21.3969 m` to `20.6154 m` across 1,265 boundary-query pairs.
+- The first two boundaries benefited most. Third and fourth boundary surfaces
+  were dominated by support loss: only 4/7 and 2/3 predicted points were
+  available, despite zero positional depth error among available points. This
+  demonstrates that omission and positional alignment can dominate numerical
+  boundary error downstream.

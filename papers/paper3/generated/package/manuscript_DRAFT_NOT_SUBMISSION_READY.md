@@ -1,7 +1,7 @@
 <!-- AUTO-GENERATED REVIEW BUNDLE. DO NOT EDIT. -->
 > Package status: **DRAFT_NOT_SUBMISSION_READY**
 > This bundle combines the versioned manuscript and generated results for review.
-> Blockers: manuscript evidence tags are absent from claim registry; unresolved TBD/citation markers remain.
+> Blockers: unresolved TBD/citation markers remain.
 
 # From Legacy Borehole Logs to Structured Geological Models: An Automated Extraction and Error-Propagation Workflow
 
@@ -10,6 +10,8 @@
 This paper studies the downstream consequences of automatically structured legacy borehole logs. The workflow exports provenance-bearing extraction into SQLite and GeoJSON, performs quality control, correlates stratigraphic boundaries, and evaluates how controlled extraction errors propagate to geological surfaces and human review effort. A traceable database exporter, transparent IDW error-propagation baseline, and PyVista/VTP surface adapter are implemented. On 602 real structured-source records, a controlled dual-channel experiment found that strict consensus deletion retained approximately 81.5% of points but increased surface MAE to approximately 0.73–0.74 m. In contrast, support-preserving mean fusion reduced MAE by 18.3%–22.0% relative to a single channel across 0.01–1.00 m injections; paired exact sign-test p values were all below `6×10⁻⁵`. In a separate 35-document held-out image-boundary diagnostic, rereading reduced first-boundary depth MAE from 1.471 m to 0.941 m and reference-surface MAE from 3.402 m to 3.050 m. Thus downstream QC must account for spatial support, not only field acceptance. Complete image-derived spatial metadata extraction, real stratigraphic modelling, and timed human studies remain `TBD`.
 
 ## 1. Introduction
+
+A four-boundary extension reduced aggregate positional MAE from 11.171 m to 2.789 m but surface MAE only from 21.397 m to 20.615 m, revealing that missing spatial support can dominate otherwise correct available boundaries.
 
 Document extraction is useful only if its output supports defensible engineering workflows. A small boundary error may be negligible in one setting and distort a thin layer in another; a wrong coordinate may be catastrophic. We ask: (RQ1) how extraction-depth errors affect model surfaces; (RQ2) whether constraint QC stabilizes downstream models; (RQ3) how much human time is saved; and (RQ4) which error classes dominate downstream impact.
 
@@ -49,6 +51,8 @@ See [generated/current_results.md](generated/current_results.md). A 30-seed synt
 
 The separate single-channel 602-record source protocol used 30 seeds per magnitude and 80 convex-hull grid points. Under independent signed 1.00 m perturbations of the source-reported roof-depth scalar at every point, proxy-surface MAE was 0.260428 ± 0.018737 m; the output persisted neither absolute coordinate origin nor source identifiers. <!-- evidence:p3.coal602_source_proxy --> This is a deterministic response of one source-field/IDW protocol, not extraction accuracy, a true coal-seam surface, or a privacy clearance. The image-boundary diagnostic is reported in [generated/current_results.md](generated/current_results.md): on 35 held-out documents and 423 fixed convex-hull queries, raw versus reread surface MAE was 3.402 versus 3.050 m, with four accepted rereads and five review decisions. <!-- evidence:p3.image_boundary_surface -->
 
+The multi-boundary extension propagates all four ordered boundary positions without reference-guided interval repair. Across 80 reference boundary observations, raw and reread output supplied 70 and 71 positional predictions. Aggregate boundary MAE decreased from 11.171 m to 2.789 m, while aggregate surface MAE decreased more modestly from 21.397 m to 20.615 m over 1,265 per-boundary grid queries. For boundary 2, rereading reduced positional MAE from 24.400 m to 5.355 m and surface MAE from 19.960 m to 17.974 m. Boundaries 3 and 4 had zero depth error among available predictions but only 4/7 and 2/3 spatial support; their surface MAE remained 50.651 m and 19.594 m. Thus correct available values do not guarantee a correct surface when omissions remove spatial support. <!-- evidence:p3.image_multiboundary_surface -->
+
 The [Padova source-location plot](generated/figures/padova_locations.png) shows
 three separated site groups and therefore rules out interpolation across the
 whole collection as one local surface. Coordinates remain source-provided and
@@ -60,6 +64,9 @@ interpretation limits described above.
 The [held-out image-boundary diagnostic](generated/figures/image_boundary_surface.png)
 summarizes the raw-versus-reread boundary and surface errors; its caption
 retains the authoritative-spatial-metadata limitation.
+The [multi-boundary propagation diagnostic](generated/figures/image_multiboundary_surface.png)
+separates per-boundary surface error from retained spatial support and shows why
+zero error among available values can coexist with a poor interpolated surface.
 
 ## 7. Human-in-the-Loop Evaluation
 
@@ -75,7 +82,7 @@ Database and surface artifacts will be linked to extraction experiment IDs and h
 
 ## 10. Conclusion
 
-We define and partially implement a traceable path from legacy logs to geological surfaces and human review measurements. On a 602-record real structured source, strict dual-reader deletion worsened the interpolated surface because the loss of spatial support outweighed the small injected errors, whereas support-preserving mean fusion consistently improved it. On a separate 35-document held-out image-boundary diagnostic, reference-blinded rereading reduced both boundary and surface error, but the use of authoritative spatial metadata and the single-boundary design limit the claim. Whether the complete workflow improves real downstream stability across spatial fields, stratigraphic correlations, and human efficiency remains `TBD`.
+We define and partially implement a traceable path from legacy logs to geological surfaces and human review measurements. On a 602-record real structured source, strict dual-reader deletion worsened the interpolated surface because the loss of spatial support outweighed the small injected errors, whereas support-preserving mean fusion consistently improved it. On a separate 35-document held-out image-boundary diagnostic, reference-blinded rereading reduced aggregate error over four ordered boundaries, but deeper-boundary surfaces remained dominated by missing spatial support and positional alignment. The use of authoritative spatial metadata, one source family, and at most four boundaries still limits the claim. Whether the complete workflow improves real stratigraphic modelling and human efficiency remains `TBD`.
 
 The repository's auto-generated [publication-readiness audit](../../docs/generated/publication_readiness.md)
 tracks the real structured-source controlled comparison separately from Synthetic
@@ -145,6 +152,7 @@ This controlled experiment uses 602 real source records and post-decision source
 | Experiment | Documents | Reference points | Query points | Raw boundary MAE (m) | Reread boundary MAE (m) | Raw surface MAE (m) | Reread surface MAE (m) | Accepted rereads | Needs review | Eligibility |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
 | P3_SWISSGEOL_TG_BOUNDARY_SURFACE_FROM_FROZEN_REREAD_002 | 35 | 35 | 423 | 1.471 | 0.941 | 3.402 | 3.050 | 4 | 5 | formal_authoritative_boundary_downstream |
+| P3_SWISSGEOL_TG_MULTIBOUNDARY_SURFACE_FROM_FROZEN_REREAD_001 | 35 | 80 | 1265 | 11.171 | 2.789 | 21.397 | 20.615 | 4 | 5 | formal_authoritative_boundary_downstream |
 
 This diagnostic inherits frozen reference-blinded image boundaries from the Paper II held-out run. Coordinates and collar elevations are taken from the authoritative structured record; image extraction of spatial metadata is not evaluated, so this is not a complete end-to-end spatial workflow.
 

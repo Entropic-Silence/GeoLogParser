@@ -31,6 +31,10 @@
     {
       "path": "paper3/generated/figures/image_boundary_surface.png",
       "sha256": "729969b0223fdc62262685a2fbd0b406383ab64bbc75e59608616b3df2661b9e"
+    },
+    {
+      "path": "paper3/generated/figures/image_multiboundary_surface.png",
+      "sha256": "1f480502d7e3a8c980f682562b4ac627e51232906c8f07cf3fa528c1f66981e3"
     }
   ],
   "scope": "auto-generated traceable figures; individual captions retain audit/protocol/design limits",

@@ -324,13 +324,16 @@ def paper3_table(entries: list[dict], repository_root: Path) -> str:
                 ]) + " |")
             continue
         if metrics.get("comparison") == "raw_image_boundary_vs_constraint_reread_boundary_vs_authoritative_reference_surface":
-            surface = metrics.get("surface", {})
+            surface = metrics.get("surface") or metrics.get("aggregate", {})
             raw = surface.get("raw", {})
             final = surface.get("final", {})
+            query_count = metrics.get("query_count")
+            if query_count is None:
+                query_count = raw.get("surface_query_count")
             image_boundary_rows.append("| " + " | ".join([
                 entry["experiment_id"], str(metrics.get("document_count", "TBD")),
                 str(metrics.get("reference_point_count", "TBD")),
-                str(metrics.get("query_count", "TBD")),
+                str(query_count if query_count is not None else "TBD"),
                 number(raw.get("boundary_mae_m")), number(final.get("boundary_mae_m")),
                 number(raw.get("surface_error", {}).get("mae_m")),
                 number(final.get("surface_error", {}).get("mae_m")),

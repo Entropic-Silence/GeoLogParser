@@ -231,6 +231,26 @@ def test_formal_authoritative_boundary_downstream_requires_real_image_surface_sc
         },
     ) == []
 
+    multi = {
+        "scope": "real image-derived multi-boundary downstream surface diagnostic",
+        "reference_ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+        "data_status": "real_image_pdf_with_authoritative_structured_spatial_metadata",
+        "comparison": "raw_image_boundary_vs_constraint_reread_boundary_vs_authoritative_reference_surface",
+        "prediction_reference_conditioning": "none",
+        "reference_blinded_decision_policy": True,
+        "document_count": 35,
+        "reference_point_count": 80,
+        "boundary_count": 4,
+    }
+    assert formal_evidence_errors(
+        {"paper_eligibility": "formal_authoritative_boundary_downstream"}, run, multi,
+    ) == []
+    errors = formal_evidence_errors(
+        {"paper_eligibility": "formal_authoritative_boundary_downstream"}, run,
+        multi | {"boundary_count": 1},
+    )
+    assert any("at least two boundaries" in error for error in errors)
+
 
 def test_nonformal_labels_do_not_require_ground_truth_evidence():
     assert formal_evidence_errors(

@@ -12,6 +12,7 @@ from geologparser.paper_figures import (
     save_audit_coverage, save_authoritative_interval_pilot, save_degradation_profiles,
     save_error_propagation, save_method_schematic, save_padova_locations,
     save_source_field_propagation, save_image_boundary_surface,
+    save_image_multiboundary_surface,
 )
 from geologparser.result_index import verify_index
 
@@ -62,6 +63,8 @@ def main() -> None:
     outputs.append(paper3 / "coal602_source_proxy.png")
     save_image_boundary_surface(indexes["paper3"], ROOT, paper3 / "image_boundary_surface.png")
     outputs.append(paper3 / "image_boundary_surface.png")
+    save_image_multiboundary_surface(indexes["paper3"], ROOT, paper3 / "image_multiboundary_surface.png")
+    outputs.append(paper3 / "image_multiboundary_surface.png")
     manifest = {
         "scope": "auto-generated traceable figures; individual captions retain audit/protocol/design limits",
         "source_manifests": {
