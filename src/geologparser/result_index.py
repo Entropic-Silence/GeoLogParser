@@ -23,6 +23,7 @@ FORMAL_ELIGIBILITY = {
     "formal_source_controlled_downstream", "formal_authoritative_boundary_downstream",
     "formal_authoritative_controlled_error_downstream",
     "formal_authoritative_spatial_extraction",
+    "formal_partial_page_spatial_downstream",
 }
 
 
@@ -281,6 +282,27 @@ def formal_evidence_errors(entry: dict, run: dict, metrics: dict) -> list[str]:
         coverage = metrics.get("coordinate_pair_coverage", {})
         if coverage.get("denominator") != metrics.get("document_count"):
             errors.append("formal_authoritative_spatial_extraction requires full coverage denominator")
+    elif eligibility == "formal_partial_page_spatial_downstream":
+        if metrics.get("scope") != "real page-coordinate image-boundary downstream surface diagnostic":
+            errors.append("formal_partial_page_spatial_downstream requires page-coordinate surface scope")
+        if metrics.get("reference_ground_truth_tier") != "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT":
+            errors.append("formal_partial_page_spatial_downstream requires source-agreement boundaries")
+        if metrics.get("data_status") != "real_pdf_page_coordinates_image_boundaries_authoritative_collar":
+            errors.append("formal_partial_page_spatial_downstream requires explicit partial spatial status")
+        if metrics.get("comparison") != "authoritative_reference_vs_page_coordinate_reference_boundary_vs_page_coordinate_raw_and_reread_boundary":
+            errors.append("formal_partial_page_spatial_downstream requires decomposed surface comparison")
+        if metrics.get("prediction_reference_conditioning") != "none":
+            errors.append("formal_partial_page_spatial_downstream requires reference-free predictions")
+        if metrics.get("reference_blinded_decision_policy") is not True:
+            errors.append("formal_partial_page_spatial_downstream requires reference-blinded decisions")
+        if metrics.get("page_collar_prediction_count") != 0:
+            errors.append("formal_partial_page_spatial_downstream must preserve the zero page-collar limitation")
+        if metrics.get("authoritative_collar_supplied_count") != metrics.get("document_count"):
+            errors.append("formal_partial_page_spatial_downstream must declare all supplied collars")
+        if not isinstance(metrics.get("page_coordinate_prediction_count"), int) or metrics.get("page_coordinate_prediction_count", 0) <= 0:
+            errors.append("formal_partial_page_spatial_downstream requires page coordinates")
+        if not isinstance(metrics.get("query_count"), int) or metrics.get("query_count", 0) <= 0:
+            errors.append("formal_partial_page_spatial_downstream requires surface queries")
     elif eligibility == "formal_downstream":
         if metrics.get("data_status") != "human_verified_real_site":
             errors.append("formal_downstream requires human_verified_real_site data_status")

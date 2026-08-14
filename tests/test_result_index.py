@@ -311,6 +311,31 @@ def test_formal_authoritative_spatial_extraction_requires_external_reference_fre
     assert any("reference-free" in error for error in errors)
 
 
+def test_formal_partial_page_spatial_downstream_requires_collar_limitation():
+    run = {"config": {"ground_truth_sha256": "a" * 64}, "split_version": "heldout_v003"}
+    metrics = {
+        "scope": "real page-coordinate image-boundary downstream surface diagnostic",
+        "reference_ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+        "data_status": "real_pdf_page_coordinates_image_boundaries_authoritative_collar",
+        "comparison": "authoritative_reference_vs_page_coordinate_reference_boundary_vs_page_coordinate_raw_and_reread_boundary",
+        "prediction_reference_conditioning": "none",
+        "reference_blinded_decision_policy": True,
+        "document_count": 35,
+        "page_coordinate_prediction_count": 17,
+        "page_collar_prediction_count": 0,
+        "authoritative_collar_supplied_count": 35,
+        "query_count": 423,
+    }
+    assert formal_evidence_errors(
+        {"paper_eligibility": "formal_partial_page_spatial_downstream"}, run, metrics,
+    ) == []
+    errors = formal_evidence_errors(
+        {"paper_eligibility": "formal_partial_page_spatial_downstream"}, run,
+        metrics | {"page_collar_prediction_count": 1},
+    )
+    assert any("zero page-collar limitation" in error for error in errors)
+
+
 def test_result_index_verifies_recursive_artifact_manifest(tmp_path: Path):
     import json
 

@@ -19,6 +19,7 @@ REAL_FORMAL_ELIGIBILITY = {
     "formal_source_controlled_downstream", "formal_authoritative_boundary_downstream",
     "formal_authoritative_controlled_error_downstream",
     "formal_authoritative_spatial_extraction",
+    "formal_partial_page_spatial_downstream",
 }
 FORMAL_ELIGIBILITY = CONTROLLED_FORMAL_ELIGIBILITY | REAL_FORMAL_ELIGIBILITY
 
