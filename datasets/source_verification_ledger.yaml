@@ -1965,6 +1965,9 @@ records:
   - /data/GeoLogParser/datasets/public/california_wcr_gold_v001/metadata/acquisition.json
   - datasets/manifests/california_wcr_gold_v001.jsonl
   - datasets/splits/california_wcr_gold_split_v001.json
+  - /data/GeoLogParser/datasets/public/california_wcr_gold_v002/metadata/acquisition.json
+  - datasets/manifests/california_wcr_gold_v002.jsonl
+  - datasets/splits/california_wcr_gold_split_v002.json
   registry_status: acquired_published_manual_transcription_gold_cc0
   registry_verification_notes: ScienceBase item 632b1c93d34e71c6d67bc0bc. Local Lithology_v3_2025.txt
     is 33,552,010 bytes, MD5 e181414bae85544b417f89011b742668, SHA256 859c939ed88bbb8d248d3f07fe8893ed53c233dfe4086a2d387de130a0d138b0.
@@ -1972,11 +1975,13 @@ records:
     WCR images, keyed verbatim without OCR, then checked for depth sequencing, gaps,
     and completeness. The source transcription is therefore GOLD_PUBLISHED_MANUAL_TRANSCRIPTION
     even though project_human_reviewed=false. Deterministic pairing with the WCR link
-    release yielded 12,732 reports/225,150 intervals. The frozen county-diverse subset
+    release yielded 12,732 reports/225,150 intervals. The v001 county-diverse subset
     contains 60 reports/850 intervals; its development/test split is 10/50 reports,
-    and the held-out test contains 48 counties, 77 pages, and 697 intervals. Benchmark
-    selection required 5-60 exact-deduplicated intervals, empty source comments, adjacent
-    continuity >=0.99, and a public report link.
+    and the held-out test contains 48 counties, 77 pages, and 697 intervals. The independent
+    v002 successor excludes every v001 record and freezes the next 100 deterministic
+    eligible reports, 154 pages, 23 counties, and 1,770 intervals solely for external
+    validation. Benchmark selection required 5-60 exact-deduplicated intervals, empty
+    source comments, adjacent continuity >=0.99, and a public report link.
 - source_id: usgs_california_wcr_links_v6_2025
   source_name: Attributed California Water Supply Well Completion Report Data for
     Selected Areas (version 6.0, December 2025)
@@ -2017,15 +2022,19 @@ records:
   - /data/GeoLogParser/datasets/public/california_wcr_gold_v001/metadata/acquisition.json
   - datasets/manifests/california_wcr_gold_v001.jsonl
   - datasets/splits/california_wcr_gold_split_v001.json
+  - /data/GeoLogParser/datasets/public/california_wcr_gold_v002/metadata/acquisition.json
+  - datasets/manifests/california_wcr_gold_v002.jsonl
+  - datasets/splits/california_wcr_gold_split_v002.json
   registry_status: acquired_public_redacted_report_links_cc0_table_images_local
   registry_verification_notes: ScienceBase item 64958d73d34ef77fcb01dc8f. Local WCR_v6_2025.csv
     is 109,486,447 bytes, MD5 27a44594f23341c1a910e98254b2ee6f, SHA256 fd99a20b03331016f70ece13c07c178c8089858055fb907e704a8666048d7a77.
     The official metadata describes links to redacted publicly available DWR reports
     and states CC0 for the attributed table. Public Box pages exposed file names,
-    version IDs, SHA-1 values, sizes, and downloads. The frozen 60-report local snapshot
-    records source URL, Box file/version IDs, source SHA-1, local PDF SHA-256, page
-    count, county, and interval provenance. project_human_reviewed=false; the reference
-    intervals originate from the separately published manual-transcription release.
+    version IDs, SHA-1 values, sizes, and downloads. The v001 and non-overlapping
+    v002 snapshots jointly retain 160 reports and record source URL, Box file/version
+    IDs, source SHA-1, local PDF SHA-256, page count, county, coordinates, and interval
+    provenance. project_human_reviewed=false; the reference intervals originate from
+    the separately published manual-transcription release.
 - source_id: synthetic_borehole_logs_v001
   source_name: GeoLogParser programmatically generated borehole logs
   url: null

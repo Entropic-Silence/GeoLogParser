@@ -72,6 +72,15 @@ def main() -> None:
     california_test_intervals = sum(int(row.get("interval_count", 0)) for row in california_test_rows)
     california_test_pages = sum(int(row.get("pdf_pages", 0)) for row in california_test_rows)
     california_test_counties = len({row.get("county") for row in california_test_rows if row.get("county")})
+    california_external_manifest = ROOT / "datasets/manifests/california_wcr_gold_v002.jsonl"
+    california_external_rows = [
+        json.loads(line)
+        for line in california_external_manifest.read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    ] if california_external_manifest.is_file() else []
+    california_external_intervals = sum(int(row.get("interval_count", 0)) for row in california_external_rows)
+    california_external_pages = sum(int(row.get("pdf_pages", 0)) for row in california_external_rows)
+    california_external_counties = len({row.get("county") for row in california_external_rows if row.get("county")})
     transfer_summary_path = DATA_ROOT / "public/swissgeol_cross_canton_transfer_v002/dataset.json"
     transfer_summary = (
         json.loads(transfer_summary_path.read_text(encoding="utf-8"))
@@ -93,7 +102,7 @@ def main() -> None:
         "| Tier | Count | Meaning |",
         "|---|---:|---|",
         "| Human-verified Gold | 0 | No project annotation has yet passed the independent human Ground-Truth gate |",
-        f"| Published manual-transcription Gold | {len(california_rows)} documents / {california_intervals} intervals frozen; {len(california_test_rows)} documents / {california_test_intervals} intervals held out | USGS staff manually transcribed the paired WCR images and applied published depth-logic/completeness QC; project_human_reviewed=false |",
+        f"| Published manual-transcription Gold | v001: {len(california_rows)} documents / {california_intervals} intervals with {len(california_test_rows)} documents / {california_test_intervals} intervals held out; v002 external: {len(california_external_rows)} documents / {california_external_intervals} intervals | USGS staff manually transcribed the paired WCR images and applied published depth-logic/completeness QC; project_human_reviewed=false |",
         f"| Authoritative interval Gold | {authoritative_gold_documents} documents / {authoritative_gold_intervals} intervals | Official source-agreement or explicit source-description interval references; interval boundaries only; no human annotation claimed |",
         f"| Authoritative transfer reference | {transfer_summary.get('frozen_documents', 0)} records / {transfer_summary.get('frozen_intervals', 0)} intervals | Same-object official database sequences from {transfer_summary.get('source_count', 0)} non-development cantons; complete page/database agreement unverified |",
         f"| Authoritative metadata | {readiness.get('paper_indexes', {}).get('paper1', {}).get('eligibility_counts', {}).get('formal_authoritative_metadata', 0)} runs | Official metadata paired with scans; no interval/lithology labels |",
@@ -122,8 +131,8 @@ def main() -> None:
         "",
         "## Paper status",
         "",
-        f"- Paper I: `RESULTS_AVAILABLE` for a published manual-transcription California test of {len(california_test_rows)} documents/{california_test_counties} counties/{california_test_pages} pages/{california_test_intervals} intervals, a 35-document/80-interval PDF-content-group held-out authoritative benchmark, a 46-record/3,332-interval source-disjoint official-database transfer panel across five non-development cantons, and a separate two-document/62-interval official Raft River table benchmark. On California, RapidOCR reached interval F1 0.390 and Tesseract 0.325, with 523 and 555 missed reference intervals respectively. Representative multilingual source-disjoint manually transcribed Gold remains `NOT COMPLETED`.",
-        "- Paper II: `RESULTS_AVAILABLE` for a 50-document/697-interval California published-manual-transcription test where frozen sequence constraints increased F1 from 0.390 to 0.514 but incurred FCR 18/109 (0.165), plus a real authoritative-metadata abstention study, a controlled Synthetic method ablation, two negative 20-document external/held-out interval applications, one positive frozen 35-document v2 held-out test with F1 0.857 to 0.921 and FCR 0/4, secondary frozen-artifact analyses, and a development-fitted selective-confidence analysis. Broader multimodal attribution and safer cross-source correction remain `NOT COMPLETED`.",
+        f"- Paper I: `RESULTS_AVAILABLE` for a published manual-transcription California held-out test of {len(california_test_rows)} documents/{california_test_counties} counties/{california_test_pages} pages/{california_test_intervals} intervals and a non-overlapping external replication of {len(california_external_rows)} documents/{california_external_counties} counties/{california_external_pages} pages/{california_external_intervals} intervals, plus a 35-document/80-interval PDF-content-group held-out authoritative benchmark, a 46-record/3,332-interval source-disjoint official-database transfer panel across five non-development cantons, and a two-document/62-interval official Raft River table benchmark. California RapidOCR/Tesseract F1 replicated from 0.390/0.325 on v001 to 0.450/0.346 on v002; these are different samples, not model improvements. Representative multilingual source-disjoint manually transcribed Gold remains `NOT COMPLETED`.",
+        "- Paper II: `RESULTS_AVAILABLE` for two non-overlapping California published-manual-transcription evaluations: v001 constraints increased F1 from 0.390 to 0.514 with FCR 18/109 (0.165), and v002 increased F1 from 0.450 to 0.564 with FCR 63/355 (0.177). Additional evidence includes a real authoritative-metadata abstention study, a controlled Synthetic method ablation, two negative 20-document external/held-out interval applications, one positive frozen 35-document v2 held-out test with F1 0.857 to 0.921 and FCR 0/4, secondary frozen-artifact analyses, and a development-fitted selective-confidence analysis. Broader multimodal attribution and a prospectively frozen safer abstention policy remain `NOT COMPLETED`.",
         "- Paper III: `MANUSCRIPT_IN_PROGRESS` with a real structured-source controlled comparison, 35-document first/four-boundary surfaces, 540 seeded repetitions across six error classes, an external 88-document page-coordinate evaluation, and a partial 35-document page-coordinate surface workflow; page-derived collar extraction, real stratigraphic modelling, and timed human study `NOT COMPLETED`.",
         "",
         "## Boundary",

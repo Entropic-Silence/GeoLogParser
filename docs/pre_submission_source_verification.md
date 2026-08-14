@@ -93,8 +93,10 @@ and documents post-entry depth-sequence and completeness checks. Borkovich and
 others (version 6.0, December 2025; DOI `10.5066/P93ICKAF`; ScienceBase item
 `64958d73d34ef77fcb01dc8f`) supplies the attributed report index and public
 links to redacted DWR images. Both USGS tables state CC0 1.0. The frozen project
-manifest contains 60 reports/850 intervals; its held-out test contains 50
-reports/48 counties/77 pages/697 intervals. The source reference is correctly
+v001 manifest contains 60 reports/850 intervals; its held-out test contains 50
+reports/48 counties/77 pages/697 intervals. The non-overlapping v002 external
+freeze contains another 100 reports/23 counties/154 pages/1,770 intervals and
+was not used for method development. The source reference is correctly
 labelled `GOLD_PUBLISHED_MANUAL_TRANSCRIPTION`, while
 `project_human_reviewed=false` records that this project did not repeat the
 source transcription review. Before submission, confirm the exact citation and
@@ -102,6 +104,11 @@ CC0 text, the DWR/Box report-image terms, redaction scope, embedded signatures
 or identifiers, sensitive-location treatment, and whether any report image or
 crop may be reproduced. Until then, source PDFs remain local; hashes, links,
 manifests, metrics, and derived aggregate results may be audited separately.
+The v002 evidence paths are
+`/data/GeoLogParser/datasets/public/california_wcr_gold_v002/metadata/acquisition.json`,
+`datasets/manifests/california_wcr_gold_v002.jsonl`, and
+`datasets/splits/california_wcr_gold_split_v002.json`; confirm all 100 source
+links and image-level restrictions in the same final manual review.
 
 A non-overlapping successor freeze is stored at
 `/data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v003`. It contains

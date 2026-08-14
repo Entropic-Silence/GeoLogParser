@@ -1530,7 +1530,7 @@
       "paper": "paper1",
       "scope": "cross-canton Swissgeol source-disjoint acquisition and negative explicit-table audit; no interval Gold claim",
       "source_path": "datasets/source_verification_ledger.yaml",
-      "source_sha256": "0d0f9dba9d84103dd871733bbb8198bca3202f47e97b7d7b281e2bfd133a9098"
+      "source_sha256": "28c2952fac7880f730db820d01755f3d53f751a9ba091ae6bc36c183b4c22da3"
     },
     "p1.cross_canton_transfer_tesseract": {
       "paper": "paper1",
@@ -1829,6 +1829,66 @@
         {"type": "json_pointer_equals", "pointer": "/engine_document_comparison/equal_matches", "expected": 13}
       ]
     },
+    "p1.california_external_rapidocr": {
+      "paper": "paper1",
+      "experiment_id": "P1_CALIFORNIA_WCR_V002_RAPIDOCR_EXTERNAL_FORMAL_002",
+      "scope": "non-overlapping 100-document California WCR RapidOCR external replication against published USGS manual interval transcriptions",
+      "source_path": "results/2026-08-14/P1_CALIFORNIA_WCR_V002_RAPIDOCR_EXTERNAL_FORMAL_002/metrics.json",
+      "source_sha256": "555edfdf1b64dad061d9a88e1110d83b2b2a81daf12124cefa247fb757404f31",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 100},
+        {"type": "json_pointer_equals", "pointer": "/page_count", "expected": 154},
+        {"type": "json_pointer_equals", "pointer": "/reference_interval_count", "expected": 1770},
+        {"type": "json_pointer_equals", "pointer": "/predicted_interval_count", "expected": 673},
+        {"type": "json_pointer_equals", "pointer": "/documents_with_predictions", "expected": 92},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_precision/value", "expected": 0.8172362555720654},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_recall/value", "expected": 0.3107344632768362},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_f1/value", "expected": 0.4502660663119116},
+        {"type": "json_pointer_equals", "pointer": "/matched_lithology_exact/numerator", "expected": 284},
+        {"type": "json_pointer_equals", "pointer": "/matched_lithology_exact/denominator", "expected": 550},
+        {"type": "json_pointer_equals", "pointer": "/document_boundary_exact/numerator", "expected": 5},
+        {"type": "json_pointer_equals", "pointer": "/prediction_reference_conditioning", "expected": "none"}
+      ]
+    },
+    "p1.california_external_tesseract": {
+      "paper": "paper1",
+      "experiment_id": "P1_CALIFORNIA_WCR_V002_TESSERACT_EXTERNAL_FORMAL_002",
+      "scope": "non-overlapping 100-document California WCR Tesseract external replication against published USGS manual interval transcriptions",
+      "source_path": "results/2026-08-14/P1_CALIFORNIA_WCR_V002_TESSERACT_EXTERNAL_FORMAL_002/metrics.json",
+      "source_sha256": "0553107adf01f396e7ff53a2f0c9dc4f29c18ab34316e643aac7d10a20c26dc9",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 100},
+        {"type": "json_pointer_equals", "pointer": "/reference_interval_count", "expected": 1770},
+        {"type": "json_pointer_equals", "pointer": "/predicted_interval_count", "expected": 497},
+        {"type": "json_pointer_equals", "pointer": "/documents_with_predictions", "expected": 79},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_precision/value", "expected": 0.7887323943661971},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_recall/value", "expected": 0.2214689265536723},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_f1/value", "expected": 0.3458314953683282},
+        {"type": "json_pointer_equals", "pointer": "/matched_lithology_exact/numerator", "expected": 149},
+        {"type": "json_pointer_equals", "pointer": "/matched_lithology_exact/denominator", "expected": 392},
+        {"type": "json_pointer_equals", "pointer": "/document_boundary_exact/numerator", "expected": 3}
+      ]
+    },
+    "p1.california_external_error_analysis": {
+      "paper": "paper1",
+      "scope": "post-hoc error-event, cross-engine, and constraint outcome analysis on the non-overlapping California external replication",
+      "source_path": "experiments/paper1/analysis/california_wcr_errors_v002.json",
+      "source_sha256": "4aa74bd9d903739fa079ae07847b27981476601ff4a6e7950b6bf4432b622870",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/rapidocr/counts/missing", "expected": 1220},
+        {"type": "json_pointer_equals", "pointer": "/rapidocr/counts/documents_without_predictions", "expected": 8},
+        {"type": "json_pointer_equals", "pointer": "/rapidocr/counts/matched_lithology_errors", "expected": 266},
+        {"type": "json_pointer_equals", "pointer": "/tesseract/counts/missing", "expected": 1378},
+        {"type": "json_pointer_equals", "pointer": "/tesseract/counts/documents_without_predictions", "expected": 21},
+        {"type": "json_pointer_equals", "pointer": "/tesseract/counts/matched_lithology_errors", "expected": 243},
+        {"type": "json_pointer_equals", "pointer": "/engine_document_comparison/rapidocr_more_matches", "expected": 46},
+        {"type": "json_pointer_equals", "pointer": "/engine_document_comparison/tesseract_more_matches", "expected": 20},
+        {"type": "json_pointer_equals", "pointer": "/engine_document_comparison/equal_matches", "expected": 34},
+        {"type": "json_pointer_equals", "pointer": "/constraint_document_comparison/documents_improved", "expected": 36},
+        {"type": "json_pointer_equals", "pointer": "/constraint_document_comparison/documents_unchanged", "expected": 56},
+        {"type": "json_pointer_equals", "pointer": "/constraint_document_comparison/documents_worsened", "expected": 8}
+      ]
+    },
     "p2.california_constraint_sequence": {
       "paper": "paper2",
       "experiment_id": "P2_CALIFORNIA_WCR_CONSTRAINT_TEST_FORMAL_001",
@@ -1850,6 +1910,30 @@
         {"type": "json_pointer_equals", "pointer": "/false_correction_rate/denominator", "expected": 109},
         {"type": "json_pointer_equals", "pointer": "/false_correction_rate/value", "expected": 0.1651376146788991},
         {"type": "json_pointer_equals", "pointer": "/reference_ground_truth_tier", "expected": "GOLD_PUBLISHED_MANUAL_TRANSCRIPTION"},
+        {"type": "json_pointer_equals", "pointer": "/reference_blinded_decision_policy", "expected": true}
+      ]
+    },
+    "p2.california_external_constraint_sequence": {
+      "paper": "paper2",
+      "experiment_id": "P2_CALIFORNIA_WCR_V002_CONSTRAINT_EXTERNAL_FORMAL_002",
+      "scope": "reference-blinded frozen sequence-constraint external replication on 100 non-overlapping California WCRs and 1,770 published manually transcribed intervals",
+      "source_path": "results/2026-08-14/P2_CALIFORNIA_WCR_V002_CONSTRAINT_EXTERNAL_FORMAL_002/metrics.json",
+      "source_sha256": "8247e1e649b87a006f863eaf0381cb5a1da04bfc6242b35e59388965a05ee918",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 100},
+        {"type": "json_pointer_equals", "pointer": "/reference_interval_count", "expected": 1770},
+        {"type": "json_pointer_equals", "pointer": "/candidate_count", "expected": 1143},
+        {"type": "json_pointer_equals", "pointer": "/raw_interval_metrics/interval_f1/value", "expected": 0.4502660663119116},
+        {"type": "json_pointer_equals", "pointer": "/constrained_interval_metrics/interval_f1/value", "expected": 0.5640219952867244},
+        {"type": "json_pointer_equals", "pointer": "/constrained_interval_metrics/interval_precision/value", "expected": 0.9252577319587629},
+        {"type": "json_pointer_equals", "pointer": "/constrained_interval_metrics/interval_recall/value", "expected": 0.4056497175141243},
+        {"type": "json_pointer_equals", "pointer": "/correction_taxonomy/constrained_correct_added", "expected": 212},
+        {"type": "json_pointer_equals", "pointer": "/correction_taxonomy/constrained_incorrect_added", "expected": 17},
+        {"type": "json_pointer_equals", "pointer": "/correction_taxonomy/raw_incorrect_removed", "expected": 80},
+        {"type": "json_pointer_equals", "pointer": "/correction_taxonomy/raw_correct_removed", "expected": 46},
+        {"type": "json_pointer_equals", "pointer": "/false_correction_rate/numerator", "expected": 63},
+        {"type": "json_pointer_equals", "pointer": "/false_correction_rate/denominator", "expected": 355},
+        {"type": "json_pointer_equals", "pointer": "/false_correction_rate/value", "expected": 0.17746478873239438},
         {"type": "json_pointer_equals", "pointer": "/reference_blinded_decision_policy", "expected": true}
       ]
     },

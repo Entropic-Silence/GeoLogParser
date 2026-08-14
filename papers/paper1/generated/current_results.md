@@ -26,6 +26,8 @@ These rows use programmatically known Synthetic labels. They validate controlled
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
 | P1_CALIFORNIA_WCR_RAPIDOCR_TEST_FORMAL_001 | rapidocr_generic_positioned_interval_parser_v001 | 50 | 48 | 77 | 697 | 195 | 39 | 0.892 | 0.250 | 0.390 | 75/174 (0.431) | 3/50 (0.060) | 9.374 | formal_benchmark |
 | P1_CALIFORNIA_WCR_TESSERACT_TEST_FORMAL_001 | tesseract_generic_positioned_interval_parser_v001 | 50 | 48 | 77 | 697 | 176 | 38 | 0.807 | 0.204 | 0.325 | 30/142 (0.211) | 1/50 (0.020) | 8.219 | formal_benchmark |
+| P1_CALIFORNIA_WCR_V002_RAPIDOCR_EXTERNAL_FORMAL_002 | rapidocr_generic_positioned_interval_parser_v001 | 100 | 23 | 154 | 1770 | 673 | 92 | 0.817 | 0.311 | 0.450 | 284/550 (0.516) | 5/100 (0.050) | 9.773 | formal_external_benchmark |
+| P1_CALIFORNIA_WCR_V002_TESSERACT_EXTERNAL_FORMAL_002 | tesseract_generic_positioned_interval_parser_v001 | 100 | 23 | 154 | 1770 | 497 | 79 | 0.789 | 0.221 | 0.346 | 149/392 (0.380) | 3/100 (0.030) | 9.184 | formal_external_benchmark |
 The reference intervals were manually transcribed verbatim by USGS staff from California DWR well-completion-report images and received published depth-sequence and completeness checks. The project did not repeat human review of the 60-document freeze. Metrics therefore evaluate against published manual transcription, while report-image redistribution remains a separate pre-submission check.
 
 ### Held-out authoritative source-agreement interval result

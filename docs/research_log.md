@@ -2008,3 +2008,38 @@
   and II. Preserve the non-negligible FCR as a central safety result. Do not
   re-tune on the 50-report test. Next method work must fit abstention and
   component attribution on development or a new independent freeze.
+
+## 2026-08-14 — California non-overlapping external replication
+
+- Froze `california_wcr_gold_v002` by excluding every v001 record and taking
+  the next 100 deterministic clean candidates. The external set contains 100
+  reports, 23 counties, 154 pages, 1,770 published manually transcribed
+  intervals, and coordinates for all reports; overlap with v001 is zero.
+- The manifest SHA256 is
+  `5cfbf20673bef235ae5b7d9c9e1d806898d9826511e1f6ffb4c0337b146ededc`;
+  the split SHA256 is
+  `bb2363bc324d90404b1272ac30d2a7a652981511252b23ab995ca84f514014c1`.
+- Formal RapidOCR external run
+  `P1_CALIFORNIA_WCR_V002_RAPIDOCR_EXTERNAL_FORMAL_002` emitted 673 intervals,
+  matched 550, and obtained precision 0.8172, recall 0.3107, and F1 0.4503.
+  It produced output for 92/100 reports and exactly matched lithology for
+  284/550 matched boundaries.
+- Formal Tesseract external run
+  `P1_CALIFORNIA_WCR_V002_TESSERACT_EXTERNAL_FORMAL_002` emitted 497 intervals,
+  matched 392, and obtained precision 0.7887, recall 0.2215, and F1 0.3458.
+  It produced output for 79/100 reports and exactly matched lithology for
+  149/392 matched boundaries.
+- RapidOCR recovered more matches on 46 reports, Tesseract on 20, and the
+  engines tied on 34. This replicates the aggregate engine ordering while
+  retaining substantial per-document complementarity.
+- Formal constraint run
+  `P2_CALIFORNIA_WCR_V002_CONSTRAINT_EXTERNAL_FORMAL_002` increased F1 from
+  0.4503 to 0.5640, with precision 0.9253 and recall 0.4056. It added 212
+  correct and 17 incorrect boundaries, removed 80 incorrect and 46 correct
+  boundaries, and yielded FCR 63/355 = 0.1775.
+- At document level, 36 reports improved, 56 were unchanged, and eight
+  worsened. The largest gain was 3 to 23 matches; the largest loss was 6 to 2.
+- Decision: treat v002 as an independent external replication, not as evidence
+  of model improvement over v001. The repeated recovery gain and stable
+  16.5–17.7% false-correction range strengthen the conclusion that sequence
+  constraints are useful but unsafe for unconditional automatic correction.
