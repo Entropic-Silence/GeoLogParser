@@ -123,7 +123,7 @@ def interval_dict(top: float, bottom: float) -> dict:
 
 def load_and_verify_reference(
     row: dict, require_source_agreement: bool = True,
-) -> tuple[float, list[dict]]:
+) -> tuple[float | None, list[dict]]:
     pdf = Path(row["pdf_path"])
     reference_path = Path(row["reference_path"])
     if file_sha256(pdf) != row["pdf_sha256"]:
@@ -131,7 +131,8 @@ def load_and_verify_reference(
     if file_sha256(reference_path) != row["reference_sha256"]:
         raise ValueError(f"reference hash mismatch: {reference_path}")
     reference = json.loads(reference_path.read_text(encoding="utf-8"))
-    final_depth = float(reference["borehole"]["final_depth_m"])
+    final_depth_raw = reference["borehole"].get("final_depth_m")
+    final_depth = float(final_depth_raw) if final_depth_raw is not None else None
     intervals = sorted(
         (
             interval_dict(item["top_depth_m"], item["bottom_depth_m"])
@@ -225,6 +226,7 @@ def main() -> None:
     parser.add_argument("--rapidocr-threads", type=int, default=4)
     parser.add_argument("--parser-version", default="choose_interval_section_v2")
     parser.add_argument("--split-version")
+    parser.add_argument("--resume-ocr-run", type=Path)
     parser.add_argument(
         "--reference-mode",
         choices=("source_agreement_gold", "official_database_transfer"),
@@ -309,6 +311,24 @@ def main() -> None:
             "rapidocr_threads": arguments.rapidocr_threads,
             "region_serialization": "stable_approximate_top_left_v001",
         }
+    resume_run_config = None
+    if arguments.resume_ocr_run is not None:
+        resume_run_config = json.loads(
+            (arguments.resume_ocr_run / "run.json").read_text(encoding="utf-8")
+        )["config"]
+        required_resume_config = {
+            "render_dpi": arguments.render_dpi,
+            "ocr_backend": arguments.ocr_backend,
+            **backend_config,
+        }
+        mismatches = [
+            key for key, value in required_resume_config.items()
+            if resume_run_config.get(key) != value
+        ]
+        if mismatches:
+            raise ValueError(
+                "resume OCR configuration mismatch: " + ", ".join(mismatches)
+            )
     started_utc = datetime.now(timezone.utc)
     run = create_run_directory(arguments.results_root, {
         "experiment_id": arguments.experiment_id,
@@ -379,6 +399,13 @@ def main() -> None:
                 "native PDF text not used for prediction"
             ),
             "rights_review": dataset_summary["rights_review"],
+            "resume_ocr_run": (
+                str(arguments.resume_ocr_run) if arguments.resume_ocr_run else None
+            ),
+            "resume_ocr_run_json_sha256": (
+                file_sha256(arguments.resume_ocr_run / "run.json")
+                if arguments.resume_ocr_run else None
+            ),
         },
         "started_utc": started_utc.isoformat(),
     })
@@ -397,8 +424,20 @@ def main() -> None:
         )
         content_group_id = row.get("visual_content_sha256", row["pdf_sha256"])
         cache_hit = content_group_id in ocr_cache
+        resume_hit = False
         if cache_hit:
             combined_text, page_count = ocr_cache[content_group_id]
+        elif (
+            arguments.resume_ocr_run is not None
+            and (arguments.resume_ocr_run / "ocr_text" / f"{row['record_id']}.txt").is_file()
+        ):
+            prior_text_path = (
+                arguments.resume_ocr_run / "ocr_text" / f"{row['record_id']}.txt"
+            )
+            combined_text = prior_text_path.read_text(encoding="utf-8")
+            page_count = int(row.get("page_count", combined_text.count("===== PAGE ")))
+            ocr_cache[content_group_id] = (combined_text, page_count)
+            resume_hit = True
         else:
             with tempfile.TemporaryDirectory(prefix="geologparser-swissgeol-render-") as temporary:
                 pages = render_pdf(Path(row["pdf_path"]), Path(temporary), arguments.render_dpi)
@@ -443,6 +482,7 @@ def main() -> None:
             "human_reviewed": False,
             "content_group_id": content_group_id,
             "ocr_cache_hit": cache_hit,
+            "ocr_resume_hit": resume_hit,
             "page_count": page_count,
             "ocr_text_path": str(text_path.relative_to(run)),
             "ocr_text_sha256": file_sha256(text_path),
@@ -458,7 +498,7 @@ def main() -> None:
         prediction_documents.append(predictions)
         print(
             f"[{record_number}/{len(rows)}] {row['record_id']} pages={page_count} "
-            f"predictions={len(predictions)} cache_hit={cache_hit}",
+            f"predictions={len(predictions)} cache_hit={cache_hit} resume_hit={resume_hit}",
             flush=True,
         )
 
@@ -523,6 +563,7 @@ def main() -> None:
         "peak_process_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
         "ocr_unique_execution_count": len(ocr_cache),
         "ocr_cache_hit_count": sum(row["ocr_cache_hit"] for row in prediction_rows),
+        "ocr_resume_hit_count": sum(row["ocr_resume_hit"] for row in prediction_rows),
     }
     if arguments.reference_mode == "official_database_transfer":
         metrics.update(content_group_summary(prediction_rows))
