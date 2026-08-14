@@ -811,3 +811,21 @@ datasets:
     paper_fit: [paper1_cross_source_interval_benchmark, paper1_domain_shift]
     status: acquired_authoritative_interval_source_review_pending
     verification_notes: "Local source file is /data/GeoLogParser/datasets/public/openei_usgs142_v001/USGS-142_lithology.pdf, 115476 bytes, SHA256 4eea58daf59f014b5cd71172bc80e0a3a360b8b44fbe2a8494a90b693fcf50d4. Reference intervals come from the explicit 'Generalized Lithology' legend in the official PDF and are scored only after raster OCR decisions are frozen. The source is one document and is not a representative sample."
+
+  - id: usgs144_explicit_lithology_log_v001
+    name: "USGS-144 Well Summary with explicit lithology interval descriptions"
+    source_organization: "U.S. Geological Survey / Idaho National Laboratory project data release"
+    url: https://gdr.openei.org/
+    access_date: "2026-08-14"
+    language: English
+    format: "three-page native PDF with explicit depth-lithology descriptions"
+    scale: "1 PDF / 3 pages / 8 explicit depth-lithology intervals"
+    downloadable: true
+    access_status: "local official-release snapshot present; item-level source page and terms require manual pre-submission verification"
+    license: "USGS public-domain/official-release status not independently verified for this exact derivative"
+    allowed_usage: "internal research evaluation; source attribution required"
+    redistribution: pending_manual_review
+    redistribution_policy: "do not redistribute the source PDF or derived page images until item-level terms and embedded-content scope are checked"
+    paper_fit: [paper1_cross_source_interval_benchmark, paper1_domain_shift]
+    status: acquired_authoritative_interval_source_review_pending
+    verification_notes: "Local source file is /data/GeoLogParser/datasets/public/usgs144_summary_v001/USGS144_Well_Summary.pdf, SHA256 bae4d58bda8c5d134be39866f3b5b23fad4b52c8d3f63866873210fd53ef1258. The reference intervals are transcribed from explicit printed descriptions. The raster-only benchmark uses 400-DPI page rendering and Tesseract OCR. The PDF states total depth 638 ft while one explicit interval ends at 639 ft; this inconsistency is preserved and reported rather than corrected."

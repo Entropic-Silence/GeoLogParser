@@ -41,6 +41,8 @@ def main() -> None:
     swissgeol_gold_manifests = [
         Path("/data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v002/gold_interval_manifest_v002.jsonl"),
         Path("/data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v003/gold_interval_manifest_v003.jsonl"),
+        ROOT / "datasets/manifests/usgs142_interval_gold_v001.jsonl",
+        ROOT / "datasets/manifests/usgs144_interval_gold_v001.jsonl",
     ]
     swissgeol_gold_rows = [
         json.loads(line)
@@ -95,7 +97,7 @@ def main() -> None:
         "",
         "## Paper status",
         "",
-        "- Paper I: `RESULTS_AVAILABLE` for a 35-document/80-interval PDF-content-group held-out authoritative benchmark, a one-document USGS Idaho cross-source interval diagnostic, earlier incremental held-out tests, authoritative-metadata runs, and explicitly named machine-Silver agreement runs; representative multi-source/source-disjoint interval benchmark `NOT COMPLETED`.",
+        "- Paper I: `RESULTS_AVAILABLE` for a 35-document/80-interval PDF-content-group held-out authoritative benchmark, two one-document USGS Idaho cross-source interval diagnostics, earlier incremental held-out tests, authoritative-metadata runs, and explicitly named machine-Silver agreement runs; representative multi-source/source-disjoint interval benchmark `NOT COMPLETED`.",
         "- Paper II: `RESULTS_AVAILABLE` for a real authoritative-metadata abstention study, a controlled Synthetic method ablation, the negative v1 held-out interval test, a positive frozen v2 held-out interval test with F1 0.857 to 0.921 and FCR 0/4, a secondary frozen-artifact parser/acceptance analysis, and a development-fitted selective-confidence analysis; broader multimodal constraint attribution and larger-sample FCR estimation `NOT COMPLETED`.",
         "- Paper III: `RESULTS_AVAILABLE` for a real structured-source controlled spatial comparison, a controlled Synthetic downstream comparison, and a 35-document image-derived first-boundary surface diagnostic using authoritative spatial metadata; complete image-derived spatial metadata extraction, stratigraphic modelling, and timed human study `NOT COMPLETED`.",
         "",
