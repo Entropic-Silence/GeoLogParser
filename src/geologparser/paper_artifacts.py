@@ -30,6 +30,7 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
     cross_source_interval_rows = []
     conditional_interval_rows = []
     development_interval_rows = []
+    source_disjoint_transfer_rows = []
     robustness_rows = []
     for entry in entries:
         metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
@@ -58,6 +59,24 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
                 number(interval["interval_precision"]["value"]),
                 number(interval["interval_recall"]["value"]),
                 number(interval["interval_f1"]["value"]),
+                entry["paper_eligibility"],
+            ]) + " |")
+            continue
+        if metrics.get("scope") == "source-disjoint authoritative-database interval transfer evaluation":
+            interval = metrics["interval_metrics"]
+            source_disjoint_transfer_rows.append("| " + " | ".join([
+                entry["experiment_id"], run["model"], str(metrics["document_count"]),
+                str(metrics["content_group_count"]), str(metrics["reference_interval_count"]),
+                str(metrics["predicted_interval_count"]), str(metrics["documents_with_predictions"]),
+                number(interval["interval_precision"]["value"]),
+                number(interval["interval_recall"]["value"]),
+                number(interval["interval_f1"]["value"]),
+                number(metrics["content_group_macro_interval_f1"]),
+                ratio(metrics["document_full_exact"]),
+                (
+                    "TBD" if metrics.get("ocr_resume_hit_count", 0)
+                    else number(metrics["latency_seconds_per_document_wall"])
+                ),
                 entry["paper_eligibility"],
             ]) + " |")
             continue
@@ -205,6 +224,13 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
         "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|",
         *authoritative_interval_rows,
         "The reference contains only interval boundaries from official database records whose complete sequence exactly agrees with an explicit table in the paired official PDF. The reported run is incremental and disjoint from parser-development records, but the source-agreement selection is not a representative random sample and no human annotation is claimed.",
+        "",
+        "### Source-disjoint official-database transfer agreement",
+        "",
+        "| Experiment | Model | Records | Visual content groups | Official intervals | Predicted intervals | Records with predictions | Interval P | Interval R | Interval F1 | Content-group macro F1 | Full-record exact | s/record | Eligibility |",
+        "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|",
+        *source_disjoint_transfer_rows,
+        "These runs apply the frozen Thurgau parser without reference conditioning to all acquired paired records from four non-development cantons. Official database intervals belong to the same borehole objects, but complete page/database agreement was not established; the values therefore measure transfer agreement and combine extraction error with possible source mismatch. Content-group macro F1 prevents one repeated 21-page report from receiving eightfold weight. Both indexed aggregations resumed completed OCR artifacts after earlier interrupted/metric-only runs, so end-to-end latency is not reported.",
         "",
         "### Cross-source authoritative interval diagnostic",
         "",

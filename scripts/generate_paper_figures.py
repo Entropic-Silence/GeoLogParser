@@ -15,6 +15,7 @@ from geologparser.paper_figures import (
     save_image_multiboundary_surface,
     save_controlled_error_class_propagation,
     save_page_spatial_surface,
+    save_source_disjoint_transfer,
 )
 from geologparser.result_index import verify_index
 
@@ -53,6 +54,10 @@ def main() -> None:
         indexes["paper1"], ROOT, paper1 / "authoritative_interval_pilot.png",
     )
     outputs.append(paper1 / "authoritative_interval_pilot.png")
+    save_source_disjoint_transfer(
+        indexes["paper1"], ROOT, paper1 / "source_disjoint_transfer.png",
+    )
+    outputs.append(paper1 / "source_disjoint_transfer.png")
     paper2 = arguments.output_root / "paper2/generated/figures"
     save_method_schematic(paper2 / "method_schematic.png")
     outputs.append(paper2 / "method_schematic.png")

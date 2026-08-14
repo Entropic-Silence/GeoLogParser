@@ -13,6 +13,10 @@
       "sha256": "1dc909717018ad132a2b7c50c8cbe8ca5207d86340149b1c15da26171de23034"
     },
     {
+      "path": "paper1/generated/figures/source_disjoint_transfer.png",
+      "sha256": "8e7ce452783d7521c944ea0a1480a11b0bb49dc855e8d555c7d1be5548660a83"
+    },
+    {
       "path": "paper2/generated/figures/method_schematic.png",
       "sha256": "608d92634c9ea7787d57bdee184554a54e8aa745bf18d52bd32fc7b1b11a1457"
     },

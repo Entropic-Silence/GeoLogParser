@@ -55,6 +55,11 @@ def main() -> None:
         int(row.get("interval_count", len(row.get("intervals", []))))
         for row in swissgeol_gold_rows
     )
+    transfer_summary_path = DATA_ROOT / "public/swissgeol_cross_canton_transfer_v001/dataset.json"
+    transfer_summary = (
+        json.loads(transfer_summary_path.read_text(encoding="utf-8"))
+        if transfer_summary_path.is_file() else {}
+    )
     readiness = json.loads((ROOT / "docs/generated/publication_readiness.json").read_text(encoding="utf-8"))
     rows = []
     for paper, value in sorted(readiness.get("paper_indexes", {}).items()):
@@ -72,6 +77,7 @@ def main() -> None:
         "|---|---:|---|",
         "| Human-verified Gold | 0 | No project annotation has yet passed the independent human Ground-Truth gate |",
         f"| Authoritative interval Gold | {authoritative_gold_documents} documents / {authoritative_gold_intervals} intervals | Official source-agreement or explicit source-description interval references; interval boundaries only; no human annotation claimed |",
+        f"| Authoritative transfer reference | {transfer_summary.get('frozen_documents', 0)} records / {transfer_summary.get('frozen_intervals', 0)} intervals | Same-object official database sequences from four non-development cantons; complete page/database agreement unverified |",
         f"| Authoritative metadata | {readiness.get('paper_indexes', {}).get('paper1', {}).get('eligibility_counts', {}).get('formal_authoritative_metadata', 0)} runs | Official metadata paired with scans; no interval/lithology labels |",
         f"| Silver | {silver.get('source_item_count', 0) + padova_silver.get('source_item_count', 0)} | Machine-adjudicated candidate labels; not Gold |",
         f"| Synthetic | {synthetic.get('count', 0)} | Known programmatic labels; controlled experiments only |",
@@ -98,7 +104,7 @@ def main() -> None:
         "",
         "## Paper status",
         "",
-        "- Paper I: `RESULTS_AVAILABLE` for a 35-document/80-interval PDF-content-group held-out authoritative benchmark, two one-document USGS Idaho cross-source interval diagnostics, earlier incremental held-out tests, authoritative-metadata runs, and explicitly named machine-Silver agreement runs; representative multi-source/source-disjoint interval benchmark `NOT COMPLETED`.",
+        "- Paper I: `RESULTS_AVAILABLE` for a 35-document/80-interval PDF-content-group held-out authoritative benchmark and a 42-record/787-interval source-disjoint official-database transfer panel across four non-development cantons. Frozen-parser transfer F1 was 0.0025 for Tesseract and 0.0000 for RapidOCR, with candidates on only 2/42 records; representative source-disjoint interval Gold remains `NOT COMPLETED`.",
         "- Paper II: `RESULTS_AVAILABLE` for a real authoritative-metadata abstention study, a controlled Synthetic method ablation, two negative 20-document external/held-out interval applications, one positive frozen 35-document v2 held-out test with F1 0.857 to 0.921 and FCR 0/4, secondary frozen-artifact analyses, and a development-fitted selective-confidence analysis; broader multimodal constraint attribution and larger-sample FCR estimation `NOT COMPLETED`.",
         "- Paper III: `MANUSCRIPT_IN_PROGRESS` with a real structured-source controlled comparison, 35-document first/four-boundary surfaces, 540 seeded repetitions across six error classes, an external 88-document page-coordinate evaluation, and a partial 35-document page-coordinate surface workflow; page-derived collar extraction, real stratigraphic modelling, and timed human study `NOT COMPLETED`.",
         "",

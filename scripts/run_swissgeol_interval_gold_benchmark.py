@@ -559,7 +559,16 @@ def main() -> None:
             else "four acquired non-Thurgau canton collections; agreement includes document extraction error plus possible page/database source mismatch"
         ),
         "wall_time_seconds": wall_seconds,
-        "latency_seconds_per_document_wall": wall_seconds / len(rows) if rows else None,
+        "pipeline_recompute_wall_time_seconds": wall_seconds,
+        "latency_seconds_per_document_wall": (
+            wall_seconds / len(rows)
+            if rows and not any(row["ocr_resume_hit"] for row in prediction_rows)
+            else None
+        ),
+        "latency_exclusion_reason": (
+            "OCR artifacts resumed from a prior run; recompute wall time is not end-to-end latency"
+            if any(row["ocr_resume_hit"] for row in prediction_rows) else None
+        ),
         "peak_process_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
         "ocr_unique_execution_count": len(ocr_cache),
         "ocr_cache_hit_count": sum(row["ocr_cache_hit"] for row in prediction_rows),

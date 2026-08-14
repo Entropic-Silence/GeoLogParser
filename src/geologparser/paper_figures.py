@@ -125,6 +125,73 @@ def save_authoritative_interval_pilot(
     plt.close(fig)
 
 
+def save_source_disjoint_transfer(
+    entries: Sequence[Mapping[str, Any]], repository_root: Path, destination: Path,
+) -> None:
+    """Contrast selected same-source held-out results with external transfer agreement."""
+    values: dict[tuple[str, str], tuple[float, float]] = {}
+    for entry in entries:
+        metrics = json.loads(
+            (repository_root / entry["result_path"] / "metrics.json").read_text()
+        )
+        model = json.loads(
+            (repository_root / entry["result_path"] / "run.json").read_text()
+        )["model"].lower()
+        backend = "Tesseract" if "tesseract" in model else "RapidOCR" if "rapidocr" in model else None
+        if backend is None:
+            continue
+        if "TG_CONTENT_HELDOUT" in entry["experiment_id"]:
+            panel = "Selected Thurgau\nsource-agreement"
+        elif metrics.get("scope") == "source-disjoint authoritative-database interval transfer evaluation":
+            panel = "Four-canton\ndatabase transfer"
+        else:
+            continue
+        values[(panel, backend)] = (
+            float(metrics["interval_metrics"]["interval_f1"]["value"] or 0.0),
+            metrics["documents_with_predictions"] / metrics["document_count"],
+        )
+    panels = ["Selected Thurgau\nsource-agreement", "Four-canton\ndatabase transfer"]
+    backends = ["Tesseract", "RapidOCR"]
+    missing = [(panel, backend) for panel in panels for backend in backends if (panel, backend) not in values]
+    if missing:
+        raise ValueError(f"missing source-disjoint figure inputs: {missing}")
+    plt = _plt()
+    fig, axes = plt.subplots(1, 2, figsize=(10, 4.8))
+    colors = {"Tesseract": "#2f6f8f", "RapidOCR": "#b76e3b"}
+    width = 0.34
+    x = list(range(len(panels)))
+    for offset, backend in zip((-width / 2, width / 2), backends):
+        f1 = [values[(panel, backend)][0] for panel in panels]
+        coverage = [values[(panel, backend)][1] for panel in panels]
+        bars_f1 = axes[0].bar([item + offset for item in x], f1, width, label=backend, color=colors[backend])
+        bars_cov = axes[1].bar([item + offset for item in x], coverage, width, label=backend, color=colors[backend])
+        for axis, bars, numbers in ((axes[0], bars_f1, f1), (axes[1], bars_cov, coverage)):
+            for bar, number_value in zip(bars, numbers):
+                axis.text(
+                    bar.get_x() + bar.get_width() / 2,
+                    min(1.02, number_value + .025),
+                    f"{number_value:.3f}", ha="center", fontsize=8,
+                )
+    axes[0].set_title("Interval F1 / transfer agreement F1")
+    axes[1].set_title("Records with any interval output")
+    for axis in axes:
+        axis.set_xticks(x, panels)
+        axis.set_ylim(0, 1.08)
+        axis.grid(axis="y", alpha=.2)
+    axes[0].set_ylabel("Ratio")
+    axes[1].legend(loc="upper right")
+    fig.suptitle("Frozen-parser performance under source shift")
+    fig.text(
+        .5, .01,
+        "External values are agreement with same-object official database sequences; complete page/database agreement is unverified.",
+        ha="center", fontsize=8,
+    )
+    fig.tight_layout(rect=(0, .05, 1, .94))
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(destination, dpi=180, bbox_inches="tight")
+    plt.close(fig)
+
+
 def save_padova_locations(location_manifest: Path, destination: Path) -> None:
     rows = [json.loads(line) for line in location_manifest.read_text(encoding="utf-8").splitlines() if line]
     groups = {

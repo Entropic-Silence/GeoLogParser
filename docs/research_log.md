@@ -1867,3 +1867,42 @@
 - Next step: investigate layout/visual collar evidence on sources that
   explicitly print elevation, while preserving zero-coverage abstention on
   pages that only state a tolerance.
+
+## 2026-08-14 — Four-canton source-disjoint interval transfer
+
+- Frozen all 42 acquired Swissgeol PDF/database pairs outside the Thurgau
+  development source: Bern 7, Solothurn 3, St. Gallen 26, and Vaud 6. The
+  reference contains 787 official database intervals. Complete page/database
+  interval agreement is unverified, so the tier is
+  `AUTHORITATIVE_STRUCTURED_SOURCE`, not interval Gold.
+- Low-resolution visual hashing identified 35 independent content groups. Eight
+  St. Gallen records share one 21-page report; OCR was executed once for that
+  content, and a content-group-equal macro result was reported alongside the
+  record-weighted result.
+- Formal Tesseract transfer run
+  `P1_SWISSGEOL_CROSS_CANTON_TESSERACT_TRANSFER_003` emitted nine intervals on
+  2/42 records and matched one of 787 references: precision 0.111111, recall
+  0.001271, F1 0.002513, and content-group macro F1 0.003008. Bern,
+  Solothurn, and Vaud had zero matches.
+- Formal RapidOCR transfer run
+  `P1_SWISSGEOL_CROSS_CANTON_RAPIDOCR_TRANSFER_002` emitted seven intervals on
+  the same 2/42 records and matched none: precision, recall, micro F1, and
+  content-group macro F1 were all 0.000000.
+- Post-hoc reference-token visibility diagnostics found parser-section failure
+  despite at least 50% boundary-number visibility in 12 Tesseract records and
+  26 RapidOCR records. Tesseract showed substantial numeric evidence loss in
+  16 records. These counts are diagnostic and cannot distinguish all OCR,
+  formatting, and page/database mismatch mechanisms.
+- Source inspection of the two nonempty records found sample-depth ranges being
+  selected as strata and a critical Tesseract column-fusion event in which a
+  printed 7.00 m boundary contributed to a spurious 217.00 m value.
+- Two interrupted/failed attempts were retained outside the formal index: run
+  001 was stopped after discovering repeated visual content and run 002 exposed
+  a nullable official final-depth field. Both defects were corrected before the
+  indexed run.
+- Decision: retain the very low transfer results as primary evidence of domain
+  shift. Do not tune on these 42 records before reporting the frozen-policy
+  result, and do not label database agreement as page-level extraction accuracy.
+- Next step: evaluate a layout-aware, field-specialized extraction policy on a
+  separately frozen development subset or independent source, preserving these
+  42 records as untouched external evidence for any revised method.

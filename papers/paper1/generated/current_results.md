@@ -29,6 +29,14 @@ These rows use programmatically known Synthetic labels. They validate controlled
 | P1_SWISSGEOL_TG_CONTENT_HELDOUT_RAPIDOCR_FORMAL_005 | B1_rapidocr_onnx_ocr_conservative_interval_parser | 35 | 80 | 79 | 0.684 | 0.675 | 0.679 | 0.000 | 0.000 | 17/35 (0.486) | 4.117 | formal_authoritative_interval |
 The reference contains only interval boundaries from official database records whose complete sequence exactly agrees with an explicit table in the paired official PDF. The reported run is incremental and disjoint from parser-development records, but the source-agreement selection is not a representative random sample and no human annotation is claimed.
 
+### Source-disjoint official-database transfer agreement
+
+| Experiment | Model | Records | Visual content groups | Official intervals | Predicted intervals | Records with predictions | Interval P | Interval R | Interval F1 | Content-group macro F1 | Full-record exact | s/record | Eligibility |
+|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
+| P1_SWISSGEOL_CROSS_CANTON_TESSERACT_TRANSFER_003 | B1_tesseract_ocr_conservative_interval_parser | 42 | 35 | 787 | 9 | 2 | 0.111 | 0.001 | 0.003 | 0.003 | 0/42 (0.000) | TBD | formal_authoritative_source_disjoint_transfer |
+| P1_SWISSGEOL_CROSS_CANTON_RAPIDOCR_TRANSFER_002 | B1_rapidocr_onnx_ocr_conservative_interval_parser | 42 | 35 | 787 | 7 | 2 | 0.000 | 0.000 | 0.000 | 0.000 | 0/42 (0.000) | TBD | formal_authoritative_source_disjoint_transfer |
+These runs apply the frozen Thurgau parser without reference conditioning to all acquired paired records from four non-development cantons. Official database intervals belong to the same borehole objects, but complete page/database agreement was not established; the values therefore measure transfer agreement and combine extraction error with possible source mismatch. Content-group macro F1 prevents one repeated 21-page report from receiving eightfold weight. Both indexed aggregations resumed completed OCR artifacts after earlier interrupted/metric-only runs, so end-to-end latency is not reported.
+
 ### Cross-source authoritative interval diagnostic
 
 | Experiment | Model | Documents | Reference intervals | Predicted intervals | Interval P | Interval R | Interval F1 | Matched top MAE (m) | Matched bottom MAE (m) | Full-document exact | s/document | Eligibility |

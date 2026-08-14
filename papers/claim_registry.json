@@ -1532,6 +1532,65 @@
       "source_path": "datasets/source_verification_ledger.yaml",
       "source_sha256": "9c8802ca1c0a5f5fb90759dcbd241939a71fe0f35ac0c305a429c350e256fd98"
     },
+    "p1.cross_canton_transfer_tesseract": {
+      "paper": "paper1",
+      "experiment_id": "P1_SWISSGEOL_CROSS_CANTON_TESSERACT_TRANSFER_003",
+      "scope": "frozen Thurgau Tesseract/parser transfer agreement against official database intervals from four non-development cantons; page/database agreement unverified",
+      "source_path": "results/2026-08-14/P1_SWISSGEOL_CROSS_CANTON_TESSERACT_TRANSFER_003/metrics.json",
+      "source_sha256": "15e1328a70d50d8b23b091457d75cf111bf04e654b32459f8cb211a6b15d72d3",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 42},
+        {"type": "json_pointer_equals", "pointer": "/content_group_count", "expected": 35},
+        {"type": "json_pointer_equals", "pointer": "/reference_interval_count", "expected": 787},
+        {"type": "json_pointer_equals", "pointer": "/predicted_interval_count", "expected": 9},
+        {"type": "json_pointer_equals", "pointer": "/documents_with_predictions", "expected": 2},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_precision/value", "expected": 0.1111111111111111},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_recall/value", "expected": 0.0012706480304955528},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_f1/value", "expected": 0.002512562814070352},
+        {"type": "json_pointer_equals", "pointer": "/content_group_macro_interval_f1", "expected": 0.003007518796992481},
+        {"type": "json_pointer_equals", "pointer": "/page_database_interval_agreement_verified", "expected": false}
+      ]
+    },
+    "p1.cross_canton_transfer_rapidocr": {
+      "paper": "paper1",
+      "experiment_id": "P1_SWISSGEOL_CROSS_CANTON_RAPIDOCR_TRANSFER_002",
+      "scope": "frozen Thurgau RapidOCR/parser transfer agreement against official database intervals from four non-development cantons; page/database agreement unverified",
+      "source_path": "results/2026-08-14/P1_SWISSGEOL_CROSS_CANTON_RAPIDOCR_TRANSFER_002/metrics.json",
+      "source_sha256": "6541ee5312b3fc1397e8dda69c465332760ac618a265a49dc9338d8f0e1c2b66",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 42},
+        {"type": "json_pointer_equals", "pointer": "/content_group_count", "expected": 35},
+        {"type": "json_pointer_equals", "pointer": "/reference_interval_count", "expected": 787},
+        {"type": "json_pointer_equals", "pointer": "/predicted_interval_count", "expected": 7},
+        {"type": "json_pointer_equals", "pointer": "/documents_with_predictions", "expected": 2},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_precision/value", "expected": 0.0},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_recall/value", "expected": 0.0},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_f1/value", "expected": 0.0},
+        {"type": "json_pointer_equals", "pointer": "/content_group_macro_interval_f1", "expected": 0.0},
+        {"type": "json_pointer_equals", "pointer": "/page_database_interval_agreement_verified", "expected": false}
+      ]
+    },
+    "p1.cross_canton_transfer_error_analysis_tesseract": {
+      "paper": "paper1",
+      "scope": "post-hoc reference-token visibility diagnostic for the cross-canton Tesseract transfer run; not a prediction metric",
+      "source_path": "experiments/paper1/analysis/swissgeol_cross_canton_tesseract_transfer_003.json",
+      "source_sha256": "135d32a04aad61b43bf963ebf8857977eceab05d1c473d4a7f56a95c8ba468ef",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/category_counts/parser_section_failure_with_numeric_evidence", "expected": 12},
+        {"type": "json_pointer_equals", "pointer": "/category_counts/ocr_numeric_evidence_loss", "expected": 16},
+        {"type": "json_pointer_equals", "pointer": "/category_counts/candidate_section_detected", "expected": 2}
+      ]
+    },
+    "p1.cross_canton_transfer_error_analysis_rapidocr": {
+      "paper": "paper1",
+      "scope": "post-hoc reference-token visibility diagnostic for the cross-canton RapidOCR transfer run; not a prediction metric",
+      "source_path": "experiments/paper1/analysis/swissgeol_cross_canton_rapidocr_transfer_002.json",
+      "source_sha256": "06e10b94c63b1be116cec24709a1280ecfaf01376525f351c941d5e5e0231d22",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/category_counts/parser_section_failure_with_numeric_evidence", "expected": 26},
+        {"type": "json_pointer_equals", "pointer": "/category_counts/candidate_section_detected", "expected": 2}
+      ]
+    },
     "p1.swissgeol_authoritative_interval": {
       "paper": "paper1",
       "experiment_id": "P1_SWISSGEOL_TG_CONTENT_HELDOUT_TESSERACT_FORMAL_004",

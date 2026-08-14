@@ -14,7 +14,7 @@
     "zhong2019publaynet"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "a0a6304c3e1d1ea52ab64e48666e9c4ddcc26cb941471224b9dff13e115a2480",
+  "claim_registry_sha256": "4ae7e53a05302aefb07285e0d5f4b939ef1cc5c78543ec8423585a93ed4df51d",
   "claim_source_errors": [],
   "evidence_tags": [
     "p1.b2_padova",
@@ -32,6 +32,10 @@
     "p1.cad_full_svg",
     "p1.cad_priority_fidelity",
     "p1.cross_canton_negative_audit",
+    "p1.cross_canton_transfer_error_analysis_rapidocr",
+    "p1.cross_canton_transfer_error_analysis_tesseract",
+    "p1.cross_canton_transfer_rapidocr",
+    "p1.cross_canton_transfer_tesseract",
     "p1.degradation_inventory",
     "p1.directpdf_padova",
     "p1.international_source_review",
@@ -51,7 +55,7 @@
     "p1.usgs142_cross_source",
     "p1.usgs144_cross_source"
   ],
-  "formal_experiment_count": 13,
+  "formal_experiment_count": 15,
   "headings": [
     "Abstract",
     "1. Introduction",
@@ -66,7 +70,7 @@
     "10. Conclusion",
     "References"
   ],
-  "indexed_experiment_count": 44,
+  "indexed_experiment_count": 46,
   "literature_evidence_errors": [],
   "literature_evidence_path": "docs/literature_evidence.yaml",
   "literature_evidence_sha256": "d36dcd2badac6ba03fcd9842f3a5e7623885fd8f1e55966dceb75eb1795734f5",
@@ -74,7 +78,7 @@
     {
       "exists": true,
       "resolved_path": "papers/paper1/generated/current_results.md",
-      "sha256": "b0c7996bfcd7125a80470f317f6019c9d05b9fe7a3f23044c8fa9a9114c44136",
+      "sha256": "c184a45e42d15792cf502e2e61156df5430d85d393af98df3c3ac709d0a2489a",
       "target": "generated/current_results.md"
     },
     {
@@ -82,6 +86,12 @@
       "resolved_path": "papers/paper1/generated/figures/authoritative_interval_pilot.png",
       "sha256": "1dc909717018ad132a2b7c50c8cbe8ca5207d86340149b1c15da26171de23034",
       "target": "generated/figures/authoritative_interval_pilot.png"
+    },
+    {
+      "exists": true,
+      "resolved_path": "papers/paper1/generated/figures/source_disjoint_transfer.png",
+      "sha256": "8e7ce452783d7521c944ea0a1480a11b0bb49dc855e8d555c7d1be5548660a83",
+      "target": "generated/figures/source_disjoint_transfer.png"
     },
     {
       "exists": true,
@@ -98,7 +108,7 @@
     {
       "exists": true,
       "resolved_path": "docs/generated/publication_readiness.md",
-      "sha256": "75094f84c5b6fe5583f7e43f60c834fb3816f3bfa0c2e88fcebdbe7f4f936668",
+      "sha256": "bf4cb83bd9a8193a6729c7d2837baefd47bc2d6b4af449a06f1213bbd5c1a167",
       "target": "../../docs/generated/publication_readiness.md"
     },
     {
@@ -115,7 +125,7 @@
     }
   ],
   "manuscript_path": "papers/paper1/manuscript.md",
-  "manuscript_sha256": "e0480ef55e72bb429a67b29dc2e20724535f8bd9780dc0091eea802f14ae6b91",
+  "manuscript_sha256": "34fcd08ce717b8199b8dc82601a1f5f05a5fd52f7c60a5328f7f56fd835d9897",
   "missing_bibliography_keys": [],
   "missing_claim_registrations": [],
   "missing_literature_evidence_keys": [],
@@ -138,6 +148,10 @@
     "p1.cad_full_svg",
     "p1.cad_priority_fidelity",
     "p1.cross_canton_negative_audit",
+    "p1.cross_canton_transfer_error_analysis_rapidocr",
+    "p1.cross_canton_transfer_error_analysis_tesseract",
+    "p1.cross_canton_transfer_rapidocr",
+    "p1.cross_canton_transfer_tesseract",
     "p1.degradation_inventory",
     "p1.directpdf_padova",
     "p1.international_source_review",
@@ -159,10 +173,10 @@
   ],
   "result_index_errors": [],
   "result_index_path": "experiments/paper1/result_index.jsonl",
-  "result_index_sha256": "80e2c762a8bb99f086072059716863c1a7e45303ce3f875832086d937313d4a5",
+  "result_index_sha256": "f41e0017da0e468229f818dcc2161be98cba4220fde8ef600631b90ef9fb30e8",
   "structurally_complete": true,
   "submission_ready": false,
   "tbd_or_citation_marker_count": 9,
   "unused_claim_registrations": [],
-  "word_count": 4356
+  "word_count": 4723
 }
