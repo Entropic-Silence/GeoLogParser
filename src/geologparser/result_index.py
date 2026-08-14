@@ -19,7 +19,7 @@ FORMAL_ELIGIBILITY = {
     "formal_benchmark", "formal_silver_benchmark", "formal_method", "formal_synthetic_method",
     "formal_downstream", "formal_synthetic_downstream", "formal_authoritative_metadata",
     "formal_authoritative_metadata_method", "formal_authoritative_metadata_robustness",
-    "formal_source_controlled_downstream",
+    "formal_authoritative_interval", "formal_source_controlled_downstream",
 }
 
 
@@ -54,6 +54,24 @@ def formal_evidence_errors(entry: dict, run: dict, metrics: dict) -> list[str]:
             errors.append("formal_authoritative_metadata requires AUTHORITATIVE_METADATA reference tier")
         if not isinstance(metrics.get("document_count"), int) or metrics.get("document_count", 0) <= 0:
             errors.append("formal_authoritative_metadata requires a positive document_count")
+    elif eligibility == "formal_authoritative_interval":
+        if metrics.get("scope") != "authoritative-interval benchmark evaluation":
+            errors.append(
+                "formal_authoritative_interval requires authoritative interval scope"
+            )
+        if metrics.get("reference_ground_truth_tier") != "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT":
+            errors.append(
+                "formal_authoritative_interval requires GOLD_AUTHORITATIVE_SOURCE_AGREEMENT reference tier"
+            )
+        if not isinstance(metrics.get("document_count"), int) or metrics.get("document_count", 0) <= 0:
+            errors.append("formal_authoritative_interval requires a positive document_count")
+        if (
+            not isinstance(metrics.get("reference_interval_count"), int)
+            or metrics.get("reference_interval_count", 0) <= 0
+        ):
+            errors.append(
+                "formal_authoritative_interval requires a positive reference_interval_count"
+            )
     elif eligibility == "formal_authoritative_metadata_method":
         if metrics.get("scope") != "authoritative-metadata consensus/abstention evaluation":
             errors.append(

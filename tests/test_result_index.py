@@ -123,6 +123,35 @@ def test_formal_authoritative_metadata_method_requires_narrow_scope():
     )
 
 
+def test_formal_authoritative_interval_requires_source_agreement_scope():
+    run = {
+        "config": {"ground_truth_sha256": "a" * 64},
+        "split_version": "source_agreement_explicit_table_v001",
+    }
+    assert formal_evidence_errors(
+        {"paper_eligibility": "formal_authoritative_interval"}, run,
+        {
+            "scope": "authoritative-interval benchmark evaluation",
+            "reference_ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+            "document_count": 9,
+            "reference_interval_count": 21,
+        },
+    ) == []
+    errors = formal_evidence_errors(
+        {"paper_eligibility": "formal_authoritative_interval"}, run,
+        {
+            "scope": "human-GT benchmark evaluation",
+            "reference_ground_truth_tier": "GOLD",
+            "document_count": 0,
+            "reference_interval_count": 0,
+        },
+    )
+    assert any("authoritative interval scope" in error for error in errors)
+    assert any("GOLD_AUTHORITATIVE_SOURCE_AGREEMENT" in error for error in errors)
+    assert any("positive document_count" in error for error in errors)
+    assert any("positive reference_interval_count" in error for error in errors)
+
+
 def test_formal_authoritative_metadata_robustness_requires_narrow_scope():
     run = {"config": {"ground_truth_sha256": "a" * 64}, "split_version": "controlled_v001"}
     assert formal_evidence_errors(
