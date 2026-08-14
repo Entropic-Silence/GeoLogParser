@@ -322,7 +322,13 @@ def interval_prf1(reference_ids: Sequence[set[str]], prediction_ids: Sequence[se
     recall_denominator = true_positive + false_negative
     precision = true_positive / precision_denominator if precision_denominator else None
     recall = true_positive / recall_denominator if recall_denominator else None
-    f1 = 2 * precision * recall / (precision + recall) if precision is not None and recall is not None and precision + recall else None
+    if precision_denominator == 0 and recall_denominator == 0:
+        f1 = None
+    elif true_positive == 0:
+        f1 = 0.0
+    else:
+        assert precision is not None and recall is not None
+        f1 = 2 * precision * recall / (precision + recall)
     return {
         "interval_precision": MetricResult("interval_precision", precision, true_positive, precision_denominator, "ratio"),
         "interval_recall": MetricResult("interval_recall", recall, true_positive, recall_denominator, "ratio"),
@@ -424,10 +430,13 @@ def boundary_matched_interval_metrics(
     true_positive = len(matches)
     precision = true_positive / prediction_count if prediction_count else None
     recall = true_positive / reference_count if reference_count else None
-    f1 = (
-        2 * precision * recall / (precision + recall)
-        if precision is not None and recall is not None and precision + recall else None
-    )
+    if reference_count == 0 and prediction_count == 0:
+        f1 = None
+    elif true_positive == 0:
+        f1 = 0.0
+    else:
+        assert precision is not None and recall is not None
+        f1 = 2 * precision * recall / (precision + recall)
     top_error_sum = sum(match.top_error_m for match in matches)
     bottom_error_sum = sum(match.bottom_error_m for match in matches)
     details = {
