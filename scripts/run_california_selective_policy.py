@@ -59,8 +59,9 @@ def main() -> None:
         for line in args.manifest.read_text(encoding="utf-8").splitlines()
         if line.strip()
     }
-    if {row["record_id"] for row in rows} != manifest_ids:
-        raise ValueError("constraint predictions and dataset manifest do not align")
+    prediction_ids = {row["record_id"] for row in rows}
+    if not prediction_ids or not prediction_ids.issubset(manifest_ids):
+        raise ValueError("constraint prediction IDs are not a non-empty manifest subset")
 
     commit = subprocess.run(
         ["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True, text=True, check=True
