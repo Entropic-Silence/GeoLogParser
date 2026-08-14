@@ -12,7 +12,7 @@
     "shepard1968interpolation"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "498c7cc4c3c1183115675087b5667f142766e20804bf1bc6d6d5e1451f1b0a48",
+  "claim_registry_sha256": "739c590876d42afa34effd0e2625767c611c780faa7c479ee5a7d14b6f52d531",
   "claim_source_errors": [],
   "evidence_tags": [
     "p3.coal602_consensus_qc",

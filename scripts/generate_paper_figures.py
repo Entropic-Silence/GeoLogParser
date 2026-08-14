@@ -16,6 +16,7 @@ from geologparser.paper_figures import (
     save_controlled_error_class_propagation,
     save_page_spatial_surface,
     save_source_disjoint_transfer,
+    save_california_replication,
 )
 from geologparser.result_index import verify_index
 
@@ -36,6 +37,7 @@ def main() -> None:
     parser.add_argument("--output-root", type=Path, default=ROOT / "papers")
     parser.add_argument("--degradation-manifest", type=Path, default=Path("/data/GeoLogParser/artifacts/robustness/unipd_degradation_v001/degradation_manifest.jsonl"))
     parser.add_argument("--location-manifest", type=Path, default=Path("/data/GeoLogParser/datasets/public/unipd_levee_geotech_v001/metadata/location_v001/borehole_locations.jsonl"))
+    parser.add_argument("--california-replication", type=Path, default=ROOT / "experiments/paper1/analysis/california_replication_statistics_v001.json")
     arguments = parser.parse_args()
     indexes = {}
     for paper in ("paper1", "paper2", "paper3"):
@@ -58,9 +60,17 @@ def main() -> None:
         indexes["paper1"], ROOT, paper1 / "source_disjoint_transfer.png",
     )
     outputs.append(paper1 / "source_disjoint_transfer.png")
+    save_california_replication(
+        arguments.california_replication, paper1 / "california_replication.png",
+    )
+    outputs.append(paper1 / "california_replication.png")
     paper2 = arguments.output_root / "paper2/generated/figures"
     save_method_schematic(paper2 / "method_schematic.png")
     outputs.append(paper2 / "method_schematic.png")
+    save_california_replication(
+        arguments.california_replication, paper2 / "california_replication.png",
+    )
+    outputs.append(paper2 / "california_replication.png")
     paper3 = arguments.output_root / "paper3/generated/figures"
     save_padova_locations(arguments.location_manifest, paper3 / "padova_locations.png")
     outputs.append(paper3 / "padova_locations.png")
@@ -81,6 +91,7 @@ def main() -> None:
         "source_manifests": {
             "degradation": {"path": str(arguments.degradation_manifest), "sha256": digest(arguments.degradation_manifest)},
             "locations": {"path": str(arguments.location_manifest), "sha256": digest(arguments.location_manifest)},
+            "california_replication": {"path": str(arguments.california_replication), "sha256": digest(arguments.california_replication)},
         },
         "outputs": [{"path": str(path.relative_to(arguments.output_root)), "sha256": digest(path)} for path in outputs],
     }

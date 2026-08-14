@@ -1,0 +1,526 @@
+{
+  "analysis_version": "california_replication_statistics_v001",
+  "bootstrap_repetitions": 20000,
+  "combined_descriptive": {
+    "constraint_paired_bootstrap": {
+      "bootstrap_repetitions": 20000,
+      "bootstrap_unit": "document",
+      "delta_left_minus_right": {
+        "f1": {
+          "bootstrap_percentile_95_ci": [
+            0.083927936371437,
+            0.14976781147102622
+          ],
+          "bootstrap_probability_delta_gt_zero": 1.0,
+          "observed": 0.11603046272027562
+        },
+        "precision": {
+          "bootstrap_percentile_95_ci": [
+            0.0480797366154416,
+            0.1369089901766687
+          ],
+          "bootstrap_probability_delta_gt_zero": 1.0,
+          "observed": 0.08860854117564287
+        },
+        "recall": {
+          "bootstrap_percentile_95_ci": [
+            0.06766570322646362,
+            0.13120029642545772
+          ],
+          "bootstrap_probability_delta_gt_zero": 1.0,
+          "observed": 0.09850020267531412
+        }
+      },
+      "left": {
+        "f1": 0.5502133712660028,
+        "matched": 967,
+        "precision": 0.9227099236641222,
+        "predicted": 1048,
+        "recall": 0.3919740575597892,
+        "reference": 2467
+      },
+      "right": {
+        "f1": 0.43418290854572716,
+        "matched": 724,
+        "precision": 0.8341013824884793,
+        "predicted": 868,
+        "recall": 0.2934738548844751,
+        "reference": 2467
+      }
+    },
+    "document_count": 150,
+    "interpretation_boundary": "Combined analysis is descriptive because v002 is an external successor selected by the same eligibility policy, not a new population sample with known sampling probabilities.",
+    "ocr_paired_bootstrap": {
+      "bootstrap_repetitions": 20000,
+      "bootstrap_unit": "document",
+      "delta_left_minus_right": {
+        "f1": {
+          "bootstrap_percentile_95_ci": [
+            0.02156252938127113,
+            0.16417790311942293
+          ],
+          "bootstrap_probability_delta_gt_zero": 0.9947,
+          "observed": 0.09405552001069528
+        },
+        "precision": {
+          "bootstrap_percentile_95_ci": [
+            -0.03394301338154362,
+            0.10628831586495044
+          ],
+          "bootstrap_probability_delta_gt_zero": 0.875,
+          "observed": 0.04063927253305588
+        },
+        "recall": {
+          "bootstrap_percentile_95_ci": [
+            0.01781031096704608,
+            0.13496974767192277
+          ],
+          "bootstrap_probability_delta_gt_zero": 0.9945,
+          "observed": 0.07701661937576004
+        }
+      },
+      "left": {
+        "f1": 0.43418290854572716,
+        "matched": 724,
+        "precision": 0.8341013824884793,
+        "predicted": 868,
+        "recall": 0.2934738548844751,
+        "reference": 2467
+      },
+      "right": {
+        "f1": 0.3401273885350319,
+        "matched": 534,
+        "precision": 0.7934621099554234,
+        "predicted": 673,
+        "recall": 0.21645723550871504,
+        "reference": 2467
+      }
+    }
+  },
+  "freezes": {
+    "v001": {
+      "constrained_by_reference_interval_count": {
+        "13_to_24_intervals": {
+          "document_count": 16,
+          "f1": 0.48039215686274506,
+          "matched": 98,
+          "precision": 0.9245283018867925,
+          "predicted": 106,
+          "recall": 0.32450331125827814,
+          "reference": 302
+        },
+        "25_to_60_intervals": {
+          "document_count": 5,
+          "f1": 0.4424778761061947,
+          "matched": 50,
+          "precision": 0.8771929824561403,
+          "predicted": 57,
+          "recall": 0.2958579881656805,
+          "reference": 169
+        },
+        "5_to_12_intervals": {
+          "document_count": 29,
+          "f1": 0.6029850746268657,
+          "matched": 101,
+          "precision": 0.926605504587156,
+          "predicted": 109,
+          "recall": 0.4469026548672566,
+          "reference": 226
+        }
+      },
+      "constraint_paired_bootstrap": {
+        "bootstrap_repetitions": 20000,
+        "bootstrap_unit": "document",
+        "delta_left_minus_right": {
+          "f1": {
+            "bootstrap_percentile_95_ci": [
+              0.05831341843966709,
+              0.1860149985689998
+            ],
+            "bootstrap_probability_delta_gt_zero": 0.99995,
+            "observed": 0.12379735939690956
+          },
+          "precision": {
+            "bootstrap_percentile_95_ci": [
+              -0.017237370839802507,
+              0.06732938386322437
+            ],
+            "bootstrap_probability_delta_gt_zero": 0.84965,
+            "observed": 0.023133484162895845
+          },
+          "recall": {
+            "bootstrap_percentile_95_ci": [
+              0.04781407158252234,
+              0.16985960216238907
+            ],
+            "bootstrap_probability_delta_gt_zero": 1.0,
+            "observed": 0.10760401721664276
+          }
+        },
+        "left": {
+          "f1": 0.5139318885448916,
+          "matched": 249,
+          "precision": 0.9154411764705882,
+          "predicted": 272,
+          "recall": 0.35724533715925394,
+          "reference": 697
+        },
+        "right": {
+          "f1": 0.390134529147982,
+          "matched": 174,
+          "precision": 0.8923076923076924,
+          "predicted": 195,
+          "recall": 0.24964131994261118,
+          "reference": 697
+        }
+      },
+      "document_count": 50,
+      "ocr_paired_bootstrap": {
+        "bootstrap_repetitions": 20000,
+        "bootstrap_unit": "document",
+        "delta_left_minus_right": {
+          "f1": {
+            "bootstrap_percentile_95_ci": [
+              -0.03461631518800645,
+              0.16842898606404277
+            ],
+            "bootstrap_probability_delta_gt_zero": 0.8998,
+            "observed": 0.06481952342060515
+          },
+          "precision": {
+            "bootstrap_percentile_95_ci": [
+              0.007250881028885678,
+              0.17977916039887648
+            ],
+            "bootstrap_probability_delta_gt_zero": 0.98475,
+            "observed": 0.08548951048951059
+          },
+          "recall": {
+            "bootstrap_percentile_95_ci": [
+              -0.03066769025367157,
+              0.1275683222062767
+            ],
+            "bootstrap_probability_delta_gt_zero": 0.87735,
+            "observed": 0.045911047345767564
+          }
+        },
+        "left": {
+          "f1": 0.390134529147982,
+          "matched": 174,
+          "precision": 0.8923076923076924,
+          "predicted": 195,
+          "recall": 0.24964131994261118,
+          "reference": 697
+        },
+        "right": {
+          "f1": 0.32531500572737687,
+          "matched": 142,
+          "precision": 0.8068181818181818,
+          "predicted": 176,
+          "recall": 0.20373027259684362,
+          "reference": 697
+        }
+      },
+      "rapidocr_by_reference_interval_count": {
+        "13_to_24_intervals": {
+          "document_count": 16,
+          "f1": 0.2737430167597765,
+          "matched": 49,
+          "precision": 0.875,
+          "predicted": 56,
+          "recall": 0.16225165562913907,
+          "reference": 302
+        },
+        "25_to_60_intervals": {
+          "document_count": 5,
+          "f1": 0.27450980392156865,
+          "matched": 28,
+          "precision": 0.8,
+          "predicted": 35,
+          "recall": 0.16568047337278108,
+          "reference": 169
+        },
+        "5_to_12_intervals": {
+          "document_count": 29,
+          "f1": 0.5878787878787878,
+          "matched": 97,
+          "precision": 0.9326923076923077,
+          "predicted": 104,
+          "recall": 0.42920353982300885,
+          "reference": 226
+        }
+      },
+      "raw_by_reference_interval_count": {
+        "13_to_24_intervals": {
+          "document_count": 16,
+          "f1": 0.2737430167597765,
+          "matched": 49,
+          "precision": 0.875,
+          "predicted": 56,
+          "recall": 0.16225165562913907,
+          "reference": 302
+        },
+        "25_to_60_intervals": {
+          "document_count": 5,
+          "f1": 0.27450980392156865,
+          "matched": 28,
+          "precision": 0.8,
+          "predicted": 35,
+          "recall": 0.16568047337278108,
+          "reference": 169
+        },
+        "5_to_12_intervals": {
+          "document_count": 29,
+          "f1": 0.5878787878787878,
+          "matched": 97,
+          "precision": 0.9326923076923077,
+          "predicted": 104,
+          "recall": 0.42920353982300885,
+          "reference": 226
+        }
+      },
+      "tesseract_by_reference_interval_count": {
+        "13_to_24_intervals": {
+          "document_count": 16,
+          "f1": 0.26519337016574585,
+          "matched": 48,
+          "precision": 0.8,
+          "predicted": 60,
+          "recall": 0.15894039735099338,
+          "reference": 302
+        },
+        "25_to_60_intervals": {
+          "document_count": 5,
+          "f1": 0.33009708737864074,
+          "matched": 34,
+          "precision": 0.918918918918919,
+          "predicted": 37,
+          "recall": 0.20118343195266272,
+          "reference": 169
+        },
+        "5_to_12_intervals": {
+          "document_count": 29,
+          "f1": 0.3934426229508197,
+          "matched": 60,
+          "precision": 0.759493670886076,
+          "predicted": 79,
+          "recall": 0.26548672566371684,
+          "reference": 226
+        }
+      }
+    },
+    "v002_external": {
+      "constrained_by_reference_interval_count": {
+        "13_to_24_intervals": {
+          "document_count": 48,
+          "f1": 0.5195246179966043,
+          "matched": 306,
+          "precision": 0.9134328358208955,
+          "predicted": 335,
+          "recall": 0.36298932384341637,
+          "reference": 843
+        },
+        "25_to_60_intervals": {
+          "document_count": 18,
+          "f1": 0.6428571428571428,
+          "matched": 315,
+          "precision": 0.9545454545454546,
+          "predicted": 330,
+          "recall": 0.4846153846153846,
+          "reference": 650
+        },
+        "5_to_12_intervals": {
+          "document_count": 34,
+          "f1": 0.4999999999999999,
+          "matched": 97,
+          "precision": 0.8738738738738738,
+          "predicted": 111,
+          "recall": 0.35018050541516244,
+          "reference": 277
+        }
+      },
+      "constraint_paired_bootstrap": {
+        "bootstrap_repetitions": 20000,
+        "bootstrap_unit": "document",
+        "delta_left_minus_right": {
+          "f1": {
+            "bootstrap_percentile_95_ci": [
+              0.07617935232982545,
+              0.15346595888053077
+            ],
+            "bootstrap_probability_delta_gt_zero": 1.0,
+            "observed": 0.11375592897481279
+          },
+          "precision": {
+            "bootstrap_percentile_95_ci": [
+              0.05791045724028637,
+              0.1670839752228966
+            ],
+            "bootstrap_probability_delta_gt_zero": 1.0,
+            "observed": 0.10802147638669757
+          },
+          "recall": {
+            "bootstrap_percentile_95_ci": [
+              0.05830865164598655,
+              0.13409792684982297
+            ],
+            "bootstrap_probability_delta_gt_zero": 1.0,
+            "observed": 0.09491525423728814
+          }
+        },
+        "left": {
+          "f1": 0.5640219952867244,
+          "matched": 718,
+          "precision": 0.9252577319587629,
+          "predicted": 776,
+          "recall": 0.4056497175141243,
+          "reference": 1770
+        },
+        "right": {
+          "f1": 0.4502660663119116,
+          "matched": 550,
+          "precision": 0.8172362555720654,
+          "predicted": 673,
+          "recall": 0.3107344632768362,
+          "reference": 1770
+        }
+      },
+      "document_count": 100,
+      "ocr_paired_bootstrap": {
+        "bootstrap_repetitions": 20000,
+        "bootstrap_unit": "document",
+        "delta_left_minus_right": {
+          "f1": {
+            "bootstrap_percentile_95_ci": [
+              0.016365378987387155,
+              0.19147235072747992
+            ],
+            "bootstrap_probability_delta_gt_zero": 0.98925,
+            "observed": 0.10443457094358338
+          },
+          "precision": {
+            "bootstrap_percentile_95_ci": [
+              -0.06311429429344761,
+              0.10897962974209172
+            ],
+            "bootstrap_probability_delta_gt_zero": 0.7516,
+            "observed": 0.02850386120586823
+          },
+          "recall": {
+            "bootstrap_percentile_95_ci": [
+              0.015257609312020134,
+              0.1630136923528117
+            ],
+            "bootstrap_probability_delta_gt_zero": 0.99045,
+            "observed": 0.08926553672316387
+          }
+        },
+        "left": {
+          "f1": 0.4502660663119116,
+          "matched": 550,
+          "precision": 0.8172362555720654,
+          "predicted": 673,
+          "recall": 0.3107344632768362,
+          "reference": 1770
+        },
+        "right": {
+          "f1": 0.3458314953683282,
+          "matched": 392,
+          "precision": 0.7887323943661971,
+          "predicted": 497,
+          "recall": 0.2214689265536723,
+          "reference": 1770
+        }
+      },
+      "rapidocr_by_reference_interval_count": {
+        "13_to_24_intervals": {
+          "document_count": 48,
+          "f1": 0.4081272084805654,
+          "matched": 231,
+          "precision": 0.7993079584775087,
+          "predicted": 289,
+          "recall": 0.27402135231316727,
+          "reference": 843
+        },
+        "25_to_60_intervals": {
+          "document_count": 18,
+          "f1": 0.5091299677765843,
+          "matched": 237,
+          "precision": 0.8434163701067615,
+          "predicted": 281,
+          "recall": 0.3646153846153846,
+          "reference": 650
+        },
+        "5_to_12_intervals": {
+          "document_count": 34,
+          "f1": 0.4315789473684211,
+          "matched": 82,
+          "precision": 0.7961165048543689,
+          "predicted": 103,
+          "recall": 0.296028880866426,
+          "reference": 277
+        }
+      },
+      "raw_by_reference_interval_count": {
+        "13_to_24_intervals": {
+          "document_count": 48,
+          "f1": 0.4081272084805654,
+          "matched": 231,
+          "precision": 0.7993079584775087,
+          "predicted": 289,
+          "recall": 0.27402135231316727,
+          "reference": 843
+        },
+        "25_to_60_intervals": {
+          "document_count": 18,
+          "f1": 0.5091299677765843,
+          "matched": 237,
+          "precision": 0.8434163701067615,
+          "predicted": 281,
+          "recall": 0.3646153846153846,
+          "reference": 650
+        },
+        "5_to_12_intervals": {
+          "document_count": 34,
+          "f1": 0.4315789473684211,
+          "matched": 82,
+          "precision": 0.7961165048543689,
+          "predicted": 103,
+          "recall": 0.296028880866426,
+          "reference": 277
+        }
+      },
+      "tesseract_by_reference_interval_count": {
+        "13_to_24_intervals": {
+          "document_count": 48,
+          "f1": 0.3415977961432507,
+          "matched": 186,
+          "precision": 0.7560975609756098,
+          "predicted": 246,
+          "recall": 0.2206405693950178,
+          "reference": 843
+        },
+        "25_to_60_intervals": {
+          "document_count": 18,
+          "f1": 0.336996336996337,
+          "matched": 138,
+          "precision": 0.8165680473372781,
+          "predicted": 169,
+          "recall": 0.2123076923076923,
+          "reference": 650
+        },
+        "5_to_12_intervals": {
+          "document_count": 34,
+          "f1": 0.37883008356545955,
+          "matched": 68,
+          "precision": 0.8292682926829268,
+          "predicted": 82,
+          "recall": 0.24548736462093862,
+          "reference": 277
+        }
+      }
+    }
+  },
+  "method": "paired nonparametric document-cluster bootstrap with percentile 95% intervals",
+  "seed": 20260814
+}

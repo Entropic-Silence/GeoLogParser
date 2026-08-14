@@ -1889,6 +1889,22 @@
         {"type": "json_pointer_equals", "pointer": "/constraint_document_comparison/documents_worsened", "expected": 8}
       ]
     },
+    "p1.california_replication_statistics": {
+      "paper": "paper1",
+      "scope": "paired document-cluster bootstrap and fixed interval-count stratification across the two non-overlapping California freezes",
+      "source_path": "experiments/paper1/analysis/california_replication_statistics_v001.json",
+      "source_sha256": "ea77de5b1729bee4e9bf92c957908fd09cdb8df94a232d8967c690ee5bf3c0d6",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/bootstrap_repetitions", "expected": 20000},
+        {"type": "json_pointer_equals", "pointer": "/freezes/v001/ocr_paired_bootstrap/delta_left_minus_right/f1/observed", "expected": 0.06481952342060515},
+        {"type": "json_pointer_equals", "pointer": "/freezes/v001/ocr_paired_bootstrap/delta_left_minus_right/f1/bootstrap_percentile_95_ci/0", "expected": -0.03461631518800645},
+        {"type": "json_pointer_equals", "pointer": "/freezes/v001/ocr_paired_bootstrap/delta_left_minus_right/f1/bootstrap_percentile_95_ci/1", "expected": 0.16842898606404277},
+        {"type": "json_pointer_equals", "pointer": "/freezes/v002_external/ocr_paired_bootstrap/delta_left_minus_right/f1/observed", "expected": 0.10443457094358338},
+        {"type": "json_pointer_equals", "pointer": "/freezes/v002_external/ocr_paired_bootstrap/delta_left_minus_right/f1/bootstrap_percentile_95_ci/0", "expected": 0.016365378987387155},
+        {"type": "json_pointer_equals", "pointer": "/freezes/v002_external/ocr_paired_bootstrap/delta_left_minus_right/f1/bootstrap_percentile_95_ci/1", "expected": 0.19147235072747992},
+        {"type": "json_pointer_equals", "pointer": "/combined_descriptive/ocr_paired_bootstrap/delta_left_minus_right/f1/observed", "expected": 0.09405552001069528}
+      ]
+    },
     "p2.california_constraint_sequence": {
       "paper": "paper2",
       "experiment_id": "P2_CALIFORNIA_WCR_CONSTRAINT_TEST_FORMAL_001",
@@ -1935,6 +1951,21 @@
         {"type": "json_pointer_equals", "pointer": "/false_correction_rate/denominator", "expected": 355},
         {"type": "json_pointer_equals", "pointer": "/false_correction_rate/value", "expected": 0.17746478873239438},
         {"type": "json_pointer_equals", "pointer": "/reference_blinded_decision_policy", "expected": true}
+      ]
+    },
+    "p2.california_replication_statistics": {
+      "paper": "paper2",
+      "scope": "paired document-cluster bootstrap of constraint-guided sequence recovery across two non-overlapping California freezes",
+      "source_path": "experiments/paper1/analysis/california_replication_statistics_v001.json",
+      "source_sha256": "ea77de5b1729bee4e9bf92c957908fd09cdb8df94a232d8967c690ee5bf3c0d6",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/freezes/v001/constraint_paired_bootstrap/delta_left_minus_right/f1/observed", "expected": 0.12379735939690956},
+        {"type": "json_pointer_equals", "pointer": "/freezes/v001/constraint_paired_bootstrap/delta_left_minus_right/f1/bootstrap_percentile_95_ci/0", "expected": 0.05831341843966709},
+        {"type": "json_pointer_equals", "pointer": "/freezes/v001/constraint_paired_bootstrap/delta_left_minus_right/f1/bootstrap_percentile_95_ci/1", "expected": 0.1860149985689998},
+        {"type": "json_pointer_equals", "pointer": "/freezes/v002_external/constraint_paired_bootstrap/delta_left_minus_right/f1/observed", "expected": 0.11375592897481279},
+        {"type": "json_pointer_equals", "pointer": "/freezes/v002_external/constraint_paired_bootstrap/delta_left_minus_right/f1/bootstrap_percentile_95_ci/0", "expected": 0.07617935232982545},
+        {"type": "json_pointer_equals", "pointer": "/freezes/v002_external/constraint_paired_bootstrap/delta_left_minus_right/f1/bootstrap_percentile_95_ci/1", "expected": 0.15346595888053077},
+        {"type": "json_pointer_equals", "pointer": "/combined_descriptive/constraint_paired_bootstrap/delta_left_minus_right/f1/observed", "expected": 0.11603046272027562}
       ]
     },
     "p2.swissgeol_heldout_constraint_reread": {

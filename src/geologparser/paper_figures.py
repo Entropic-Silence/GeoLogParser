@@ -192,6 +192,49 @@ def save_source_disjoint_transfer(
     plt.close(fig)
 
 
+def save_california_replication(analysis_path: Path, destination: Path) -> None:
+    """Plot paired document-bootstrap F1 differences across California freezes."""
+    analysis = json.loads(analysis_path.read_text(encoding="utf-8"))
+    panels = [
+        ("OCR: RapidOCR − Tesseract", "ocr_paired_bootstrap", "#2f6f8f"),
+        ("Constraint sequence − raw", "constraint_paired_bootstrap", "#b76e3b"),
+    ]
+    labels = ["v001 held-out", "v002 external", "Combined\ndescriptive"]
+    sources = [
+        analysis["freezes"]["v001"],
+        analysis["freezes"]["v002_external"],
+        analysis["combined_descriptive"],
+    ]
+    plt = _plt()
+    fig, axes = plt.subplots(1, 2, figsize=(10, 4.8), sharey=True)
+    for axis, (title, key, color) in zip(axes, panels):
+        values = [source[key]["delta_left_minus_right"]["f1"] for source in sources]
+        estimates = [value["observed"] for value in values]
+        lower = [estimate - value["bootstrap_percentile_95_ci"][0] for estimate, value in zip(estimates, values)]
+        upper = [value["bootstrap_percentile_95_ci"][1] - estimate for estimate, value in zip(estimates, values)]
+        x = list(range(len(labels)))
+        axis.errorbar(x, estimates, yerr=[lower, upper], fmt="o", capsize=5, color=color)
+        axis.axhline(0, color="#555555", linewidth=1, linestyle="--")
+        axis.set_xticks(x, labels)
+        axis.set_title(title)
+        axis.grid(axis="y", alpha=.2)
+        for position, estimate in zip(x, estimates):
+            axis.text(position, estimate + .012, f"{estimate:.3f}", ha="center", fontsize=8)
+    axes[0].set_ylabel("Paired pooled-F1 difference")
+    fig.suptitle("California cross-freeze replication (20,000 document-cluster bootstrap samples)")
+    fig.text(
+        .5,
+        .01,
+        "Bars are percentile 95% intervals; combined estimates are descriptive because sampling probabilities are unknown.",
+        ha="center",
+        fontsize=8,
+    )
+    fig.tight_layout(rect=(0, .05, 1, .93))
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(destination, dpi=180, bbox_inches="tight")
+    plt.close(fig)
+
+
 def save_padova_locations(location_manifest: Path, destination: Path) -> None:
     rows = [json.loads(line) for line in location_manifest.read_text(encoding="utf-8").splitlines() if line]
     groups = {

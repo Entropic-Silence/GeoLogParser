@@ -16,7 +16,7 @@
     "zhong2019publaynet"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "498c7cc4c3c1183115675087b5667f142766e20804bf1bc6d6d5e1451f1b0a48",
+  "claim_registry_sha256": "739c590876d42afa34effd0e2625767c611c780faa7c479ee5a7d14b6f52d531",
   "claim_source_errors": [],
   "evidence_tags": [
     "p1.b2_padova",
@@ -38,6 +38,7 @@
     "p1.california_external_rapidocr",
     "p1.california_external_tesseract",
     "p1.california_rapidocr_gold",
+    "p1.california_replication_statistics",
     "p1.california_tesseract_gold",
     "p1.cross_canton_negative_audit",
     "p1.cross_canton_transfer_error_analysis_rapidocr",
@@ -110,6 +111,12 @@
     },
     {
       "exists": true,
+      "resolved_path": "papers/paper1/generated/figures/california_replication.png",
+      "sha256": "70ce627a51018dba268481ded38d50c6eca81ca3c2d70415e4c0a578615d1890",
+      "target": "generated/figures/california_replication.png"
+    },
+    {
+      "exists": true,
       "resolved_path": "papers/paper1/generated/figures/audit_coverage.png",
       "sha256": "8e9e29bf465e6468e8fbdb8e63b395b82c9695f868346dadfdbfe05f082a6427",
       "target": "generated/figures/audit_coverage.png"
@@ -140,7 +147,7 @@
     }
   ],
   "manuscript_path": "papers/paper1/manuscript.md",
-  "manuscript_sha256": "ab18f6684718966f0ec7b679ed5915f083bc0f876531be1dfb4535ecac03441f",
+  "manuscript_sha256": "36e679fc3c55e23fa10102111df0335145e26ef6fb4ca7fc92b4e52e3fea3d50",
   "missing_bibliography_keys": [],
   "missing_claim_registrations": [],
   "missing_literature_evidence_keys": [],
@@ -167,6 +174,7 @@
     "p1.california_external_rapidocr",
     "p1.california_external_tesseract",
     "p1.california_rapidocr_gold",
+    "p1.california_replication_statistics",
     "p1.california_tesseract_gold",
     "p1.cross_canton_negative_audit",
     "p1.cross_canton_transfer_error_analysis_rapidocr",
@@ -206,5 +214,5 @@
   "submission_ready": false,
   "tbd_or_citation_marker_count": 9,
   "unused_claim_registrations": [],
-  "word_count": 5575
+  "word_count": 5701
 }

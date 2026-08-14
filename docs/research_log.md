@@ -2043,3 +2043,13 @@
   of model improvement over v001. The repeated recovery gain and stable
   16.5–17.7% false-correction range strengthen the conclusion that sequence
   constraints are useful but unsafe for unconditional automatic correction.
+- A 20,000-repetition paired document-cluster bootstrap estimated the
+  RapidOCR-minus-Tesseract F1 difference as 0.0648 with 95% interval
+  [−0.0346, 0.1684] on v001 and 0.1044 [0.0164, 0.1915] on v002. The combined
+  descriptive difference was 0.0941 [0.0216, 0.1642]. Therefore the external
+  set and combined analysis support the ordering, while v001 alone does not.
+- Constraint-minus-raw F1 gains were 0.1238 [0.0583, 0.1860] on v001 and
+  0.1138 [0.0762, 0.1535] on v002; the combined descriptive gain was 0.1160
+  [0.0839, 0.1498]. Both independently frozen sets therefore support a
+  positive sequence-recovery effect, distinct from the unresolved correction
+  safety problem measured by FCR.
