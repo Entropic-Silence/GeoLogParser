@@ -77,9 +77,14 @@ def _collar_candidates(text: str) -> list[tuple[float, str]]:
         label = COLLAR_LABEL.search(line)
         if not label:
             continue
-        # A line containing only "+/- 0.5 m" states survey tolerance, not the
-        # elevation.  Restrict values to plausible Swiss terrain elevations.
-        for match in re.finditer(r"(?<!\d)(\d{3}(?:[.,]\d+)?)\s*(?:m\b)?", line[label.end():], re.I):
+        # Require the elevation immediately after the label. A line containing
+        # only "+/- 0.5 m" states survey tolerance, and later numbers can be
+        # drill-rig models (for example "Klemm 805-2"), not elevations.
+        match = re.match(
+            r"\s*:?[ \t]*(\d{3}(?:[.,]\d+)?)\s*(?:m\b)?",
+            line[label.end():], re.IGNORECASE,
+        )
+        if match:
             value = float(match.group(1).replace(",", "."))
             if 200 <= value <= 1_000:
                 candidate = (value, line.strip())

@@ -38,6 +38,10 @@ def test_collar_parser_distinguishes_value_from_tolerance():
     tolerance_only = parse_swissgeol_spatial_text("Bohrkote: ± 0.5m")
     assert tolerance_only.collar_elevation_m is None
     assert tolerance_only.collar_status == "ABSTAIN_NO_EXPLICIT_ELEVATION"
+    equipment_model = parse_swissgeol_spatial_text(
+        "Bohrkote: +/- 0.0 m Bohrkote Bohrgerät Klemm 805-2"
+    )
+    assert equipment_model.collar_elevation_m is None
 
 
 def test_absent_spatial_metadata_is_an_explicit_abstention():

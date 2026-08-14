@@ -58,7 +58,7 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--config", type=Path,
-        default=ROOT / "configs/experiments/P3_SWISSGEOL_EXTERNAL_SPATIAL_METADATA_001.yaml",
+        default=ROOT / "configs/experiments/P3_SWISSGEOL_EXTERNAL_SPATIAL_METADATA_002.yaml",
     )
     parser.add_argument("--manifest", type=Path, default=DEFAULT_MANIFEST)
     parser.add_argument("--results-root", type=Path, default=ROOT / "results")
