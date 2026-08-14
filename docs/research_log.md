@@ -1906,3 +1906,41 @@
 - Next step: evaluate a layout-aware, field-specialized extraction policy on a
   separately frozen development subset or independent source, preserving these
   42 records as untouched external evidence for any revised method.
+
+## 2026-08-14 — Incremental Aargau deep-log transfer extension
+
+- Availability probing separated index size from usable interval pairing.
+  Aargau and Zürich exposed 1,097 and 13,149 profile-filtered index records,
+  respectively, but the first 200 records in each canton had no published
+  stratigraphy paired with the profile. Stratified page sampling found no
+  Zürich pair in 75 sampled records and one Aargau pair on the final page.
+- Freezing all 97 Aargau final-page candidates produced four paired deep-log
+  records and 2,545 official database intervals. The pages are unusually tall:
+  up to 1,684 × 8,504.64 PDF points. The empty Aargau v001 and Zürich v001
+  freezes are retained as negative availability evidence and are not benchmark
+  data.
+- The five-canton v002 transfer freeze contains 46 records, 39 independent
+  visual content groups, and 3,332 official intervals. It adds Aargau without
+  changing or filtering the earlier 42-record panel.
+- Formal Tesseract experiment
+  `P1_SWISSGEOL_FIVE_CANTON_TESSERACT_TRANSFER_001` emitted nine candidates on
+  2/46 records and matched one interval: precision 0.111111, recall 0.000300,
+  F1 0.000599, and content-group macro F1 0.002699. Aargau contributed zero
+  candidates and zero matches. OCR of the four new long pages took 1,166.59 s
+  in the resumed run; complete end-to-end latency is excluded because the
+  previous 42 OCR artifacts were reused.
+- Formal RapidOCR experiment
+  `P1_SWISSGEOL_FIVE_CANTON_RAPIDOCR_TRANSFER_001` emitted seven candidates on
+  2/46 records and matched none. The four Aargau pages again emitted zero
+  candidates. Pillow warned that two rendered pages contained approximately
+  173 million and 107 million pixels, documenting the extreme page geometry.
+- Post-hoc evidence analysis found one 77-interval Aargau page for which native
+  text and Tesseract each contained every official bottom-boundary token, yet
+  the frozen parser emitted no section. RapidOCR retained only 7.8% of those
+  tokens. A 1,319-interval page retained 22.8% under native text and Tesseract
+  but zero under RapidOCR. Thus the new source contains both layout/section
+  failure and OCR numeric-evidence loss.
+- Decision: use v002 as the primary external transfer panel, retain v001 as the
+  preregistered predecessor, and keep all Aargau results out of parser tuning.
+  Future method development must use a separate development source or a newly
+  frozen internal partition.

@@ -230,7 +230,7 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
         "| Experiment | Model | Records | Visual content groups | Official intervals | Predicted intervals | Records with predictions | Interval P | Interval R | Interval F1 | Content-group macro F1 | Full-record exact | s/record | Eligibility |",
         "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|",
         *source_disjoint_transfer_rows,
-        "These runs apply the frozen Thurgau parser without reference conditioning to all acquired paired records from four non-development cantons. Official database intervals belong to the same borehole objects, but complete page/database agreement was not established; the values therefore measure transfer agreement and combine extraction error with possible source mismatch. Content-group macro F1 prevents one repeated 21-page report from receiving eightfold weight. Both indexed aggregations resumed completed OCR artifacts after earlier interrupted/metric-only runs, so end-to-end latency is not reported.",
+        "These runs apply the frozen Thurgau parser without reference conditioning to all paired records in each successively frozen non-development-canton panel. Official database intervals belong to the same borehole objects, but complete page/database agreement was not established; the values therefore measure transfer agreement and combine extraction error with possible source mismatch. Content-group macro F1 prevents one repeated 21-page report from receiving eightfold weight. The indexed aggregations resumed completed OCR artifacts after earlier interrupted/metric-only runs, so end-to-end latency is not reported.",
         "",
         "### Cross-source authoritative interval diagnostic",
         "",

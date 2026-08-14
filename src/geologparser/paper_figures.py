@@ -143,14 +143,14 @@ def save_source_disjoint_transfer(
         if "TG_CONTENT_HELDOUT" in entry["experiment_id"]:
             panel = "Selected Thurgau\nsource-agreement"
         elif metrics.get("scope") == "source-disjoint authoritative-database interval transfer evaluation":
-            panel = "Four-canton\ndatabase transfer"
+            panel = "External source-disjoint\ndatabase transfer"
         else:
             continue
         values[(panel, backend)] = (
             float(metrics["interval_metrics"]["interval_f1"]["value"] or 0.0),
             metrics["documents_with_predictions"] / metrics["document_count"],
         )
-    panels = ["Selected Thurgau\nsource-agreement", "Four-canton\ndatabase transfer"]
+    panels = ["Selected Thurgau\nsource-agreement", "External source-disjoint\ndatabase transfer"]
     backends = ["Tesseract", "RapidOCR"]
     missing = [(panel, backend) for panel in panels for backend in backends if (panel, backend) not in values]
     if missing:

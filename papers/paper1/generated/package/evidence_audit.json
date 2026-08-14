@@ -1,5 +1,6 @@
 {
   "blockers": [
+    "claim registry entries are not cited by manuscript",
     "unresolved TBD/citation markers remain"
   ],
   "broken_local_links": [],
@@ -14,7 +15,7 @@
     "zhong2019publaynet"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "4ae7e53a05302aefb07285e0d5f4b939ef1cc5c78543ec8423585a93ed4df51d",
+  "claim_registry_sha256": "0179fbdaa0d8cc9dcb42ffd2cae2dd0dddffa4e541638c43a118fc1400d94de1",
   "claim_source_errors": [],
   "evidence_tags": [
     "p1.b2_padova",
@@ -32,12 +33,12 @@
     "p1.cad_full_svg",
     "p1.cad_priority_fidelity",
     "p1.cross_canton_negative_audit",
-    "p1.cross_canton_transfer_error_analysis_rapidocr",
-    "p1.cross_canton_transfer_error_analysis_tesseract",
-    "p1.cross_canton_transfer_rapidocr",
-    "p1.cross_canton_transfer_tesseract",
     "p1.degradation_inventory",
     "p1.directpdf_padova",
+    "p1.five_canton_transfer_error_analysis_rapidocr",
+    "p1.five_canton_transfer_error_analysis_tesseract",
+    "p1.five_canton_transfer_rapidocr",
+    "p1.five_canton_transfer_tesseract",
     "p1.international_source_review",
     "p1.padova_annotation_assignment",
     "p1.padova_inventory",
@@ -55,7 +56,7 @@
     "p1.usgs142_cross_source",
     "p1.usgs144_cross_source"
   ],
-  "formal_experiment_count": 15,
+  "formal_experiment_count": 17,
   "headings": [
     "Abstract",
     "1. Introduction",
@@ -70,7 +71,7 @@
     "10. Conclusion",
     "References"
   ],
-  "indexed_experiment_count": 46,
+  "indexed_experiment_count": 48,
   "literature_evidence_errors": [],
   "literature_evidence_path": "docs/literature_evidence.yaml",
   "literature_evidence_sha256": "d36dcd2badac6ba03fcd9842f3a5e7623885fd8f1e55966dceb75eb1795734f5",
@@ -78,7 +79,7 @@
     {
       "exists": true,
       "resolved_path": "papers/paper1/generated/current_results.md",
-      "sha256": "c184a45e42d15792cf502e2e61156df5430d85d393af98df3c3ac709d0a2489a",
+      "sha256": "7e6bb1585aa9986165f41f0568f75b1e4dd4f50ec11cb213f5ab38a073271d85",
       "target": "generated/current_results.md"
     },
     {
@@ -90,7 +91,7 @@
     {
       "exists": true,
       "resolved_path": "papers/paper1/generated/figures/source_disjoint_transfer.png",
-      "sha256": "8e7ce452783d7521c944ea0a1480a11b0bb49dc855e8d555c7d1be5548660a83",
+      "sha256": "b9c6157f2effd77dd648f13bbece0bf12f6155fb04bd2caf8d93a9efc5add563",
       "target": "generated/figures/source_disjoint_transfer.png"
     },
     {
@@ -108,7 +109,7 @@
     {
       "exists": true,
       "resolved_path": "docs/generated/publication_readiness.md",
-      "sha256": "bf4cb83bd9a8193a6729c7d2837baefd47bc2d6b4af449a06f1213bbd5c1a167",
+      "sha256": "88f946e646e4b48050967d2fc563865587f7268c17195a3c64c11b0d37ae43ec",
       "target": "../../docs/generated/publication_readiness.md"
     },
     {
@@ -125,7 +126,7 @@
     }
   ],
   "manuscript_path": "papers/paper1/manuscript.md",
-  "manuscript_sha256": "34fcd08ce717b8199b8dc82601a1f5f05a5fd52f7c60a5328f7f56fd835d9897",
+  "manuscript_sha256": "1ec0fd8e4d4c6ef70196b1448b58f886f97e3c389bbef34f455d0fcaf31bd3f0",
   "missing_bibliography_keys": [],
   "missing_claim_registrations": [],
   "missing_literature_evidence_keys": [],
@@ -154,6 +155,10 @@
     "p1.cross_canton_transfer_tesseract",
     "p1.degradation_inventory",
     "p1.directpdf_padova",
+    "p1.five_canton_transfer_error_analysis_rapidocr",
+    "p1.five_canton_transfer_error_analysis_tesseract",
+    "p1.five_canton_transfer_rapidocr",
+    "p1.five_canton_transfer_tesseract",
     "p1.international_source_review",
     "p1.padova_annotation_assignment",
     "p1.padova_inventory",
@@ -173,10 +178,15 @@
   ],
   "result_index_errors": [],
   "result_index_path": "experiments/paper1/result_index.jsonl",
-  "result_index_sha256": "f41e0017da0e468229f818dcc2161be98cba4220fde8ef600631b90ef9fb30e8",
-  "structurally_complete": true,
+  "result_index_sha256": "51b620d49492dfcd76d8efe121f1bd77e192128fc56d64754c913a94efb07bed",
+  "structurally_complete": false,
   "submission_ready": false,
   "tbd_or_citation_marker_count": 9,
-  "unused_claim_registrations": [],
-  "word_count": 4723
+  "unused_claim_registrations": [
+    "p1.cross_canton_transfer_error_analysis_rapidocr",
+    "p1.cross_canton_transfer_error_analysis_tesseract",
+    "p1.cross_canton_transfer_rapidocr",
+    "p1.cross_canton_transfer_tesseract"
+  ],
+  "word_count": 4812
 }

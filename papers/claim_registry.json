@@ -1591,6 +1591,63 @@
         {"type": "json_pointer_equals", "pointer": "/category_counts/candidate_section_detected", "expected": 2}
       ]
     },
+    "p1.five_canton_transfer_tesseract": {
+      "paper": "paper1",
+      "experiment_id": "P1_SWISSGEOL_FIVE_CANTON_TESSERACT_TRANSFER_001",
+      "scope": "frozen Thurgau Tesseract/parser transfer agreement on a five-canton panel including four incremental Aargau deep logs; page/database agreement unverified",
+      "source_path": "results/2026-08-14/P1_SWISSGEOL_FIVE_CANTON_TESSERACT_TRANSFER_001/metrics.json",
+      "source_sha256": "74f9d50f1c5422fecc3a63fc7b742899c725baae194d98e1e0681f0ca2529d27",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 46},
+        {"type": "json_pointer_equals", "pointer": "/content_group_count", "expected": 39},
+        {"type": "json_pointer_equals", "pointer": "/reference_interval_count", "expected": 3332},
+        {"type": "json_pointer_equals", "pointer": "/predicted_interval_count", "expected": 9},
+        {"type": "json_pointer_equals", "pointer": "/documents_with_predictions", "expected": 2},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_f1/value", "expected": 0.0005986231667165519},
+        {"type": "json_pointer_equals", "pointer": "/content_group_macro_interval_f1", "expected": 0.002699055330634278},
+        {"type": "json_pointer_equals", "pointer": "/source_metrics/swissgeol_aargau/reference_interval_count", "expected": 2545},
+        {"type": "json_pointer_equals", "pointer": "/source_metrics/swissgeol_aargau/predicted_interval_count", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/page_database_interval_agreement_verified", "expected": false}
+      ]
+    },
+    "p1.five_canton_transfer_rapidocr": {
+      "paper": "paper1",
+      "experiment_id": "P1_SWISSGEOL_FIVE_CANTON_RAPIDOCR_TRANSFER_001",
+      "scope": "frozen Thurgau RapidOCR/parser transfer agreement on a five-canton panel including four incremental Aargau deep logs; page/database agreement unverified",
+      "source_path": "results/2026-08-14/P1_SWISSGEOL_FIVE_CANTON_RAPIDOCR_TRANSFER_001/metrics.json",
+      "source_sha256": "e497cf6c41b8489f7f0074bcf766f2763fd2713ef5f60a40c8f7358b052f8372",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 46},
+        {"type": "json_pointer_equals", "pointer": "/content_group_count", "expected": 39},
+        {"type": "json_pointer_equals", "pointer": "/reference_interval_count", "expected": 3332},
+        {"type": "json_pointer_equals", "pointer": "/predicted_interval_count", "expected": 7},
+        {"type": "json_pointer_equals", "pointer": "/documents_with_predictions", "expected": 2},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_f1/value", "expected": 0.0},
+        {"type": "json_pointer_equals", "pointer": "/source_metrics/swissgeol_aargau/reference_interval_count", "expected": 2545},
+        {"type": "json_pointer_equals", "pointer": "/source_metrics/swissgeol_aargau/predicted_interval_count", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/page_database_interval_agreement_verified", "expected": false}
+      ]
+    },
+    "p1.five_canton_transfer_error_analysis_tesseract": {
+      "paper": "paper1",
+      "scope": "post-hoc numeric-token visibility diagnostic for the five-canton Tesseract transfer run; not a prediction metric",
+      "source_path": "experiments/paper1/analysis/swissgeol_five_canton_tesseract_transfer_001.json",
+      "source_sha256": "1275c3d867b718b33483743185fedd79d5a9fd422f63d5ddf9f1e1f9aa66126f",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/category_counts/parser_section_failure_with_numeric_evidence", "expected": 13},
+        {"type": "json_pointer_equals", "pointer": "/category_counts/candidate_section_detected", "expected": 2}
+      ]
+    },
+    "p1.five_canton_transfer_error_analysis_rapidocr": {
+      "paper": "paper1",
+      "scope": "post-hoc numeric-token visibility diagnostic for the five-canton RapidOCR transfer run; not a prediction metric",
+      "source_path": "experiments/paper1/analysis/swissgeol_five_canton_rapidocr_transfer_001.json",
+      "source_sha256": "4cd303353388a4e44495bb871fede8ec471d877dd7e2c1033940d09d2cb63680",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/category_counts/parser_section_failure_with_numeric_evidence", "expected": 26},
+        {"type": "json_pointer_equals", "pointer": "/category_counts/candidate_section_detected", "expected": 2}
+      ]
+    },
     "p1.swissgeol_authoritative_interval": {
       "paper": "paper1",
       "experiment_id": "P1_SWISSGEOL_TG_CONTENT_HELDOUT_TESSERACT_FORMAL_004",
