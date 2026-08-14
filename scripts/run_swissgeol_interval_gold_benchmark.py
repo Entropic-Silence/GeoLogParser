@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 from datetime import date, datetime, timezone
+from importlib.metadata import PackageNotFoundError, version as package_version
 import json
 import platform
 import re
@@ -29,12 +30,14 @@ from geologparser.evaluation import (
 )
 from geologparser.experiment import create_run_directory
 from geologparser.result_index import file_sha256, write_artifact_manifest
+from geologparser.ocr import RapidOCROnnxAdapter
 
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DATASET = Path(
     "/data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v001"
 )
+DEFAULT_RAPIDOCR_MODELS = Path("/data/GeoLogParser/models/rapidocr")
 
 
 def command_version(command: list[str]) -> str:
@@ -84,6 +87,30 @@ def tesseract_text(image: Path, language: str, psm: int) -> str:
             f"{completed.stderr.strip()}"
         )
     return completed.stdout
+
+
+def rapidocr_text(image: Path, adapter: RapidOCROnnxAdapter) -> str:
+    """Serialize detected regions in approximate reading order.
+
+    RapidOCR supplies polygons rather than page text.  The stable top/left
+    ordering is deliberately simple and does not use reference values.
+    """
+    regions = sorted(
+        adapter.extract(image),
+        key=lambda region: (
+            round(region.bbox[1] / 8.0),
+            region.bbox[0],
+            region.bbox[1],
+        ),
+    )
+    return "\n".join(region.text for region in regions if region.text.strip())
+
+
+def installed_version(package: str) -> str:
+    try:
+        return package_version(package)
+    except PackageNotFoundError:
+        return "unknown"
 
 
 def interval_dict(top: float, bottom: float) -> dict:
@@ -149,8 +176,13 @@ def main() -> None:
     parser.add_argument("--audit-summary", type=Path)
     parser.add_argument("--results-root", type=Path, default=ROOT / "results")
     parser.add_argument("--render-dpi", type=int, default=250)
+    parser.add_argument(
+        "--ocr-backend", choices=("tesseract", "rapidocr"), default="tesseract",
+    )
     parser.add_argument("--ocr-language", default="eng")
     parser.add_argument("--psm", type=int, default=3)
+    parser.add_argument("--rapidocr-model-dir", type=Path, default=DEFAULT_RAPIDOCR_MODELS)
+    parser.add_argument("--rapidocr-threads", type=int, default=4)
     parser.add_argument("--parser-version", default="choose_interval_section_v2")
     parser.add_argument("--split-version")
     arguments = parser.parse_args()
@@ -184,8 +216,44 @@ def main() -> None:
     git_commit = subprocess.run(
         ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True, capture_output=True, check=True,
     ).stdout.strip()
-    tesseract_revision = command_version(["tesseract", "--version"])
     poppler_revision = command_version(["pdftoppm", "-v"])
+    rapidocr_adapter = None
+    if arguments.ocr_backend == "tesseract":
+        backend_model = "B1_tesseract_ocr_conservative_interval_parser"
+        backend_revision = command_version(["tesseract", "--version"])
+        backend_software = {"tesseract": backend_revision}
+        backend_config = {
+            "ocr_language": arguments.ocr_language,
+            "tesseract_psm": arguments.psm,
+        }
+    else:
+        rapidocr_adapter = RapidOCROnnxAdapter(
+            model_dir=arguments.rapidocr_model_dir,
+            intra_op_num_threads=arguments.rapidocr_threads,
+        )
+        model_hashes = {
+            path.name: file_sha256(path)
+            for path in sorted(arguments.rapidocr_model_dir.glob("*.onnx"))
+        }
+        if len(model_hashes) != 3:
+            raise ValueError(
+                f"expected three frozen RapidOCR ONNX models, found {len(model_hashes)}"
+            )
+        backend_model = "B1_rapidocr_onnx_ocr_conservative_interval_parser"
+        backend_revision = (
+            f"rapidocr_onnxruntime={installed_version('rapidocr-onnxruntime')};"
+            f"onnxruntime={installed_version('onnxruntime')}"
+        )
+        backend_software = {
+            "rapidocr_onnxruntime": installed_version("rapidocr-onnxruntime"),
+            "onnxruntime": installed_version("onnxruntime"),
+        }
+        backend_config = {
+            "rapidocr_model_dir": str(arguments.rapidocr_model_dir),
+            "rapidocr_model_sha256": model_hashes,
+            "rapidocr_threads": arguments.rapidocr_threads,
+            "region_serialization": "stable_approximate_top_left_v001",
+        }
     started_utc = datetime.now(timezone.utc)
     run = create_run_directory(arguments.results_root, {
         "experiment_id": arguments.experiment_id,
@@ -193,8 +261,8 @@ def main() -> None:
         "date": date.today().isoformat(),
         "dataset_version": dataset_summary["dataset_version"] + "__interval_gold",
         "split_version": arguments.split_version or inferred_split,
-        "model": "B1_tesseract_ocr_conservative_interval_parser",
-        "model_revision": tesseract_revision,
+        "model": backend_model,
+        "model_revision": backend_revision,
         "prompt_version": "not_applicable",
         "seed": 0,
         "hardware": {
@@ -204,13 +272,13 @@ def main() -> None:
         },
         "software": {
             "python": platform.python_version(),
-            "tesseract": tesseract_revision,
             "poppler_pdftoppm": poppler_revision,
+            **backend_software,
         },
         "config": {
             "render_dpi": arguments.render_dpi,
-            "ocr_language": arguments.ocr_language,
-            "tesseract_psm": arguments.psm,
+            "ocr_backend": arguments.ocr_backend,
+            **backend_config,
             "parser": arguments.parser_version,
             "interval_match_tolerance_m": 0.05,
             "ground_truth_sha256": file_sha256(gold_manifest),
@@ -234,7 +302,10 @@ def main() -> None:
                 "complete visible interval table agreed with the official database and are not "
                 "a representative random sample"
             ),
-            "prediction_input": "250-DPI page raster OCR only; native PDF text not used for prediction",
+            "prediction_input": (
+                f"{arguments.render_dpi}-DPI page raster {arguments.ocr_backend} OCR only; "
+                "native PDF text not used for prediction"
+            ),
             "rights_review": dataset_summary["rights_review"],
         },
         "started_utc": started_utc.isoformat(),
@@ -251,10 +322,14 @@ def main() -> None:
         final_depth, references = load_and_verify_reference(row)
         with tempfile.TemporaryDirectory(prefix="geologparser-swissgeol-render-") as temporary:
             pages = render_pdf(Path(row["pdf_path"]), Path(temporary), arguments.render_dpi)
-            page_texts = [
-                tesseract_text(page, arguments.ocr_language, arguments.psm)
-                for page in pages
-            ]
+            if arguments.ocr_backend == "tesseract":
+                page_texts = [
+                    tesseract_text(page, arguments.ocr_language, arguments.psm)
+                    for page in pages
+                ]
+            else:
+                assert rapidocr_adapter is not None
+                page_texts = [rapidocr_text(page, rapidocr_adapter) for page in pages]
         combined_text = "\n\n".join(
             f"===== PAGE {index:03d} =====\n{text}"
             for index, text in enumerate(page_texts, 1)
