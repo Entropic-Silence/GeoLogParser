@@ -1882,3 +1882,46 @@ records:
   - results/2026-08-14/P1_USGS144_CROSS_SOURCE_INTERVAL_FORMAL_001/metrics.json
   registry_status: acquired_authoritative_interval_source_review_pending
   registry_verification_notes: Reference intervals are transcribed from explicit PDF descriptions. Prediction uses rendered page images and Tesseract OCR only; native PDF text is not used by the parser.
+- source_id: usgs151_explicit_lithology_machine_consensus_v001
+  source_name: USGS-151 Lithologic Core Log explicit-interval machine-consensus audit
+  url: TBD
+  source_url: TBD
+  doi: null
+  publisher: U.S. Geological Survey / Idaho National Laboratory project
+  citation: TBD pending exact public item reconstruction
+  retrieval_date: '2026-08-14'
+  local_paths:
+  - /data/GeoLogParser/datasets/public/usgs151_lithology_v001
+  - /data/GeoLogParser/artifacts/source_surveys/usgs151_explicit_intervals_v001
+  file_count_in_local_snapshot: 2
+  local_snapshot_inventory_sha256: null
+  manifest_evidence:
+  - relative_path: USGS151_Lithologic_Log.pdf
+    size_bytes: 196855513
+    sha256: a0719778752d14311b958d6b7b649313c585c35f11980a06ba68019250ecb48f
+  - relative_path: USGS151_DrillerNotes.csv
+    size_bytes: 13392
+    sha256: b39c5c14a0fd38c0c46603c17ed2bf0026165578b06cbabb3398ce75b66cf029
+  access_method: local snapshot; exact public acquisition record pending reconstruction
+  terms_of_use: TBD
+  claimed_license: unclear_pending_item_verification
+  license_url: https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: present_precise_coordinates_in_source
+  verification_status: SOURCE_AND_RIGHTS_PENDING
+  internal_decision: QUARANTINE_FOR_INTERNAL_AUDIT
+  decision: AMBIGUOUS
+  risks:
+  - exact public source record and item-level terms are not yet bound
+  - precise coordinates are printed in the source
+  - consensus reference is produced by two OCR layouts of the same engine and is not independent Ground Truth
+  experiments_or_papers:
+  - paper1_cross_source_transfer_candidate
+  - paper1_failure_analysis
+  requires_human_check_before_submission: true
+  evidence:
+  - scripts/audit_usgs151_explicit_intervals.py
+  - /data/GeoLogParser/artifacts/source_surveys/usgs151_explicit_intervals_v001/audit/summary.json
+  registry_status: acquired_machine_consensus_source_audit_not_gold
+  registry_verification_notes: Exact two-reader agreement retained 61 intervals on 40 pages from 71 PSM-11 and 61 PSM-6 parsed rows. The artifact explicitly records human_reviewed=false and is excluded from Human Gold and formal accuracy claims.

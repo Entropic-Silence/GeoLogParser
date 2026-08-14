@@ -829,3 +829,21 @@ datasets:
     paper_fit: [paper1_cross_source_interval_benchmark, paper1_domain_shift]
     status: acquired_authoritative_interval_source_review_pending
     verification_notes: "Local source file is /data/GeoLogParser/datasets/public/usgs144_summary_v001/USGS144_Well_Summary.pdf, SHA256 bae4d58bda8c5d134be39866f3b5b23fad4b52c8d3f63866873210fd53ef1258. The reference intervals are transcribed from explicit printed descriptions. The raster-only benchmark uses 400-DPI page rendering and Tesseract OCR. The PDF states total depth 638 ft while one explicit interval ends at 639 ft; this inconsistency is preserved and reported rather than corrected."
+
+  - id: usgs151_explicit_lithology_machine_consensus_v001
+    name: "USGS-151 Lithologic Core Log explicit-interval machine-consensus audit"
+    source_organization: "U.S. Geological Survey / Idaho National Laboratory project"
+    url: TBD
+    access_date: "2026-08-14"
+    language: English
+    format: "98-page scanned PDF plus driller-notes CSV"
+    scale: "1 PDF / 98 pages; 61 exact two-layout OCR consensus intervals on 40 pages"
+    downloadable: unknown
+    access_status: "local snapshot audited; exact public item URL and terms not yet reconstructed"
+    license: unclear_pending_item_verification
+    allowed_usage: "internal source audit only"
+    redistribution: prohibited_pending_verification
+    redistribution_policy: "do not redistribute source pages, OCR text, or interval transcription until exact source record and item terms are verified"
+    paper_fit: [paper1_cross_source_transfer_candidate, paper1_failure_analysis]
+    status: acquired_machine_consensus_source_audit_not_gold
+    verification_notes: "The PDF SHA256 is a0719778752d14311b958d6b7b649313c585c35f11980a06ba68019250ecb48f. At 250 DPI, Tesseract PSM 11 parsed 71 explicit LITHOLOGY intervals and PSM 6 parsed 61; 61 rows agreed exactly on page, normalized lithology, top and bottom depth across 40 pages. This is SOURCE_EXPLICIT_MACHINE_CONSENSUS, human_reviewed=false, and is not used as Human Gold or formal accuracy evidence. Audit artifact: /data/GeoLogParser/artifacts/source_surveys/usgs151_explicit_intervals_v001/audit/summary.json."

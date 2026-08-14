@@ -1753,3 +1753,19 @@
 - Interpretation remains deliberately narrow: this is a one-document transfer
   diagnostic, not a representative source-disjoint estimate. Item-level rights
   and redistribution terms remain pending manual pre-submission verification.
+
+## 2026-08-14 — USGS-151 explicit-interval source audit
+
+- The 98-page scanned lithologic core log was rendered at 250 DPI and processed
+  independently with Tesseract PSM 11 and PSM 6. The audit used no native PDF
+  text because the file is image-only.
+- PSM 11 parsed 71 explicit `LITHOLOGY` intervals; PSM 6 parsed 61. Exact
+  agreement on page, normalized lithology, top depth, and bottom depth retained
+  61 intervals across 40 pages. Ten PSM-11-only rows remain unresolved.
+- The output tier is `SOURCE_EXPLICIT_MACHINE_CONSENSUS`, with
+  `human_reviewed=false` and `eligible_for_human_gold_claims=false`. It is a
+  transfer/audit candidate, not a formal accuracy reference.
+- The exact public source record, licence, redistribution scope, and precise-
+  coordinate sensitivity remain unresolved. The files and derived OCR stay
+  local under `/data/GeoLogParser`; the source is recorded as `AMBIGUOUS` in
+  the verification ledger rather than entering the formal benchmark.
