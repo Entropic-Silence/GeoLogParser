@@ -27,6 +27,10 @@
     {
       "path": "paper3/generated/figures/coal602_source_proxy.png",
       "sha256": "1677211e892782771aa99c52dca98fc154130eef04f5c14690fb71539791cc04"
+    },
+    {
+      "path": "paper3/generated/figures/image_boundary_surface.png",
+      "sha256": "729969b0223fdc62262685a2fbd0b406383ab64bbc75e59608616b3df2661b9e"
     }
   ],
   "scope": "auto-generated traceable figures; individual captions retain audit/protocol/design limits",

@@ -4,6 +4,7 @@ from pathlib import Path
 from geologparser.paper_figures import (
     save_degradation_profiles,
     save_error_propagation,
+    save_image_boundary_surface,
     save_method_schematic,
     save_padova_locations,
     save_source_field_propagation,
@@ -54,3 +55,20 @@ def test_propagation_figures_separate_synthetic_and_structured_source(tmp_path: 
     save_source_field_propagation(entries, tmp_path, source_output)
     assert synthetic_output.stat().st_size > 1000
     assert source_output.stat().st_size > 1000
+
+
+def test_image_boundary_surface_figure(tmp_path: Path):
+    result = tmp_path / "image"
+    result.mkdir()
+    (result / "metrics.json").write_text(json.dumps({
+        "comparison": "raw_image_boundary_vs_constraint_reread_boundary_vs_authoritative_reference_surface",
+        "document_count": 35,
+        "query_count": 10,
+        "surface": {
+            "raw": {"boundary_mae_m": 1.4, "surface_error": {"mae_m": 3.4}},
+            "final": {"boundary_mae_m": 0.9, "surface_error": {"mae_m": 3.0}},
+        },
+    }))
+    output = tmp_path / "image.png"
+    save_image_boundary_surface([{"experiment_id": "IMAGE", "result_path": "image"}], tmp_path, output)
+    assert output.stat().st_size > 1000

@@ -215,6 +215,40 @@ def save_source_field_propagation(
     plt.close(fig)
 
 
+def save_image_boundary_surface(
+    entries: Sequence[Mapping[str, Any]], repository_root: Path, destination: Path,
+) -> None:
+    """Plot the frozen real image-boundary downstream diagnostic."""
+    candidates = []
+    for entry in entries:
+        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
+        if metrics.get("comparison") == "raw_image_boundary_vs_constraint_reread_boundary_vs_authoritative_reference_surface":
+            candidates.append((entry, metrics))
+    if not candidates:
+        raise ValueError("no image-boundary surface diagnostic is indexed")
+    entry, metrics = candidates[-1]
+    surface = metrics["surface"]
+    values = [
+        surface["raw"]["boundary_mae_m"], surface["final"]["boundary_mae_m"],
+        surface["raw"]["surface_error"]["mae_m"], surface["final"]["surface_error"]["mae_m"],
+    ]
+    labels = ["Raw\nboundary", "Reread\nboundary", "Raw\nsurface", "Reread\nsurface"]
+    plt = _plt()
+    fig, axis = plt.subplots(figsize=(7.5, 4.8))
+    bars = axis.bar(labels, values, color=["#9c755f", "#59a14f", "#9c755f", "#59a14f"])
+    axis.set_ylabel("MAE (m)")
+    axis.set_title("Held-out image-boundary downstream diagnostic")
+    axis.grid(axis="y", alpha=.2)
+    for bar, value in zip(bars, values):
+        axis.text(bar.get_x() + bar.get_width() / 2, value + max(values) * .02, f"{value:.3f}", ha="center", fontsize=8)
+    axis.text(.01, -.22, f'{metrics["document_count"]} documents; {metrics["query_count"]} IDW queries; coordinates/elevations from authoritative records', transform=axis.transAxes, fontsize=8)
+    axis.text(.99, .97, entry["experiment_id"], transform=axis.transAxes, ha="right", va="top", fontsize=7)
+    fig.tight_layout()
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(destination, dpi=180, bbox_inches="tight")
+    plt.close(fig)
+
+
 def save_method_schematic(destination: Path) -> None:
     plt = _plt()
     fig, axis = plt.subplots(figsize=(12, 4))
