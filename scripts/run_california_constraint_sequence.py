@@ -237,7 +237,7 @@ def main() -> None:
         "experiment_id": args.experiment_id,
         "git_commit": commit,
         "date": date.today().isoformat(),
-        "dataset_version": "california_wcr_gold_v001",
+        "dataset_version": args.manifest.stem,
         "split_version": split["split_version"] + f"_{args.partition}",
         "model": "rapidocr_constraint_guided_sequence_ranker_v001",
         "model_revision": "deterministic_dynamic_programming_v001",
