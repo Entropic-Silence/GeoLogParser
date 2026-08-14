@@ -27,6 +27,7 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
     synthetic_rows = []
     silver_rows = []
     authoritative_interval_rows = []
+    cross_source_interval_rows = []
     conditional_interval_rows = []
     development_interval_rows = []
     robustness_rows = []
@@ -75,7 +76,9 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
                 number(metrics["latency_seconds_per_document_wall"]),
                 entry["paper_eligibility"],
             ]) + " |"
-            if entry["paper_eligibility"] == "formal_authoritative_interval":
+            if metrics.get("source_domain"):
+                cross_source_interval_rows.append(rendered)
+            elif entry["paper_eligibility"] == "formal_authoritative_interval":
                 authoritative_interval_rows.append(rendered)
             elif entry["paper_eligibility"] == "development_authoritative_interval":
                 development_interval_rows.append(rendered)
@@ -202,6 +205,13 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
         "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|",
         *authoritative_interval_rows,
         "The reference contains only interval boundaries from official database records whose complete sequence exactly agrees with an explicit table in the paired official PDF. The reported run is incremental and disjoint from parser-development records, but the source-agreement selection is not a representative random sample and no human annotation is claimed.",
+        "",
+        "### Cross-source authoritative interval diagnostic",
+        "",
+        "| Experiment | Model | Documents | Reference intervals | Predicted intervals | Interval P | Interval R | Interval F1 | Matched top MAE (m) | Matched bottom MAE (m) | Full-document exact | s/document | Eligibility |",
+        "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|",
+        *cross_source_interval_rows,
+        "This table adds a single official USGS Idaho PDF with an explicit generalized-lithology legend. It is a cross-source diagnostic, not evidence for a representative source-disjoint estimate; source rights remain pending manual verification.",
         "",
         "### Reference-conditioned interval diagnostics excluded from formal claims",
         "",

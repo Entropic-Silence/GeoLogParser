@@ -88,7 +88,9 @@ def save_authoritative_interval_pilot(
             candidates.append((entry, metrics))
     if not candidates:
         raise ValueError("no authoritative interval benchmark result is indexed")
-    entry, metrics = candidates[-1]
+    # Keep the main benchmark figure tied to the largest held-out reference
+    # rather than replacing it when a small cross-source diagnostic is added.
+    entry, metrics = max(candidates, key=lambda item: int(item[1].get("document_count", 0)))
     interval = metrics["interval_metrics"]
     labels = ["Precision", "Recall", "F1", "Full-document\nexact"]
     values = [

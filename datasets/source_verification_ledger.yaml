@@ -1803,3 +1803,42 @@ records:
   registry_status: generated_known_ground_truth
   registry_verification_notes: Ground truth is generated from the renderer input records
     and is not external human annotation.
+- source_id: usgs142_generalized_lithology_log_v001
+  source_name: USGS-142 borehole geophysical log with generalized lithology legend
+  url: https://gdr.openei.org/submissions/790
+  source_url: https://gdr.openei.org/submissions/790
+  doi: null
+  publisher: U.S. Geological Survey / Idaho National Laboratory project data release
+  citation: 'USGS-142 borehole geophysical log and generalized lithology legend; official public data release'
+  retrieval_date: '2026-08-14'
+  local_paths:
+  - /data/GeoLogParser/datasets/public/openei_usgs142_v001
+  file_count_in_local_snapshot: 1
+  local_snapshot_inventory_sha256: null
+  manifest_evidence:
+  - relative_path: USGS-142_lithology.pdf
+    size_bytes: 115476
+    sha256: 4eea58daf59f014b5cd71172bc80f0a3a360b8b44fbe2a8494a90b693fcf50d4
+  access_method: official GDR public file download
+  terms_of_use: https://creativecommons.org/licenses/by/4.0/legalcode
+  claimed_license: CC BY 4.0
+  license_url: https://creativecommons.org/licenses/by/4.0/legalcode
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
+  verification_status: CLAIM_CAPTURED
+  internal_decision: USE_WITH_CAUTION
+  decision: ELIGIBLE_INTERNAL_ONLY
+  risks:
+  - source license and embedded-content scope require manual pre-submission verification
+  - one-document source cannot support broad domain-generalization claims by itself
+  experiments_or_papers:
+  - paper1_cross_source_interval_benchmark
+  - paper1_domain_shift
+  requires_human_check_before_submission: true
+  evidence:
+  - datasets/data_registry.yaml
+  - datasets/manifests/usgs142_interval_gold_v001.jsonl
+  - /data/GeoLogParser/datasets/public/openei_usgs142_v001/dataset.json
+  registry_status: acquired_authoritative_interval_source_review_pending
+  registry_verification_notes: Reference intervals are transcribed from the explicit generalized-lithology legend in the official PDF. The benchmark prediction path uses a 400-DPI raster crop and Tesseract OCR; native PDF text is not used for prediction.

@@ -1719,3 +1719,20 @@
   sample is a one-canton source-agreement held-out pilot. The result is indexed
   as `formal_authoritative_boundary_downstream`, while full spatial metadata
   extraction and real stratigraphic modelling remain `TBD`.
+
+## 2026-08-14 — USGS-142 cross-source interval diagnostic
+
+- An official USGS Idaho borehole PDF with an explicit generalized-lithology
+  legend was acquired to test a genuinely different source family. The local
+  file is 115,476 bytes with SHA256
+  `4eea58daf59f014b5cd71172bc80e0a3a360b8b44fbe2a8494a90b693fcf50d4`.
+- The frozen reference contains 12 depth/lithology intervals from the PDF
+  legend. Prediction uses only a 400-DPI raster crop of page 2 and Tesseract
+  PSM 11; native PDF text is excluded from prediction.
+- Experiment `P1_USGS142_CROSS_SOURCE_INTERVAL_FORMAL_002` recovered all 12
+  intervals exactly: precision/recall/F1 `1.000`, complete-document exact
+  `1/1`, and matched top/bottom MAE `0.000 m`.
+- This is a one-document source-specific diagnostic, not representative
+  source-disjoint generalization. The source licence and redistribution scope
+  remain pending manual pre-submission verification and are recorded in the
+  data registry and source ledger.

@@ -792,3 +792,22 @@ datasets:
     paper_fit: [paper3_database_and_model_candidate]
     status: metadata_only_format_outside_phase1_rights_unclear
     verification_notes: "The record describes database and 3D modeling outputs rather than Phase-1 legacy page images. Source borehole quantities are not project inventory counts."
+
+  - id: usgs142_generalized_lithology_log_v001
+    name: "USGS-142 borehole geophysical log with generalized lithology legend"
+    source_organization: "U.S. Geological Survey / Idaho National Laboratory project data release"
+    url: https://gdr.openei.org/submissions/790
+    license_url: https://creativecommons.org/licenses/by/4.0/legalcode
+    access_date: "2026-08-14"
+    language: English
+    format: "two-page native PDF; page 2 contains a raster-readable generalized lithology interval legend"
+    scale: "1 PDF / 2 pages / 12 explicit depth-lithology intervals"
+    downloadable: true
+    access_status: "official public GDR file downloaded and SHA256 frozen"
+    license: "CC BY 4.0 claimed by source metadata; manual pre-submission verification pending"
+    allowed_usage: "internal research evaluation under quarantine; source attribution required"
+    redistribution: pending_manual_review
+    redistribution_policy: "do not redistribute the source PDF or derived page image until source terms, attribution, and embedded-content scope are manually verified"
+    paper_fit: [paper1_cross_source_interval_benchmark, paper1_domain_shift]
+    status: acquired_authoritative_interval_source_review_pending
+    verification_notes: "Local source file is /data/GeoLogParser/datasets/public/openei_usgs142_v001/USGS-142_lithology.pdf, 115476 bytes, SHA256 4eea58daf59f014b5cd71172bc80e0a3a360b8b44fbe2a8494a90b693fcf50d4. Reference intervals come from the explicit 'Generalized Lithology' legend in the official PDF and are scored only after raster OCR decisions are frozen. The source is one document and is not a representative sample."
