@@ -22,6 +22,7 @@ FORMAL_ELIGIBILITY = {
     "formal_authoritative_interval", "formal_authoritative_interval_method",
     "formal_source_controlled_downstream", "formal_authoritative_boundary_downstream",
     "formal_authoritative_controlled_error_downstream",
+    "formal_authoritative_spatial_extraction",
 }
 
 
@@ -260,6 +261,26 @@ def formal_evidence_errors(entry: dict, run: dict, metrics: dict) -> list[str]:
             errors.append(
                 "formal_authoritative_controlled_error_downstream requires all six registered error classes"
             )
+    elif eligibility == "formal_authoritative_spatial_extraction":
+        if metrics.get("scope") != "authoritative heldout spatial-metadata extraction evaluation":
+            errors.append("formal_authoritative_spatial_extraction requires heldout spatial scope")
+        if metrics.get("reference_ground_truth_tier") != "AUTHORITATIVE_METADATA":
+            errors.append("formal_authoritative_spatial_extraction requires authoritative metadata")
+        if metrics.get("data_status") != "native_pdf_direct_text_vs_authoritative_spatial_record":
+            errors.append("formal_authoritative_spatial_extraction requires native-PDF spatial status")
+        if metrics.get("comparison") != "page_explicit_spatial_values_vs_authoritative_database":
+            errors.append("formal_authoritative_spatial_extraction requires page/database comparison")
+        if metrics.get("prediction_reference_conditioning") != "none":
+            errors.append("formal_authoritative_spatial_extraction requires reference-free predictions")
+        if metrics.get("development_evaluation_overlap_count") != 0:
+            errors.append("formal_authoritative_spatial_extraction requires zero split overlap")
+        if metrics.get("human_ground_truth_evidence") is not False:
+            errors.append("formal_authoritative_spatial_extraction must not claim human Ground Truth")
+        if not isinstance(metrics.get("document_count"), int) or metrics.get("document_count", 0) <= 0:
+            errors.append("formal_authoritative_spatial_extraction requires documents")
+        coverage = metrics.get("coordinate_pair_coverage", {})
+        if coverage.get("denominator") != metrics.get("document_count"):
+            errors.append("formal_authoritative_spatial_extraction requires full coverage denominator")
     elif eligibility == "formal_downstream":
         if metrics.get("data_status") != "human_verified_real_site":
             errors.append("formal_downstream requires human_verified_real_site data_status")

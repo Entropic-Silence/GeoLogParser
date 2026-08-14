@@ -288,6 +288,29 @@ def test_formal_authoritative_controlled_error_downstream_requires_full_protocol
     assert any("at least 30 repetitions" in error for error in errors)
 
 
+def test_formal_authoritative_spatial_extraction_requires_external_reference_free_run():
+    run = {"config": {"ground_truth_sha256": "a" * 64}, "split_version": "external_v001"}
+    metrics = {
+        "scope": "authoritative heldout spatial-metadata extraction evaluation",
+        "reference_ground_truth_tier": "AUTHORITATIVE_METADATA",
+        "data_status": "native_pdf_direct_text_vs_authoritative_spatial_record",
+        "comparison": "page_explicit_spatial_values_vs_authoritative_database",
+        "prediction_reference_conditioning": "none",
+        "development_evaluation_overlap_count": 0,
+        "human_ground_truth_evidence": False,
+        "document_count": 88,
+        "coordinate_pair_coverage": {"value": .5, "numerator": 44, "denominator": 88},
+    }
+    assert formal_evidence_errors(
+        {"paper_eligibility": "formal_authoritative_spatial_extraction"}, run, metrics,
+    ) == []
+    errors = formal_evidence_errors(
+        {"paper_eligibility": "formal_authoritative_spatial_extraction"}, run,
+        metrics | {"prediction_reference_conditioning": "database_candidates"},
+    )
+    assert any("reference-free" in error for error in errors)
+
+
 def test_result_index_verifies_recursive_artifact_manifest(tmp_path: Path):
     import json
 
