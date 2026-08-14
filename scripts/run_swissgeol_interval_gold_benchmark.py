@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Run the raster OCR interval baseline on the frozen Swissgeol Gold subset.
+"""Run the raster OCR interval baseline on frozen Swissgeol references.
 
-The reference is intentionally narrow: interval top, bottom, and thickness
-values from official database records whose complete interval sequence agrees
-with an explicit table visible in the paired official PDF.  Selection used
-native PDF text, while this benchmark renders every page and uses only raster
-OCR output for prediction.
+The source-agreement mode uses official database intervals whose complete
+sequence agrees with an explicit table in the paired PDF. The transfer mode
+uses all acquired paired records from non-development cantons and therefore
+measures agreement with the official database, not verified page Ground Truth.
+Both modes render every page and use only raster OCR output for prediction.
 """
 
 from __future__ import annotations
@@ -121,7 +121,9 @@ def interval_dict(top: float, bottom: float) -> dict:
     }
 
 
-def load_and_verify_reference(row: dict) -> tuple[float, list[dict]]:
+def load_and_verify_reference(
+    row: dict, require_source_agreement: bool = True,
+) -> tuple[float, list[dict]]:
     pdf = Path(row["pdf_path"])
     reference_path = Path(row["reference_path"])
     if file_sha256(pdf) != row["pdf_sha256"]:
@@ -137,13 +139,14 @@ def load_and_verify_reference(row: dict) -> tuple[float, list[dict]]:
         ),
         key=lambda item: (item["top_depth_m"], item["bottom_depth_m"]),
     )
-    expected_pairs = [
-        [item["top_depth_m"], item["bottom_depth_m"]] for item in intervals
-    ]
-    if expected_pairs != row["source_interval_evidence"]:
-        raise ValueError(
-            f"frozen source-agreement evidence mismatch: {row['record_id']}"
-        )
+    if require_source_agreement:
+        expected_pairs = [
+            [item["top_depth_m"], item["bottom_depth_m"]] for item in intervals
+        ]
+        if expected_pairs != row["source_interval_evidence"]:
+            raise ValueError(
+                f"frozen source-agreement evidence mismatch: {row['record_id']}"
+            )
     if len(intervals) != row["interval_count"]:
         raise ValueError(f"interval count mismatch: {row['record_id']}")
     return final_depth, intervals
@@ -185,12 +188,20 @@ def main() -> None:
     parser.add_argument("--rapidocr-threads", type=int, default=4)
     parser.add_argument("--parser-version", default="choose_interval_section_v2")
     parser.add_argument("--split-version")
+    parser.add_argument(
+        "--reference-mode",
+        choices=("source_agreement_gold", "official_database_transfer"),
+        default="source_agreement_gold",
+    )
     arguments = parser.parse_args()
     if arguments.render_dpi <= 0:
         raise ValueError("render DPI must be positive")
 
     gold_manifest = arguments.gold_manifest or (
-        arguments.dataset_root / "gold_interval_manifest_v001.jsonl"
+        arguments.dataset_root / (
+            "manifest.jsonl" if arguments.reference_mode == "official_database_transfer"
+            else "gold_interval_manifest_v001.jsonl"
+        )
     )
     audit_summary_path = arguments.audit_summary or (
         arguments.dataset_root / "pairing_audit_summary_v001.json"
@@ -201,15 +212,22 @@ def main() -> None:
         for line in gold_manifest.read_text(encoding="utf-8").splitlines()
         if line.strip()
     ]
-    audit_summary = json.loads(audit_summary_path.read_text(encoding="utf-8"))
-    dataset_summary = json.loads(dataset_summary_path.read_text(encoding="utf-8"))
-    expected_documents_key, expected_intervals_key, inferred_split = manifest_count_keys(
-        gold_manifest.name,
+    audit_summary = (
+        json.loads(audit_summary_path.read_text(encoding="utf-8"))
+        if arguments.reference_mode == "source_agreement_gold" else None
     )
-    if len(rows) != audit_summary[expected_documents_key]:
-        raise ValueError("Gold manifest/document count does not match frozen audit summary")
-    if sum(row["interval_count"] for row in rows) != audit_summary[expected_intervals_key]:
-        raise ValueError("Gold manifest/interval count does not match frozen audit summary")
+    dataset_summary = json.loads(dataset_summary_path.read_text(encoding="utf-8"))
+    expected_documents_key, expected_intervals_key, inferred_split = manifest_count_keys(gold_manifest.name)
+    if arguments.reference_mode == "source_agreement_gold":
+        assert audit_summary is not None
+        if len(rows) != audit_summary[expected_documents_key]:
+            raise ValueError("Gold manifest/document count does not match frozen audit summary")
+        if sum(row["interval_count"] for row in rows) != audit_summary[expected_intervals_key]:
+            raise ValueError("Gold manifest/interval count does not match frozen audit summary")
+    else:
+        inferred_split = "non_thurgau_four_canton_source_disjoint_transfer_v001"
+        if dataset_summary.get("source_count", 0) < 2 or dataset_summary.get("development_source") != "Thurgau":
+            raise ValueError("transfer dataset must contain multiple non-development sources")
     if any(row.get("human_reviewed") is not False for row in rows):
         raise ValueError("benchmark requires explicit human_reviewed=false provenance")
 
@@ -259,7 +277,11 @@ def main() -> None:
         "experiment_id": arguments.experiment_id,
         "git_commit": git_commit,
         "date": date.today().isoformat(),
-        "dataset_version": dataset_summary["dataset_version"] + "__interval_gold",
+        "dataset_version": dataset_summary["dataset_version"] + (
+            "__interval_gold"
+            if arguments.reference_mode == "source_agreement_gold"
+            else "__interval_transfer"
+        ),
         "split_version": arguments.split_version or inferred_split,
         "model": backend_model,
         "model_revision": backend_revision,
@@ -282,9 +304,16 @@ def main() -> None:
             "parser": arguments.parser_version,
             "interval_match_tolerance_m": 0.05,
             "ground_truth_sha256": file_sha256(gold_manifest),
-            "ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+            "ground_truth_tier": (
+                "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT"
+                if arguments.reference_mode == "source_agreement_gold"
+                else "AUTHORITATIVE_STRUCTURED_SOURCE"
+            ),
             "prediction_reference_conditioning": "none",
-            "pairing_audit_summary_sha256": file_sha256(audit_summary_path),
+            "pairing_audit_summary_sha256": (
+                file_sha256(audit_summary_path)
+                if arguments.reference_mode == "source_agreement_gold" else None
+            ),
             "dataset_summary_sha256": file_sha256(dataset_summary_path),
             "evaluated_fields": [
                 "interval.top_depth_m",
@@ -298,10 +327,11 @@ def main() -> None:
                 "source_bbox",
             ],
             "selection_limitation": (
-                "source-agreement explicit-table pilot; documents were selected because the "
-                "complete visible interval table agreed with the official database and are not "
-                "a representative random sample"
+                "source-agreement explicit-table pilot; documents were selected because the complete visible interval table agreed with the official database and are not a representative random sample"
+                if arguments.reference_mode == "source_agreement_gold"
+                else "all acquired paired documents from four non-Thurgau cantons; official database intervals are not verified as complete page-visible Ground Truth"
             ),
+            "reference_mode": arguments.reference_mode,
             "prediction_input": (
                 f"{arguments.render_dpi}-DPI page raster {arguments.ocr_backend} OCR only; "
                 "native PDF text not used for prediction"
@@ -319,7 +349,9 @@ def main() -> None:
 
     for row in rows:
         record_started = time.perf_counter()
-        final_depth, references = load_and_verify_reference(row)
+        final_depth, references = load_and_verify_reference(
+            row, require_source_agreement=arguments.reference_mode == "source_agreement_gold",
+        )
         with tempfile.TemporaryDirectory(prefix="geologparser-swissgeol-render-") as temporary:
             pages = render_pdf(Path(row["pdf_path"]), Path(temporary), arguments.render_dpi)
             if arguments.ocr_backend == "tesseract":
@@ -351,7 +383,13 @@ def main() -> None:
             "pdf_path": row["pdf_path"],
             "pdf_sha256": row["pdf_sha256"],
             "reference_sha256": row["reference_sha256"],
-            "ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+            "ground_truth_tier": (
+                "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT"
+                if arguments.reference_mode == "source_agreement_gold"
+                else "AUTHORITATIVE_STRUCTURED_SOURCE"
+            ),
+            "source_family": row.get("source_family"),
+            "canton": row.get("canton"),
             "human_reviewed": False,
             "page_count": len(pages),
             "ocr_text_path": str(text_path.relative_to(run)),
@@ -379,12 +417,21 @@ def main() -> None:
     document_exact_count = sum(row["document_full_exact"] for row in prediction_rows)
     documents_with_predictions = sum(bool(row["predicted_intervals"]) for row in prediction_rows)
     metrics = {
-        "scope": "authoritative-interval benchmark evaluation",
-        "reference_ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+        "scope": (
+            "authoritative-interval benchmark evaluation"
+            if arguments.reference_mode == "source_agreement_gold"
+            else "source-disjoint authoritative-database interval transfer evaluation"
+        ),
+        "reference_ground_truth_tier": (
+            "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT"
+            if arguments.reference_mode == "source_agreement_gold"
+            else "AUTHORITATIVE_STRUCTURED_SOURCE"
+        ),
         "prediction_reference_conditioning": "none",
         "reference_definition": (
-            "official database interval boundaries with exact complete agreement to an explicit "
-            "interval table in the paired official PDF"
+            "official database interval boundaries with exact complete agreement to an explicit interval table in the paired official PDF"
+            if arguments.reference_mode == "source_agreement_gold"
+            else "official database interval sequence paired to the same borehole object; page/database completeness agreement is unverified"
         ),
         "human_reviewed": False,
         "document_count": len(rows),
@@ -410,13 +457,44 @@ def main() -> None:
             "source_bbox",
         ],
         "selection_limitation": (
-            "source-agreement explicit-table pilot; not a representative random sample of the "
-            "Swissgeol candidate pool"
+            "source-agreement explicit-table pilot; not a representative random sample of the Swissgeol candidate pool"
+            if arguments.reference_mode == "source_agreement_gold"
+            else "four acquired non-Thurgau canton collections; agreement includes document extraction error plus possible page/database source mismatch"
         ),
         "wall_time_seconds": wall_seconds,
         "latency_seconds_per_document_wall": wall_seconds / len(rows) if rows else None,
         "peak_process_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
     }
+    if arguments.reference_mode == "official_database_transfer":
+        source_metrics = {}
+        for source_family in sorted({row["source_family"] for row in prediction_rows}):
+            indexes = [
+                index for index, row in enumerate(prediction_rows)
+                if row["source_family"] == source_family
+            ]
+            source_references = [reference_documents[index] for index in indexes]
+            source_predictions = [prediction_documents[index] for index in indexes]
+            exact_count = sum(prediction_rows[index]["document_full_exact"] for index in indexes)
+            source_metrics[source_family] = {
+                "document_count": len(indexes),
+                "reference_interval_count": sum(len(row) for row in source_references),
+                "predicted_interval_count": sum(len(row) for row in source_predictions),
+                "documents_with_predictions": sum(bool(row) for row in source_predictions),
+                "document_full_exact": {
+                    "value": exact_count / len(indexes),
+                    "numerator": exact_count,
+                    "denominator": len(indexes),
+                },
+                "interval_metrics": metric_dicts(source_references, source_predictions),
+            }
+        metrics.update({
+            "source_count": len(source_metrics),
+            "source_metrics": source_metrics,
+            "development_source": "Thurgau",
+            "development_evaluation_overlap_count": 0,
+            "page_database_interval_agreement_verified": False,
+            "human_ground_truth_evidence": False,
+        })
     (run / "metrics.json").write_text(
         json.dumps(metrics, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
         encoding="utf-8",
@@ -426,6 +504,7 @@ def main() -> None:
         for index in row["unmatched_reference_indices"]:
             error_rows.append({
                 "record_id": row["record_id"],
+                "source_family": row.get("source_family"),
                 "error_type": "missing_interval",
                 "reference_index": index,
                 "reference_interval": row["reference_intervals"][index],
@@ -433,6 +512,7 @@ def main() -> None:
         for index in row["unmatched_prediction_indices"]:
             error_rows.append({
                 "record_id": row["record_id"],
+                "source_family": row.get("source_family"),
                 "error_type": "spurious_interval",
                 "prediction_index": index,
                 "predicted_interval": row["predicted_intervals"][index],
@@ -440,6 +520,7 @@ def main() -> None:
         if not row["predicted_intervals"]:
             error_rows.append({
                 "record_id": row["record_id"],
+                "source_family": row.get("source_family"),
                 "error_type": "interval_section_not_detected",
             })
     (run / "errors.jsonl").write_text(

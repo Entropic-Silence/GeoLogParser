@@ -24,6 +24,7 @@ FORMAL_ELIGIBILITY = {
     "formal_authoritative_controlled_error_downstream",
     "formal_authoritative_spatial_extraction",
     "formal_partial_page_spatial_downstream",
+    "formal_authoritative_source_disjoint_transfer",
 }
 
 
@@ -303,6 +304,25 @@ def formal_evidence_errors(entry: dict, run: dict, metrics: dict) -> list[str]:
             errors.append("formal_partial_page_spatial_downstream requires page coordinates")
         if not isinstance(metrics.get("query_count"), int) or metrics.get("query_count", 0) <= 0:
             errors.append("formal_partial_page_spatial_downstream requires surface queries")
+    elif eligibility == "formal_authoritative_source_disjoint_transfer":
+        if metrics.get("scope") != "source-disjoint authoritative-database interval transfer evaluation":
+            errors.append("formal_authoritative_source_disjoint_transfer requires transfer scope")
+        if metrics.get("reference_ground_truth_tier") != "AUTHORITATIVE_STRUCTURED_SOURCE":
+            errors.append("formal_authoritative_source_disjoint_transfer requires structured-source tier")
+        if metrics.get("prediction_reference_conditioning") != "none":
+            errors.append("formal_authoritative_source_disjoint_transfer requires reference-free prediction")
+        if metrics.get("development_source") != "Thurgau":
+            errors.append("formal_authoritative_source_disjoint_transfer requires declared development source")
+        if metrics.get("development_evaluation_overlap_count") != 0:
+            errors.append("formal_authoritative_source_disjoint_transfer requires zero overlap")
+        if metrics.get("page_database_interval_agreement_verified") is not False:
+            errors.append("formal_authoritative_source_disjoint_transfer must disclose unverified page/database agreement")
+        if metrics.get("human_ground_truth_evidence") is not False:
+            errors.append("formal_authoritative_source_disjoint_transfer must not claim human Ground Truth")
+        if not isinstance(metrics.get("source_count"), int) or metrics.get("source_count", 0) < 2:
+            errors.append("formal_authoritative_source_disjoint_transfer requires at least two sources")
+        if not isinstance(metrics.get("document_count"), int) or metrics.get("document_count", 0) < 20:
+            errors.append("formal_authoritative_source_disjoint_transfer requires at least 20 documents")
     elif eligibility == "formal_downstream":
         if metrics.get("data_status") != "human_verified_real_site":
             errors.append("formal_downstream requires human_verified_real_site data_status")
