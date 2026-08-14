@@ -1512,6 +1512,40 @@
         {"type": "json_pointer_equals", "pointer": "/profiles/jpeg_30/x_coordinate/x_coordinate_mae/value", "expected": 0.0},
         {"type": "json_pointer_equals", "pointer": "/interval_ground_truth_available", "expected": false}
       ]
+    },
+    "p1.bgs_robustness_inventory": {
+      "paper": "paper1",
+      "scope": "controlled degradation inventory derived from 31 real BGS first-page scans; no interval/lithology reference",
+      "source_path": "/data/GeoLogParser/datasets/public/bgs_metadata_robustness_v001/summary.json",
+      "source_sha256": "d61d902b93f28363d2c1c45d3a557371689c82bd25c0cfafd39d529135bc4621",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/source_document_count", "expected": 31},
+        {"type": "json_pointer_equals", "pointer": "/derived_image_count", "expected": 217},
+        {"type": "json_pointer_equals", "pointer": "/profile_count", "expected": 7},
+        {"type": "json_pointer_equals", "pointer": "/render_dpi", "expected": 300},
+        {"type": "json_pointer_equals", "pointer": "/degradation_manifest_sha256", "expected": "5a1205c944a5cb652967b99e6478169805db35f749dffe44124076eafd766628"}
+      ]
+    },
+    "p1.swissgeol_authoritative_interval": {
+      "paper": "paper1",
+      "experiment_id": "P1_SWISSGEOL_TG_INTERVAL_TESSERACT_FORMAL_002",
+      "scope": "9-document source-agreement-selected Swissgeol pilot; prediction uses raster OCR only and no reference fields; official interval boundaries only; no human annotation or representative-sample claim",
+      "source_path": "results/2026-08-14/P1_SWISSGEOL_TG_INTERVAL_TESSERACT_FORMAL_002/metrics.json",
+      "source_sha256": "f0311f6a9ceaa3c2d48637f292d94d2b0602e06af488b20fc29f23ccaf713608",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 9},
+        {"type": "json_pointer_equals", "pointer": "/page_count", "expected": 9},
+        {"type": "json_pointer_equals", "pointer": "/reference_interval_count", "expected": 21},
+        {"type": "json_pointer_equals", "pointer": "/predicted_interval_count", "expected": 16},
+        {"type": "json_pointer_equals", "pointer": "/document_full_exact/numerator", "expected": 6},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_precision/value", "expected": 1.0},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_recall/value", "expected": 0.7619047619047619},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_f1/value", "expected": 0.8648648648648648},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/matched_top_boundary_mae_m/value", "expected": 0.0},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/matched_bottom_boundary_mae_m/value", "expected": 0.0},
+        {"type": "json_pointer_equals", "pointer": "/prediction_reference_conditioning", "expected": "none"},
+        {"type": "json_pointer_equals", "pointer": "/human_reviewed", "expected": false}
+      ]
     }
   }
 }

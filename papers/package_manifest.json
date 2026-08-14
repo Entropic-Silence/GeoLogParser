@@ -3,23 +3,23 @@
   "bibliography_path": "papers/references.bib",
   "bibliography_sha256": "0e1128f75327e013e3168af7326dc48a5f61b480e7c6bbeb2aa6f46ec7fc1bbd",
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "a4cc72653ffe568d290af50174cbc1c1627a72ecc480bc097c8618cf637d9033",
+  "claim_registry_sha256": "0f45578073f5fb27fd68e707fa427348629ddf44644acab8fbee6d881b56f187",
   "literature_evidence_path": "docs/literature_evidence.yaml",
   "literature_evidence_sha256": "d36dcd2badac6ba03fcd9842f3a5e7623885fd8f1e55966dceb75eb1795734f5",
   "package_schema_version": "paper_packages_v001",
   "papers": [
     {
       "evidence_audit_path": "paper1/generated/package/evidence_audit.json",
-      "evidence_audit_sha256": "b235617f420afb7d8110b6edb983b7077ab490aed8aa351c15685dc1538799d5",
+      "evidence_audit_sha256": "016c72b74a5f08e44375d13ab9044af0ae2f3e3576014ae91c3562144d8ce05e",
       "package_label": "DRAFT_NOT_SUBMISSION_READY",
       "paper": "paper1",
       "review_bundle_path": "paper1/generated/package/manuscript_DRAFT_NOT_SUBMISSION_READY.md",
-      "review_bundle_sha256": "425ed89424cc617f51dda25e267f435586d4bc4ce6213911f4ca8c3c6cdebbb7",
+      "review_bundle_sha256": "32f5f345a3f118c3ce71714e76406e7cc6ad2f501a5d98dc63b093c5b820917d",
       "submission_ready": false
     },
     {
       "evidence_audit_path": "paper2/generated/package/evidence_audit.json",
-      "evidence_audit_sha256": "44254be558edc2330a21326abd1a0ed1d86061ba21b7060dabd108bea7451a7a",
+      "evidence_audit_sha256": "b4299b6bc585765148d6a95b1fdb462bf5356e71331a1cc3977d06a5d0c7a3ac",
       "package_label": "DRAFT_NOT_SUBMISSION_READY",
       "paper": "paper2",
       "review_bundle_path": "paper2/generated/package/manuscript_DRAFT_NOT_SUBMISSION_READY.md",
@@ -28,7 +28,7 @@
     },
     {
       "evidence_audit_path": "paper3/generated/package/evidence_audit.json",
-      "evidence_audit_sha256": "8d61ae3d36e28f73f18cc0d3d14285604c9c8594aecf0a65fa346bf1cf5d48bc",
+      "evidence_audit_sha256": "902dddff36feb943b65b13ec495b545e580e0cdf0bdc27753b62e427fa63f6c7",
       "package_label": "DRAFT_NOT_SUBMISSION_READY",
       "paper": "paper3",
       "review_bundle_path": "paper3/generated/package/manuscript_DRAFT_NOT_SUBMISSION_READY.md",

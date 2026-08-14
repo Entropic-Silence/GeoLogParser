@@ -1,6 +1,5 @@
 {
   "blockers": [
-    "manuscript evidence tags are absent from claim registry",
     "unresolved TBD/citation markers remain"
   ],
   "broken_local_links": [],
@@ -15,7 +14,7 @@
     "zhong2019publaynet"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "a4cc72653ffe568d290af50174cbc1c1627a72ecc480bc097c8618cf637d9033",
+  "claim_registry_sha256": "0f45578073f5fb27fd68e707fa427348629ddf44644acab8fbee6d881b56f187",
   "claim_source_errors": [],
   "evidence_tags": [
     "p1.b2_padova",
@@ -43,11 +42,12 @@
     "p1.slopes_content",
     "p1.slopes_rapidocr_coverage",
     "p1.slopes_tesseract_coverage",
+    "p1.swissgeol_authoritative_interval",
     "p1.tiber_content",
     "p1.tiber_rapidocr_coverage",
     "p1.tiber_tesseract_coverage"
   ],
-  "formal_experiment_count": 8,
+  "formal_experiment_count": 9,
   "headings": [
     "Abstract",
     "1. Introduction",
@@ -62,7 +62,7 @@
     "10. Conclusion",
     "References"
   ],
-  "indexed_experiment_count": 36,
+  "indexed_experiment_count": 38,
   "literature_evidence_errors": [],
   "literature_evidence_path": "docs/literature_evidence.yaml",
   "literature_evidence_sha256": "d36dcd2badac6ba03fcd9842f3a5e7623885fd8f1e55966dceb75eb1795734f5",
@@ -70,8 +70,14 @@
     {
       "exists": true,
       "resolved_path": "papers/paper1/generated/current_results.md",
-      "sha256": "1e64d427a113bf174a997698ade5aba451882b4b001102e46a6895f3ab2f3d6d",
+      "sha256": "97251c1998b10702fedf8cc7215470e178ba224a319deddd5f2c40f628d0572b",
       "target": "generated/current_results.md"
+    },
+    {
+      "exists": true,
+      "resolved_path": "papers/paper1/generated/figures/authoritative_interval_pilot.png",
+      "sha256": "f4fbcf62bd5aed058fc982335f89505cad192b0c2e71c4325773ec41e546dbd2",
+      "target": "generated/figures/authoritative_interval_pilot.png"
     },
     {
       "exists": true,
@@ -82,13 +88,13 @@
     {
       "exists": true,
       "resolved_path": "papers/paper1/generated/figures/degradation_inputs.png",
-      "sha256": "8f5e1ab2aa32beb9c2b8af17fb924f806d756a6f225a2d6c82effc379e319969",
+      "sha256": "96ba230d3c91970c8cb2a874083fd045b2f3b933002d050012811ab43dabf149",
       "target": "generated/figures/degradation_inputs.png"
     },
     {
       "exists": true,
       "resolved_path": "docs/generated/publication_readiness.md",
-      "sha256": "4f98a18866cba150df54c617c0b4066d0846d6e1168986a05c537b4033a6b12b",
+      "sha256": "e7ed0b19b9e7cc1ac114bb4b5032919bce5ed4088e0897d1b10d23ebc8293309",
       "target": "../../docs/generated/publication_readiness.md"
     },
     {
@@ -105,11 +111,9 @@
     }
   ],
   "manuscript_path": "papers/paper1/manuscript.md",
-  "manuscript_sha256": "4b8aa544e61080772a8f69d12ce36c7080189080c07aa1219d182765111894fd",
+  "manuscript_sha256": "06fdd7b7fcba37e9c3d539939f7e5f156809dad5ba016239c1d8023281561fd5",
   "missing_bibliography_keys": [],
-  "missing_claim_registrations": [
-    "p1.bgs_robustness_inventory"
-  ],
+  "missing_claim_registrations": [],
   "missing_literature_evidence_keys": [],
   "missing_required_sections": [],
   "package_label": "DRAFT_NOT_SUBMISSION_READY",
@@ -124,6 +128,7 @@
     "p1.b6_padova",
     "p1.bgs_metadata_rapidocr31",
     "p1.bgs_metadata_tesseract31",
+    "p1.bgs_robustness_inventory",
     "p1.bgs_robustness_rapidocr",
     "p1.bgs_robustness_tesseract",
     "p1.cad_full_svg",
@@ -139,16 +144,17 @@
     "p1.slopes_content",
     "p1.slopes_rapidocr_coverage",
     "p1.slopes_tesseract_coverage",
+    "p1.swissgeol_authoritative_interval",
     "p1.tiber_content",
     "p1.tiber_rapidocr_coverage",
     "p1.tiber_tesseract_coverage"
   ],
   "result_index_errors": [],
   "result_index_path": "experiments/paper1/result_index.jsonl",
-  "result_index_sha256": "d65eada928ec83241dcfecb41099c778628042573ec25fe60bda1362ee89f966",
-  "structurally_complete": false,
+  "result_index_sha256": "40ca7f47efb0ff403458d7fe7251b7681e92b4faa27632f01661c971e5293d33",
+  "structurally_complete": true,
   "submission_ready": false,
   "tbd_or_citation_marker_count": 9,
   "unused_claim_registrations": [],
-  "word_count": 3144
+  "word_count": 3572
 }

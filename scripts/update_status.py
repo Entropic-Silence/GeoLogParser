@@ -38,6 +38,19 @@ def main() -> None:
     silver = json.loads(silver_summary_path.read_text(encoding="utf-8")) if silver_summary_path.is_file() else {}
     padova_silver_summary = Path("/data/GeoLogParser/artifacts/silver/unipd_field_silver_v003/summary.json")
     padova_silver = json.loads(padova_silver_summary.read_text(encoding="utf-8")) if padova_silver_summary.is_file() else {}
+    swissgeol_gold_manifest = Path(
+        "/data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v001/"
+        "gold_interval_manifest_v001.jsonl"
+    )
+    swissgeol_gold_rows = [
+        json.loads(line)
+        for line in swissgeol_gold_manifest.read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    ] if swissgeol_gold_manifest.is_file() else []
+    authoritative_gold_documents = len(swissgeol_gold_rows)
+    authoritative_gold_intervals = sum(
+        int(row.get("interval_count", 0)) for row in swissgeol_gold_rows
+    )
     readiness = json.loads((ROOT / "docs/generated/publication_readiness.json").read_text(encoding="utf-8"))
     rows = []
     for paper, value in sorted(readiness.get("paper_indexes", {}).items()):
@@ -53,7 +66,8 @@ def main() -> None:
         "",
         "| Tier | Count | Meaning |",
         "|---|---:|---|",
-        f"| Real Gold | 0 | No verified human/public authoritative image-to-interval GT is currently frozen; authoritative metadata benchmark is tracked separately |",
+        "| Human-verified Gold | 0 | No project annotation has yet passed the independent human Ground-Truth gate |",
+        f"| Authoritative interval Gold | {authoritative_gold_documents} documents / {authoritative_gold_intervals} intervals | Official database boundaries with exact complete agreement to an explicit table in the paired PDF; interval boundaries only; no human annotation claimed |",
         f"| Authoritative metadata | {readiness.get('paper_indexes', {}).get('paper1', {}).get('eligibility_counts', {}).get('formal_authoritative_metadata', 0)} runs | Official metadata paired with scans; no interval/lithology labels |",
         f"| Silver | {silver.get('source_item_count', 0) + padova_silver.get('source_item_count', 0)} | Machine-adjudicated candidate labels; not Gold |",
         f"| Synthetic | {synthetic.get('count', 0)} | Known programmatic labels; controlled experiments only |",
@@ -80,15 +94,16 @@ def main() -> None:
         "",
         "## Paper status",
         "",
-        "- Paper I: `RESULTS_AVAILABLE` for explicitly named machine-Silver agreement runs; Real Gold benchmark `NOT COMPLETED`.",
+        "- Paper I: `RESULTS_AVAILABLE` for the authoritative source-agreement interval pilot, authoritative-metadata runs, and explicitly named machine-Silver agreement runs; representative heterogeneous/disjoint interval benchmark `NOT COMPLETED`.",
         "- Paper II: `RESULTS_AVAILABLE` for a real authoritative-metadata abstention study and controlled Synthetic method ablation; real interval-level ablation `NOT COMPLETED`.",
         "- Paper III: `RESULTS_AVAILABLE` for a real structured-source controlled spatial comparison and controlled Synthetic downstream comparison; image-derived real-site comparison `NOT COMPLETED`.",
         "",
         "## Boundary",
         "",
-        "Synthetic and Silver outputs are never promoted to human Gold. Automated ",
-        "compliance is limited to captured licence/source evidence and text metadata; ",
-        "visual privacy, sensitive-location absence, and geological correctness remain ",
+        "Synthetic and Silver outputs are never promoted to human Gold. The authoritative",
+        "interval tier is limited to source-agreed numeric boundaries and is not described",
+        "as human annotation. Automated compliance is limited to captured licence/source",
+        "evidence and text metadata; visual privacy, sensitive-location absence, and geological correctness remain",
         "unestablished without the corresponding evidence.",
         "",
     ])
