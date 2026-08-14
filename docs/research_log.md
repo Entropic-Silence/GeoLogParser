@@ -1736,3 +1736,20 @@
   source-disjoint generalization. The source licence and redistribution scope
   remain pending manual pre-submission verification and are recorded in the
   data registry and source ledger.
+
+## 2026-08-14 — USGS-144 cross-source interval diagnostic
+
+- A second official Idaho release, USGS-144, was frozen as a separate source
+  diagnostic. The local three-page PDF has SHA256
+  `bae4d58bda8c5d134be39866f3b5b23fad4b52c8d3f63866873210fd53ef1258`.
+- The reference manifest preserves eight explicit depth/lithology descriptions,
+  including the printed 635–639 ft interval even though the header reports a
+  638 ft total depth. No correction was applied to resolve this source
+  inconsistency.
+- Experiment `P1_USGS144_CROSS_SOURCE_INTERVAL_FORMAL_001` rendered all three
+  pages at 400 DPI and used Tesseract PSM 11 without native-PDF text. It
+  recovered 8/8 intervals exactly: precision/recall/F1 `1.000`, complete-
+  document exact `1/1`, and matched top/bottom MAE `0.000 m`.
+- Interpretation remains deliberately narrow: this is a one-document transfer
+  diagnostic, not a representative source-disjoint estimate. Item-level rights
+  and redistribution terms remain pending manual pre-submission verification.
