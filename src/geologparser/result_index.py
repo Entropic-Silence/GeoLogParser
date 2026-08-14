@@ -323,6 +323,10 @@ def formal_evidence_errors(entry: dict, run: dict, metrics: dict) -> list[str]:
             errors.append("formal_authoritative_source_disjoint_transfer requires at least two sources")
         if not isinstance(metrics.get("document_count"), int) or metrics.get("document_count", 0) < 20:
             errors.append("formal_authoritative_source_disjoint_transfer requires at least 20 documents")
+        if not isinstance(metrics.get("content_group_count"), int) or metrics.get("content_group_count", 0) < 2:
+            errors.append("formal_authoritative_source_disjoint_transfer requires content-group reporting")
+        if metrics.get("content_group_count", 0) > metrics.get("document_count", 0):
+            errors.append("formal_authoritative_source_disjoint_transfer has invalid content groups")
     elif eligibility == "formal_downstream":
         if metrics.get("data_status") != "human_verified_real_site":
             errors.append("formal_downstream requires human_verified_real_site data_status")

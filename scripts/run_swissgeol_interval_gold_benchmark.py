@@ -161,6 +161,43 @@ def metric_dicts(reference_documents: list[list[dict]], prediction_documents: li
     }
 
 
+def interval_f1(row: dict) -> float:
+    matched = int(row["matched_interval_count"])
+    denominator = len(row["reference_intervals"]) + len(row["predicted_intervals"])
+    return (2.0 * matched / denominator) if denominator else 1.0
+
+
+def content_group_summary(rows: list[dict]) -> dict:
+    groups: dict[str, list[dict]] = {}
+    for row in rows:
+        groups.setdefault(row["content_group_id"], []).append(row)
+    group_f1 = [
+        sum(interval_f1(row) for row in group_rows) / len(group_rows)
+        for group_rows in groups.values()
+    ]
+    exact_groups = sum(
+        all(row["document_full_exact"] for row in group_rows)
+        for group_rows in groups.values()
+    )
+    return {
+        "content_group_count": len(groups),
+        "duplicate_record_count": len(rows) - len(groups),
+        "maximum_records_per_content_group": max(map(len, groups.values()), default=0),
+        "groups_with_predictions": sum(
+            any(row["predicted_intervals"] for row in group_rows)
+            for group_rows in groups.values()
+        ),
+        "content_group_macro_interval_f1": (
+            sum(group_f1) / len(group_f1) if group_f1 else None
+        ),
+        "content_group_full_exact": {
+            "value": exact_groups / len(groups) if groups else None,
+            "numerator": exact_groups,
+            "denominator": len(groups),
+        },
+    }
+
+
 def manifest_count_keys(name: str) -> tuple[str, str, str]:
     if "heldout" in name:
         return "heldout_documents", "heldout_intervals", "content_group_heldout"
@@ -332,6 +369,11 @@ def main() -> None:
                 else "all acquired paired documents from four non-Thurgau cantons; official database intervals are not verified as complete page-visible Ground Truth"
             ),
             "reference_mode": arguments.reference_mode,
+            "ocr_cache_key": (
+                "visual_content_sha256_36dpi_grayscale"
+                if arguments.reference_mode == "official_database_transfer"
+                else "pdf_sha256"
+            ),
             "prediction_input": (
                 f"{arguments.render_dpi}-DPI page raster {arguments.ocr_backend} OCR only; "
                 "native PDF text not used for prediction"
@@ -345,27 +387,35 @@ def main() -> None:
     prediction_rows: list[dict] = []
     reference_documents: list[list[dict]] = []
     prediction_documents: list[list[dict]] = []
+    ocr_cache: dict[str, tuple[str, int]] = {}
     total_started = time.perf_counter()
 
-    for row in rows:
+    for record_number, row in enumerate(rows, 1):
         record_started = time.perf_counter()
         final_depth, references = load_and_verify_reference(
             row, require_source_agreement=arguments.reference_mode == "source_agreement_gold",
         )
-        with tempfile.TemporaryDirectory(prefix="geologparser-swissgeol-render-") as temporary:
-            pages = render_pdf(Path(row["pdf_path"]), Path(temporary), arguments.render_dpi)
-            if arguments.ocr_backend == "tesseract":
-                page_texts = [
-                    tesseract_text(page, arguments.ocr_language, arguments.psm)
-                    for page in pages
-                ]
-            else:
-                assert rapidocr_adapter is not None
-                page_texts = [rapidocr_text(page, rapidocr_adapter) for page in pages]
-        combined_text = "\n\n".join(
-            f"===== PAGE {index:03d} =====\n{text}"
-            for index, text in enumerate(page_texts, 1)
-        )
+        content_group_id = row.get("visual_content_sha256", row["pdf_sha256"])
+        cache_hit = content_group_id in ocr_cache
+        if cache_hit:
+            combined_text, page_count = ocr_cache[content_group_id]
+        else:
+            with tempfile.TemporaryDirectory(prefix="geologparser-swissgeol-render-") as temporary:
+                pages = render_pdf(Path(row["pdf_path"]), Path(temporary), arguments.render_dpi)
+                if arguments.ocr_backend == "tesseract":
+                    page_texts = [
+                        tesseract_text(page, arguments.ocr_language, arguments.psm)
+                        for page in pages
+                    ]
+                else:
+                    assert rapidocr_adapter is not None
+                    page_texts = [rapidocr_text(page, rapidocr_adapter) for page in pages]
+            page_count = len(page_texts)
+            combined_text = "\n\n".join(
+                f"===== PAGE {index:03d} =====\n{text}"
+                for index, text in enumerate(page_texts, 1)
+            )
+            ocr_cache[content_group_id] = (combined_text, page_count)
         text_path = ocr_text_root / f"{row['record_id']}.txt"
         text_path.write_text(combined_text, encoding="utf-8")
         # The reference final depth is loaded only to validate the frozen
@@ -391,7 +441,9 @@ def main() -> None:
             "source_family": row.get("source_family"),
             "canton": row.get("canton"),
             "human_reviewed": False,
-            "page_count": len(pages),
+            "content_group_id": content_group_id,
+            "ocr_cache_hit": cache_hit,
+            "page_count": page_count,
             "ocr_text_path": str(text_path.relative_to(run)),
             "ocr_text_sha256": file_sha256(text_path),
             "reference_intervals": references,
@@ -404,6 +456,11 @@ def main() -> None:
         })
         reference_documents.append(references)
         prediction_documents.append(predictions)
+        print(
+            f"[{record_number}/{len(rows)}] {row['record_id']} pages={page_count} "
+            f"predictions={len(predictions)} cache_hit={cache_hit}",
+            flush=True,
+        )
 
     wall_seconds = time.perf_counter() - total_started
     (run / "predictions.jsonl").write_text(
@@ -464,8 +521,11 @@ def main() -> None:
         "wall_time_seconds": wall_seconds,
         "latency_seconds_per_document_wall": wall_seconds / len(rows) if rows else None,
         "peak_process_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+        "ocr_unique_execution_count": len(ocr_cache),
+        "ocr_cache_hit_count": sum(row["ocr_cache_hit"] for row in prediction_rows),
     }
     if arguments.reference_mode == "official_database_transfer":
+        metrics.update(content_group_summary(prediction_rows))
         source_metrics = {}
         for source_family in sorted({row["source_family"] for row in prediction_rows}):
             indexes = [
@@ -486,6 +546,7 @@ def main() -> None:
                     "denominator": len(indexes),
                 },
                 "interval_metrics": metric_dicts(source_references, source_predictions),
+                **content_group_summary([prediction_rows[index] for index in indexes]),
             }
         metrics.update({
             "source_count": len(source_metrics),
