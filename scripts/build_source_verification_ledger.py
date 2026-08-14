@@ -33,6 +33,7 @@ LOCAL_DIRS = {
     "unipd_levee_geotech_v001": DATA_ROOT / "datasets/public/unipd_levee_geotech_v001",
     "mendeley_borehole_log_collection_v002": DATA_ROOT / "datasets/public/mendeley_borehole_logs_v002",
     "bgs_onshore_borehole_records": DATA_ROOT / "datasets/public/bgs_authoritative_metadata_v001",
+    "swissgeol_thurgau_paired_v001": DATA_ROOT / "datasets/public/swissgeol_thurgau_paired_v001",
     "mendeley_binhai_cptu_borehole_v002": DATA_ROOT / "datasets/public/mendeley_binhai_cptu_borehole_v002",
     "mendeley_coal_boreholes_602_v001": DATA_ROOT / "datasets/public/mendeley_coal_boreholes_602_v001",
 }
@@ -84,6 +85,18 @@ def evidence_paths(source_id: str, local_dir: Path | None) -> list[str]:
         ])
     if source_id == "swissgeol_boreholes_dataextraction_examples_v001":
         paths.append("/data/GeoLogParser/artifacts/source_surveys/swissgeol_example_groundtruth_audit_v001.json")
+    if source_id == "swissgeol_thurgau_paired_v001" and local_dir and local_dir.exists():
+        paths.extend(
+            str(local_dir / name)
+            for name in (
+                "dataset.json",
+                "manifest.jsonl",
+                "pairing_audit_v001.jsonl",
+                "pairing_audit_summary_v001.json",
+                "gold_interval_manifest_v001.jsonl",
+            )
+            if (local_dir / name).is_file()
+        )
     if source_id == "bgs_onshore_borehole_records" and local_dir and local_dir.exists():
         legacy = DATA_ROOT / "datasets/public/bgs_v001/license"
         paths.extend(str(p) for p in sorted(legacy.glob("*")) if p.is_file())

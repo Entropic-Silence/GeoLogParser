@@ -204,6 +204,25 @@ datasets:
     status: exclude_mismatched_fixture
     verification_notes: "The public example_groundtruth.json metadata fixture matches example_borehole_profile.pdf header values (coordinates 615790/157500, date 1995-09-03, elevation 788.6). The public example_layers_groundtruth.json does not match that PDF: JSON contains 0–3 m gravel/sand entries, while the PDF visibly contains the SST KB5 tunnel profile with approximately 0–30 m slate/sandstone intervals. Reproducible audit artifact: /data/GeoLogParser/artifacts/source_surveys/swissgeol_example_groundtruth_audit_v001.json. The layer fixture is retained only as negative evidence and is not Gold or benchmark data."
 
+  - id: swissgeol_thurgau_paired_v001
+    name: "Swissgeol Thurgau published borehole PDF/database pairing pilot"
+    source_organization: swisstopo / swissgeol
+    url: https://boreholes.swissgeol.ch/
+    license_url: null
+    access_date: "2026-08-14"
+    language: German
+    format: "public borehole profile PDFs paired with official structured borehole and lithology API records"
+    scale: "32 frozen PDFs/42 pages paired with 145 official database intervals; deterministic source-table audit retained 9 documents/21 interval boundaries with exact complete PDF-table/database agreement"
+    downloadable: true
+    access_status: "anonymous public frontend and read API; only Published records with public PDF profiles and published profile/lithology tabs were acquired"
+    license: "TBD — source/item reuse and redistribution terms require manual pre-submission verification"
+    allowed_usage: "internal research experiments under project quarantine policy pending manual source-rights verification"
+    redistribution: prohibited_pending_verification
+    redistribution_policy: "do not upload or redistribute source PDFs, database records, or derived page assets before manual terms, attribution, privacy, sensitive-location, and embedded-content review"
+    paper_fit: [paper1_authoritative_interval_pilot, paper1_failure_analysis, paper2_interval_method_candidate]
+    status: acquired_interval_gold_pilot_rights_unverified
+    verification_notes: "The frozen dataset is /data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v001. Acquisition examined the anonymous public API and accepted only workflow.status=Published, publishedTabs.profiles=true, publishedTabs.lithology=true, profile.public=true, and application/pdf profiles. The 32-document manifest SHA256 is c1156060ad706731fb7c604e4e263cc45d1d21db35adefedff3db027310de388 and the canonical record-set SHA256 is 2bfa3f6c8ff55a3938bad1eda0527119aff603db4f39c5c9a6447770a6b85af0. Official database intervals did not universally match visible PDF tables. The conservative audit therefore froze only 9 documents/21 numeric intervals whose complete explicit PDF table exactly agreed with the official database. Gold scope is top/bottom/thickness only; lithology, description, bbox, and material semantics are excluded. human_reviewed=false. Rights status remains PENDING_MANUAL_PRE_SUBMISSION_REVIEW."
+
   - id: usgs_geolog_locator
     name: GeoLog Locator
     source_organization: U.S. Geological Survey

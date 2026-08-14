@@ -1479,3 +1479,52 @@
 - Artifact: `/data/GeoLogParser/artifacts/source_surveys/`
   `swissgeol_example_groundtruth_audit_v001.json`. Decision:
   `EXCLUDE_MISMATCHED_FROM_GOLD`; no interval/lithology labels were promoted.
+
+## 2026-08-14 — Swissgeol Thurgau authoritative interval pilot
+
+- Acquisition: froze 32 published Swissgeol Thurgau PDF/database pairs under
+  `/data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v001`. The
+  collection contains 42 PDF pages and 145 official database intervals. The
+  acquisition manifest SHA256 recorded by `dataset.json` is
+  `c1156060ad706731fb7c604e4e263cc45d1d21db35adefedff3db027310de388`;
+  the canonical record-set SHA256 is
+  `2bfa3f6c8ff55a3938bad1eda0527119aff603db4f39c5c9a6447770a6b85af0`.
+- Pairing audit: official database intervals were not assumed to match visible
+  PDF tables. A conservative native-layout-text audit classified 9 documents
+  (21 intervals) as exact complete source-table/database agreement, 8 as
+  partial or mismatched, and 15 as having no conservatively parsed explicit
+  interval table. Only the 9 exact documents form
+  `gold_interval_manifest_v001.jsonl`; scope is top/bottom/thickness only.
+  `human_reviewed=false`, and lithology, description, bbox, and material
+  semantics remain excluded.
+- Diagnostic result: `P1_SWISSGEOL_TG_INTERVAL_TESSERACT_FORMAL_001` rendered the
+  9 selected PDFs at 250 DPI and predicted only from Tesseract `eng`, PSM 3
+  raster OCR plus the conservative interval parser. It predicted 15 of 21
+  reference intervals. All 15 matched within ±0.05 m: precision 1.000, recall
+  0.7142857143, F1 0.8333333333, and matched top/bottom MAE 0 m. Six of nine
+  documents were completely exact. The six unmatched intervals comprise one
+  partial extraction and two complete section-detection failures; there were
+  no spurious intervals. Wall time was 28.143690 s (3.127077 s/document) on
+  CPU.
+- Validity correction: review of the executed code found that run 001 supplied
+  the official final depth to interval candidate filtering/ranking. The output
+  files remain immutable, but the result index reclassifies it as
+  `diagnostic_oracle_metadata`; it is excluded from independent extraction and
+  formal benchmark claims.
+- Reference-independent result:
+  `P1_SWISSGEOL_TG_INTERVAL_TESSERACT_FORMAL_002` uses the same 250-DPI,
+  Tesseract `eng`, PSM 3 raster path but passes no reference field to
+  prediction. It predicted 16 of 21 intervals, all matched within ±0.05 m:
+  precision 1.000, recall 0.7619047619, F1 0.8648648649, matched top/bottom MAE
+  0 m, and 6/9 complete documents. Five reference intervals were omitted and
+  no spurious interval was emitted. Wall time was 28.620007 s (3.180001
+  s/document) on CPU. This is the only Swissgeol run in the formal
+  authoritative-interval evidence tier.
+- Evidence boundary: this is a source-agreement-selected explicit-table pilot,
+  not a representative random sample or human annotation. It supports a
+  narrow real-document interval-boundary result but not lithology accuracy,
+  cross-template generalization, or the full Paper I benchmark claim.
+- Rights: source/item licence, attribution, privacy, sensitive-location,
+  embedded-content, and redistribution status remain
+  `PENDING_MANUAL_PRE_SUBMISSION_REVIEW`. The project may use the source
+  internally, but source PDFs and derived assets are not released.

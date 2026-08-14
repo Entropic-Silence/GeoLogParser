@@ -56,6 +56,17 @@ The Swissgeol example pairing audit is recorded separately at
 It confirms the metadata fixture against the example PDF but excludes the
 repository's mismatched layer fixture from Gold use.
 
+The distinct Swissgeol Thurgau paired pilot is frozen at
+`/data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v001`. Its
+32-document candidate pool and 9-document/21-interval source-agreement subset
+may be used for internal experiments under the project quarantine policy, but
+the source/item licence, attribution, privacy, sensitive-location, embedded
+third-party content, and redistribution status remain
+`PENDING_MANUAL_PRE_SUBMISSION_REVIEW`. The numeric interval reference is
+limited to official database boundaries whose complete sequence exactly agrees
+with an explicit table in the paired official PDF. It is not a human
+annotation, and the unmatched candidate records are not interval Gold.
+
 ## Human sign-off fields
 
 For each YAML record, the final reviewer should append or record in a successor
