@@ -1528,23 +1528,42 @@
     },
     "p1.swissgeol_authoritative_interval": {
       "paper": "paper1",
-      "experiment_id": "P1_SWISSGEOL_TG_INTERVAL_TESSERACT_FORMAL_002",
-      "scope": "9-document source-agreement-selected Swissgeol pilot; prediction uses raster OCR only and no reference fields; official interval boundaries only; no human annotation or representative-sample claim",
-      "source_path": "results/2026-08-14/P1_SWISSGEOL_TG_INTERVAL_TESSERACT_FORMAL_002/metrics.json",
-      "source_sha256": "f0311f6a9ceaa3c2d48637f292d94d2b0602e06af488b20fc29f23ccaf713608",
+      "experiment_id": "P1_SWISSGEOL_TG_INCREMENTAL_TESSERACT_FORMAL_003",
+      "scope": "20-document/55-interval incremental Swissgeol test disjoint from v001 parser development; prediction uses raster OCR only and no reference fields; no human annotation or representative cross-source claim",
+      "source_path": "results/2026-08-14/P1_SWISSGEOL_TG_INCREMENTAL_TESSERACT_FORMAL_003/metrics.json",
+      "source_sha256": "9df907742af2b2654d411eab600335979adcc28ec7a19ac7b42db391dc27c345",
       "assertions": [
-        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 9},
-        {"type": "json_pointer_equals", "pointer": "/page_count", "expected": 9},
-        {"type": "json_pointer_equals", "pointer": "/reference_interval_count", "expected": 21},
-        {"type": "json_pointer_equals", "pointer": "/predicted_interval_count", "expected": 16},
-        {"type": "json_pointer_equals", "pointer": "/document_full_exact/numerator", "expected": 6},
-        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_precision/value", "expected": 1.0},
-        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_recall/value", "expected": 0.7619047619047619},
-        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_f1/value", "expected": 0.8648648648648648},
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 20},
+        {"type": "json_pointer_equals", "pointer": "/page_count", "expected": 24},
+        {"type": "json_pointer_equals", "pointer": "/reference_interval_count", "expected": 55},
+        {"type": "json_pointer_equals", "pointer": "/predicted_interval_count", "expected": 55},
+        {"type": "json_pointer_equals", "pointer": "/document_full_exact/numerator", "expected": 17},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_precision/value", "expected": 0.8545454545454545},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_recall/value", "expected": 0.8545454545454545},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_f1/value", "expected": 0.8545454545454545},
         {"type": "json_pointer_equals", "pointer": "/interval_metrics/matched_top_boundary_mae_m/value", "expected": 0.0},
         {"type": "json_pointer_equals", "pointer": "/interval_metrics/matched_bottom_boundary_mae_m/value", "expected": 0.0},
         {"type": "json_pointer_equals", "pointer": "/prediction_reference_conditioning", "expected": "none"},
         {"type": "json_pointer_equals", "pointer": "/human_reviewed", "expected": false}
+      ]
+    },
+    "p2.swissgeol_heldout_constraint_reread": {
+      "paper": "paper2",
+      "experiment_id": "P2_SWISSGEOL_TG_CONSTRAINT_REREAD_HELDOUT_001",
+      "scope": "reference-blinded frozen constraint-reread policy on 20 source-agreement records disjoint from v001 development; negative method result",
+      "source_path": "results/2026-08-14/P2_SWISSGEOL_TG_CONSTRAINT_REREAD_HELDOUT_001/metrics.json",
+      "source_sha256": "0e7e8245fee14a1c4b2e2d9ae70817024d4a36cf049a4185fceae557fea92ed4",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 20},
+        {"type": "json_pointer_equals", "pointer": "/reference_interval_count", "expected": 55},
+        {"type": "json_pointer_equals", "pointer": "/development_evaluation_overlap_count", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/first_pass/interval_metrics/interval_f1/value", "expected": 0.8545454545454545},
+        {"type": "json_pointer_equals", "pointer": "/constraint_reread/interval_metrics/interval_f1/value", "expected": 0.8545454545454545},
+        {"type": "json_pointer_equals", "pointer": "/triggered_document_count", "expected": 1},
+        {"type": "json_pointer_equals", "pointer": "/accepted_reread_count", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/incorrect_document_trigger_recall/value", "expected": 0.0},
+        {"type": "json_pointer_equals", "pointer": "/correct_document_trigger_rate/numerator", "expected": 1},
+        {"type": "json_pointer_equals", "pointer": "/false_correction_rate/value", "expected": null}
       ]
     }
   }

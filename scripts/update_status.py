@@ -39,8 +39,8 @@ def main() -> None:
     padova_silver_summary = Path("/data/GeoLogParser/artifacts/silver/unipd_field_silver_v003/summary.json")
     padova_silver = json.loads(padova_silver_summary.read_text(encoding="utf-8")) if padova_silver_summary.is_file() else {}
     swissgeol_gold_manifest = Path(
-        "/data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v001/"
-        "gold_interval_manifest_v001.jsonl"
+        "/data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v002/"
+        "gold_interval_manifest_v002.jsonl"
     )
     swissgeol_gold_rows = [
         json.loads(line)
@@ -94,8 +94,8 @@ def main() -> None:
         "",
         "## Paper status",
         "",
-        "- Paper I: `RESULTS_AVAILABLE` for the authoritative source-agreement interval pilot, authoritative-metadata runs, and explicitly named machine-Silver agreement runs; representative heterogeneous/disjoint interval benchmark `NOT COMPLETED`.",
-        "- Paper II: `RESULTS_AVAILABLE` for a real authoritative-metadata abstention study and controlled Synthetic method ablation; real interval-level ablation `NOT COMPLETED`.",
+        "- Paper I: `RESULTS_AVAILABLE` for an incremental held-out authoritative source-agreement interval test, authoritative-metadata runs, and explicitly named machine-Silver agreement runs; representative multi-source/template-disjoint interval benchmark `NOT COMPLETED`.",
+        "- Paper II: `RESULTS_AVAILABLE` for a real authoritative-metadata abstention study, a controlled Synthetic method ablation, and a negative held-out real-interval trigger/reread experiment; broader real interval-level ablation and accepted-correction FCR estimation `NOT COMPLETED`.",
         "- Paper III: `RESULTS_AVAILABLE` for a real structured-source controlled spatial comparison and controlled Synthetic downstream comparison; image-derived real-site comparison `NOT COMPLETED`.",
         "",
         "## Boundary",

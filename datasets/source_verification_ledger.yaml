@@ -547,16 +547,19 @@ records:
   citation: Swissgeol Thurgau published borehole PDF/database pairing pilot
   retrieval_date: '2026-08-14'
   local_paths:
-  - /data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v001
-  file_count_in_local_snapshot: 69
-  local_snapshot_inventory_sha256: 92ea06cf62a6cf6eae3310bd40cfec3a34d2324999ca8626a3860f64b4630ecb
+  - /data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v002
+  file_count_in_local_snapshot: 199
+  local_snapshot_inventory_sha256: b721c127ae2bc4c9ae655c2a80574cbef6bbe46bf07505b8ee2df340e88cd4ac
   manifest_evidence:
-  - relative_path: gold_interval_manifest_v001.jsonl
-    size_bytes: 12433
-    sha256: 7077b0e9d629956076e4b0104d98b7073a20dbf5981d2208495796d41550ff50
+  - relative_path: gold_interval_manifest_incremental_v002.jsonl
+    size_bytes: 27757
+    sha256: a73e2195d871429d4d8e27ff140ac45cd5cc8b1ffdf16a990089540de0319539
+  - relative_path: gold_interval_manifest_v002.jsonl
+    size_bytes: 40190
+    sha256: 6763e5d3ffee34deb03b33238d773e659faa3b3a6354e9ac759127b76c8d4e32
   - relative_path: manifest.jsonl
-    size_bytes: 35069
-    sha256: c1156060ad706731fb7c604e4e263cc45d1d21db35adefedff3db027310de388
+    size_bytes: 105252
+    sha256: 13fde359ffcbf67173fc9fda17815e321cdb0064fbfb028ed982cf4262aaaad4
   access_method: anonymous public frontend and read API; only Published records with
     public PDF profiles and published profile/lithology tabs were acquired
   terms_of_use: null
@@ -578,22 +581,24 @@ records:
   requires_human_check_before_submission: true
   evidence:
   - datasets/data_registry.yaml
-  - /data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v001/dataset.json
-  - /data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v001/manifest.jsonl
-  - /data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v001/pairing_audit_v001.jsonl
-  - /data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v001/pairing_audit_summary_v001.json
-  - /data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v001/gold_interval_manifest_v001.jsonl
-  registry_status: acquired_interval_gold_pilot_rights_unverified
-  registry_verification_notes: The frozen dataset is /data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v001.
-    Acquisition examined the anonymous public API and accepted only workflow.status=Published,
+  - /data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v002/dataset.json
+  - /data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v002/manifest.jsonl
+  - /data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v002/pairing_audit_v002.jsonl
+  - /data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v002/pairing_audit_summary_v002.json
+  - /data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v002/gold_interval_manifest_incremental_v002.jsonl
+  - /data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v002/gold_interval_manifest_v002.jsonl
+  registry_status: acquired_interval_gold_v002_rights_unverified
+  registry_verification_notes: The successor freeze is /data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v002.
+    Acquisition examined 600 candidates and accepted only workflow.status=Published,
     publishedTabs.profiles=true, publishedTabs.lithology=true, profile.public=true,
-    and application/pdf profiles. The 32-document manifest SHA256 is c1156060ad706731fb7c604e4e263cc45d1d21db35adefedff3db027310de388
-    and the canonical record-set SHA256 is 2bfa3f6c8ff55a3938bad1eda0527119aff603db4f39c5c9a6447770a6b85af0.
-    Official database intervals did not universally match visible PDF tables. The
-    conservative audit therefore froze only 9 documents/21 numeric intervals whose
-    complete explicit PDF table exactly agreed with the official database. Gold scope
-    is top/bottom/thickness only; lithology, description, bbox, and material semantics
-    are excluded. human_reviewed=false. Rights status remains PENDING_MANUAL_PRE_SUBMISSION_REVIEW.
+    and application/pdf profiles. It contains 96 PDFs/492 official intervals; manifest
+    SHA256 13fde359ffcbf67173fc9fda17815e321cdb0064fbfb028ed982cf4262aaaad4 and canonical
+    record-set SHA256 d1c1506eff68d156abfdc5ac26263b98a457696ba7f3a794734f642511265c53.
+    The reference-independent explicit-table audit retained 29 documents/76 intervals;
+    after excluding all 9 v001 development records, 20 documents/55 intervals remain
+    in incremental Gold manifest SHA256 a73e2195d871429d4d8e27ff140ac45cd5cc8b1ffdf16a990089540de0319539.
+    Gold scope is top/bottom/thickness only; lithology, description, bbox, and material
+    semantics are excluded. human_reviewed=false. Rights status remains PENDING_MANUAL_PRE_SUBMISSION_REVIEW.
 - source_id: usgs_geolog_locator
   source_name: GeoLog Locator
   url: https://www.usgs.gov/tools/geolog-locator

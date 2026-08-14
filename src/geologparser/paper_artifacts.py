@@ -28,6 +28,7 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
     silver_rows = []
     authoritative_interval_rows = []
     conditional_interval_rows = []
+    development_interval_rows = []
     robustness_rows = []
     for entry in entries:
         metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
@@ -76,6 +77,8 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
             ]) + " |"
             if entry["paper_eligibility"] == "formal_authoritative_interval":
                 authoritative_interval_rows.append(rendered)
+            elif entry["paper_eligibility"] == "development_authoritative_interval":
+                development_interval_rows.append(rendered)
             else:
                 conditional_interval_rows.append(rendered)
             continue
@@ -193,12 +196,12 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
         *synthetic_rows, "",
         "These rows use programmatically known Synthetic labels. They validate controlled extraction and robustness paths but cannot establish performance on Real Gold borehole logs.",
         "",
-        "### Authoritative source-agreement interval pilot",
+        "### Held-out authoritative source-agreement interval result",
         "",
         "| Experiment | Model | Documents | Reference intervals | Predicted intervals | Interval P | Interval R | Interval F1 | Matched top MAE (m) | Matched bottom MAE (m) | Full-document exact | s/document | Eligibility |",
         "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|",
         *authoritative_interval_rows,
-        "The reference contains only interval boundaries from official database records whose complete sequence exactly agrees with an explicit table in the paired official PDF. It is a source-agreement-selected pilot, not a representative random sample, and no human annotation is claimed.",
+        "The reference contains only interval boundaries from official database records whose complete sequence exactly agrees with an explicit table in the paired official PDF. The reported run is incremental and disjoint from parser-development records, but the source-agreement selection is not a representative random sample and no human annotation is claimed.",
         "",
         "### Reference-conditioned interval diagnostics excluded from formal claims",
         "",
@@ -206,6 +209,13 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
         "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|",
         *conditional_interval_rows,
         "These retained runs conditioned candidate filtering/ranking on an official reference field and are diagnostics only. They are excluded from formal extraction claims even when their output metrics are otherwise valid.",
+        "",
+        "### Interval-parser development results excluded from held-out claims",
+        "",
+        "| Experiment | Model | Documents | Reference intervals | Predicted intervals | Interval P | Interval R | Interval F1 | Matched top MAE (m) | Matched bottom MAE (m) | Full-document exact | s/document | Eligibility |",
+        "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|",
+        *development_interval_rows,
+        "These reference-independent runs used the v001 records on which parser/reread behavior was developed. They are retained as development evidence and excluded from the incremental held-out estimate.",
         "",
         "### Machine-adjudicated Silver agreement benchmark (not human accuracy)",
         "",
@@ -375,6 +385,7 @@ def paper2_table(entries: list[dict], repository_root: Path) -> str:
     rows = []
     audit_rows = []
     authoritative_rows = []
+    interval_method_rows = []
     for entry in entries:
         metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
         if metrics.get("scope") == "authoritative-metadata consensus/abstention evaluation":
@@ -389,6 +400,20 @@ def paper2_table(entries: list[dict], repository_root: Path) -> str:
                     str(values["review_count"]), number(values["manual_review_recall"]),
                     entry["paper_eligibility"],
                 ]) + " |")
+        if metrics.get("scope") == "authoritative-interval heldout constraint-rereading evaluation":
+            first = metrics["first_pass"]["interval_metrics"]["interval_f1"]
+            final = metrics["constraint_reread"]["interval_metrics"]["interval_f1"]
+            interval_method_rows.append("| " + " | ".join([
+                entry["experiment_id"], str(metrics["document_count"]),
+                str(metrics["reference_interval_count"]), number(first["value"]),
+                number(final["value"]), str(metrics["triggered_document_count"]),
+                str(metrics["accepted_reread_count"]), str(metrics["needs_review_count"]),
+                ratio(metrics["incorrect_document_trigger_recall"]),
+                ratio(metrics["correct_document_trigger_rate"]),
+                ratio(metrics["correction_success_rate"]),
+                ratio(metrics["false_correction_rate"]),
+                entry["paper_eligibility"],
+            ]) + " |")
         if "vlm_schema_valid_count" in metrics:
             audit_rows.append("| " + " | ".join([
                 entry["experiment_id"], str(metrics["case_count"]),
@@ -441,6 +466,12 @@ def paper2_table(entries: list[dict], repository_root: Path) -> str:
         "|---|---|---:|---:|---:|---:|---:|---:|---|",
         *authoritative_rows, "",
         "The decision policy accepts only equal non-null values from two independent OCR readers. References are consulted only after decisions are frozen. This is real metadata-field evidence; interval/lithology effects remain unmeasured.",
+        "",
+        "### Held-out authoritative-interval constraint-rereading result", "",
+        "| Experiment | Documents | Reference intervals | First-pass F1 | Reread F1 | Triggered | Accepted rereads | Needs review | Incorrect-doc trigger recall | Correct-doc trigger rate | Correction success | FCR | Eligibility |",
+        "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|",
+        *interval_method_rows, "",
+        "The policy was frozen on v001 records and evaluated on source-agreement records absent from development. A null FCR means no automatic correction occurred; it is not zero. The same-source, explicit-table selection remains a major limitation.",
         "",
         "### Public ROI engineering audit (no Ground Truth)", "",
         "| Experiment | Cases | VLM JSON-valid | VLM uncertain | OCR/VLM numeric-agreement cases | Accept proposals | Needs review | VLM s/ROI | Peak GiB | Eligibility |",

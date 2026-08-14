@@ -10,6 +10,14 @@
 
 The decision policy accepts only equal non-null values from two independent OCR readers. References are consulted only after decisions are frozen. This is real metadata-field evidence; interval/lithology effects remain unmeasured.
 
+### Held-out authoritative-interval constraint-rereading result
+
+| Experiment | Documents | Reference intervals | First-pass F1 | Reread F1 | Triggered | Accepted rereads | Needs review | Incorrect-doc trigger recall | Correct-doc trigger rate | Correction success | FCR | Eligibility |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
+| P2_SWISSGEOL_TG_CONSTRAINT_REREAD_HELDOUT_001 | 20 | 55 | 0.855 | 0.855 | 1 | 0 | 1 | 0/3 (0.000) | 1/17 (0.059) | TBD | TBD | formal_authoritative_interval_method |
+
+The policy was frozen on v001 records and evaluated on source-agreement records absent from development. A null FCR means no automatic correction occurred; it is not zero. The same-source, explicit-table selection remains a major limitation.
+
 ### Public ROI engineering audit (no Ground Truth)
 
 | Experiment | Cases | VLM JSON-valid | VLM uncertain | OCR/VLM numeric-agreement cases | Accept proposals | Needs review | VLM s/ROI | Peak GiB | Eligibility |

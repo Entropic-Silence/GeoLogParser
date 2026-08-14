@@ -1528,3 +1528,43 @@
   embedded-content, and redistribution status remain
   `PENDING_MANUAL_PRE_SUBMISSION_REVIEW`. The project may use the source
   internally, but source PDFs and derived assets are not released.
+
+## 2026-08-14 — Swissgeol incremental held-out interval evaluation
+
+- Successor acquisition: froze 96 PDF/database pairs under
+  `/data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v002`, covering
+  492 official database intervals. Acquisition examined 600 candidate rows
+  with zero download failures. The acquisition manifest SHA256 is
+  `13fde359ffcbf67173fc9fda17815e321cdb0064fbfb028ed982cf4262aaaad4`;
+  the canonical record-set SHA256 is
+  `d1c1506eff68d156abfdc5ac26263b98a457696ba7f3a794734f642511265c53`.
+- Pairing audit: 29 documents/76 intervals had exact complete agreement between
+  a conservatively parsed explicit source-PDF table and the official database;
+  34 documents were partial or mismatched and 33 exposed no conservatively
+  parsed explicit table. After excluding every one of the nine v001
+  parser-development records, the incremental held-out manifest contains 20
+  documents, 24 pages, and 55 intervals. Its SHA256 is
+  `a73e2195d871429d4d8e27ff140ac45cd5cc8b1ffdf16a990089540de0319539`.
+- Paper I result: `P1_SWISSGEOL_TG_INCREMENTAL_TESSERACT_FORMAL_003` applied the
+  previously frozen 250-DPI Tesseract `eng` PSM-3 raster parser without any
+  reference-field conditioning. It predicted 55 intervals; 47 matched and
+  eight were spurious, while eight reference intervals were unmatched.
+  Precision, recall, and F1 were all `0.8545454545`; matched top/bottom MAE was
+  `0 m`; 17/20 documents were completely exact. Wall time was `76.635878 s`,
+  or `3.831794 s/document`. Run 002 is retained as development evidence and is
+  excluded from held-out claims.
+- Paper II result: `P2_SWISSGEOL_TG_CONSTRAINT_REREAD_HELDOUT_001` evaluated a
+  reread policy frozen on v001 and having zero record overlap with v002. The
+  first-pass and final F1 were both `0.8545454545`. None of three incorrect
+  first-pass documents triggered rereading; one of 17 correct documents
+  triggered; no reread was accepted. Incorrect-document trigger recall was
+  `0/3`; false correction rate is undefined rather than zero because there
+  were no automatic corrections. The result is retained as a formal negative
+  result: structural and reader-disagreement triggers missed plausible but
+  incorrect sequences.
+- Validity boundary: the observed v002 failures must not be used to tune and
+  re-evaluate a successor trigger on the same records. Any redesigned policy
+  requires a new disjoint acquisition or a separately frozen untouched subset.
+- Rights: reuse and redistribution remain
+  `PENDING_MANUAL_PRE_SUBMISSION_REVIEW`; all source PDFs and derived page
+  assets remain local.

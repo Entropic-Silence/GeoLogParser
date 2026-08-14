@@ -13,14 +13,15 @@
     "xu2021layoutlmv2"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "0f45578073f5fb27fd68e707fa427348629ddf44644acab8fbee6d881b56f187",
+  "claim_registry_sha256": "afb8f1762e7477eafaf0153e2d52a0728e16198e55a3afdc45e38dc796bfa9de",
   "claim_source_errors": [],
   "evidence_tags": [
     "p2.bgs_metadata_consensus",
     "p2.executed_synthetic_ablation",
-    "p2.roi_reread_audit"
+    "p2.roi_reread_audit",
+    "p2.swissgeol_heldout_constraint_reread"
   ],
-  "formal_experiment_count": 2,
+  "formal_experiment_count": 3,
   "headings": [
     "Abstract",
     "1. Introduction",
@@ -34,7 +35,7 @@
     "9. Conclusion",
     "References"
   ],
-  "indexed_experiment_count": 4,
+  "indexed_experiment_count": 5,
   "literature_evidence_errors": [],
   "literature_evidence_path": "docs/literature_evidence.yaml",
   "literature_evidence_sha256": "d36dcd2badac6ba03fcd9842f3a5e7623885fd8f1e55966dceb75eb1795734f5",
@@ -48,13 +49,13 @@
     {
       "exists": true,
       "resolved_path": "papers/paper2/generated/current_results.md",
-      "sha256": "23bc155c1ea3aa7c35536517d9bf9fb44e25ed928af5374e434de3208fa3db00",
+      "sha256": "5bd08cf741d2ff9cfed3fdffd1e4d78ba184069b8c26b8a88cecf5ac96b4083b",
       "target": "generated/current_results.md"
     },
     {
       "exists": true,
       "resolved_path": "docs/generated/publication_readiness.md",
-      "sha256": "e7ed0b19b9e7cc1ac114bb4b5032919bce5ed4088e0897d1b10d23ebc8293309",
+      "sha256": "fea65c821b32cd08fd04cbff6a089caa03c03393adae8e507fc5dff205b0810f",
       "target": "../../docs/generated/publication_readiness.md"
     },
     {
@@ -71,7 +72,7 @@
     }
   ],
   "manuscript_path": "papers/paper2/manuscript.md",
-  "manuscript_sha256": "09e79bbea4023a0ecbf87d017d4f02ca4e00b75c573caa885f744db11746e462",
+  "manuscript_sha256": "b217ded80f2cd7b987bf3e77a70224222c4497939c090a2151564922924de354",
   "missing_bibliography_keys": [],
   "missing_claim_registrations": [],
   "missing_literature_evidence_keys": [],
@@ -81,14 +82,15 @@
   "registered_evidence_tags": [
     "p2.bgs_metadata_consensus",
     "p2.executed_synthetic_ablation",
-    "p2.roi_reread_audit"
+    "p2.roi_reread_audit",
+    "p2.swissgeol_heldout_constraint_reread"
   ],
   "result_index_errors": [],
   "result_index_path": "experiments/paper2/result_index.jsonl",
-  "result_index_sha256": "119c762fb8160569c9198fb24959536ca8dc300d0358e0a36b12b5965ee47956",
+  "result_index_sha256": "bfed6c5d2afc3ce49c7ae2b490de6a955c9332727585f37d50eec8e00703668a",
   "structurally_complete": true,
   "submission_ready": false,
-  "tbd_or_citation_marker_count": 5,
+  "tbd_or_citation_marker_count": 3,
   "unused_claim_registrations": [],
-  "word_count": 1851
+  "word_count": 2277
 }

@@ -212,7 +212,7 @@ datasets:
     access_date: "2026-08-14"
     language: German
     format: "public borehole profile PDFs paired with official structured borehole and lithology API records"
-    scale: "32 frozen PDFs/42 pages paired with 145 official database intervals; deterministic source-table audit retained 9 documents/21 interval boundaries with exact complete PDF-table/database agreement"
+    scale: "successor freeze contains 96 PDFs paired with 492 official database intervals; deterministic source-table audit retained 29 documents/76 interval boundaries, including a 20-document/55-interval incremental test set disjoint from the 9-document v001 development subset"
     downloadable: true
     access_status: "anonymous public frontend and read API; only Published records with public PDF profiles and published profile/lithology tabs were acquired"
     license: "TBD — source/item reuse and redistribution terms require manual pre-submission verification"
@@ -220,8 +220,8 @@ datasets:
     redistribution: prohibited_pending_verification
     redistribution_policy: "do not upload or redistribute source PDFs, database records, or derived page assets before manual terms, attribution, privacy, sensitive-location, and embedded-content review"
     paper_fit: [paper1_authoritative_interval_pilot, paper1_failure_analysis, paper2_interval_method_candidate]
-    status: acquired_interval_gold_pilot_rights_unverified
-    verification_notes: "The frozen dataset is /data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v001. Acquisition examined the anonymous public API and accepted only workflow.status=Published, publishedTabs.profiles=true, publishedTabs.lithology=true, profile.public=true, and application/pdf profiles. The 32-document manifest SHA256 is c1156060ad706731fb7c604e4e263cc45d1d21db35adefedff3db027310de388 and the canonical record-set SHA256 is 2bfa3f6c8ff55a3938bad1eda0527119aff603db4f39c5c9a6447770a6b85af0. Official database intervals did not universally match visible PDF tables. The conservative audit therefore froze only 9 documents/21 numeric intervals whose complete explicit PDF table exactly agreed with the official database. Gold scope is top/bottom/thickness only; lithology, description, bbox, and material semantics are excluded. human_reviewed=false. Rights status remains PENDING_MANUAL_PRE_SUBMISSION_REVIEW."
+    status: acquired_interval_gold_v002_rights_unverified
+    verification_notes: "The successor freeze is /data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v002. Acquisition examined 600 candidates and accepted only workflow.status=Published, publishedTabs.profiles=true, publishedTabs.lithology=true, profile.public=true, and application/pdf profiles. It contains 96 PDFs/492 official intervals; manifest SHA256 13fde359ffcbf67173fc9fda17815e321cdb0064fbfb028ed982cf4262aaaad4 and canonical record-set SHA256 d1c1506eff68d156abfdc5ac26263b98a457696ba7f3a794734f642511265c53. The reference-independent explicit-table audit retained 29 documents/76 intervals; after excluding all 9 v001 development records, 20 documents/55 intervals remain in incremental Gold manifest SHA256 a73e2195d871429d4d8e27ff140ac45cd5cc8b1ffdf16a990089540de0319539. Gold scope is top/bottom/thickness only; lithology, description, bbox, and material semantics are excluded. human_reviewed=false. Rights status remains PENDING_MANUAL_PRE_SUBMISSION_REVIEW."
 
   - id: usgs_geolog_locator
     name: GeoLog Locator

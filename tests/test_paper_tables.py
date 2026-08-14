@@ -98,7 +98,7 @@ def test_paper1_table_separates_synthetic_controlled_results(tmp_path: Path):
     assert "cannot establish performance on Real Gold" in table
 
 
-def test_paper1_table_includes_authoritative_interval_pilot_with_scope_warning(tmp_path: Path):
+def test_paper1_table_includes_heldout_authoritative_interval_with_scope_warning(tmp_path: Path):
     metric = lambda value, numerator=1, denominator=1: {
         "value": value, "numerator": numerator, "denominator": denominator,
     }
@@ -122,7 +122,7 @@ def test_paper1_table_includes_authoritative_interval_pilot_with_scope_warning(t
         "experiment_id": "P1_AUTH_INTERVAL", "result_path": "result",
         "paper_eligibility": "formal_authoritative_interval",
     }], tmp_path)
-    assert "Authoritative source-agreement interval pilot" in table
+    assert "Held-out authoritative source-agreement interval result" in table
     assert "P1_AUTH_INTERVAL" in table
     assert "15 | 1.000 | 0.714 | 0.833" in table
     assert "not a representative random sample" in table
@@ -216,3 +216,33 @@ def test_paper2_table_separates_roi_audit_from_formal_results(tmp_path: Path):
     assert "P2_ROI" in table
     assert "accuracy, correction success, and FCR are undefined" in table
     assert "no formal run" in table
+
+
+def test_paper2_table_reports_heldout_interval_negative_result_without_zero_fcr(tmp_path: Path):
+    metric = lambda value, numerator, denominator: {
+        "value": value, "numerator": numerator, "denominator": denominator,
+    }
+    metrics = {
+        "scope": "authoritative-interval heldout constraint-rereading evaluation",
+        "document_count": 20,
+        "reference_interval_count": 55,
+        "first_pass": {"interval_metrics": {"interval_f1": metric(.8545, .8545, 1)}},
+        "constraint_reread": {"interval_metrics": {"interval_f1": metric(.8545, .8545, 1)}},
+        "triggered_document_count": 1,
+        "accepted_reread_count": 0,
+        "needs_review_count": 1,
+        "incorrect_document_trigger_recall": metric(0.0, 0, 3),
+        "correct_document_trigger_rate": metric(1 / 17, 1, 17),
+        "correction_success_rate": metric(None, 0, 0),
+        "false_correction_rate": metric(None, 0, 0),
+    }
+    write_run(tmp_path, metrics, {})
+    table = paper2_table([{
+        "experiment_id": "P2_HELDOUT", "result_path": "result",
+        "paper_eligibility": "formal_authoritative_interval_method",
+    }], tmp_path)
+    assert "Held-out authoritative-interval" in table
+    assert "P2_HELDOUT" in table
+    assert "0/3 (0.000)" in table
+    assert "TBD" in table
+    assert "null FCR means no automatic correction occurred" in table

@@ -20,12 +20,12 @@
 
 These rows use programmatically known Synthetic labels. They validate controlled extraction and robustness paths but cannot establish performance on Real Gold borehole logs.
 
-### Authoritative source-agreement interval pilot
+### Held-out authoritative source-agreement interval result
 
 | Experiment | Model | Documents | Reference intervals | Predicted intervals | Interval P | Interval R | Interval F1 | Matched top MAE (m) | Matched bottom MAE (m) | Full-document exact | s/document | Eligibility |
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
-| P1_SWISSGEOL_TG_INTERVAL_TESSERACT_FORMAL_002 | B1_tesseract_ocr_conservative_interval_parser | 9 | 21 | 16 | 1.000 | 0.762 | 0.865 | 0.000 | 0.000 | 6/9 (0.667) | 3.180 | formal_authoritative_interval |
-The reference contains only interval boundaries from official database records whose complete sequence exactly agrees with an explicit table in the paired official PDF. It is a source-agreement-selected pilot, not a representative random sample, and no human annotation is claimed.
+| P1_SWISSGEOL_TG_INCREMENTAL_TESSERACT_FORMAL_003 | B1_tesseract_ocr_conservative_interval_parser | 20 | 55 | 55 | 0.855 | 0.855 | 0.855 | 0.000 | 0.000 | 17/20 (0.850) | 3.832 | formal_authoritative_interval |
+The reference contains only interval boundaries from official database records whose complete sequence exactly agrees with an explicit table in the paired official PDF. The reported run is incremental and disjoint from parser-development records, but the source-agreement selection is not a representative random sample and no human annotation is claimed.
 
 ### Reference-conditioned interval diagnostics excluded from formal claims
 
@@ -33,6 +33,13 @@ The reference contains only interval boundaries from official database records w
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
 | P1_SWISSGEOL_TG_INTERVAL_TESSERACT_FORMAL_001 | B1_tesseract_ocr_conservative_interval_parser | 9 | 21 | 15 | 1.000 | 0.714 | 0.833 | 0.000 | 0.000 | 6/9 (0.667) | 3.127 | diagnostic_oracle_metadata |
 These retained runs conditioned candidate filtering/ranking on an official reference field and are diagnostics only. They are excluded from formal extraction claims even when their output metrics are otherwise valid.
+
+### Interval-parser development results excluded from held-out claims
+
+| Experiment | Model | Documents | Reference intervals | Predicted intervals | Interval P | Interval R | Interval F1 | Matched top MAE (m) | Matched bottom MAE (m) | Full-document exact | s/document | Eligibility |
+|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
+| P1_SWISSGEOL_TG_INTERVAL_TESSERACT_FORMAL_002 | B1_tesseract_ocr_conservative_interval_parser | 9 | 21 | 16 | 1.000 | 0.762 | 0.865 | 0.000 | 0.000 | 6/9 (0.667) | 3.180 | development_authoritative_interval |
+These reference-independent runs used the v001 records on which parser/reread behavior was developed. They are retained as development evidence and excluded from the incremental held-out estimate.
 
 ### Machine-adjudicated Silver agreement benchmark (not human accuracy)
 

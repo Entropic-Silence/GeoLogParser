@@ -23,7 +23,7 @@
     "paper2_formal_results_exist": true,
     "paper3_formal_results_exist": true
   },
-  "generated_at_utc": "2026-08-14T02:56:17.955863+00:00",
+  "generated_at_utc": "2026-08-14T03:27:35.367144+00:00",
   "ground_truth_exportable_count": 0,
   "interpretation": "Human-GT gates remain separate from the explicitly named machine-Silver agreement track. Silver runs do not satisfy human-GT publication claims; audit-only, failure-analysis, and protocol-only runs cannot satisfy formal completion.",
   "machine_silver_formal_count": 2,
@@ -32,6 +32,7 @@
       "controlled_formal_experiment_count": 2,
       "eligibility_counts": {
         "audit_only": 21,
+        "development_authoritative_interval": 1,
         "diagnostic_oracle_metadata": 1,
         "failure_analysis_only": 7,
         "formal_authoritative_interval": 1,
@@ -41,8 +42,8 @@
       },
       "formal_experiment_count": 9,
       "index_path": "/root/GeoLogParser/experiments/paper1/result_index.jsonl",
-      "index_sha256": "40ca7f47efb0ff403458d7fe7251b7681e92b4faa27632f01661c971e5293d33",
-      "indexed_experiment_count": 38,
+      "index_sha256": "ed188dc891ba3da6e4e2b5ddcf595d792750425b22b9f36814c2bc75d061772f",
+      "indexed_experiment_count": 39,
       "real_formal_experiment_count": 7
     },
     "paper2": {
@@ -50,14 +51,15 @@
       "eligibility_counts": {
         "audit_only": 1,
         "failure_analysis_only": 1,
+        "formal_authoritative_interval_method": 1,
         "formal_authoritative_metadata_method": 1,
         "formal_synthetic_method": 1
       },
-      "formal_experiment_count": 2,
+      "formal_experiment_count": 3,
       "index_path": "/root/GeoLogParser/experiments/paper2/result_index.jsonl",
-      "index_sha256": "119c762fb8160569c9198fb24959536ca8dc300d0358e0a36b12b5965ee47956",
-      "indexed_experiment_count": 4,
-      "real_formal_experiment_count": 1
+      "index_sha256": "bfed6c5d2afc3ce49c7ae2b490de6a955c9332727585f37d50eec8e00703668a",
+      "indexed_experiment_count": 5,
+      "real_formal_experiment_count": 2
     },
     "paper3": {
       "controlled_formal_experiment_count": 1,
