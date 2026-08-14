@@ -264,7 +264,10 @@ def main() -> None:
         if sum(row["interval_count"] for row in rows) != audit_summary[expected_intervals_key]:
             raise ValueError("Gold manifest/interval count does not match frozen audit summary")
     else:
-        inferred_split = "non_thurgau_four_canton_source_disjoint_transfer_v001"
+        inferred_split = (
+            f"non_thurgau_{dataset_summary.get('source_count', 0)}_source_"
+            f"disjoint_transfer_{dataset_summary.get('dataset_version', 'unknown')}"
+        )
         if dataset_summary.get("source_count", 0) < 2 or dataset_summary.get("development_source") != "Thurgau":
             raise ValueError("transfer dataset must contain multiple non-development sources")
     if any(row.get("human_reviewed") is not False for row in rows):
@@ -386,7 +389,7 @@ def main() -> None:
             "selection_limitation": (
                 "source-agreement explicit-table pilot; documents were selected because the complete visible interval table agreed with the official database and are not a representative random sample"
                 if arguments.reference_mode == "source_agreement_gold"
-                else "all acquired paired documents from four non-Thurgau cantons; official database intervals are not verified as complete page-visible Ground Truth"
+                else f"all acquired paired documents from {dataset_summary.get('source_count', 0)} non-Thurgau cantons; official database intervals are not verified as complete page-visible Ground Truth"
             ),
             "reference_mode": arguments.reference_mode,
             "ocr_cache_key": (
@@ -556,7 +559,7 @@ def main() -> None:
         "selection_limitation": (
             "source-agreement explicit-table pilot; not a representative random sample of the Swissgeol candidate pool"
             if arguments.reference_mode == "source_agreement_gold"
-            else "four acquired non-Thurgau canton collections; agreement includes document extraction error plus possible page/database source mismatch"
+            else f"{dataset_summary.get('source_count', 0)} acquired non-Thurgau canton collections; agreement includes document extraction error plus possible page/database source mismatch"
         ),
         "wall_time_seconds": wall_seconds,
         "pipeline_recompute_wall_time_seconds": wall_seconds,

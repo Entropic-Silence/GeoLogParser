@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 from pathlib import Path
@@ -12,12 +13,15 @@ import tempfile
 
 
 DATA_ROOT = Path("/data/GeoLogParser/datasets/public")
-OUTPUT = DATA_ROOT / "swissgeol_cross_canton_transfer_v001"
-SOURCES = {
+SOURCES_V001 = {
     "St. Gallen": DATA_ROOT / "swissgeol_stgallen_paired_v001",
     "Bern": DATA_ROOT / "swissgeol_bern_paired_v001",
     "Solothurn": DATA_ROOT / "swissgeol_solothurn_paired_v001",
     "Vaud": DATA_ROOT / "swissgeol_vaud_paired_v001",
+}
+SOURCES_V002 = {
+    **SOURCES_V001,
+    "Aargau": DATA_ROOT / "swissgeol_aargau_paired_v002",
 }
 
 
@@ -50,10 +54,21 @@ def visual_content_sha256(path: Path) -> tuple[str, int]:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--dataset-version",
+        choices=("swissgeol_cross_canton_transfer_v001", "swissgeol_cross_canton_transfer_v002"),
+        default="swissgeol_cross_canton_transfer_v001",
+    )
+    arguments = parser.parse_args()
+    sources = SOURCES_V002 if arguments.dataset_version.endswith("v002") else SOURCES_V001
+    output = DATA_ROOT / arguments.dataset_version
+    if (output / "dataset.json").exists():
+        raise FileExistsError(f"immutable transfer dataset already exists: {output}")
     rows = []
     source_hashes = {}
     visual_cache: dict[str, tuple[str, int]] = {}
-    for canton, root in SOURCES.items():
+    for canton, root in sources.items():
         manifest = root / "manifest.jsonl"
         source_hashes[canton] = sha256(manifest)
         dataset = json.loads((root / "dataset.json").read_text(encoding="utf-8"))
@@ -80,8 +95,8 @@ def main() -> None:
     rows.sort(key=lambda row: (row["canton"], row["record_id"]))
     if len({row["record_id"] for row in rows}) != len(rows):
         raise ValueError("duplicate record ID across canton sources")
-    OUTPUT.mkdir(parents=True, exist_ok=True)
-    manifest = OUTPUT / "manifest.jsonl"
+    output.mkdir(parents=True, exist_ok=True)
+    manifest = output / "manifest.jsonl"
     manifest.write_text(
         "".join(json.dumps(row, sort_keys=True) + "\n" for row in rows),
         encoding="utf-8",
@@ -91,10 +106,10 @@ def main() -> None:
         key = row["visual_content_sha256"]
         visual_group_sizes[key] = visual_group_sizes.get(key, 0) + 1
     summary = {
-        "dataset_version": "swissgeol_cross_canton_transfer_v001",
-        "source": "four acquired non-Thurgau Swissgeol canton collections",
-        "source_cantons": sorted(SOURCES),
-        "source_count": len(SOURCES),
+        "dataset_version": arguments.dataset_version,
+        "source": f"{len(sources)} acquired non-Thurgau Swissgeol canton collections",
+        "source_cantons": sorted(sources),
+        "source_count": len(sources),
         "frozen_documents": len(rows),
         "frozen_intervals": sum(int(row["interval_count"]) for row in rows),
         "frozen_pages_record_weighted": sum(int(row["page_count"]) for row in rows),
@@ -112,7 +127,7 @@ def main() -> None:
         "human_reviewed": False,
         "rights_review": "PENDING_MANUAL_PRE_SUBMISSION_REVIEW",
     }
-    (OUTPUT / "dataset.json").write_text(
+    (output / "dataset.json").write_text(
         json.dumps(summary, indent=2, sort_keys=True) + "\n", encoding="utf-8",
     )
     print(f"{manifest}\ndocuments={len(rows)}\nintervals={summary['frozen_intervals']}")
