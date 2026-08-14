@@ -1,0 +1,28 @@
+policy_id: california_selective_net_expansion_v001
+status: frozen_before_v003_acquisition
+design_date: "2026-08-14"
+design_evidence:
+  - P2_CALIFORNIA_WCR_CONSTRAINT_DEV_002
+  - P2_CALIFORNIA_WCR_CONSTRAINT_TEST_FORMAL_001
+  - P2_CALIFORNIA_WCR_V002_CONSTRAINT_EXTERNAL_FORMAL_002
+design_disclosure: >-
+  The rule was selected after inspecting v001 and v002 correction outcomes.
+  Neither freeze is a prospective validation set for this policy. Only a later,
+  non-overlapping freeze may support a confirmatory selective-correction claim.
+decision_inputs:
+  - raw_prediction_count
+  - constrained_prediction_count
+rule:
+  accept_constrained_if: constrained_prediction_count > raw_prediction_count
+  otherwise: retain_raw_and_abstain_from_correction
+reference_used_for_decision: false
+selection_rationale: >-
+  Corrective sequence expansion was the recurring benefit mode, whereas every
+  observed document-level loss in the two design freezes involved a sequence
+  that did not expand. The rule is deliberately coarse and document-level.
+claims_allowed_before_new_freeze:
+  - post_hoc_design_analysis
+claims_forbidden_before_new_freeze:
+  - prospective_external_validation
+  - safe_automatic_correction
+
