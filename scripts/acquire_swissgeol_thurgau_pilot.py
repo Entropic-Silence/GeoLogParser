@@ -146,11 +146,19 @@ def depth_reference(detail: dict[str, Any], stratigraphy: dict[str, Any]) -> dic
     }
 
 
-def candidate_rows(client: SwissgeolClient, *, maximum_pages: int = 10) -> tuple[list[dict[str, Any]], int]:
+def candidate_rows(
+    client: SwissgeolClient,
+    *,
+    maximum_pages: int = 10,
+    start_page: int = 1,
+    canton: str = "Thurgau",
+) -> tuple[list[dict[str, Any]], int]:
+    if start_page < 1:
+        raise ValueError("start_page must be >= 1")
     rows: list[dict[str, Any]] = []
     total_count = 0
-    for page_number in range(1, maximum_pages + 1):
-        request = {**FILTER_REQUEST, "pageNumber": page_number}
+    for page_number in range(start_page, start_page + maximum_pages):
+        request = {**FILTER_REQUEST, "pageNumber": page_number, "canton": [canton]}
         response = client.json("borehole/filter", method="POST", body=request)
         total_count = int(response.get("totalCount", 0))
         page_rows = response.get("boreholes") or []
@@ -168,6 +176,10 @@ def acquire(
     client: SwissgeolClient,
     resume: bool = False,
     dataset_version: str = DATASET_VERSION,
+    start_page: int = 1,
+    canton: str = "Thurgau",
+    record_prefix: str = "SWISSGEOL_TG",
+    exclude_record_ids: set[str] | None = None,
 ) -> dict[str, Any]:
     if (output_root / "dataset.json").exists():
         raise FileExistsError(f"immutable dataset is already frozen: {output_root}")
@@ -178,19 +190,30 @@ def acquire(
     pdf_dir.mkdir(parents=True, exist_ok=True)
     reference_dir.mkdir(parents=True, exist_ok=True)
 
-    rows, source_total = candidate_rows(client, maximum_pages=maximum_pages)
+    rows, source_total = candidate_rows(
+        client,
+        maximum_pages=maximum_pages,
+        start_page=start_page,
+        canton=canton,
+    )
+    excluded_ids = exclude_record_ids or set()
+    excluded_candidate_records = 0
     manifest: list[dict[str, Any]] = []
     failures: list[dict[str, Any]] = []
     for row in rows:
         if len(manifest) >= limit:
             break
         borehole_id = int(row["id"])
+        record_id = f"{record_prefix}_{borehole_id}"
+        if record_id in excluded_ids:
+            excluded_candidate_records += 1
+            continue
         try:
             detail = client.json(f"borehole/{borehole_id}")
         except Exception as exc:  # acquisition must preserve per-record failures
             failures.append({"borehole_id": borehole_id, "stage": "detail", "error": repr(exc)})
             continue
-        if detail.get("canton") != "Thurgau":
+        if detail.get("canton") != canton:
             continue
         stratigraphy = primary_published_stratigraphy(detail)
         profile = public_pdf_profile(detail)
@@ -200,7 +223,6 @@ def acquire(
         intervals = reference["stratigraphy"]["intervals"]
         if not intervals:
             continue
-        record_id = f"SWISSGEOL_TG_{borehole_id}"
         pdf_path = pdf_dir / f"{record_id}.pdf"
         reference_path = reference_dir / f"{record_id}.json"
         if resume and pdf_path.exists():
@@ -275,9 +297,16 @@ def acquire(
         "created_utc": datetime.now(timezone.utc).isoformat(),
         "source": "swissgeol boreholes public anonymous interface",
         "api_root": API_ROOT,
-        "source_filter": FILTER_REQUEST,
+        "source_filter": {
+            **FILTER_REQUEST,
+            "canton": [canton],
+            "pageNumber": start_page,
+            "maximum_pages": maximum_pages,
+        },
         "source_filter_total_count": source_total,
         "candidate_rows_examined": len(rows),
+        "excluded_candidate_records": excluded_candidate_records,
+        "excluded_record_id_count": len(excluded_ids),
         "frozen_documents": len(manifest),
         "frozen_intervals": sum(item["interval_count"] for item in manifest),
         "failed_candidates": len(failures),
@@ -305,9 +334,20 @@ def main() -> None:
     )
     parser.add_argument("--limit", type=int, default=32)
     parser.add_argument("--maximum-pages", type=int, default=10)
+    parser.add_argument("--start-page", type=int, default=1)
+    parser.add_argument("--canton", default="Thurgau")
+    parser.add_argument("--record-prefix", default="SWISSGEOL_TG")
+    parser.add_argument("--exclude-manifest", type=Path, action="append", default=[])
     parser.add_argument("--dataset-version", default=DATASET_VERSION)
     parser.add_argument("--resume", action="store_true")
     args = parser.parse_args()
+    excluded_record_ids = set()
+    for manifest_path in args.exclude_manifest:
+        excluded_record_ids.update(
+            json.loads(line)["record_id"]
+            for line in manifest_path.read_text(encoding="utf-8").splitlines()
+            if line.strip()
+        )
     summary = acquire(
         args.output_root,
         limit=args.limit,
@@ -315,6 +355,10 @@ def main() -> None:
         client=SwissgeolClient(),
         resume=args.resume,
         dataset_version=args.dataset_version,
+        start_page=args.start_page,
+        canton=args.canton,
+        record_prefix=args.record_prefix,
+        exclude_record_ids=excluded_record_ids,
     )
     print(json.dumps(summary, ensure_ascii=False, indent=2, sort_keys=True))
 

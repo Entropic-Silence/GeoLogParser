@@ -85,3 +85,56 @@ def test_dataset_version_can_be_frozen_for_a_successor_acquisition(tmp_path):
         dataset_version="swissgeol_thurgau_paired_v002",
     )
     assert summary["dataset_version"] == "swissgeol_thurgau_paired_v002"
+
+
+def test_candidate_scan_can_start_after_an_existing_freeze():
+    requests = []
+
+    class PagedClient:
+        def json(self, path, *, method="GET", body=None):
+            requests.append(body)
+            return {
+                "totalCount": 500,
+                "totalPages": 5,
+                "boreholes": [{"id": body["pageNumber"]}],
+            }
+
+    rows, total = MODULE.candidate_rows(
+        PagedClient(), maximum_pages=2, start_page=3, canton="Aargau",
+    )
+    assert total == 500
+    assert [row["id"] for row in rows] == [3, 4]
+    assert [request["pageNumber"] for request in requests] == [3, 4]
+    assert all(request["canton"] == ["Aargau"] for request in requests)
+
+
+def test_successor_acquisition_excludes_previously_frozen_record_ids(tmp_path):
+    first = detail()
+    second = detail()
+    second["id"] = 13
+    second["name"] = "BH-13"
+    second["profiles"][0].update({"id": 9, "boreholeId": 13, "name": "BH-13.pdf"})
+    second["stratigraphies"][0].update({"id": 10, "boreholeId": 13})
+
+    class Client:
+        def json(self, path, *, method="GET", body=None):
+            if path == "borehole/filter":
+                return {"totalCount": 2, "totalPages": 1, "boreholes": [{"id": 12}, {"id": 13}]}
+            return first if path.endswith("/12") else second
+
+        def bytes(self, path):
+            return b"%PDF-1.4\n"
+
+    summary = MODULE.acquire(
+        tmp_path / "successor",
+        limit=1,
+        maximum_pages=1,
+        client=Client(),
+        dataset_version="swissgeol_thurgau_paired_v003",
+        exclude_record_ids={"SWISSGEOL_TG_12"},
+    )
+    assert summary["frozen_documents"] == 1
+    assert summary["excluded_candidate_records"] == 1
+    manifest = (tmp_path / "successor" / "manifest.jsonl").read_text(encoding="utf-8")
+    assert "SWISSGEOL_TG_13" in manifest
+    assert "SWISSGEOL_TG_12" not in manifest

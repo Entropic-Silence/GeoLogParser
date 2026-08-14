@@ -1568,3 +1568,32 @@
 - Rights: reuse and redistribution remain
   `PENDING_MANUAL_PRE_SUBMISSION_REVIEW`; all source PDFs and derived page
   assets remain local.
+
+## 2026-08-14 — Swissgeol v003 preregistered development/held-out freeze
+
+- Acquisition: extended the public Swissgeol collector with start-page,
+  canton, record-prefix, and prior-manifest exclusion controls. The v003 run
+  scanned 1,200 candidate rows from sorted pages 7–18, froze 160 new public
+  PDF/database pairs with 767 official intervals, and recorded zero failures.
+  Manifest SHA256:
+  `2e665fbb7c3505a7f81c6f06a830a4798aa46cb4c5c38a1fbe8cc3f2408c6a45`;
+  record-set SHA256:
+  `424196ec97d3a4a325e8099f5f5ef948c3ed2289a96190dbd71ddca36524ab2b`.
+- Pairing audit: 72 documents/165 intervals had exact complete explicit-table
+  agreement with the official database; 44 were partial/mismatched and 44 had
+  no conservatively parsed table. Gold manifest SHA256:
+  `a4d19e8f83d8065bfa1cb92687c94b7d88c7f0f97d5406d3e9db460802b3a974`.
+- Split freeze: before model evaluation, salted PDF-content groups were assigned
+  to development and held-out partitions. Development contains 37 documents/85
+  intervals (SHA256
+  `e18e1378c4e718e9658c9cd45057fc55ae4e8df9d97fb4e7e7a92f38a3c443a8`);
+  held-out contains 35 documents/80 intervals (SHA256
+  `afb921fb606bd2e5f6213438edab775c41285cec78747e44319dadad6d355dc7`).
+  Record and PDF-hash overlap between partitions and against v002 are zero. One
+  duplicate PDF-content group is kept wholly within a single partition.
+- Decision: only the development partition may be used to inspect errors and
+  redesign triggers. The v003 held-out partition must remain unobserved until
+  the successor policy and configuration are frozen in Git.
+- Rights: source/item terms remain
+  `PENDING_MANUAL_PRE_SUBMISSION_REVIEW`; source and derived assets remain
+  internal and are not redistributed.

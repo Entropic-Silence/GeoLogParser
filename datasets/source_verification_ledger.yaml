@@ -599,6 +599,73 @@ records:
     in incremental Gold manifest SHA256 a73e2195d871429d4d8e27ff140ac45cd5cc8b1ffdf16a990089540de0319539.
     Gold scope is top/bottom/thickness only; lithology, description, bbox, and material
     semantics are excluded. human_reviewed=false. Rights status remains PENDING_MANUAL_PRE_SUBMISSION_REVIEW.
+- source_id: swissgeol_thurgau_paired_v003
+  source_name: Swissgeol Thurgau successor PDF/database pairing freeze
+  url: https://boreholes.swissgeol.ch/
+  source_url: https://boreholes.swissgeol.ch/
+  doi: null
+  publisher: swisstopo / swissgeol
+  citation: Swissgeol Thurgau successor PDF/database pairing freeze
+  retrieval_date: '2026-08-14'
+  local_paths:
+  - /data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v003
+  file_count_in_local_snapshot: 329
+  local_snapshot_inventory_sha256: 5237c06fc002dbb47a0f91a23b733e9e1252360fb3b939c0b8ce2904cf3e0489
+  manifest_evidence:
+  - relative_path: gold_interval_manifest_development_v003.jsonl
+    size_bytes: 51162
+    sha256: e18e1378c4e718e9658c9cd45057fc55ae4e8df9d97fb4e7e7a92f38a3c443a8
+  - relative_path: gold_interval_manifest_heldout_v003.jsonl
+    size_bytes: 48410
+    sha256: afb921fb606bd2e5f6213438edab775c41285cec78747e44319dadad6d355dc7
+  - relative_path: gold_interval_manifest_v003.jsonl
+    size_bytes: 99572
+    sha256: a4d19e8f83d8065bfa1cb92687c94b7d88c7f0f97d5406d3e9db460802b3a974
+  - relative_path: manifest.jsonl
+    size_bytes: 175519
+    sha256: 2e665fbb7c3505a7f81c6f06a830a4798aa46cb4c5c38a1fbe8cc3f2408c6a45
+  access_method: anonymous public frontend and read API; scanned sorted candidate
+    pages 7-18 and accepted only Published records with public PDF profiles and published
+    profile/lithology tabs
+  terms_of_use: null
+  claimed_license: TBD — source/item reuse and redistribution terms require manual
+    pre-submission verification
+  license_url: null
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
+  verification_status: UNVERIFIED_SOURCE
+  internal_decision: USE_WITH_CAUTION
+  decision: AMBIGUOUS
+  risks:
+  - file-level rights or content scope are incomplete
+  experiments_or_papers:
+  - paper1_authoritative_interval_successor
+  - paper2_method_development
+  - paper2_heldout_method_evaluation
+  requires_human_check_before_submission: true
+  evidence:
+  - datasets/data_registry.yaml
+  - /data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v003/dataset.json
+  - /data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v003/manifest.jsonl
+  - /data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v003/pairing_audit_v003.jsonl
+  - /data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v003/pairing_audit_summary_v003.json
+  - /data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v003/gold_interval_manifest_development_v003.jsonl
+  - /data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v003/gold_interval_manifest_heldout_v003.jsonl
+  - /data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v003/gold_interval_manifest_v003.jsonl
+  registry_status: acquired_interval_gold_v003_rights_unverified
+  registry_verification_notes: 'Frozen at /data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v003
+    after examining 1200 candidates from source pages 7-18. It contains 160 PDFs/767
+    official intervals with zero acquisition failures; manifest SHA256 2e665fbb7c3505a7f81c6f06a830a4798aa46cb4c5c38a1fbe8cc3f2408c6a45
+    and canonical record-set SHA256 424196ec97d3a4a325e8099f5f5ef948c3ed2289a96190dbd71ddca36524ab2b.
+    The explicit-table audit retained 72 documents/165 intervals in gold manifest
+    SHA256 a4d19e8f83d8065bfa1cb92687c94b7d88c7f0f97d5406d3e9db460802b3a974. A salted
+    PDF-content-group split was frozen before model evaluation: development 37 documents/85
+    intervals, SHA256 e18e1378c4e718e9658c9cd45057fc55ae4e8df9d97fb4e7e7a92f38a3c443a8;
+    held-out 35 documents/80 intervals, SHA256 afb921fb606bd2e5f6213438edab775c41285cec78747e44319dadad6d355dc7.
+    Record and PDF-hash overlap with v002 are both zero. One duplicate PDF group is
+    contained wholly within one partition. Gold scope is top/bottom/thickness only;
+    human_reviewed=false; rights status remains PENDING_MANUAL_PRE_SUBMISSION_REVIEW.'
 - source_id: usgs_geolog_locator
   source_name: GeoLog Locator
   url: https://www.usgs.gov/tools/geolog-locator

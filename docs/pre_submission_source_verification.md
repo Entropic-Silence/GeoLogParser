@@ -69,6 +69,17 @@ annotation, and the unmatched candidate records are not interval Gold. The
 incremental held-out manifest contains 20 documents/55 intervals after
 excluding every v001 development record.
 
+A non-overlapping successor freeze is stored at
+`/data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v003`. It contains
+160 PDFs and 767 official database intervals; the deterministic source-table
+audit retained 72 documents/165 intervals. Before any model evaluation, those
+records were assigned by salted PDF-content hash group to a 37-document/85-
+interval development partition and a 35-document/80-interval held-out
+partition. Record and PDF-content overlap with the v002 Gold manifest are both
+zero, and the one duplicated PDF group remains within a single partition. The
+same pre-submission rights, attribution, privacy, sensitive-location, embedded-
+content, and redistribution checks remain mandatory.
+
 ## Human sign-off fields
 
 For each YAML record, the final reviewer should append or record in a successor

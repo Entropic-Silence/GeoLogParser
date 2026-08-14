@@ -223,6 +223,25 @@ datasets:
     status: acquired_interval_gold_v002_rights_unverified
     verification_notes: "The successor freeze is /data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v002. Acquisition examined 600 candidates and accepted only workflow.status=Published, publishedTabs.profiles=true, publishedTabs.lithology=true, profile.public=true, and application/pdf profiles. It contains 96 PDFs/492 official intervals; manifest SHA256 13fde359ffcbf67173fc9fda17815e321cdb0064fbfb028ed982cf4262aaaad4 and canonical record-set SHA256 d1c1506eff68d156abfdc5ac26263b98a457696ba7f3a794734f642511265c53. The reference-independent explicit-table audit retained 29 documents/76 intervals; after excluding all 9 v001 development records, 20 documents/55 intervals remain in incremental Gold manifest SHA256 a73e2195d871429d4d8e27ff140ac45cd5cc8b1ffdf16a990089540de0319539. Gold scope is top/bottom/thickness only; lithology, description, bbox, and material semantics are excluded. human_reviewed=false. Rights status remains PENDING_MANUAL_PRE_SUBMISSION_REVIEW."
 
+  - id: swissgeol_thurgau_paired_v003
+    name: "Swissgeol Thurgau successor PDF/database pairing freeze"
+    source_organization: swisstopo / swissgeol
+    url: https://boreholes.swissgeol.ch/
+    license_url: null
+    access_date: "2026-08-14"
+    language: German
+    format: "public borehole profile PDFs paired with official structured borehole and lithology API records"
+    scale: "160 PDFs paired with 767 official database intervals; deterministic source-table audit retained 72 documents/165 interval boundaries; content-grouped preregistered split contains 37 development documents/85 intervals and 35 held-out documents/80 intervals"
+    downloadable: true
+    access_status: "anonymous public frontend and read API; scanned sorted candidate pages 7-18 and accepted only Published records with public PDF profiles and published profile/lithology tabs"
+    license: "TBD — source/item reuse and redistribution terms require manual pre-submission verification"
+    allowed_usage: "internal research experiments under project quarantine policy pending manual source-rights verification"
+    redistribution: prohibited_pending_verification
+    redistribution_policy: "do not upload or redistribute source PDFs, database records, or derived page assets before manual terms, attribution, privacy, sensitive-location, and embedded-content review"
+    paper_fit: [paper1_authoritative_interval_successor, paper2_method_development, paper2_heldout_method_evaluation]
+    status: acquired_interval_gold_v003_rights_unverified
+    verification_notes: "Frozen at /data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v003 after examining 1200 candidates from source pages 7-18. It contains 160 PDFs/767 official intervals with zero acquisition failures; manifest SHA256 2e665fbb7c3505a7f81c6f06a830a4798aa46cb4c5c38a1fbe8cc3f2408c6a45 and canonical record-set SHA256 424196ec97d3a4a325e8099f5f5ef948c3ed2289a96190dbd71ddca36524ab2b. The explicit-table audit retained 72 documents/165 intervals in gold manifest SHA256 a4d19e8f83d8065bfa1cb92687c94b7d88c7f0f97d5406d3e9db460802b3a974. A salted PDF-content-group split was frozen before model evaluation: development 37 documents/85 intervals, SHA256 e18e1378c4e718e9658c9cd45057fc55ae4e8df9d97fb4e7e7a92f38a3c443a8; held-out 35 documents/80 intervals, SHA256 afb921fb606bd2e5f6213438edab775c41285cec78747e44319dadad6d355dc7. Record and PDF-hash overlap with v002 are both zero. One duplicate PDF group is contained wholly within one partition. Gold scope is top/bottom/thickness only; human_reviewed=false; rights status remains PENDING_MANUAL_PRE_SUBMISSION_REVIEW."
+
   - id: usgs_geolog_locator
     name: GeoLog Locator
     source_organization: U.S. Geological Survey

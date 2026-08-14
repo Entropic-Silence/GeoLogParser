@@ -38,15 +38,16 @@ def main() -> None:
     silver = json.loads(silver_summary_path.read_text(encoding="utf-8")) if silver_summary_path.is_file() else {}
     padova_silver_summary = Path("/data/GeoLogParser/artifacts/silver/unipd_field_silver_v003/summary.json")
     padova_silver = json.loads(padova_silver_summary.read_text(encoding="utf-8")) if padova_silver_summary.is_file() else {}
-    swissgeol_gold_manifest = Path(
-        "/data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v002/"
-        "gold_interval_manifest_v002.jsonl"
-    )
+    swissgeol_gold_manifests = [
+        Path("/data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v002/gold_interval_manifest_v002.jsonl"),
+        Path("/data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v003/gold_interval_manifest_v003.jsonl"),
+    ]
     swissgeol_gold_rows = [
         json.loads(line)
-        for line in swissgeol_gold_manifest.read_text(encoding="utf-8").splitlines()
+        for manifest in swissgeol_gold_manifests if manifest.is_file()
+        for line in manifest.read_text(encoding="utf-8").splitlines()
         if line.strip()
-    ] if swissgeol_gold_manifest.is_file() else []
+    ]
     authoritative_gold_documents = len(swissgeol_gold_rows)
     authoritative_gold_intervals = sum(
         int(row.get("interval_count", 0)) for row in swissgeol_gold_rows
