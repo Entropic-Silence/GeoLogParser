@@ -242,6 +242,44 @@ datasets:
     status: acquired_interval_gold_v003_rights_unverified
     verification_notes: "Frozen at /data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v003 after examining 1200 candidates from source pages 7-18. It contains 160 PDFs/767 official intervals with zero acquisition failures; manifest SHA256 2e665fbb7c3505a7f81c6f06a830a4798aa46cb4c5c38a1fbe8cc3f2408c6a45 and canonical record-set SHA256 424196ec97d3a4a325e8099f5f5ef948c3ed2289a96190dbd71ddca36524ab2b. The explicit-table audit retained 72 documents/165 intervals in gold manifest SHA256 a4d19e8f83d8065bfa1cb92687c94b7d88c7f0f97d5406d3e9db460802b3a974. A salted PDF-content-group split was frozen before model evaluation: development 37 documents/85 intervals, SHA256 e18e1378c4e718e9658c9cd45057fc55ae4e8df9d97fb4e7e7a92f38a3c443a8; held-out 35 documents/80 intervals, SHA256 afb921fb606bd2e5f6213438edab775c41285cec78747e44319dadad6d355dc7. Record and PDF-hash overlap with v002 are both zero. One duplicate PDF group is contained wholly within one partition. Gold scope is top/bottom/thickness only; human_reviewed=false; rights status remains PENDING_MANUAL_PRE_SUBMISSION_REVIEW."
 
+  - id: swissgeol_stgallen_paired_v001
+    name: "Swissgeol St. Gallen published borehole PDF/database pairing acquisition"
+    source_organization: swisstopo / swissgeol
+    url: https://boreholes.swissgeol.ch/
+    license_url: null
+    access_date: "2026-08-14"
+    language: German
+    format: "public borehole profile PDFs paired with official structured borehole and lithology API records"
+    scale: "26 PDFs paired with 373 official database intervals; native explicit-table audit retained zero complete interval agreements"
+    downloadable: true
+    access_status: "anonymous public frontend and read API; Published records with public PDF profiles and published profile/lithology tabs"
+    license: "TBD — source/item reuse and redistribution terms require manual pre-submission verification"
+    allowed_usage: "internal source-disjoint transfer and metadata experiments pending manual source-rights verification"
+    redistribution: prohibited_pending_verification
+    redistribution_policy: "do not upload or redistribute source PDFs, database records, or derived page assets before manual terms, attribution, privacy, sensitive-location, and embedded-content review"
+    paper_fit: [paper1_source_disjoint_transfer, paper3_spatial_candidate]
+    status: acquired_authoritative_metadata_no_source_agreement_gold
+    verification_notes: "Frozen at /data/GeoLogParser/datasets/public/swissgeol_stgallen_paired_v001. Acquisition examined 26 candidates and accepted all 26 with zero failures; manifest SHA256 aab642f611a38a5bbe8f0802bdb8abd6e3dacd9bb7001f2dc51a445d33c0f653 and dataset SHA256 2e6638cc650b5773e5da869f2804d3e3a7db928a467d3f513305415ed7bb014e. Native-PDF explicit-table audit found 23 pages without a conservatively parsed interval table and 3 partial/mismatch pages; no interval Gold is claimed. Official database boundaries remain available only as authoritative structured-source metadata for transfer diagnostics. human_reviewed=false; rights status remains PENDING_MANUAL_PRE_SUBMISSION_REVIEW."
+
+  - id: swissgeol_bern_paired_v001
+    name: "Swissgeol Bern published borehole PDF/database pairing acquisition"
+    source_organization: swisstopo / swissgeol
+    url: https://boreholes.swissgeol.ch/
+    license_url: null
+    access_date: "2026-08-14"
+    language: German
+    format: "public borehole profile PDFs paired with official structured borehole and lithology API records"
+    scale: "7 PDFs paired with 77 official database intervals; native explicit-table audit retained zero complete interval agreements"
+    downloadable: true
+    access_status: "anonymous public frontend and read API; Published records with public PDF profiles and published profile/lithology tabs"
+    license: "TBD — source/item reuse and redistribution terms require manual pre-submission verification"
+    allowed_usage: "internal source-disjoint transfer and metadata experiments pending manual source-rights verification"
+    redistribution: prohibited_pending_verification
+    redistribution_policy: "do not upload or redistribute source PDFs, database records, or derived page assets before manual terms, attribution, privacy, sensitive-location, and embedded-content review"
+    paper_fit: [paper1_source_disjoint_transfer, paper3_spatial_candidate]
+    status: acquired_authoritative_metadata_no_source_agreement_gold
+    verification_notes: "Frozen at /data/GeoLogParser/datasets/public/swissgeol_bern_paired_v001. Acquisition examined 67 candidates and accepted 7 with zero failures; manifest SHA256 07b08e653b64d607c5be05467d789cfb11449fa9d5c3576406b29653087e634e and dataset SHA256 11f33ec2f98afc0fe06c3448df288b59aad8d2d16c524a6ee1cf1b563a54d7d5. Native-PDF explicit-table audit found no conservatively parsed interval tables on all 7 pages; no interval Gold is claimed. Official database boundaries remain available only as authoritative structured-source metadata for transfer diagnostics. human_reviewed=false; rights status remains PENDING_MANUAL_PRE_SUBMISSION_REVIEW."
+
   - id: usgs_geolog_locator
     name: GeoLog Locator
     source_organization: U.S. Geological Survey

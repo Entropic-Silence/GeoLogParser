@@ -30,6 +30,14 @@ Each policy was frozen on its recorded development partition before the correspo
 
 This component analysis was specified and executed after the full v2 held-out result was observed. It is descriptive evidence on frozen artifacts, not an independent confirmatory experiment; change counts for the legacy parser are parser differences, not automatic corrections.
 
+### Secondary selective-confidence and abstention analysis
+
+| Experiment | Brier | ECE (5-bin) | Abstain review coverage | Abstain document exact | Abstain interval F1 | Peer-agreement coverage | Peer-agreement interval F1 | Eligibility |
+|---|---:|---:|---:|---:|---:|---:|---:|---|
+| P2_SWISSGEOL_TG_SELECTIVE_CONFIDENCE_SECONDARY_001 | 0.126 | 0.044 | 30/35 (0.857) | 0.900 | 0.948 | 14/35 (0.400) | 1.000 | secondary_calibration_only |
+
+The confidence lookup is fit on development-only outcomes and applied to held-out outputs. This table is a secondary post-result analysis with small denominators; it is not a confirmatory calibration estimate.
+
 ### Public ROI engineering audit (no Ground Truth)
 
 | Experiment | Cases | VLM JSON-valid | VLM uncertain | OCR/VLM numeric-agreement cases | Accept proposals | Needs review | VLM s/ROI | Peak GiB | Eligibility |

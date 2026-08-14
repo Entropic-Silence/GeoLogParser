@@ -387,6 +387,7 @@ def paper2_table(entries: list[dict], repository_root: Path) -> str:
     authoritative_rows = []
     interval_method_rows = []
     secondary_ablation_rows = []
+    selective_rows = []
     for entry in entries:
         metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
         if metrics.get("scope") == "authoritative-metadata consensus/abstention evaluation":
@@ -427,6 +428,20 @@ def paper2_table(entries: list[dict], repository_root: Path) -> str:
                     str(values["changed_document_count"]),
                     entry["paper_eligibility"],
                 ]) + " |")
+        if metrics.get("scope") == "authoritative-interval selective-confidence secondary analysis":
+            abstain = metrics["operational_policies"]["abstain_needs_review"]
+            peer = metrics["operational_policies"]["require_peer_exact_agreement"]
+            selective_rows.append("| " + " | ".join([
+                entry["experiment_id"],
+                number(metrics["brier_score"]),
+                number(metrics["expected_calibration_error_5_bin"]),
+                f'{abstain["accepted_documents"]}/{abstain["total_documents"]} ({abstain["coverage"]:.3f})',
+                number(abstain["document_exact"]["value"]),
+                number(abstain["interval_metrics"]["interval_f1"]["value"]),
+                f'{peer["accepted_documents"]}/{peer["total_documents"]} ({peer["coverage"]:.3f})',
+                number(peer["interval_metrics"]["interval_f1"]["value"]),
+                entry["paper_eligibility"],
+            ]) + " |")
         if "vlm_schema_valid_count" in metrics:
             audit_rows.append("| " + " | ".join([
                 entry["experiment_id"], str(metrics["case_count"]),
@@ -491,6 +506,12 @@ def paper2_table(entries: list[dict], repository_root: Path) -> str:
         "|---|---|---:|---:|---:|---:|---:|---|",
         *secondary_ablation_rows, "",
         "This component analysis was specified and executed after the full v2 held-out result was observed. It is descriptive evidence on frozen artifacts, not an independent confirmatory experiment; change counts for the legacy parser are parser differences, not automatic corrections.",
+        "",
+        "### Secondary selective-confidence and abstention analysis", "",
+        "| Experiment | Brier | ECE (5-bin) | Abstain review coverage | Abstain document exact | Abstain interval F1 | Peer-agreement coverage | Peer-agreement interval F1 | Eligibility |",
+        "|---|---:|---:|---:|---:|---:|---:|---:|---|",
+        *selective_rows, "",
+        "The confidence lookup is fit on development-only outcomes and applied to held-out outputs. This table is a secondary post-result analysis with small denominators; it is not a confirmatory calibration estimate.",
         "",
         "### Public ROI engineering audit (no Ground Truth)", "",
         "| Experiment | Cases | VLM JSON-valid | VLM uncertain | OCR/VLM numeric-agreement cases | Accept proposals | Needs review | VLM s/ROI | Peak GiB | Eligibility |",

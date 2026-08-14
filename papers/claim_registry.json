@@ -1547,6 +1547,26 @@
         {"type": "json_pointer_equals", "pointer": "/human_reviewed", "expected": false}
       ]
     },
+    "p1.swissgeol_authoritative_interval_rapidocr": {
+      "paper": "paper1",
+      "experiment_id": "P1_SWISSGEOL_TG_CONTENT_HELDOUT_RAPIDOCR_FORMAL_005",
+      "scope": "RapidOCR/ONNX backend comparison on the same 35-document/80-interval PDF-content-group held-out Swissgeol set; no human annotation or representative cross-source claim",
+      "source_path": "results/2026-08-14/P1_SWISSGEOL_TG_CONTENT_HELDOUT_RAPIDOCR_FORMAL_005/metrics.json",
+      "source_sha256": "fbc6f663e8f7eb95d7eca92d0047ebde6c23dec75094687c216c06a2e686bdcc",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 35},
+        {"type": "json_pointer_equals", "pointer": "/reference_interval_count", "expected": 80},
+        {"type": "json_pointer_equals", "pointer": "/predicted_interval_count", "expected": 79},
+        {"type": "json_pointer_equals", "pointer": "/document_full_exact/numerator", "expected": 17},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_precision/value", "expected": 0.6835443037974683},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_recall/value", "expected": 0.675},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_f1/value", "expected": 0.679245283018868},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/matched_top_boundary_mae_m/value", "expected": 0.0},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/matched_bottom_boundary_mae_m/value", "expected": 0.0},
+        {"type": "json_pointer_equals", "pointer": "/prediction_reference_conditioning", "expected": "none"},
+        {"type": "json_pointer_equals", "pointer": "/human_reviewed", "expected": false}
+      ]
+    },
     "p2.swissgeol_heldout_constraint_reread": {
       "paper": "paper2",
       "experiment_id": "P2_SWISSGEOL_TG_CONSTRAINT_REREAD_HELDOUT_001",
@@ -1584,6 +1604,25 @@
         {"type": "json_pointer_equals", "pointer": "/false_correction_rate/value", "expected": 0.0},
         {"type": "json_pointer_equals", "pointer": "/incorrect_document_trigger_recall/value", "expected": 0.7},
         {"type": "json_pointer_equals", "pointer": "/correct_document_trigger_rate/numerator", "expected": 2}
+      ]
+    },
+    "p2.selective_confidence_secondary": {
+      "paper": "paper2",
+      "experiment_id": "P2_SWISSGEOL_TG_SELECTIVE_CONFIDENCE_SECONDARY_001",
+      "scope": "development-fitted selective-confidence and abstention analysis on frozen v003 held-out outputs; secondary post-result evidence",
+      "source_path": "results/2026-08-14/P2_SWISSGEOL_TG_SELECTIVE_CONFIDENCE_SECONDARY_001/metrics.json",
+      "source_sha256": "53a8cc252bdb0e0401f500de45cb35f5549cc497197e99a8f643f16ca9eb203f",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/development_document_count", "expected": 37},
+        {"type": "json_pointer_equals", "pointer": "/heldout_document_count", "expected": 35},
+        {"type": "json_pointer_equals", "pointer": "/development_heldout_overlap_count", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/brier_score", "expected": 0.1261290233686067},
+        {"type": "json_pointer_equals", "pointer": "/expected_calibration_error_5_bin", "expected": 0.04424603174603161},
+        {"type": "json_pointer_equals", "pointer": "/operational_policies/abstain_needs_review/accepted_documents", "expected": 30},
+        {"type": "json_pointer_equals", "pointer": "/operational_policies/abstain_needs_review/document_exact/value", "expected": 0.9},
+        {"type": "json_pointer_equals", "pointer": "/operational_policies/abstain_needs_review/interval_metrics/interval_f1/value", "expected": 0.9481481481481481},
+        {"type": "json_pointer_equals", "pointer": "/operational_policies/require_peer_exact_agreement/accepted_documents", "expected": 14},
+        {"type": "json_pointer_equals", "pointer": "/operational_policies/require_peer_exact_agreement/interval_metrics/interval_f1/value", "expected": 1.0}
       ]
     },
     "p2.swissgeol_v2_secondary_ablation": {

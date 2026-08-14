@@ -26,6 +26,7 @@ These rows use programmatically known Synthetic labels. They validate controlled
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
 | P1_SWISSGEOL_TG_INCREMENTAL_TESSERACT_FORMAL_003 | B1_tesseract_ocr_conservative_interval_parser | 20 | 55 | 55 | 0.855 | 0.855 | 0.855 | 0.000 | 0.000 | 17/20 (0.850) | 3.832 | formal_authoritative_interval |
 | P1_SWISSGEOL_TG_CONTENT_HELDOUT_TESSERACT_FORMAL_004 | B1_tesseract_ocr_conservative_interval_parser | 35 | 80 | 74 | 0.892 | 0.825 | 0.857 | 0.000 | 0.000 | 25/35 (0.714) | 3.047 | formal_authoritative_interval |
+| P1_SWISSGEOL_TG_CONTENT_HELDOUT_RAPIDOCR_FORMAL_005 | B1_rapidocr_onnx_ocr_conservative_interval_parser | 35 | 80 | 79 | 0.684 | 0.675 | 0.679 | 0.000 | 0.000 | 17/35 (0.486) | 4.117 | formal_authoritative_interval |
 The reference contains only interval boundaries from official database records whose complete sequence exactly agrees with an explicit table in the paired official PDF. The reported run is incremental and disjoint from parser-development records, but the source-agreement selection is not a representative random sample and no human annotation is claimed.
 
 ### Reference-conditioned interval diagnostics excluded from formal claims
@@ -40,6 +41,7 @@ These retained runs conditioned candidate filtering/ranking on an official refer
 | Experiment | Model | Documents | Reference intervals | Predicted intervals | Interval P | Interval R | Interval F1 | Matched top MAE (m) | Matched bottom MAE (m) | Full-document exact | s/document | Eligibility |
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
 | P1_SWISSGEOL_TG_INTERVAL_TESSERACT_FORMAL_002 | B1_tesseract_ocr_conservative_interval_parser | 9 | 21 | 16 | 1.000 | 0.762 | 0.865 | 0.000 | 0.000 | 6/9 (0.667) | 3.180 | development_authoritative_interval |
+| P1_SWISSGEOL_TG_CONTENT_DEVELOPMENT_RAPIDOCR_001 | B1_rapidocr_onnx_ocr_conservative_interval_parser | 37 | 85 | 85 | 0.635 | 0.635 | 0.635 | 0.000 | 0.000 | 19/37 (0.514) | 4.150 | development_authoritative_interval |
 These reference-independent runs used the v001 records on which parser/reread behavior was developed. They are retained as development evidence and excluded from the incremental held-out estimate.
 
 ### Machine-adjudicated Silver agreement benchmark (not human accuracy)
