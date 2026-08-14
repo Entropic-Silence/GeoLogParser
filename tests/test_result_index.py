@@ -135,6 +135,7 @@ def test_formal_authoritative_interval_requires_source_agreement_scope():
             "reference_ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
             "document_count": 9,
             "reference_interval_count": 21,
+            "prediction_reference_conditioning": "none",
         },
     ) == []
     errors = formal_evidence_errors(
@@ -144,12 +145,14 @@ def test_formal_authoritative_interval_requires_source_agreement_scope():
             "reference_ground_truth_tier": "GOLD",
             "document_count": 0,
             "reference_interval_count": 0,
+            "prediction_reference_conditioning": "official_final_depth",
         },
     )
     assert any("authoritative interval scope" in error for error in errors)
     assert any("GOLD_AUTHORITATIVE_SOURCE_AGREEMENT" in error for error in errors)
     assert any("positive document_count" in error for error in errors)
     assert any("positive reference_interval_count" in error for error in errors)
+    assert any("prediction_reference_conditioning=none" in error for error in errors)
 
 
 def test_formal_authoritative_metadata_robustness_requires_narrow_scope():

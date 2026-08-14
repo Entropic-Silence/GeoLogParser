@@ -194,6 +194,7 @@ def main() -> None:
             "interval_match_tolerance_m": 0.05,
             "ground_truth_sha256": file_sha256(gold_manifest),
             "ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+            "prediction_reference_conditioning": "none",
             "pairing_audit_summary_sha256": file_sha256(audit_summary_path),
             "dataset_summary_sha256": file_sha256(dataset_summary_path),
             "evaluated_fields": [
@@ -239,7 +240,10 @@ def main() -> None:
         )
         text_path = ocr_text_root / f"{row['record_id']}.txt"
         text_path.write_text(combined_text, encoding="utf-8")
-        pairs = choose_interval_section(combined_text, final_depth)
+        # The reference final depth is loaded only to validate the frozen
+        # reference record. Prediction must remain independent of all reference
+        # values; interval candidates are derived from raster OCR text alone.
+        pairs = choose_interval_section(combined_text)
         predictions = [interval_dict(top, bottom) for top, bottom in pairs]
         matches, unmatched_references, unmatched_predictions = match_intervals_by_boundaries(
             references, predictions, tolerance_m=0.05,
@@ -281,6 +285,7 @@ def main() -> None:
     metrics = {
         "scope": "authoritative-interval benchmark evaluation",
         "reference_ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+        "prediction_reference_conditioning": "none",
         "reference_definition": (
             "official database interval boundaries with exact complete agreement to an explicit "
             "interval table in the paired official PDF"

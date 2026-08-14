@@ -72,6 +72,10 @@ def formal_evidence_errors(entry: dict, run: dict, metrics: dict) -> list[str]:
             errors.append(
                 "formal_authoritative_interval requires a positive reference_interval_count"
             )
+        if metrics.get("prediction_reference_conditioning") != "none":
+            errors.append(
+                "formal_authoritative_interval requires prediction_reference_conditioning=none"
+            )
     elif eligibility == "formal_authoritative_metadata_method":
         if metrics.get("scope") != "authoritative-metadata consensus/abstention evaluation":
             errors.append(
