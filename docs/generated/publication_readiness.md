@@ -14,7 +14,7 @@ Ground-Truth-exportable annotations: **0**.
 |---|---:|---:|---:|
 | paper1 | 44 | 2 | 11 |
 | paper2 | 10 | 1 | 4 |
-| paper3 | 11 | 1 | 4 |
+| paper3 | 13 | 1 | 6 |
 
 Audit/failure-analysis/protocol-only runs are intentionally excluded from formal counts.
 False gates require `TBD`/`NOT COMPLETED`; this file is status evidence, not a paper result.

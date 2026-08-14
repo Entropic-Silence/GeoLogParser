@@ -199,6 +199,38 @@ def test_paper3_table_includes_controlled_error_classes(tmp_path: Path):
     assert "not directly comparable across units" in table
 
 
+def test_paper3_table_includes_spatial_metadata_and_partial_surface(tmp_path: Path):
+    spatial = tmp_path / "spatial"
+    surface = tmp_path / "surface"
+    spatial.mkdir(); surface.mkdir()
+    (spatial / "metrics.json").write_text(json.dumps({
+        "comparison": "page_explicit_spatial_values_vs_authoritative_database",
+        "document_count": 88, "coordinate_prediction_count": 53,
+        "coordinate_pair_coverage": {"value": 53/88, "numerator": 53, "denominator": 88},
+        "coordinate_pair_exact_over_all": {"value": 51/88, "numerator": 51, "denominator": 88},
+        "coordinate_pair_exact_when_predicted": {"value": 51/53, "numerator": 51, "denominator": 53},
+        "x_error_m": {"mae": 94.45}, "y_error_m": {"mae": 132.08},
+        "page_database_coordinate_disagreement_count": 2, "collar_prediction_count": 0,
+    }))
+    (surface / "metrics.json").write_text(json.dumps({
+        "comparison": "authoritative_reference_vs_page_coordinate_reference_boundary_vs_page_coordinate_raw_and_reread_boundary",
+        "variants": {"page_coordinate_reference_boundary": {
+            "point_count": 17, "coverage": 17/35, "boundary_mae_m": 0,
+            "surface_error": {"mae_m": 9.514, "rmse_m": 13.75, "max_abs_error_m": 69.82},
+        }},
+    }))
+    entries = [
+        {"experiment_id": "SPATIAL", "result_path": "spatial", "paper_eligibility": "formal_authoritative_spatial_extraction"},
+        {"experiment_id": "SURFACE", "result_path": "surface", "paper_eligibility": "formal_partial_page_spatial_downstream"},
+    ]
+    table = paper3_table(entries, tmp_path)
+    assert "External page spatial-metadata extraction" in table
+    assert "51/53 (0.962)" in table
+    assert "Page-coordinate downstream surface diagnostic" in table
+    assert "9.514" in table
+    assert "partial spatial workflow" in table
+
+
 def test_paper2_table_uses_gated_ablation_metrics(tmp_path: Path):
     metric = lambda value: {"value": value, "numerator": value, "denominator": 1}
     metrics = {

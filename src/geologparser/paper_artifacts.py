@@ -291,6 +291,8 @@ def paper3_table(entries: list[dict], repository_root: Path) -> str:
     source_qc_rows = []
     image_boundary_rows = []
     controlled_error_rows = []
+    spatial_metadata_rows = []
+    page_spatial_rows = []
     interoperability_rows = []
     for entry in entries:
         metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
@@ -353,6 +355,32 @@ def paper3_table(entries: list[dict], repository_root: Path) -> str:
                     f'{number(condition["surface_error"]["mae_m"]["mean"], 6)} ± {number(condition["surface_error"]["mae_m"]["std"], 6)}',
                     number(condition["spatial_support_coverage"]["mean"], 4),
                     number(condition["topological_mismatch_document_rate"]["mean"], 4),
+                    entry["paper_eligibility"],
+                ]) + " |")
+            continue
+        if metrics.get("comparison") == "page_explicit_spatial_values_vs_authoritative_database":
+            spatial_metadata_rows.append("| " + " | ".join([
+                entry["experiment_id"], str(metrics["document_count"]),
+                str(metrics["coordinate_prediction_count"]),
+                ratio(metrics["coordinate_pair_coverage"]),
+                ratio(metrics["coordinate_pair_exact_over_all"]),
+                ratio(metrics["coordinate_pair_exact_when_predicted"]),
+                number(metrics["x_error_m"]["mae"]),
+                number(metrics["y_error_m"]["mae"]),
+                str(metrics["page_database_coordinate_disagreement_count"]),
+                str(metrics["collar_prediction_count"]),
+                entry["paper_eligibility"],
+            ]) + " |")
+            continue
+        if metrics.get("comparison") == "authoritative_reference_vs_page_coordinate_reference_boundary_vs_page_coordinate_raw_and_reread_boundary":
+            for variant, values in metrics["variants"].items():
+                page_spatial_rows.append("| " + " | ".join([
+                    entry["experiment_id"], variant,
+                    str(values["point_count"]), number(values["coverage"], 4),
+                    number(values["boundary_mae_m"]),
+                    number(values["surface_error"]["mae_m"]),
+                    number(values["surface_error"]["rmse_m"]),
+                    number(values["surface_error"]["max_abs_error_m"]),
                     entry["paper_eligibility"],
                 ]) + " |")
             continue
@@ -422,6 +450,20 @@ def paper3_table(entries: list[dict], repository_root: Path) -> str:
         "|---|---|---:|---:|---|---:|---:|---:|---:|---|",
         *controlled_error_rows, "",
         "Each row aggregates 30 seeded injections on 35 held-out authoritative records and a fixed 1,265-query reference domain. Parameters are error-class specific and are not directly comparable across units. Coordinates and collar elevations are authoritative structured fields rather than image-derived predictions; no human Ground Truth is claimed.",
+        "",
+        "### External page spatial-metadata extraction",
+        "",
+        "| Experiment | Documents | Coordinate predictions | Coordinate coverage | Pair exact/all | Pair exact/predicted | X MAE (m) | Y MAE (m) | Page/database disagreements | Collar predictions | Eligibility |",
+        "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|",
+        *spatial_metadata_rows, "",
+        "The frozen conservative parser was evaluated on every paired record outside the interval-v003 split. Database disagreement is not automatically attributed to recognition because the page and database can contain different values. Zero collar predictions is a measured abstention result, not missing evaluation output.",
+        "",
+        "### Page-coordinate downstream surface diagnostic",
+        "",
+        "| Experiment | Variant | Points | Coverage | Boundary MAE (m) | Surface MAE (m) | Surface RMSE (m) | Max error (m) | Eligibility |",
+        "|---|---|---:|---:|---:|---:|---:|---:|---|",
+        *page_spatial_rows, "",
+        "Page coordinates and frozen image-boundary predictions are reference-free, but every collar elevation remains supplied by the authoritative record because page extraction coverage was zero. The comparison is therefore a partial spatial workflow, not complete end-to-end extraction.",
         "",
         "### Licensed structured-source field proxy protocol",
         "",

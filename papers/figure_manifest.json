@@ -39,6 +39,10 @@
     {
       "path": "paper3/generated/figures/controlled_error_classes.png",
       "sha256": "2104768099fe26ac01e3ef9f8d872c5cf9f9a934d583e3666929797d3725e0bc"
+    },
+    {
+      "path": "paper3/generated/figures/page_spatial_surface.png",
+      "sha256": "5718a4840613e99682e909abb23d33f64a5b0f029e44e4576a13a3fb057ac21a"
     }
   ],
   "scope": "auto-generated traceable figures; individual captions retain audit/protocol/design limits",

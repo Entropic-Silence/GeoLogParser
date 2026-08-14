@@ -1745,6 +1745,37 @@
         {"type": "json_pointer_equals", "pointer": "/conditions/14/surface_error/mae_m/mean", "expected": 30.74722249097352},
         {"type": "json_pointer_equals", "pointer": "/conditions/17/surface_error/mae_m/mean", "expected": 20.663361010568636}
       ]
+    },
+    "p3.external_spatial_metadata": {
+      "paper": "paper3",
+      "experiment_id": "P3_SWISSGEOL_EXTERNAL_SPATIAL_METADATA_002",
+      "scope": "frozen conservative page spatial parser on all 88 paired records outside interval-v003",
+      "source_path": "results/2026-08-14/P3_SWISSGEOL_EXTERNAL_SPATIAL_METADATA_002/metrics.json",
+      "source_sha256": "19efa08d032a6bd7fffb0349bafee17cc48cd96228a3191da615e334f1267c24",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 88},
+        {"type": "json_pointer_equals", "pointer": "/coordinate_prediction_count", "expected": 53},
+        {"type": "json_pointer_equals", "pointer": "/coordinate_pair_exact_over_all/numerator", "expected": 51},
+        {"type": "json_pointer_equals", "pointer": "/coordinate_pair_exact_when_predicted/value", "expected": 0.9622641509433962},
+        {"type": "json_pointer_equals", "pointer": "/page_database_coordinate_disagreement_count", "expected": 2},
+        {"type": "json_pointer_equals", "pointer": "/collar_prediction_count", "expected": 0}
+      ]
+    },
+    "p3.page_spatial_surface": {
+      "paper": "paper3",
+      "experiment_id": "P3_SWISSGEOL_PAGE_SPATIAL_SURFACE_001",
+      "scope": "partial page-coordinate and frozen image-boundary downstream surface with authoritative collars",
+      "source_path": "results/2026-08-14/P3_SWISSGEOL_PAGE_SPATIAL_SURFACE_001/metrics.json",
+      "source_sha256": "0fc8e350cbea94e5291b8d73cac3f402fe83cb0e1dc4d1fe6091aceb72385409",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 35},
+        {"type": "json_pointer_equals", "pointer": "/query_count", "expected": 423},
+        {"type": "json_pointer_equals", "pointer": "/page_coordinate_prediction_count", "expected": 17},
+        {"type": "json_pointer_equals", "pointer": "/page_coordinate_database_exact_count", "expected": 15},
+        {"type": "json_pointer_equals", "pointer": "/page_collar_prediction_count", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/variants/page_coordinate_reread_boundary/surface_error/mae_m", "expected": 9.514210728103434},
+        {"type": "json_pointer_equals", "pointer": "/variants/authoritative_coordinate_reread_boundary/surface_error/mae_m", "expected": 3.049676982776966}
+      ]
     }
   }
 }

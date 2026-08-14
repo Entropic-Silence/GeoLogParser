@@ -1840,3 +1840,30 @@
 - Next step: add wrong-lithology/correlation perturbations only after a
   defensible unit-correlation reference is available; continue seeking a
   complete image-derived spatial workflow and timed human study.
+
+## 2026-08-14 — External page spatial metadata and partial surface workflow
+
+- Development failure: `P3_SWISSGEOL_EXTERNAL_SPATIAL_METADATA_001` exposed a
+  collar parser error: five `Klemm 805-2` drill-rig model numbers were accepted
+  as 805 m elevations. The run was not indexed. The parser was restricted to a
+  plausible value immediately adjacent to the collar label, with a regression
+  test for the equipment-number case.
+- Formal spatial experiment:
+  `P3_SWISSGEOL_EXTERNAL_SPATIAL_METADATA_002` evaluated all 88 paired records
+  outside interval-v003. It emitted 53 unambiguous page-coordinate pairs; 51
+  agreed exactly with the database. Conditional pair agreement was 0.9623 and
+  whole-set exact coverage was 0.5795. Two page/database differences remain
+  unresolved rather than being assigned to recognition. Collar coverage was
+  0/88 after the safety fix.
+- Partial downstream experiment: `P3_SWISSGEOL_PAGE_SPATIAL_SURFACE_001`
+  combined frozen page coordinates and image-derived first boundaries on the
+  35-document held-out set. Page-coordinate coverage was 17/35 and all 17
+  available raw/reread boundaries were exact, yet surface MAE was 9.514211 m.
+  The authoritative-coordinate reread variant used 34 points and produced
+  3.049677 m MAE on the same 423 queries.
+- Decision: treat page/database mismatch separately from recognition error;
+  retain abstention as the correct collar behavior; describe the surface run
+  as partial because all collar elevations are still authoritative.
+- Next step: investigate layout/visual collar evidence on sources that
+  explicitly print elevation, while preserving zero-coverage abstention on
+  pages that only state a tolerance.

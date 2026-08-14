@@ -14,6 +14,7 @@ from geologparser.paper_figures import (
     save_source_field_propagation, save_image_boundary_surface,
     save_image_multiboundary_surface,
     save_controlled_error_class_propagation,
+    save_page_spatial_surface,
 )
 from geologparser.result_index import verify_index
 
@@ -68,6 +69,8 @@ def main() -> None:
     outputs.append(paper3 / "image_multiboundary_surface.png")
     save_controlled_error_class_propagation(indexes["paper3"], ROOT, paper3 / "controlled_error_classes.png")
     outputs.append(paper3 / "controlled_error_classes.png")
+    save_page_spatial_surface(indexes["paper3"], ROOT, paper3 / "page_spatial_surface.png")
+    outputs.append(paper3 / "page_spatial_surface.png")
     manifest = {
         "scope": "auto-generated traceable figures; individual captions retain audit/protocol/design limits",
         "source_manifests": {

@@ -7,6 +7,7 @@ from geologparser.paper_figures import (
     save_image_boundary_surface,
     save_image_multiboundary_surface,
     save_controlled_error_class_propagation,
+    save_page_spatial_surface,
     save_method_schematic,
     save_padova_locations,
     save_source_field_propagation,
@@ -119,5 +120,25 @@ def test_controlled_error_class_figure(tmp_path: Path):
     output = tmp_path / "classes.png"
     save_controlled_error_class_propagation(
         [{"experiment_id": "CLASSES", "result_path": "classes"}], tmp_path, output,
+    )
+    assert output.stat().st_size > 1000
+
+
+def test_page_spatial_surface_figure(tmp_path: Path):
+    result = tmp_path / "page-spatial"
+    result.mkdir()
+    variants = {
+        "page_coordinate_reference_boundary": {"coverage": .49, "surface_error": {"mae_m": 9.5}},
+        "page_coordinate_raw_boundary": {"coverage": .49, "surface_error": {"mae_m": 9.5}},
+        "page_coordinate_reread_boundary": {"coverage": .49, "surface_error": {"mae_m": 9.5}},
+        "authoritative_coordinate_reread_boundary": {"coverage": .97, "surface_error": {"mae_m": 3.05}},
+    }
+    (result / "metrics.json").write_text(json.dumps({
+        "scope": "real page-coordinate image-boundary downstream surface diagnostic",
+        "variants": variants,
+    }))
+    output = tmp_path / "page-spatial.png"
+    save_page_spatial_surface(
+        [{"experiment_id": "PAGE", "result_path": "page-spatial"}], tmp_path, output,
     )
     assert output.stat().st_size > 1000

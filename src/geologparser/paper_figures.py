@@ -349,6 +349,45 @@ def save_controlled_error_class_propagation(
     plt.close(fig)
 
 
+def save_page_spatial_surface(
+    entries: Sequence[Mapping[str, Any]], repository_root: Path, destination: Path,
+) -> None:
+    """Plot the partial page-coordinate downstream comparison."""
+    candidates = []
+    for entry in entries:
+        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
+        if metrics.get("scope") == "real page-coordinate image-boundary downstream surface diagnostic":
+            candidates.append((entry, metrics))
+    if not candidates:
+        raise ValueError("no page-coordinate downstream result is indexed")
+    entry, metrics = candidates[-1]
+    order = [
+        "page_coordinate_reference_boundary",
+        "page_coordinate_raw_boundary",
+        "page_coordinate_reread_boundary",
+        "authoritative_coordinate_reread_boundary",
+    ]
+    labels = ["Page coord.\nreference depth", "Page coord.\nraw depth", "Page coord.\nreread depth", "Authoritative coord.\nreread depth"]
+    rows = [metrics["variants"][name] for name in order]
+    plt = _plt()
+    fig, axes = plt.subplots(2, 1, figsize=(9, 7), sharex=True)
+    axes[0].bar(range(len(rows)), [row["surface_error"]["mae_m"] for row in rows], color=["#e15759", "#f28e2b", "#59a14f", "#4e79a7"])
+    axes[0].set_ylabel("Surface MAE (m)")
+    axes[0].set_title("Page-coordinate coverage in the downstream surface workflow")
+    axes[0].grid(axis="y", alpha=.2)
+    axes[1].bar(range(len(rows)), [row["coverage"] for row in rows], color=["#e15759", "#f28e2b", "#59a14f", "#4e79a7"])
+    axes[1].set_ylabel("Spatial point coverage")
+    axes[1].set_ylim(0, 1.05)
+    axes[1].set_xticks(range(len(labels)), labels, fontsize=8)
+    axes[1].grid(axis="y", alpha=.2)
+    axes[1].text(.01, .95, "Collar elevations are authoritative in every variant", transform=axes[1].transAxes, va="top", fontsize=8)
+    axes[1].text(.99, .04, entry["experiment_id"], transform=axes[1].transAxes, ha="right", fontsize=7)
+    fig.tight_layout()
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(destination, dpi=180)
+    plt.close(fig)
+
+
 def save_method_schematic(destination: Path) -> None:
     plt = _plt()
     fig, axis = plt.subplots(figsize=(12, 4))

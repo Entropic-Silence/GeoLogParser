@@ -84,6 +84,25 @@ This diagnostic inherits frozen reference-blinded image boundaries from the Pape
 
 Each row aggregates 30 seeded injections on 35 held-out authoritative records and a fixed 1,265-query reference domain. Parameters are error-class specific and are not directly comparable across units. Coordinates and collar elevations are authoritative structured fields rather than image-derived predictions; no human Ground Truth is claimed.
 
+### External page spatial-metadata extraction
+
+| Experiment | Documents | Coordinate predictions | Coordinate coverage | Pair exact/all | Pair exact/predicted | X MAE (m) | Y MAE (m) | Page/database disagreements | Collar predictions | Eligibility |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
+| P3_SWISSGEOL_EXTERNAL_SPATIAL_METADATA_002 | 88 | 53 | 53/88 (0.602) | 51/88 (0.580) | 51/53 (0.962) | 94.453 | 132.075 | 2 | 0 | formal_authoritative_spatial_extraction |
+
+The frozen conservative parser was evaluated on every paired record outside the interval-v003 split. Database disagreement is not automatically attributed to recognition because the page and database can contain different values. Zero collar predictions is a measured abstention result, not missing evaluation output.
+
+### Page-coordinate downstream surface diagnostic
+
+| Experiment | Variant | Points | Coverage | Boundary MAE (m) | Surface MAE (m) | Surface RMSE (m) | Max error (m) | Eligibility |
+|---|---|---:|---:|---:|---:|---:|---:|---|
+| P3_SWISSGEOL_PAGE_SPATIAL_SURFACE_001 | authoritative_coordinate_reread_boundary | 34 | 0.9714 | 0.941 | 3.050 | 5.014 | 29.590 | formal_partial_page_spatial_downstream |
+| P3_SWISSGEOL_PAGE_SPATIAL_SURFACE_001 | page_coordinate_raw_boundary | 17 | 0.4857 | 0.000 | 9.514 | 13.751 | 69.821 | formal_partial_page_spatial_downstream |
+| P3_SWISSGEOL_PAGE_SPATIAL_SURFACE_001 | page_coordinate_reference_boundary | 17 | 0.4857 | 0.000 | 9.514 | 13.751 | 69.821 | formal_partial_page_spatial_downstream |
+| P3_SWISSGEOL_PAGE_SPATIAL_SURFACE_001 | page_coordinate_reread_boundary | 17 | 0.4857 | 0.000 | 9.514 | 13.751 | 69.821 | formal_partial_page_spatial_downstream |
+
+Page coordinates and frozen image-boundary predictions are reference-free, but every collar elevation remains supplied by the authoritative record because page extraction coverage was zero. The comparison is therefore a partial spatial workflow, not complete end-to-end extraction.
+
 ### Licensed structured-source field proxy protocol
 
 | Experiment | Perturbation (m) | Seed | Repetitions/grid points | Proxy-surface MAE (m) | RMSE (m) | Max abs. error (m) | Eligibility |
