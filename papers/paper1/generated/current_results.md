@@ -25,6 +25,7 @@ These rows use programmatically known Synthetic labels. They validate controlled
 | Experiment | Model | Documents | Reference intervals | Predicted intervals | Interval P | Interval R | Interval F1 | Matched top MAE (m) | Matched bottom MAE (m) | Full-document exact | s/document | Eligibility |
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
 | P1_SWISSGEOL_TG_INCREMENTAL_TESSERACT_FORMAL_003 | B1_tesseract_ocr_conservative_interval_parser | 20 | 55 | 55 | 0.855 | 0.855 | 0.855 | 0.000 | 0.000 | 17/20 (0.850) | 3.832 | formal_authoritative_interval |
+| P1_SWISSGEOL_TG_CONTENT_HELDOUT_TESSERACT_FORMAL_004 | B1_tesseract_ocr_conservative_interval_parser | 35 | 80 | 74 | 0.892 | 0.825 | 0.857 | 0.000 | 0.000 | 25/35 (0.714) | 3.047 | formal_authoritative_interval |
 The reference contains only interval boundaries from official database records whose complete sequence exactly agrees with an explicit table in the paired official PDF. The reported run is incremental and disjoint from parser-development records, but the source-agreement selection is not a representative random sample and no human annotation is claimed.
 
 ### Reference-conditioned interval diagnostics excluded from formal claims

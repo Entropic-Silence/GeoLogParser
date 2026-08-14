@@ -1676,3 +1676,22 @@
   acceptance rule both contributed on the frozen artifacts. This analysis does
   not isolate geological-constraint causality. Legacy-parser change counts are
   parser differences and must not be reported as corrections or FCR.
+
+## 2026-08-14 — Paper I v003 content-group held-out baseline
+
+- Experiment: `P1_SWISSGEOL_TG_CONTENT_HELDOUT_TESSERACT_FORMAL_004` used only
+  250-DPI raster pages, Tesseract `eng` PSM 3, and the parser frozen before the
+  v003 held-out test. It did not use PSM-4, high-resolution rereading, or any
+  reference field during prediction.
+- Dataset: 35 PDF-content-group held-out documents and 80 authoritative source-
+  agreement intervals; manifest SHA256
+  `afb921fb606bd2e5f6213438edab775c41285cec78747e44319dadad6d355dc7`.
+- Result: 74 predicted intervals, 66 matches, 14 unmatched references, and
+  eight unmatched predictions. Precision was `0.8918918919`, recall `0.825`,
+  F1 `0.8571428571`, and 25/35 documents were completely exact. Matched
+  top/bottom MAE was `0 m`; wall time was `106.628839 s` or
+  `3.046538 s/document`.
+- Cross-paper boundary: Paper I uses this run as the single-pass benchmark.
+  Paper II reuses the same frozen input and first-pass baseline only to measure
+  the additional rereading/correction effect; the method gain and correction
+  safety are not claimed as Paper I contributions.

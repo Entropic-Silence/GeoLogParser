@@ -102,7 +102,7 @@ def save_authoritative_interval_pilot(
     bars = axis.bar(labels, values, color=["#2f6f8f", "#b76e3b", "#4c956c", "#7b6d8d"])
     axis.set_ylim(0, 1.08)
     axis.set_ylabel("Score")
-    axis.set_title("Authoritative source-agreement interval pilot")
+    axis.set_title("Held-out source-agreement interval benchmark")
     axis.grid(axis="y", alpha=.2)
     for bar, value in zip(bars, values):
         axis.text(bar.get_x() + bar.get_width() / 2, value + .02, f"{value:.3f}", ha="center")
