@@ -13,7 +13,9 @@ from geologparser.annotation_export import ground_truth_gate
 
 CONTROLLED_FORMAL_ELIGIBILITY = {"formal_silver_benchmark", "formal_synthetic_method", "formal_synthetic_downstream"}
 REAL_FORMAL_ELIGIBILITY = {
-    "formal_benchmark", "formal_authoritative_metadata", "formal_authoritative_metadata_method",
+    "formal_benchmark", "formal_external_benchmark",
+    "formal_prospective_external_benchmark", "formal_authoritative_metadata",
+    "formal_authoritative_metadata_method",
     "formal_authoritative_metadata_robustness", "formal_authoritative_interval",
     "formal_authoritative_interval_method", "formal_method", "formal_downstream",
     "formal_source_controlled_downstream", "formal_authoritative_boundary_downstream",

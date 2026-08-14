@@ -16,7 +16,9 @@ HASH_PATHS = {
 }
 ARTIFACT_MANIFEST = "artifact_manifest.json"
 FORMAL_ELIGIBILITY = {
-    "formal_benchmark", "formal_silver_benchmark", "formal_method", "formal_synthetic_method",
+    "formal_benchmark", "formal_external_benchmark",
+    "formal_prospective_external_benchmark", "formal_silver_benchmark",
+    "formal_method", "formal_synthetic_method",
     "formal_downstream", "formal_synthetic_downstream", "formal_authoritative_metadata",
     "formal_authoritative_metadata_method", "formal_authoritative_metadata_robustness",
     "formal_authoritative_interval", "formal_authoritative_interval_method",
@@ -47,11 +49,15 @@ def formal_evidence_errors(entry: dict, run: dict, metrics: dict) -> list[str]:
             errors.append("formal_silver_benchmark requires SILVER reference tier")
         if not isinstance(metrics.get("document_count"), int) or metrics.get("document_count", 0) <= 0:
             errors.append("formal_silver_benchmark requires a positive document_count")
-    elif eligibility == "formal_benchmark":
+    elif eligibility in {
+        "formal_benchmark",
+        "formal_external_benchmark",
+        "formal_prospective_external_benchmark",
+    }:
         if metrics.get("scope") != "human-GT benchmark evaluation":
-            errors.append("formal_benchmark requires human-GT benchmark metrics scope")
+            errors.append(f"{eligibility} requires human-GT benchmark metrics scope")
         if not isinstance(metrics.get("document_count"), int) or metrics.get("document_count", 0) <= 0:
-            errors.append("formal_benchmark requires a positive document_count")
+            errors.append(f"{eligibility} requires a positive document_count")
     elif eligibility == "formal_authoritative_metadata":
         if metrics.get("scope") != "authoritative-metadata benchmark evaluation":
             errors.append("formal_authoritative_metadata requires authoritative metadata scope")

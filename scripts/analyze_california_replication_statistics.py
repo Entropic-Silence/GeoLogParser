@@ -113,6 +113,7 @@ def freeze_analysis(
     constrained: dict[str, dict],
     repetitions: int,
     rng: random.Random,
+    selective: dict[str, dict] | None = None,
 ) -> dict:
     ids = sorted(rapid)
     if set(tesseract) != set(ids) or set(constrained) != set(ids):
@@ -123,7 +124,7 @@ def freeze_analysis(
     constrained_items = [
         counts(constrained[item], "constrained_predictions", "constrained_match_count") for item in ids
     ]
-    return {
+    output = {
         "document_count": len(ids),
         "ocr_paired_bootstrap": bootstrap_delta(rapid_items, tess_items, repetitions, rng),
         "constraint_paired_bootstrap": bootstrap_delta(constrained_items, raw_items, repetitions, rng),
@@ -140,6 +141,20 @@ def freeze_analysis(
             constrained, "constrained_predictions", "constrained_match_count"
         ),
     }
+    if selective is not None:
+        if set(selective) != set(ids):
+            raise ValueError("selective result documents do not align")
+        selective_items = [
+            counts(selective[item], "selective_predictions", "selective_match_count")
+            for item in ids
+        ]
+        output["selective_vs_raw_paired_bootstrap"] = bootstrap_delta(
+            selective_items, raw_items, repetitions, rng
+        )
+        output["selective_vs_unselective_paired_bootstrap"] = bootstrap_delta(
+            selective_items, constrained_items, repetitions, rng
+        )
+    return output
 
 
 def main() -> None:
@@ -163,6 +178,12 @@ def main() -> None:
             "tesseract": ROOT / "results/2026-08-14/P1_CALIFORNIA_WCR_V002_TESSERACT_EXTERNAL_FORMAL_002/predictions.jsonl",
             "constraint": ROOT / "results/2026-08-14/P2_CALIFORNIA_WCR_V002_CONSTRAINT_EXTERNAL_FORMAL_002/predictions.jsonl",
         },
+        "v003_prospective": {
+            "rapid": ROOT / "results/2026-08-14/P1_CALIFORNIA_WCR_V003_RAPIDOCR_PROSPECTIVE_FORMAL_001/predictions.jsonl",
+            "tesseract": ROOT / "results/2026-08-14/P1_CALIFORNIA_WCR_V003_TESSERACT_PROSPECTIVE_FORMAL_001/predictions.jsonl",
+            "constraint": ROOT / "results/2026-08-14/P2_CALIFORNIA_WCR_V003_CONSTRAINT_PROSPECTIVE_FORMAL_001/predictions.jsonl",
+            "selective": ROOT / "results/2026-08-14/P2_CALIFORNIA_WCR_V003_SELECTIVE_PROSPECTIVE_FORMAL_001/predictions.jsonl",
+        },
     }
     rng = random.Random(args.seed)
     loaded = {
@@ -171,7 +192,8 @@ def main() -> None:
     }
     freezes = {
         name: freeze_analysis(
-            values["rapid"], values["tesseract"], values["constraint"], args.repetitions, rng
+            values["rapid"], values["tesseract"], values["constraint"], args.repetitions, rng,
+            values.get("selective"),
         )
         for name, values in loaded.items()
     }
