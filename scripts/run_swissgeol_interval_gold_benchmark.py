@@ -135,6 +135,8 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--experiment-id", required=True)
     parser.add_argument("--dataset-root", type=Path, default=DEFAULT_DATASET)
+    parser.add_argument("--gold-manifest", type=Path)
+    parser.add_argument("--audit-summary", type=Path)
     parser.add_argument("--results-root", type=Path, default=ROOT / "results")
     parser.add_argument("--render-dpi", type=int, default=250)
     parser.add_argument("--ocr-language", default="eng")
@@ -143,8 +145,12 @@ def main() -> None:
     if arguments.render_dpi <= 0:
         raise ValueError("render DPI must be positive")
 
-    gold_manifest = arguments.dataset_root / "gold_interval_manifest_v001.jsonl"
-    audit_summary_path = arguments.dataset_root / "pairing_audit_summary_v001.json"
+    gold_manifest = arguments.gold_manifest or (
+        arguments.dataset_root / "gold_interval_manifest_v001.jsonl"
+    )
+    audit_summary_path = arguments.audit_summary or (
+        arguments.dataset_root / "pairing_audit_summary_v001.json"
+    )
     dataset_summary_path = arguments.dataset_root / "dataset.json"
     rows = [
         json.loads(line)
@@ -153,9 +159,18 @@ def main() -> None:
     ]
     audit_summary = json.loads(audit_summary_path.read_text(encoding="utf-8"))
     dataset_summary = json.loads(dataset_summary_path.read_text(encoding="utf-8"))
-    if len(rows) != audit_summary["exact_full_interval_agreement_documents"]:
+    incremental = "incremental" in gold_manifest.name
+    expected_documents_key = (
+        "incremental_gold_documents" if incremental
+        else "exact_full_interval_agreement_documents"
+    )
+    expected_intervals_key = (
+        "incremental_gold_intervals" if incremental
+        else "exact_full_interval_agreement_intervals"
+    )
+    if len(rows) != audit_summary[expected_documents_key]:
         raise ValueError("Gold manifest/document count does not match frozen audit summary")
-    if sum(row["interval_count"] for row in rows) != audit_summary["exact_full_interval_agreement_intervals"]:
+    if sum(row["interval_count"] for row in rows) != audit_summary[expected_intervals_key]:
         raise ValueError("Gold manifest/interval count does not match frozen audit summary")
     if any(row.get("human_reviewed") is not False for row in rows):
         raise ValueError("benchmark requires explicit human_reviewed=false provenance")

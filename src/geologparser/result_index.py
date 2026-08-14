@@ -19,7 +19,8 @@ FORMAL_ELIGIBILITY = {
     "formal_benchmark", "formal_silver_benchmark", "formal_method", "formal_synthetic_method",
     "formal_downstream", "formal_synthetic_downstream", "formal_authoritative_metadata",
     "formal_authoritative_metadata_method", "formal_authoritative_metadata_robustness",
-    "formal_authoritative_interval", "formal_source_controlled_downstream",
+    "formal_authoritative_interval", "formal_authoritative_interval_method",
+    "formal_source_controlled_downstream",
 }
 
 
@@ -75,6 +76,42 @@ def formal_evidence_errors(entry: dict, run: dict, metrics: dict) -> list[str]:
         if metrics.get("prediction_reference_conditioning") != "none":
             errors.append(
                 "formal_authoritative_interval requires prediction_reference_conditioning=none"
+            )
+    elif eligibility == "formal_authoritative_interval_method":
+        if metrics.get("scope") != "authoritative-interval heldout constraint-rereading evaluation":
+            errors.append(
+                "formal_authoritative_interval_method requires heldout constraint-rereading scope"
+            )
+        if metrics.get("reference_ground_truth_tier") != "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT":
+            errors.append(
+                "formal_authoritative_interval_method requires source-agreement reference tier"
+            )
+        if metrics.get("comparison") != "single_pass_vs_constraint_guided_reread":
+            errors.append(
+                "formal_authoritative_interval_method requires single-pass/reread comparison"
+            )
+        if metrics.get("prediction_reference_conditioning") != "none":
+            errors.append(
+                "formal_authoritative_interval_method requires prediction_reference_conditioning=none"
+            )
+        if metrics.get("reference_blinded_decision_policy") is not True:
+            errors.append(
+                "formal_authoritative_interval_method requires a reference-blinded decision policy"
+            )
+        if metrics.get("development_evaluation_overlap_count") != 0:
+            errors.append(
+                "formal_authoritative_interval_method requires zero development/evaluation overlap"
+            )
+        if not isinstance(metrics.get("document_count"), int) or metrics.get("document_count", 0) <= 0:
+            errors.append(
+                "formal_authoritative_interval_method requires a positive document_count"
+            )
+        if (
+            not isinstance(metrics.get("reference_interval_count"), int)
+            or metrics.get("reference_interval_count", 0) <= 0
+        ):
+            errors.append(
+                "formal_authoritative_interval_method requires a positive reference_interval_count"
             )
     elif eligibility == "formal_authoritative_metadata_method":
         if metrics.get("scope") != "authoritative-metadata consensus/abstention evaluation":

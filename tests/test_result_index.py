@@ -155,6 +155,35 @@ def test_formal_authoritative_interval_requires_source_agreement_scope():
     assert any("prediction_reference_conditioning=none" in error for error in errors)
 
 
+def test_formal_authoritative_interval_method_requires_disjoint_blinded_evaluation():
+    run = {
+        "config": {"ground_truth_sha256": "a" * 64},
+        "split_version": "development_v001_to_incremental_heldout_v002",
+    }
+    valid = {
+        "scope": "authoritative-interval heldout constraint-rereading evaluation",
+        "reference_ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+        "comparison": "single_pass_vs_constraint_guided_reread",
+        "prediction_reference_conditioning": "none",
+        "reference_blinded_decision_policy": True,
+        "development_evaluation_overlap_count": 0,
+        "document_count": 12,
+        "reference_interval_count": 30,
+    }
+    assert formal_evidence_errors(
+        {"paper_eligibility": "formal_authoritative_interval_method"}, run, valid,
+    ) == []
+    invalid = valid | {
+        "reference_blinded_decision_policy": False,
+        "development_evaluation_overlap_count": 1,
+    }
+    errors = formal_evidence_errors(
+        {"paper_eligibility": "formal_authoritative_interval_method"}, run, invalid,
+    )
+    assert any("reference-blinded" in error for error in errors)
+    assert any("zero development/evaluation overlap" in error for error in errors)
+
+
 def test_formal_authoritative_metadata_robustness_requires_narrow_scope():
     run = {"config": {"ground_truth_sha256": "a" * 64}, "split_version": "controlled_v001"}
     assert formal_evidence_errors(
