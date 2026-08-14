@@ -1,0 +1,104 @@
+{
+  "analysis_scope": "post-hoc Raft River real error-event analysis",
+  "prediction_reference_conditioning": "post_hoc_analysis_only",
+  "rapidocr_boundary_complete": true,
+  "rapidocr_prediction_sha256": "4693400f3212be08514192b5e96375ba509d1e262a88700ab46e5e65a82a7d1f",
+  "rapidocr_semantic_mismatch_count": 1,
+  "rapidocr_semantic_mismatches": [
+    {
+      "bottom_ft": 25.0,
+      "evidence": {
+        "backend": "rapidocr_onnxruntime",
+        "bottom_bbox": [
+          269.1101989746094,
+          319.6043395996094,
+          319.43994140625,
+          358.3760070800781
+        ],
+        "confidence": 0.8995941281318665,
+        "lithology_bbox": [
+          988.1068725585938,
+          318.55645751953125,
+          1029.1923828125,
+          360.4717712402344
+        ],
+        "top_bbox": [
+          161.26068115234375,
+          319.6043395996094,
+          210.5633087158203,
+          358.3760070800781
+        ]
+      },
+      "prediction_lithology": "x",
+      "record_id": "RAFT-RIVER-WELL-1",
+      "reference_lithology": "gravel and sand",
+      "top_ft": 10.0
+    }
+  ],
+  "tesseract_continuation_page_missing_interval_count": 4,
+  "tesseract_error_count": 20,
+  "tesseract_numeric_substitution_count": 6,
+  "tesseract_numeric_substitutions": [
+    {
+      "prediction_bottom_ft": 215.0,
+      "prediction_lithology": "claytan",
+      "prediction_top_ft": 6.0,
+      "record_id": "RAFT-RIVER-WELL-1",
+      "reference_bottom_ft": 215.0,
+      "reference_lithology": "clay tan",
+      "reference_top_ft": 200.0,
+      "source_text": "| 6 | 200) 215 ClayTan | X"
+    },
+    {
+      "prediction_bottom_ft": 50.0,
+      "prediction_lithology": "sandgrayfine sid id",
+      "prediction_top_ft": 10.0,
+      "record_id": "RAFT-RIVER-WELL-2",
+      "reference_bottom_ft": 50.0,
+      "reference_lithology": "sand gray fine",
+      "reference_top_ft": 35.0,
+      "source_text": "10_|-35_| 50 [SandGrayFine Sid | id"
+    },
+    {
+      "prediction_bottom_ft": 265.0,
+      "prediction_lithology": "sandstone gray",
+      "prediction_top_ft": 245.0,
+      "record_id": "RAFT-RIVER-WELL-2",
+      "reference_bottom_ft": 255.0,
+      "reference_lithology": "sandstone gray",
+      "reference_top_ft": 245.0,
+      "source_text": "| 6 | 245 | 265 [Sandstone Gray"
+    },
+    {
+      "prediction_bottom_ft": 310.0,
+      "prediction_lithology": "sandstone tan ssc wd",
+      "prediction_top_ft": 276.0,
+      "record_id": "RAFT-RIVER-WELL-2",
+      "reference_bottom_ft": 310.0,
+      "reference_lithology": "sandstone tan",
+      "reference_top_ft": 275.0,
+      "source_text": "[6 | 276 | 310 [Sandstone Tan ———SSC~wd |"
+    },
+    {
+      "prediction_bottom_ft": 875.0,
+      "prediction_lithology": "clay tan sticky sd s i",
+      "prediction_top_ft": 360.0,
+      "record_id": "RAFT-RIVER-WELL-2",
+      "reference_bottom_ft": 375.0,
+      "reference_lithology": "clay tan sticky",
+      "reference_top_ft": 360.0,
+      "source_text": "; 6 | 360_| 875 [Clay Tan Sticky Sd S—~i"
+    },
+    {
+      "prediction_bottom_ft": 736.0,
+      "prediction_lithology": "sandstonered cc",
+      "prediction_top_ft": 725.0,
+      "record_id": "RAFT-RIVER-WELL-2",
+      "reference_bottom_ft": 735.0,
+      "reference_lithology": "sandstone red",
+      "reference_top_ft": 725.0,
+      "source_text": "|_| 725 | 736 [SandstoneRed CC"
+    }
+  ],
+  "tesseract_prediction_sha256": "57b3ea10cbd8b37d6caeee0797298d09c9790cd587a6beb7574019f22402b935"
+}
