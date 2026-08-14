@@ -1625,3 +1625,35 @@
 - Freeze: ADR-012 records the v2 policy. Code, tests, parser normalization,
   trigger set, and acceptance criteria must be committed before the v003
   35-document/80-interval held-out manifest is evaluated.
+
+## 2026-08-14 — Swissgeol v2 held-out interval result
+
+- Freeze evidence: policy v2 was committed as `e1cec13` before the held-out
+  manifest was first passed to the runner. Evaluation and development manifests
+  have zero record overlap and zero PDF-content-hash overlap.
+- Experiment:
+  `P2_SWISSGEOL_TG_CONSTRAINT_REREAD_HELDOUT_V003_001` evaluated 35 documents
+  and 80 authoritative source-agreement intervals. The held-out manifest SHA256
+  is `afb921fb606bd2e5f6213438edab775c41285cec78747e44319dadad6d355dc7`.
+- First pass: 66 of 74 predictions matched; precision `0.8918918919`, recall
+  `0.825`, F1 `0.8571428571`, and 25/35 documents were completely exact.
+- v2 result: 70 of 72 predictions matched; precision `0.9722222222`, recall
+  `0.875`, F1 `0.9210526316`, and 29/35 documents were completely exact.
+  Matched top/bottom MAE remained `0 m`.
+- Review/correction: seven of ten erroneous documents triggered; two of 25
+  correct documents triggered. Four rereads were accepted, all four converted
+  an erroneous document to an exact document, and no correct document was
+  corrupted. Correction success was `4/4`; FCR was `0/4`. Five documents were
+  routed to review. Three errors did not trigger and three triggered errors
+  remained unresolved.
+- Evidence boundary: the held-out improvement is evidence for the complete v2
+  package of conservative parser normalization, reader disagreement, high-
+  resolution rereading, and sequence consensus. It does not isolate the causal
+  contribution of geological constraints, and the four-correction FCR
+  denominator is too small for a broad safety claim.
+- Immutable hashes: metrics
+  `936daadc70b6d4f45d7114d48799d74d4c6a00d24fbe21ffee4ce3c430f1dc80`;
+  predictions
+  `1fb1e909fb613cfd9211c983e96cc38a69c038e2524085758220840bb9c5eb63`;
+  artifact manifest
+  `a3b23489591da90b5663546ef2ca64834480d54aa9433aa2d003e666cbd43ddf`.

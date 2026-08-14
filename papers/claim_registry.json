@@ -1565,6 +1565,26 @@
         {"type": "json_pointer_equals", "pointer": "/correct_document_trigger_rate/numerator", "expected": 1},
         {"type": "json_pointer_equals", "pointer": "/false_correction_rate/value", "expected": null}
       ]
+    },
+    "p2.swissgeol_v2_heldout_constraint_reread": {
+      "paper": "paper2",
+      "experiment_id": "P2_SWISSGEOL_TG_CONSTRAINT_REREAD_HELDOUT_V003_001",
+      "scope": "frozen v2 reference-blinded constraint-reread policy on 35 source-agreement records/80 intervals content-group-disjoint from v003 development",
+      "source_path": "results/2026-08-14/P2_SWISSGEOL_TG_CONSTRAINT_REREAD_HELDOUT_V003_001/metrics.json",
+      "source_sha256": "936daadc70b6d4f45d7114d48799d74d4c6a00d24fbe21ffee4ce3c430f1dc80",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 35},
+        {"type": "json_pointer_equals", "pointer": "/reference_interval_count", "expected": 80},
+        {"type": "json_pointer_equals", "pointer": "/development_evaluation_overlap_count", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/policy_version", "expected": "v2"},
+        {"type": "json_pointer_equals", "pointer": "/first_pass/interval_metrics/interval_f1/value", "expected": 0.8571428571428571},
+        {"type": "json_pointer_equals", "pointer": "/constraint_reread/interval_metrics/interval_f1/value", "expected": 0.9210526315789473},
+        {"type": "json_pointer_equals", "pointer": "/accepted_reread_count", "expected": 4},
+        {"type": "json_pointer_equals", "pointer": "/correction_success_rate/value", "expected": 1.0},
+        {"type": "json_pointer_equals", "pointer": "/false_correction_rate/value", "expected": 0.0},
+        {"type": "json_pointer_equals", "pointer": "/incorrect_document_trigger_recall/value", "expected": 0.7},
+        {"type": "json_pointer_equals", "pointer": "/correct_document_trigger_rate/numerator", "expected": 2}
+      ]
     }
   }
 }

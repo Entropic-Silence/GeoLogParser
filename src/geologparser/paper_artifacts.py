@@ -471,7 +471,7 @@ def paper2_table(entries: list[dict], repository_root: Path) -> str:
         "| Experiment | Documents | Reference intervals | First-pass F1 | Reread F1 | Triggered | Accepted rereads | Needs review | Incorrect-doc trigger recall | Correct-doc trigger rate | Correction success | FCR | Eligibility |",
         "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|",
         *interval_method_rows, "",
-        "The policy was frozen on v001 records and evaluated on source-agreement records absent from development. A null FCR means no automatic correction occurred; it is not zero. The same-source, explicit-table selection remains a major limitation.",
+        "Each policy was frozen on its recorded development partition before the corresponding source-agreement test was evaluated. A null FCR means no automatic correction occurred; it is not zero. The same-source, explicit-table selection remains a major limitation.",
         "",
         "### Public ROI engineering audit (no Ground Truth)", "",
         "| Experiment | Cases | VLM JSON-valid | VLM uncertain | OCR/VLM numeric-agreement cases | Accept proposals | Needs review | VLM s/ROI | Peak GiB | Eligibility |",

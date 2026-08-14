@@ -14,7 +14,7 @@
     "zhong2019publaynet"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "afb8f1762e7477eafaf0153e2d52a0728e16198e55a3afdc45e38dc796bfa9de",
+  "claim_registry_sha256": "ee93b8ffc8430c02a695af3d61c85de9fd156c8162d76c96766418e4792869b8",
   "claim_source_errors": [],
   "evidence_tags": [
     "p1.b2_padova",
@@ -94,7 +94,7 @@
     {
       "exists": true,
       "resolved_path": "docs/generated/publication_readiness.md",
-      "sha256": "fea65c821b32cd08fd04cbff6a089caa03c03393adae8e507fc5dff205b0810f",
+      "sha256": "301bcdd6ca4a6822f3a6bfdee68783bd2a19589ba20713c218457664b2609b11",
       "target": "../../docs/generated/publication_readiness.md"
     },
     {
