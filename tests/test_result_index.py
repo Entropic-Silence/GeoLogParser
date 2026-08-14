@@ -258,6 +258,36 @@ def test_nonformal_labels_do_not_require_ground_truth_evidence():
     ) == []
 
 
+def test_formal_authoritative_controlled_error_downstream_requires_full_protocol():
+    run = {"config": {"ground_truth_sha256": "a" * 64}, "split_version": "heldout_v003"}
+    metrics = {
+        "scope": "authoritative controlled multi-error downstream propagation evaluation",
+        "reference_ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+        "data_status": "real_authoritative_records_controlled_error_injection",
+        "comparison": "clean_authoritative_reference_vs_independently_injected_error_classes",
+        "human_ground_truth_evidence": False,
+        "fixed_reference_query_domain": True,
+        "document_count": 35,
+        "reference_point_count": 80,
+        "repetitions_per_condition": 30,
+        "error_type_definitions": {
+            name: "definition" for name in (
+                "boundary_shift", "coordinate_shift", "missing_boundary",
+                "merged_layer", "split_layer", "duplicate_boundary",
+            )
+        },
+    }
+    assert formal_evidence_errors(
+        {"paper_eligibility": "formal_authoritative_controlled_error_downstream"},
+        run, metrics,
+    ) == []
+    errors = formal_evidence_errors(
+        {"paper_eligibility": "formal_authoritative_controlled_error_downstream"},
+        run, metrics | {"repetitions_per_condition": 29},
+    )
+    assert any("at least 30 repetitions" in error for error in errors)
+
+
 def test_result_index_verifies_recursive_artifact_manifest(tmp_path: Path):
     import json
 

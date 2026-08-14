@@ -21,6 +21,7 @@ FORMAL_ELIGIBILITY = {
     "formal_authoritative_metadata_method", "formal_authoritative_metadata_robustness",
     "formal_authoritative_interval", "formal_authoritative_interval_method",
     "formal_source_controlled_downstream", "formal_authoritative_boundary_downstream",
+    "formal_authoritative_controlled_error_downstream",
 }
 
 
@@ -214,6 +215,51 @@ def formal_evidence_errors(entry: dict, run: dict, metrics: dict) -> list[str]:
             and (not isinstance(metrics.get("boundary_count"), int) or metrics.get("boundary_count", 0) < 2)
         ):
             errors.append("multi-boundary downstream evidence requires at least two boundaries")
+    elif eligibility == "formal_authoritative_controlled_error_downstream":
+        if metrics.get("scope") != "authoritative controlled multi-error downstream propagation evaluation":
+            errors.append(
+                "formal_authoritative_controlled_error_downstream requires controlled multi-error scope"
+            )
+        if metrics.get("reference_ground_truth_tier") != "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT":
+            errors.append(
+                "formal_authoritative_controlled_error_downstream requires source-agreement reference tier"
+            )
+        if metrics.get("data_status") != "real_authoritative_records_controlled_error_injection":
+            errors.append(
+                "formal_authoritative_controlled_error_downstream requires authoritative controlled injection"
+            )
+        if metrics.get("comparison") != "clean_authoritative_reference_vs_independently_injected_error_classes":
+            errors.append(
+                "formal_authoritative_controlled_error_downstream requires clean/error-class comparison"
+            )
+        if metrics.get("human_ground_truth_evidence") is not False:
+            errors.append(
+                "formal_authoritative_controlled_error_downstream must not claim human Ground Truth"
+            )
+        if metrics.get("fixed_reference_query_domain") is not True:
+            errors.append(
+                "formal_authoritative_controlled_error_downstream requires a fixed reference query domain"
+            )
+        if not isinstance(metrics.get("document_count"), int) or metrics.get("document_count", 0) <= 0:
+            errors.append(
+                "formal_authoritative_controlled_error_downstream requires a positive document count"
+            )
+        if not isinstance(metrics.get("reference_point_count"), int) or metrics.get("reference_point_count", 0) < 3:
+            errors.append(
+                "formal_authoritative_controlled_error_downstream requires at least three reference points"
+            )
+        if not isinstance(metrics.get("repetitions_per_condition"), int) or metrics.get("repetitions_per_condition", 0) < 30:
+            errors.append(
+                "formal_authoritative_controlled_error_downstream requires at least 30 repetitions per condition"
+            )
+        required_types = {
+            "boundary_shift", "coordinate_shift", "missing_boundary",
+            "merged_layer", "split_layer", "duplicate_boundary",
+        }
+        if set(metrics.get("error_type_definitions", {})) != required_types:
+            errors.append(
+                "formal_authoritative_controlled_error_downstream requires all six registered error classes"
+            )
     elif eligibility == "formal_downstream":
         if metrics.get("data_status") != "human_verified_real_site":
             errors.append("formal_downstream requires human_verified_real_site data_status")

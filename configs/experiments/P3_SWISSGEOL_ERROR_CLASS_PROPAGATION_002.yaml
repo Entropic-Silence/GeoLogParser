@@ -1,0 +1,36 @@
+experiment_id: P3_SWISSGEOL_ERROR_CLASS_PROPAGATION_002
+dataset_version: swissgeol_thurgau_paired_v003_authoritative_controlled_errors
+split_version: v003_heldout_authoritative_reference_controlled_injection
+model: ordered_boundary_idw_error_class_protocol
+model_revision: v001
+prompt_version: not_applicable
+paper_eligibility: formal_authoritative_controlled_error_downstream
+base_seed: 2026081401
+repetitions: 30
+grid_size: 25
+affected_fraction_numeric: 0.25
+conditions:
+  boundary_shift:
+    family: numeric_boundary
+    unit: m
+    values: [0.10, 0.50, 1.00]
+  coordinate_shift:
+    family: spatial_location
+    unit: m
+    values: [25.0, 100.0, 500.0]
+  missing_boundary:
+    family: spatial_support
+    unit: affected_document_fraction
+    values: [0.10, 0.25, 0.50]
+  merged_layer:
+    family: sequence_topology
+    unit: affected_document_fraction
+    values: [0.10, 0.25, 0.50]
+  split_layer:
+    family: sequence_topology
+    unit: affected_document_fraction
+    values: [0.10, 0.25, 0.50]
+  duplicate_boundary:
+    family: sequence_topology
+    unit: affected_document_fraction
+    values: [0.10, 0.25, 0.50]

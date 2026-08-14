@@ -8,6 +8,13 @@ from .error_propagation import (
     SurfacePoint, aggregate_repeated_metrics, boundary_surface_points, idw_predict, perturb_interval_boundaries,
     spatial_model_readiness, surface_error_metrics,
 )
+from .error_class_propagation import (
+    OrderedBoundaryRecord,
+    evaluate_error_propagation,
+    inject_error_class,
+    prepare_reference_surfaces,
+    summarize_scalar,
+)
 from .source_surface import (
     SourceFieldSurface, convex_hull_xy, load_coal_602_roof_depth_surface,
     perturb_surface_scalar, regular_queries_within_hull,
@@ -43,6 +50,8 @@ __all__ = [
     "match_intervals_by_boundaries", "mean_absolute_error", "numeric_with_missing_mae",
     "boundary_surface_points", "idw_predict", "perturb_interval_boundaries",
     "surface_error_metrics", "spatial_model_readiness", "aggregate_repeated_metrics", "ERROR_TAXONOMY_V001", "classify_field_error",
+    "OrderedBoundaryRecord", "evaluate_error_propagation", "inject_error_class",
+    "prepare_reference_surfaces", "summarize_scalar",
     "SourceFieldSurface", "convex_hull_xy", "load_coal_602_roof_depth_surface",
     "perturb_surface_scalar", "regular_queries_within_hull",
     "error_distribution", "character_error_rate", "numeric_character_error_rate",
