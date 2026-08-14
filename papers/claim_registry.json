@@ -1585,6 +1585,22 @@
         {"type": "json_pointer_equals", "pointer": "/incorrect_document_trigger_recall/value", "expected": 0.7},
         {"type": "json_pointer_equals", "pointer": "/correct_document_trigger_rate/numerator", "expected": 2}
       ]
+    },
+    "p2.swissgeol_v2_secondary_ablation": {
+      "paper": "paper2",
+      "experiment_id": "P2_SWISSGEOL_TG_V2_SECONDARY_ABLATION_001",
+      "scope": "secondary descriptive component analysis on frozen v2 held-out artifacts; not an independent confirmatory estimate",
+      "source_path": "results/2026-08-14/P2_SWISSGEOL_TG_V2_SECONDARY_ABLATION_001/metrics.json",
+      "source_sha256": "25b8143b75effa98450effc6911c1ed297a2353e33e0fb108133cd97b4697cd4",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/analysis_role", "expected": "secondary_descriptive_post_result_ablation"},
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 35},
+        {"type": "json_pointer_equals", "pointer": "/variants/legacy_parser_first_pass/interval_metrics/interval_f1/value", "expected": 0.8133333333333334},
+        {"type": "json_pointer_equals", "pointer": "/variants/v2_first_pass/interval_metrics/interval_f1/value", "expected": 0.8571428571428571},
+        {"type": "json_pointer_equals", "pointer": "/variants/v2_parser_v1_acceptance/interval_metrics/interval_f1/value", "expected": 0.8645161290322579},
+        {"type": "json_pointer_equals", "pointer": "/variants/full_v2/interval_metrics/interval_f1/value", "expected": 0.9210526315789473},
+        {"type": "json_pointer_equals", "pointer": "/variants/full_v2/document_full_exact_count", "expected": 29}
+      ]
     }
   }
 }

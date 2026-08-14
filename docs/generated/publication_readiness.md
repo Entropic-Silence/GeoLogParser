@@ -13,7 +13,7 @@ Ground-Truth-exportable annotations: **0**.
 | Paper | Indexed runs | Controlled formal | Real formal |
 |---|---:|---:|---:|
 | paper1 | 39 | 2 | 7 |
-| paper2 | 6 | 1 | 3 |
+| paper2 | 7 | 1 | 3 |
 | paper3 | 8 | 1 | 1 |
 
 Audit/failure-analysis/protocol-only runs are intentionally excluded from formal counts.

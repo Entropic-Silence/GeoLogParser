@@ -1657,3 +1657,22 @@
   `1fb1e909fb613cfd9211c983e96cc38a69c038e2524085758220840bb9c5eb63`;
   artifact manifest
   `a3b23489591da90b5663546ef2ca64834480d54aa9433aa2d003e666cbd43ddf`.
+
+## 2026-08-14 — Frozen-artifact secondary component analysis
+
+- Experiment: `P2_SWISSGEOL_TG_V2_SECONDARY_ABLATION_001` was specified and
+  executed after the full v2 held-out result. It is labelled
+  `secondary_descriptive_post_result_ablation`, not an independent confirmatory
+  experiment, and it does not retune or rerun the held-out policy.
+- Legacy parser first pass: precision `0.8714285714`, recall `0.7625`, F1
+  `0.8133333333`, 23/35 exact documents.
+- v2 parser first pass: precision `0.8918918919`, recall `0.825`, F1
+  `0.8571428571`, 25/35 exact documents.
+- v2 parser with v1 preservation-based acceptance: precision `0.8933333333`,
+  recall `0.8375`, F1 `0.8645161290`, 26/35 exact documents.
+- Full v2: precision `0.9722222222`, recall `0.875`, F1 `0.9210526316`, 29/35
+  exact documents.
+- Interpretation: narrow OCR normalization and the complete-sequence consensus
+  acceptance rule both contributed on the frozen artifacts. This analysis does
+  not isolate geological-constraint causality. Legacy-parser change counts are
+  parser differences and must not be reported as corrections or FCR.

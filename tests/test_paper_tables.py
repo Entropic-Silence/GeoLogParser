@@ -246,3 +246,40 @@ def test_paper2_table_reports_heldout_interval_negative_result_without_zero_fcr(
     assert "0/3 (0.000)" in table
     assert "TBD" in table
     assert "null FCR means no automatic correction occurred" in table
+
+
+def test_paper2_table_labels_secondary_component_ablation_as_descriptive(tmp_path: Path):
+    metric = lambda value: {"value": value, "numerator": value, "denominator": 1}
+    metrics = {
+        "scope": "secondary heldout component ablation on frozen v2 artifacts",
+        "document_count": 35,
+        "variants": {
+            "v2_first_pass": {
+                "interval_metrics": {
+                    "interval_precision": metric(.892),
+                    "interval_recall": metric(.825),
+                    "interval_f1": metric(.857),
+                },
+                "document_full_exact_count": 25,
+                "changed_document_count": 0,
+            },
+            "full_v2": {
+                "interval_metrics": {
+                    "interval_precision": metric(.972),
+                    "interval_recall": metric(.875),
+                    "interval_f1": metric(.921),
+                },
+                "document_full_exact_count": 29,
+                "changed_document_count": 4,
+            },
+        },
+    }
+    write_run(tmp_path, metrics, {})
+    table = paper2_table([{
+        "experiment_id": "P2_SECONDARY", "result_path": "result",
+        "paper_eligibility": "secondary_ablation_only",
+    }], tmp_path)
+    assert "Secondary held-out component analysis" in table
+    assert "P2_SECONDARY" in table
+    assert "29/35" in table
+    assert "not an independent confirmatory experiment" in table

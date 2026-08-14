@@ -62,7 +62,9 @@ The frozen real-interval policy produced a negative held-out result. On 20 Swiss
 
 The independently frozen v2 policy improved the subsequent held-out result. On 35 documents and 80 source-agreement intervals, first-pass extraction matched 66 intervals from 74 predictions (precision 0.892, recall 0.825, F1 0.857) and was completely exact on 25 documents. After triggered rereading, 70 of 72 predictions matched (precision 0.972, recall 0.875, F1 0.921) and 29 documents were completely exact. Seven of ten incorrect documents triggered; four rereads were accepted and all four converted an incorrect document to an exact document, yielding correction success 4/4 and FCR 0/4. Five triggered documents were routed to review, including two of 25 correct first-pass documents. Three erroneous documents did not trigger, and three triggered erroneous documents remained uncorrected. The result therefore demonstrates a held-out benefit and safe accepted corrections for this test, while retaining substantial residual error and review burden. <!-- evidence:p2.swissgeol_v2_heldout_constraint_reread -->
 
-See [generated/current_results.md](generated/current_results.md). One two-case public Padova engineering audit is indexed, but both source annotations remain `auto`; it is not a method-effect experiment. Qwen3-VL returned schema-valid numeric-token JSON for both ROIs, OCR and VLM shared at least one numeric candidate in both cases, and both decisions remained `NEEDS_REVIEW`; no proposal was accepted. Mean VLM generation time was 3.510 s/ROI and peak allocated GPU memory was 8.413 GiB. <!-- evidence:p2.roi_reread_audit --> Accuracy and false correction rate are undefined for that audit. The Swissgeol experiments provide two real held-out interval tests of frozen policies, including four accepted corrections in v2; broader multi-model ablations, calibration on real intervals, larger-sample FCR confidence bounds, and statistical tests remain `TBD`.
+A secondary component analysis was specified only after the full v2 held-out result had been observed and is therefore descriptive rather than independently confirmatory. Re-parsing the frozen PSM-3 text with the legacy normalization yielded F1 0.813 and 23/35 exact documents. The v2 parser without rereading reached F1 0.857 and 25/35 exact; combining the v2 parser with the old preservation-based acceptance rule reached F1 0.865 and 26/35 exact; full v2 reached F1 0.921 and 29/35 exact. These frozen-artifact comparisons indicate that both narrow OCR normalization and the complete-sequence consensus rule contributed to the final result. They still do not isolate the contribution of geological constraints, and legacy-parser differences are not automatic corrections. <!-- evidence:p2.swissgeol_v2_secondary_ablation -->
+
+See [generated/current_results.md](generated/current_results.md). One two-case public Padova engineering audit is indexed, but both source annotations remain `auto`; it is not a method-effect experiment. Qwen3-VL returned schema-valid numeric-token JSON for both ROIs, OCR and VLM shared at least one numeric candidate in both cases, and both decisions remained `NEEDS_REVIEW`; no proposal was accepted. Mean VLM generation time was 3.510 s/ROI and peak allocated GPU memory was 8.413 GiB. <!-- evidence:p2.roi_reread_audit --> Accuracy and false correction rate are undefined for that audit. The Swissgeol experiments provide two real held-out interval tests of frozen policies, including four accepted corrections in v2 and a secondary parser/acceptance analysis; broader multimodal ablations, direct geological-constraint attribution, calibration on real intervals, larger-sample FCR confidence bounds, and statistical tests remain `TBD`.
 
 ## 6. Failure Analysis
 
@@ -111,6 +113,17 @@ The decision policy accepts only equal non-null values from two independent OCR 
 | P2_SWISSGEOL_TG_CONSTRAINT_REREAD_HELDOUT_V003_001 | 35 | 80 | 0.857 | 0.921 | 9 | 4 | 5 | 7/10 (0.700) | 2/25 (0.080) | 4/4 (1.000) | 0/4 (0.000) | formal_authoritative_interval_method |
 
 Each policy was frozen on its recorded development partition before the corresponding source-agreement test was evaluated. A null FCR means no automatic correction occurred; it is not zero. The same-source, explicit-table selection remains a major limitation.
+
+### Secondary held-out component analysis
+
+| Experiment | Variant | Interval P | Interval R | Interval F1 | Full-document exact | Changed documents vs v2 first pass | Eligibility |
+|---|---|---:|---:|---:|---:|---:|---|
+| P2_SWISSGEOL_TG_V2_SECONDARY_ABLATION_001 | full_v2 | 0.972 | 0.875 | 0.921 | 29/35 | 4 | secondary_ablation_only |
+| P2_SWISSGEOL_TG_V2_SECONDARY_ABLATION_001 | legacy_parser_first_pass | 0.871 | 0.762 | 0.813 | 23/35 | 4 | secondary_ablation_only |
+| P2_SWISSGEOL_TG_V2_SECONDARY_ABLATION_001 | v2_first_pass | 0.892 | 0.825 | 0.857 | 25/35 | 0 | secondary_ablation_only |
+| P2_SWISSGEOL_TG_V2_SECONDARY_ABLATION_001 | v2_parser_v1_acceptance | 0.893 | 0.838 | 0.865 | 26/35 | 1 | secondary_ablation_only |
+
+This component analysis was specified and executed after the full v2 held-out result was observed. It is descriptive evidence on frozen artifacts, not an independent confirmatory experiment; change counts for the legacy parser are parser differences, not automatic corrections.
 
 ### Public ROI engineering audit (no Ground Truth)
 

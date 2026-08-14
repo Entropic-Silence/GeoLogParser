@@ -386,6 +386,7 @@ def paper2_table(entries: list[dict], repository_root: Path) -> str:
     audit_rows = []
     authoritative_rows = []
     interval_method_rows = []
+    secondary_ablation_rows = []
     for entry in entries:
         metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
         if metrics.get("scope") == "authoritative-metadata consensus/abstention evaluation":
@@ -414,6 +415,18 @@ def paper2_table(entries: list[dict], repository_root: Path) -> str:
                 ratio(metrics["false_correction_rate"]),
                 entry["paper_eligibility"],
             ]) + " |")
+        if metrics.get("scope") == "secondary heldout component ablation on frozen v2 artifacts":
+            for variant_name, values in metrics["variants"].items():
+                interval = values["interval_metrics"]
+                secondary_ablation_rows.append("| " + " | ".join([
+                    entry["experiment_id"], variant_name,
+                    number(interval["interval_precision"]["value"]),
+                    number(interval["interval_recall"]["value"]),
+                    number(interval["interval_f1"]["value"]),
+                    f'{values["document_full_exact_count"]}/{metrics["document_count"]}',
+                    str(values["changed_document_count"]),
+                    entry["paper_eligibility"],
+                ]) + " |")
         if "vlm_schema_valid_count" in metrics:
             audit_rows.append("| " + " | ".join([
                 entry["experiment_id"], str(metrics["case_count"]),
@@ -472,6 +485,12 @@ def paper2_table(entries: list[dict], repository_root: Path) -> str:
         "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|",
         *interval_method_rows, "",
         "Each policy was frozen on its recorded development partition before the corresponding source-agreement test was evaluated. A null FCR means no automatic correction occurred; it is not zero. The same-source, explicit-table selection remains a major limitation.",
+        "",
+        "### Secondary held-out component analysis", "",
+        "| Experiment | Variant | Interval P | Interval R | Interval F1 | Full-document exact | Changed documents vs v2 first pass | Eligibility |",
+        "|---|---|---:|---:|---:|---:|---:|---|",
+        *secondary_ablation_rows, "",
+        "This component analysis was specified and executed after the full v2 held-out result was observed. It is descriptive evidence on frozen artifacts, not an independent confirmatory experiment; change counts for the legacy parser are parser differences, not automatic corrections.",
         "",
         "### Public ROI engineering audit (no Ground Truth)", "",
         "| Experiment | Cases | VLM JSON-valid | VLM uncertain | OCR/VLM numeric-agreement cases | Accept proposals | Needs review | VLM s/ROI | Peak GiB | Eligibility |",

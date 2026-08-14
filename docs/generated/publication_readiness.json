@@ -23,7 +23,7 @@
     "paper2_formal_results_exist": true,
     "paper3_formal_results_exist": true
   },
-  "generated_at_utc": "2026-08-14T04:10:21.797134+00:00",
+  "generated_at_utc": "2026-08-14T04:17:02.590291+00:00",
   "ground_truth_exportable_count": 0,
   "interpretation": "Human-GT gates remain separate from the explicitly named machine-Silver agreement track. Silver runs do not satisfy human-GT publication claims; audit-only, failure-analysis, and protocol-only runs cannot satisfy formal completion.",
   "machine_silver_formal_count": 2,
@@ -53,12 +53,13 @@
         "failure_analysis_only": 1,
         "formal_authoritative_interval_method": 2,
         "formal_authoritative_metadata_method": 1,
-        "formal_synthetic_method": 1
+        "formal_synthetic_method": 1,
+        "secondary_ablation_only": 1
       },
       "formal_experiment_count": 4,
       "index_path": "/root/GeoLogParser/experiments/paper2/result_index.jsonl",
-      "index_sha256": "f0f47abba21d7437d3b8054e944122274bce51e53c7633012dd2b949225dc34c",
-      "indexed_experiment_count": 6,
+      "index_sha256": "867aa7218e89e624beb4a49bda8d620830752fa4475801b33e275b92ba63e85d",
+      "indexed_experiment_count": 7,
       "real_formal_experiment_count": 3
     },
     "paper3": {
