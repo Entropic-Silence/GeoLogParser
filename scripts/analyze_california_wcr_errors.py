@@ -107,6 +107,9 @@ def main() -> None:
     parser.add_argument("--tesseract-run", type=Path, default=ROOT / "results/2026-08-14/P1_CALIFORNIA_WCR_TESSERACT_TEST_FORMAL_001")
     parser.add_argument("--constraint-run", type=Path, default=ROOT / "results/2026-08-14/P2_CALIFORNIA_WCR_CONSTRAINT_TEST_FORMAL_001")
     parser.add_argument("--output", type=Path, default=ROOT / "experiments/paper1/analysis/california_wcr_errors_v001.json")
+    parser.add_argument("--analysis-version", default="california_wcr_errors_v001")
+    parser.add_argument("--dataset-manifest", default="datasets/manifests/california_wcr_gold_v001.jsonl")
+    parser.add_argument("--split", default="datasets/splits/california_wcr_gold_split_v001.json")
     args = parser.parse_args()
 
     rapid = load_jsonl(args.rapid_run / "predictions.jsonl")
@@ -159,9 +162,9 @@ def main() -> None:
     harmful_documents.sort(key=lambda row: row["delta"])
 
     payload = {
-        "analysis_version": "california_wcr_errors_v001",
-        "dataset_manifest": "datasets/manifests/california_wcr_gold_v001.jsonl",
-        "split": "datasets/splits/california_wcr_gold_split_v001.json",
+        "analysis_version": args.analysis_version,
+        "dataset_manifest": args.dataset_manifest,
+        "split": args.split,
         "rapid_run": args.rapid_run.name,
         "tesseract_run": args.tesseract_run.name,
         "constraint_run": args.constraint_run.name,

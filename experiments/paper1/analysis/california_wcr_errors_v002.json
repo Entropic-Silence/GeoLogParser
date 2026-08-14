@@ -1,0 +1,5138 @@
+{
+  "analysis_version": "california_wcr_errors_v002",
+  "constraint_document_comparison": {
+    "documents_improved": 36,
+    "documents_unchanged": 56,
+    "documents_worsened": 8
+  },
+  "constraint_harm_cases": [
+    {
+      "constrained_match_count": 2,
+      "correction_taxonomy": {
+        "constrained_correct_added": 0,
+        "constrained_incorrect_added": 0,
+        "raw_correct_kept": 2,
+        "raw_correct_removed": 4,
+        "raw_incorrect_removed": 2
+      },
+      "county": "Fresno",
+      "delta": -4,
+      "raw_match_count": 6,
+      "record_id": "WCR0218186"
+    },
+    {
+      "constrained_match_count": 4,
+      "correction_taxonomy": {
+        "constrained_correct_added": 1,
+        "constrained_incorrect_added": 0,
+        "raw_correct_kept": 3,
+        "raw_correct_removed": 3,
+        "raw_incorrect_removed": 2
+      },
+      "county": "San Joaquin",
+      "delta": -2,
+      "raw_match_count": 6,
+      "record_id": "WCR1991-006908"
+    },
+    {
+      "constrained_match_count": 2,
+      "correction_taxonomy": {
+        "constrained_correct_added": 2,
+        "constrained_incorrect_added": 0,
+        "raw_correct_kept": 0,
+        "raw_correct_removed": 4,
+        "raw_incorrect_removed": 0
+      },
+      "county": "Sacramento",
+      "delta": -2,
+      "raw_match_count": 4,
+      "record_id": "WCR2004-004313"
+    },
+    {
+      "constrained_match_count": 0,
+      "correction_taxonomy": {
+        "constrained_correct_added": 0,
+        "constrained_incorrect_added": 0,
+        "raw_correct_kept": 0,
+        "raw_correct_removed": 1,
+        "raw_incorrect_removed": 0
+      },
+      "county": "Kern",
+      "delta": -1,
+      "raw_match_count": 1,
+      "record_id": "WCR0004512"
+    },
+    {
+      "constrained_match_count": 11,
+      "correction_taxonomy": {
+        "constrained_correct_added": 0,
+        "constrained_incorrect_added": 0,
+        "raw_correct_kept": 11,
+        "raw_correct_removed": 1,
+        "raw_incorrect_removed": 4
+      },
+      "county": "Tulare",
+      "delta": -1,
+      "raw_match_count": 12,
+      "record_id": "WCR0074210"
+    },
+    {
+      "constrained_match_count": 10,
+      "correction_taxonomy": {
+        "constrained_correct_added": 0,
+        "constrained_incorrect_added": 0,
+        "raw_correct_kept": 10,
+        "raw_correct_removed": 1,
+        "raw_incorrect_removed": 0
+      },
+      "county": "San Joaquin",
+      "delta": -1,
+      "raw_match_count": 11,
+      "record_id": "WCR1985-004906"
+    },
+    {
+      "constrained_match_count": 8,
+      "correction_taxonomy": {
+        "constrained_correct_added": 0,
+        "constrained_incorrect_added": 0,
+        "raw_correct_kept": 8,
+        "raw_correct_removed": 1,
+        "raw_incorrect_removed": 0
+      },
+      "county": "San Bernardino",
+      "delta": -1,
+      "raw_match_count": 9,
+      "record_id": "WCR1990-019694"
+    },
+    {
+      "constrained_match_count": 0,
+      "correction_taxonomy": {
+        "constrained_correct_added": 0,
+        "constrained_incorrect_added": 1,
+        "raw_correct_kept": 0,
+        "raw_correct_removed": 1,
+        "raw_incorrect_removed": 0
+      },
+      "county": "El Dorado",
+      "delta": -1,
+      "raw_match_count": 1,
+      "record_id": "WCR1994-002443"
+    }
+  ],
+  "constraint_metrics": {
+    "automatic_correction_actions": 355,
+    "candidate_count": 1143,
+    "comparison": "single_pass_vs_constraint_guided_sequence_recovery",
+    "constrained_interval_metrics": {
+      "interval_f1": {
+        "denominator": 1.0,
+        "details": {
+          "matched_count": 718,
+          "matching": "order_preserving_max_cardinality_then_min_error_v001",
+          "prediction_count": 776,
+          "reference_count": 1770,
+          "tolerance_m": 0.05,
+          "unmatched_prediction_count": 58,
+          "unmatched_reference_count": 1052
+        },
+        "name": "interval_f1",
+        "numerator": 0.5640219952867244,
+        "unit": "ratio",
+        "value": 0.5640219952867244
+      },
+      "interval_precision": {
+        "denominator": 776,
+        "details": {
+          "matched_count": 718,
+          "matching": "order_preserving_max_cardinality_then_min_error_v001",
+          "prediction_count": 776,
+          "reference_count": 1770,
+          "tolerance_m": 0.05,
+          "unmatched_prediction_count": 58,
+          "unmatched_reference_count": 1052
+        },
+        "name": "interval_precision",
+        "numerator": 718,
+        "unit": "ratio",
+        "value": 0.9252577319587629
+      },
+      "interval_recall": {
+        "denominator": 1770,
+        "details": {
+          "matched_count": 718,
+          "matching": "order_preserving_max_cardinality_then_min_error_v001",
+          "prediction_count": 776,
+          "reference_count": 1770,
+          "tolerance_m": 0.05,
+          "unmatched_prediction_count": 58,
+          "unmatched_reference_count": 1052
+        },
+        "name": "interval_recall",
+        "numerator": 718,
+        "unit": "ratio",
+        "value": 0.4056497175141243
+      },
+      "matched_bottom_boundary_mae_m": {
+        "denominator": 718,
+        "details": {
+          "matched_count": 718,
+          "matching": "order_preserving_max_cardinality_then_min_error_v001",
+          "prediction_count": 776,
+          "reference_count": 1770,
+          "tolerance_m": 0.05,
+          "unmatched_prediction_count": 58,
+          "unmatched_reference_count": 1052
+        },
+        "name": "matched_bottom_boundary_mae_m",
+        "numerator": 0.0,
+        "unit": "m",
+        "value": 0.0
+      },
+      "matched_top_boundary_mae_m": {
+        "denominator": 718,
+        "details": {
+          "matched_count": 718,
+          "matching": "order_preserving_max_cardinality_then_min_error_v001",
+          "prediction_count": 776,
+          "reference_count": 1770,
+          "tolerance_m": 0.05,
+          "unmatched_prediction_count": 58,
+          "unmatched_reference_count": 1052
+        },
+        "name": "matched_top_boundary_mae_m",
+        "numerator": 0.0,
+        "unit": "m",
+        "value": 0.0
+      }
+    },
+    "constrained_prediction_count": 776,
+    "correction_taxonomy": {
+      "constrained_correct_added": 212,
+      "constrained_incorrect_added": 17,
+      "raw_correct_kept": 506,
+      "raw_correct_removed": 46,
+      "raw_incorrect_removed": 80
+    },
+    "county_count": 23,
+    "document_count": 100,
+    "false_correction_rate": {
+      "definition": "(removed correct raw boundaries + added incorrect constrained boundaries) / all added or removed boundaries",
+      "denominator": 355,
+      "numerator": 63,
+      "value": 0.17746478873239438
+    },
+    "harmful_correction_actions": 63,
+    "latency_seconds_per_document_wall": 2.562623073029972,
+    "partition": "test",
+    "peak_process_rss_kib": 293624,
+    "prediction_reference_conditioning": "none",
+    "raw_interval_metrics": {
+      "interval_f1": {
+        "denominator": 1.0,
+        "details": {
+          "matched_count": 550,
+          "matching": "order_preserving_max_cardinality_then_min_error_v001",
+          "prediction_count": 673,
+          "reference_count": 1770,
+          "tolerance_m": 0.05,
+          "unmatched_prediction_count": 123,
+          "unmatched_reference_count": 1220
+        },
+        "name": "interval_f1",
+        "numerator": 0.4502660663119116,
+        "unit": "ratio",
+        "value": 0.4502660663119116
+      },
+      "interval_precision": {
+        "denominator": 673,
+        "details": {
+          "matched_count": 550,
+          "matching": "order_preserving_max_cardinality_then_min_error_v001",
+          "prediction_count": 673,
+          "reference_count": 1770,
+          "tolerance_m": 0.05,
+          "unmatched_prediction_count": 123,
+          "unmatched_reference_count": 1220
+        },
+        "name": "interval_precision",
+        "numerator": 550,
+        "unit": "ratio",
+        "value": 0.8172362555720654
+      },
+      "interval_recall": {
+        "denominator": 1770,
+        "details": {
+          "matched_count": 550,
+          "matching": "order_preserving_max_cardinality_then_min_error_v001",
+          "prediction_count": 673,
+          "reference_count": 1770,
+          "tolerance_m": 0.05,
+          "unmatched_prediction_count": 123,
+          "unmatched_reference_count": 1220
+        },
+        "name": "interval_recall",
+        "numerator": 550,
+        "unit": "ratio",
+        "value": 0.3107344632768362
+      },
+      "matched_bottom_boundary_mae_m": {
+        "denominator": 550,
+        "details": {
+          "matched_count": 550,
+          "matching": "order_preserving_max_cardinality_then_min_error_v001",
+          "prediction_count": 673,
+          "reference_count": 1770,
+          "tolerance_m": 0.05,
+          "unmatched_prediction_count": 123,
+          "unmatched_reference_count": 1220
+        },
+        "name": "matched_bottom_boundary_mae_m",
+        "numerator": 0.0,
+        "unit": "m",
+        "value": 0.0
+      },
+      "matched_top_boundary_mae_m": {
+        "denominator": 550,
+        "details": {
+          "matched_count": 550,
+          "matching": "order_preserving_max_cardinality_then_min_error_v001",
+          "prediction_count": 673,
+          "reference_count": 1770,
+          "tolerance_m": 0.05,
+          "unmatched_prediction_count": 123,
+          "unmatched_reference_count": 1220
+        },
+        "name": "matched_top_boundary_mae_m",
+        "numerator": 0.0,
+        "unit": "m",
+        "value": 0.0
+      }
+    },
+    "raw_prediction_count": 673,
+    "reference_blinded_decision_policy": true,
+    "reference_ground_truth_tier": "GOLD_PUBLISHED_MANUAL_TRANSCRIPTION",
+    "reference_interval_count": 1770,
+    "scope": "human-GT benchmark evaluation",
+    "wall_time_seconds": 256.2623066889937
+  },
+  "constraint_run": "P2_CALIFORNIA_WCR_V002_CONSTRAINT_EXTERNAL_FORMAL_002",
+  "dataset_manifest": "datasets/manifests/california_wcr_gold_v002.jsonl",
+  "engine_document_comparison": {
+    "equal_matches": 34,
+    "rapidocr_more_matches": 46,
+    "tesseract_more_matches": 20
+  },
+  "largest_constraint_benefits": [
+    {
+      "constrained_match_count": 23,
+      "correction_taxonomy": {
+        "constrained_correct_added": 20,
+        "constrained_incorrect_added": 0,
+        "raw_correct_kept": 3,
+        "raw_correct_removed": 0,
+        "raw_incorrect_removed": 1
+      },
+      "county": "Riverside",
+      "delta": 20,
+      "raw_match_count": 3,
+      "record_id": "WCR1988-017304"
+    },
+    {
+      "constrained_match_count": 18,
+      "correction_taxonomy": {
+        "constrained_correct_added": 13,
+        "constrained_incorrect_added": 0,
+        "raw_correct_kept": 5,
+        "raw_correct_removed": 0,
+        "raw_incorrect_removed": 0
+      },
+      "county": "Stanislaus",
+      "delta": 13,
+      "raw_match_count": 5,
+      "record_id": "WCR0130971"
+    },
+    {
+      "constrained_match_count": 19,
+      "correction_taxonomy": {
+        "constrained_correct_added": 12,
+        "constrained_incorrect_added": 0,
+        "raw_correct_kept": 7,
+        "raw_correct_removed": 0,
+        "raw_incorrect_removed": 0
+      },
+      "county": "Sacramento",
+      "delta": 13,
+      "raw_match_count": 6,
+      "record_id": "WCR0301318"
+    },
+    {
+      "constrained_match_count": 20,
+      "correction_taxonomy": {
+        "constrained_correct_added": 13,
+        "constrained_incorrect_added": 0,
+        "raw_correct_kept": 7,
+        "raw_correct_removed": 1,
+        "raw_incorrect_removed": 0
+      },
+      "county": "Kern",
+      "delta": 12,
+      "raw_match_count": 8,
+      "record_id": "WCR0078764"
+    },
+    {
+      "constrained_match_count": 40,
+      "correction_taxonomy": {
+        "constrained_correct_added": 11,
+        "constrained_incorrect_added": 0,
+        "raw_correct_kept": 29,
+        "raw_correct_removed": 0,
+        "raw_incorrect_removed": 1
+      },
+      "county": "Kings",
+      "delta": 11,
+      "raw_match_count": 29,
+      "record_id": "WCR0225364"
+    },
+    {
+      "constrained_match_count": 35,
+      "correction_taxonomy": {
+        "constrained_correct_added": 14,
+        "constrained_incorrect_added": 0,
+        "raw_correct_kept": 21,
+        "raw_correct_removed": 5,
+        "raw_incorrect_removed": 2
+      },
+      "county": "Alameda",
+      "delta": 10,
+      "raw_match_count": 25,
+      "record_id": "WCR0274307"
+    },
+    {
+      "constrained_match_count": 12,
+      "correction_taxonomy": {
+        "constrained_correct_added": 9,
+        "constrained_incorrect_added": 0,
+        "raw_correct_kept": 3,
+        "raw_correct_removed": 0,
+        "raw_incorrect_removed": 0
+      },
+      "county": "Madera",
+      "delta": 9,
+      "raw_match_count": 3,
+      "record_id": "WCR0168763"
+    },
+    {
+      "constrained_match_count": 15,
+      "correction_taxonomy": {
+        "constrained_correct_added": 9,
+        "constrained_incorrect_added": 4,
+        "raw_correct_kept": 6,
+        "raw_correct_removed": 0,
+        "raw_incorrect_removed": 0
+      },
+      "county": "Monterey",
+      "delta": 9,
+      "raw_match_count": 6,
+      "record_id": "WCR0329277"
+    },
+    {
+      "constrained_match_count": 13,
+      "correction_taxonomy": {
+        "constrained_correct_added": 8,
+        "constrained_incorrect_added": 3,
+        "raw_correct_kept": 5,
+        "raw_correct_removed": 0,
+        "raw_incorrect_removed": 0
+      },
+      "county": "San Joaquin",
+      "delta": 8,
+      "raw_match_count": 5,
+      "record_id": "WCR1976-001429"
+    },
+    {
+      "constrained_match_count": 22,
+      "correction_taxonomy": {
+        "constrained_correct_added": 7,
+        "constrained_incorrect_added": 0,
+        "raw_correct_kept": 15,
+        "raw_correct_removed": 1,
+        "raw_incorrect_removed": 0
+      },
+      "county": "Stanislaus",
+      "delta": 6,
+      "raw_match_count": 16,
+      "record_id": "WCR0022154"
+    },
+    {
+      "constrained_match_count": 8,
+      "correction_taxonomy": {
+        "constrained_correct_added": 6,
+        "constrained_incorrect_added": 0,
+        "raw_correct_kept": 2,
+        "raw_correct_removed": 0,
+        "raw_incorrect_removed": 0
+      },
+      "county": "Fresno",
+      "delta": 6,
+      "raw_match_count": 2,
+      "record_id": "WCR0161285"
+    },
+    {
+      "constrained_match_count": 13,
+      "correction_taxonomy": {
+        "constrained_correct_added": 6,
+        "constrained_incorrect_added": 1,
+        "raw_correct_kept": 7,
+        "raw_correct_removed": 0,
+        "raw_incorrect_removed": 0
+      },
+      "county": "Stanislaus",
+      "delta": 6,
+      "raw_match_count": 7,
+      "record_id": "WCR0258149"
+    },
+    {
+      "constrained_match_count": 8,
+      "correction_taxonomy": {
+        "constrained_correct_added": 6,
+        "constrained_incorrect_added": 0,
+        "raw_correct_kept": 2,
+        "raw_correct_removed": 0,
+        "raw_incorrect_removed": 1
+      },
+      "county": "Los Angeles",
+      "delta": 6,
+      "raw_match_count": 2,
+      "record_id": "WCR1985-010569"
+    },
+    {
+      "constrained_match_count": 11,
+      "correction_taxonomy": {
+        "constrained_correct_added": 6,
+        "constrained_incorrect_added": 1,
+        "raw_correct_kept": 5,
+        "raw_correct_removed": 0,
+        "raw_incorrect_removed": 0
+      },
+      "county": "San Joaquin",
+      "delta": 6,
+      "raw_match_count": 5,
+      "record_id": "WCR1990-011861"
+    },
+    {
+      "constrained_match_count": 12,
+      "correction_taxonomy": {
+        "constrained_correct_added": 4,
+        "constrained_incorrect_added": 0,
+        "raw_correct_kept": 8,
+        "raw_correct_removed": 0,
+        "raw_incorrect_removed": 2
+      },
+      "county": "Fresno",
+      "delta": 4,
+      "raw_match_count": 8,
+      "record_id": "WCR0151273"
+    }
+  ],
+  "rapid_run": "P1_CALIFORNIA_WCR_V002_RAPIDOCR_EXTERNAL_FORMAL_002",
+  "rapidocr": {
+    "counts": {
+      "documents": 100,
+      "documents_without_predictions": 8,
+      "matched_lithology_errors": 266,
+      "matches": 550,
+      "missing": 1220,
+      "predicted_intervals": 673,
+      "reference_intervals": 1770,
+      "spurious": 123
+    },
+    "lithology_error_examples": [
+      {
+        "bottom_ft": 990.0,
+        "prediction": "San C SandwiththinStreuksckac Cku1 Sand Clay san",
+        "record_id": "WCR0004512",
+        "reference": "sand",
+        "top_ft": 940.0
+      },
+      {
+        "bottom_ft": 3.0,
+        "prediction": "Woll_Measuring No。 4-7-3iC :dirt gravel",
+        "record_id": "WCR0022154",
+        "reference": "Dirt",
+        "top_ft": 0.0
+      },
+      {
+        "bottom_ft": 11.0,
+        "prediction": "No_perforatian..log.-pump. Idirt C test..or E-log",
+        "record_id": "WCR0022154",
+        "reference": "Dirt",
+        "top_ft": 7.0
+      },
+      {
+        "bottom_ft": 33.0,
+        "prediction": "dirt C Collected hy. Bingham,-lan. 195l Lgravel C dirt Typed_by N.vartin,April 1952",
+        "record_id": "WCR0022154",
+        "reference": "Dirt",
+        "top_ft": 30.0
+      },
+      {
+        "bottom_ft": 47.0,
+        "prediction": "Typed_by N.vartin,April 1952 C Rravel C clay",
+        "record_id": "WCR0022154",
+        "reference": "Gravel",
+        "top_ft": 42.0
+      },
+      {
+        "bottom_ft": 82.0,
+        "prediction": "E gravel",
+        "record_id": "WCR0022154",
+        "reference": "Gravel",
+        "top_ft": 67.0
+      },
+      {
+        "bottom_ft": 93.0,
+        "prediction": "dirt&gravel G",
+        "record_id": "WCR0022154",
+        "reference": "Dirt & gravel",
+        "top_ft": 82.0
+      },
+      {
+        "bottom_ft": 100.0,
+        "prediction": "G fina gravel",
+        "record_id": "WCR0022154",
+        "reference": "Fine Gravel",
+        "top_ft": 93.0
+      },
+      {
+        "bottom_ft": 139.0,
+        "prediction": "hard_sand 179E sand and clay 118E T",
+        "record_id": "WCR0022154",
+        "reference": "Hard Sand",
+        "top_ft": 100.0
+      },
+      {
+        "bottom_ft": 169.0,
+        "prediction": "yellow_clay 112 C S",
+        "record_id": "WCR0022154",
+        "reference": "Yellow Clay",
+        "top_ft": 157.0
+      },
+      {
+        "bottom_ft": 174.0,
+        "prediction": "5G gravel",
+        "record_id": "WCR0022154",
+        "reference": "Gravel",
+        "top_ft": 169.0
+      },
+      {
+        "bottom_ft": 183.0,
+        "prediction": "19C rhito.clay C",
+        "record_id": "WCR0022154",
+        "reference": "White Clay",
+        "top_ft": 174.0
+      },
+      {
+        "bottom_ft": 190.0,
+        "prediction": "C lyellow_clay C",
+        "record_id": "WCR0022154",
+        "reference": "Yellow Clay",
+        "top_ft": 183.0
+      },
+      {
+        "bottom_ft": 191.0,
+        "prediction": "1C igravel Lo0",
+        "record_id": "WCR0022154",
+        "reference": "Gravel",
+        "top_ft": 190.0
+      },
+      {
+        "bottom_ft": 205.0,
+        "prediction": "i9C jclay gravel",
+        "record_id": "WCR0022154",
+        "reference": "Clay",
+        "top_ft": 191.0
+      },
+      {
+        "bottom_ft": 220.0,
+        "prediction": "clay sand and_eravel iclay",
+        "record_id": "WCR0022154",
+        "reference": "Clay",
+        "top_ft": 212.0
+      },
+      {
+        "bottom_ft": 235.0,
+        "prediction": "+ -gra.vel clay gravel Igravel&_clay. ;graval ialay",
+        "record_id": "WCR0022154",
+        "reference": "Gravel",
+        "top_ft": 226.0
+      },
+      {
+        "bottom_ft": 160.0,
+        "prediction": "csavel",
+        "record_id": "WCR0039229",
+        "reference": "Gravel",
+        "top_ft": 155.0
+      },
+      {
+        "bottom_ft": 167.0,
+        "prediction": "Gravel p&rock",
+        "record_id": "WCR0039229",
+        "reference": "Clay",
+        "top_ft": 160.0
+      },
+      {
+        "bottom_ft": 64.0,
+        "prediction": "iBrown silty:clay",
+        "record_id": "WCR0074210",
+        "reference": "brown silty clay",
+        "top_ft": 57.0
+      },
+      {
+        "bottom_ft": 97.0,
+        "prediction": "1Brownclay",
+        "record_id": "WCR0074210",
+        "reference": "brown clay",
+        "top_ft": 96.0
+      },
+      {
+        "bottom_ft": 106.0,
+        "prediction": "iCoarse sand",
+        "record_id": "WCR0074210",
+        "reference": "coarse sand",
+        "top_ft": 97.0
+      },
+      {
+        "bottom_ft": 118.0,
+        "prediction": "Brownclay",
+        "record_id": "WCR0074210",
+        "reference": "brown clay",
+        "top_ft": 106.0
+      },
+      {
+        "bottom_ft": 125.0,
+        "prediction": "ISand",
+        "record_id": "WCR0074210",
+        "reference": "sand",
+        "top_ft": 118.0
+      },
+      {
+        "bottom_ft": 170.0,
+        "prediction": "iBrown.sandyc sand Sand-ahd cemented sand",
+        "record_id": "WCR0074210",
+        "reference": "brown sandy clay with sand lenses",
+        "top_ft": 125.0
+      },
+      {
+        "bottom_ft": 249.0,
+        "prediction": "Brawn_clay",
+        "record_id": "WCR0074210",
+        "reference": "brown clay",
+        "top_ft": 245.0
+      },
+      {
+        "bottom_ft": 255.0,
+        "prediction": "iCemented_sand",
+        "record_id": "WCR0074210",
+        "reference": "cemented sand",
+        "top_ft": 249.0
+      },
+      {
+        "bottom_ft": 280.0,
+        "prediction": "8lue. sand I :SE ofAve.280&Rd.68",
+        "record_id": "WCR0074210",
+        "reference": "blue sand",
+        "top_ft": 270.0
+      },
+      {
+        "bottom_ft": 260.0,
+        "prediction": "Sand- some Sand Fine Brgwn",
+        "record_id": "WCR0077367",
+        "reference": "Sand",
+        "top_ft": 230.0
+      },
+      {
+        "bottom_ft": 380.0,
+        "prediction": "Sand( Sand Ksbme ay",
+        "record_id": "WCR0077367",
+        "reference": "Sand",
+        "top_ft": 360.0
+      },
+      {
+        "bottom_ft": 25.0,
+        "prediction": "Sand & gravel Blue clay Sand &gravel",
+        "record_id": "WCR0078764",
+        "reference": "Sand & Gravel",
+        "top_ft": 10.0
+      },
+      {
+        "bottom_ft": 125.0,
+        "prediction": "Medium sand Blue_clay Medium _sand Blue_clay Medium_sand Blue_clay Medium sand Blue...clay Medium sand Blue_clay",
+        "record_id": "WCR0078764",
+        "reference": "Medium Sand",
+        "top_ft": 108.0
+      },
+      {
+        "bottom_ft": 4.0,
+        "prediction": "TopSoi1",
+        "record_id": "WCR0089566",
+        "reference": "top soil",
+        "top_ft": 0.0
+      },
+      {
+        "bottom_ft": 55.0,
+        "prediction": "Graker",
+        "record_id": "WCR0089566",
+        "reference": "gravel",
+        "top_ft": 44.0
+      },
+      {
+        "bottom_ft": 83.0,
+        "prediction": "ClayV",
+        "record_id": "WCR0089566",
+        "reference": "clay",
+        "top_ft": 55.0
+      },
+      {
+        "bottom_ft": 3.0,
+        "prediction": "Sandy soil Sandy clay Gravel",
+        "record_id": "WCR0095797",
+        "reference": "Sandy soil",
+        "top_ft": 0.0
+      },
+      {
+        "bottom_ft": 43.0,
+        "prediction": "Clay& IMie sand",
+        "record_id": "WCR0095797",
+        "reference": "Clay & fine sand",
+        "top_ft": 38.0
+      },
+      {
+        "bottom_ft": 60.0,
+        "prediction": "GrAl&sand",
+        "record_id": "WCR0095797",
+        "reference": "Gravel & sand",
+        "top_ft": 43.0
+      },
+      {
+        "bottom_ft": 80.0,
+        "prediction": "ClaX&fine sand",
+        "record_id": "WCR0095797",
+        "reference": "Clay & fine sand",
+        "top_ft": 60.0
+      },
+      {
+        "bottom_ft": 95.0,
+        "prediction": "Grevel& sand",
+        "record_id": "WCR0095797",
+        "reference": "Gravel & sand",
+        "top_ft": 80.0
+      }
+    ],
+    "nearest_boundary_error_examples": [
+      {
+        "absolute_pair_error_ft": 40.0,
+        "prediction": [
+          11.0,
+          39.0
+        ],
+        "prediction_lithology": "test..or E-log S gravel",
+        "record_id": "WCR0022154",
+        "reference": [
+          3.0,
+          7.0
+        ],
+        "reference_lithology": "Gravel"
+      },
+      {
+        "absolute_pair_error_ft": 100.0,
+        "prediction": [
+          0.0,
+          220.0
+        ],
+        "prediction_lithology": "HSLA ile FillEo 2S",
+        "record_id": "WCR0062335",
+        "reference": [
+          90.0,
+          230.0
+        ],
+        "reference_lithology": "Clay sand"
+      },
+      {
+        "absolute_pair_error_ft": 100.0,
+        "prediction": [
+          37.0,
+          139.0
+        ],
+        "prediction_lithology": "Brownclay",
+        "record_id": "WCR0074210",
+        "reference": [
+          37.0,
+          39.0
+        ],
+        "reference_lithology": "brown clay"
+      },
+      {
+        "absolute_pair_error_ft": 100.0,
+        "prediction": [
+          39.0,
+          157.0
+        ],
+        "prediction_lithology": "iClayish sand",
+        "record_id": "WCR0074210",
+        "reference": [
+          39.0,
+          57.0
+        ],
+        "reference_lithology": "clayish sand"
+      },
+      {
+        "absolute_pair_error_ft": 88.0,
+        "prediction": [
+          340.0,
+          368.0
+        ],
+        "prediction_lithology": "sone Sand Clay",
+        "record_id": "WCR0077367",
+        "reference": [
+          280.0,
+          340.0
+        ],
+        "reference_lithology": "Fine Brown Sand"
+      },
+      {
+        "absolute_pair_error_ft": 95.0,
+        "prediction": [
+          480.0,
+          525.0
+        ],
+        "prediction_lithology": "Sand some a",
+        "record_id": "WCR0077367",
+        "reference": [
+          430.0,
+          480.0
+        ],
+        "reference_lithology": "Sand"
+      },
+      {
+        "absolute_pair_error_ft": 45.4,
+        "prediction": [
+          1.4,
+          50.0
+        ],
+        "prediction_lithology": "Blue clay",
+        "record_id": "WCR0078764",
+        "reference": [
+          0.0,
+          6.0
+        ],
+        "reference_lithology": "Heavy Soil"
+      },
+      {
+        "absolute_pair_error_ft": 10.0,
+        "prediction": [
+          95.0,
+          110.0
+        ],
+        "prediction_lithology": "Cay&gravelstreaks",
+        "record_id": "WCR0095797",
+        "reference": [
+          95.0,
+          100.0
+        ],
+        "reference_lithology": "Clay & gravel streaks"
+      },
+      {
+        "absolute_pair_error_ft": 14.0,
+        "prediction": [
+          9.0,
+          10.0
+        ],
+        "prediction_lithology": "PoLE AND EAST REct. MOBIL_TELE.LINE 10\"x200' DEEP ANODE",
+        "record_id": "WCR0117200",
+        "reference": [
+          0.0,
+          5.0
+        ],
+        "reference_lithology": "Sandy Loam Top Soil"
+      },
+      {
+        "absolute_pair_error_ft": 126.0,
+        "prediction": [
+          121.0,
+          179.0
+        ],
+        "prediction_lithology": "of_Gravel",
+        "record_id": "WCR0117200",
+        "reference": [
+          64.0,
+          110.0
+        ],
+        "reference_lithology": "Clay with Sand and Streaks of Gravel"
+      },
+      {
+        "absolute_pair_error_ft": 31.0,
+        "prediction": [
+          77.0,
+          84.0
+        ],
+        "prediction_lithology": "HARDROCK/GRANITE/CASING FRACTURE VERYSOFTDG VERYSOFTDG VERYSOFTDG FRACTURE FRACTURE",
+        "record_id": "WCR0117626",
+        "reference": [
+          77.0,
+          115.0
+        ],
+        "reference_lithology": "Hardrock/granite"
+      },
+      {
+        "absolute_pair_error_ft": 87.0,
+        "prediction": [
+          28.0,
+          63.0
+        ],
+        "prediction_lithology": "Seecstaelexelel Saudsoe Dey mcde CeyeBrisk t HaRil Sbardstare FiueRedSaed seBenRssg pterSardted",
+        "record_id": "WCR0122942",
+        "reference": [
+          0.0,
+          4.0
+        ],
+        "reference_lithology": "TOPSOIL"
+      },
+      {
+        "absolute_pair_error_ft": 94.0,
+        "prediction": [
+          150.0,
+          219.0
+        ],
+        "prediction_lithology": "coarse tomedium gravol",
+        "record_id": "WCR0123635",
+        "reference": [
+          125.0,
+          150.0
+        ],
+        "reference_lithology": "coarse gravel"
+      },
+      {
+        "absolute_pair_error_ft": 77.0,
+        "prediction": [
+          7.0,
+          77.0
+        ],
+        "prediction_lithology": "Hardpan",
+        "record_id": "WCR0151273",
+        "reference": [
+          0.0,
+          7.0
+        ],
+        "reference_lithology": "Dirt"
+      },
+      {
+        "absolute_pair_error_ft": 114.0,
+        "prediction": [
+          2.0,
+          114.0
+        ],
+        "prediction_lithology": "Clay Sand Ciay",
+        "record_id": "WCR0181249",
+        "reference": [
+          0.0,
+          2.0
+        ],
+        "reference_lithology": "Top Soil"
+      },
+      {
+        "absolute_pair_error_ft": 54.0,
+        "prediction": [
+          25.0,
+          44.0
+        ],
+        "prediction_lithology": "SANDY CAY SANDYCIBY. wiH BroWnSAwOyCIAy SrownSgnDYSipy wiH- -qrawel. :JbrounSardyeiAy",
+        "record_id": "WCR0194050",
+        "reference": [
+          0.0,
+          15.0
+        ],
+        "reference_lithology": "hard pan"
+      },
+      {
+        "absolute_pair_error_ft": 123.0,
+        "prediction": [
+          2.0,
+          123.0
+        ],
+        "prediction_lithology": "hard red",
+        "record_id": "WCR0218186",
+        "reference": [
+          0.0,
+          2.0
+        ],
+        "reference_lithology": "Clay soil"
+      },
+      {
+        "absolute_pair_error_ft": 11.0,
+        "prediction": [
+          3.0,
+          28.0
+        ],
+        "prediction_lithology": "B5h el e",
+        "record_id": "WCR0218667",
+        "reference": [
+          0.0,
+          20.0
+        ],
+        "reference_lithology": "Sandy clay"
+      },
+      {
+        "absolute_pair_error_ft": 4.0,
+        "prediction": [
+          23.0,
+          32.0
+        ],
+        "prediction_lithology": "SAND",
+        "record_id": "WCR0225364",
+        "reference": [
+          23.0,
+          36.0
+        ],
+        "reference_lithology": "clay & sand"
+      },
+      {
+        "absolute_pair_error_ft": 84.0,
+        "prediction": [
+          6.0,
+          93.0
+        ],
+        "prediction_lithology": "CLAY",
+        "record_id": "WCR0225364",
+        "reference": [
+          87.0,
+          90.0
+        ],
+        "reference_lithology": "sand"
+      },
+      {
+        "absolute_pair_error_ft": 115.0,
+        "prediction": [
+          32.0,
+          36.0
+        ],
+        "prediction_lithology": "CLAY",
+        "record_id": "WCR0225364",
+        "reference": [
+          90.0,
+          93.0
+        ],
+        "reference_lithology": "clay"
+      },
+      {
+        "absolute_pair_error_ft": 133.0,
+        "prediction": [
+          113.0,
+          143.0
+        ],
+        "prediction_lithology": "Browm gravolyclay Blue-Glay Browm oandy olay Sand Blue-Glay Blue olay and Band Sand Blue-Clay Bluo caly oandy ...single. single",
+        "record_id": "WCR0233882",
+        "reference": [
+          50.0,
+          73.0
+        ],
+        "reference_lithology": "Brown clay streaked with rock"
+      },
+      {
+        "absolute_pair_error_ft": 59.0,
+        "prediction": [
+          6.0,
+          54.0
+        ],
+        "prediction_lithology": "sandy_clay Red",
+        "record_id": "WCR0243652",
+        "reference": [
+          0.0,
+          1.0
+        ],
+        "reference_lithology": "Fill"
+      },
+      {
+        "absolute_pair_error_ft": 38.0,
+        "prediction": [
+          0.0,
+          36.0
+        ],
+        "prediction_lithology": "Topsoil",
+        "record_id": "WCR0259863",
+        "reference": [
+          0.0,
+          74.0
+        ],
+        "reference_lithology": "Clay & Gravel Streaks"
+      },
+      {
+        "absolute_pair_error_ft": 5.0,
+        "prediction": [
+          72.0,
+          75.0
+        ],
+        "prediction_lithology": ">clay Sand-fine Clay",
+        "record_id": "WCR0259863",
+        "reference": [
+          74.0,
+          78.0
+        ],
+        "reference_lithology": "Gravel"
+      },
+      {
+        "absolute_pair_error_ft": 16.0,
+        "prediction": [
+          85.0,
+          100.0
+        ],
+        "prediction_lithology": "Clay",
+        "record_id": "WCR0259863",
+        "reference": [
+          78.0,
+          109.0
+        ],
+        "reference_lithology": "Clay"
+      },
+      {
+        "absolute_pair_error_ft": 56.0,
+        "prediction": [
+          80.0,
+          85.0
+        ],
+        "prediction_lithology": "Sand-fine",
+        "record_id": "WCR0259863",
+        "reference": [
+          109.0,
+          112.0
+        ],
+        "reference_lithology": "Gravel"
+      },
+      {
+        "absolute_pair_error_ft": 0.0,
+        "prediction": [
+          0.0,
+          7.0
+        ],
+        "prediction_lithology": "*...hocky.(gravolly) soil",
+        "record_id": "WCR0274307",
+        "reference": [
+          0.0,
+          7.0
+        ],
+        "reference_lithology": "rocky (gravelly) soil"
+      },
+      {
+        "absolute_pair_error_ft": 72.0,
+        "prediction": [
+          301.0,
+          303.0
+        ],
+        "prediction_lithology": "4 .Gravelly yellow clay Blestris Log 1=7=61 ..dCravel and band",
+        "record_id": "WCR0274307",
+        "reference": [
+          260.0,
+          272.0
+        ],
+        "reference_lithology": "gravelly yellow clay"
+      },
+      {
+        "absolute_pair_error_ft": 24.0,
+        "prediction": [
+          34.0,
+          51.0
+        ],
+        "prediction_lithology": "ISW WELL GRADED SAND W/GRAVEL.MULTI-COLORED",
+        "record_id": "WCR0301318",
+        "reference": [
+          27.0,
+          34.0
+        ],
+        "reference_lithology": "CL SANDY CLAY RED"
+      },
+      {
+        "absolute_pair_error_ft": 101.0,
+        "prediction": [
+          1.0,
+          112.0
+        ],
+        "prediction_lithology": "\"Broum Clay",
+        "record_id": "WCR1957-000095",
+        "reference": [
+          0.0,
+          12.0
+        ],
+        "reference_lithology": "Top Soil (Hard pan)"
+      },
+      {
+        "absolute_pair_error_ft": 43.0,
+        "prediction": [
+          22.0,
+          30.0
+        ],
+        "prediction_lithology": "Santy Clay clay Gray Saudatons",
+        "record_id": "WCR1958-000104",
+        "reference": [
+          0.0,
+          9.0
+        ],
+        "reference_lithology": "Top soil"
+      },
+      {
+        "absolute_pair_error_ft": 41.0,
+        "prediction": [
+          22.0,
+          42.0
+        ],
+        "prediction_lithology": "druwol Santy Clay",
+        "record_id": "WCR1958-000104",
+        "reference": [
+          9.0,
+          14.0
+        ],
+        "reference_lithology": "Brown sandy clay"
+      },
+      {
+        "absolute_pair_error_ft": 43.0,
+        "prediction": [
+          24.0,
+          70.0
+        ],
+        "prediction_lithology": "Saudatons Brom Clay",
+        "record_id": "WCR1958-000104",
+        "reference": [
+          14.0,
+          37.0
+        ],
+        "reference_lithology": "Brown clay"
+      },
+      {
+        "absolute_pair_error_ft": 53.0,
+        "prediction": [
+          24.0,
+          82.0
+        ],
+        "prediction_lithology": "Brom Clay Clay Gravol",
+        "record_id": "WCR1958-000104",
+        "reference": [
+          37.0,
+          42.0
+        ],
+        "reference_lithology": "Brown sand"
+      },
+      {
+        "absolute_pair_error_ft": 68.0,
+        "prediction": [
+          23.0,
+          93.0
+        ],
+        "prediction_lithology": "Gravol 01a7 Bluo band 60 Pt. 20u α 1/4n Contro1 Caslng",
+        "record_id": "WCR1958-000104",
+        "reference": [
+          42.0,
+          44.0
+        ],
+        "reference_lithology": "Brown sand"
+      },
+      {
+        "absolute_pair_error_ft": 77.2,
+        "prediction": [
+          33.2,
+          74.0
+        ],
+        "prediction_lithology": "dditiona! (a) \"F F",
+        "record_id": "WCR1985-010569",
+        "reference": [
+          0.0,
+          30.0
+        ],
+        "reference_lithology": "gravel"
+      },
+      {
+        "absolute_pair_error_ft": 100.0,
+        "prediction": [
+          75.0,
+          190.0
+        ],
+        "prediction_lithology": "sangs gravel",
+        "record_id": "WCR1988-016970",
+        "reference": [
+          115.0,
+          130.0
+        ],
+        "reference_lithology": "dry gravel & sand"
+      },
+      {
+        "absolute_pair_error_ft": 121.0,
+        "prediction": [
+          4.0,
+          127.0
+        ],
+        "prediction_lithology": "19.89Completed4/13/",
+        "record_id": "WCR1989-007996",
+        "reference": [
+          0.0,
+          10.0
+        ],
+        "reference_lithology": "Top Soil"
+      },
+      {
+        "absolute_pair_error_ft": 59.0,
+        "prediction": [
+          1.0,
+          22.0
+        ],
+        "prediction_lithology": "XXX2x3-719.90 1990(ompleted",
+        "record_id": "WCR1990-014061",
+        "reference": [
+          0.0,
+          80.0
+        ],
+        "reference_lithology": "Sandy clay"
+      },
+      {
+        "absolute_pair_error_ft": 20.0,
+        "prediction": [
+          10.0,
+          11.0
+        ],
+        "prediction_lithology": "o1qhtlsenyc0ywls0o",
+        "record_id": "WCR1991-006908",
+        "reference": [
+          0.0,
+          1.0
+        ],
+        "reference_lithology": "Top Soil"
+      },
+      {
+        "absolute_pair_error_ft": 35.0,
+        "prediction": [
+          4.0,
+          52.0
+        ],
+        "prediction_lithology": "ahBeaujSNyC4y",
+        "record_id": "WCR1991-006908",
+        "reference": [
+          1.0,
+          20.0
+        ],
+        "reference_lithology": "Cobbles"
+      },
+      {
+        "absolute_pair_error_ft": 90.0,
+        "prediction": [
+          0.0,
+          98.0
+        ],
+        "prediction_lithology": "LarsoGenuel",
+        "record_id": "WCR1991-006908",
+        "reference": [
+          20.0,
+          28.0
+        ],
+        "reference_lithology": "light brown sandy clay"
+      },
+      {
+        "absolute_pair_error_ft": 142.0,
+        "prediction": [
+          225.0,
+          322.0
+        ],
+        "prediction_lithology": "FraeTunedMedRk I I",
+        "record_id": "WCR1992-016971",
+        "reference": [
+          199.0,
+          206.0
+        ],
+        "reference_lithology": "Very Hard Rk"
+      },
+      {
+        "absolute_pair_error_ft": 1.0,
+        "prediction": [
+          1.0,
+          27.0
+        ],
+        "prediction_lithology": "Clay",
+        "record_id": "WCR1994-004096",
+        "reference": [
+          0.0,
+          27.0
+        ],
+        "reference_lithology": "clay"
+      },
+      {
+        "absolute_pair_error_ft": 78.0,
+        "prediction": [
+          28.0,
+          80.0
+        ],
+        "prediction_lithology": "BRAVFI",
+        "record_id": "WCR1995-007609",
+        "reference": [
+          0.0,
+          30.0
+        ],
+        "reference_lithology": "top soil"
+      },
+      {
+        "absolute_pair_error_ft": 89.1,
+        "prediction": [
+          9.9,
+          104.0
+        ],
+        "prediction_lithology": "Sand Gravel",
+        "record_id": "WCR1998-004421",
+        "reference": [
+          99.0,
+          104.0
+        ],
+        "reference_lithology": "Sand & Gravel"
+      },
+      {
+        "absolute_pair_error_ft": 70.0,
+        "prediction": [
+          66.0,
+          106.0
+        ],
+        "prediction_lithology": "Vi STEEL",
+        "record_id": "WCR2000-008059",
+        "reference": [
+          5.0,
+          97.0
+        ],
+        "reference_lithology": "decomposed granite"
+      },
+      {
+        "absolute_pair_error_ft": 86.4,
+        "prediction": [
+          9.6,
+          140.0
+        ],
+        "prediction_lithology": "'Granitic schist = broken",
+        "record_id": "WCR2001-016248",
+        "reference": [
+          96.0,
+          140.0
+        ],
+        "reference_lithology": "granitic schist - broken dark grey color"
+      },
+      {
+        "absolute_pair_error_ft": 34.0,
+        "prediction": [
+          0.0,
+          39.0
+        ],
+        "prediction_lithology": "Low Carbon Steel",
+        "record_id": "WCR2006-013751",
+        "reference": [
+          0.0,
+          5.0
+        ],
+        "reference_lithology": "Poorly graded sand (SP)"
+      },
+      {
+        "absolute_pair_error_ft": 65.0,
+        "prediction": [
+          0.0,
+          50.0
+        ],
+        "prediction_lithology": "200 Meters",
+        "record_id": "WCR2006-013751",
+        "reference": [
+          5.0,
+          110.0
+        ],
+        "reference_lithology": "Well graded sand with gravel (SW)"
+      },
+      {
+        "absolute_pair_error_ft": 130.0,
+        "prediction": [
+          170.0,
+          225.0
+        ],
+        "prediction_lithology": "Screen Copper Beaninig",
+        "record_id": "WCR2006-013751",
+        "reference": [
+          125.0,
+          140.0
+        ],
+        "reference_lithology": "Lean Clay (CL)"
+      },
+      {
+        "absolute_pair_error_ft": 100.0,
+        "prediction": [
+          225.0,
+          265.0
+        ],
+        "prediction_lithology": "Copper Bearing Blank",
+        "record_id": "WCR2006-013751",
+        "reference": [
+          160.0,
+          230.0
+        ],
+        "reference_lithology": "Well graded sand (SW)"
+      },
+      {
+        "absolute_pair_error_ft": 30.0,
+        "prediction": [
+          570.0,
+          590.0
+        ],
+        "prediction_lithology": "Copper Bearing Blank Aac ments NameWDCExploration&Wells Person.FiorCorporation 500 Main Strget",
+        "record_id": "WCR2006-013751",
+        "reference": [
+          560.0,
+          570.0
+        ],
+        "reference_lithology": "Clayey Sand (SC)"
+      },
+      {
+        "absolute_pair_error_ft": 39.0,
+        "prediction": [
+          0.0,
+          55.0
+        ],
+        "prediction_lithology": "Blank PVC Sch. 40",
+        "record_id": "WCR2007-006219",
+        "reference": [
+          0.0,
+          16.0
+        ],
+        "reference_lithology": "Silty sand SM dark yellowish brown (10 YR 4/6) fine to medium grained dense moist no odor no staining"
+      },
+      {
+        "absolute_pair_error_ft": 66.0,
+        "prediction": [
+          50.0,
+          53.0
+        ],
+        "prediction_lithology": "Screen Slot Size: 0.020-in. Casing Diameter:2in. firstencountered=64.5feetbgs Static = Depth to GW: Depth Lithologlc Scale DescrlptlonsofMaterialsandConditlons Column",
+        "record_id": "WCR2007-006219",
+        "reference": [
+          16.0,
+          21.0
+        ],
+        "reference_lithology": "Silt ML dark yellow brown (10YR 5/6) low plasticity firm to hard dry to moist no odor no staining"
+      },
+      {
+        "absolute_pair_error_ft": 83.0,
+        "prediction": [
+          55.0,
+          75.0
+        ],
+        "prediction_lithology": "PVC Sch.40 Screen",
+        "record_id": "WCR2007-006219",
+        "reference": [
+          21.0,
+          26.0
+        ],
+        "reference_lithology": "Silt ML dark yellow brown (10YR 5/6) low plasticity hard dry no odor no staining"
+      },
+      {
+        "absolute_pair_error_ft": 52.0,
+        "prediction": [
+          42.0,
+          50.0
+        ],
+        "prediction_lithology": "SAuD! Cky",
+        "record_id": "WCR2010-000288",
+        "reference": [
+          0.0,
+          40.0
+        ],
+        "reference_lithology": "SANDY CLAY"
+      },
+      {
+        "absolute_pair_error_ft": 121.0,
+        "prediction": [
+          420.0,
+          460.0
+        ],
+        "prediction_lithology": "PLASTIC NAME_CALWATPRDRILLINS",
+        "record_id": "WCR2010-000296",
+        "reference": [
+          355.0,
+          404.0
+        ],
+        "reference_lithology": "BLUE & BROWN CLAY"
+      },
+      {
+        "absolute_pair_error_ft": 40.0,
+        "prediction": [
+          0.0,
+          50.0
+        ],
+        "prediction_lithology": "Conductor Seal Cement",
+        "record_id": "WCR2013-008862",
+        "reference": [
+          0.0,
+          90.0
+        ],
+        "reference_lithology": "fine sand"
+      },
+      {
+        "absolute_pair_error_ft": 140.0,
+        "prediction": [
+          240.0,
+          420.0
+        ],
+        "prediction_lithology": "4x16 Filter Pack",
+        "record_id": "WCR2013-008862",
+        "reference": [
+          250.0,
+          290.0
+        ],
+        "reference_lithology": "sand gravel little rock"
+      },
+      {
+        "absolute_pair_error_ft": 120.0,
+        "prediction": [
+          380.0,
+          390.0
+        ],
+        "prediction_lithology": "Copper Bearing",
+        "record_id": "WCR2013-008862",
+        "reference": [
+          310.0,
+          340.0
+        ],
+        "reference_lithology": "sand gravel"
+      },
+      {
+        "absolute_pair_error_ft": 80.0,
+        "prediction": [
+          390.0,
+          400.0
+        ],
+        "prediction_lithology": "FulFloCB Perftya",
+        "record_id": "WCR2013-008862",
+        "reference": [
+          340.0,
+          370.0
+        ],
+        "reference_lithology": "sand gravel clay"
+      },
+      {
+        "absolute_pair_error_ft": 70.0,
+        "prediction": [
+          400.0,
+          450.0
+        ],
+        "prediction_lithology": "Copper Bearing Blank'",
+        "record_id": "WCR2013-008862",
+        "reference": [
+          380.0,
+          400.0
+        ],
+        "reference_lithology": "sand gravel rock"
+      },
+      {
+        "absolute_pair_error_ft": 30.0,
+        "prediction": [
+          420.0,
+          430.0
+        ],
+        "prediction_lithology": "Bentonite Seal Bentonite",
+        "record_id": "WCR2013-008862",
+        "reference": [
+          400.0,
+          440.0
+        ],
+        "reference_lithology": "sand clay"
+      },
+      {
+        "absolute_pair_error_ft": 40.0,
+        "prediction": [
+          450.0,
+          470.0
+        ],
+        "prediction_lithology": "Ful Flo CB Perfy",
+        "record_id": "WCR2013-008862",
+        "reference": [
+          440.0,
+          500.0
+        ],
+        "reference_lithology": "sand gravel little clay"
+      },
+      {
+        "absolute_pair_error_ft": 40.0,
+        "prediction": [
+          540.0,
+          570.0
+        ],
+        "prediction_lithology": "Ful Flo CB Perfr",
+        "record_id": "WCR2013-008862",
+        "reference": [
+          500.0,
+          570.0
+        ],
+        "reference_lithology": "sand gravel"
+      },
+      {
+        "absolute_pair_error_ft": 5.0,
+        "prediction": [
+          570.0,
+          595.0
+        ],
+        "prediction_lithology": "Copper Bearing Blank'",
+        "record_id": "WCR2013-008862",
+        "reference": [
+          570.0,
+          600.0
+        ],
+        "reference_lithology": "sand clay"
+      },
+      {
+        "absolute_pair_error_ft": 5.0,
+        "prediction": [
+          595.0,
+          610.0
+        ],
+        "prediction_lithology": "Ful Flo CB Penf",
+        "record_id": "WCR2013-008862",
+        "reference": [
+          600.0,
+          610.0
+        ],
+        "reference_lithology": "sand gravel rock"
+      },
+      {
+        "absolute_pair_error_ft": 30.0,
+        "prediction": [
+          610.0,
+          660.0
+        ],
+        "prediction_lithology": "Blank CopperBearig Attachments NameBakersfieldWeli&PumpCo. Person,Firm orCorporation",
+        "record_id": "WCR2013-008862",
+        "reference": [
+          610.0,
+          630.0
+        ],
+        "reference_lithology": "gravel clay"
+      },
+      {
+        "absolute_pair_error_ft": 90.0,
+        "prediction": [
+          660.0,
+          700.0
+        ],
+        "prediction_lithology": "Ful Flo CB Perf",
+        "record_id": "WCR2013-008862",
+        "reference": [
+          630.0,
+          640.0
+        ],
+        "reference_lithology": "sand gravel rock"
+      },
+      {
+        "absolute_pair_error_ft": 130.0,
+        "prediction": [
+          710.0,
+          720.0
+        ],
+        "prediction_lithology": "Bentonite Seal Bentonite",
+        "record_id": "WCR2013-008862",
+        "reference": [
+          640.0,
+          660.0
+        ],
+        "reference_lithology": "fine sand clay"
+      },
+      {
+        "absolute_pair_error_ft": 115.0,
+        "prediction": [
+          700.0,
+          755.0
+        ],
+        "prediction_lithology": "Copper Bearing Blank",
+        "record_id": "WCR2013-008862",
+        "reference": [
+          660.0,
+          680.0
+        ],
+        "reference_lithology": "sand gravel"
+      },
+      {
+        "absolute_pair_error_ft": 115.0,
+        "prediction": [
+          755.0,
+          800.0
+        ],
+        "prediction_lithology": "FulFloCB Perftyy",
+        "record_id": "WCR2013-008862",
+        "reference": [
+          690.0,
+          750.0
+        ],
+        "reference_lithology": "sand clay"
+      },
+      {
+        "absolute_pair_error_ft": 90.0,
+        "prediction": [
+          800.0,
+          840.0
+        ],
+        "prediction_lithology": "Copper Bearing Blank' 30 f",
+        "record_id": "WCR2013-008862",
+        "reference": [
+          750.0,
+          800.0
+        ],
+        "reference_lithology": "sand gravel rock"
+      },
+      {
+        "absolute_pair_error_ft": 100.0,
+        "prediction": [
+          840.0,
+          870.0
+        ],
+        "prediction_lithology": "Ful Flo CB Perf\"",
+        "record_id": "WCR2013-008862",
+        "reference": [
+          800.0,
+          810.0
+        ],
+        "reference_lithology": "sandy clay"
+      },
+      {
+        "absolute_pair_error_ft": 120.0,
+        "prediction": [
+          870.0,
+          880.0
+        ],
+        "prediction_lithology": "CopperBearig Blank Attachments BakersfieldWell&PumpCo. Name Person,Fin or Corporation",
+        "record_id": "WCR2013-008862",
+        "reference": [
+          810.0,
+          820.0
+        ],
+        "reference_lithology": "clay"
+      },
+      {
+        "absolute_pair_error_ft": 100.0,
+        "prediction": [
+          880.0,
+          890.0
+        ],
+        "prediction_lithology": "Per. Ful Flo CB",
+        "record_id": "WCR2013-008862",
+        "reference": [
+          820.0,
+          850.0
+        ],
+        "reference_lithology": "sand"
+      },
+      {
+        "absolute_pair_error_ft": 150.0,
+        "prediction": [
+          890.0,
+          980.0
+        ],
+        "prediction_lithology": "Copper Bearing Ful Flo CB Perfusy Copper Bearing Ful Flo CB Per', Biank Copper Bearig",
+        "record_id": "WCR2013-008862",
+        "reference": [
+          850.0,
+          870.0
+        ],
+        "reference_lithology": "sand gravel"
+      },
+      {
+        "absolute_pair_error_ft": 25.0,
+        "prediction": [
+          0.0,
+          45.0
+        ],
+        "prediction_lithology": "Other Cement Cement Sand Cement Slurry 10 sack",
+        "record_id": "WCR2018-004183",
+        "reference": [
+          0.0,
+          20.0
+        ],
+        "reference_lithology": "Top soil with sand"
+      }
+    ],
+    "per_document": [
+      {
+        "county": "Kern",
+        "match_count": 1,
+        "matched_lithology_error_count": 1,
+        "missing_count": 25,
+        "prediction_count": 2,
+        "record_id": "WCR0004512",
+        "reference_count": 26,
+        "spurious_count": 1
+      },
+      {
+        "county": "Stanislaus",
+        "match_count": 16,
+        "matched_lithology_error_count": 16,
+        "missing_count": 20,
+        "prediction_count": 17,
+        "record_id": "WCR0022154",
+        "reference_count": 36,
+        "spurious_count": 1
+      },
+      {
+        "county": "Kern",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 6,
+        "prediction_count": 0,
+        "record_id": "WCR0032668",
+        "reference_count": 6,
+        "spurious_count": 0
+      },
+      {
+        "county": "Merced",
+        "match_count": 5,
+        "matched_lithology_error_count": 2,
+        "missing_count": 4,
+        "prediction_count": 5,
+        "record_id": "WCR0039229",
+        "reference_count": 9,
+        "spurious_count": 0
+      },
+      {
+        "county": "Fresno",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 24,
+        "prediction_count": 2,
+        "record_id": "WCR0062335",
+        "reference_count": 24,
+        "spurious_count": 2
+      },
+      {
+        "county": "Tulare",
+        "match_count": 12,
+        "matched_lithology_error_count": 9,
+        "missing_count": 7,
+        "prediction_count": 16,
+        "record_id": "WCR0074210",
+        "reference_count": 19,
+        "spurious_count": 4
+      },
+      {
+        "county": "Santa Cruz",
+        "match_count": 2,
+        "matched_lithology_error_count": 2,
+        "missing_count": 17,
+        "prediction_count": 4,
+        "record_id": "WCR0077367",
+        "reference_count": 19,
+        "spurious_count": 2
+      },
+      {
+        "county": "Kern",
+        "match_count": 8,
+        "matched_lithology_error_count": 2,
+        "missing_count": 24,
+        "prediction_count": 9,
+        "record_id": "WCR0078764",
+        "reference_count": 32,
+        "spurious_count": 1
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 8,
+        "matched_lithology_error_count": 3,
+        "missing_count": 12,
+        "prediction_count": 8,
+        "record_id": "WCR0089566",
+        "reference_count": 20,
+        "spurious_count": 0
+      },
+      {
+        "county": "Merced",
+        "match_count": 8,
+        "matched_lithology_error_count": 6,
+        "missing_count": 6,
+        "prediction_count": 9,
+        "record_id": "WCR0095797",
+        "reference_count": 14,
+        "spurious_count": 1
+      },
+      {
+        "county": "Kern",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 9,
+        "prediction_count": 2,
+        "record_id": "WCR0117200",
+        "reference_count": 9,
+        "spurious_count": 2
+      },
+      {
+        "county": "Madera",
+        "match_count": 1,
+        "matched_lithology_error_count": 0,
+        "missing_count": 9,
+        "prediction_count": 2,
+        "record_id": "WCR0117626",
+        "reference_count": 10,
+        "spurious_count": 1
+      },
+      {
+        "county": "Kern",
+        "match_count": 10,
+        "matched_lithology_error_count": 3,
+        "missing_count": 3,
+        "prediction_count": 10,
+        "record_id": "WCR0120358",
+        "reference_count": 13,
+        "spurious_count": 0
+      },
+      {
+        "county": "Monterey",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 10,
+        "prediction_count": 1,
+        "record_id": "WCR0122942",
+        "reference_count": 10,
+        "spurious_count": 1
+      },
+      {
+        "county": "Santa Cruz",
+        "match_count": 4,
+        "matched_lithology_error_count": 4,
+        "missing_count": 14,
+        "prediction_count": 5,
+        "record_id": "WCR0123635",
+        "reference_count": 18,
+        "spurious_count": 1
+      },
+      {
+        "county": "Stanislaus",
+        "match_count": 5,
+        "matched_lithology_error_count": 3,
+        "missing_count": 19,
+        "prediction_count": 5,
+        "record_id": "WCR0130971",
+        "reference_count": 24,
+        "spurious_count": 0
+      },
+      {
+        "county": "Kern",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 5,
+        "prediction_count": 0,
+        "record_id": "WCR0142199",
+        "reference_count": 5,
+        "spurious_count": 0
+      },
+      {
+        "county": "Stanislaus",
+        "match_count": 7,
+        "matched_lithology_error_count": 1,
+        "missing_count": 2,
+        "prediction_count": 7,
+        "record_id": "WCR0149247",
+        "reference_count": 9,
+        "spurious_count": 0
+      },
+      {
+        "county": "Fresno",
+        "match_count": 8,
+        "matched_lithology_error_count": 3,
+        "missing_count": 28,
+        "prediction_count": 10,
+        "record_id": "WCR0151273",
+        "reference_count": 36,
+        "spurious_count": 2
+      },
+      {
+        "county": "Fresno",
+        "match_count": 2,
+        "matched_lithology_error_count": 2,
+        "missing_count": 8,
+        "prediction_count": 2,
+        "record_id": "WCR0161285",
+        "reference_count": 10,
+        "spurious_count": 0
+      },
+      {
+        "county": "Madera",
+        "match_count": 3,
+        "matched_lithology_error_count": 3,
+        "missing_count": 10,
+        "prediction_count": 3,
+        "record_id": "WCR0168763",
+        "reference_count": 13,
+        "spurious_count": 0
+      },
+      {
+        "county": "Merced",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 18,
+        "prediction_count": 0,
+        "record_id": "WCR0171978",
+        "reference_count": 18,
+        "spurious_count": 0
+      },
+      {
+        "county": "Kern",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 6,
+        "prediction_count": 0,
+        "record_id": "WCR0174473",
+        "reference_count": 6,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 4,
+        "matched_lithology_error_count": 3,
+        "missing_count": 24,
+        "prediction_count": 8,
+        "record_id": "WCR0181249",
+        "reference_count": 28,
+        "spurious_count": 4
+      },
+      {
+        "county": "Tulare",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 13,
+        "prediction_count": 1,
+        "record_id": "WCR0194050",
+        "reference_count": 13,
+        "spurious_count": 1
+      },
+      {
+        "county": "Merced",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 33,
+        "prediction_count": 1,
+        "record_id": "WCR0194561",
+        "reference_count": 33,
+        "spurious_count": 1
+      },
+      {
+        "county": "Fresno",
+        "match_count": 6,
+        "matched_lithology_error_count": 6,
+        "missing_count": 9,
+        "prediction_count": 8,
+        "record_id": "WCR0218186",
+        "reference_count": 15,
+        "spurious_count": 2
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 6,
+        "prediction_count": 1,
+        "record_id": "WCR0218667",
+        "reference_count": 6,
+        "spurious_count": 1
+      },
+      {
+        "county": "Kings",
+        "match_count": 29,
+        "matched_lithology_error_count": 2,
+        "missing_count": 16,
+        "prediction_count": 32,
+        "record_id": "WCR0225364",
+        "reference_count": 45,
+        "spurious_count": 3
+      },
+      {
+        "county": "Kern",
+        "match_count": 1,
+        "matched_lithology_error_count": 1,
+        "missing_count": 16,
+        "prediction_count": 2,
+        "record_id": "WCR0233882",
+        "reference_count": 17,
+        "spurious_count": 1
+      },
+      {
+        "county": "Merced",
+        "match_count": 24,
+        "matched_lithology_error_count": 14,
+        "missing_count": 6,
+        "prediction_count": 25,
+        "record_id": "WCR0243652",
+        "reference_count": 30,
+        "spurious_count": 1
+      },
+      {
+        "county": "Kern",
+        "match_count": 7,
+        "matched_lithology_error_count": 3,
+        "missing_count": 12,
+        "prediction_count": 8,
+        "record_id": "WCR0252530",
+        "reference_count": 19,
+        "spurious_count": 1
+      },
+      {
+        "county": "Stanislaus",
+        "match_count": 7,
+        "matched_lithology_error_count": 3,
+        "missing_count": 15,
+        "prediction_count": 7,
+        "record_id": "WCR0258149",
+        "reference_count": 22,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 9,
+        "prediction_count": 8,
+        "record_id": "WCR0259863",
+        "reference_count": 9,
+        "spurious_count": 8
+      },
+      {
+        "county": "Kern",
+        "match_count": 1,
+        "matched_lithology_error_count": 1,
+        "missing_count": 14,
+        "prediction_count": 4,
+        "record_id": "WCR0263712",
+        "reference_count": 15,
+        "spurious_count": 3
+      },
+      {
+        "county": "Alameda",
+        "match_count": 25,
+        "matched_lithology_error_count": 24,
+        "missing_count": 18,
+        "prediction_count": 28,
+        "record_id": "WCR0274307",
+        "reference_count": 43,
+        "spurious_count": 3
+      },
+      {
+        "county": "Kern",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 16,
+        "prediction_count": 1,
+        "record_id": "WCR0275700",
+        "reference_count": 16,
+        "spurious_count": 1
+      },
+      {
+        "county": "Merced",
+        "match_count": 8,
+        "matched_lithology_error_count": 3,
+        "missing_count": 5,
+        "prediction_count": 8,
+        "record_id": "WCR0293438",
+        "reference_count": 13,
+        "spurious_count": 0
+      },
+      {
+        "county": "Sacramento",
+        "match_count": 6,
+        "matched_lithology_error_count": 6,
+        "missing_count": 14,
+        "prediction_count": 7,
+        "record_id": "WCR0301318",
+        "reference_count": 20,
+        "spurious_count": 1
+      },
+      {
+        "county": "Tulare",
+        "match_count": 41,
+        "matched_lithology_error_count": 9,
+        "missing_count": 1,
+        "prediction_count": 41,
+        "record_id": "WCR0302247",
+        "reference_count": 42,
+        "spurious_count": 0
+      },
+      {
+        "county": "Stanislaus",
+        "match_count": 15,
+        "matched_lithology_error_count": 5,
+        "missing_count": 42,
+        "prediction_count": 15,
+        "record_id": "WCR0323899",
+        "reference_count": 57,
+        "spurious_count": 0
+      },
+      {
+        "county": "Stanislaus",
+        "match_count": 1,
+        "matched_lithology_error_count": 0,
+        "missing_count": 12,
+        "prediction_count": 1,
+        "record_id": "WCR0328829",
+        "reference_count": 13,
+        "spurious_count": 0
+      },
+      {
+        "county": "Monterey",
+        "match_count": 6,
+        "matched_lithology_error_count": 6,
+        "missing_count": 16,
+        "prediction_count": 6,
+        "record_id": "WCR0329277",
+        "reference_count": 22,
+        "spurious_count": 0
+      },
+      {
+        "county": "Sacramento",
+        "match_count": 13,
+        "matched_lithology_error_count": 12,
+        "missing_count": 23,
+        "prediction_count": 13,
+        "record_id": "WCR1943-000005",
+        "reference_count": 36,
+        "spurious_count": 0
+      },
+      {
+        "county": "Sacramento",
+        "match_count": 14,
+        "matched_lithology_error_count": 8,
+        "missing_count": 4,
+        "prediction_count": 15,
+        "record_id": "WCR1957-000095",
+        "reference_count": 18,
+        "spurious_count": 1
+      },
+      {
+        "county": "Sacramento",
+        "match_count": 1,
+        "matched_lithology_error_count": 1,
+        "missing_count": 20,
+        "prediction_count": 1,
+        "record_id": "WCR1958-000019",
+        "reference_count": 21,
+        "spurious_count": 0
+      },
+      {
+        "county": "Sacramento",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 16,
+        "prediction_count": 5,
+        "record_id": "WCR1958-000104",
+        "reference_count": 16,
+        "spurious_count": 5
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 15,
+        "matched_lithology_error_count": 2,
+        "missing_count": 4,
+        "prediction_count": 15,
+        "record_id": "WCR1973-000567",
+        "reference_count": 19,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Mateo",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 16,
+        "prediction_count": 0,
+        "record_id": "WCR1975-000038",
+        "reference_count": 16,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 8,
+        "matched_lithology_error_count": 1,
+        "missing_count": 0,
+        "prediction_count": 8,
+        "record_id": "WCR1976-000513",
+        "reference_count": 8,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 5,
+        "matched_lithology_error_count": 3,
+        "missing_count": 16,
+        "prediction_count": 5,
+        "record_id": "WCR1976-001429",
+        "reference_count": 21,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Diego",
+        "match_count": 2,
+        "matched_lithology_error_count": 2,
+        "missing_count": 3,
+        "prediction_count": 2,
+        "record_id": "WCR1976-005861",
+        "reference_count": 5,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 6,
+        "matched_lithology_error_count": 1,
+        "missing_count": 10,
+        "prediction_count": 6,
+        "record_id": "WCR1982-001744",
+        "reference_count": 16,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 17,
+        "prediction_count": 2,
+        "record_id": "WCR1985-000498",
+        "reference_count": 17,
+        "spurious_count": 2
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 2,
+        "matched_lithology_error_count": 1,
+        "missing_count": 3,
+        "prediction_count": 2,
+        "record_id": "WCR1985-002099",
+        "reference_count": 5,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 11,
+        "matched_lithology_error_count": 5,
+        "missing_count": 12,
+        "prediction_count": 11,
+        "record_id": "WCR1985-004906",
+        "reference_count": 23,
+        "spurious_count": 0
+      },
+      {
+        "county": "Los Angeles",
+        "match_count": 2,
+        "matched_lithology_error_count": 2,
+        "missing_count": 34,
+        "prediction_count": 3,
+        "record_id": "WCR1985-010569",
+        "reference_count": 36,
+        "spurious_count": 1
+      },
+      {
+        "county": "Tuolumne",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 6,
+        "prediction_count": 0,
+        "record_id": "WCR1987-001862",
+        "reference_count": 6,
+        "spurious_count": 0
+      },
+      {
+        "county": "Nevada",
+        "match_count": 1,
+        "matched_lithology_error_count": 1,
+        "missing_count": 9,
+        "prediction_count": 1,
+        "record_id": "WCR1988-006922",
+        "reference_count": 10,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Bernardino",
+        "match_count": 11,
+        "matched_lithology_error_count": 9,
+        "missing_count": 8,
+        "prediction_count": 12,
+        "record_id": "WCR1988-016970",
+        "reference_count": 19,
+        "spurious_count": 1
+      },
+      {
+        "county": "Riverside",
+        "match_count": 3,
+        "matched_lithology_error_count": 3,
+        "missing_count": 36,
+        "prediction_count": 4,
+        "record_id": "WCR1988-017304",
+        "reference_count": 39,
+        "spurious_count": 1
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 11,
+        "matched_lithology_error_count": 5,
+        "missing_count": 10,
+        "prediction_count": 11,
+        "record_id": "WCR1989-003496",
+        "reference_count": 21,
+        "spurious_count": 0
+      },
+      {
+        "county": "El Dorado",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 9,
+        "prediction_count": 1,
+        "record_id": "WCR1989-007996",
+        "reference_count": 9,
+        "spurious_count": 1
+      },
+      {
+        "county": "Riverside",
+        "match_count": 7,
+        "matched_lithology_error_count": 2,
+        "missing_count": 21,
+        "prediction_count": 7,
+        "record_id": "WCR1989-019041",
+        "reference_count": 28,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 5,
+        "matched_lithology_error_count": 1,
+        "missing_count": 16,
+        "prediction_count": 5,
+        "record_id": "WCR1990-011861",
+        "reference_count": 21,
+        "spurious_count": 0
+      },
+      {
+        "county": "Fresno",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 13,
+        "prediction_count": 1,
+        "record_id": "WCR1990-014061",
+        "reference_count": 13,
+        "spurious_count": 1
+      },
+      {
+        "county": "Tulare",
+        "match_count": 1,
+        "matched_lithology_error_count": 1,
+        "missing_count": 11,
+        "prediction_count": 1,
+        "record_id": "WCR1990-014485",
+        "reference_count": 12,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Bernardino",
+        "match_count": 9,
+        "matched_lithology_error_count": 8,
+        "missing_count": 1,
+        "prediction_count": 9,
+        "record_id": "WCR1990-019694",
+        "reference_count": 10,
+        "spurious_count": 0
+      },
+      {
+        "county": "Sacramento",
+        "match_count": 2,
+        "matched_lithology_error_count": 1,
+        "missing_count": 6,
+        "prediction_count": 2,
+        "record_id": "WCR1991-002851",
+        "reference_count": 8,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 6,
+        "matched_lithology_error_count": 6,
+        "missing_count": 15,
+        "prediction_count": 9,
+        "record_id": "WCR1991-006908",
+        "reference_count": 21,
+        "spurious_count": 3
+      },
+      {
+        "county": "San Bernardino",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 12,
+        "prediction_count": 1,
+        "record_id": "WCR1992-016971",
+        "reference_count": 12,
+        "spurious_count": 1
+      },
+      {
+        "county": "El Dorado",
+        "match_count": 1,
+        "matched_lithology_error_count": 1,
+        "missing_count": 8,
+        "prediction_count": 1,
+        "record_id": "WCR1994-002443",
+        "reference_count": 9,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 10,
+        "matched_lithology_error_count": 3,
+        "missing_count": 3,
+        "prediction_count": 11,
+        "record_id": "WCR1994-004096",
+        "reference_count": 13,
+        "spurious_count": 1
+      },
+      {
+        "county": "Siskiyou",
+        "match_count": 2,
+        "matched_lithology_error_count": 1,
+        "missing_count": 10,
+        "prediction_count": 2,
+        "record_id": "WCR1994-010119",
+        "reference_count": 12,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Bernardino",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 8,
+        "prediction_count": 0,
+        "record_id": "WCR1994-011387",
+        "reference_count": 8,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Diego",
+        "match_count": 3,
+        "matched_lithology_error_count": 2,
+        "missing_count": 2,
+        "prediction_count": 3,
+        "record_id": "WCR1994-011508",
+        "reference_count": 5,
+        "spurious_count": 0
+      },
+      {
+        "county": "Fresno",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 13,
+        "prediction_count": 1,
+        "record_id": "WCR1995-007609",
+        "reference_count": 13,
+        "spurious_count": 1
+      },
+      {
+        "county": "Sonoma",
+        "match_count": 2,
+        "matched_lithology_error_count": 1,
+        "missing_count": 6,
+        "prediction_count": 2,
+        "record_id": "WCR1998-001131",
+        "reference_count": 8,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 10,
+        "matched_lithology_error_count": 2,
+        "missing_count": 10,
+        "prediction_count": 11,
+        "record_id": "WCR1998-004421",
+        "reference_count": 20,
+        "spurious_count": 1
+      },
+      {
+        "county": "Fresno",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 5,
+        "prediction_count": 1,
+        "record_id": "WCR2000-008059",
+        "reference_count": 5,
+        "spurious_count": 1
+      },
+      {
+        "county": "Riverside",
+        "match_count": 9,
+        "matched_lithology_error_count": 3,
+        "missing_count": 0,
+        "prediction_count": 10,
+        "record_id": "WCR2001-013915",
+        "reference_count": 9,
+        "spurious_count": 1
+      },
+      {
+        "county": "San Diego",
+        "match_count": 7,
+        "matched_lithology_error_count": 4,
+        "missing_count": 1,
+        "prediction_count": 8,
+        "record_id": "WCR2001-016248",
+        "reference_count": 8,
+        "spurious_count": 1
+      },
+      {
+        "county": "Tuolumne",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 5,
+        "prediction_count": 0,
+        "record_id": "WCR2004-001217",
+        "reference_count": 5,
+        "spurious_count": 0
+      },
+      {
+        "county": "Sacramento",
+        "match_count": 4,
+        "matched_lithology_error_count": 3,
+        "missing_count": 12,
+        "prediction_count": 4,
+        "record_id": "WCR2004-004313",
+        "reference_count": 16,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 3,
+        "matched_lithology_error_count": 0,
+        "missing_count": 11,
+        "prediction_count": 3,
+        "record_id": "WCR2005-004051",
+        "reference_count": 14,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 7,
+        "matched_lithology_error_count": 2,
+        "missing_count": 6,
+        "prediction_count": 7,
+        "record_id": "WCR2005-004587",
+        "reference_count": 13,
+        "spurious_count": 0
+      },
+      {
+        "county": "Los Angeles",
+        "match_count": 13,
+        "matched_lithology_error_count": 9,
+        "missing_count": 24,
+        "prediction_count": 13,
+        "record_id": "WCR2005-013916",
+        "reference_count": 37,
+        "spurious_count": 0
+      },
+      {
+        "county": "Fresno",
+        "match_count": 1,
+        "matched_lithology_error_count": 1,
+        "missing_count": 5,
+        "prediction_count": 1,
+        "record_id": "WCR2006-007317",
+        "reference_count": 6,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Bernardino",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 15,
+        "prediction_count": 7,
+        "record_id": "WCR2006-013751",
+        "reference_count": 15,
+        "spurious_count": 7
+      },
+      {
+        "county": "Sacramento",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 13,
+        "prediction_count": 4,
+        "record_id": "WCR2007-006219",
+        "reference_count": 13,
+        "spurious_count": 4
+      },
+      {
+        "county": "Sacramento",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 23,
+        "prediction_count": 1,
+        "record_id": "WCR2010-000288",
+        "reference_count": 23,
+        "spurious_count": 1
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 22,
+        "prediction_count": 1,
+        "record_id": "WCR2010-000296",
+        "reference_count": 22,
+        "spurious_count": 1
+      },
+      {
+        "county": "Sacramento",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 18,
+        "prediction_count": 1,
+        "record_id": "WCR2010-000419",
+        "reference_count": 18,
+        "spurious_count": 1
+      },
+      {
+        "county": "Placer",
+        "match_count": 10,
+        "matched_lithology_error_count": 0,
+        "missing_count": 0,
+        "prediction_count": 10,
+        "record_id": "WCR2013-004051",
+        "reference_count": 10,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Bernardino",
+        "match_count": 1,
+        "matched_lithology_error_count": 1,
+        "missing_count": 38,
+        "prediction_count": 26,
+        "record_id": "WCR2013-008862",
+        "reference_count": 39,
+        "spurious_count": 25
+      },
+      {
+        "county": "Tuolumne",
+        "match_count": 17,
+        "matched_lithology_error_count": 6,
+        "missing_count": 0,
+        "prediction_count": 17,
+        "record_id": "WCR2015-010540",
+        "reference_count": 17,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 7,
+        "matched_lithology_error_count": 0,
+        "missing_count": 0,
+        "prediction_count": 7,
+        "record_id": "WCR2016-008692",
+        "reference_count": 7,
+        "spurious_count": 0
+      },
+      {
+        "county": "Sonoma",
+        "match_count": 27,
+        "matched_lithology_error_count": 6,
+        "missing_count": 0,
+        "prediction_count": 27,
+        "record_id": "WCR2016-015619",
+        "reference_count": 27,
+        "spurious_count": 0
+      },
+      {
+        "county": "Kern",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 11,
+        "prediction_count": 3,
+        "record_id": "WCR2018-004183",
+        "reference_count": 11,
+        "spurious_count": 3
+      },
+      {
+        "county": "Santa Cruz",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 17,
+        "prediction_count": 8,
+        "record_id": "WCR2021-010941",
+        "reference_count": 17,
+        "spurious_count": 8
+      }
+    ]
+  },
+  "split": "datasets/splits/california_wcr_gold_split_v002.json",
+  "tesseract": {
+    "counts": {
+      "documents": 100,
+      "documents_without_predictions": 21,
+      "matched_lithology_errors": 243,
+      "matches": 392,
+      "missing": 1378,
+      "predicted_intervals": 497,
+      "reference_intervals": 1770,
+      "spurious": 105
+    },
+    "lithology_error_examples": [
+      {
+        "bottom_ft": 3.0,
+        "prediction": "‘dirt t ‘gravel l dirt cS",
+        "record_id": "WCR0022154",
+        "reference": "Dirt",
+        "top_ft": 0.0
+      },
+      {
+        "bottom_ft": 33.0,
+        "prediction": "dirt Foc Cc erayvel ‘dirt x Cc pravel a aw) clay Ee ifs ,eravel Yt Cc? dirt gravel S——} fine gravel sand ‘hard LPL slay _jsand LF and",
+        "record_id": "WCR0022154",
+        "reference": "Dirt",
+        "top_ft": 30.0
+      },
+      {
+        "bottom_ft": 132.0,
+        "prediction": "Clay sand brown Fine",
+        "record_id": "WCR0039229",
+        "reference": "Clay",
+        "top_ft": 15.0
+      },
+      {
+        "bottom_ft": 150.0,
+        "prediction": "Gra",
+        "record_id": "WCR0039229",
+        "reference": "Gravel",
+        "top_ft": 140.0
+      },
+      {
+        "bottom_ft": 155.0,
+        "prediction": "NY Clay",
+        "record_id": "WCR0039229",
+        "reference": "Clay",
+        "top_ft": 150.0
+      },
+      {
+        "bottom_ft": 160.0,
+        "prediction": "ve]",
+        "record_id": "WCR0039229",
+        "reference": "Gravel",
+        "top_ft": 155.0
+      },
+      {
+        "bottom_ft": 167.0,
+        "prediction": "GiSvel rock xf",
+        "record_id": "WCR0039229",
+        "reference": "Clay",
+        "top_ft": 160.0
+      },
+      {
+        "bottom_ft": 37.0,
+        "prediction": "'Clayvish sand",
+        "record_id": "WCR0074210",
+        "reference": "clayish sand",
+        "top_ft": 0.0
+      },
+      {
+        "bottom_ft": 39.0,
+        "prediction": "clay et Brown sand iCiavish ilty-clay nee, 'Clayish sand- (Brown -clay {Coarse sand",
+        "record_id": "WCR0074210",
+        "reference": "brown clay",
+        "top_ft": 37.0
+      },
+      {
+        "bottom_ft": 120.0,
+        "prediction": "Sand Blue Clay.é&",
+        "record_id": "WCR0077367",
+        "reference": "Blue Clay & Sand",
+        "top_ft": 100.0
+      },
+      {
+        "bottom_ft": 140.0,
+        "prediction": "Gravel \\A Sand-Gravel Clay Blige",
+        "record_id": "WCR0077367",
+        "reference": "Gravel",
+        "top_ft": 120.0
+      },
+      {
+        "bottom_ft": 180.0,
+        "prediction": "Clay Sand wisome",
+        "record_id": "WCR0077367",
+        "reference": "Sand w/some Clay",
+        "top_ft": 160.0
+      },
+      {
+        "bottom_ft": 220.0,
+        "prediction": "Sand vel slay",
+        "record_id": "WCR0077367",
+        "reference": "Sand & Gravel",
+        "top_ft": 180.0
+      },
+      {
+        "bottom_ft": 280.0,
+        "prediction": "Fite Brown Sand some Clay",
+        "record_id": "WCR0077367",
+        "reference": "Fine Brown Sand - some Clay",
+        "top_ft": 260.0
+      },
+      {
+        "bottom_ft": 215.0,
+        "prediction": "sand Med: um Blue clay Medium-sand ue_clay BI fedium_sand Rlue e¢] ay: Medium_sand Lay",
+        "record_id": "WCR0078764",
+        "reference": "Medium Sand",
+        "top_ft": 199.0
+      },
+      {
+        "bottom_ft": 4.0,
+        "prediction": "Soil Top",
+        "record_id": "WCR0089566",
+        "reference": "top soil",
+        "top_ft": 0.0
+      },
+      {
+        "bottom_ft": 30.0,
+        "prediction": "Rocks a",
+        "record_id": "WCR0089566",
+        "reference": "rocks",
+        "top_ft": 15.0
+      },
+      {
+        "bottom_ft": 36.0,
+        "prediction": "NS Clay",
+        "record_id": "WCR0089566",
+        "reference": "clay",
+        "top_ft": 30.0
+      },
+      {
+        "bottom_ft": 44.0,
+        "prediction": "Clan",
+        "record_id": "WCR0089566",
+        "reference": "clay",
+        "top_ft": 38.0
+      },
+      {
+        "bottom_ft": 55.0,
+        "prediction": "GraveRs",
+        "record_id": "WCR0089566",
+        "reference": "gravel",
+        "top_ft": 44.0
+      },
+      {
+        "bottom_ft": 95.0,
+        "prediction": "\\Gravel CRay Gravel No Clay NZ kPa Gr Sel Clay fa",
+        "record_id": "WCR0089566",
+        "reference": "gravel",
+        "top_ft": 83.0
+      },
+      {
+        "bottom_ft": 60.0,
+        "prediction": "GPSBAN sand",
+        "record_id": "WCR0095797",
+        "reference": "Gravel & sand",
+        "top_ft": 43.0
+      },
+      {
+        "bottom_ft": 80.0,
+        "prediction": "Clay, fine sand",
+        "record_id": "WCR0095797",
+        "reference": "Clay & fine sand",
+        "top_ft": 60.0
+      },
+      {
+        "bottom_ft": 95.0,
+        "prediction": "\\AGrevel sand avel streaks Nlay ere Clay. f streaks ine sand Cla G Se Q",
+        "record_id": "WCR0095797",
+        "reference": "Gravel & sand",
+        "top_ft": 80.0
+      },
+      {
+        "bottom_ft": 124.0,
+        "prediction": "SOFT VERY DG",
+        "record_id": "WCR0117626",
+        "reference": "Very soft SG",
+        "top_ft": 115.0
+      },
+      {
+        "bottom_ft": 165.0,
+        "prediction": "VERY SOFT DG",
+        "record_id": "WCR0117626",
+        "reference": "Very soft SG",
+        "top_ft": 135.0
+      },
+      {
+        "bottom_ft": 305.0,
+        "prediction": "VERY SOFT DG FRACTURE FRACTURE FRACTURE FRACTURE/WATER/M GPM GPM BROKEN ROCK/WATER/30",
+        "record_id": "WCR0117626",
+        "reference": "Very soft SG",
+        "top_ft": 275.0
+      },
+      {
+        "bottom_ft": 223.0,
+        "prediction": "sand coarse",
+        "record_id": "WCR0120358",
+        "reference": "coarse sand",
+        "top_ft": 218.0
+      },
+      {
+        "bottom_ft": 292.0,
+        "prediction": "sand clay sand blue clay sand",
+        "record_id": "WCR0120358",
+        "reference": "sand",
+        "top_ft": 270.0
+      },
+      {
+        "bottom_ft": 78.0,
+        "prediction": "gaving gravel medium to sand coarse",
+        "record_id": "WCR0123635",
+        "reference": "medium to coarse sand",
+        "top_ft": 60.0
+      },
+      {
+        "bottom_ft": 79.0,
+        "prediction": "large",
+        "record_id": "WCR0123635",
+        "reference": "large gravel",
+        "top_ft": 78.0
+      },
+      {
+        "bottom_ft": 85.0,
+        "prediction": "“aia medium spa",
+        "record_id": "WCR0123635",
+        "reference": "medium gray sand",
+        "top_ft": 79.0
+      },
+      {
+        "bottom_ft": 100.0,
+        "prediction": "spa 2x°/fxpraveal” grey bprown\\Stwle gravel rseVrravel to co medium e gravel shale, tue grey sand to fine aie nedt am caand Vv}",
+        "record_id": "WCR0123635",
+        "reference": "1/4 x 3/8 gravel",
+        "top_ft": 85.0
+      },
+      {
+        "bottom_ft": 18.0,
+        "prediction": "hardpvan",
+        "record_id": "WCR0130971",
+        "reference": "hard pan",
+        "top_ft": 5.0
+      },
+      {
+        "bottom_ft": 38.0,
+        "prediction": "clay us sand as",
+        "record_id": "WCR0130971",
+        "reference": "clay",
+        "top_ft": 26.0
+      },
+      {
+        "bottom_ft": 56.0,
+        "prediction": "as silt",
+        "record_id": "WCR0130971",
+        "reference": "silt",
+        "top_ft": 42.0
+      },
+      {
+        "bottom_ft": 148.0,
+        "prediction": "clay as",
+        "record_id": "WCR0130971",
+        "reference": "clay",
+        "top_ft": 56.0
+      },
+      {
+        "bottom_ft": 156.0,
+        "prediction": "as (set) sand an",
+        "record_id": "WCR0130971",
+        "reference": "sand (set)",
+        "top_ft": 148.0
+      },
+      {
+        "bottom_ft": 180.0,
+        "prediction": "an sand oa",
+        "record_id": "WCR0130971",
+        "reference": "sand",
+        "top_ft": 156.0
+      },
+      {
+        "bottom_ft": 221.0,
+        "prediction": "clay ae sand ae",
+        "record_id": "WCR0130971",
+        "reference": "clay",
+        "top_ft": 180.0
+      }
+    ],
+    "nearest_boundary_error_examples": [
+      {
+        "absolute_pair_error_ft": 47.0,
+        "prediction": [
+          5.0,
+          8.0
+        ],
+        "prediction_lithology": "a fe. of Depth completed well fr size of and material, structure, character, tt nef. wa? FSA f Sauc Ow Crs it St Cha b va U4t/ Stren ty S COUKYS OC SCA f Co bay Sand Clnau wh thi “Sand streak<",
+        "record_id": "WCR0004512",
+        "reference": [
+          0.0,
+          50.0
+        ],
+        "reference_lithology": "top soil & sand"
+      },
+      {
+        "absolute_pair_error_ft": 40.0,
+        "prediction": [
+          11.0,
+          39.0
+        ],
+        "prediction_lithology": "rayel dirt",
+        "record_id": "WCR0022154",
+        "reference": [
+          3.0,
+          7.0
+        ],
+        "reference_lithology": "Gravel"
+      },
+      {
+        "absolute_pair_error_ft": 73.0,
+        "prediction": [
+          172.0,
+          173.0
+        ],
+        "prediction_lithology": "Clay OA Q pm DNS) aN Y KYA)",
+        "record_id": "WCR0039229",
+        "reference": [
+          132.0,
+          140.0
+        ],
+        "reference_lithology": "Fine brown sand"
+      },
+      {
+        "absolute_pair_error_ft": 33.0,
+        "prediction": [
+          28.0,
+          40.0
+        ],
+        "prediction_lithology": "Sand Fine Brawn -“Sgme Sand Clay Sand@_N?Z Saft ~3bme Clay Saxe) OQ Sand“- some Clay A SS) TON KYSD) Clay",
+        "record_id": "WCR0077367",
+        "reference": [
+          0.0,
+          45.0
+        ],
+        "reference_lithology": "Various Surface Formations"
+      },
+      {
+        "absolute_pair_error_ft": 84.0,
+        "prediction": [
+          19.0,
+          70.0
+        ],
+        "prediction_lithology": "the best to",
+        "record_id": "WCR0117200",
+        "reference": [
+          0.0,
+          5.0
+        ],
+        "reference_lithology": "Sandy Loam Top Soil"
+      },
+      {
+        "absolute_pair_error_ft": 31.0,
+        "prediction": [
+          77.0,
+          84.0
+        ],
+        "prediction_lithology": "HARDROCK/GRANITE/CASING FRACTURE",
+        "record_id": "WCR0117626",
+        "reference": [
+          77.0,
+          115.0
+        ],
+        "reference_lithology": "Hardrock/granite"
+      },
+      {
+        "absolute_pair_error_ft": 28.0,
+        "prediction": [
+          228.0,
+          249.0
+        ],
+        "prediction_lithology": "clay te",
+        "record_id": "WCR0130971",
+        "reference": [
+          221.0,
+          228.0
+        ],
+        "reference_lithology": "sand"
+      },
+      {
+        "absolute_pair_error_ft": 43.0,
+        "prediction": [
+          2.0,
+          43.0
+        ],
+        "prediction_lithology": "ClLAy Sort AY Sort GRAVEL m le or TROT",
+        "record_id": "WCR0142199",
+        "reference": [
+          0.0,
+          2.0
+        ],
+        "reference_lithology": "top soil"
+      },
+      {
+        "absolute_pair_error_ft": 110.0,
+        "prediction": [
+          8.0,
+          109.0
+        ],
+        "prediction_lithology": "oft clay vw rock Float cla oft 3and aa Float rock 4s Sand Ty Yard sand nack a",
+        "record_id": "WCR0151273",
+        "reference": [
+          0.0,
+          7.0
+        ],
+        "reference_lithology": "Dirt"
+      },
+      {
+        "absolute_pair_error_ft": 100.0,
+        "prediction": [
+          0.0,
+          138.0
+        ],
+        "prediction_lithology": "‘Red clay with broken rock",
+        "record_id": "WCR0168763",
+        "reference": [
+          0.0,
+          38.0
+        ],
+        "reference_lithology": "red clay with broken rock"
+      },
+      {
+        "absolute_pair_error_ft": 100.0,
+        "prediction": [
+          38.0,
+          195.0
+        ],
+        "prediction_lithology": "‘Soft decomposed granite",
+        "record_id": "WCR0168763",
+        "reference": [
+          38.0,
+          95.0
+        ],
+        "reference_lithology": "soft decomposed granite"
+      },
+      {
+        "absolute_pair_error_ft": 139.0,
+        "prediction": [
+          14.0,
+          127.0
+        ],
+        "prediction_lithology": "Sand Clay",
+        "record_id": "WCR0181249",
+        "reference": [
+          0.0,
+          2.0
+        ],
+        "reference_lithology": "Top Soil"
+      },
+      {
+        "absolute_pair_error_ft": 146.0,
+        "prediction": [
+          30.0,
+          132.0
+        ],
+        "prediction_lithology": "Sand i Clay Sand",
+        "record_id": "WCR0181249",
+        "reference": [
+          2.0,
+          14.0
+        ],
+        "reference_lithology": "Clay"
+      },
+      {
+        "absolute_pair_error_ft": 146.0,
+        "prediction": [
+          48.0,
+          155.0
+        ],
+        "prediction_lithology": "Chay ys",
+        "record_id": "WCR0181249",
+        "reference": [
+          27.0,
+          30.0
+        ],
+        "reference_lithology": "Clay"
+      },
+      {
+        "absolute_pair_error_ft": 150.0,
+        "prediction": [
+          55.0,
+          157.0
+        ],
+        "prediction_lithology": "Sand",
+        "record_id": "WCR0181249",
+        "reference": [
+          30.0,
+          32.0
+        ],
+        "reference_lithology": "Sand"
+      },
+      {
+        "absolute_pair_error_ft": 147.0,
+        "prediction": [
+          57.0,
+          193.0
+        ],
+        "prediction_lithology": "Shale Clay",
+        "record_id": "WCR0181249",
+        "reference": [
+          48.0,
+          55.0
+        ],
+        "reference_lithology": "Clay"
+      },
+      {
+        "absolute_pair_error_ft": 4.0,
+        "prediction": [
+          3.0,
+          4.0
+        ],
+        "prediction_lithology": "af16",
+        "record_id": "WCR0225364",
+        "reference": [
+          0.0,
+          3.0
+        ],
+        "reference_lithology": "top soil"
+      },
+      {
+        "absolute_pair_error_ft": 90.0,
+        "prediction": [
+          145.0,
+          160.0
+        ],
+        "prediction_lithology": "frm CLAY” we es SAND, FEV Ys SN er “NN, CLAY SAND, ara rm on",
+        "record_id": "WCR0258149",
+        "reference": [
+          85.0,
+          130.0
+        ],
+        "reference_lithology": "CLAY GRAVEL"
+      },
+      {
+        "absolute_pair_error_ft": 73.0,
+        "prediction": [
+          72.0,
+          75.0
+        ],
+        "prediction_lithology": "\\exGblay",
+        "record_id": "WCR0259863",
+        "reference": [
+          0.0,
+          74.0
+        ],
+        "reference_lithology": "Clay & Gravel Streaks"
+      },
+      {
+        "absolute_pair_error_ft": 1.0,
+        "prediction": [
+          75.0,
+          78.0
+        ],
+        "prediction_lithology": "\\S Sand-fine Clay Sand-fine",
+        "record_id": "WCR0259863",
+        "reference": [
+          74.0,
+          78.0
+        ],
+        "reference_lithology": "Gravel"
+      },
+      {
+        "absolute_pair_error_ft": 16.0,
+        "prediction": [
+          85.0,
+          100.0
+        ],
+        "prediction_lithology": "nCla y VY aA a ND)",
+        "record_id": "WCR0259863",
+        "reference": [
+          78.0,
+          109.0
+        ],
+        "reference_lithology": "Clay"
+      },
+      {
+        "absolute_pair_error_ft": 62.0,
+        "prediction": [
+          5.0,
+          64.0
+        ],
+        "prediction_lithology": "Gravel and boulders clay Gravelly yellow",
+        "record_id": "WCR0274307",
+        "reference": [
+          0.0,
+          7.0
+        ],
+        "reference_lithology": "rocky (gravelly) soil"
+      },
+      {
+        "absolute_pair_error_ft": 92.0,
+        "prediction": [
+          14.0,
+          118.0
+        ],
+        "prediction_lithology": "Seevenen «Gravelly yellow i ea vel eveesee some clay sooseeelollow ee gravelly",
+        "record_id": "WCR0274307",
+        "reference": [
+          22.0,
+          34.0
+        ],
+        "reference_lithology": "gravel sand boulders"
+      },
+      {
+        "absolute_pair_error_ft": 17.0,
+        "prediction": [
+          0.0,
+          4.0
+        ],
+        "prediction_lithology": "SC/SM CLAYEY SANDASILTY SAND. TAN TO BROWN",
+        "record_id": "WCR0301318",
+        "reference": [
+          0.0,
+          21.0
+        ],
+        "reference_lithology": "SC/SM CLAYEY SAND/SILTY SAND TAN TO BROWN"
+      },
+      {
+        "absolute_pair_error_ft": 0.0,
+        "prediction": [
+          69.0,
+          110.0
+        ],
+        "prediction_lithology": "ML GRAVELLY W/SAND. SILT BROWN. DECREASING GRAVEL",
+        "record_id": "WCR0301318",
+        "reference": [
+          69.0,
+          110.0
+        ],
+        "reference_lithology": "ML GRAVELLY SILT W/SAND BROWN DECREASING GRAVEL"
+      },
+      {
+        "absolute_pair_error_ft": 33.0,
+        "prediction": [
+          124.0,
+          140.0
+        ],
+        "prediction_lithology": "CLAYEY GO GRAVEL. MULTI-COLORED CLSANDY LEAN BROWN. CLAY. STRONG DECREASING GRAVEL WELL GRADED SW SAND AND CLAY WANTERBEODED SILT LAYERS. BLACK. MEHRTEN FORMATION. INCREASE THEN DECREASE IN GRAVEL. INTERBEDDED CEMENTED SANDSTONE SILTY SAND. WINTERBEDDED SM BLACK BROWN DARK SILT. I INTERBEODED CEMENTED COLOR SANDSTONE. SILT CHANGE TO DARK BROWN. GRAYISH INTERBEDDED SiLTSTONE",
+        "record_id": "WCR0301318",
+        "reference": [
+          110.0,
+          121.0
+        ],
+        "reference_lithology": "CL SANDY LEAN CLAY BROWN"
+      },
+      {
+        "absolute_pair_error_ft": 17.0,
+        "prediction": [
+          2.0,
+          18.0
+        ],
+        "prediction_lithology": "CLAY",
+        "record_id": "WCR0302247",
+        "reference": [
+          0.0,
+          3.0
+        ],
+        "reference_lithology": "TOP SOIL"
+      },
+      {
+        "absolute_pair_error_ft": 89.0,
+        "prediction": [
+          80.0,
+          144.0
+        ],
+        "prediction_lithology": "Clay Gravel",
+        "record_id": "WCR0323899",
+        "reference": [
+          55.0,
+          80.0
+        ],
+        "reference_lithology": "Clay & gravel"
+      },
+      {
+        "absolute_pair_error_ft": 3.0,
+        "prediction": [
+          230.0,
+          234.0
+        ],
+        "prediction_lithology": "Gravel Clay",
+        "record_id": "WCR0323899",
+        "reference": [
+          230.0,
+          231.0
+        ],
+        "reference_lithology": "Gravel"
+      },
+      {
+        "absolute_pair_error_ft": 97.0,
+        "prediction": [
+          307.0,
+          343.0
+        ],
+        "prediction_lithology": "Gravel",
+        "record_id": "WCR0323899",
+        "reference": [
+          276.0,
+          277.0
+        ],
+        "reference_lithology": "Clay"
+      },
+      {
+        "absolute_pair_error_ft": 43.0,
+        "prediction": [
+          316.0,
+          347.0
+        ],
+        "prediction_lithology": "Gravel",
+        "record_id": "WCR0323899",
+        "reference": [
+          307.0,
+          313.0
+        ],
+        "reference_lithology": "Gravel"
+      },
+      {
+        "absolute_pair_error_ft": 4.0,
+        "prediction": [
+          0.0,
+          1.0
+        ],
+        "prediction_lithology": "soil lop a",
+        "record_id": "WCR0329277",
+        "reference": [
+          0.0,
+          5.0
+        ],
+        "reference_lithology": "Top soil"
+      },
+      {
+        "absolute_pair_error_ft": 23.0,
+        "prediction": [
+          65.0,
+          67.0
+        ],
+        "prediction_lithology": "clay Coanne gnavel, Atak clay Red clay sandy Coane clay onavel oF Hand sandstone Gravel AtRRA Jo~ft yellow clay Sand gravel Joft yellow clay Small gnavel clay Zand Gravel fine",
+        "record_id": "WCR0329277",
+        "reference": [
+          68.0,
+          87.0
+        ],
+        "reference_lithology": "Coarse gravel strk clay"
+      },
+      {
+        "absolute_pair_error_ft": 149.41,
+        "prediction": [
+          1.59,
+          164.0
+        ],
+        "prediction_lithology": "Clay Brow",
+        "record_id": "WCR1957-000095",
+        "reference": [
+          22.0,
+          35.0
+        ],
+        "reference_lithology": "Gray Sand"
+      },
+      {
+        "absolute_pair_error_ft": 129.0,
+        "prediction": [
+          132.0,
+          241.0
+        ],
+        "prediction_lithology": "Pea Sand Gravel Coarse Brown Sand Fine",
+        "record_id": "WCR1957-000095",
+        "reference": [
+          112.0,
+          132.0
+        ],
+        "reference_lithology": "Dry Hard Sandy Clay"
+      },
+      {
+        "absolute_pair_error_ft": 103.0,
+        "prediction": [
+          10.0,
+          96.0
+        ],
+        "prediction_lithology": "KX Clay \\WOsGravel Clay Blue clay “SS Blue gravel Blue clay QBlue sand \\Brue clay Hine blue QO) sand YS) Blue(@@Lay NH “sland Blue BAue lay ve abtay clay re sand va \"\\wuood sand",
+        "record_id": "WCR1976-001429",
+        "reference": [
+          0.0,
+          3.0
+        ],
+        "reference_lithology": "Top soil"
+      },
+      {
+        "absolute_pair_error_ft": 59.0,
+        "prediction": [
+          9.0,
+          72.0
+        ],
+        "prediction_lithology": "and AS",
+        "record_id": "WCR1982-001744",
+        "reference": [
+          53.0,
+          57.0
+        ],
+        "reference_lithology": "sand"
+      },
+      {
+        "absolute_pair_error_ft": 3.0,
+        "prediction": [
+          39.0,
+          44.0
+        ],
+        "prediction_lithology": "w Clay Gravel",
+        "record_id": "WCR1985-004906",
+        "reference": [
+          39.0,
+          41.0
+        ],
+        "reference_lithology": "Clay"
+      },
+      {
+        "absolute_pair_error_ft": 56.0,
+        "prediction": [
+          20.0,
+          64.0
+        ],
+        "prediction_lithology": "G26 on Op",
+        "record_id": "WCR1988-017304",
+        "reference": [
+          60.0,
+          80.0
+        ],
+        "reference_lithology": "clay sandy gravel"
+      },
+      {
+        "absolute_pair_error_ft": 100.0,
+        "prediction": [
+          180.0,
+          270.0
+        ],
+        "prediction_lithology": "fi el eeds a",
+        "record_id": "WCR1988-017304",
+        "reference": [
+          170.0,
+          180.0
+        ],
+        "reference_lithology": "brittle clay with fine gravel/weeds"
+      },
+      {
+        "absolute_pair_error_ft": 7.0,
+        "prediction": [
+          4.0,
+          13.0
+        ],
+        "prediction_lithology": "/ the true to",
+        "record_id": "WCR1989-007996",
+        "reference": [
+          0.0,
+          10.0
+        ],
+        "reference_lithology": "Top Soil"
+      },
+      {
+        "absolute_pair_error_ft": 134.0,
+        "prediction": [
+          303.0,
+          403.0
+        ],
+        "prediction_lithology": "with thin Payenré",
+        "record_id": "WCR1990-014061",
+        "reference": [
+          280.0,
+          292.0
+        ],
+        "reference_lithology": "Brown clay"
+      },
+      {
+        "absolute_pair_error_ft": 39.0,
+        "prediction": [
+          0.0,
+          40.0
+        ],
+        "prediction_lithology": "Sow Spends) SPN Ch Gay \\Vetasn chin WISeuo n> C2 Cy A OO OLIN v2 PN",
+        "record_id": "WCR1991-006908",
+        "reference": [
+          0.0,
+          1.0
+        ],
+        "reference_lithology": "Top Soil"
+      },
+      {
+        "absolute_pair_error_ft": 100.0,
+        "prediction": [
+          0.0,
+          130.0
+        ],
+        "prediction_lithology": "soil ‘Top",
+        "record_id": "WCR1995-007609",
+        "reference": [
+          0.0,
+          30.0
+        ],
+        "reference_lithology": "top soil"
+      },
+      {
+        "absolute_pair_error_ft": 132.0,
+        "prediction": [
+          30.0,
+          170.0
+        ],
+        "prediction_lithology": "i Decomposed granite",
+        "record_id": "WCR1995-007609",
+        "reference": [
+          30.0,
+          38.0
+        ],
+        "reference_lithology": "decomposed granite"
+      },
+      {
+        "absolute_pair_error_ft": 122.0,
+        "prediction": [
+          70.0,
+          130.0
+        ],
+        "prediction_lithology": "B&W granite Gray granite",
+        "record_id": "WCR1995-007609",
+        "reference": [
+          38.0,
+          40.0
+        ],
+        "reference_lithology": "decomposed granite"
+      },
+      {
+        "absolute_pair_error_ft": 90.0,
+        "prediction": [
+          8.0,
+          84.0
+        ],
+        "prediction_lithology": "Sand Gravel",
+        "record_id": "WCR1998-004421",
+        "reference": [
+          0.0,
+          2.0
+        ],
+        "reference_lithology": "Top Soil"
+      },
+      {
+        "absolute_pair_error_ft": 46.0,
+        "prediction": [
+          0.0,
+          51.0
+        ],
+        "prediction_lithology": "soil Top",
+        "record_id": "WCR2000-008059",
+        "reference": [
+          0.0,
+          5.0
+        ],
+        "reference_lithology": "top soil"
+      },
+      {
+        "absolute_pair_error_ft": 15.0,
+        "prediction": [
+          3.0,
+          8.0
+        ],
+        "prediction_lithology": "\" Wall A-139",
+        "record_id": "WCR2004-004313",
+        "reference": [
+          0.0,
+          20.0
+        ],
+        "reference_lithology": "gravel/ sandy clay reddish"
+      },
+      {
+        "absolute_pair_error_ft": 5.0,
+        "prediction": [
+          637.0,
+          638.0
+        ],
+        "prediction_lithology": "grey clay",
+        "record_id": "WCR2004-004313",
+        "reference": [
+          632.0,
+          638.0
+        ],
+        "reference_lithology": "grey clay"
+      },
+      {
+        "absolute_pair_error_ft": 12.0,
+        "prediction": [
+          5.0,
+          10.0
+        ],
+        "prediction_lithology": "and Cement sack water) yal D Name G File on Specs Retardant Accelerator (name) D ft Thick DD in Box Christy U Set. ft Water Level Standing Pump THE DONE ACCORDANCE WORK AND THAT WILL BE JIN",
+        "record_id": "WCR2005-004051",
+        "reference": [
+          0.0,
+          3.0
+        ],
+        "reference_lithology": "soil"
+      },
+      {
+        "absolute_pair_error_ft": 110.0,
+        "prediction": [
+          1150.0,
+          1170.0
+        ],
+        "prediction_lithology": "Copper Bear Grade A A Grade the certify undersigned",
+        "record_id": "WCR2005-013916",
+        "reference": [
+          1090.0,
+          1120.0
+        ],
+        "reference_lithology": "Sand gravel & clay"
+      },
+      {
+        "absolute_pair_error_ft": 2.0,
+        "prediction": [
+          1.0,
+          4.0
+        ],
+        "prediction_lithology": "L t r ne Le a na a|- senda wee eo",
+        "record_id": "WCR2006-013751",
+        "reference": [
+          0.0,
+          5.0
+        ],
+        "reference_lithology": "Poorly graded sand (SP)"
+      },
+      {
+        "absolute_pair_error_ft": 65.0,
+        "prediction": [
+          0.0,
+          50.0
+        ],
+        "prediction_lithology": "Meters",
+        "record_id": "WCR2006-013751",
+        "reference": [
+          5.0,
+          110.0
+        ],
+        "reference_lithology": "Well graded sand with gravel (SW)"
+      },
+      {
+        "absolute_pair_error_ft": 45.0,
+        "prediction": [
+          100.0,
+          150.0
+        ],
+        "prediction_lithology": "DIAMETER OYEEL SCH PIPE GRAVEL Pr)",
+        "record_id": "WCR2006-013751",
+        "reference": [
+          110.0,
+          115.0
+        ],
+        "reference_lithology": "Poorly graded sand (SP)"
+      },
+      {
+        "absolute_pair_error_ft": 39.0,
+        "prediction": [
+          0.0,
+          55.0
+        ],
+        "prediction_lithology": "Blank Sch, PVC Screen PVC Sch",
+        "record_id": "WCR2007-006219",
+        "reference": [
+          0.0,
+          16.0
+        ],
+        "reference_lithology": "Silty sand SM dark yellowish brown (10 YR 4/6) fine to medium grained dense moist no odor no staining"
+      },
+      {
+        "absolute_pair_error_ft": 66.0,
+        "prediction": [
+          50.0,
+          53.0
+        ],
+        "prediction_lithology": "ft. Casing V first ft. to GW: Depth Depth Lithologlc Column Scale Boring",
+        "record_id": "WCR2007-006219",
+        "reference": [
+          16.0,
+          21.0
+        ],
+        "reference_lithology": "Silt ML dark yellow brown (10YR 5/6) low plasticity firm to hard dry to moist no odor no staining"
+      },
+      {
+        "absolute_pair_error_ft": 81.0,
+        "prediction": [
+          53.0,
+          75.0
+        ],
+        "prediction_lithology": "ft. Well Construction Casing",
+        "record_id": "WCR2007-006219",
+        "reference": [
+          21.0,
+          26.0
+        ],
+        "reference_lithology": "Silt ML dark yellow brown (10YR 5/6) low plasticity hard dry no odor no staining"
+      },
+      {
+        "absolute_pair_error_ft": 38.0,
+        "prediction": [
+          1.0,
+          3.0
+        ],
+        "prediction_lithology": "Seoul te GE (BOEt dube (reer) WELI",
+        "record_id": "WCR2010-000419",
+        "reference": [
+          0.0,
+          40.0
+        ],
+        "reference_lithology": "Sandy Clay"
+      },
+      {
+        "absolute_pair_error_ft": 120.0,
+        "prediction": [
+          3.0,
+          147.0
+        ],
+        "prediction_lithology": "SAND GRAVEL",
+        "record_id": "WCR2013-004051",
+        "reference": [
+          123.0,
+          147.0
+        ],
+        "reference_lithology": "SAND & GRAVEL"
+      },
+      {
+        "absolute_pair_error_ft": 87.0,
+        "prediction": [
+          5.0,
+          8.0
+        ],
+        "prediction_lithology": "Louver",
+        "record_id": "WCR2013-008862",
+        "reference": [
+          0.0,
+          90.0
+        ],
+        "reference_lithology": "fine sand"
+      },
+      {
+        "absolute_pair_error_ft": 25.0,
+        "prediction": [
+          0.0,
+          45.0
+        ],
+        "prediction_lithology": "Cement Other Cement Sand Cement sack Slurry",
+        "record_id": "WCR2018-004183",
+        "reference": [
+          0.0,
+          20.0
+        ],
+        "reference_lithology": "Top soil with sand"
+      },
+      {
+        "absolute_pair_error_ft": 9.0,
+        "prediction": [
+          5.0,
+          16.0
+        ],
+        "prediction_lithology": "in. in. Louver",
+        "record_id": "WCR2021-010941",
+        "reference": [
+          0.0,
+          20.0
+        ],
+        "reference_lithology": "Gray topsoil/sand"
+      }
+    ],
+    "per_document": [
+      {
+        "county": "Kern",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 26,
+        "prediction_count": 1,
+        "record_id": "WCR0004512",
+        "reference_count": 26,
+        "spurious_count": 1
+      },
+      {
+        "county": "Stanislaus",
+        "match_count": 2,
+        "matched_lithology_error_count": 2,
+        "missing_count": 34,
+        "prediction_count": 3,
+        "record_id": "WCR0022154",
+        "reference_count": 36,
+        "spurious_count": 1
+      },
+      {
+        "county": "Kern",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 6,
+        "prediction_count": 0,
+        "record_id": "WCR0032668",
+        "reference_count": 6,
+        "spurious_count": 0
+      },
+      {
+        "county": "Merced",
+        "match_count": 6,
+        "matched_lithology_error_count": 5,
+        "missing_count": 3,
+        "prediction_count": 7,
+        "record_id": "WCR0039229",
+        "reference_count": 9,
+        "spurious_count": 1
+      },
+      {
+        "county": "Fresno",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 24,
+        "prediction_count": 0,
+        "record_id": "WCR0062335",
+        "reference_count": 24,
+        "spurious_count": 0
+      },
+      {
+        "county": "Tulare",
+        "match_count": 2,
+        "matched_lithology_error_count": 2,
+        "missing_count": 17,
+        "prediction_count": 2,
+        "record_id": "WCR0074210",
+        "reference_count": 19,
+        "spurious_count": 0
+      },
+      {
+        "county": "Santa Cruz",
+        "match_count": 7,
+        "matched_lithology_error_count": 5,
+        "missing_count": 12,
+        "prediction_count": 8,
+        "record_id": "WCR0077367",
+        "reference_count": 19,
+        "spurious_count": 1
+      },
+      {
+        "county": "Kern",
+        "match_count": 2,
+        "matched_lithology_error_count": 1,
+        "missing_count": 30,
+        "prediction_count": 2,
+        "record_id": "WCR0078764",
+        "reference_count": 32,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 8,
+        "matched_lithology_error_count": 6,
+        "missing_count": 12,
+        "prediction_count": 8,
+        "record_id": "WCR0089566",
+        "reference_count": 20,
+        "spurious_count": 0
+      },
+      {
+        "county": "Merced",
+        "match_count": 3,
+        "matched_lithology_error_count": 3,
+        "missing_count": 11,
+        "prediction_count": 3,
+        "record_id": "WCR0095797",
+        "reference_count": 14,
+        "spurious_count": 0
+      },
+      {
+        "county": "Kern",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 9,
+        "prediction_count": 1,
+        "record_id": "WCR0117200",
+        "reference_count": 9,
+        "spurious_count": 1
+      },
+      {
+        "county": "Madera",
+        "match_count": 4,
+        "matched_lithology_error_count": 3,
+        "missing_count": 6,
+        "prediction_count": 5,
+        "record_id": "WCR0117626",
+        "reference_count": 10,
+        "spurious_count": 1
+      },
+      {
+        "county": "Kern",
+        "match_count": 5,
+        "matched_lithology_error_count": 2,
+        "missing_count": 8,
+        "prediction_count": 8,
+        "record_id": "WCR0120358",
+        "reference_count": 13,
+        "spurious_count": 3
+      },
+      {
+        "county": "Monterey",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 10,
+        "prediction_count": 0,
+        "record_id": "WCR0122942",
+        "reference_count": 10,
+        "spurious_count": 0
+      },
+      {
+        "county": "Santa Cruz",
+        "match_count": 4,
+        "matched_lithology_error_count": 4,
+        "missing_count": 14,
+        "prediction_count": 4,
+        "record_id": "WCR0123635",
+        "reference_count": 18,
+        "spurious_count": 0
+      },
+      {
+        "county": "Stanislaus",
+        "match_count": 9,
+        "matched_lithology_error_count": 8,
+        "missing_count": 15,
+        "prediction_count": 10,
+        "record_id": "WCR0130971",
+        "reference_count": 24,
+        "spurious_count": 1
+      },
+      {
+        "county": "Kern",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 5,
+        "prediction_count": 1,
+        "record_id": "WCR0142199",
+        "reference_count": 5,
+        "spurious_count": 1
+      },
+      {
+        "county": "Stanislaus",
+        "match_count": 2,
+        "matched_lithology_error_count": 1,
+        "missing_count": 7,
+        "prediction_count": 2,
+        "record_id": "WCR0149247",
+        "reference_count": 9,
+        "spurious_count": 0
+      },
+      {
+        "county": "Fresno",
+        "match_count": 1,
+        "matched_lithology_error_count": 1,
+        "missing_count": 35,
+        "prediction_count": 3,
+        "record_id": "WCR0151273",
+        "reference_count": 36,
+        "spurious_count": 2
+      },
+      {
+        "county": "Fresno",
+        "match_count": 2,
+        "matched_lithology_error_count": 2,
+        "missing_count": 8,
+        "prediction_count": 2,
+        "record_id": "WCR0161285",
+        "reference_count": 10,
+        "spurious_count": 0
+      },
+      {
+        "county": "Madera",
+        "match_count": 1,
+        "matched_lithology_error_count": 1,
+        "missing_count": 12,
+        "prediction_count": 4,
+        "record_id": "WCR0168763",
+        "reference_count": 13,
+        "spurious_count": 3
+      },
+      {
+        "county": "Merced",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 18,
+        "prediction_count": 1,
+        "record_id": "WCR0171978",
+        "reference_count": 18,
+        "spurious_count": 1
+      },
+      {
+        "county": "Kern",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 6,
+        "prediction_count": 0,
+        "record_id": "WCR0174473",
+        "reference_count": 6,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 9,
+        "matched_lithology_error_count": 5,
+        "missing_count": 19,
+        "prediction_count": 21,
+        "record_id": "WCR0181249",
+        "reference_count": 28,
+        "spurious_count": 12
+      },
+      {
+        "county": "Tulare",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 13,
+        "prediction_count": 0,
+        "record_id": "WCR0194050",
+        "reference_count": 13,
+        "spurious_count": 0
+      },
+      {
+        "county": "Merced",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 33,
+        "prediction_count": 0,
+        "record_id": "WCR0194561",
+        "reference_count": 33,
+        "spurious_count": 0
+      },
+      {
+        "county": "Fresno",
+        "match_count": 4,
+        "matched_lithology_error_count": 4,
+        "missing_count": 11,
+        "prediction_count": 4,
+        "record_id": "WCR0218186",
+        "reference_count": 15,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 6,
+        "prediction_count": 0,
+        "record_id": "WCR0218667",
+        "reference_count": 6,
+        "spurious_count": 0
+      },
+      {
+        "county": "Kings",
+        "match_count": 16,
+        "matched_lithology_error_count": 0,
+        "missing_count": 29,
+        "prediction_count": 17,
+        "record_id": "WCR0225364",
+        "reference_count": 45,
+        "spurious_count": 1
+      },
+      {
+        "county": "Kern",
+        "match_count": 1,
+        "matched_lithology_error_count": 1,
+        "missing_count": 16,
+        "prediction_count": 1,
+        "record_id": "WCR0233882",
+        "reference_count": 17,
+        "spurious_count": 0
+      },
+      {
+        "county": "Merced",
+        "match_count": 2,
+        "matched_lithology_error_count": 2,
+        "missing_count": 28,
+        "prediction_count": 2,
+        "record_id": "WCR0243652",
+        "reference_count": 30,
+        "spurious_count": 0
+      },
+      {
+        "county": "Kern",
+        "match_count": 5,
+        "matched_lithology_error_count": 4,
+        "missing_count": 14,
+        "prediction_count": 5,
+        "record_id": "WCR0252530",
+        "reference_count": 19,
+        "spurious_count": 0
+      },
+      {
+        "county": "Stanislaus",
+        "match_count": 4,
+        "matched_lithology_error_count": 2,
+        "missing_count": 18,
+        "prediction_count": 6,
+        "record_id": "WCR0258149",
+        "reference_count": 22,
+        "spurious_count": 2
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 9,
+        "prediction_count": 3,
+        "record_id": "WCR0259863",
+        "reference_count": 9,
+        "spurious_count": 3
+      },
+      {
+        "county": "Kern",
+        "match_count": 2,
+        "matched_lithology_error_count": 2,
+        "missing_count": 13,
+        "prediction_count": 2,
+        "record_id": "WCR0263712",
+        "reference_count": 15,
+        "spurious_count": 0
+      },
+      {
+        "county": "Alameda",
+        "match_count": 9,
+        "matched_lithology_error_count": 9,
+        "missing_count": 34,
+        "prediction_count": 12,
+        "record_id": "WCR0274307",
+        "reference_count": 43,
+        "spurious_count": 3
+      },
+      {
+        "county": "Kern",
+        "match_count": 16,
+        "matched_lithology_error_count": 7,
+        "missing_count": 0,
+        "prediction_count": 22,
+        "record_id": "WCR0275700",
+        "reference_count": 16,
+        "spurious_count": 6
+      },
+      {
+        "county": "Merced",
+        "match_count": 6,
+        "matched_lithology_error_count": 3,
+        "missing_count": 7,
+        "prediction_count": 6,
+        "record_id": "WCR0293438",
+        "reference_count": 13,
+        "spurious_count": 0
+      },
+      {
+        "county": "Sacramento",
+        "match_count": 7,
+        "matched_lithology_error_count": 7,
+        "missing_count": 13,
+        "prediction_count": 15,
+        "record_id": "WCR0301318",
+        "reference_count": 20,
+        "spurious_count": 8
+      },
+      {
+        "county": "Tulare",
+        "match_count": 6,
+        "matched_lithology_error_count": 5,
+        "missing_count": 36,
+        "prediction_count": 7,
+        "record_id": "WCR0302247",
+        "reference_count": 42,
+        "spurious_count": 1
+      },
+      {
+        "county": "Stanislaus",
+        "match_count": 44,
+        "matched_lithology_error_count": 10,
+        "missing_count": 13,
+        "prediction_count": 49,
+        "record_id": "WCR0323899",
+        "reference_count": 57,
+        "spurious_count": 5
+      },
+      {
+        "county": "Stanislaus",
+        "match_count": 1,
+        "matched_lithology_error_count": 1,
+        "missing_count": 12,
+        "prediction_count": 1,
+        "record_id": "WCR0328829",
+        "reference_count": 13,
+        "spurious_count": 0
+      },
+      {
+        "county": "Monterey",
+        "match_count": 3,
+        "matched_lithology_error_count": 3,
+        "missing_count": 19,
+        "prediction_count": 5,
+        "record_id": "WCR0329277",
+        "reference_count": 22,
+        "spurious_count": 2
+      },
+      {
+        "county": "Sacramento",
+        "match_count": 6,
+        "matched_lithology_error_count": 2,
+        "missing_count": 30,
+        "prediction_count": 6,
+        "record_id": "WCR1943-000005",
+        "reference_count": 36,
+        "spurious_count": 0
+      },
+      {
+        "county": "Sacramento",
+        "match_count": 8,
+        "matched_lithology_error_count": 8,
+        "missing_count": 10,
+        "prediction_count": 10,
+        "record_id": "WCR1957-000095",
+        "reference_count": 18,
+        "spurious_count": 2
+      },
+      {
+        "county": "Sacramento",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 21,
+        "prediction_count": 0,
+        "record_id": "WCR1958-000019",
+        "reference_count": 21,
+        "spurious_count": 0
+      },
+      {
+        "county": "Sacramento",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 16,
+        "prediction_count": 0,
+        "record_id": "WCR1958-000104",
+        "reference_count": 16,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 2,
+        "matched_lithology_error_count": 2,
+        "missing_count": 17,
+        "prediction_count": 2,
+        "record_id": "WCR1973-000567",
+        "reference_count": 19,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Mateo",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 16,
+        "prediction_count": 0,
+        "record_id": "WCR1975-000038",
+        "reference_count": 16,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 2,
+        "matched_lithology_error_count": 2,
+        "missing_count": 6,
+        "prediction_count": 2,
+        "record_id": "WCR1976-000513",
+        "reference_count": 8,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 21,
+        "prediction_count": 1,
+        "record_id": "WCR1976-001429",
+        "reference_count": 21,
+        "spurious_count": 1
+      },
+      {
+        "county": "San Diego",
+        "match_count": 1,
+        "matched_lithology_error_count": 1,
+        "missing_count": 4,
+        "prediction_count": 1,
+        "record_id": "WCR1976-005861",
+        "reference_count": 5,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 5,
+        "matched_lithology_error_count": 2,
+        "missing_count": 11,
+        "prediction_count": 7,
+        "record_id": "WCR1982-001744",
+        "reference_count": 16,
+        "spurious_count": 2
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 17,
+        "prediction_count": 0,
+        "record_id": "WCR1985-000498",
+        "reference_count": 17,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 2,
+        "matched_lithology_error_count": 2,
+        "missing_count": 3,
+        "prediction_count": 2,
+        "record_id": "WCR1985-002099",
+        "reference_count": 5,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 5,
+        "matched_lithology_error_count": 4,
+        "missing_count": 18,
+        "prediction_count": 6,
+        "record_id": "WCR1985-004906",
+        "reference_count": 23,
+        "spurious_count": 1
+      },
+      {
+        "county": "Los Angeles",
+        "match_count": 2,
+        "matched_lithology_error_count": 2,
+        "missing_count": 34,
+        "prediction_count": 2,
+        "record_id": "WCR1985-010569",
+        "reference_count": 36,
+        "spurious_count": 0
+      },
+      {
+        "county": "Tuolumne",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 6,
+        "prediction_count": 0,
+        "record_id": "WCR1987-001862",
+        "reference_count": 6,
+        "spurious_count": 0
+      },
+      {
+        "county": "Nevada",
+        "match_count": 4,
+        "matched_lithology_error_count": 4,
+        "missing_count": 6,
+        "prediction_count": 4,
+        "record_id": "WCR1988-006922",
+        "reference_count": 10,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Bernardino",
+        "match_count": 2,
+        "matched_lithology_error_count": 2,
+        "missing_count": 17,
+        "prediction_count": 3,
+        "record_id": "WCR1988-016970",
+        "reference_count": 19,
+        "spurious_count": 1
+      },
+      {
+        "county": "Riverside",
+        "match_count": 5,
+        "matched_lithology_error_count": 5,
+        "missing_count": 34,
+        "prediction_count": 7,
+        "record_id": "WCR1988-017304",
+        "reference_count": 39,
+        "spurious_count": 2
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 6,
+        "matched_lithology_error_count": 4,
+        "missing_count": 15,
+        "prediction_count": 6,
+        "record_id": "WCR1989-003496",
+        "reference_count": 21,
+        "spurious_count": 0
+      },
+      {
+        "county": "El Dorado",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 9,
+        "prediction_count": 1,
+        "record_id": "WCR1989-007996",
+        "reference_count": 9,
+        "spurious_count": 1
+      },
+      {
+        "county": "Riverside",
+        "match_count": 3,
+        "matched_lithology_error_count": 3,
+        "missing_count": 25,
+        "prediction_count": 3,
+        "record_id": "WCR1989-019041",
+        "reference_count": 28,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 4,
+        "matched_lithology_error_count": 1,
+        "missing_count": 17,
+        "prediction_count": 4,
+        "record_id": "WCR1990-011861",
+        "reference_count": 21,
+        "spurious_count": 0
+      },
+      {
+        "county": "Fresno",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 13,
+        "prediction_count": 1,
+        "record_id": "WCR1990-014061",
+        "reference_count": 13,
+        "spurious_count": 1
+      },
+      {
+        "county": "Tulare",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 12,
+        "prediction_count": 0,
+        "record_id": "WCR1990-014485",
+        "reference_count": 12,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Bernardino",
+        "match_count": 7,
+        "matched_lithology_error_count": 7,
+        "missing_count": 3,
+        "prediction_count": 7,
+        "record_id": "WCR1990-019694",
+        "reference_count": 10,
+        "spurious_count": 0
+      },
+      {
+        "county": "Sacramento",
+        "match_count": 1,
+        "matched_lithology_error_count": 1,
+        "missing_count": 7,
+        "prediction_count": 1,
+        "record_id": "WCR1991-002851",
+        "reference_count": 8,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 21,
+        "prediction_count": 1,
+        "record_id": "WCR1991-006908",
+        "reference_count": 21,
+        "spurious_count": 1
+      },
+      {
+        "county": "San Bernardino",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 12,
+        "prediction_count": 0,
+        "record_id": "WCR1992-016971",
+        "reference_count": 12,
+        "spurious_count": 0
+      },
+      {
+        "county": "El Dorado",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 9,
+        "prediction_count": 0,
+        "record_id": "WCR1994-002443",
+        "reference_count": 9,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 4,
+        "matched_lithology_error_count": 3,
+        "missing_count": 9,
+        "prediction_count": 4,
+        "record_id": "WCR1994-004096",
+        "reference_count": 13,
+        "spurious_count": 0
+      },
+      {
+        "county": "Siskiyou",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 12,
+        "prediction_count": 0,
+        "record_id": "WCR1994-010119",
+        "reference_count": 12,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Bernardino",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 8,
+        "prediction_count": 0,
+        "record_id": "WCR1994-011387",
+        "reference_count": 8,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Diego",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 5,
+        "prediction_count": 1,
+        "record_id": "WCR1994-011508",
+        "reference_count": 5,
+        "spurious_count": 1
+      },
+      {
+        "county": "Fresno",
+        "match_count": 1,
+        "matched_lithology_error_count": 1,
+        "missing_count": 12,
+        "prediction_count": 4,
+        "record_id": "WCR1995-007609",
+        "reference_count": 13,
+        "spurious_count": 3
+      },
+      {
+        "county": "Sonoma",
+        "match_count": 1,
+        "matched_lithology_error_count": 1,
+        "missing_count": 7,
+        "prediction_count": 1,
+        "record_id": "WCR1998-001131",
+        "reference_count": 8,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 17,
+        "matched_lithology_error_count": 6,
+        "missing_count": 3,
+        "prediction_count": 18,
+        "record_id": "WCR1998-004421",
+        "reference_count": 20,
+        "spurious_count": 1
+      },
+      {
+        "county": "Fresno",
+        "match_count": 1,
+        "matched_lithology_error_count": 1,
+        "missing_count": 4,
+        "prediction_count": 2,
+        "record_id": "WCR2000-008059",
+        "reference_count": 5,
+        "spurious_count": 1
+      },
+      {
+        "county": "Riverside",
+        "match_count": 9,
+        "matched_lithology_error_count": 9,
+        "missing_count": 0,
+        "prediction_count": 9,
+        "record_id": "WCR2001-013915",
+        "reference_count": 9,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Diego",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 8,
+        "prediction_count": 0,
+        "record_id": "WCR2001-016248",
+        "reference_count": 8,
+        "spurious_count": 0
+      },
+      {
+        "county": "Tuolumne",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 5,
+        "prediction_count": 0,
+        "record_id": "WCR2004-001217",
+        "reference_count": 5,
+        "spurious_count": 0
+      },
+      {
+        "county": "Sacramento",
+        "match_count": 5,
+        "matched_lithology_error_count": 5,
+        "missing_count": 11,
+        "prediction_count": 11,
+        "record_id": "WCR2004-004313",
+        "reference_count": 16,
+        "spurious_count": 6
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 2,
+        "matched_lithology_error_count": 1,
+        "missing_count": 12,
+        "prediction_count": 3,
+        "record_id": "WCR2005-004051",
+        "reference_count": 14,
+        "spurious_count": 1
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 8,
+        "matched_lithology_error_count": 8,
+        "missing_count": 5,
+        "prediction_count": 8,
+        "record_id": "WCR2005-004587",
+        "reference_count": 13,
+        "spurious_count": 0
+      },
+      {
+        "county": "Los Angeles",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 37,
+        "prediction_count": 2,
+        "record_id": "WCR2005-013916",
+        "reference_count": 37,
+        "spurious_count": 2
+      },
+      {
+        "county": "Fresno",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 6,
+        "prediction_count": 0,
+        "record_id": "WCR2006-007317",
+        "reference_count": 6,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Bernardino",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 15,
+        "prediction_count": 7,
+        "record_id": "WCR2006-013751",
+        "reference_count": 15,
+        "spurious_count": 7
+      },
+      {
+        "county": "Sacramento",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 13,
+        "prediction_count": 3,
+        "record_id": "WCR2007-006219",
+        "reference_count": 13,
+        "spurious_count": 3
+      },
+      {
+        "county": "Sacramento",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 23,
+        "prediction_count": 0,
+        "record_id": "WCR2010-000288",
+        "reference_count": 23,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 5,
+        "matched_lithology_error_count": 2,
+        "missing_count": 17,
+        "prediction_count": 5,
+        "record_id": "WCR2010-000296",
+        "reference_count": 22,
+        "spurious_count": 0
+      },
+      {
+        "county": "Sacramento",
+        "match_count": 0,
+        "matched_lithology_error_count": 0,
+        "missing_count": 18,
+        "prediction_count": 1,
+        "record_id": "WCR2010-000419",
+        "reference_count": 18,
+        "spurious_count": 1
+      },
+      {
+        "county": "Placer",
+        "match_count": 9,
+        "matched_lithology_error_count": 1,
+        "missing_count": 1,
+        "prediction_count": 10,
+        "record_id": "WCR2013-004051",
+        "reference_count": 10,
+        "spurious_count": 1
+      },
+      {
+        "county": "San Bernardino",
+        "match_count": 4,
+        "matched_lithology_error_count": 4,
+        "missing_count": 35,
+        "prediction_count": 5,
+        "record_id": "WCR2013-008862",
+        "reference_count": 39,
+        "spurious_count": 1
+      },
+      {
+        "county": "Tuolumne",
+        "match_count": 13,
+        "matched_lithology_error_count": 4,
+        "missing_count": 4,
+        "prediction_count": 13,
+        "record_id": "WCR2015-010540",
+        "reference_count": 17,
+        "spurious_count": 0
+      },
+      {
+        "county": "San Joaquin",
+        "match_count": 7,
+        "matched_lithology_error_count": 4,
+        "missing_count": 0,
+        "prediction_count": 7,
+        "record_id": "WCR2016-008692",
+        "reference_count": 7,
+        "spurious_count": 0
+      },
+      {
+        "county": "Sonoma",
+        "match_count": 27,
+        "matched_lithology_error_count": 25,
+        "missing_count": 0,
+        "prediction_count": 27,
+        "record_id": "WCR2016-015619",
+        "reference_count": 27,
+        "spurious_count": 0
+      },
+      {
+        "county": "Kern",
+        "match_count": 10,
+        "matched_lithology_error_count": 4,
+        "missing_count": 1,
+        "prediction_count": 13,
+        "record_id": "WCR2018-004183",
+        "reference_count": 11,
+        "spurious_count": 3
+      },
+      {
+        "county": "Santa Cruz",
+        "match_count": 11,
+        "matched_lithology_error_count": 1,
+        "missing_count": 6,
+        "prediction_count": 13,
+        "record_id": "WCR2021-010941",
+        "reference_count": 17,
+        "spurious_count": 2
+      }
+    ]
+  },
+  "tesseract_run": "P1_CALIFORNIA_WCR_V002_TESSERACT_EXTERNAL_FORMAL_002"
+}
