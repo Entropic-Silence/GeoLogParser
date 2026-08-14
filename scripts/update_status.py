@@ -52,7 +52,8 @@ def main() -> None:
     ]
     authoritative_gold_documents = len(swissgeol_gold_rows)
     authoritative_gold_intervals = sum(
-        int(row.get("interval_count", 0)) for row in swissgeol_gold_rows
+        int(row.get("interval_count", len(row.get("intervals", []))))
+        for row in swissgeol_gold_rows
     )
     readiness = json.loads((ROOT / "docs/generated/publication_readiness.json").read_text(encoding="utf-8"))
     rows = []
