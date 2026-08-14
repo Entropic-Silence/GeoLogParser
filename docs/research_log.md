@@ -1810,3 +1810,33 @@
   available, despite zero positional depth error among available points. This
   demonstrates that omission and positional alignment can dominate numerical
   boundary error downstream.
+## 2026-08-14 — Authoritative multi-error downstream propagation
+
+- Experiment: `P3_SWISSGEOL_ERROR_CLASS_PROPAGATION_002`; 35 held-out
+  Swissgeol records, 80 ordered boundary observations, 1,265 fixed IDW
+  queries, six error classes, three within-class severities, and 30 seeds per
+  condition (540 repetitions total).
+- Observation: a 1.00 m boundary-shift condition produced 0.168353 m surface
+  MAE; a 500 m coordinate-shift condition produced 1.564117 m; and 50%
+  missing-boundary prevalence reduced support to 0.775 and produced 8.620714 m
+  surface MAE despite zero error among retained boundary values. At the 50%
+  class-specific prevalence, merged, split, and duplicated ordered layers
+  produced 40.956927, 30.747222, and 20.663361 m surface MAE.
+- Validation: the clean self-comparison had zero boundary/surface error and
+  complete support. Numeric boundary shifts retained topology; coordinate
+  shifts retained boundary values; missing slots reduced support without
+  position-shifting deeper slots; merge/split/duplicate operations changed
+  ordered sequence topology as designed.
+- Limitation: coordinates and collar elevations are authoritative structured
+  fields, not image-derived predictions. Parameters have different units and
+  do not establish a universal between-class ranking or natural error
+  frequency. The source rights decision remains
+  `PENDING_MANUAL_PRE_SUBMISSION_REVIEW`.
+- Decision: admit the run as
+  `formal_authoritative_controlled_error_downstream`, retain the exact
+  operation audit for every repetition, and use the result to distinguish
+  numeric error, coordinate geometry, spatial-support loss, and positional
+  topology in Paper III.
+- Next step: add wrong-lithology/correlation perturbations only after a
+  defensible unit-correlation reference is available; continue seeking a
+  complete image-derived spatial workflow and timed human study.

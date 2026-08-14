@@ -296,6 +296,59 @@ def save_image_multiboundary_surface(
     plt.close(fig)
 
 
+def save_controlled_error_class_propagation(
+    entries: Sequence[Mapping[str, Any]], repository_root: Path, destination: Path,
+) -> None:
+    """Plot surface impact, support, and topology by controlled error class."""
+    candidates = []
+    for entry in entries:
+        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
+        if metrics.get("scope") == "authoritative controlled multi-error downstream propagation evaluation":
+            candidates.append((entry, metrics))
+    if not candidates:
+        raise ValueError("no authoritative controlled error-class result is indexed")
+    entry, metrics = candidates[-1]
+    grouped: dict[str, list[dict[str, Any]]] = {}
+    for condition in metrics["conditions"]:
+        grouped.setdefault(condition["error_type"], []).append(condition)
+    labels = list(grouped)
+    colors = ["#4e79a7", "#f28e2b", "#e15759", "#76b7b2", "#59a14f", "#af7aa1"]
+    plt = _plt()
+    fig, axes = plt.subplots(2, 1, figsize=(9, 8), sharex=True)
+    for label, color in zip(labels, colors):
+        rows = sorted(grouped[label], key=lambda row: row["severity_index"])
+        axes[0].plot(
+            [row["severity_index"] for row in rows],
+            [row["surface_error"]["mae_m"]["mean"] for row in rows],
+            marker="o", label=label.replace("_", " "), color=color,
+        )
+        axes[1].plot(
+            [row["severity_index"] for row in rows],
+            [1 - row["spatial_support_coverage"]["mean"] for row in rows],
+            marker="o", linestyle="--", color=color,
+        )
+        axes[1].plot(
+            [row["severity_index"] for row in rows],
+            [row["topological_mismatch_document_rate"]["mean"] for row in rows],
+            marker="s", linestyle="-", color=color,
+        )
+    axes[0].set_ylabel("Surface MAE (m)")
+    axes[0].set_title("Controlled error-class propagation on authoritative records")
+    axes[0].grid(alpha=.2)
+    axes[0].legend(ncol=2, fontsize=8)
+    axes[1].set_xlabel("Within-class severity level (class-specific parameter)")
+    axes[1].set_ylabel("Rate")
+    axes[1].set_xticks([1, 2, 3])
+    axes[1].set_ylim(-.02, .6)
+    axes[1].grid(alpha=.2)
+    axes[1].text(.01, .95, "solid squares: topology mismatch; dashed circles: support loss", transform=axes[1].transAxes, va="top", fontsize=8)
+    axes[1].text(.99, .04, entry["experiment_id"], transform=axes[1].transAxes, ha="right", fontsize=7)
+    fig.tight_layout()
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(destination, dpi=180)
+    plt.close(fig)
+
+
 def save_method_schematic(destination: Path) -> None:
     plt = _plt()
     fig, axis = plt.subplots(figsize=(12, 4))

@@ -176,6 +176,29 @@ def test_paper3_table_separates_structured_source_from_synthetic(tmp_path: Path)
     assert "not image-derived automated extraction" in source_section
 
 
+def test_paper3_table_includes_controlled_error_classes(tmp_path: Path):
+    metrics = {
+        "comparison": "clean_authoritative_reference_vs_independently_injected_error_classes",
+        "conditions": [{
+            "error_type": "missing_boundary", "severity_index": 2,
+            "parameter": .25, "parameter_unit": "affected_document_fraction",
+            "boundary_mae_m": {"mean": 0.0, "std": 0.0},
+            "surface_error": {"mae_m": {"mean": 4.28, "std": .5}},
+            "spatial_support_coverage": {"mean": .8875},
+            "topological_mismatch_document_rate": {"mean": .2571},
+        }],
+    }
+    write_run(tmp_path, metrics, {})
+    table = paper3_table([{
+        "experiment_id": "P3_CLASSES", "result_path": "result",
+        "paper_eligibility": "formal_authoritative_controlled_error_downstream",
+    }], tmp_path)
+    assert "Authoritative controlled error-class propagation" in table
+    assert "missing_boundary" in table
+    assert "4.280000" in table
+    assert "not directly comparable across units" in table
+
+
 def test_paper2_table_uses_gated_ablation_metrics(tmp_path: Path):
     metric = lambda value: {"value": value, "numerator": value, "denominator": 1}
     metrics = {

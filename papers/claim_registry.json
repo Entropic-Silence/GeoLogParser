@@ -1725,6 +1725,26 @@
         {"type": "json_pointer_equals", "pointer": "/aggregate/final/surface_error/mae_m", "expected": 20.6153593877386},
         {"type": "json_pointer_equals", "pointer": "/per_boundary/2/variants/final/coverage", "expected": 0.5714285714285714}
       ]
+    },
+    "p3.controlled_error_classes": {
+      "paper": "paper3",
+      "experiment_id": "P3_SWISSGEOL_ERROR_CLASS_PROPAGATION_002",
+      "scope": "six controlled error classes propagated on 35 authoritative held-out records without reference-guided repair",
+      "source_path": "results/2026-08-14/P3_SWISSGEOL_ERROR_CLASS_PROPAGATION_002/metrics.json",
+      "source_sha256": "647c3c1c00bb95e1030853d7be137a515878b678dabb17e0dd55310dcea6a011",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 35},
+        {"type": "json_pointer_equals", "pointer": "/reference_point_count", "expected": 80},
+        {"type": "json_pointer_equals", "pointer": "/query_count", "expected": 1265},
+        {"type": "json_pointer_equals", "pointer": "/total_repetitions", "expected": 540},
+        {"type": "json_pointer_equals", "pointer": "/conditions/2/surface_error/mae_m/mean", "expected": 0.16835295030618252},
+        {"type": "json_pointer_equals", "pointer": "/conditions/5/surface_error/mae_m/mean", "expected": 1.564117259370354},
+        {"type": "json_pointer_equals", "pointer": "/conditions/8/spatial_support_coverage/mean", "expected": 0.775},
+        {"type": "json_pointer_equals", "pointer": "/conditions/8/surface_error/mae_m/mean", "expected": 8.620714119288323},
+        {"type": "json_pointer_equals", "pointer": "/conditions/11/surface_error/mae_m/mean", "expected": 40.95692702043437},
+        {"type": "json_pointer_equals", "pointer": "/conditions/14/surface_error/mae_m/mean", "expected": 30.74722249097352},
+        {"type": "json_pointer_equals", "pointer": "/conditions/17/surface_error/mae_m/mean", "expected": 20.663361010568636}
+      ]
     }
   }
 }

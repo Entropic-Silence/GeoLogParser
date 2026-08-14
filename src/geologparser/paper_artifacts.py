@@ -290,6 +290,7 @@ def paper3_table(entries: list[dict], repository_root: Path) -> str:
     source_protocol_rows = []
     source_qc_rows = []
     image_boundary_rows = []
+    controlled_error_rows = []
     interoperability_rows = []
     for entry in entries:
         metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
@@ -341,6 +342,19 @@ def paper3_table(entries: list[dict], repository_root: Path) -> str:
                 str(metrics.get("needs_review_count", "TBD")),
                 entry["paper_eligibility"],
             ]) + " |")
+            continue
+        if metrics.get("comparison") == "clean_authoritative_reference_vs_independently_injected_error_classes":
+            for condition in metrics["conditions"]:
+                controlled_error_rows.append("| " + " | ".join([
+                    entry["experiment_id"], condition["error_type"],
+                    str(condition["severity_index"]), number(condition["parameter"], 2),
+                    condition["parameter_unit"],
+                    f'{number(condition["boundary_mae_m"]["mean"], 6)} ± {number(condition["boundary_mae_m"]["std"], 6)}',
+                    f'{number(condition["surface_error"]["mae_m"]["mean"], 6)} ± {number(condition["surface_error"]["mae_m"]["std"], 6)}',
+                    number(condition["spatial_support_coverage"]["mean"], 4),
+                    number(condition["topological_mismatch_document_rate"]["mean"], 4),
+                    entry["paper_eligibility"],
+                ]) + " |")
             continue
         source_protocol = metrics.get("data_status") == "licensed_source_structured_data_pending_human_spatial_review"
         for condition in metrics.get("conditions", []):
@@ -401,6 +415,13 @@ def paper3_table(entries: list[dict], repository_root: Path) -> str:
         "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|",
         *image_boundary_rows, "",
         "This diagnostic inherits frozen reference-blinded image boundaries from the Paper II held-out run. Coordinates and collar elevations are taken from the authoritative structured record; image extraction of spatial metadata is not evaluated, so this is not a complete end-to-end spatial workflow.",
+        "",
+        "### Authoritative controlled error-class propagation",
+        "",
+        "| Experiment | Error type | Severity | Parameter | Unit | Boundary MAE (m) | Surface MAE (m) | Support | Topology mismatch | Eligibility |",
+        "|---|---|---:|---:|---|---:|---:|---:|---:|---|",
+        *controlled_error_rows, "",
+        "Each row aggregates 30 seeded injections on 35 held-out authoritative records and a fixed 1,265-query reference domain. Parameters are error-class specific and are not directly comparable across units. Coordinates and collar elevations are authoritative structured fields rather than image-derived predictions; no human Ground Truth is claimed.",
         "",
         "### Licensed structured-source field proxy protocol",
         "",

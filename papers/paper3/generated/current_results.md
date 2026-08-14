@@ -59,6 +59,31 @@ This controlled experiment uses 602 real source records and post-decision source
 
 This diagnostic inherits frozen reference-blinded image boundaries from the Paper II held-out run. Coordinates and collar elevations are taken from the authoritative structured record; image extraction of spatial metadata is not evaluated, so this is not a complete end-to-end spatial workflow.
 
+### Authoritative controlled error-class propagation
+
+| Experiment | Error type | Severity | Parameter | Unit | Boundary MAE (m) | Surface MAE (m) | Support | Topology mismatch | Eligibility |
+|---|---|---:|---:|---|---:|---:|---:|---:|---|
+| P3_SWISSGEOL_ERROR_CLASS_PROPAGATION_002 | boundary_shift | 1 | 0.10 | m | 0.025000 ± 0.000000 | 0.015834 ± 0.004640 | 1.0000 | 0.0000 | formal_authoritative_controlled_error_downstream |
+| P3_SWISSGEOL_ERROR_CLASS_PROPAGATION_002 | boundary_shift | 2 | 0.50 | m | 0.125000 ± 0.000000 | 0.081641 ± 0.020818 | 1.0000 | 0.0000 | formal_authoritative_controlled_error_downstream |
+| P3_SWISSGEOL_ERROR_CLASS_PROPAGATION_002 | boundary_shift | 3 | 1.00 | m | 0.250000 ± 0.000000 | 0.168353 ± 0.042179 | 1.0000 | 0.0000 | formal_authoritative_controlled_error_downstream |
+| P3_SWISSGEOL_ERROR_CLASS_PROPAGATION_002 | coordinate_shift | 1 | 25.00 | m | 0.000000 ± 0.000000 | 0.071537 ± 0.030763 | 1.0000 | 0.0000 | formal_authoritative_controlled_error_downstream |
+| P3_SWISSGEOL_ERROR_CLASS_PROPAGATION_002 | coordinate_shift | 2 | 100.00 | m | 0.000000 ± 0.000000 | 0.280400 ± 0.106989 | 1.0000 | 0.0000 | formal_authoritative_controlled_error_downstream |
+| P3_SWISSGEOL_ERROR_CLASS_PROPAGATION_002 | coordinate_shift | 3 | 500.00 | m | 0.000000 ± 0.000000 | 1.564117 ± 0.624882 | 1.0000 | 0.0000 | formal_authoritative_controlled_error_downstream |
+| P3_SWISSGEOL_ERROR_CLASS_PROPAGATION_002 | missing_boundary | 1 | 0.10 | affected_document_fraction | 0.000000 ± 0.000000 | 2.473709 ± 1.946654 | 0.9500 | 0.1143 | formal_authoritative_controlled_error_downstream |
+| P3_SWISSGEOL_ERROR_CLASS_PROPAGATION_002 | missing_boundary | 2 | 0.25 | affected_document_fraction | 0.000000 ± 0.000000 | 4.284154 ± 2.022886 | 0.8875 | 0.2571 | formal_authoritative_controlled_error_downstream |
+| P3_SWISSGEOL_ERROR_CLASS_PROPAGATION_002 | missing_boundary | 3 | 0.50 | affected_document_fraction | 0.000000 ± 0.000000 | 8.620714 ± 2.456667 | 0.7750 | 0.5143 | formal_authoritative_controlled_error_downstream |
+| P3_SWISSGEOL_ERROR_CLASS_PROPAGATION_002 | merged_layer | 1 | 0.10 | affected_document_fraction | 9.230263 ± 1.415854 | 9.849802 ± 2.763770 | 0.9500 | 0.1143 | formal_authoritative_controlled_error_downstream |
+| P3_SWISSGEOL_ERROR_CLASS_PROPAGATION_002 | merged_layer | 2 | 0.25 | affected_document_fraction | 22.610798 ± 2.207236 | 20.851922 ± 4.236661 | 0.8875 | 0.2571 | formal_authoritative_controlled_error_downstream |
+| P3_SWISSGEOL_ERROR_CLASS_PROPAGATION_002 | merged_layer | 3 | 0.50 | affected_document_fraction | 51.441398 ± 2.594455 | 40.956927 ± 4.477924 | 0.7750 | 0.5143 | formal_authoritative_controlled_error_downstream |
+| P3_SWISSGEOL_ERROR_CLASS_PROPAGATION_002 | split_layer | 1 | 0.10 | affected_document_fraction | 7.134167 ± 1.499206 | 6.912026 ± 2.963111 | 1.0000 | 0.1143 | formal_authoritative_controlled_error_downstream |
+| P3_SWISSGEOL_ERROR_CLASS_PROPAGATION_002 | split_layer | 2 | 0.25 | affected_document_fraction | 15.457500 ± 1.974436 | 14.205055 ± 3.021957 | 1.0000 | 0.2571 | formal_authoritative_controlled_error_downstream |
+| P3_SWISSGEOL_ERROR_CLASS_PROPAGATION_002 | split_layer | 3 | 0.50 | affected_document_fraction | 31.817500 ± 2.717759 | 30.747222 ± 5.952748 | 1.0000 | 0.5143 | formal_authoritative_controlled_error_downstream |
+| P3_SWISSGEOL_ERROR_CLASS_PROPAGATION_002 | duplicate_boundary | 1 | 0.10 | affected_document_fraction | 4.442083 ± 2.467289 | 5.066429 ± 3.591368 | 1.0000 | 0.1143 | formal_authoritative_controlled_error_downstream |
+| P3_SWISSGEOL_ERROR_CLASS_PROPAGATION_002 | duplicate_boundary | 2 | 0.25 | affected_document_fraction | 9.656667 ± 2.854705 | 8.806453 ± 4.141115 | 1.0000 | 0.2571 | formal_authoritative_controlled_error_downstream |
+| P3_SWISSGEOL_ERROR_CLASS_PROPAGATION_002 | duplicate_boundary | 3 | 0.50 | affected_document_fraction | 20.734167 ± 5.084878 | 20.663361 ± 6.530423 | 1.0000 | 0.5143 | formal_authoritative_controlled_error_downstream |
+
+Each row aggregates 30 seeded injections on 35 held-out authoritative records and a fixed 1,265-query reference domain. Parameters are error-class specific and are not directly comparable across units. Coordinates and collar elevations are authoritative structured fields rather than image-derived predictions; no human Ground Truth is claimed.
+
 ### Licensed structured-source field proxy protocol
 
 | Experiment | Perturbation (m) | Seed | Repetitions/grid points | Proxy-surface MAE (m) | RMSE (m) | Max abs. error (m) | Eligibility |

@@ -6,6 +6,7 @@ from geologparser.paper_figures import (
     save_error_propagation,
     save_image_boundary_surface,
     save_image_multiboundary_surface,
+    save_controlled_error_class_propagation,
     save_method_schematic,
     save_padova_locations,
     save_source_field_propagation,
@@ -93,4 +94,30 @@ def test_image_multiboundary_surface_figure(tmp_path: Path):
     }))
     output = tmp_path / "multi.png"
     save_image_multiboundary_surface([{"experiment_id": "MULTI", "result_path": "multi"}], tmp_path, output)
+    assert output.stat().st_size > 1000
+
+
+def test_controlled_error_class_figure(tmp_path: Path):
+    result = tmp_path / "classes"
+    result.mkdir()
+    conditions = []
+    for error_type in (
+        "boundary_shift", "coordinate_shift", "missing_boundary",
+        "merged_layer", "split_layer", "duplicate_boundary",
+    ):
+        for severity in (1, 2, 3):
+            conditions.append({
+                "error_type": error_type, "severity_index": severity,
+                "surface_error": {"mae_m": {"mean": severity * .5}},
+                "spatial_support_coverage": {"mean": 1 - severity * .05},
+                "topological_mismatch_document_rate": {"mean": severity * .1},
+            })
+    (result / "metrics.json").write_text(json.dumps({
+        "scope": "authoritative controlled multi-error downstream propagation evaluation",
+        "conditions": conditions,
+    }))
+    output = tmp_path / "classes.png"
+    save_controlled_error_class_propagation(
+        [{"experiment_id": "CLASSES", "result_path": "classes"}], tmp_path, output,
+    )
     assert output.stat().st_size > 1000
