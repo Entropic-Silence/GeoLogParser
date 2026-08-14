@@ -1530,7 +1530,7 @@
       "paper": "paper1",
       "scope": "cross-canton Swissgeol source-disjoint acquisition and negative explicit-table audit; no interval Gold claim",
       "source_path": "datasets/source_verification_ledger.yaml",
-      "source_sha256": "9c8802ca1c0a5f5fb90759dcbd241939a71fe0f35ac0c305a429c350e256fd98"
+      "source_sha256": "11ebbb8674a5920a122e71be1ee2f7e000c3cf271037d6833b78d37da6a4b437"
     },
     "p1.cross_canton_transfer_tesseract": {
       "paper": "paper1",
@@ -1717,6 +1717,54 @@
         {"type": "json_pointer_equals", "pointer": "/document_full_exact/value", "expected": 1.0},
         {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_f1/value", "expected": 1.0},
         {"type": "json_pointer_equals", "pointer": "/prediction_reference_conditioning", "expected": "none"}
+      ]
+    },
+    "p1.raft_river_tesseract": {
+      "paper": "paper1",
+      "experiment_id": "P1_USGS_RAFT_RIVER_TESSERACT_INTERVAL_FORMAL_001",
+      "scope": "two-document/62-interval raster-only official Raft River IDWR table benchmark; no human annotation claim",
+      "source_path": "results/2026-08-14/P1_USGS_RAFT_RIVER_TESSERACT_INTERVAL_FORMAL_001/metrics.json",
+      "source_sha256": "6eeeac0bcdce171f0b05d08011e227a8972ea85818d7d9bc753b0c09a358d6c5",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 2},
+        {"type": "json_pointer_equals", "pointer": "/reference_interval_count", "expected": 62},
+        {"type": "json_pointer_equals", "pointer": "/predicted_interval_count", "expected": 56},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_precision/value", "expected": 0.875},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_recall/value", "expected": 0.7903225806451613},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_f1/value", "expected": 0.8305084745762712},
+        {"type": "json_pointer_equals", "pointer": "/matched_lithology_exact/numerator", "expected": 4},
+        {"type": "json_pointer_equals", "pointer": "/matched_lithology_exact/denominator", "expected": 49},
+        {"type": "json_pointer_equals", "pointer": "/prediction_reference_conditioning", "expected": "none"}
+      ]
+    },
+    "p1.raft_river_rapidocr": {
+      "paper": "paper1",
+      "experiment_id": "P1_USGS_RAFT_RIVER_RAPIDOCR_INTERVAL_FORMAL_001",
+      "scope": "two-document/62-interval positioned RapidOCR official Raft River IDWR table benchmark; no human annotation claim",
+      "source_path": "results/2026-08-14/P1_USGS_RAFT_RIVER_RAPIDOCR_INTERVAL_FORMAL_001/metrics.json",
+      "source_sha256": "938b18fd0fc6fb2503a87549b4bc1bd429f3d878e8fdddbaa85e251c4d3d6408",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 2},
+        {"type": "json_pointer_equals", "pointer": "/reference_interval_count", "expected": 62},
+        {"type": "json_pointer_equals", "pointer": "/predicted_interval_count", "expected": 62},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_f1/value", "expected": 1.0},
+        {"type": "json_pointer_equals", "pointer": "/matched_lithology_exact/numerator", "expected": 61},
+        {"type": "json_pointer_equals", "pointer": "/matched_lithology_exact/denominator", "expected": 62},
+        {"type": "json_pointer_equals", "pointer": "/document_full_exact/numerator", "expected": 1},
+        {"type": "json_pointer_equals", "pointer": "/prediction_reference_conditioning", "expected": "none"}
+      ]
+    },
+    "p1.raft_river_error_analysis": {
+      "paper": "paper1",
+      "scope": "post-hoc real error-event analysis of the frozen Raft River Tesseract and RapidOCR predictions",
+      "source_path": "experiments/paper1/analysis/raft_river_interval_errors_v001.json",
+      "source_sha256": "950e2e23e6f2a5df2b0b2917d821d68351acecfdbe8f426298f8d9251712efa7",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/tesseract_error_count", "expected": 20},
+        {"type": "json_pointer_equals", "pointer": "/tesseract_numeric_substitution_count", "expected": 6},
+        {"type": "json_pointer_equals", "pointer": "/tesseract_continuation_page_missing_interval_count", "expected": 4},
+        {"type": "json_pointer_equals", "pointer": "/rapidocr_boundary_complete", "expected": true},
+        {"type": "json_pointer_equals", "pointer": "/rapidocr_semantic_mismatch_count", "expected": 1}
       ]
     },
     "p2.swissgeol_heldout_constraint_reread": {

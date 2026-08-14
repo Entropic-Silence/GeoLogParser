@@ -1884,11 +1884,11 @@ records:
   registry_verification_notes: Reference intervals are transcribed from explicit PDF descriptions. Prediction uses rendered page images and Tesseract OCR only; native PDF text is not used by the parser.
 - source_id: usgs151_explicit_lithology_machine_consensus_v001
   source_name: USGS-151 Lithologic Core Log explicit-interval machine-consensus audit
-  url: TBD
-  source_url: TBD
-  doi: null
+  url: https://doi.org/10.5066/P9KOXCE5
+  source_url: https://www.sciencebase.gov/catalog/item/6307a9e2d34e3b967a8c11e7
+  doi: 10.5066/P9KOXCE5
   publisher: U.S. Geological Survey / Idaho National Laboratory project
-  citation: TBD pending exact public item reconstruction
+  citation: 'Trcka, A.R., and Twining, B.V., 2023, Drilling, construction, geophysical data, and lithologic log for borehole USGS 151: U.S. Geological Survey data release, https://doi.org/10.5066/P9KOXCE5.'
   retrieval_date: '2026-08-14'
   local_paths:
   - /data/GeoLogParser/datasets/public/usgs151_lithology_v001
@@ -1902,18 +1902,18 @@ records:
   - relative_path: USGS151_DrillerNotes.csv
     size_bytes: 13392
     sha256: b39c5c14a0fd38c0c46603c17ed2bf0026165578b06cbabb3398ce75b66cf029
-  access_method: local snapshot; exact public acquisition record pending reconstruction
-  terms_of_use: TBD
-  claimed_license: unclear_pending_item_verification
+  access_method: official USGS ScienceBase public item; local snapshot matched by file name and byte size
+  terms_of_use: https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits
+  claimed_license: USGS public-domain data release; embedded-content scope pending manual verification
   license_url: https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits
   commercial_use: not_verified
   personal_information_risk: not_assessed
   sensitive_location_risk: present_precise_coordinates_in_source
-  verification_status: SOURCE_AND_RIGHTS_PENDING
-  internal_decision: QUARANTINE_FOR_INTERNAL_AUDIT
-  decision: AMBIGUOUS
+  verification_status: SOURCE_BOUND_RIGHTS_SCOPE_PENDING
+  internal_decision: USE_WITH_CAUTION
+  decision: ELIGIBLE_INTERNAL_ONLY
   risks:
-  - exact public source record and item-level terms are not yet bound
+  - embedded-content and precise-coordinate redistribution scope requires manual pre-submission verification
   - precise coordinates are printed in the source
   - cross-engine consensus remains machine transcription of the same source image and is not independent Ground Truth
   experiments_or_papers:
@@ -1926,4 +1926,56 @@ records:
   - /data/GeoLogParser/artifacts/source_surveys/usgs151_explicit_intervals_v001/audit/summary.json
   - /data/GeoLogParser/artifacts/source_surveys/usgs151_explicit_intervals_v001/cross_engine_v001/summary.json
   registry_status: acquired_machine_consensus_source_audit_not_gold
-  registry_verification_notes: Exact Tesseract dual-layout agreement retained 61 intervals. Independent RapidOCR parsing retained 67 intervals, and exact cross-engine agreement retained 57 intervals across 40 pages. The artifact explicitly records human_reviewed=false and is excluded from Human Gold and formal accuracy claims.
+  registry_verification_notes: Exact source reconstruction binds the two local files to DOI 10.5066/P9KOXCE5 and ScienceBase item 6307a9e2d34e3b967a8c11e7. Exact Tesseract dual-layout agreement retained 61 intervals. RapidOCR retained 67 intervals and exact cross-engine agreement retained 57 across 40 pages. The driller-notes CSV provides sparse companion contact evidence but not full interval GT. The artifact remains excluded from Human Gold and formal accuracy claims.
+- source_id: usgs_raft_river_12_driller_reports_v001
+  source_name: Raft River Valley official well-driller reports and field forms
+  url: https://doi.org/10.5066/P9JELNQ5
+  source_url: https://www.sciencebase.gov/catalog/item/63fccd15d34e4f7eda466a02
+  doi: 10.5066/P9JELNQ5
+  publisher: U.S. Geological Survey; embedded well-driller reports issued by Idaho Department of Water Resources
+  citation: 'Dorn, C.I., and Twining, B.V., 2023, Geophysical and lithologic data for 12 boreholes in Raft River Valley, Idaho: U.S. Geological Survey data release, https://doi.org/10.5066/P9JELNQ5.'
+  retrieval_date: '2026-08-14'
+  local_paths:
+  - /data/GeoLogParser/datasets/public/usgs_raft_river_12_v001
+  - /data/GeoLogParser/artifacts/source_surveys/usgs_raft_river_12_v001
+  file_count_in_local_snapshot: 26
+  local_snapshot_inventory_sha256: null
+  manifest_evidence:
+  - relative_path: raw/Well_Driller_Reports.zip
+    size_bytes: 3256931
+    sha256: 21fc4feca0f6b79adb19da339a8776d2c81d747626ae7bcb8879fe87fd02dd02
+  - relative_path: raw/Field_Forms.zip
+    size_bytes: 718537
+    sha256: ae53f5439945ab45e2120484d2e54f2f3d8077b4b4bef6173c0b72764194c344
+  - relative_path: raw/well_driller_reports/Well_Driller_Reports/RaftRiver_Well1_IDWR_WellDrillersReport.pdf
+    size_bytes: 338970
+    sha256: d0835b4d38da15e07d934d69fdae896e1b304d0cd48831675339d5fc258e233f
+  - relative_path: raw/well_driller_reports/Well_Driller_Reports/RaftRiver_Well2_IDWR_WellDrillersReport.pdf
+    size_bytes: 534270
+    sha256: c5991a6588628654e891759014d161b49b3ddaa2ace905741182f47615673434
+  access_method: official USGS ScienceBase ZIP downloads
+  terms_of_use: https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits
+  claimed_license: USGS public-domain data release; embedded IDWR form scope pending manual verification
+  license_url: https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits
+  commercial_use: not_verified
+  personal_information_risk: signatures and named drillers appear in source reports
+  sensitive_location_risk: precise well locations appear in source reports
+  verification_status: SOURCE_BOUND_RIGHTS_SCOPE_PENDING
+  internal_decision: USE_WITH_CAUTION
+  decision: ELIGIBLE_INTERNAL_ONLY
+  risks:
+  - embedded IDWR forms, signatures, and precise locations require manual pre-submission review
+  - only two of twelve reports expose explicit From-To interval tables
+  - ten attached lithology logs are point-depth sequences and must not be represented as interval Ground Truth
+  experiments_or_papers:
+  - paper1_cross_source_interval_benchmark
+  - paper1_real_error_analysis
+  requires_human_check_before_submission: true
+  evidence:
+  - datasets/data_registry.yaml
+  - datasets/manifests/usgs_raft_river_interval_gold_v001.jsonl
+  - scripts/run_raft_river_interval_benchmark.py
+  - results/2026-08-14/P1_USGS_RAFT_RIVER_TESSERACT_INTERVAL_FORMAL_001/metrics.json
+  - results/2026-08-14/P1_USGS_RAFT_RIVER_RAPIDOCR_INTERVAL_FORMAL_001/metrics.json
+  registry_status: acquired_authoritative_interval_source_review_pending
+  registry_verification_notes: Well 1 and Well 2 contribute 62 explicit interval rows from official report tables. Raster-only Tesseract and RapidOCR predictions were generated without reading reference values. The remaining ten reports are retained as point-depth source material and excluded from interval accuracy metrics.

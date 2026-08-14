@@ -1783,6 +1783,32 @@
   `SOURCE_EXPLICIT_CROSS_ENGINE_CONSENSUS`, but remains machine transcription
   of one source image and is not Human Gold or formal accuracy evidence.
 
+## 2026-08-14 — USGS source reconstruction and Raft River external interval benchmark
+
+- Reconstructed the exact USGS-151 release as Trcka and Twining (2023), DOI
+  `10.5066/P9KOXCE5`, ScienceBase item `6307a9e2d34e3b967a8c11e7`. The local
+  196,855,513-byte lithologic PDF and 13,392-byte driller-notes CSV match the
+  official file inventory. The CSV is not interval GT, but supplies sparse
+  independent companion evidence for contacts near 48.1, 580, 1197, and
+  1680 ft.
+- Acquired the official Raft River 12-borehole release (Dorn and Twining,
+  2023; DOI `10.5066/P9JELNQ5`). The 12 driller reports contain 47 pages. Well
+  1 and Well 2 expose 62 explicit `From`-`To`-lithology rows; ten other reports
+  contain point-depth descriptions and were excluded from interval scoring.
+- Frozen `datasets/manifests/usgs_raft_river_interval_gold_v001.jsonl` with two
+  documents and 62 source-explicit intervals. Prediction reads only fixed
+  normalized raster crops, with no reference conditioning.
+- `P1_USGS_RAFT_RIVER_TESSERACT_INTERVAL_FORMAL_001` predicted 56 intervals,
+  matched 49, and achieved precision `0.875`, recall `0.7903225806`, and F1
+  `0.8305084746`. Only `4/49` matched lithology strings were exact after the
+  declared normalization. Real failures included separator loss and depth
+  substitutions `245->265`, `275->276`, `375->875`, and `735->736`.
+- `P1_USGS_RAFT_RIVER_RAPIDOCR_INTERVAL_FORMAL_001` matched all `62/62`
+  boundaries with F1 `1.0` and zero matched-boundary MAE; `61/62` normalized
+  lithology strings were exact. Its sole semantic error assigned a water-column
+  `X` to the 10-25 ft gravel-and-sand row. The error is retained rather than
+  silently repaired.
+
 ## 2026-08-14 — Frozen v2 external validation on Swissgeol v002
 
 - The Paper II v2 policy was applied without modification to the earlier

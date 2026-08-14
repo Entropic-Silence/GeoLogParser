@@ -43,6 +43,7 @@ def main() -> None:
         Path("/data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v003/gold_interval_manifest_v003.jsonl"),
         ROOT / "datasets/manifests/usgs142_interval_gold_v001.jsonl",
         ROOT / "datasets/manifests/usgs144_interval_gold_v001.jsonl",
+        ROOT / "datasets/manifests/usgs_raft_river_interval_gold_v001.jsonl",
     ]
     swissgeol_gold_rows = [
         json.loads(line)
@@ -104,7 +105,7 @@ def main() -> None:
         "",
         "## Paper status",
         "",
-        "- Paper I: `RESULTS_AVAILABLE` for a 35-document/80-interval PDF-content-group held-out authoritative benchmark and a 46-record/3,332-interval source-disjoint official-database transfer panel across five non-development cantons. Frozen-parser transfer F1 was 0.0006 for Tesseract and 0.0000 for RapidOCR, with candidates on only 2/46 records; representative source-disjoint interval Gold remains `NOT COMPLETED`.",
+        "- Paper I: `RESULTS_AVAILABLE` for a 35-document/80-interval PDF-content-group held-out authoritative benchmark, a 46-record/3,332-interval source-disjoint official-database transfer panel across five non-development cantons, and a separate two-document/62-interval official Raft River table benchmark. On Raft River, RapidOCR recovered all 62 boundaries and 61/62 lithology strings exactly, while Tesseract reached interval F1 0.831 and only 4/49 exact lithology strings among boundary matches. Representative multilingual source-disjoint interval Gold remains `NOT COMPLETED`.",
         "- Paper II: `RESULTS_AVAILABLE` for a real authoritative-metadata abstention study, a controlled Synthetic method ablation, two negative 20-document external/held-out interval applications, one positive frozen 35-document v2 held-out test with F1 0.857 to 0.921 and FCR 0/4, secondary frozen-artifact analyses, and a development-fitted selective-confidence analysis; broader multimodal constraint attribution and larger-sample FCR estimation `NOT COMPLETED`.",
         "- Paper III: `MANUSCRIPT_IN_PROGRESS` with a real structured-source controlled comparison, 35-document first/four-boundary surfaces, 540 seeded repetitions across six error classes, an external 88-document page-coordinate evaluation, and a partial 35-document page-coordinate surface workflow; page-derived collar extraction, real stratigraphic modelling, and timed human study `NOT COMPLETED`.",
         "",

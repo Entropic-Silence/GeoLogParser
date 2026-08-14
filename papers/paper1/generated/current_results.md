@@ -45,6 +45,8 @@ These runs apply the frozen Thurgau parser without reference conditioning to all
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
 | P1_USGS142_CROSS_SOURCE_INTERVAL_FORMAL_002 | tesseract_roi_generalized_lithology_parser | 1 | 12 | 12 | 1.000 | 1.000 | 1.000 | 0.000 | 0.000 | 1/1 (1.000) | 3.298 | formal_authoritative_interval |
 | P1_USGS144_CROSS_SOURCE_INTERVAL_FORMAL_001 | tesseract_raster_page_interval_parser | 1 | 8 | 8 | 1.000 | 1.000 | 1.000 | 0.000 | 0.000 | 1/1 (1.000) | 17.387 | formal_authoritative_interval |
+| P1_USGS_RAFT_RIVER_TESSERACT_INTERVAL_FORMAL_001 | tesseract_raster_table_interval_parser | 2 | 62 | 56 | 0.875 | 0.790 | 0.831 | 0.000 | 0.000 | 0/2 (0.000) | 6.354 | formal_authoritative_interval |
+| P1_USGS_RAFT_RIVER_RAPIDOCR_INTERVAL_FORMAL_001 | rapidocr_raster_table_interval_parser | 2 | 62 | 62 | 1.000 | 1.000 | 1.000 | 0.000 | 0.000 | 1/2 (0.500) | 7.736 | formal_authoritative_interval |
 This table adds a single official USGS Idaho PDF with an explicit generalized-lithology legend. It is a cross-source diagnostic, not evidence for a representative source-disjoint estimate; source rights remain pending manual verification.
 
 ### Reference-conditioned interval diagnostics excluded from formal claims

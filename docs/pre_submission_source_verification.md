@@ -69,6 +69,22 @@ annotation, and the unmatched candidate records are not interval Gold. The
 incremental held-out manifest contains 20 documents/55 intervals after
 excluding every v001 development record.
 
+The exact USGS-151 source is now bound to Trcka and Twining (2023), DOI
+`10.5066/P9KOXCE5`, ScienceBase item `6307a9e2d34e3b967a8c11e7`. The local
+lithologic-log PDF and driller-notes CSV match the official inventory by file
+name and byte size. Before submission, manually confirm the public-domain and
+embedded-content scope, citation wording, coordinate sensitivity, and whether
+page images or OCR transcriptions may be redistributed. The machine-consensus
+interval audit remains non-Gold regardless of the rights decision.
+
+The Raft River 12-borehole source is bound to Dorn and Twining (2023), DOI
+`10.5066/P9JELNQ5`, ScienceBase item `63fccd15d34e4f7eda466a02`. Internal
+experiments use two official IDWR report tables containing 62 explicit
+intervals and retain ten additional point-depth lithology sequences outside
+interval scoring. Manual pre-submission review must cover the embedded IDWR
+forms, named drillers/signatures, precise well locations, attribution, and the
+redistribution status of original or cropped page images.
+
 A non-overlapping successor freeze is stored at
 `/data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v003`. It contains
 160 PDFs and 767 official database intervals; the deterministic source-table

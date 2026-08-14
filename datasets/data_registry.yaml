@@ -833,17 +833,36 @@ datasets:
   - id: usgs151_explicit_lithology_machine_consensus_v001
     name: "USGS-151 Lithologic Core Log explicit-interval machine-consensus audit"
     source_organization: "U.S. Geological Survey / Idaho National Laboratory project"
-    url: TBD
+    url: https://doi.org/10.5066/P9KOXCE5
     access_date: "2026-08-14"
     language: English
     format: "98-page scanned PDF plus driller-notes CSV"
     scale: "1 PDF / 98 pages; 61 exact Tesseract dual-layout intervals and 57 exact Tesseract/RapidOCR cross-engine intervals on 40 pages"
-    downloadable: unknown
-    access_status: "local snapshot audited; exact public item URL and terms not yet reconstructed"
-    license: unclear_pending_item_verification
-    allowed_usage: "internal source audit only"
-    redistribution: prohibited_pending_verification
-    redistribution_policy: "do not redistribute source pages, OCR text, or interval transcription until exact source record and item terms are verified"
+    downloadable: true
+    access_status: "exact USGS ScienceBase item reconstructed; local PDF and CSV names and byte sizes match the official file inventory"
+    license: "USGS public-domain data release; embedded-content and precise-location scope pending pre-submission manual verification"
+    allowed_usage: "internal research evaluation with source attribution"
+    redistribution: pending_manual_review
+    redistribution_policy: "do not redistribute source pages or coordinate-bearing derivatives until item and embedded-content scope are manually checked"
     paper_fit: [paper1_cross_source_transfer_candidate, paper1_failure_analysis]
     status: acquired_machine_consensus_source_audit_not_gold
-    verification_notes: "The PDF SHA256 is a0719778752d14311b958d6b7b649313c585c35f11980a06ba68019250ecb48f. At 250 DPI, Tesseract PSM 11 parsed 71 explicit LITHOLOGY intervals and PSM 6 parsed 61; 61 rows agreed exactly. RapidOCR independently parsed 67 intervals, of which 57 agreed exactly with the Tesseract dual-layout consensus on page, lithology, top and bottom depth across 40 pages. This is SOURCE_EXPLICIT_CROSS_ENGINE_CONSENSUS, human_reviewed=false, and is not used as Human Gold or formal accuracy evidence. Audit artifact: /data/GeoLogParser/artifacts/source_surveys/usgs151_explicit_intervals_v001/cross_engine_v001/summary.json."
+    verification_notes: "Exact source: Trcka and Twining (2023), DOI 10.5066/P9KOXCE5, ScienceBase item 6307a9e2d34e3b967a8c11e7. The official inventory contains USGS151_Lithologic_Log.pdf (196855513 bytes) and USGS151_DrillerNotes.csv (13392 bytes), matching the local files. The CSV is a daily drilling record, not interval GT, but independently records a first-basalt contact near 48.1 ft, a sand zone near 580 ft, basal sediment at 1197 ft, and a basalt top at 1680 ft. At 250 DPI, Tesseract PSM 11 parsed 71 explicit LITHOLOGY intervals and PSM 6 parsed 61; 61 rows agreed exactly. RapidOCR parsed 67 intervals, of which 57 agreed exactly across engines on 40 pages. This remains SOURCE_EXPLICIT_CROSS_ENGINE_CONSENSUS, human_reviewed=false, and is not used as Human Gold or formal accuracy evidence."
+
+  - id: usgs_raft_river_12_driller_reports_v001
+    name: "Raft River Valley official well-driller reports and field forms"
+    source_organization: "U.S. Geological Survey and Idaho Department of Water Resources"
+    url: https://doi.org/10.5066/P9JELNQ5
+    license_url: https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits
+    access_date: "2026-08-14"
+    language: English
+    format: "12 official multi-page well-driller report PDFs plus 12 field-form PDFs"
+    scale: "12 reports / 47 report pages; 2 reports contain 62 explicit From-To-Lithology intervals; 10 reports contain attached point-depth lithology sequences"
+    downloadable: true
+    access_status: "official ScienceBase ZIP files downloaded; ZIP SHA256 and item metadata frozen"
+    license: "USGS public-domain data release; embedded IDWR form and redistribution scope pending pre-submission manual verification"
+    allowed_usage: "internal research evaluation with source attribution"
+    redistribution: pending_manual_review
+    redistribution_policy: "keep original PDFs local until embedded-form, signature, precise-location, and redistribution scope are manually checked"
+    paper_fit: [paper1_cross_source_interval_benchmark, paper1_real_error_analysis, paper1_point_depth_transfer]
+    status: acquired_authoritative_interval_source_review_pending
+    verification_notes: "ScienceBase item 63fccd15d34e4f7eda466a02 cites Dorn and Twining (2023). Well_Driller_Reports.zip SHA256 is 21fc4feca0f6b79adb19da339a8776d2c81d747626ae7bcb8879fe87fd02dd02 and Field_Forms.zip SHA256 is ae53f5439945ab45e2120484d2e54f2f3d8077b4b4bef6173c0b72764194c344. RaftRiver_Well1 and Well2 contain 24 and 38 explicit interval rows respectively. The other ten reports use attached sampled-depth descriptions and are excluded from interval scoring. Formal raster-only runs use no reference values during prediction."
