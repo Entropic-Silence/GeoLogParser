@@ -13,6 +13,7 @@ BOUNDARY = re.compile(rf"^\s*({NUMBER})\s*m?(?:\s+|$)", re.I)
 
 
 def _normalize_numeric_ocr(text: str) -> str:
+    text = re.sub(r"^\s*[|}\]\[]+\s*(?=\d)", "", text)
     text = re.sub(r"(?<=\d)[lI](?=\s*m?\s*[-–—])", "1", text)
     text = re.sub(r"(?<=[-–—])[lI](?=\s*m?\b)", "1", text)
     return re.sub(r"^\s*[lI](?=\s*[-–—])", "1", text)
@@ -28,11 +29,13 @@ def explicit_interval_sections(
         lowered = line.lower()
         if (
             re.search(r"\bbis\s+tiefe\b", lowered)
+            or re.search(r"\bbis\s+tief(?:e|em)?\b", lowered)
             or re.match(r"^\s*bis\s+m\b", lowered)
             or (
                 re.search(r"\b(?:tiefe\s*m|tiefem)\b", lowered)
                 and re.search(r"beschreibung.*bohrgut", lowered)
             )
+            or re.search(r"beschreibung.*bohrgut", lowered)
         ):
             starts.append(index)
     sections: list[list[tuple[float, float]]] = []

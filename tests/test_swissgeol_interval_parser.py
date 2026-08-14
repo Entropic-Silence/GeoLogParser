@@ -20,3 +20,23 @@ def test_ocr_tiefem_header_parses_without_reference_final_depth():
         "Bohrkote"
     )
     assert choose_interval_section(text) == [(0.0, 50.0), (50.0, 160.0)]
+
+
+def test_relaxed_roi_header_and_table_border_parse_ranges():
+    text = (
+        "Bis Tief Basaran dew Balewut\n"
+        "}0- 8 | Kies Lehm\n"
+        "8 - 140 | Sandstein Mergel\n"
+        "Beschreibung des Bohrgutes / Schichtenverzeichnis\n"
+    )
+    assert choose_interval_section(text) == [(0.0, 8.0), (8.0, 140.0)]
+
+
+def test_description_only_roi_header_is_sufficient():
+    text = (
+        "Beschreibung des Bohrgutes / Schichtenverzeichnis\n"
+        "bis Art, Eigenschaften\n"
+        "0-20m Moraene\n"
+        "20-125m Mergel und Sandstein\n"
+    )
+    assert choose_interval_section(text) == [(0.0, 20.0), (20.0, 125.0)]

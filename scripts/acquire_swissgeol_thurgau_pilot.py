@@ -167,6 +167,7 @@ def acquire(
     maximum_pages: int,
     client: SwissgeolClient,
     resume: bool = False,
+    dataset_version: str = DATASET_VERSION,
 ) -> dict[str, Any]:
     if (output_root / "dataset.json").exists():
         raise FileExistsError(f"immutable dataset is already frozen: {output_root}")
@@ -270,7 +271,7 @@ def acquire(
         encoding="utf-8",
     )
     summary = {
-        "dataset_version": DATASET_VERSION,
+        "dataset_version": dataset_version,
         "created_utc": datetime.now(timezone.utc).isoformat(),
         "source": "swissgeol boreholes public anonymous interface",
         "api_root": API_ROOT,
@@ -304,6 +305,7 @@ def main() -> None:
     )
     parser.add_argument("--limit", type=int, default=32)
     parser.add_argument("--maximum-pages", type=int, default=10)
+    parser.add_argument("--dataset-version", default=DATASET_VERSION)
     parser.add_argument("--resume", action="store_true")
     args = parser.parse_args()
     summary = acquire(
@@ -312,6 +314,7 @@ def main() -> None:
         maximum_pages=args.maximum_pages,
         client=SwissgeolClient(),
         resume=args.resume,
+        dataset_version=args.dataset_version,
     )
     print(json.dumps(summary, ensure_ascii=False, indent=2, sort_keys=True))
 

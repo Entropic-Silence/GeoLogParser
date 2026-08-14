@@ -72,3 +72,16 @@ def test_completed_dataset_is_immutable(tmp_path):
         assert "already frozen" in str(exc)
     else:
         raise AssertionError("completed dataset must not be overwritten")
+
+
+def test_dataset_version_can_be_frozen_for_a_successor_acquisition(tmp_path):
+    root = tmp_path / "successor"
+    class EmptyClient:
+        def json(self, path, *, method="GET", body=None):
+            return {"totalCount": 0, "totalPages": 0, "boreholes": []}
+
+    summary = MODULE.acquire(
+        root, limit=1, maximum_pages=1, client=EmptyClient(),
+        dataset_version="swissgeol_thurgau_paired_v002",
+    )
+    assert summary["dataset_version"] == "swissgeol_thurgau_paired_v002"
