@@ -1,6 +1,5 @@
 {
   "blockers": [
-    "manuscript evidence tags are absent from claim registry",
     "unresolved TBD/citation markers remain"
   ],
   "broken_local_links": [],
@@ -15,7 +14,7 @@
     "zhong2019publaynet"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "b3c92e901f7b3a087dca29d11ee1c9fba70102300543e8763dd73e0ef548ee8e",
+  "claim_registry_sha256": "c2c8af1b016a1c8430ad12712138fc228fdb4c0c89b0b1a77e887dc69521bf77",
   "claim_source_errors": [],
   "evidence_tags": [
     "p1.b2_padova",
@@ -118,10 +117,7 @@
   "manuscript_path": "papers/paper1/manuscript.md",
   "manuscript_sha256": "e0480ef55e72bb429a67b29dc2e20724535f8bd9780dc0091eea802f14ae6b91",
   "missing_bibliography_keys": [],
-  "missing_claim_registrations": [
-    "p1.usgs142_cross_source",
-    "p1.usgs144_cross_source"
-  ],
+  "missing_claim_registrations": [],
   "missing_literature_evidence_keys": [],
   "missing_required_sections": [],
   "package_label": "DRAFT_NOT_SUBMISSION_READY",
@@ -157,12 +153,14 @@
     "p1.swissgeol_authoritative_interval_rapidocr",
     "p1.tiber_content",
     "p1.tiber_rapidocr_coverage",
-    "p1.tiber_tesseract_coverage"
+    "p1.tiber_tesseract_coverage",
+    "p1.usgs142_cross_source",
+    "p1.usgs144_cross_source"
   ],
   "result_index_errors": [],
   "result_index_path": "experiments/paper1/result_index.jsonl",
   "result_index_sha256": "80e2c762a8bb99f086072059716863c1a7e45303ce3f875832086d937313d4a5",
-  "structurally_complete": false,
+  "structurally_complete": true,
   "submission_ready": false,
   "tbd_or_citation_marker_count": 9,
   "unused_claim_registrations": [],

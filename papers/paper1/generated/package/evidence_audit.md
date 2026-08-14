@@ -4,11 +4,10 @@
 Package: **DRAFT_NOT_SUBMISSION_READY**
 Manuscript words: **4356**; unresolved markers: **9**.
 Indexed runs: **44**; formal runs: **13**.
-Structural audit: **FAILED**.
+Structural audit: **PASSED**.
 
 ## Blockers
 
-- manuscript evidence tags are absent from claim registry
 - unresolved TBD/citation markers remain
 
 ## Trace

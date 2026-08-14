@@ -1573,6 +1573,36 @@
         {"type": "json_pointer_equals", "pointer": "/human_reviewed", "expected": false}
       ]
     },
+    "p1.usgs142_cross_source": {
+      "paper": "paper1",
+      "experiment_id": "P1_USGS142_CROSS_SOURCE_INTERVAL_FORMAL_002",
+      "scope": "single-document USGS-142 raster-only explicit-legend transfer diagnostic; not a representative generalization estimate",
+      "source_path": "results/2026-08-14/P1_USGS142_CROSS_SOURCE_INTERVAL_FORMAL_002/metrics.json",
+      "source_sha256": "32fd2ee42e6cf723c4e1a458ea1186fac625d88d519dcad990f1b66ee869202a",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 1},
+        {"type": "json_pointer_equals", "pointer": "/reference_interval_count", "expected": 12},
+        {"type": "json_pointer_equals", "pointer": "/predicted_interval_count", "expected": 12},
+        {"type": "json_pointer_equals", "pointer": "/document_full_exact/value", "expected": 1.0},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_f1/value", "expected": 1.0},
+        {"type": "json_pointer_equals", "pointer": "/prediction_reference_conditioning", "expected": "none"}
+      ]
+    },
+    "p1.usgs144_cross_source": {
+      "paper": "paper1",
+      "experiment_id": "P1_USGS144_CROSS_SOURCE_INTERVAL_FORMAL_001",
+      "scope": "single-document USGS-144 raster-only explicit-description transfer diagnostic; not a representative generalization estimate",
+      "source_path": "results/2026-08-14/P1_USGS144_CROSS_SOURCE_INTERVAL_FORMAL_001/metrics.json",
+      "source_sha256": "17ae066fc8a698b49f2949a30630ef2ad00adc3e672683b801e817f9564a59f1",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 1},
+        {"type": "json_pointer_equals", "pointer": "/reference_interval_count", "expected": 8},
+        {"type": "json_pointer_equals", "pointer": "/predicted_interval_count", "expected": 8},
+        {"type": "json_pointer_equals", "pointer": "/document_full_exact/value", "expected": 1.0},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_f1/value", "expected": 1.0},
+        {"type": "json_pointer_equals", "pointer": "/prediction_reference_conditioning", "expected": "none"}
+      ]
+    },
     "p2.swissgeol_heldout_constraint_reread": {
       "paper": "paper2",
       "experiment_id": "P2_SWISSGEOL_TG_CONSTRAINT_REREAD_HELDOUT_001",

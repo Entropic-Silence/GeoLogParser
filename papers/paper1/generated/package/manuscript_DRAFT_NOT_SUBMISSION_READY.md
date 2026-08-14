@@ -1,7 +1,7 @@
 <!-- AUTO-GENERATED REVIEW BUNDLE. DO NOT EDIT. -->
 > Package status: **DRAFT_NOT_SUBMISSION_READY**
 > This bundle combines the versioned manuscript and generated results for review.
-> Blockers: manuscript evidence tags are absent from claim registry; unresolved TBD/citation markers remain.
+> Blockers: unresolved TBD/citation markers remain.
 
 # A Benchmark for Structured Information Extraction from Heterogeneous Borehole Logs
 
