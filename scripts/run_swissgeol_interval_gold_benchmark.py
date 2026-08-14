@@ -131,6 +131,16 @@ def metric_dicts(reference_documents: list[list[dict]], prediction_documents: li
     }
 
 
+def manifest_count_keys(name: str) -> tuple[str, str, str]:
+    if "heldout" in name:
+        return "heldout_documents", "heldout_intervals", "content_group_heldout"
+    if "development" in name:
+        return "development_documents", "development_intervals", "content_group_development"
+    if "incremental" in name:
+        return "incremental_gold_documents", "incremental_gold_intervals", "incremental_heldout"
+    return "exact_full_interval_agreement_documents", "exact_full_interval_agreement_intervals", "source_agreement_all"
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--experiment-id", required=True)
@@ -141,6 +151,8 @@ def main() -> None:
     parser.add_argument("--render-dpi", type=int, default=250)
     parser.add_argument("--ocr-language", default="eng")
     parser.add_argument("--psm", type=int, default=3)
+    parser.add_argument("--parser-version", default="choose_interval_section_v2")
+    parser.add_argument("--split-version")
     arguments = parser.parse_args()
     if arguments.render_dpi <= 0:
         raise ValueError("render DPI must be positive")
@@ -159,14 +171,8 @@ def main() -> None:
     ]
     audit_summary = json.loads(audit_summary_path.read_text(encoding="utf-8"))
     dataset_summary = json.loads(dataset_summary_path.read_text(encoding="utf-8"))
-    incremental = "incremental" in gold_manifest.name
-    expected_documents_key = (
-        "incremental_gold_documents" if incremental
-        else "exact_full_interval_agreement_documents"
-    )
-    expected_intervals_key = (
-        "incremental_gold_intervals" if incremental
-        else "exact_full_interval_agreement_intervals"
+    expected_documents_key, expected_intervals_key, inferred_split = manifest_count_keys(
+        gold_manifest.name,
     )
     if len(rows) != audit_summary[expected_documents_key]:
         raise ValueError("Gold manifest/document count does not match frozen audit summary")
@@ -185,8 +191,8 @@ def main() -> None:
         "experiment_id": arguments.experiment_id,
         "git_commit": git_commit,
         "date": date.today().isoformat(),
-        "dataset_version": dataset_summary["dataset_version"] + "__interval_gold_v001",
-        "split_version": "source_agreement_explicit_table_pilot_v001",
+        "dataset_version": dataset_summary["dataset_version"] + "__interval_gold",
+        "split_version": arguments.split_version or inferred_split,
         "model": "B1_tesseract_ocr_conservative_interval_parser",
         "model_revision": tesseract_revision,
         "prompt_version": "not_applicable",
@@ -205,7 +211,7 @@ def main() -> None:
             "render_dpi": arguments.render_dpi,
             "ocr_language": arguments.ocr_language,
             "tesseract_psm": arguments.psm,
-            "parser": "choose_interval_section_v001",
+            "parser": arguments.parser_version,
             "interval_match_tolerance_m": 0.05,
             "ground_truth_sha256": file_sha256(gold_manifest),
             "ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
