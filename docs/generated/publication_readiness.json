@@ -23,7 +23,7 @@
     "paper2_formal_results_exist": true,
     "paper3_formal_results_exist": true
   },
-  "generated_at_utc": "2026-08-14T06:19:16.156841+00:00",
+  "generated_at_utc": "2026-08-14T06:30:06.183796+00:00",
   "ground_truth_exportable_count": 0,
   "interpretation": "Human-GT gates remain separate from the explicitly named machine-Silver agreement track. Silver runs do not satisfy human-GT publication claims; audit-only, failure-analysis, and protocol-only runs cannot satisfy formal completion.",
   "machine_silver_formal_count": 2,

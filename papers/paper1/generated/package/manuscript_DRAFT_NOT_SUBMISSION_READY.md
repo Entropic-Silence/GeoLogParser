@@ -60,6 +60,8 @@ still pending.
 
 The cross-source panel was extended with a second official Idaho release, USGS-144. Its three-page PDF contains eight explicit depth-lithology descriptions (0–5, 5–89, 89–133, 133–299, 299–306, 306–627, 627–635, and 635–639 ft). The source manifest, file hash, and rights evidence are recorded separately; this one-document addition is not pooled with the Swissgeol held-out estimate.
 
+A 98-page scanned USGS-151 lithologic core log was also audited as a larger transfer candidate. Two 250-DPI Tesseract layouts produced 71 and 61 explicit `LITHOLOGY` interval parses; 61 intervals on 40 pages agreed exactly on page, normalized lithology, and top/bottom depth. This artifact is labelled `SOURCE_EXPLICIT_MACHINE_CONSENSUS`, not Gold: the two readers share one OCR engine, ten rows remain unresolved, and the exact public item URL, rights, and precise-coordinate handling are still pending. It is therefore excluded from formal accuracy tables.
+
 ### 4.2 Annotation
 
 The local UI shows a panel beside editable provenance-bearing fields and permits a reviewer to draw a tighter display-space evidence box without overwriting the original PDF bbox. Auto proposals have status `auto`; human stages are `single_verified`, `double_verified`, and `expert_verified`. Each human save appends an attestation bound to the canonical final-record SHA256. `double_verified` requires two distinct anonymized IDs on the identical record hash, while `expert_verified` requires a server-allowlisted expert ID. Thus an edit invalidates attestations for the earlier record rather than inheriting its status.
