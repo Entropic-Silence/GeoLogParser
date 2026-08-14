@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Evaluate a preregistered raster-only constraint-guided reread policy.
+"""Evaluate a frozen raster-only constraint-guided reread policy.
 
 The policy was developed on the v001 Swissgeol source-agreement subset.  It is
 eligible for the held-out method tier only when the evaluation manifest has no
@@ -90,6 +90,42 @@ def contains_section(container, subset) -> bool:
     return all(pair in set(container) for pair in subset)
 
 
+def contiguous_from_zero(section) -> bool:
+    if not section or float(section[0][0]) != 0.0:
+        return False
+    return all(
+        float(top) < float(bottom)
+        and (index == 0 or float(section[index - 1][1]) == float(top))
+        for index, (top, bottom) in enumerate(section)
+    )
+
+
+def select_v2_candidate(first_section, peer_section, counts):
+    """Require peer/high-resolution evidence for a complete zero-based sequence."""
+    peer = section_key(peer_section)
+    first = section_key(first_section)
+    if not contiguous_from_zero(peer) or peer == first:
+        return None, "peer_not_complete_or_unchanged"
+    exact_support = counts.get(peer, 0)
+    if exact_support >= 2:
+        return peer, "peer_exact_highres_consensus"
+
+    # Complementary evidence is allowed when first-pass and repeated high-res
+    # sections jointly cover every peer interval without introducing an
+    # interval outside the peer sequence. This handles a split table where one
+    # reader sees the shallow row and another repeatedly sees the deeper row.
+    peer_intervals = set(peer)
+    if first and not set(first).issubset(peer_intervals):
+        return None, "first_pass_conflicts_with_peer"
+    covered = set(first)
+    for section, support in counts.items():
+        if support >= 2 and set(section).issubset(peer_intervals):
+            covered.update(section)
+    if covered == peer_intervals:
+        return peer, "peer_complementary_highres_consensus"
+    return None, "insufficient_peer_corroboration"
+
+
 def exact_document(reference: list[dict], prediction: list[dict]) -> bool:
     matches, missing, extra = match_intervals_by_boundaries(reference, prediction, 0.05)
     return len(matches) == len(reference) == len(prediction) and not missing and not extra
@@ -110,6 +146,16 @@ def main() -> None:
     parser.add_argument("--evaluation-manifest", type=Path, required=True)
     parser.add_argument("--development-manifest", type=Path, default=DEFAULT_DEVELOPMENT)
     parser.add_argument("--results-root", type=Path, default=ROOT / "results")
+    parser.add_argument(
+        "--evaluation-role", choices=("development", "heldout"), default="heldout",
+    )
+    parser.add_argument(
+        "--dataset-version", default="swissgeol_incremental_authoritative_interval_heldout",
+    )
+    parser.add_argument(
+        "--split-version", default="v001_development_disjoint_incremental_v002_evaluation",
+    )
+    parser.add_argument("--policy-version", choices=("v1", "v2"), default="v1")
     arguments = parser.parse_args()
 
     evaluation_rows = [
@@ -149,13 +195,31 @@ def main() -> None:
         ["tesseract", "--version"], text=True, capture_output=True, check=True,
     ).stdout.splitlines()[0]
     started = datetime.now(timezone.utc)
+    trigger_config = ["empty_interval_section", "suspicious_numeric_range", "reader_disagreement"]
+    if arguments.policy_version == "v2":
+        trigger_config.append("incomplete_top_boundary")
+    acceptance_config = (
+        {
+            "peer_sequence_must_start_at_zero": True,
+            "peer_sequence_must_be_contiguous": True,
+            "minimum_exact_highres_support": 2,
+            "allow_complementary_first_and_highres_coverage": True,
+            "candidate_must_equal_trigger_reader_sequence": True,
+        }
+        if arguments.policy_version == "v2"
+        else {
+            "minimum_identical_reader_support": 2,
+            "unique_top_support_required": True,
+            "baseline_intervals_must_be_preserved": True,
+        }
+    )
     run = create_run_directory(arguments.results_root, {
         "experiment_id": arguments.experiment_id,
         "git_commit": git_commit,
         "date": date.today().isoformat(),
-        "dataset_version": "swissgeol_incremental_authoritative_interval_heldout",
-        "split_version": "v001_development_disjoint_incremental_v002_evaluation",
-        "model": "constraint_triggered_multiview_tesseract_reread",
+        "dataset_version": arguments.dataset_version,
+        "split_version": arguments.split_version,
+        "model": f"constraint_triggered_multiview_tesseract_reread_{arguments.policy_version}",
         "model_revision": tesseract_version,
         "prompt_version": "not_applicable",
         "seed": 0,
@@ -167,18 +231,16 @@ def main() -> None:
             "prediction_reference_conditioning": "none",
             "first_pass": {"render_dpi": 250, "psm": 3},
             "trigger_reader": {"render_dpi": 250, "psm": 4},
-            "triggers": ["empty_interval_section", "suspicious_numeric_range", "reader_disagreement"],
+            "triggers": trigger_config,
             "reread": {
                 "render_dpi": 350,
                 "view_boxes_normalized": VIEW_BOXES,
                 "psm_values": list(PSM_VALUES),
             },
-            "acceptance": {
-                "minimum_identical_reader_support": 2,
-                "unique_top_support_required": True,
-                "baseline_intervals_must_be_preserved": True,
-            },
+            "acceptance": acceptance_config,
             "reference_blinded_decision_policy": True,
+            "evaluation_role": arguments.evaluation_role,
+            "policy_version": arguments.policy_version,
         },
         "started_utc": started.isoformat(),
     })
@@ -204,6 +266,8 @@ def main() -> None:
             triggers.append("suspicious_numeric_range")
         if section_key(first_section) != section_key(peer_section):
             triggers.append("reader_disagreement")
+        if arguments.policy_version == "v2" and first_section and first_section[0][0] > 0:
+            triggers.append("incomplete_top_boundary")
         (record_root / "first_pass_psm3.txt").write_text(first_text, encoding="utf-8")
         (record_root / "first_pass_psm4.txt").write_text(peer_text, encoding="utf-8")
 
@@ -232,24 +296,33 @@ def main() -> None:
                                 "section": section_key(section),
                             })
         counts = Counter(row["section"] for row in candidate_rows)
-        eligible = {
-            section: support
-            for section, support in counts.items()
-            if support >= 2 and (
-                not first_section or contains_section(section, section_key(first_section))
-            )
-        }
-        ranked = sorted(
-            eligible.items(), key=lambda item: (item[1], len(item[0]), item[0]), reverse=True,
-        )
         accepted = None
+        acceptance_reason = None
         decision = "KEEP_FIRST_PASS"
-        if ranked:
-            top_section, top_support = ranked[0]
-            next_support = ranked[1][1] if len(ranked) > 1 else -1
-            if top_support > next_support and top_section != section_key(first_section):
-                accepted = top_section
+        if arguments.policy_version == "v2":
+            accepted, acceptance_reason = select_v2_candidate(
+                first_section, peer_section, counts,
+            )
+            if accepted is not None:
                 decision = "ACCEPT_REREAD"
+        else:
+            eligible = {
+                section: support
+                for section, support in counts.items()
+                if support >= 2 and (
+                    not first_section or contains_section(section, section_key(first_section))
+                )
+            }
+            ranked = sorted(
+                eligible.items(), key=lambda item: (item[1], len(item[0]), item[0]), reverse=True,
+            )
+            if ranked:
+                top_section, top_support = ranked[0]
+                next_support = ranked[1][1] if len(ranked) > 1 else -1
+                if top_support > next_support and top_section != section_key(first_section):
+                    accepted = top_section
+                    acceptance_reason = "v1_unique_supported_extension"
+                    decision = "ACCEPT_REREAD"
         if triggers and accepted is None:
             decision = "NEEDS_REVIEW"
         final_section = accepted if accepted is not None else section_key(first_section)
@@ -263,6 +336,7 @@ def main() -> None:
                 for section, support in sorted(counts.items(), key=lambda item: (-item[1], item[0]))
             ],
             "decision": decision,
+            "acceptance_reason": acceptance_reason,
             "final_intervals": intervals(final_section),
             "latency_seconds": time.perf_counter() - case_started,
         })
@@ -306,7 +380,11 @@ def main() -> None:
     triggers_on_correct = sum(bool(row["triggers"]) for row in correct_first)
     wall_seconds = time.perf_counter() - wall_started
     metrics = {
-        "scope": "authoritative-interval heldout constraint-rereading evaluation",
+        "scope": (
+            "authoritative-interval heldout constraint-rereading evaluation"
+            if arguments.evaluation_role == "heldout"
+            else "authoritative-interval development constraint-rereading evaluation"
+        ),
         "reference_ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
         "comparison": "single_pass_vs_constraint_guided_reread",
         "prediction_reference_conditioning": "none",
@@ -349,9 +427,12 @@ def main() -> None:
         "wall_time_seconds": wall_seconds,
         "latency_seconds_per_document_wall": wall_seconds / len(frozen_predictions),
         "peak_process_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+        "evaluation_role": arguments.evaluation_role,
+        "policy_version": arguments.policy_version,
         "selection_limitation": (
-            "held-out incremental records from the same canton/source family; source-agreement "
-            "explicit-table selection; not cross-source or representative deployment evidence"
+            f"{arguments.evaluation_role} records from the same canton/source family; "
+            "source-agreement explicit-table selection; not cross-source or representative "
+            "deployment evidence"
         ),
     }
     (run / "predictions.jsonl").write_text(

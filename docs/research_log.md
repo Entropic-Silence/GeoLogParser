@@ -1597,3 +1597,31 @@
 - Rights: source/item terms remain
   `PENDING_MANUAL_PRE_SUBMISSION_REVIEW`; source and derived assets remain
   internal and are not redistributed.
+
+## 2026-08-14 — Swissgeol v003 development-only reread redesign
+
+- v1 development diagnostic:
+  `P2_SWISSGEOL_TG_CONSTRAINT_REREAD_DEV_V003_001` ran only on the frozen
+  37-document/85-interval development partition. First-pass F1 was
+  `0.9156626506`; final F1 was `0.9285714286`. Four of six incorrect documents
+  triggered, three of 31 correct documents triggered, and two rereads were
+  accepted, but neither produced a completely correct document. Development
+  correction success was `0/2`; development FCR was `0/2` because neither
+  accepted change corrupted a previously correct document.
+- Error diagnosis: two missed sequences arose from conservative parsing of OCR
+  table separators and leading `O`/zero confusion. Other errors showed that
+  PSM-4 and repeated high-resolution readings could agree on a complete
+  zero-based interval sequence while the v1 preservation rule retained a
+  spurious first-pass split. A non-zero-start high-resolution sequence was also
+  observed and was judged insufficient for automatic completion.
+- v2 development result:
+  `P2_SWISSGEOL_TG_CONSTRAINT_REREAD_DEV_V003_002` added narrowly scoped OCR
+  normalization and conservative peer/high-resolution sequence consensus.
+  First-pass F1 rose to `0.9467455621`; final F1 was `0.9880952381`. All four
+  incorrect first-pass documents triggered, three rereads were accepted and all
+  three corrected their documents, development FCR was `0/3`, and one error was
+  safely left for review. Three of 33 correct documents triggered. These are
+  development results and are excluded from held-out paper claims.
+- Freeze: ADR-012 records the v2 policy. Code, tests, parser normalization,
+  trigger set, and acceptance criteria must be committed before the v003
+  35-document/80-interval held-out manifest is evaluated.

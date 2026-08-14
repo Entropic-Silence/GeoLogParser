@@ -9,11 +9,12 @@ NUMBER = r"\d+(?:[.,]\d+)?"
 RANGE = re.compile(
     rf"^\s*({NUMBER})\s*(?:m\s*)?[-–—]\s*({NUMBER})\s*m?\b", re.I,
 )
-BOUNDARY = re.compile(rf"^\s*({NUMBER})\s*m?(?:\s+|$)", re.I)
+BOUNDARY = re.compile(rf"^\s*({NUMBER})\s*m?(?:[\s_|]+|$)", re.I)
 
 
 def _normalize_numeric_ocr(text: str) -> str:
-    text = re.sub(r"^\s*[|}\]\[]+\s*(?=\d)", "", text)
+    text = re.sub(r"^\s*[_|}\]\[]+\s*(?=\d)", "", text)
+    text = re.sub(r"^\s*[Oo](?=\s*m?\s*[-–—])", "0", text)
     text = re.sub(r"(?<=\d)[lI](?=\s*m?\s*[-–—])", "1", text)
     text = re.sub(r"(?<=[-–—])[lI](?=\s*m?\b)", "1", text)
     return re.sub(r"^\s*[lI](?=\s*[-–—])", "1", text)

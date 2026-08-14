@@ -40,3 +40,26 @@ def test_description_only_roi_header_is_sufficient():
         "20-125m Mergel und Sandstein\n"
     )
     assert choose_interval_section(text) == [(0.0, 20.0), (20.0, 125.0)]
+
+
+def test_parses_ocr_table_underscores_after_boundary_values():
+    text = (
+        "Tiefe Beschreibung Bohrgut\n"
+        "bis m Eigenschaften\n"
+        "6 _|Ueberlagerung\n"
+        "_10___|Mergel teilweise verwittert\n"
+        "_200__|Mergel und Sandstein\n"
+    )
+    assert choose_interval_section(text) == [
+        (0.0, 6.0), (6.0, 10.0), (10.0, 200.0),
+    ]
+
+
+def test_normalizes_letter_o_as_zero_in_explicit_leading_range():
+    text = (
+        "Tiefe Beschreibung des Bohrgutes\n"
+        "von / bis Eigenschaften\n"
+        "Om-20m sand kies moraene\n"
+        "20m-160m mergel\n"
+    )
+    assert choose_interval_section(text) == [(0.0, 20.0), (20.0, 160.0)]
