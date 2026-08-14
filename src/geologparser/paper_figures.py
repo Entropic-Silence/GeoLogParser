@@ -74,6 +74,55 @@ def save_degradation_profiles(manifest: Path, destination: Path) -> None:
     plt.close(fig)
 
 
+def save_authoritative_interval_pilot(
+    entries: Sequence[Mapping[str, Any]], repository_root: Path, destination: Path,
+) -> None:
+    """Plot the narrow source-agreement interval result from immutable metrics."""
+
+    candidates = []
+    for entry in entries:
+        metrics = json.loads(
+            (repository_root / entry["result_path"] / "metrics.json").read_text()
+        )
+        if metrics.get("scope") == "authoritative-interval benchmark evaluation":
+            candidates.append((entry, metrics))
+    if not candidates:
+        raise ValueError("no authoritative interval benchmark result is indexed")
+    entry, metrics = candidates[-1]
+    interval = metrics["interval_metrics"]
+    labels = ["Precision", "Recall", "F1", "Full-document\nexact"]
+    values = [
+        interval["interval_precision"]["value"],
+        interval["interval_recall"]["value"],
+        interval["interval_f1"]["value"],
+        metrics["document_full_exact"]["value"],
+    ]
+    plt = _plt()
+    fig, axis = plt.subplots(figsize=(7.5, 4.8))
+    bars = axis.bar(labels, values, color=["#2f6f8f", "#b76e3b", "#4c956c", "#7b6d8d"])
+    axis.set_ylim(0, 1.08)
+    axis.set_ylabel("Score")
+    axis.set_title("Authoritative source-agreement interval pilot")
+    axis.grid(axis="y", alpha=.2)
+    for bar, value in zip(bars, values):
+        axis.text(bar.get_x() + bar.get_width() / 2, value + .02, f"{value:.3f}", ha="center")
+    axis.text(
+        .01, -.23,
+        (
+            f'{metrics["document_count"]} selected documents; '
+            f'{metrics["reference_interval_count"]} reference / '
+            f'{metrics["predicted_interval_count"]} predicted intervals; '
+            "explicit-table source-agreement subset, not a representative sample"
+        ),
+        transform=axis.transAxes, fontsize=8,
+    )
+    axis.text(.99, .03, entry["experiment_id"], transform=axis.transAxes, ha="right", fontsize=7)
+    fig.tight_layout()
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(destination, dpi=180, bbox_inches="tight")
+    plt.close(fig)
+
+
 def save_padova_locations(location_manifest: Path, destination: Path) -> None:
     rows = [json.loads(line) for line in location_manifest.read_text(encoding="utf-8").splitlines() if line]
     groups = {

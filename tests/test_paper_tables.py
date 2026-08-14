@@ -98,6 +98,37 @@ def test_paper1_table_separates_synthetic_controlled_results(tmp_path: Path):
     assert "cannot establish performance on Real Gold" in table
 
 
+def test_paper1_table_includes_authoritative_interval_pilot_with_scope_warning(tmp_path: Path):
+    metric = lambda value, numerator=1, denominator=1: {
+        "value": value, "numerator": numerator, "denominator": denominator,
+    }
+    metrics = {
+        "scope": "authoritative-interval benchmark evaluation",
+        "document_count": 9,
+        "reference_interval_count": 21,
+        "predicted_interval_count": 15,
+        "document_full_exact": metric(2 / 3, 6, 9),
+        "interval_metrics": {
+            "interval_precision": metric(1.0, 15, 15),
+            "interval_recall": metric(15 / 21, 15, 21),
+            "interval_f1": metric(5 / 6),
+            "matched_top_boundary_mae_m": metric(0.0, 0, 15),
+            "matched_bottom_boundary_mae_m": metric(0.0, 0, 15),
+        },
+        "latency_seconds_per_document_wall": 3.1,
+    }
+    write_run(tmp_path, metrics, {"model": "tesseract-pilot"})
+    table = paper1_table([{
+        "experiment_id": "P1_AUTH_INTERVAL", "result_path": "result",
+        "paper_eligibility": "formal_authoritative_interval",
+    }], tmp_path)
+    assert "Authoritative source-agreement interval pilot" in table
+    assert "P1_AUTH_INTERVAL" in table
+    assert "15 | 1.000 | 0.714 | 0.833" in table
+    assert "not a representative random sample" in table
+    assert "no human annotation is claimed" in table
+
+
 def test_paper3_table_is_labelled_protocol_only(tmp_path: Path, monkeypatch):
     metrics = {"conditions": [{"magnitude_m": .1, "seed": 1, "count": 3, "mae_m": .02, "rmse_m": .03, "max_abs_error_m": .04}]}
     write_run(tmp_path, metrics, {})

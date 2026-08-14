@@ -26,6 +26,8 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
     native_rows = []
     synthetic_rows = []
     silver_rows = []
+    authoritative_interval_rows = []
+    conditional_interval_rows = []
     robustness_rows = []
     for entry in entries:
         metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
@@ -56,6 +58,26 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
                 number(interval["interval_f1"]["value"]),
                 entry["paper_eligibility"],
             ]) + " |")
+            continue
+        if metrics.get("scope") == "authoritative-interval benchmark evaluation":
+            interval = metrics["interval_metrics"]
+            rendered = "| " + " | ".join([
+                entry["experiment_id"], run["model"], str(metrics["document_count"]),
+                str(metrics["reference_interval_count"]),
+                str(metrics["predicted_interval_count"]),
+                number(interval["interval_precision"]["value"]),
+                number(interval["interval_recall"]["value"]),
+                number(interval["interval_f1"]["value"]),
+                number(interval["matched_top_boundary_mae_m"]["value"]),
+                number(interval["matched_bottom_boundary_mae_m"]["value"]),
+                ratio(metrics["document_full_exact"]),
+                number(metrics["latency_seconds_per_document_wall"]),
+                entry["paper_eligibility"],
+            ]) + " |"
+            if entry["paper_eligibility"] == "formal_authoritative_interval":
+                authoritative_interval_rows.append(rendered)
+            else:
+                conditional_interval_rows.append(rendered)
             continue
         if "positioned_text_layout" in metrics.get("coverage_channels", []):
             native_coverage_rows.append("| " + " | ".join([
@@ -170,6 +192,20 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
         "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---|",
         *synthetic_rows, "",
         "These rows use programmatically known Synthetic labels. They validate controlled extraction and robustness paths but cannot establish performance on Real Gold borehole logs.",
+        "",
+        "### Authoritative source-agreement interval pilot",
+        "",
+        "| Experiment | Model | Documents | Reference intervals | Predicted intervals | Interval P | Interval R | Interval F1 | Matched top MAE (m) | Matched bottom MAE (m) | Full-document exact | s/document | Eligibility |",
+        "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|",
+        *authoritative_interval_rows,
+        "The reference contains only interval boundaries from official database records whose complete sequence exactly agrees with an explicit table in the paired official PDF. It is a source-agreement-selected pilot, not a representative random sample, and no human annotation is claimed.",
+        "",
+        "### Reference-conditioned interval diagnostics excluded from formal claims",
+        "",
+        "| Experiment | Model | Documents | Reference intervals | Predicted intervals | Interval P | Interval R | Interval F1 | Matched top MAE (m) | Matched bottom MAE (m) | Full-document exact | s/document | Eligibility |",
+        "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|",
+        *conditional_interval_rows,
+        "These retained runs conditioned candidate filtering/ranking on an official reference field and are diagnostics only. They are excluded from formal extraction claims even when their output metrics are otherwise valid.",
         "",
         "### Machine-adjudicated Silver agreement benchmark (not human accuracy)",
         "",

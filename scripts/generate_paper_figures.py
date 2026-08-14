@@ -9,8 +9,9 @@ import json
 from pathlib import Path
 
 from geologparser.paper_figures import (
-    save_audit_coverage, save_degradation_profiles, save_error_propagation,
-    save_method_schematic, save_padova_locations, save_source_field_propagation,
+    save_audit_coverage, save_authoritative_interval_pilot, save_degradation_profiles,
+    save_error_propagation, save_method_schematic, save_padova_locations,
+    save_source_field_propagation,
 )
 from geologparser.result_index import verify_index
 
@@ -45,6 +46,10 @@ def main() -> None:
     outputs.append(paper1 / "audit_coverage.png")
     save_degradation_profiles(arguments.degradation_manifest, paper1 / "degradation_inputs.png")
     outputs.append(paper1 / "degradation_inputs.png")
+    save_authoritative_interval_pilot(
+        indexes["paper1"], ROOT, paper1 / "authoritative_interval_pilot.png",
+    )
+    outputs.append(paper1 / "authoritative_interval_pilot.png")
     paper2 = arguments.output_root / "paper2/generated/figures"
     save_method_schematic(paper2 / "method_schematic.png")
     outputs.append(paper2 / "method_schematic.png")
