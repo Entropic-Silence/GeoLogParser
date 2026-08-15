@@ -13,7 +13,7 @@
     "xu2021layoutlmv2"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "e88130a16897af9a2a963528f8842ee342d2366358f3ed0fe716fb40277bde38",
+  "claim_registry_sha256": "52a72d8dab48fcc85d84211b94634cd2fa4231520ae110d18d3166e1ff44e664",
   "claim_source_errors": [],
   "evidence_tags": [
     "p2.bgs_metadata_consensus",
@@ -76,7 +76,7 @@
     {
       "exists": true,
       "resolved_path": "docs/generated/publication_readiness.md",
-      "sha256": "e1e441bf0bdc85f1e9780e541ebd6faf00b29bd880a446bb65b22873a301259e",
+      "sha256": "d1d098e1a92aa9bfb540f133bee23eb3bcbf49cb3a367614f8272f20fa0503f3",
       "target": "../../docs/generated/publication_readiness.md"
     },
     {

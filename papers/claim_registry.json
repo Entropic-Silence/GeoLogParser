@@ -2452,6 +2452,19 @@
         {"type": "json_pointer_equals", "pointer": "/by_variant/final/relative_absolute_volume_error", "expected": 0.12156521848079282},
         {"type": "json_pointer_equals", "pointer": "/by_variant/final/layers_with_negative_thickness", "expected": 1}
       ]
+    },
+    "p3.real_surface_visualization": {
+      "paper": "paper3",
+      "scope": "real Swissgeol first-boundary reference and reread surface VTP/PNG visualization artifact",
+      "source_path": "results/2026-08-15/P3_SWISSGEOL_REAL_SURFACE_VTP_001/metrics.json",
+      "source_sha256": "d05664055cf3f7f8f0f0e0f1dc9795eda92c549a57a72a64ec79af348799b9a3",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 35},
+        {"type": "json_pointer_equals", "pointer": "/reference_point_count", "expected": 35},
+        {"type": "json_pointer_equals", "pointer": "/final_point_count", "expected": 34},
+        {"type": "json_pointer_equals", "pointer": "/exports/reference/point_count", "expected": 625},
+        {"type": "json_pointer_equals", "pointer": "/exports/final/point_count", "expected": 625}
+      ]
     }
   }
 }

@@ -70,7 +70,11 @@ In the 35-document partial downstream experiment, page coordinates were availabl
 The [Padova source-location plot](generated/figures/padova_locations.png) shows
 three separated site groups and therefore rules out interpolation across the
 whole collection as one local surface. Coordinates remain source-provided and
-unverified. The [synthetic propagation curve](generated/figures/synthetic_error_propagation.png)
+unverified. The real first-boundary surface export also writes reference and
+reread VTP/PNG meshes for the 35-record held-out set; these files are
+visualization artifacts and do not change the quantitative layer-volume
+evaluation. <!-- evidence:p3.real_surface_visualization -->
+The [synthetic propagation curve](generated/figures/synthetic_error_propagation.png)
 is explicitly protocol-only and must not be interpreted as real-site response.
 The [structured-source proxy curve](generated/figures/coal602_source_proxy.png)
 is kept separate from the synthetic curve and carries the same non-formal

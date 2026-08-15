@@ -3,14 +3,14 @@
   "bibliography_path": "papers/references.bib",
   "bibliography_sha256": "c037d042f2252755f866c89848ea876f88a699e9c99dbb8ccdcd6b6d1e8a3882",
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "e88130a16897af9a2a963528f8842ee342d2366358f3ed0fe716fb40277bde38",
+  "claim_registry_sha256": "52a72d8dab48fcc85d84211b94634cd2fa4231520ae110d18d3166e1ff44e664",
   "literature_evidence_path": "docs/literature_evidence.yaml",
   "literature_evidence_sha256": "54ceff4a97757e0fe2bc0d82ad559447b75694e388747cf4f9eb58b570a7e4d9",
   "package_schema_version": "paper_packages_v001",
   "papers": [
     {
       "evidence_audit_path": "paper1/generated/package/evidence_audit.json",
-      "evidence_audit_sha256": "6356ac4430caabd31a805b2d1308c64c1356baa154c60a81ea31f6807a48827f",
+      "evidence_audit_sha256": "d1074d66a1c4ad13d1e194d6d6aee2525e797379e3fafc4c7bd6424e20b0299e",
       "package_label": "DRAFT_NOT_SUBMISSION_READY",
       "paper": "paper1",
       "review_bundle_path": "paper1/generated/package/manuscript_DRAFT_NOT_SUBMISSION_READY.md",
@@ -19,7 +19,7 @@
     },
     {
       "evidence_audit_path": "paper2/generated/package/evidence_audit.json",
-      "evidence_audit_sha256": "c9d7384af334e05429348dba4ba46a8ff33ae1325cca7905b46c1d7a9dc7f2b6",
+      "evidence_audit_sha256": "fbb071c1f77c1d95620c359251235ac0fb0b127cc4f7a4ef3309003945f687f3",
       "package_label": "DRAFT_NOT_SUBMISSION_READY",
       "paper": "paper2",
       "review_bundle_path": "paper2/generated/package/manuscript_DRAFT_NOT_SUBMISSION_READY.md",
@@ -28,11 +28,11 @@
     },
     {
       "evidence_audit_path": "paper3/generated/package/evidence_audit.json",
-      "evidence_audit_sha256": "1b2e72fd896f11e281df71f4a179902e26f82bb08f3d2341c258e0ecfb49a917",
+      "evidence_audit_sha256": "4b9a4606247f2c7b77d278e34861d6ba3a7dd7d64206c9a450e1cac8efc41761",
       "package_label": "DRAFT_NOT_SUBMISSION_READY",
       "paper": "paper3",
       "review_bundle_path": "paper3/generated/package/manuscript_DRAFT_NOT_SUBMISSION_READY.md",
-      "review_bundle_sha256": "f4c0c3debf0ae14eb818d4cb8835b223ec04501ed61bc9f1a807db47b038a17e",
+      "review_bundle_sha256": "04ad9cca8dacae95c4a2387e6ea371cf69af8542737e8c302ffa2fd5a2e8c71a",
       "submission_ready": false
     }
   ],
