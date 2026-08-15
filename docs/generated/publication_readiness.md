@@ -15,7 +15,7 @@ Published manual-transcription formal runs: **16**.
 |---|---:|---:|---:|
 | paper1 | 61 | 2 | 27 |
 | paper2 | 18 | 1 | 12 |
-| paper3 | 13 | 1 | 6 |
+| paper3 | 14 | 1 | 6 |
 
 Audit/failure-analysis/protocol-only runs are intentionally excluded from formal counts.
 False gates require `TBD`/`NOT COMPLETED`; this file is status evidence, not a paper result.
