@@ -2479,6 +2479,37 @@
         {"type": "json_pointer_equals", "pointer": "/random_test/development_overlap_fraction/mean", "expected": 0.16819999999999996}
       ]
     },
+    "p2.bgs_long_page_layout": {
+      "paper": "paper2",
+      "scope": "development-only BGS v001 long-page semantic-layout and exact numeric candidate visibility attribution",
+      "source_path": "experiments/paper2/analysis/bgs_multiscale_visibility_development_v002.json",
+      "source_sha256": "49c72f5ddd3432f1b890e48aa1a617d2f8465af94032f342fd51de7fa0d26bbd",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 26},
+        {"type": "json_pointer_equals", "pointer": "/page_count", "expected": 34},
+        {"type": "json_pointer_equals", "pointer": "/reference_boundary_count", "expected": 367},
+        {"type": "json_pointer_equals", "pointer": "/full_page_visibility/numerator", "expected": 75},
+        {"type": "json_pointer_equals", "pointer": "/combined_visibility/numerator", "expected": 96},
+        {"type": "json_pointer_equals", "pointer": "/combined_visibility/value", "expected": 0.2615803814713896}
+      ]
+    },
+    "p2.bgs_layout_method_dev": {
+      "paper": "paper2",
+      "scope": "development-only five-fold source-disjoint BGS v001 layout/field-aware candidate and monotone-sequence failure analysis; not external confirmation",
+      "source_path": "experiments/paper2/analysis/bgs_layout_method_development_v006.json",
+      "source_sha256": "353dedf83527f12ee6bb47a42edff7d806a05d82c6376d19eb004c12c59727c0",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 26},
+        {"type": "json_pointer_equals", "pointer": "/reference_boundary_count", "expected": 367},
+        {"type": "json_pointer_equals", "pointer": "/scale_calibrated_pages", "expected": 26},
+        {"type": "json_pointer_equals", "pointer": "/ablations/field_aware_generation/boundary_at_0_05m/recall", "expected": 0.3024523160762943},
+        {"type": "json_pointer_equals", "pointer": "/ablations/geological_monotonic_sequence/boundary_at_0_05m/precision", "expected": 0.37572254335260113},
+        {"type": "json_pointer_equals", "pointer": "/ablations/geological_monotonic_sequence/boundary_at_0_05m/f1", "expected": 0.24074074074074076},
+        {"type": "json_pointer_equals", "pointer": "/ablations/geological_monotonic_sequence/interval_at_0_05m/f1", "expected": 0.08906882591093117},
+        {"type": "json_pointer_equals", "pointer": "/ablations/geological_monotonic_sequence/boundary_at_0_10m/critical_numerical_error_rate", "expected": 0.6184971098265896},
+        {"type": "json_pointer_equals", "pointer": "/ablations/risk_aware_selective_prediction/accepted_boundary_count", "expected": 4}
+      ]
+    },
     "p1.california_vlm_gold": {
       "paper": "paper1",
       "experiment_id": "P1_B4_QWEN3VL4B_CALIFORNIA_TEST_FORMAL_001R",

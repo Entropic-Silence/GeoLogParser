@@ -2233,3 +2233,28 @@
 - Indexed as `P1_B4_QWEN3VL4B_CALIFORNIA_TEST_FORMAL_001R`. This is a real
   VLM baseline against published manual-transcription Gold; schema validity is
   not treated as extraction accuracy.
+
+## 2026-08-15 — BGS long-page field-aware method development gate
+
+- Reclassified BGS offshore v001 as a development/failure-attribution source
+  because its document-level baseline failures had already been inspected.
+  Froze v002 with zero record-ID or source-title overlap: 3 documents, 3 new
+  source groups, 4 evaluation pages, and 49 official intervals. Manifest SHA256
+  is `f84a8b282ec054dbe0a06bd3a6f6cf3136f3f6e22f9d92fcc7907ffe03af16ae`.
+- Semantic panel inference localized 33/34 v001 pages. Full-page exact boundary
+  visibility was 75/367. Overlapping 2x panel tiles increased the union to
+  96/367. Adaptive boundary/scale strips with 4x rereading and table-line
+  removal supplied a different evidence channel; the final union was 110/367.
+- Implemented explicit depth-scale calibration, graphic-layer transition
+  candidates, multi-view OCR evidence, header final-depth candidates, a small
+  probabilistic ranker, provenance, monotone sequence inference, and selective
+  acceptance. Five-fold splits are deterministic and source-group disjoint.
+- The current v006 method failed the deployment gate. At ±0.05 m its monotone
+  output had boundary precision/recall/F1 0.3757/0.1771/0.2407 and interval F1
+  0.0891. At ±0.10 m critical numerical error rate was 0.6185. The selective
+  policy accepted 4 boundaries, of which 2 were wrong.
+- This is a useful negative result: layout localization is not the primary
+  bottleneck, multiscale visibility remains insufficient, and independent
+  candidate classification cannot distinguish mutually exclusive depth roles.
+  ADR-015 prevents consuming BGS v002 until explicit development thresholds are
+  met. No v002 extraction result has been viewed or used for tuning.
