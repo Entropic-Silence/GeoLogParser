@@ -1,0 +1,87 @@
+{
+  "accuracy_claim_allowed": false,
+  "by_document": {
+    "USGS_152A_Lithologic_Log_20230227": {
+      "both_lithology_pages": 20,
+      "page_count": 32,
+      "rapidocr_depth_ranges": 104,
+      "rapidocr_only_lithology_pages": 0,
+      "tesseract_depth_ranges": 105,
+      "tesseract_only_lithology_pages": 0
+    },
+    "USGS_152B_Lithologic_Log_20230227": {
+      "both_lithology_pages": 27,
+      "page_count": 35,
+      "rapidocr_depth_ranges": 114,
+      "rapidocr_only_lithology_pages": 0,
+      "tesseract_depth_ranges": 114,
+      "tesseract_only_lithology_pages": 0
+    },
+    "USGS_152_Lithologic_Log_20230227": {
+      "both_lithology_pages": 38,
+      "page_count": 70,
+      "rapidocr_depth_ranges": 249,
+      "rapidocr_only_lithology_pages": 0,
+      "tesseract_depth_ranges": 250,
+      "tesseract_only_lithology_pages": 0
+    },
+    "cfpp_b01_lithologic_log": {
+      "both_lithology_pages": 122,
+      "page_count": 146,
+      "rapidocr_depth_ranges": 936,
+      "rapidocr_only_lithology_pages": 0,
+      "tesseract_depth_ranges": 930,
+      "tesseract_only_lithology_pages": 0
+    },
+    "usgs144_lithologic_log": {
+      "both_lithology_pages": 18,
+      "page_count": 62,
+      "rapidocr_depth_ranges": 89,
+      "rapidocr_only_lithology_pages": 2,
+      "tesseract_depth_ranges": 83,
+      "tesseract_only_lithology_pages": 0
+    },
+    "usgs145_lithologic_log": {
+      "both_lithology_pages": 22,
+      "page_count": 130,
+      "rapidocr_depth_ranges": 870,
+      "rapidocr_only_lithology_pages": 33,
+      "tesseract_depth_ranges": 791,
+      "tesseract_only_lithology_pages": 0
+    },
+    "usgs150_lithologic_log": {
+      "both_lithology_pages": 34,
+      "page_count": 133,
+      "rapidocr_depth_ranges": 745,
+      "rapidocr_only_lithology_pages": 14,
+      "tesseract_depth_ranges": 649,
+      "tesseract_only_lithology_pages": 0
+    }
+  },
+  "depth_range_detection": {
+    "rapidocr_minus_tesseract": 185,
+    "rapidocr_total": 3107,
+    "tesseract_total": 2922
+  },
+  "document_count": 7,
+  "full_text_detection": {
+    "rapidocr_blank_pages": 1,
+    "tesseract_blank_pages": 0
+  },
+  "human_reviewed": false,
+  "interpretation_boundary": "Engine disagreement is a real detection event, not proof that either engine is correct; no interval precision/recall/F1 is computed.",
+  "lithology_detection": {
+    "both_pages": 281,
+    "disagreement_document_counts": {
+      "usgs144_lithologic_log": 2,
+      "usgs145_lithologic_log": 33,
+      "usgs150_lithologic_log": 14
+    },
+    "neither_pages": 278,
+    "rapidocr_only_pages": 49,
+    "tesseract_only_pages": 0
+  },
+  "page_count": 608,
+  "scope": "USGS Idaho official-source scan cross-engine error-event analysis",
+  "source_page_audit_sha256": "e7397bcf57d235477d9606cb909668bd568ae0fc1c2dbe649aec90944e371984"
+}

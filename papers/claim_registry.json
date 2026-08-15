@@ -2308,6 +2308,36 @@
         {"type": "json_pointer_equals", "pointer": "/tesseract/spurious_interval_count", "expected": 46},
         {"type": "json_pointer_equals", "pointer": "/engine_overlap/neither_output_documents", "expected": 13}
       ]
+    },
+    "p1.usgs_idaho_cross_engine": {
+      "paper": "paper1",
+      "experiment_id": "P1_USGS_IDAHO_LITHOLOGIC_V001_CROSS_ENGINE_COVERAGE_001",
+      "scope": "seven-document, 608-page official USGS Idaho image-only lithologic-log cross-engine coverage audit; no interval accuracy claim",
+      "source_path": "results/2026-08-15/P1_USGS_IDAHO_LITHOLOGIC_V001_CROSS_ENGINE_COVERAGE_001/metrics.json",
+      "source_sha256": "ad3b8e84c3bee385c4c1746fac4d2ce539ef3c7667974ce9445ea4505df1cad0",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 7},
+        {"type": "json_pointer_equals", "pointer": "/page_count", "expected": 608},
+        {"type": "json_pointer_equals", "pointer": "/tesseract_text_pages", "expected": 608},
+        {"type": "json_pointer_equals", "pointer": "/rapidocr_text_pages", "expected": 607},
+        {"type": "json_pointer_equals", "pointer": "/both_lithology_pages", "expected": 281},
+        {"type": "json_pointer_equals", "pointer": "/lithology_disagreement_pages", "expected": 49},
+        {"type": "json_pointer_equals", "pointer": "/tesseract_total_depth_ranges", "expected": 2922},
+        {"type": "json_pointer_equals", "pointer": "/rapidocr_total_depth_ranges", "expected": 3107}
+      ]
+    },
+    "p1.usgs_idaho_error_analysis": {
+      "paper": "paper1",
+      "scope": "post-hoc cross-engine detection-event analysis on the frozen USGS Idaho official-source scan audit",
+      "source_path": "experiments/paper1/analysis/usgs_idaho_cross_engine_errors_v001.json",
+      "source_sha256": "d882f4189e7e24a1c657826568aaaae1a442cab056124368caa831744fc2c35f",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/lithology_detection/rapidocr_only_pages", "expected": 49},
+        {"type": "json_pointer_equals", "pointer": "/lithology_detection/tesseract_only_pages", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/lithology_detection/disagreement_document_counts/usgs145_lithologic_log", "expected": 33},
+        {"type": "json_pointer_equals", "pointer": "/lithology_detection/disagreement_document_counts/usgs150_lithologic_log", "expected": 14},
+        {"type": "json_pointer_equals", "pointer": "/depth_range_detection/rapidocr_minus_tesseract", "expected": 185}
+      ]
     }
   }
 }

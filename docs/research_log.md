@@ -2112,3 +2112,23 @@
 - Rights decision remains `ELIGIBLE_INTERNAL_ONLY`: ArcGIS records state OGL
   v3.0, while scan footers include legacy all-rights-reserved wording. Original
   PDFs remain local pending the user's final manual source verification.
+
+## 2026-08-15 — USGS Idaho image-only lithologic-log source audit
+
+- Acquired five official ScienceBase release inventories covering USGS 144,
+  145, 150, 152/152A/152B, and CFPP-B01. The frozen local set contains seven
+  lithologic-log PDFs and 608 pages; manifest SHA256 is
+  `40126bfe0e27e75155627af2ebb9d95cc4279279d4bdfec229c3cf8abe603383`.
+- Run `P1_USGS_IDAHO_LITHOLOGIC_V001_CROSS_ENGINE_COVERAGE_001` rendered every
+  page at 180 DPI and applied Tesseract PSM 11 and RapidOCR independently.
+  Tesseract emitted non-empty text on 608/608 pages and RapidOCR on 607/608.
+- Both engines detected an explicit lithology label on 281 pages. RapidOCR
+  alone detected it on 49 pages and Tesseract alone on zero. The disagreements
+  occurred only in USGS 144 (2), USGS 145 (33), and USGS 150 (14); the other
+  four documents had zero label-presence disagreement.
+- RapidOCR emitted 3,107 numeric depth-range candidates versus 2,922 for
+  Tesseract. This 185-candidate difference is an engine detection event, not an
+  accuracy result. No independent interval reference exists, so precision,
+  recall, F1, and correctness are intentionally undefined.
+- The source remains internal pending final item-level rights, attribution,
+  precise-location, and embedded-content review. No human review is claimed.

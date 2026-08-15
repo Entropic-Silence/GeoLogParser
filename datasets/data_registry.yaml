@@ -1,5 +1,5 @@
 registry_version: v001
-last_verified_utc: "2026-08-14"
+last_verified_utc: "2026-08-15"
 policy:
   listing_is_permission_to_download: false
   redistribution_requires_explicit_verification: true
@@ -924,3 +924,21 @@ datasets:
     paper_fit: [paper1_cross_source_interval_benchmark, paper1_real_error_analysis, paper2_constraint_sequence_recovery]
     status: acquired_authoritative_graphic_log_interval_benchmark_v001_rights_pending
     verification_notes: "The official Offshore GeoIndex exposes Borehole Activity and Scan layer 6 and Borehole Geology Data layer 7, joined on ACTIVITY_ID. Selection retained only metre-unit rows whose INTERP_SOURCE states that interpretation was derived from a graphic log, with 5-60 positive intervals, no depth overlap, and adjacent continuity >=0.95. The 26 selected records cover 26 distinct SOURCE_TITLE groups. Manifest SHA256 d85f6c862b81d80c793887f73ca8b70658d42de358f25230dc4a15104520c99c; split SHA256 03adfecca7f2c97c1612752ff1ca387fe1f22f31ee20cdf8981ef1f2cee8d096. The ArcGIS terms field states OGL v3.0 and unrestricted use, while scanned pages include legacy all-rights-reserved footer wording; this conflict is preserved in the pre-submission source-verification ledger. project_human_reviewed=false; reference tier is GOLD_AUTHORITATIVE_SOURCE_AGREEMENT, not human annotation."
+
+  - id: usgs_idaho_lithologic_v001
+    name: "USGS Idaho INL lithologic-log image collection (USGS 144, 145, 150, 152/152A/152B, and CFPP-B01)"
+    source_organization: "U.S. Geological Survey / Idaho National Laboratory"
+    url: https://www.sciencebase.gov/catalog/
+    access_date: "2026-08-15"
+    language: English
+    format: "seven official image-only lithologic-log PDFs acquired from five ScienceBase data releases; USGS 152 is distributed as a ZIP containing three PDFs"
+    scale: "7 PDFs / 608 source pages; 507,493,718 bytes across the frozen raw ZIP/PDF inventory; source scans include core-geological profiles, lithology labels, depth axes, and descriptive pages"
+    downloadable: true
+    access_status: "official ScienceBase file inventory queried and direct file downloads completed; hashes frozen in acquisition metadata"
+    license: "USGS public-release/copyright terms require manual item-level and embedded-content verification"
+    allowed_usage: "internal research audit only pending final rights verification"
+    redistribution: prohibited_pending_verification
+    redistribution_policy: "keep source PDFs local; publish only source identifiers, hashes, aggregate audit metrics, and permitted derived annotations after manual verification"
+    paper_fit: [paper1_cross_source_transfer, paper1_real_error_analysis, paper2_source_shift_stress_test]
+    status: acquired_official_source_scan_coverage_audit_rights_pending
+    verification_notes: "ScienceBase items: USGS 144 (64adbf89d34e70357a2931d8), USGS 145 (64d15b1dd34ef477cf3c0228), USGS 150 (67853160d34ec3ce63796974), USGS 152 (63ea625cd34efa0476aecdd7), and CFPP-B01 (671819d5d34ee1f0a8822616). Local acquisition metadata is /data/GeoLogParser/datasets/public/usgs_idaho_lithologic_v001/metadata/acquisition.json; raw inventory SHA256 is ed1d58fe8bd9db5d80e6c017a04be0501877e132c55ac22dd0ee5e80757bc386. The source pages are image-only at the PDF text layer; the current formal experiment is a Tesseract-versus-RapidOCR page coverage/disagreement audit and deliberately reports no interval accuracy because independent labels are not available. human_reviewed=false."

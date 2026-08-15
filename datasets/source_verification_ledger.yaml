@@ -2093,6 +2093,47 @@ records:
   registry_status: acquired_authoritative_graphic_log_interval_benchmark_v001_rights_pending
   registry_verification_notes: '593 scan records and 10,727 geology rows were queried. Filtering for metre-unit graphic-log interpretations, legal positive intervals, no overlaps, and >=0.95 adjacent continuity yielded 251 candidates. The frozen set contains 26 PDFs, 372 pages, 34 BH_COMP_LOG evaluation pages, 341 intervals, and 26 distinct SOURCE_TITLE groups. Original IMAGE_URL values use marinedata.ac.uk; downloads used the reachable BGS-qualified host alias marinedata.bgs.ac.uk, with both URLs preserved. No human review is claimed.'
 
+- source_id: usgs_idaho_lithologic_v001
+  source_name: USGS Idaho INL image-only lithologic-log collection
+  url: https://www.sciencebase.gov/catalog/
+  source_url: https://www.sciencebase.gov/catalog/
+  doi: null
+  publisher: U.S. Geological Survey / Idaho National Laboratory
+  citation: "USGS Idaho INL lithologic-log releases for boreholes 144, 145, 150, 152/152A/152B, and CFPP-B01"
+  retrieval_date: '2026-08-15'
+  local_paths:
+  - /data/GeoLogParser/datasets/public/usgs_idaho_lithologic_v001
+  file_count_in_local_snapshot: 8
+  local_snapshot_inventory_sha256: ed1d58fe8bd9db5d80e6c017a04be0501877e132c55ac22dd0ee5e80757bc386
+  manifest_evidence:
+  - relative_path: metadata/acquisition.json
+    size_bytes: 2275
+    sha256: 23ebf07d7ff74033548b89639a28d0cff18f9275305c7147e734d9f9bc634baf
+  access_method: official ScienceBase item JSON inventories and direct file downloads
+  terms_of_use: https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits
+  claimed_license: USGS public-release/copyright terms; exact item and embedded-content scope pending manual verification
+  license_url: https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
+  verification_status: CLAIM_CAPTURED_SOURCE_SCAN_AUDIT_PENDING
+  internal_decision: USE_WITH_CAUTION
+  decision: AMBIGUOUS
+  risks:
+  - source PDFs are image-only lithologic profiles with embedded historical material and precise borehole locations
+  - no independent interval labels are available for this freeze
+  - exact redistribution scope requires manual pre-submission review
+  experiments_or_papers:
+  - paper1_cross_source_transfer
+  - paper1_real_error_analysis
+  - paper2_source_shift_stress_test
+  requires_human_check_before_submission: true
+  evidence:
+  - datasets/data_registry.yaml
+  - /data/GeoLogParser/datasets/public/usgs_idaho_lithologic_v001/metadata/acquisition.json
+  registry_status: acquired_official_source_scan_coverage_audit_rights_pending
+  registry_verification_notes: 'ScienceBase IDs: USGS 144 64adbf89d34e70357a2931d8; USGS 145 64d15b1dd34ef477cf3c0228; USGS 150 67853160d34ec3ce63796974; USGS 152 63ea625cd34efa0476aecdd7; CFPP-B01 671819d5d34ee1f0a8822616. The local snapshot contains seven lithologic-log PDFs after extracting the USGS 152 ZIP. Current formal use is a Tesseract-versus-RapidOCR page-coverage/disagreement audit only; no interval accuracy or human Ground-Truth claim is made.'
+
 - source_id: synthetic_borehole_logs_v001
   source_name: GeoLogParser programmatically generated borehole logs
   url: null

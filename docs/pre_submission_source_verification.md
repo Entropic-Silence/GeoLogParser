@@ -153,6 +153,21 @@ SHA256 `03adfecca7f2c97c1612752ff1ca387fe1f22f31ee20cdf8981ef1f2cee8d096`,
 and the source URL host substitution from `marinedata.ac.uk` to the reachable
 `marinedata.bgs.ac.uk` alias.
 
+The USGS Idaho lithologic-log scan audit is stored at
+`/data/GeoLogParser/datasets/public/usgs_idaho_lithologic_v001`, with frozen
+manifest `datasets/manifests/usgs_idaho_lithologic_v001.jsonl`. It contains
+seven image-only PDFs and 608 pages from ScienceBase items for USGS 144, 145,
+150, 152/152A/152B, and CFPP-B01. The raw inventory SHA256 is
+`ed1d58fe8bd9db5d80e6c017a04be0501877e132c55ac22dd0ee5e80757bc386`.
+Current use is limited to a page-level Tesseract/RapidOCR coverage and
+disagreement audit. No independent interval labels are present, so the source
+must not be described as Gold, manually annotated, or interval-accuracy
+evidence. Before submission, verify the exact five ScienceBase item versions,
+USGS attribution and copyright guidance, embedded INL/DOE or third-party
+content, precise-location disclosure, and redistribution rights for source
+pages or derivatives. The current decision is `AMBIGUOUS`, original files
+remain local, and `project_human_reviewed=false`.
+
 ## Human sign-off fields
 
 For each YAML record, the final reviewer should append or record in a successor
