@@ -2315,3 +2315,21 @@
   v019 is rejected. Multi-reader agreement is correlated by shared scale ticks
   and semantic-role ambiguity, so it cannot be treated as independent positive
   evidence. v018 remains the best development model and ADR-015 remains closed.
+
+## 2026-08-15 — BGS v020 depth-scale alignment ablation
+
+- Added reference-blind candidate features for the residual between a numeric
+  candidate and the page's calibrated y-depth geometry, then reran the same
+  five-fold source-disjoint BGS v001 development protocol without using v002.
+- v020 reached boundary precision/recall/F1 0.5063/0.2207/0.3074 and interval
+  F1 0.1092 at ±0.05 m. Its selective point accepted 43 boundaries with
+  precision 0.9070, coverage 0.1172, and CNER 0.0930. The selective gate alone
+  passed, but interval recovery and full-coverage precision did not improve
+  over v018, so v020 was rejected for external release.
+- The analysis SHA256 is
+  ``173e61c4638295aeff9f9a74735839b252c09c233797e7d0dba8c7a73a8e9ef4`` and
+  the serialized model SHA256 is
+  ``ff5ff7ff835f8b6119375d8762135b31004acef2346294451813ef3bb6a6cf5b``.
+  BGS v002 remains unopened. The negative result narrows the bottleneck to
+  candidate-role discrimination and interval pairing, not only scale
+  calibration.

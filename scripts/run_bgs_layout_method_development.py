@@ -38,11 +38,11 @@ FEATURES = (
     "snap_step", "snap_delta", "snap_integer", "snap_half", "snap_tenth",
     "printed_line_support", "printed_pair_support", "graphic_line_support",
     "graphic_change_support", "metadata_cross_field",
-    "cross_source_event_support", "cross_source_value_support",
     "page_has_scale", "page_scale_inliers", "page_scale_rmse", "is_zero_depth",
     "graphic_line_integer", "graphic_line_change", "graphic_scale_quality",
     "printed_line_view", "printed_line_full_page", "metadata_label_cross",
-    "printed_cross_value", "graphic_cross_event",
+    "scale_alignment_score", "scale_alignment_error_log",
+    "scale_alignment_description",
 )
 
 PRINTED_FEATURES = tuple(name for name in FEATURES if not name.startswith("graphic_"))
@@ -51,7 +51,7 @@ METADATA_FEATURES = tuple(
     name for name in FEATURES
     if name in {"source_metadata", "ocr_confidence", "view_support", "view_agreement", "full_page_support",
                 "normalized_y", "metadata_label_score", "metadata_cross_field", "metadata_label_cross",
-                "cross_source_event_support", "cross_source_value_support", "page_has_scale"}
+                "page_has_scale"}
 )
 FAMILY_FEATURES = {
     "printed_boundary": PRINTED_FEATURES,
@@ -625,6 +625,20 @@ def generate_document_candidates(source: dict, multiscale: dict, source_run: Pat
         for candidate in baseline_printed + baseline_meta + multiscale_printed + multiscale_meta + graphic:
             candidate.features.update(context)
             candidate.features["is_zero_depth"] = float(abs(candidate.value_m) <= 0.05)
+            if calibration is not None and candidate.candidate_source != "metadata_final_depth":
+                center_y = (candidate.bbox[1] + candidate.bbox[3]) / 2
+                expected_depth = calibration.intercept_m + calibration.depth_per_pixel * center_y
+                alignment_error = abs(candidate.value_m - expected_depth)
+                alignment_score = math.exp(-alignment_error / 0.25)
+                candidate.features["scale_alignment_score"] = alignment_score
+                candidate.features["scale_alignment_error_log"] = min(1.0, math.log1p(alignment_error) / math.log(11.0))
+                candidate.features["scale_alignment_description"] = alignment_score * (
+                    1 - min(1.0, candidate.features.get("description_x_distance", 1.0))
+                )
+            else:
+                candidate.features["scale_alignment_score"] = 0.0
+                candidate.features["scale_alignment_error_log"] = 1.0
+                candidate.features["scale_alignment_description"] = 0.0
         add_cross_source_event_support(multiscale_printed + multiscale_meta + graphic)
         page_outputs.append({
             "page": page,
@@ -862,7 +876,7 @@ def main() -> None:
         oof_probabilities, references,
     )
     model = {
-        "method_version": "bgs_layout_field_aware_moe_v019",
+        "method_version": "bgs_layout_field_aware_moe_v020",
         "training_manifest_sha256": file_sha256(args.manifest),
         "training_role": "development_only",
         "feature_names": list(FEATURES),
@@ -877,6 +891,7 @@ def main() -> None:
             "multiscale": "2x gray+Otsu, PSM 6+11",
             "graphic_boundary": "depth-scale calibration plus image transition",
             "candidate_ranking": "printed-boundary, calibrated-graphic, and terminal-metadata experts with global shrinkage",
+            "scale_alignment": "candidate value versus calibrated y-depth geometry",
             "calibration": "nested source-disjoint Platt scaling",
             "sequence": "strict increasing depth maximum log-odds path",
         },
