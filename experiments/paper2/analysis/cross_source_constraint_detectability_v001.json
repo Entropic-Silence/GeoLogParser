@@ -1,0 +1,726 @@
+{
+  "analysis_scope": "post-hoc reference-blind constraint detectability on frozen real cross-source interval predictions",
+  "constraint_config": "configs/constraints/default_v001.yaml",
+  "constraint_config_sha256": "09b560194d03d70620c090f40dc00f86d1883eaf96e3c0680be5f9bebd28ed29",
+  "reference_use": "references are read only after constraint evaluation to label observed error events",
+  "sources": [
+    {
+      "constraint_violation_code_document_counts": {
+        "DEPTH_SEQUENCE_INVERSION": 1,
+        "INTERVAL_OVERLAP": 1
+      },
+      "document_count": 26,
+      "documents_with_any_constraint_violation": 1,
+      "event_detectability": {
+        "boundary_omission": 0.038461538461538464,
+        "lithology_semantic_error": 0.0,
+        "spurious_interval": 0.1111111111111111
+      },
+      "observed_error_event_document_counts": {
+        "boundary_omission": 26,
+        "lithology_semantic_error": 2,
+        "spurious_interval": 9
+      },
+      "observed_error_event_documents_flagged_by_any_constraint": {
+        "boundary_omission": 1,
+        "spurious_interval": 1
+      },
+      "prediction_path": "/root/GeoLogParser/results/2026-08-15/P1_BGS_OFFSHORE_V001_RAPIDOCR_CROSS_SOURCE_FORMAL_001/predictions.jsonl",
+      "prediction_sha256": "3f289bf224f236fd1ea606c741d5a7ff526219c221c3c214847b5ef4ab33d381",
+      "records": [
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission",
+            "spurious_interval"
+          ],
+          "predicted_interval_count": 1,
+          "record_id": "BGS_OFFSHORE_2016306"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission",
+            "lithology_semantic_error",
+            "spurious_interval"
+          ],
+          "predicted_interval_count": 4,
+          "record_id": "BGS_OFFSHORE_2041581"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission"
+          ],
+          "predicted_interval_count": 0,
+          "record_id": "BGS_OFFSHORE_1963694"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission"
+          ],
+          "predicted_interval_count": 0,
+          "record_id": "BGS_OFFSHORE_1960609"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission"
+          ],
+          "predicted_interval_count": 0,
+          "record_id": "BGS_OFFSHORE_1969862"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission",
+            "lithology_semantic_error",
+            "spurious_interval"
+          ],
+          "predicted_interval_count": 8,
+          "record_id": "BGS_OFFSHORE_1957995"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission"
+          ],
+          "predicted_interval_count": 0,
+          "record_id": "BGS_OFFSHORE_1960630"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission"
+          ],
+          "predicted_interval_count": 0,
+          "record_id": "BGS_OFFSHORE_2023411"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission"
+          ],
+          "predicted_interval_count": 0,
+          "record_id": "BGS_OFFSHORE_2030012"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission"
+          ],
+          "predicted_interval_count": 0,
+          "record_id": "BGS_OFFSHORE_1980976"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission"
+          ],
+          "predicted_interval_count": 0,
+          "record_id": "BGS_OFFSHORE_1984462"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission"
+          ],
+          "predicted_interval_count": 0,
+          "record_id": "BGS_OFFSHORE_1945465"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission"
+          ],
+          "predicted_interval_count": 0,
+          "record_id": "BGS_OFFSHORE_2009141"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission",
+            "spurious_interval"
+          ],
+          "predicted_interval_count": 1,
+          "record_id": "BGS_OFFSHORE_2024185"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission"
+          ],
+          "predicted_interval_count": 0,
+          "record_id": "BGS_OFFSHORE_1951404"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission"
+          ],
+          "predicted_interval_count": 0,
+          "record_id": "BGS_OFFSHORE_1943902"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission"
+          ],
+          "predicted_interval_count": 0,
+          "record_id": "BGS_OFFSHORE_1993525"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission"
+          ],
+          "predicted_interval_count": 0,
+          "record_id": "BGS_OFFSHORE_2007749"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission"
+          ],
+          "predicted_interval_count": 0,
+          "record_id": "BGS_OFFSHORE_1987224"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission"
+          ],
+          "predicted_interval_count": 0,
+          "record_id": "BGS_OFFSHORE_1944312"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission",
+            "spurious_interval"
+          ],
+          "predicted_interval_count": 2,
+          "record_id": "BGS_OFFSHORE_1944320"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission",
+            "spurious_interval"
+          ],
+          "predicted_interval_count": 2,
+          "record_id": "BGS_OFFSHORE_1989175"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission",
+            "spurious_interval"
+          ],
+          "predicted_interval_count": 3,
+          "record_id": "BGS_OFFSHORE_1960100"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission",
+            "spurious_interval"
+          ],
+          "predicted_interval_count": 3,
+          "record_id": "BGS_OFFSHORE_1944322"
+        },
+        {
+          "constraint_violation_codes": [
+            "DEPTH_SEQUENCE_INVERSION",
+            "INTERVAL_OVERLAP"
+          ],
+          "constraint_violation_count": 4,
+          "observed_error_events": [
+            "boundary_omission",
+            "spurious_interval"
+          ],
+          "predicted_interval_count": 4,
+          "record_id": "BGS_OFFSHORE_1949665"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission"
+          ],
+          "predicted_interval_count": 0,
+          "record_id": "BGS_OFFSHORE_1942278"
+        }
+      ],
+      "source": "bgs_rapidocr"
+    },
+    {
+      "constraint_violation_code_document_counts": {
+        "DEPTH_SEQUENCE_INVERSION": 4,
+        "INTERVAL_GAP": 2,
+        "INTERVAL_OVERLAP": 7
+      },
+      "document_count": 26,
+      "documents_with_any_constraint_violation": 7,
+      "event_detectability": {
+        "boundary_omission": 0.2692307692307692,
+        "lithology_semantic_error": 1.0,
+        "spurious_interval": 0.5384615384615384
+      },
+      "observed_error_event_document_counts": {
+        "boundary_omission": 26,
+        "lithology_semantic_error": 3,
+        "spurious_interval": 13
+      },
+      "observed_error_event_documents_flagged_by_any_constraint": {
+        "boundary_omission": 7,
+        "lithology_semantic_error": 3,
+        "spurious_interval": 7
+      },
+      "prediction_path": "/root/GeoLogParser/results/2026-08-15/P1_BGS_OFFSHORE_V001_TESSERACT_CROSS_SOURCE_FORMAL_001/predictions.jsonl",
+      "prediction_sha256": "8e647aa18232a1f63ee4e37d4d3e75685561cc80949a85ff6685fce48ff79aa4",
+      "records": [
+        {
+          "constraint_violation_codes": [
+            "DEPTH_SEQUENCE_INVERSION",
+            "INTERVAL_OVERLAP"
+          ],
+          "constraint_violation_count": 2,
+          "observed_error_events": [
+            "boundary_omission",
+            "lithology_semantic_error",
+            "spurious_interval"
+          ],
+          "predicted_interval_count": 6,
+          "record_id": "BGS_OFFSHORE_2016306"
+        },
+        {
+          "constraint_violation_codes": [
+            "DEPTH_SEQUENCE_INVERSION",
+            "INTERVAL_GAP",
+            "INTERVAL_OVERLAP"
+          ],
+          "constraint_violation_count": 3,
+          "observed_error_events": [
+            "boundary_omission",
+            "lithology_semantic_error",
+            "spurious_interval"
+          ],
+          "predicted_interval_count": 6,
+          "record_id": "BGS_OFFSHORE_2041581"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission"
+          ],
+          "predicted_interval_count": 0,
+          "record_id": "BGS_OFFSHORE_1963694"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission",
+            "spurious_interval"
+          ],
+          "predicted_interval_count": 1,
+          "record_id": "BGS_OFFSHORE_1960609"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission",
+            "spurious_interval"
+          ],
+          "predicted_interval_count": 1,
+          "record_id": "BGS_OFFSHORE_1969862"
+        },
+        {
+          "constraint_violation_codes": [
+            "DEPTH_SEQUENCE_INVERSION",
+            "INTERVAL_GAP",
+            "INTERVAL_OVERLAP"
+          ],
+          "constraint_violation_count": 8,
+          "observed_error_events": [
+            "boundary_omission",
+            "lithology_semantic_error",
+            "spurious_interval"
+          ],
+          "predicted_interval_count": 9,
+          "record_id": "BGS_OFFSHORE_1957995"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission"
+          ],
+          "predicted_interval_count": 0,
+          "record_id": "BGS_OFFSHORE_1960630"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission"
+          ],
+          "predicted_interval_count": 0,
+          "record_id": "BGS_OFFSHORE_2023411"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission"
+          ],
+          "predicted_interval_count": 0,
+          "record_id": "BGS_OFFSHORE_2030012"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission"
+          ],
+          "predicted_interval_count": 0,
+          "record_id": "BGS_OFFSHORE_1980976"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission"
+          ],
+          "predicted_interval_count": 0,
+          "record_id": "BGS_OFFSHORE_1984462"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission"
+          ],
+          "predicted_interval_count": 0,
+          "record_id": "BGS_OFFSHORE_1945465"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission"
+          ],
+          "predicted_interval_count": 0,
+          "record_id": "BGS_OFFSHORE_2009141"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission",
+            "spurious_interval"
+          ],
+          "predicted_interval_count": 1,
+          "record_id": "BGS_OFFSHORE_2024185"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission",
+            "spurious_interval"
+          ],
+          "predicted_interval_count": 1,
+          "record_id": "BGS_OFFSHORE_1951404"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission"
+          ],
+          "predicted_interval_count": 0,
+          "record_id": "BGS_OFFSHORE_1943902"
+        },
+        {
+          "constraint_violation_codes": [
+            "INTERVAL_OVERLAP"
+          ],
+          "constraint_violation_count": 1,
+          "observed_error_events": [
+            "boundary_omission",
+            "spurious_interval"
+          ],
+          "predicted_interval_count": 2,
+          "record_id": "BGS_OFFSHORE_1993525"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission"
+          ],
+          "predicted_interval_count": 0,
+          "record_id": "BGS_OFFSHORE_2007749"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission"
+          ],
+          "predicted_interval_count": 0,
+          "record_id": "BGS_OFFSHORE_1987224"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission"
+          ],
+          "predicted_interval_count": 0,
+          "record_id": "BGS_OFFSHORE_1944312"
+        },
+        {
+          "constraint_violation_codes": [
+            "INTERVAL_OVERLAP"
+          ],
+          "constraint_violation_count": 2,
+          "observed_error_events": [
+            "boundary_omission",
+            "spurious_interval"
+          ],
+          "predicted_interval_count": 7,
+          "record_id": "BGS_OFFSHORE_1944320"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission",
+            "spurious_interval"
+          ],
+          "predicted_interval_count": 5,
+          "record_id": "BGS_OFFSHORE_1989175"
+        },
+        {
+          "constraint_violation_codes": [
+            "INTERVAL_OVERLAP"
+          ],
+          "constraint_violation_count": 1,
+          "observed_error_events": [
+            "boundary_omission",
+            "spurious_interval"
+          ],
+          "predicted_interval_count": 5,
+          "record_id": "BGS_OFFSHORE_1960100"
+        },
+        {
+          "constraint_violation_codes": [
+            "DEPTH_SEQUENCE_INVERSION",
+            "INTERVAL_OVERLAP"
+          ],
+          "constraint_violation_count": 3,
+          "observed_error_events": [
+            "boundary_omission",
+            "spurious_interval"
+          ],
+          "predicted_interval_count": 5,
+          "record_id": "BGS_OFFSHORE_1944322"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission",
+            "spurious_interval"
+          ],
+          "predicted_interval_count": 5,
+          "record_id": "BGS_OFFSHORE_1949665"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "boundary_omission"
+          ],
+          "predicted_interval_count": 0,
+          "record_id": "BGS_OFFSHORE_1942278"
+        }
+      ],
+      "source": "bgs_tesseract"
+    },
+    {
+      "constraint_violation_code_document_counts": {},
+      "document_count": 2,
+      "documents_with_any_constraint_violation": 0,
+      "event_detectability": {
+        "lithology_semantic_error": 0.0
+      },
+      "observed_error_event_document_counts": {
+        "lithology_semantic_error": 1
+      },
+      "observed_error_event_documents_flagged_by_any_constraint": {},
+      "prediction_path": "/root/GeoLogParser/results/2026-08-14/P1_USGS_RAFT_RIVER_RAPIDOCR_INTERVAL_FORMAL_001/predictions.jsonl",
+      "prediction_sha256": "4693400f3212be08514192b5e96375ba509d1e262a88700ab46e5e65a82a7d1f",
+      "records": [
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "lithology_semantic_error"
+          ],
+          "predicted_interval_count": 24,
+          "record_id": "RAFT-RIVER-WELL-1"
+        },
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [],
+          "predicted_interval_count": 38,
+          "record_id": "RAFT-RIVER-WELL-2"
+        }
+      ],
+      "source": "raft_rapidocr"
+    },
+    {
+      "constraint_violation_code_document_counts": {
+        "DEPTH_SEQUENCE_INVERSION": 2,
+        "INTERVAL_GAP": 2,
+        "INTERVAL_OVERLAP": 2
+      },
+      "document_count": 2,
+      "documents_with_any_constraint_violation": 2,
+      "event_detectability": {
+        "boundary_omission": 1.0,
+        "lithology_semantic_error": 1.0,
+        "spurious_interval": 1.0
+      },
+      "observed_error_event_document_counts": {
+        "boundary_omission": 2,
+        "lithology_semantic_error": 2,
+        "spurious_interval": 2
+      },
+      "observed_error_event_documents_flagged_by_any_constraint": {
+        "boundary_omission": 2,
+        "lithology_semantic_error": 2,
+        "spurious_interval": 2
+      },
+      "prediction_path": "/root/GeoLogParser/results/2026-08-14/P1_USGS_RAFT_RIVER_TESSERACT_INTERVAL_FORMAL_001/predictions.jsonl",
+      "prediction_sha256": "57b3ea10cbd8b37d6caeee0797298d09c9790cd587a6beb7574019f22402b935",
+      "records": [
+        {
+          "constraint_violation_codes": [
+            "DEPTH_SEQUENCE_INVERSION",
+            "INTERVAL_GAP",
+            "INTERVAL_OVERLAP"
+          ],
+          "constraint_violation_count": 6,
+          "observed_error_events": [
+            "boundary_omission",
+            "lithology_semantic_error",
+            "spurious_interval"
+          ],
+          "predicted_interval_count": 24,
+          "record_id": "RAFT-RIVER-WELL-1"
+        },
+        {
+          "constraint_violation_codes": [
+            "DEPTH_SEQUENCE_INVERSION",
+            "INTERVAL_GAP",
+            "INTERVAL_OVERLAP"
+          ],
+          "constraint_violation_count": 12,
+          "observed_error_events": [
+            "boundary_omission",
+            "lithology_semantic_error",
+            "spurious_interval"
+          ],
+          "predicted_interval_count": 32,
+          "record_id": "RAFT-RIVER-WELL-2"
+        }
+      ],
+      "source": "raft_tesseract"
+    },
+    {
+      "constraint_violation_code_document_counts": {},
+      "document_count": 1,
+      "documents_with_any_constraint_violation": 0,
+      "event_detectability": {
+        "lithology_semantic_error": 0.0
+      },
+      "observed_error_event_document_counts": {
+        "lithology_semantic_error": 1
+      },
+      "observed_error_event_documents_flagged_by_any_constraint": {},
+      "prediction_path": "/root/GeoLogParser/results/2026-08-14/P1_USGS142_CROSS_SOURCE_INTERVAL_FORMAL_002/predictions.jsonl",
+      "prediction_sha256": "32ca454cf9edac15eabbd9ece8b9c686a1ae569f3e5e2bc68a9a253bede1d211",
+      "records": [
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "lithology_semantic_error"
+          ],
+          "predicted_interval_count": 12,
+          "record_id": "USGS-142"
+        }
+      ],
+      "source": "usgs142_tesseract"
+    },
+    {
+      "constraint_violation_code_document_counts": {},
+      "document_count": 1,
+      "documents_with_any_constraint_violation": 0,
+      "event_detectability": {
+        "lithology_semantic_error": 0.0
+      },
+      "observed_error_event_document_counts": {
+        "lithology_semantic_error": 1
+      },
+      "observed_error_event_documents_flagged_by_any_constraint": {},
+      "prediction_path": "/root/GeoLogParser/results/2026-08-14/P1_USGS144_CROSS_SOURCE_INTERVAL_FORMAL_001/predictions.jsonl",
+      "prediction_sha256": "5ce51a227eeba28aedbab8c3c23115e3bae63f3693c8a8553ca33eb2d5824ff9",
+      "records": [
+        {
+          "constraint_violation_codes": [],
+          "constraint_violation_count": 0,
+          "observed_error_events": [
+            "lithology_semantic_error"
+          ],
+          "predicted_interval_count": 8,
+          "record_id": "USGS-144"
+        }
+      ],
+      "source": "usgs144_tesseract"
+    }
+  ]
+}

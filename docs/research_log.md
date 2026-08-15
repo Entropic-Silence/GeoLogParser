@@ -2165,3 +2165,25 @@
 - Unselective constraint ranking increased interval F1 from 0.388612 to 0.530360 (precision 0.913712, recall 0.373610) and produced an action-based false-correction rate of 35/417 = 0.083933.
 - Candidate-risk selection increased F1 to 0.410670, accepted 39 additions, all 39 correct against the published reference, worsened no document, and improved 11/100 documents. This is an external safety replication, not evidence of zero population error.
 - Runs indexed as `P2_CALIFORNIA_WCR_V005_CONSTRAINT_EXTERNAL_FORMAL_001` and `P2_CALIFORNIA_WCR_V005_CANDIDATE_RISK_EXTERNAL_FORMAL_001`.
+
+## 2026-08-15 — Cross-source constraint detectability audit
+
+- Applied the frozen C1--C10 engine reference-blind to six real prediction sets:
+  BGS offshore RapidOCR/Tesseract, Raft River RapidOCR/Tesseract, and the
+  USGS-142/USGS-144 interval diagnostics. References were read only after the
+  constraint decisions to label observed omissions, spurious intervals, and
+  lithology mismatches.
+- BGS RapidOCR had boundary-omission events in 26/26 documents, but only 1/26
+  documents triggered any constraint violation; event detectability was 0.038.
+  BGS Tesseract likewise had 26/26 omission documents, with 7/26 documents
+  flagged and detectability 0.269.
+- Raft River RapidOCR contained one observed semantic mismatch and no constraint
+  violation. Raft River Tesseract contained omission, spurious-interval, and
+  semantic events in both documents, and both documents triggered a violation.
+  USGS-142 and USGS-144 each retained a lithology-string mismatch while all
+  structural constraints passed.
+- This is a post-hoc detectability analysis, not a correction-effect experiment;
+  it narrows Paper II's claim by showing that continuous, internally consistent
+  sequences can still omit intervals or carry semantic column errors.
+- Artifact: `experiments/paper2/analysis/cross_source_constraint_detectability_v001.json`
+  (SHA256 `adea561ce4f5e3fcf750be16c0b200a9b200c1a3b00005eaaae28dd9563fdb72`).

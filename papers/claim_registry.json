@@ -2424,6 +2424,20 @@
         {"type": "json_pointer_equals", "pointer": "/correction_safety/observed_incorrect_actions", "expected": 0},
         {"type": "json_pointer_equals", "pointer": "/correction_safety/exact_two_sided_95_upper_for_zero_errors", "expected": 0.08221112115413853}
       ]
+    },
+    "p2.cross_source_constraint_detectability": {
+      "paper": "paper2",
+      "scope": "post-hoc reference-blind C1-C10 constraint detectability audit on six real cross-source interval prediction sets",
+      "source_path": "experiments/paper2/analysis/cross_source_constraint_detectability_v001.json",
+      "source_sha256": "adea561ce4f5e3fcf750be16c0b200a9b200c1a3b00005eaaae28dd9563fdb72",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/sources/0/source", "expected": "bgs_rapidocr"},
+        {"type": "json_pointer_equals", "pointer": "/sources/0/event_detectability/boundary_omission", "expected": 0.038461538461538464},
+        {"type": "json_pointer_equals", "pointer": "/sources/1/source", "expected": "bgs_tesseract"},
+        {"type": "json_pointer_equals", "pointer": "/sources/1/event_detectability/boundary_omission", "expected": 0.2692307692307692},
+        {"type": "json_pointer_equals", "pointer": "/sources/2/source", "expected": "raft_rapidocr"},
+        {"type": "json_pointer_equals", "pointer": "/sources/2/documents_with_any_constraint_violation", "expected": 0}
+      ]
     }
   }
 }
