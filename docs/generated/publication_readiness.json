@@ -23,7 +23,7 @@
     "paper2_formal_results_exist": true,
     "paper3_formal_results_exist": true
   },
-  "generated_at_utc": "2026-08-15T04:34:03.946730+00:00",
+  "generated_at_utc": "2026-08-15T04:37:28.913413+00:00",
   "ground_truth_exportable_count": 0,
   "interpretation": "Project-created human annotations and externally published manual-transcription Gold are counted separately. Either can establish a human-produced reference; machine-Silver runs do not satisfy that gate. audit-only, failure-analysis, and protocol-only runs cannot satisfy formal completion.",
   "machine_silver_formal_count": 2,
