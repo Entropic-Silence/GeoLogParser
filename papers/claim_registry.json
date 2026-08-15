@@ -2367,6 +2367,34 @@
         {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_recall/value", "expected": 0.2824074074074074}
       ]
     },
+    "p2.california_v005_constraint": {
+      "paper": "paper2",
+      "experiment_id": "P2_CALIFORNIA_WCR_V005_CONSTRAINT_EXTERNAL_FORMAL_001",
+      "scope": "independent v005 external unselective constraint recovery on 100 reports and 2,069 published manually transcribed intervals",
+      "source_path": "results/2026-08-15/P2_CALIFORNIA_WCR_V005_CONSTRAINT_EXTERNAL_FORMAL_001/metrics.json",
+      "source_sha256": "93df9f916a533df93e97c9416c0d4852a63d138c14967fff750b5fa401e11a72",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 100},
+        {"type": "json_pointer_equals", "pointer": "/reference_interval_count", "expected": 2069},
+        {"type": "json_pointer_equals", "pointer": "/raw_interval_metrics/interval_f1/value", "expected": 0.38861209964412813},
+        {"type": "json_pointer_equals", "pointer": "/constrained_interval_metrics/interval_f1/value", "expected": 0.5303602058319039},
+        {"type": "json_pointer_equals", "pointer": "/false_correction_rate/value", "expected": 0.08393285371702638}
+      ]
+    },
+    "p2.california_v005_candidate_risk": {
+      "paper": "paper2",
+      "experiment_id": "P2_CALIFORNIA_WCR_V005_CANDIDATE_RISK_EXTERNAL_FORMAL_001",
+      "scope": "independent v005 external candidate-level addition-only policy on 100 reports and 2,069 published manually transcribed intervals",
+      "source_path": "results/2026-08-15/P2_CALIFORNIA_WCR_V005_CANDIDATE_RISK_EXTERNAL_FORMAL_001/metrics.json",
+      "source_sha256": "0c476c6e3dabc3a13754329a86c18df330ea39043098cce93215529c496f29b5",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/risk_selected_interval_metrics/interval_f1/value", "expected": 0.41067041067041066},
+        {"type": "json_pointer_equals", "pointer": "/accepted_correct_additions", "expected": 39},
+        {"type": "json_pointer_equals", "pointer": "/accepted_incorrect_additions", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/document_outcomes/improved", "expected": 11},
+        {"type": "json_pointer_equals", "pointer": "/document_outcomes/worsened", "expected": 0}
+      ]
+    },
     "p2.california_v004_candidate_risk": {
       "paper": "paper2",
       "experiment_id": "P2_CALIFORNIA_WCR_V004_CANDIDATE_RISK_PROSPECTIVE_FORMAL_001",

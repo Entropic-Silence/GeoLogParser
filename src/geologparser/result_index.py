@@ -27,6 +27,7 @@ FORMAL_ELIGIBILITY = {
     "formal_authoritative_spatial_extraction",
     "formal_partial_page_spatial_downstream",
     "formal_authoritative_source_disjoint_transfer",
+    "formal_prospective_external_method",
 }
 
 

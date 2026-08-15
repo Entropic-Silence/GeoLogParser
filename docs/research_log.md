@@ -2158,3 +2158,10 @@
 - RapidOCR was run without reference conditioning on all 100 reports. It emitted 741 intervals and matched 549/2,069, giving precision 0.736842, recall 0.263896, and F1 0.388612. One report was completely exact; 15 reports emitted no interval prediction.
 - This is an external replication for Paper I only. No v005 record was used for model, parser, prompt, or candidate-policy development; no Paper II correction claim is made from this run.
 - The result is indexed as `P1_CALIFORNIA_WCR_V005_RAPIDOCR_EXTERNAL_FORMAL_001`; source rights and report-image redistribution remain subject to the existing pre-submission verification ledger.
+
+## 2026-08-15 — California v005 constraint and candidate-risk replication
+
+- The frozen v005 raw predictions were passed unchanged to the existing constraint sequence runner and the candidate-level addition-only policy; no v005 record was used for development.
+- Unselective constraint ranking increased interval F1 from 0.388612 to 0.530360 (precision 0.913712, recall 0.373610) and produced an action-based false-correction rate of 35/417 = 0.083933.
+- Candidate-risk selection increased F1 to 0.410670, accepted 39 additions, all 39 correct against the published reference, worsened no document, and improved 11/100 documents. This is an external safety replication, not evidence of zero population error.
+- Runs indexed as `P2_CALIFORNIA_WCR_V005_CONSTRAINT_EXTERNAL_FORMAL_001` and `P2_CALIFORNIA_WCR_V005_CANDIDATE_RISK_EXTERNAL_FORMAL_001`.
