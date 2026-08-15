@@ -2203,3 +2203,16 @@
 - This is a real downstream stratigraphic-model baseline, not a validated
   geological interpretation. Sparse deep-layer support, authoritative spatial
   metadata, and ordered-index alignment remain explicit limitations.
+
+## 2026-08-15 — California random-versus-grouped split leakage diagnostic
+
+- Pooled the ten v001 development records with the 50 county-first test records,
+  froze all existing RapidOCR predictions, and sampled 100 random 50-record test
+  sets without retraining. The random-record mean F1 was 0.393523 ± 0.020757
+  (range 0.353591–0.442127), compared with grouped-test F1 0.390135.
+- Random samples contained 16.82% of their records from the original development
+  partition on average. Random precision/recall were 0.819111 ± 0.025269 and
+  0.259199 ± 0.016981; grouped precision/recall were 0.892308/0.249641.
+- The result is a split-leakage diagnostic, not a retrained generalization
+  benchmark. It narrows the Paper I TBD claim without presenting the random
+  sample as independent evidence.

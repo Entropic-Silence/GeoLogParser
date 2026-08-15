@@ -2465,6 +2465,19 @@
         {"type": "json_pointer_equals", "pointer": "/exports/reference/point_count", "expected": 625},
         {"type": "json_pointer_equals", "pointer": "/exports/final/point_count", "expected": 625}
       ]
+    },
+    "p1.random_vs_grouped_split": {
+      "paper": "paper1",
+      "scope": "100-seed post-hoc random-record versus county-first grouped split leakage diagnostic on frozen California v001 predictions",
+      "source_path": "experiments/paper1/analysis/california_random_vs_grouped_split_v001.json",
+      "source_sha256": "be5ec17b25222d2225d32e4827f3f802d2380b1063a6565b77f51f76d4f0d2ad",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/combined_document_count", "expected": 60},
+        {"type": "json_pointer_equals", "pointer": "/grouped_test/interval_f1", "expected": 0.390134529147982},
+        {"type": "json_pointer_equals", "pointer": "/random_test/metrics/interval_f1/mean", "expected": 0.3935228007846839},
+        {"type": "json_pointer_equals", "pointer": "/random_test/metrics/interval_f1/std", "expected": 0.020756667471303086},
+        {"type": "json_pointer_equals", "pointer": "/random_test/development_overlap_fraction/mean", "expected": 0.16819999999999996}
+      ]
     }
   }
 }
