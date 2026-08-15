@@ -1,0 +1,952 @@
+{
+  "analysis_scope": "development-only long-page layout and OCR-to-structure failure attribution",
+  "document_count": 26,
+  "documents": [
+    {
+      "pages": [
+        {
+          "anchor_row_score": 7,
+          "anchor_semantics": [
+            "comments",
+            "description",
+            "sample"
+          ],
+          "aspect_ratio": 2.6185483870967743,
+          "height": 6494,
+          "layout_detected": true,
+          "page": 10,
+          "panel_bbox_normalized": [
+            0.3841532258064516,
+            0.45466430551278103,
+            1.0,
+            0.995
+          ],
+          "tile_count": 3,
+          "width": 2480
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_2016306",
+      "reference_boundary_count": 7,
+      "source_title": "Geophysical and Sampling Survey 1972/WH/1: Firth of Clyde, North Channel and Moray Firth (27/02/1972 to 05/04/1972)",
+      "visible_boundary_count_anywhere": 6,
+      "visible_boundary_count_semantic_panel": 6
+    },
+    {
+      "pages": [
+        {
+          "anchor_row_score": 7,
+          "anchor_semantics": [
+            "comments",
+            "description",
+            "sample"
+          ],
+          "aspect_ratio": 2.2995967741935486,
+          "height": 5703,
+          "layout_detected": true,
+          "page": 7,
+          "panel_bbox_normalized": [
+            0.40290322580645155,
+            0.5208583201823601,
+            1.0,
+            0.995
+          ],
+          "tile_count": 2,
+          "width": 2480
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_2041581",
+      "reference_boundary_count": 6,
+      "source_title": "Geophysical and Sampling Survey 1972/WH/2: Sea of Hebrides (07/04/1972 to 08/05/1972)",
+      "visible_boundary_count_anywhere": 6,
+      "visible_boundary_count_semantic_panel": 5
+    },
+    {
+      "pages": [
+        {
+          "anchor_row_score": 12,
+          "anchor_semantics": [
+            "comments",
+            "depth",
+            "description",
+            "lithology"
+          ],
+          "aspect_ratio": 1.4733870967741935,
+          "height": 3654,
+          "layout_detected": true,
+          "page": 6,
+          "panel_bbox_normalized": [
+            0.06661290322580646,
+            0.19490695128626162,
+            1.0,
+            0.995
+          ],
+          "tile_count": 2,
+          "width": 2480
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1963694",
+      "reference_boundary_count": 9,
+      "source_title": "Geophysical and Sampling Survey S1/72/01: Southern UK Waters (25/Jul/1972 to 19/Dec/1972)",
+      "visible_boundary_count_anywhere": 2,
+      "visible_boundary_count_semantic_panel": 2
+    },
+    {
+      "pages": [
+        {
+          "anchor_row_score": 12,
+          "anchor_semantics": [
+            "comments",
+            "depth",
+            "description",
+            "lithology"
+          ],
+          "aspect_ratio": 1.4725806451612904,
+          "height": 3652,
+          "layout_detected": true,
+          "page": 4,
+          "panel_bbox_normalized": [
+            0.09302419354838712,
+            0.18146768893756848,
+            1.0,
+            0.995
+          ],
+          "tile_count": 2,
+          "width": 2480
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1960609",
+      "reference_boundary_count": 9,
+      "source_title": "Sampling Survey 1969/HG/2: Irish Sea (08/Jun/1969 to 10/Jun/1969)",
+      "visible_boundary_count_anywhere": 1,
+      "visible_boundary_count_semantic_panel": 1
+    },
+    {
+      "pages": [
+        {
+          "anchor_row_score": 12,
+          "anchor_semantics": [
+            "comments",
+            "depth",
+            "description",
+            "lithology"
+          ],
+          "aspect_ratio": 1.4814516129032258,
+          "height": 3674,
+          "layout_detected": true,
+          "page": 6,
+          "panel_bbox_normalized": [
+            0.30431451612903226,
+            0.18573489384866632,
+            1.0,
+            0.995
+          ],
+          "tile_count": 2,
+          "width": 2480
+        },
+        {
+          "anchor_row_score": 12,
+          "anchor_semantics": [
+            "comments",
+            "depth",
+            "description",
+            "lithology"
+          ],
+          "aspect_ratio": 1.4814516129032258,
+          "height": 3674,
+          "layout_detected": true,
+          "page": 7,
+          "panel_bbox_normalized": [
+            0.08737903225806451,
+            0.06229994556341861,
+            1.0,
+            0.995
+          ],
+          "tile_count": 3,
+          "width": 2480
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1969862",
+      "reference_boundary_count": 14,
+      "source_title": "Sampling Survey 1970/WH/1: Irish Sea and Firth of Clyde (26/Aug/1970 to 21/Dec/1970)",
+      "visible_boundary_count_anywhere": 1,
+      "visible_boundary_count_semantic_panel": 1
+    },
+    {
+      "pages": [
+        {
+          "anchor_row_score": 7,
+          "anchor_semantics": [
+            "comments",
+            "description",
+            "sample"
+          ],
+          "aspect_ratio": 2.6608870967741933,
+          "height": 6599,
+          "layout_detected": true,
+          "page": 15,
+          "panel_bbox_normalized": [
+            0.4020967741935484,
+            0.5175049249886347,
+            1.0,
+            0.995
+          ],
+          "tile_count": 2,
+          "width": 2480
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1957995",
+      "reference_boundary_count": 17,
+      "source_title": "Sampling Survey 1971/8: UK waters ( 1971)",
+      "visible_boundary_count_anywhere": 8,
+      "visible_boundary_count_semantic_panel": 8
+    },
+    {
+      "pages": [
+        {
+          "anchor_row_score": 12,
+          "anchor_semantics": [
+            "comments",
+            "depth",
+            "description",
+            "lithology"
+          ],
+          "aspect_ratio": 1.7076612903225807,
+          "height": 4235,
+          "layout_detected": true,
+          "page": 7,
+          "panel_bbox_normalized": [
+            0.0869758064516129,
+            0.2302184179456907,
+            1.0,
+            0.995
+          ],
+          "tile_count": 2,
+          "width": 2480
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1960630",
+      "reference_boundary_count": 16,
+      "source_title": "Sampling Survey 1971/WH/1: Irish Sea and Cardigan Bay (03/07/1971 to 17/12/1971)",
+      "visible_boundary_count_anywhere": 4,
+      "visible_boundary_count_semantic_panel": 3
+    },
+    {
+      "pages": [
+        {
+          "anchor_row_score": 12,
+          "anchor_semantics": [
+            "comments",
+            "depth",
+            "description",
+            "lithology"
+          ],
+          "aspect_ratio": 1.4814516129032258,
+          "height": 3674,
+          "layout_detected": true,
+          "page": 8,
+          "panel_bbox_normalized": [
+            0.09282258064516127,
+            0.18069951007076757,
+            1.0,
+            0.995
+          ],
+          "tile_count": 2,
+          "width": 2480
+        },
+        {
+          "anchor_row_score": 11,
+          "anchor_semantics": [
+            "comments",
+            "description",
+            "lithology"
+          ],
+          "aspect_ratio": 1.4814516129032258,
+          "height": 3674,
+          "layout_detected": true,
+          "page": 9,
+          "panel_bbox_normalized": [
+            0.3168145161290322,
+            0.06189167120304845,
+            1.0,
+            0.995
+          ],
+          "tile_count": 3,
+          "width": 2480
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_2023411",
+      "reference_boundary_count": 11,
+      "source_title": "Sampling Survey 1973/10: Irish Sea, Bristol Channel and English Channel (27/Jul/1973 to 15/Dec/1973)",
+      "visible_boundary_count_anywhere": 3,
+      "visible_boundary_count_semantic_panel": 1
+    },
+    {
+      "pages": [
+        {
+          "anchor_row_score": 7,
+          "anchor_semantics": [
+            "comments",
+            "depth",
+            "description"
+          ],
+          "aspect_ratio": 1.356048387096774,
+          "height": 3363,
+          "layout_detected": true,
+          "page": 11,
+          "panel_bbox_normalized": [
+            0.0,
+            0.12832441272673206,
+            1.0,
+            0.995
+          ],
+          "tile_count": 2,
+          "width": 2480
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_2030012",
+      "reference_boundary_count": 12,
+      "source_title": "Sampling Survey 1974/8: Bristol Channel, Irish Sea and English Channel (21/Aug/1974 to 02/Dec/1974)",
+      "visible_boundary_count_anywhere": 3,
+      "visible_boundary_count_semantic_panel": 3
+    },
+    {
+      "pages": [
+        {
+          "anchor_row_score": 12,
+          "anchor_semantics": [
+            "comments",
+            "depth",
+            "description",
+            "lithology"
+          ],
+          "aspect_ratio": 1.356048387096774,
+          "height": 3363,
+          "layout_detected": true,
+          "page": 67,
+          "panel_bbox_normalized": [
+            0.0,
+            0.12133660422242047,
+            1.0,
+            0.995
+          ],
+          "tile_count": 2,
+          "width": 2480
+        },
+        {
+          "anchor_row_score": 7,
+          "anchor_semantics": [
+            "comments",
+            "depth",
+            "lithology"
+          ],
+          "aspect_ratio": 1.356048387096774,
+          "height": 3363,
+          "layout_detected": true,
+          "page": 68,
+          "panel_bbox_normalized": [
+            0.18838709677419355,
+            0.1130107047279215,
+            1.0,
+            0.995
+          ],
+          "tile_count": 2,
+          "width": 2480
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1980976",
+      "reference_boundary_count": 14,
+      "source_title": "Sampling Survey 1975/4: Bristol Channel and English Channel (10/Apr/1975 to 25/Jul/1975)",
+      "visible_boundary_count_anywhere": 2,
+      "visible_boundary_count_semantic_panel": 2
+    },
+    {
+      "pages": [
+        {
+          "anchor_row_score": 12,
+          "anchor_semantics": [
+            "comments",
+            "depth",
+            "description",
+            "lithology"
+          ],
+          "aspect_ratio": 1.4725806451612904,
+          "height": 3652,
+          "layout_detected": true,
+          "page": 19,
+          "panel_bbox_normalized": [
+            0.3192338709677419,
+            0.1987185104052574,
+            1.0,
+            0.995
+          ],
+          "tile_count": 2,
+          "width": 2480
+        },
+        {
+          "anchor_row_score": 11,
+          "anchor_semantics": [
+            "comments",
+            "description",
+            "lithology"
+          ],
+          "aspect_ratio": 1.4725806451612904,
+          "height": 3652,
+          "layout_detected": true,
+          "page": 20,
+          "panel_bbox_normalized": [
+            0.32427419354838705,
+            0.06591456736035049,
+            1.0,
+            0.995
+          ],
+          "tile_count": 2,
+          "width": 2480
+        },
+        {
+          "anchor_row_score": 12,
+          "anchor_semantics": [
+            "comments",
+            "depth",
+            "description",
+            "lithology"
+          ],
+          "aspect_ratio": 1.4725806451612904,
+          "height": 3652,
+          "layout_detected": true,
+          "page": 21,
+          "panel_bbox_normalized": [
+            0.11459677419354838,
+            0.0709802847754655,
+            1.0,
+            0.995
+          ],
+          "tile_count": 2,
+          "width": 2480
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1984462",
+      "reference_boundary_count": 9,
+      "source_title": "Sampling Survey 1976/76: Regional Mapping Programme Drilling: SW Approaches and Northern Scotland (01/Apr/1976 to 15/Aug/1976)",
+      "visible_boundary_count_anywhere": 0,
+      "visible_boundary_count_semantic_panel": 0
+    },
+    {
+      "pages": [
+        {
+          "anchor_row_score": 12,
+          "anchor_semantics": [
+            "comments",
+            "description",
+            "lithology",
+            "sample"
+          ],
+          "aspect_ratio": 2.98508064516129,
+          "height": 7403,
+          "layout_detected": true,
+          "page": 4,
+          "panel_bbox_normalized": [
+            0.2099596774193548,
+            0.5438950425503174,
+            1.0,
+            0.995
+          ],
+          "tile_count": 2,
+          "width": 2480
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1945465",
+      "reference_boundary_count": 13,
+      "source_title": "Sampling Survey 1977/FE: Regional Mapping Programme drilling: Scottish Continental Shelf (07/Jun/1977 to 18/Jul/1977)",
+      "visible_boundary_count_anywhere": 1,
+      "visible_boundary_count_semantic_panel": 0
+    },
+    {
+      "pages": [
+        {
+          "anchor_row_score": 7,
+          "anchor_semantics": [
+            "comments",
+            "description",
+            "sample"
+          ],
+          "aspect_ratio": 5.047983870967742,
+          "height": 12519,
+          "layout_detected": true,
+          "page": 7,
+          "panel_bbox_normalized": [
+            0.43173387096774185,
+            0.29832374790318716,
+            1.0,
+            0.995
+          ],
+          "tile_count": 6,
+          "width": 2480
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_2009141",
+      "reference_boundary_count": 21,
+      "source_title": "Sampling Survey 1978/5: Regional Mapping Programme Drilling: North and west of Scotland (01/May/1978 to 06/Jun/1978)",
+      "visible_boundary_count_anywhere": 1,
+      "visible_boundary_count_semantic_panel": 1
+    },
+    {
+      "pages": [
+        {
+          "anchor_row_score": 12,
+          "anchor_semantics": [
+            "comments",
+            "depth",
+            "description",
+            "lithology"
+          ],
+          "aspect_ratio": 1.460483870967742,
+          "height": 3622,
+          "layout_detected": true,
+          "page": 21,
+          "panel_bbox_normalized": [
+            0.09383064516129033,
+            0.20062672556598565,
+            1.0,
+            0.995
+          ],
+          "tile_count": 2,
+          "width": 2480
+        },
+        {
+          "anchor_row_score": 12,
+          "anchor_semantics": [
+            "comments",
+            "depth",
+            "description",
+            "lithology"
+          ],
+          "aspect_ratio": 1.4741935483870967,
+          "height": 3656,
+          "layout_detected": true,
+          "page": 22,
+          "panel_bbox_normalized": [
+            0.14826612903225808,
+            0.07950218818380744,
+            1.0,
+            0.995
+          ],
+          "tile_count": 2,
+          "width": 2480
+        },
+        {
+          "anchor_row_score": 12,
+          "anchor_semantics": [
+            "comments",
+            "depth",
+            "description",
+            "lithology"
+          ],
+          "aspect_ratio": 1.492741935483871,
+          "height": 3702,
+          "layout_detected": true,
+          "page": 23,
+          "panel_bbox_normalized": [
+            0.10733870967741935,
+            0.07657212317666126,
+            1.0,
+            0.995
+          ],
+          "tile_count": 2,
+          "width": 2480
+        },
+        {
+          "anchor_row_score": 12,
+          "anchor_semantics": [
+            "comments",
+            "depth",
+            "description",
+            "lithology"
+          ],
+          "aspect_ratio": 1.4919354838709677,
+          "height": 3700,
+          "layout_detected": true,
+          "page": 24,
+          "panel_bbox_normalized": [
+            0.0990725806451613,
+            0.0831081081081081,
+            1.0,
+            0.995
+          ],
+          "tile_count": 2,
+          "width": 2480
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_2024185",
+      "reference_boundary_count": 13,
+      "source_title": "Sampling Survey 1979/18: Southern North Sea, English Channel and Western Approaches August 1979",
+      "visible_boundary_count_anywhere": 3,
+      "visible_boundary_count_semantic_panel": 2
+    },
+    {
+      "pages": [
+        {
+          "anchor_row_score": 13,
+          "anchor_semantics": [
+            "comments",
+            "depth",
+            "description",
+            "lithology",
+            "sample"
+          ],
+          "aspect_ratio": 3.927822580645161,
+          "height": 9741,
+          "layout_detected": true,
+          "page": 16,
+          "panel_bbox_normalized": [
+            0.1940322580645161,
+            0.41503798377989937,
+            1.0,
+            0.995
+          ],
+          "tile_count": 4,
+          "width": 2480
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1951404",
+      "reference_boundary_count": 13,
+      "source_title": "Sampling Survey 1980/6: Regional Mapping Programme drilling: The Minch and North Sea (25/Sep/1980 to 22/Oct/1980)",
+      "visible_boundary_count_anywhere": 2,
+      "visible_boundary_count_semantic_panel": 2
+    },
+    {
+      "pages": [
+        {
+          "anchor_row_score": 12,
+          "anchor_semantics": [
+            "comments",
+            "depth",
+            "description",
+            "lithology"
+          ],
+          "aspect_ratio": 4.876612903225807,
+          "height": 12094,
+          "layout_detected": true,
+          "page": 15,
+          "panel_bbox_normalized": [
+            0.24302419354838709,
+            0.312311063337192,
+            1.0,
+            0.995
+          ],
+          "tile_count": 5,
+          "width": 2480
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1943902",
+      "reference_boundary_count": 13,
+      "source_title": "Sampling Survey 1980/9: Regional Mapping Programme drilling: Shetland Islands (13/Aug/1980 to 19/Sep/1980)",
+      "visible_boundary_count_anywhere": 2,
+      "visible_boundary_count_semantic_panel": 1
+    },
+    {
+      "pages": [
+        {
+          "anchor_row_score": 7,
+          "anchor_semantics": [
+            "comments",
+            "description",
+            "sample"
+          ],
+          "aspect_ratio": 3.2818548387096773,
+          "height": 8139,
+          "layout_detected": true,
+          "page": 10,
+          "panel_bbox_normalized": [
+            0.41116935483870964,
+            0.47940963263300157,
+            1.0,
+            0.995
+          ],
+          "tile_count": 3,
+          "width": 2480
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1993525",
+      "reference_boundary_count": 17,
+      "source_title": "Sampling Survey 1981/10: Southern North Sea, Western Approaches and the Celtic Sea (15/5/81-15/10/81)",
+      "visible_boundary_count_anywhere": 2,
+      "visible_boundary_count_semantic_panel": 1
+    },
+    {
+      "pages": [
+        {
+          "anchor_row_score": 12,
+          "anchor_semantics": [
+            "comments",
+            "description",
+            "lithology",
+            "sample"
+          ],
+          "aspect_ratio": 2.5991935483870967,
+          "height": 6446,
+          "layout_detected": true,
+          "page": 9,
+          "panel_bbox_normalized": [
+            0.22810483870967743,
+            0.6399022649705244,
+            1.0,
+            0.995
+          ],
+          "tile_count": 2,
+          "width": 2480
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_2007749",
+      "reference_boundary_count": 14,
+      "source_title": "Sampling Survey 1982/6: Regional Mapping Programme Drilling: North of Scotland and northern & southern North Sea (16/Jun/1982 to 30/Aug/1982)",
+      "visible_boundary_count_anywhere": 1,
+      "visible_boundary_count_semantic_panel": 1
+    },
+    {
+      "pages": [
+        {
+          "anchor_row_score": 7,
+          "anchor_semantics": [
+            "comments",
+            "lithology",
+            "sample"
+          ],
+          "aspect_ratio": 5.485483870967742,
+          "height": 13604,
+          "layout_detected": true,
+          "page": 12,
+          "panel_bbox_normalized": [
+            0.2438306451612903,
+            0.3042443399000294,
+            1.0,
+            0.995
+          ],
+          "tile_count": 6,
+          "width": 2480
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1987224",
+      "reference_boundary_count": 15,
+      "source_title": "Sampling Survey 1984/9: North of Scotland (11/May/1984 to 17/Jun/1984)",
+      "visible_boundary_count_anywhere": 1,
+      "visible_boundary_count_semantic_panel": 1
+    },
+    {
+      "pages": [
+        {
+          "anchor_row_score": 7,
+          "anchor_semantics": [
+            "comments",
+            "description",
+            "sample"
+          ],
+          "aspect_ratio": 3.45241935483871,
+          "height": 8562,
+          "layout_detected": true,
+          "page": 45,
+          "panel_bbox_normalized": [
+            0.3811290322580645,
+            0.3116760102779724,
+            1.0,
+            0.995
+          ],
+          "tile_count": 4,
+          "width": 2480
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1944312",
+      "reference_boundary_count": 16,
+      "source_title": "Sampling Survey 1985/10: Quaternary drilling: NW Scotland Continental Slope (01/Jan/1985 to 31/Dec/1985)",
+      "visible_boundary_count_anywhere": 3,
+      "visible_boundary_count_semantic_panel": 1
+    },
+    {
+      "pages": [
+        {
+          "anchor_row_score": 7,
+          "anchor_semantics": [
+            "comments",
+            "description",
+            "sample"
+          ],
+          "aspect_ratio": 1.9536290322580645,
+          "height": 4845,
+          "layout_detected": true,
+          "page": 11,
+          "panel_bbox_normalized": [
+            0.38475806451612904,
+            0.5524922600619195,
+            1.0,
+            0.995
+          ],
+          "tile_count": 2,
+          "width": 2480
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1944320",
+      "reference_boundary_count": 16,
+      "source_title": "Sampling Survey 1988/3: West of Scotland (08/Sep/1988 to 25/Sep/1988)",
+      "visible_boundary_count_anywhere": 3,
+      "visible_boundary_count_semantic_panel": 3
+    },
+    {
+      "pages": [
+        {
+          "anchor_row_score": 7,
+          "anchor_semantics": [
+            "comments",
+            "description",
+            "sample"
+          ],
+          "aspect_ratio": 2.5100806451612905,
+          "height": 6225,
+          "layout_detected": true,
+          "page": 2,
+          "panel_bbox_normalized": [
+            0.365,
+            0.4104618473895582,
+            1.0,
+            0.995
+          ],
+          "tile_count": 3,
+          "width": 2480
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1989175",
+      "reference_boundary_count": 32,
+      "source_title": "Sampling Survey 1989/3: Southern North Sea (08/Aug/1989 to 22/Oct/1989)",
+      "visible_boundary_count_anywhere": 3,
+      "visible_boundary_count_semantic_panel": 2
+    },
+    {
+      "pages": [
+        {
+          "anchor_row_score": 7,
+          "anchor_semantics": [
+            "comments",
+            "description",
+            "sample"
+          ],
+          "aspect_ratio": 2.395564516129032,
+          "height": 5941,
+          "layout_detected": true,
+          "page": 9,
+          "panel_bbox_normalized": [
+            0.39665322580645157,
+            0.4805394714694496,
+            1.0,
+            0.995
+          ],
+          "tile_count": 2,
+          "width": 2480
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1960100",
+      "reference_boundary_count": 11,
+      "source_title": "Sampling Survey 1989/4: Celtic and Irish Seas (20/Oct/1989 to 08/Nov/1989)",
+      "visible_boundary_count_anywhere": 6,
+      "visible_boundary_count_semantic_panel": 4
+    },
+    {
+      "pages": [
+        {
+          "anchor_row_score": 7,
+          "anchor_semantics": [
+            "comments",
+            "description",
+            "sample"
+          ],
+          "aspect_ratio": 2.0689516129032257,
+          "height": 5131,
+          "layout_detected": true,
+          "page": 16,
+          "panel_bbox_normalized": [
+            0.39221774193548387,
+            0.5094591697524848,
+            1.0,
+            0.995
+          ],
+          "tile_count": 2,
+          "width": 2480
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1944322",
+      "reference_boundary_count": 17,
+      "source_title": "Sampling Survey 1990/1: Drilling, west of Scotland",
+      "visible_boundary_count_anywhere": 5,
+      "visible_boundary_count_semantic_panel": 2
+    },
+    {
+      "pages": [
+        {
+          "anchor_row_score": 7,
+          "anchor_semantics": [
+            "comments",
+            "description",
+            "sample"
+          ],
+          "aspect_ratio": 2.9270161290322583,
+          "height": 7259,
+          "layout_detected": true,
+          "page": 26,
+          "panel_bbox_normalized": [
+            0.3996774193548387,
+            0.32623157459705193,
+            1.0,
+            0.995
+          ],
+          "tile_count": 3,
+          "width": 2480
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1949665",
+      "reference_boundary_count": 15,
+      "source_title": "Sampling Survey 1994/3_RCK: Rockall Boreholes (05/Sept/1994 to 27/Sep/1994)",
+      "visible_boundary_count_anywhere": 2,
+      "visible_boundary_count_semantic_panel": 1
+    },
+    {
+      "pages": [
+        {
+          "anchor_row_score": null,
+          "anchor_semantics": [],
+          "aspect_ratio": 1.6862903225806452,
+          "height": 4182,
+          "layout_detected": false,
+          "page": 1,
+          "panel_bbox_normalized": null,
+          "tile_count": 0,
+          "width": 2480
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1942278",
+      "reference_boundary_count": 17,
+      "source_title": "Sampling Survey 1999/1_RCK: Rockall boreholes",
+      "visible_boundary_count_anywhere": 4,
+      "visible_boundary_count_semantic_panel": 0
+    }
+  ],
+  "full_page_numeric_visibility": {
+    "denominator": 367,
+    "numerator": 75,
+    "value": 0.20435967302452315
+  },
+  "limitations": [
+    "This audit uses the previously inspected BGS v001 source groups and is development evidence only.",
+    "Numeric visibility measures exact OCR token presence, not correct field assignment or interval extraction."
+  ],
+  "long_page_count_aspect_ratio_ge_2": 15,
+  "manifest_path": "datasets/manifests/bgs_offshore_gold_v001.jsonl",
+  "manifest_sha256": "d85f6c862b81d80c793887f73ca8b70658d42de358f25230dc4a15104520c99c",
+  "mean_tiles_per_detected_page": 2.6363636363636362,
+  "page_count": 34,
+  "prediction_reference_conditioning": "layout inferred before references; references used only for post-hoc visibility counts",
+  "reference_boundary_count": 367,
+  "semantic_layout_detected_pages": 33,
+  "semantic_panel_numeric_visibility": {
+    "denominator": 367,
+    "numerator": 54,
+    "value": 0.14713896457765668
+  },
+  "source_run_path": "results/2026-08-15/P1_BGS_OFFSHORE_V001_TESSERACT_CROSS_SOURCE_FORMAL_001"
+}

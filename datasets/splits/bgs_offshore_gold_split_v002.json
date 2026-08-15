@@ -1,0 +1,23 @@
+{
+  "dataset_manifest": "datasets/manifests/bgs_offshore_gold_v002.jsonl",
+  "dataset_manifest_sha256": "f84a8b282ec054dbe0a06bd3a6f6cf3136f3f6e22f9d92fcc7907ffe03af16ae",
+  "development": [],
+  "development_documents": 0,
+  "excluded_manifests": [
+    {
+      "path": "datasets/manifests/bgs_offshore_gold_v001.jsonl",
+      "sha256": "d85f6c862b81d80c793887f73ca8b70658d42de358f25230dc4a15104520c99c"
+    }
+  ],
+  "excluded_record_count": 26,
+  "excluded_source_group_count": 26,
+  "selection_policy": "one deterministic eligible record per SOURCE_TITLE, prioritizing interval count nearest 15; all records are external to method development",
+  "source_group_count": 3,
+  "split_version": "bgs_offshore_gold_split_v002_source_group_disjoint_external",
+  "test": [
+    "BGS_OFFSHORE_1944782",
+    "BGS_OFFSHORE_1983444",
+    "BGS_OFFSHORE_2015092"
+  ],
+  "test_documents": 3
+}

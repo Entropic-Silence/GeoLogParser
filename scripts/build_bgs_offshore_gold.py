@@ -15,7 +15,9 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import shutil
 import subprocess
+import tempfile
 from urllib.parse import urlparse, urlunparse
 
 import requests
@@ -142,7 +144,7 @@ def pdf_page_count(path: Path) -> int:
     return int(match.group(1))
 
 
-def composite_log_pages(path: Path, page_count: int) -> list[int]:
+def composite_log_pages(path: Path, page_count: int) -> tuple[list[int], str]:
     completed = subprocess.run(
         ["pdftotext", "-layout", str(path), "-"],
         capture_output=True,
@@ -153,9 +155,42 @@ def composite_log_pages(path: Path, page_count: int) -> list[int]:
     output = [
         index
         for index, text in enumerate(pages[:page_count], start=1)
-        if "BH_COMP_LOG" in text.upper()
+        if "BH_COMP_LOG" in text.upper() or "COMPOSITE LOG" in text.upper()
     ]
-    return output
+    if output:
+        return output, "native_text_marker"
+
+    # Older image-only source groups expose no searchable marker.  A low-DPI
+    # OCR pass is used only to locate candidate log pages; interval extraction
+    # remains a separate, higher-resolution reference-blind stage.
+    tesseract = shutil.which("tesseract")
+    pdftoppm = shutil.which("pdftoppm")
+    if tesseract is None or pdftoppm is None:
+        return [], "no_page_locator_runtime"
+    located: list[int] = []
+    with tempfile.TemporaryDirectory(prefix="geologparser-bgs-page-locator-") as temporary:
+        root = Path(temporary)
+        completed = subprocess.run(
+            [pdftoppm, "-jpeg", "-r", "120", str(path), str(root / "page")],
+            capture_output=True, text=True, check=False,
+        )
+        if completed.returncode != 0:
+            return [], "ocr_page_locator_render_failed"
+        for index, image in enumerate(sorted(root.glob("page-*.jpg")), start=1):
+            result = subprocess.run(
+                [tesseract, str(image), "stdout", "-l", "eng", "--psm", "11"],
+                capture_output=True, text=True, check=False,
+            )
+            text = result.stdout.upper()
+            direct = "COMPOSITE LOG" in text or "BH_COMP_LOG" in text
+            semantic = (
+                "DEPTH" in text
+                and ("DESCRIPTION" in text or "LITHOLOGY" in text)
+                and ("BOREHOLE" in text or "SAMPLE" in text)
+            )
+            if direct or semantic:
+                located.append(index)
+    return located, "low_dpi_ocr_semantic_locator"
 
 
 def deduplicate_intervals(rows: list[dict]) -> list[dict]:
@@ -234,7 +269,8 @@ def candidate_order(candidates: list[tuple[dict, list[dict]]]) -> list[tuple[dic
 
 def as_manifest_row(
     activity: dict, intervals: list[dict], pdf: Path, pages: int,
-    evaluation_pages: list[int], source_url: str, download_url: str,
+    evaluation_pages: list[int], evaluation_page_locator: str,
+    source_url: str, download_url: str,
 ) -> dict:
     record_id = f"BGS_OFFSHORE_{activity['ACTIVITY_ID']}"
     return {
@@ -261,6 +297,7 @@ def as_manifest_row(
         "pdf_sha256": sha256(pdf),
         "pdf_pages": pages,
         "evaluation_pages": evaluation_pages,
+        "evaluation_page_locator": evaluation_page_locator,
         "source_image_url": source_url,
         "resolved_download_url": download_url,
         "source_service": SERVICE,
@@ -309,7 +346,29 @@ def main() -> None:
     parser.add_argument("--minimum-intervals", type=int, default=5)
     parser.add_argument("--maximum-intervals", type=int, default=60)
     parser.add_argument("--max-pdf-bytes", type=int, default=30_000_000)
+    parser.add_argument(
+        "--exclude-manifest", type=Path, action="append", default=[],
+        help="Exclude every record and SOURCE_TITLE already present in an earlier freeze.",
+    )
+    parser.add_argument("--dataset-version", default="bgs_offshore_paired_v001")
+    parser.add_argument(
+        "--split-version", default="bgs_offshore_gold_split_v001_source_group_disjoint_external",
+    )
     args = parser.parse_args()
+
+    excluded_record_ids: set[str] = set()
+    excluded_source_titles: set[str] = set()
+    excluded_manifest_hashes: list[dict[str, str]] = []
+    for path in args.exclude_manifest:
+        rows = [
+            json.loads(line) for line in path.read_text(encoding="utf-8").splitlines()
+            if line.strip()
+        ]
+        excluded_record_ids.update(str(row["record_id"]) for row in rows)
+        excluded_source_titles.update(
+            str(row.get("source_title") or "UNKNOWN_SOURCE") for row in rows
+        )
+        excluded_manifest_hashes.append({"path": str(path), "sha256": sha256(path)})
 
     session = requests.Session()
     session.headers["User-Agent"] = "GeoLogParser-research/1.0"
@@ -347,6 +406,9 @@ def main() -> None:
         if len(rows) >= args.target_documents:
             break
         source_title = str(activity.get("SOURCE_TITLE") or "UNKNOWN_SOURCE")
+        record_id = f"BGS_OFFSHORE_{activity['ACTIVITY_ID']}"
+        if source_title in excluded_source_titles or record_id in excluded_record_ids:
+            continue
         if source_title in used_sources:
             continue
         source_url = str(activity["IMAGE_URL"])
@@ -364,11 +426,11 @@ def main() -> None:
                 )
             download_pdf(session, download_url, pdf)
             page_count = pdf_page_count(pdf)
-            evaluation_pages = composite_log_pages(pdf, page_count)
+            evaluation_pages, page_locator = composite_log_pages(pdf, page_count)
             if not evaluation_pages:
                 raise ValueError("no BH_COMP_LOG composite page found")
             row = as_manifest_row(
-                activity, intervals, pdf, page_count, evaluation_pages,
+                activity, intervals, pdf, page_count, evaluation_pages, page_locator,
                 source_url, download_url,
             )
         except Exception as exc:  # pragma: no cover - network/data dependent
@@ -405,14 +467,17 @@ def main() -> None:
         encoding="utf-8",
     )
     split = {
-        "split_version": "bgs_offshore_gold_split_v001_source_group_disjoint_external",
-        "dataset_manifest": str(args.manifest.relative_to(ROOT)),
+        "split_version": args.split_version,
+        "dataset_manifest": str(args.manifest.resolve().relative_to(ROOT)),
         "dataset_manifest_sha256": sha256(args.manifest),
         "development": [],
         "test": sorted(row["record_id"] for row in rows),
         "development_documents": 0,
         "test_documents": len(rows),
         "source_group_count": len(used_sources),
+        "excluded_record_count": len(excluded_record_ids),
+        "excluded_source_group_count": len(excluded_source_titles),
+        "excluded_manifests": excluded_manifest_hashes,
         "selection_policy": (
             "one deterministic eligible record per SOURCE_TITLE, prioritizing "
             "interval count nearest 15; all records are external to method development"
@@ -425,7 +490,7 @@ def main() -> None:
     )
 
     metadata = {
-        "dataset_version": "bgs_offshore_paired_v001",
+        "dataset_version": args.dataset_version,
         "created_utc": datetime.now(timezone.utc).isoformat(),
         "activity_query": {
             "service": SERVICE, "layer": 6, "where": "IMAGE_URL IS NOT NULL",
@@ -445,6 +510,9 @@ def main() -> None:
         "selected_pdf_pages": sum(row["pdf_pages"] for row in rows),
         "selected_evaluation_pages": sum(len(row["evaluation_pages"]) for row in rows),
         "selected_intervals": sum(row["interval_count"] for row in rows),
+        "excluded_record_count": len(excluded_record_ids),
+        "excluded_source_group_count": len(excluded_source_titles),
+        "excluded_manifests": excluded_manifest_hashes,
         "manifest": {"path": str(args.manifest), "sha256": sha256(args.manifest)},
         "split": {"path": str(args.split), "sha256": sha256(args.split)},
         "failed_or_rejected_downloads": failures,
