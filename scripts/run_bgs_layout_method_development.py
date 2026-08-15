@@ -38,9 +38,11 @@ FEATURES = (
     "snap_step", "snap_delta", "snap_integer", "snap_half", "snap_tenth",
     "printed_line_support", "printed_pair_support", "graphic_line_support",
     "graphic_change_support", "metadata_cross_field",
+    "cross_source_event_support", "cross_source_value_support",
     "page_has_scale", "page_scale_inliers", "page_scale_rmse", "is_zero_depth",
     "graphic_line_integer", "graphic_line_change", "graphic_scale_quality",
     "printed_line_view", "printed_line_full_page", "metadata_label_cross",
+    "printed_cross_value", "graphic_cross_event",
 )
 
 PRINTED_FEATURES = tuple(name for name in FEATURES if not name.startswith("graphic_"))
@@ -48,7 +50,8 @@ GRAPHIC_FEATURES = tuple(name for name in FEATURES if not name.startswith("print
 METADATA_FEATURES = tuple(
     name for name in FEATURES
     if name in {"source_metadata", "ocr_confidence", "view_support", "view_agreement", "full_page_support",
-                "normalized_y", "metadata_label_score", "metadata_cross_field", "page_has_scale"}
+                "normalized_y", "metadata_label_score", "metadata_cross_field", "metadata_label_cross",
+                "cross_source_event_support", "cross_source_value_support", "page_has_scale"}
 )
 FAMILY_FEATURES = {
     "printed_boundary": PRINTED_FEATURES,
@@ -277,6 +280,20 @@ def add_cross_source_event_support(candidates: list[DepthBoundaryCandidate]) -> 
         candidate.features["cross_source_value_support"] = float(
             any(abs(other.value_m - candidate.value_m) <= 0.10 for other in peers)
         )
+
+
+def finalize_derived_features(candidates: list[DepthBoundaryCandidate]) -> None:
+    """Build interactions only after all document-level support is known."""
+    for candidate in candidates:
+        feature = candidate.features
+        feature["graphic_line_integer"] = feature.get("graphic_line_support", 0.0) * feature.get("snap_integer", 0.0)
+        feature["graphic_line_change"] = feature.get("graphic_line_support", 0.0) * feature.get("graphic_change_support", 0.0)
+        feature["graphic_scale_quality"] = feature.get("graphic_line_support", 0.0) * feature.get("page_scale_inliers", 0.0) * (1 - feature.get("page_scale_rmse", 1.0))
+        feature["printed_line_view"] = feature.get("printed_line_support", 0.0) * feature.get("view_support", 0.0) * feature.get("view_agreement", 0.0)
+        feature["printed_line_full_page"] = feature.get("printed_line_support", 0.0) * feature.get("full_page_support", 0.0)
+        feature["metadata_label_cross"] = feature.get("metadata_label_score", 0.0) * feature.get("metadata_cross_field", 0.0)
+        feature["printed_cross_value"] = feature.get("printed_line_support", 0.0) * feature.get("cross_source_value_support", 0.0)
+        feature["graphic_cross_event"] = feature.get("graphic_line_support", 0.0) * feature.get("cross_source_event_support", 0.0)
 
 
 def infer_terminal_cap(candidates: list[DepthBoundaryCandidate]) -> float | None:
@@ -608,13 +625,6 @@ def generate_document_candidates(source: dict, multiscale: dict, source_run: Pat
         for candidate in baseline_printed + baseline_meta + multiscale_printed + multiscale_meta + graphic:
             candidate.features.update(context)
             candidate.features["is_zero_depth"] = float(abs(candidate.value_m) <= 0.05)
-            feature = candidate.features
-            feature["graphic_line_integer"] = feature.get("graphic_line_support", 0.0) * feature.get("snap_integer", 0.0)
-            feature["graphic_line_change"] = feature.get("graphic_line_support", 0.0) * feature.get("graphic_change_support", 0.0)
-            feature["graphic_scale_quality"] = feature.get("graphic_line_support", 0.0) * feature.get("page_scale_inliers", 0.0) * (1 - feature.get("page_scale_rmse", 1.0))
-            feature["printed_line_view"] = feature.get("printed_line_support", 0.0) * feature.get("view_support", 0.0) * feature.get("view_agreement", 0.0)
-            feature["printed_line_full_page"] = feature.get("printed_line_support", 0.0) * feature.get("full_page_support", 0.0)
-            feature["metadata_label_cross"] = feature.get("metadata_label_score", 0.0) * feature.get("metadata_cross_field", 0.0)
         add_cross_source_event_support(multiscale_printed + multiscale_meta + graphic)
         page_outputs.append({
             "page": page,
@@ -640,6 +650,9 @@ def generate_document_candidates(source: dict, multiscale: dict, source_run: Pat
     add_cross_field_support(output["baseline"])
     add_cross_field_support(output["multiscale"])
     add_cross_field_support(output["all"])
+    finalize_derived_features(output["baseline"])
+    finalize_derived_features(output["multiscale"])
+    finalize_derived_features(output["all"])
     output["terminal_cap_m"] = infer_terminal_cap(output["all"])
     return output
 
@@ -849,7 +862,7 @@ def main() -> None:
         oof_probabilities, references,
     )
     model = {
-        "method_version": "bgs_layout_field_aware_moe_v018",
+        "method_version": "bgs_layout_field_aware_moe_v019",
         "training_manifest_sha256": file_sha256(args.manifest),
         "training_role": "development_only",
         "feature_names": list(FEATURES),

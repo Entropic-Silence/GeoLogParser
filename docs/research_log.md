@@ -2297,3 +2297,21 @@
 - The result is excluded from v018 training, threshold selection, and external
   confirmation. It is retained as evidence that unconstrained long-page VLM
   boundary extraction is not a deployable substitute for field-aware parsing.
+
+## 2026-08-15 — BGS v019 correlated-evidence failure
+
+- Corrected the feature-construction order so cross-source event/value support
+  and metadata cross-field interactions entered the nested source-disjoint
+  ranker rather than being computed after derived interactions. This was a
+  development-only hypothesis test on BGS v001; BGS v002 remained unopened.
+- The additional agreement features reduced boundary precision/recall/F1 at
+  ±0.05 m to 0.4691/0.2071/0.2873 and interval F1 to 0.1004. The selective
+  point accepted 51 boundaries at precision 0.8627 and CNER 0.1373, also worse
+  than v018. Candidate ECE was 0.0370 and Brier score 0.0913.
+- The analysis SHA256 is
+  ``b238bb6d6893e5b9eb19804c554ae0b56fa6bfef6b0ce6901279dd0d4c38649f``;
+  the serialized model SHA256 is
+  ``d6a15173a3604c3b9e78c96e9751e72a8c8ea72ddeabfcef11c9f66269811369``.
+  v019 is rejected. Multi-reader agreement is correlated by shared scale ticks
+  and semantic-role ambiguity, so it cannot be treated as independent positive
+  evidence. v018 remains the best development model and ADR-015 remains closed.

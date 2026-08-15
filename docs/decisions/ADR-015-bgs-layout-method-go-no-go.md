@@ -51,6 +51,9 @@ required.
 - The current v007 artifact is retained as development failure evidence.
 - The v018 artifact is retained as the strongest development candidate, but is
   not an external result and does not authorize v002 execution.
+- The v019 agreement-feature test is rejected: boundary F1 fell to 0.2873,
+  interval F1 to 0.1004, and selective precision to 0.8627. Correlated
+  cross-reader agreement is not accepted as independent evidence.
 - Further work targets candidate recall and structured sequence inference, not
   OCR/VLM model-count expansion.
 - The next method revision must explicitly model template family, depth-scale
