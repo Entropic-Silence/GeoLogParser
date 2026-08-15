@@ -1,0 +1,24 @@
+policy_id: california_addition_only_high_confidence_v002
+frozen_utc: '2026-08-15T02:15:00Z'
+development_evidence:
+  - P2_CALIFORNIA_WCR_CONSTRAINT_TEST_FORMAL_001
+  - P2_CALIFORNIA_WCR_V002_CONSTRAINT_EXTERNAL_FORMAL_002
+excluded_from_development:
+  - california_wcr_gold_v003
+  - california_wcr_gold_v004
+rule:
+  candidate_scope: constrained_only_intervals
+  minimum_node_score: 2.999
+  preserve_all_raw_intervals: true
+  reject_if_positive_overlap_with_selected: true
+  evaluation_tolerance_m: 0.05
+decision_boundary: reference_blind
+development_observation:
+  raw_interval_f1: 0.43418290854572716
+  selected_interval_f1: 0.4509047760308514
+  accepted_correct_additions: 36
+  accepted_incorrect_additions: 0
+  accepted_documents: 17
+  improved_documents: 17
+  worsened_documents: 0
+  note: Development observation only; prospective performance is unknown until v004.
