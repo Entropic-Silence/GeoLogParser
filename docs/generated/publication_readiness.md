@@ -2,7 +2,7 @@
 # Publication readiness audit
 
 Ground-Truth-exportable annotations: **0**.
-Published manual-transcription formal runs: **13**.
+Published manual-transcription formal runs: **14**.
 
 | Gate | Status |
 |---|---|
@@ -13,7 +13,7 @@ Published manual-transcription formal runs: **13**.
 
 | Paper | Indexed runs | Controlled formal | Real formal |
 |---|---:|---:|---:|
-| paper1 | 60 | 2 | 26 |
+| paper1 | 61 | 2 | 27 |
 | paper2 | 16 | 1 | 8 |
 | paper3 | 13 | 1 | 6 |
 

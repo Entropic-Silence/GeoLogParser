@@ -2151,3 +2151,10 @@
 - Paired document bootstrap estimated the F1 gain over raw as 0.0259 with 95%
   interval [0.0052, 0.0541]. The exact two-sided 95% upper bound for a zero-error
   observation over 43 actions is 0.0822, so universal safety is not claimed.
+## 2026-08-15 — California WCR v005 independent external replication
+
+- Frozen `datasets/manifests/california_wcr_gold_v005.jsonl` after excluding every record in v001–v004; overlap checks were zero for all four predecessors.
+- The freeze contains 100 reports, 141 pages, 35 counties, and 2,069 published USGS manual-transcription intervals. Manifest SHA256: `b37fb6f5fde0fa1ffa2f41f91da0c6f685cd48ed4d07972c983255f89ec5e6f9`.
+- RapidOCR was run without reference conditioning on all 100 reports. It emitted 741 intervals and matched 549/2,069, giving precision 0.736842, recall 0.263896, and F1 0.388612. One report was completely exact; 15 reports emitted no interval prediction.
+- This is an external replication for Paper I only. No v005 record was used for model, parser, prompt, or candidate-policy development; no Paper II correction claim is made from this run.
+- The result is indexed as `P1_CALIFORNIA_WCR_V005_RAPIDOCR_EXTERNAL_FORMAL_001`; source rights and report-image redistribution remain subject to the existing pre-submission verification ledger.

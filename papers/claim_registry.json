@@ -1530,7 +1530,7 @@
       "paper": "paper1",
       "scope": "cross-canton Swissgeol source-disjoint acquisition and negative explicit-table audit; no interval Gold claim",
       "source_path": "datasets/source_verification_ledger.yaml",
-      "source_sha256": "5b5e59fc3c6baac3a07ed010dbafe38a80347c15b042e84ab9655fc39ec597df"
+      "source_sha256": "af5191aa9194aeaef5104e98d5b9c07f1205a6463447a6b7f52fc15dca4fe077"
     },
     "p1.cross_canton_transfer_tesseract": {
       "paper": "paper1",
@@ -2337,6 +2337,20 @@
         {"type": "json_pointer_equals", "pointer": "/lithology_detection/disagreement_document_counts/usgs145_lithologic_log", "expected": 33},
         {"type": "json_pointer_equals", "pointer": "/lithology_detection/disagreement_document_counts/usgs150_lithologic_log", "expected": 14},
         {"type": "json_pointer_equals", "pointer": "/depth_range_detection/rapidocr_minus_tesseract", "expected": 185}
+      ]
+    },
+    "p1.california_v005_rapidocr": {
+      "paper": "paper1",
+      "experiment_id": "P1_CALIFORNIA_WCR_V005_RAPIDOCR_EXTERNAL_FORMAL_001",
+      "scope": "independent external RapidOCR benchmark on 100 California WCR reports and 2,069 published manually transcribed intervals disjoint from v001-v004",
+      "source_path": "results/2026-08-15/P1_CALIFORNIA_WCR_V005_RAPIDOCR_EXTERNAL_FORMAL_001/metrics.json",
+      "source_sha256": "ea0848ea1cb0b237adb0f9f83ed2c52905a96bd391f4403c3ee21332956e2e1b",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 100},
+        {"type": "json_pointer_equals", "pointer": "/reference_interval_count", "expected": 2069},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_f1/value", "expected": 0.38861209964412813},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_precision/value", "expected": 0.7368421052631579},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_recall/value", "expected": 0.263895601739971}
       ]
     },
     "p1.california_v004_rapidocr": {

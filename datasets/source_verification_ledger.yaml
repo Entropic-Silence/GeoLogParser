@@ -1974,6 +1974,9 @@ records:
   - /data/GeoLogParser/datasets/public/california_wcr_gold_v004/metadata/acquisition.json
   - datasets/manifests/california_wcr_gold_v004.jsonl
   - datasets/splits/california_wcr_gold_split_v004.json
+  - /data/GeoLogParser/datasets/public/california_wcr_gold_v005/metadata/acquisition.json
+  - datasets/manifests/california_wcr_gold_v005.jsonl
+  - datasets/splits/california_wcr_gold_split_v005.json
   registry_status: acquired_published_manual_transcription_gold_cc0
   registry_verification_notes: ScienceBase item 632b1c93d34e71c6d67bc0bc. Local Lithology_v3_2025.txt
     is 33,552,010 bytes, MD5 e181414bae85544b417f89011b742668, SHA256 859c939ed88bbb8d248d3f07fe8893ed53c233dfe4086a2d387de130a0d138b0.
@@ -1990,6 +1993,9 @@ records:
     31 counties, and 1,788 intervals after the selective-correction policy was committed.
     v004 excludes v001-v003 and freezes 100 reports, 147 pages, 28 counties, and
     1,944 intervals after the candidate-risk policy was committed.
+    v005 excludes v001-v004 and freezes 100 reports, 141 pages, 35 counties, and
+    2,069 intervals for independent external replication; its manifest SHA256 is
+    b37fb6f5fde0fa1ffa2f41f91da0c6f685cd48ed4d07972c983255f89ec5e6f9.
     Benchmark selection required 5-60 exact-deduplicated intervals, empty source comments,
     adjacent continuity >=0.99, and a public report link.
 - source_id: usgs_california_wcr_links_v6_2025
@@ -2041,13 +2047,16 @@ records:
   - /data/GeoLogParser/datasets/public/california_wcr_gold_v004/metadata/acquisition.json
   - datasets/manifests/california_wcr_gold_v004.jsonl
   - datasets/splits/california_wcr_gold_split_v004.json
+  - /data/GeoLogParser/datasets/public/california_wcr_gold_v005/metadata/acquisition.json
+  - datasets/manifests/california_wcr_gold_v005.jsonl
+  - datasets/splits/california_wcr_gold_split_v005.json
   registry_status: acquired_public_redacted_report_links_cc0_table_images_local
   registry_verification_notes: ScienceBase item 64958d73d34ef77fcb01dc8f. Local WCR_v6_2025.csv
     is 109,486,447 bytes, MD5 27a44594f23341c1a910e98254b2ee6f, SHA256 fd99a20b03331016f70ece13c07c178c8089858055fb907e704a8666048d7a77.
     The official metadata describes links to redacted publicly available DWR reports
     and states CC0 for the attributed table. Public Box pages exposed file names,
     version IDs, SHA-1 values, sizes, and downloads. Four mutually record-disjoint
-    snapshots jointly retain 360 reports and record source URL, Box file/version IDs,
+    snapshots jointly retain 460 reports and record source URL, Box file/version IDs,
     source SHA-1, local PDF SHA-256, page count, county, coordinates, and interval
     provenance. project_human_reviewed=false; the reference intervals originate from
     the separately published manual-transcription release.
