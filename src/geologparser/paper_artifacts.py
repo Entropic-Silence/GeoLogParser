@@ -7,8 +7,18 @@ from pathlib import Path
 
 
 def ratio(metric: dict) -> str:
-    value = metric.get("value")
-    return "TBD" if value is None else f"{metric['numerator']}/{metric['denominator']} ({value:.3f})"
+    """Render a ratio metric without inventing values for unavailable fields.
+
+    Some cross-source audits intentionally report only interval-level metrics and
+    therefore do not define document-level exactness.  Paper tables should keep
+    that distinction explicit instead of failing generation or silently treating
+    a missing metric as zero.
+    """
+    if not metric or metric.get("value") is None:
+        return "TBD"
+    if "numerator" not in metric or "denominator" not in metric:
+        return "TBD"
+    return f"{metric['numerator']}/{metric['denominator']} ({metric['value']:.3f})"
 
 
 def number(value, decimals: int = 3) -> str:
@@ -89,7 +99,7 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
                 number(interval["interval_recall"]["value"]),
                 number(interval["interval_f1"]["value"]),
                 number(metrics["content_group_macro_interval_f1"]),
-                ratio(metrics["document_full_exact"]),
+                ratio(metrics.get("document_full_exact")),
                 (
                     "TBD" if metrics.get("ocr_resume_hit_count", 0)
                     else number(metrics["latency_seconds_per_document_wall"])
@@ -108,7 +118,7 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
                 number(interval["interval_f1"]["value"]),
                 number(interval["matched_top_boundary_mae_m"]["value"]),
                 number(interval["matched_bottom_boundary_mae_m"]["value"]),
-                ratio(metrics["document_full_exact"]),
+                ratio(metrics.get("document_full_exact")),
                 number(metrics["latency_seconds_per_document_wall"]),
                 entry["paper_eligibility"],
             ]) + " |"

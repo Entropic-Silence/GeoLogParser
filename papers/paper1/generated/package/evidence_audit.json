@@ -104,7 +104,7 @@
     {
       "exists": true,
       "resolved_path": "papers/paper1/generated/current_results.md",
-      "sha256": "ff6bd3c562214ab55ecd060a3d06f4ebfc4b2c06bfc4febeb3cdf0459e21024c",
+      "sha256": "b6a62c9c0ec9564593af263af01ec974bfcda4171049ecdab8ff112f15e8526d",
       "target": "generated/current_results.md"
     },
     {

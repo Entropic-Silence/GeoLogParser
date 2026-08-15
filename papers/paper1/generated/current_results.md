@@ -30,6 +30,8 @@ These rows use programmatically known Synthetic labels. They validate controlled
 | P1_CALIFORNIA_WCR_V002_TESSERACT_EXTERNAL_FORMAL_002 | tesseract_generic_positioned_interval_parser_v001 | 100 | 23 | 154 | 1770 | 497 | 79 | 0.789 | 0.221 | 0.346 | 149/392 (0.380) | 3/100 (0.030) | 9.184 | formal_external_benchmark |
 | P1_CALIFORNIA_WCR_V003_RAPIDOCR_PROSPECTIVE_FORMAL_001 | rapidocr_generic_positioned_interval_parser_v001 | 100 | 31 | 154 | 1788 | 559 | 88 | 0.803 | 0.251 | 0.383 | 244/449 (0.543) | 5/100 (0.050) | 9.701 | formal_prospective_external_benchmark |
 | P1_CALIFORNIA_WCR_V003_TESSERACT_PROSPECTIVE_FORMAL_001 | tesseract_generic_positioned_interval_parser_v001 | 100 | 31 | 154 | 1788 | 507 | 85 | 0.748 | 0.212 | 0.330 | 132/379 (0.348) | 4/100 (0.040) | 8.454 | formal_prospective_external_benchmark |
+| P1_CALIFORNIA_WCR_V004_RAPIDOCR_PROSPECTIVE_FORMAL_001 | rapidocr_generic_positioned_interval_parser_v001 | 100 | 28 | 147 | 1944 | 622 | 77 | 0.883 | 0.282 | 0.428 | 244/549 (0.444) | 3/100 (0.030) | 9.086 | formal_prospective_external_benchmark |
+| P1_CALIFORNIA_WCR_V005_RAPIDOCR_EXTERNAL_FORMAL_001 | rapidocr_generic_positioned_interval_parser_v001 | 100 | 35 | 141 | 2069 | 741 | 85 | 0.737 | 0.264 | 0.389 | 297/546 (0.544) | 4/100 (0.040) | 9.329 | formal_external_benchmark |
 The reference intervals were manually transcribed verbatim by USGS staff from California DWR well-completion-report images and received published depth-sequence and completeness checks. The project did not repeat human review of the 60-document freeze. Metrics therefore evaluate against published manual transcription, while report-image redistribution remains a separate pre-submission check.
 
 ### Held-out authoritative source-agreement interval result
@@ -59,6 +61,8 @@ These runs apply the frozen Thurgau parser without reference conditioning to all
 | P1_USGS144_CROSS_SOURCE_INTERVAL_FORMAL_001 | tesseract_raster_page_interval_parser | 1 | 8 | 8 | 1.000 | 1.000 | 1.000 | 0.000 | 0.000 | 1/1 (1.000) | 17.387 | formal_authoritative_interval |
 | P1_USGS_RAFT_RIVER_TESSERACT_INTERVAL_FORMAL_001 | tesseract_raster_table_interval_parser | 2 | 62 | 56 | 0.875 | 0.790 | 0.831 | 0.000 | 0.000 | 0/2 (0.000) | 6.354 | formal_authoritative_interval |
 | P1_USGS_RAFT_RIVER_RAPIDOCR_INTERVAL_FORMAL_001 | rapidocr_raster_table_interval_parser | 2 | 62 | 62 | 1.000 | 1.000 | 1.000 | 0.000 | 0.000 | 1/2 (0.500) | 7.736 | formal_authoritative_interval |
+| P1_BGS_OFFSHORE_V001_RAPIDOCR_CROSS_SOURCE_FORMAL_001 | rapidocr_bgs_composite_interval_parser_v001 | 26 | 341 | 28 | 0.250 | 0.021 | 0.038 | 0.000 | 0.000 | TBD | 9.568 | formal_authoritative_interval |
+| P1_BGS_OFFSHORE_V001_TESSERACT_CROSS_SOURCE_FORMAL_001 | tesseract_bgs_composite_interval_parser_v001 | 26 | 341 | 54 | 0.148 | 0.023 | 0.041 | 0.000 | 0.003 | TBD | 10.080 | formal_authoritative_interval |
 This table adds a single official USGS Idaho PDF with an explicit generalized-lithology legend. It is a cross-source diagnostic, not evidence for a representative source-disjoint estimate; source rights remain pending manual verification.
 
 ### Reference-conditioned interval diagnostics excluded from formal claims

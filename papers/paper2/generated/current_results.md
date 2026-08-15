@@ -17,6 +17,8 @@ The decision policy accepts only equal non-null values from two independent OCR 
 | P2_CALIFORNIA_WCR_CONSTRAINT_TEST_FORMAL_001 | 50 | 48 | 697 | 353 | 0.892 | 0.250 | 0.390 | 0.915 | 0.357 | 0.514 | 81 | 12 | 6 | 18/109 (0.165) | formal_benchmark |
 | P2_CALIFORNIA_WCR_V002_CONSTRAINT_EXTERNAL_FORMAL_002 | 100 | 23 | 1770 | 1143 | 0.817 | 0.311 | 0.450 | 0.925 | 0.406 | 0.564 | 212 | 17 | 46 | 63/355 (0.177) | formal_external_benchmark |
 | P2_CALIFORNIA_WCR_V003_CONSTRAINT_PROSPECTIVE_FORMAL_001 | 100 | 31 | 1788 | 836 | 0.803 | 0.251 | 0.383 | 0.897 | 0.318 | 0.470 | 149 | 29 | 30 | 59/281 (0.210) | formal_prospective_external_benchmark |
+| P2_CALIFORNIA_WCR_V004_CONSTRAINT_PROSPECTIVE_FORMAL_001 | 100 | 28 | 1944 | 1008 | 0.883 | 0.282 | 0.428 | 0.953 | 0.403 | 0.566 | 257 | 20 | 23 | 43/354 (0.121) | formal_prospective_external_method |
+| P2_CALIFORNIA_WCR_V005_CONSTRAINT_EXTERNAL_FORMAL_001 | 100 | 35 | 2069 | 1217 | 0.737 | 0.264 | 0.389 | 0.914 | 0.374 | 0.530 | 251 | 10 | 25 | 35/417 (0.084) | formal_prospective_external_method |
 
 The deterministic sequence ranker was frozen on the ten-document development partition and evaluated without reference access on the fifty-document California test. FCR counts both correct raw boundaries removed and incorrect constrained boundaries added. The result shows recovery gain and a non-negligible correction hazard rather than uniformly safe automatic repair.
 
