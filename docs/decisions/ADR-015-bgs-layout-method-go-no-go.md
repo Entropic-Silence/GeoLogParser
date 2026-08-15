@@ -17,12 +17,16 @@ to 96/367. A field-specific, line-removed 4x reread contributed a different
 error channel; the union reached 110/367 (29.97%). Thus layout localization is
 mostly available, but visual candidate recall remains a hard ceiling.
 
-The current source-disjoint five-fold candidate model does not pass a deployment
-gate. After enforcing mutually exclusive same-location hypotheses and page/y
-order, learned ranking plus monotone sequence inference achieved boundary
-precision 0.455, recall 0.166, F1 0.244, and interval F1 0.110 at ±0.05 m. At
-±0.10 m, its critical numerical error rate was 0.545. A high-threshold selective
-policy accepted only 4 boundaries and still made 2 errors.
+The v018 development model corrected a plural ``DESCRIPTIONS`` anchor failure,
+recomputed multiscale/field ROI evidence, calibrated depth columns in both
+directions, and used mixed-page semantic-role experts with nested OOF
+calibration. On the same source-disjoint folds it achieved boundary
+precision/recall/F1 0.4940/0.2262/0.3103 and interval F1 0.1116 at ±0.05 m.
+The calibrated candidate ECE was 0.0352. A sequence-level selective operating
+point accepted 43 boundaries (coverage 0.1172), with precision 0.9302 and CNER
+0.0698. The method still fails the interval-F1 gate and the full-coverage
+boundary-precision gate. The v018 artifact SHA256 is
+``cd2f60e2b5de8db4816d25753e983e03dd239177f007e53587d2ce4362af54aa``.
 
 ## Decision
 
@@ -45,6 +49,8 @@ required.
 ## Consequences
 
 - The current v007 artifact is retained as development failure evidence.
+- The v018 artifact is retained as the strongest development candidate, but is
+  not an external result and does not authorize v002 execution.
 - Further work targets candidate recall and structured sequence inference, not
   OCR/VLM model-count expansion.
 - The next method revision must explicitly model template family, depth-scale

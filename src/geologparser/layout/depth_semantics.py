@@ -143,7 +143,9 @@ def fit_depth_scale(
 ) -> DepthScaleCalibration | None:
     """Robustly calibrate a printed depth scale without terminal-depth input."""
     anchor = layout.anchors.get("depth")
-    anchor_x = anchor.center_x if anchor is not None else x_center_hint
+    # A field-specific ROI estimate must take precedence over a generic depth
+    # anchor: report headers frequently contain an unrelated TOTAL DEPTH label.
+    anchor_x = x_center_hint if x_center_hint is not None else (anchor.center_x if anchor is not None else None)
     if anchor_x is None:
         return None
     candidates = [
@@ -230,13 +232,16 @@ def detect_graphic_log_column(
     height, width = gray.shape[:2]
     depth = layout.anchors.get("depth")
     lithology = layout.anchors.get("lithology")
-    depth_x = depth.center_x if depth is not None else depth_x_hint
-    if depth_x is None or lithology is None or depth_x >= lithology.center_x:
+    depth_x = depth_x_hint if depth_x_hint is not None else (depth.center_x if depth is not None else None)
+    if depth_x is None:
         return None
     y1 = max(0, int(layout.y_min * height))
     y2 = min(height, int(layout.y_max * height))
-    x1 = max(0, int((depth_x + 0.005) * width))
-    x2 = min(width, int((lithology.center_x - 0.015) * width))
+    # Historical templates place the graphic log on either side of the depth
+    # scale. Search locally in both directions instead of encoding one order.
+    semantic_right = lithology.center_x + 0.03 if lithology is not None else depth_x + 0.14
+    x1 = max(0, int(max(layout.x_min, depth_x - 0.14) * width))
+    x2 = min(width, int(min(layout.x_max, max(depth_x + 0.14, semantic_right)) * width))
     if x2 - x1 < width * 0.025 or y2 <= y1:
         return None
     binary = (gray[y1:y2, x1:x2] < 160).astype(np.uint8) * 255
@@ -261,7 +266,8 @@ def detect_graphic_log_column(
                 continue
             interior = gray[y1:y2, left + 2:right - 2]
             texture = float((interior < 180).mean()) if interior.size else 0.0
-            proximity = abs((left + right) / 2 / width - (depth_x + 0.045))
+            center = (left + right) / 2 / width
+            proximity = min(abs(center - (depth_x - 0.045)), abs(center - (depth_x + 0.045)))
             pairs.append((texture - 0.8 * proximity, left, right))
     if not pairs:
         return None
@@ -315,6 +321,10 @@ def graphic_boundary_candidates(
         if not 0 <= raw_depth <= 5000:
             continue
         local_y = y - y1
+        external_line = horizontal_line_features(
+            gray, (float(left), float(y - 2), float(right), float(y + 2)),
+            left_x=max(0, layout.x_min * width), right_x=min(width, layout.x_max * width),
+        )
         hypotheses: set[tuple[float, float]] = {(round(raw_depth * 20) / 20, 0.05)}
         for step in (0.1, 0.5, 1.0):
             lower = math.floor(raw_depth / step) * step
@@ -335,6 +345,10 @@ def graphic_boundary_candidates(
                 "line_right_run": float(line_score[local_y]),
                 "line_left_dark": 0.0,
                 "line_right_dark": float(density[local_y]),
+                "external_left_run": external_line["line_left_run"],
+                "external_right_run": external_line["line_right_run"],
+                "external_left_dark": external_line["line_left_dark"],
+                "external_right_dark": external_line["line_right_dark"],
                 "texture_change": float(change[local_y]),
                 "scale_inliers": min(1.0, calibration.inlier_count / 6),
                 "scale_rmse": min(1.0, calibration.rmse_m),

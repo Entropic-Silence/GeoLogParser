@@ -2259,3 +2259,41 @@
   candidate classification cannot distinguish mutually exclusive depth roles.
   ADR-015 prevents consuming BGS v002 until explicit development thresholds are
   met. No v002 extraction result has been viewed or used for tuning.
+
+## 2026-08-15 — BGS v018 mixed-page semantic-role development
+
+- Re-ran the multiscale and field-ROI readers after fixing plural semantic
+  headers (for example, ``DESCRIPTIONS``); BGS v001 now detects 34/34 layouts.
+  Field-specific exact candidate visibility is 97/367 (26.43%). The updated
+  multiscale and field artifacts are frozen with SHA256 values
+  ``e665e71a73cb01bdf31caaa2283d6c949880d5ccd6dafa9b670716f4994a8d2a`` and
+  ``f2ee1b78c1645e8c4cf02defdf47f140327d55eebc6cfe9a4630f340d5bbea4e``.
+- v018 uses candidate semantic-role experts for printed boundaries, calibrated
+  graphic transitions, and terminal metadata, with global-model shrinkage,
+  nested source-disjoint Platt calibration, explicit zero-depth topology, and
+  threshold-relative monotone decoding. It produced boundary P/R/F1
+  0.4940/0.2262/0.3103 and interval F1 0.1116 at ±0.05 m; at ±0.10 m boundary
+  CNER was 0.4940. Candidate ECE fell from 0.2475 to 0.0352 and Brier score
+  from 0.1652 to 0.0916. The v018 analysis SHA256 is
+  ``cd2f60e2b5de8db4816d25753e983e03dd239177f007e53587d2ce4362af54aa``.
+- A sequence-level selective point accepted 43 boundaries, 40 correct, with
+  precision 0.9302, reference coverage 0.1172, and CNER 0.0698. This passes
+  the selective-risk development condition but does not pass interval F1 or
+  full-coverage precision; BGS v002 remains unopened. The result is a
+  development finding, not an external generalization claim.
+
+## 2026-08-15 — BGS long-page Qwen3-VL negative audit
+
+- Ran the frozen long-page prompt ``prompts/bgs_long_page_boundary_v001.md``
+  with local Qwen3-VL-4B on 79 independently rendered BGS tiles. GPU use was
+  temporary and mining was restored after completion. All 79 responses were
+  valid JSON, but the model matched only 12 reference boundaries, produced 33
+  false positives, and missed 355. At ±0.10 m, precision/recall/F1 were
+  0.2667/0.0327/0.0583; wall time was 746.479 s.
+- The false positives were concentrated on depth-scale ticks, page headers,
+  and terminal-depth metadata. This is a failure-attribution audit, not a
+  positive method result. The output artifact SHA256 is
+  ``5759c69e776d266c6142d17f5fb661ae2f9ffa1e011634555c7ac6a7c602d793``.
+- The result is excluded from v018 training, threshold selection, and external
+  confirmation. It is retained as evidence that unconstrained long-page VLM
+  boundary extraction is not a deployable substitute for field-aware parsing.

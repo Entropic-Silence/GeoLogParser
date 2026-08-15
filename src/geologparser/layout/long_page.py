@@ -12,7 +12,7 @@ from geologparser.ocr import TextRegion
 SEMANTIC_PATTERNS: Mapping[str, re.Pattern[str]] = {
     "depth": re.compile(r"\b(depth|metres?\s+below|feet\s+below)\b", re.I),
     "lithology": re.compile(r"\b(lithology|lithological|stratigraphy)\b", re.I),
-    "description": re.compile(r"\b(description|material\s+description)\b", re.I),
+    "description": re.compile(r"\b(descriptions?|material\s+descriptions?)\b", re.I),
     "sample": re.compile(r"\b(samples?|sub[ .-]*samples?)\b", re.I),
     "comments": re.compile(r"\b(comments?|remarks?)\b", re.I),
 }

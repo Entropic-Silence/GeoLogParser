@@ -2495,19 +2495,20 @@
     },
     "p2.bgs_layout_method_dev": {
       "paper": "paper2",
-      "scope": "development-only five-fold source-disjoint BGS v001 layout/field-aware candidate and monotone-sequence failure analysis; not external confirmation",
-      "source_path": "experiments/paper2/analysis/bgs_layout_method_development_v007.json",
-      "source_sha256": "93747e84fe7ed7df3208957097ed29d7233dfaa29f0cacee93ee55bfe0db799c",
+      "scope": "development-only five-fold source-disjoint BGS v001 mixed-page semantic-role candidate and calibrated monotone-sequence analysis; not external confirmation",
+      "source_path": "experiments/paper2/analysis/bgs_layout_method_development_v018.json",
+      "source_sha256": "cd2f60e2b5de8db4816d25753e983e03dd239177f007e53587d2ce4362af54aa",
       "assertions": [
         {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 26},
         {"type": "json_pointer_equals", "pointer": "/reference_boundary_count", "expected": 367},
-        {"type": "json_pointer_equals", "pointer": "/scale_calibrated_pages", "expected": 26},
-        {"type": "json_pointer_equals", "pointer": "/ablations/field_aware_generation/boundary_at_0_05m/recall", "expected": 0.22343324250681199},
-        {"type": "json_pointer_equals", "pointer": "/ablations/geological_monotonic_sequence/boundary_at_0_05m/precision", "expected": 0.4552238805970149},
-        {"type": "json_pointer_equals", "pointer": "/ablations/geological_monotonic_sequence/boundary_at_0_05m/f1", "expected": 0.2435129740518962},
-        {"type": "json_pointer_equals", "pointer": "/ablations/geological_monotonic_sequence/interval_at_0_05m/f1", "expected": 0.10989010989010989},
-        {"type": "json_pointer_equals", "pointer": "/ablations/geological_monotonic_sequence/boundary_at_0_10m/critical_numerical_error_rate", "expected": 0.5447761194029851},
-        {"type": "json_pointer_equals", "pointer": "/ablations/risk_aware_selective_prediction/accepted_boundary_count", "expected": 4}
+        {"type": "json_pointer_equals", "pointer": "/scale_calibrated_pages", "expected": 34},
+        {"type": "json_pointer_equals", "pointer": "/ablations/field_aware_generation/boundary_at_0_05m/recall", "expected": 0.26430517711171664},
+        {"type": "json_pointer_equals", "pointer": "/ablations/geological_monotonic_sequence/boundary_at_0_05m/precision", "expected": 0.49404761904761907},
+        {"type": "json_pointer_equals", "pointer": "/ablations/geological_monotonic_sequence/boundary_at_0_05m/f1", "expected": 0.3102803738317757},
+        {"type": "json_pointer_equals", "pointer": "/ablations/geological_monotonic_sequence/interval_at_0_05m/f1", "expected": 0.1115702479338843},
+        {"type": "json_pointer_equals", "pointer": "/ablations/geological_monotonic_sequence/boundary_at_0_10m/critical_numerical_error_rate", "expected": 0.49404761904761907},
+        {"type": "json_pointer_equals", "pointer": "/ablations/risk_aware_selective_prediction/accepted_boundary_count", "expected": 43},
+        {"type": "json_pointer_equals", "pointer": "/candidate_calibration/nested_platt_oof/expected_calibration_error", "expected": 0.03519585411327044}
       ]
     },
     "p1.california_vlm_gold": {

@@ -1,0 +1,2840 @@
+{
+  "analysis_scope": "BGS v001 development-only reference-blind VLM long-page rereading; no official intervals consumed",
+  "document_count": 26,
+  "documents": [
+    {
+      "pages": [
+        {
+          "layout": {
+            "x_max": 1.0,
+            "x_min": 0.3841532258064516,
+            "y_max": 0.995,
+            "y_min": 0.45466430551278103
+          },
+          "layout_detected": true,
+          "page": 10,
+          "tiles": [
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 18.787179239000125,
+              "output_tokens": 256,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9137982976,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 0.0,\n      \"evidence\": \"CLAY : cohesive, fine grained, dark brown, uniform.\",\n      \"relative_bbox\": [188, 130, 550, 170]\n    },\n    {\n      \"depth_m\": 10.0,\n      \"evidence\": \"CLAY : very fine grained, calcareous, dark grey with black organic streaks. Some silt and very fine sand.\",\n      \"relative_bbox\": [188, 200, 550, 240]\n    },\n    {\n      \"depth_m\": 20.0,\n      \"evidence\": \"BOULDER CLAY : sandy, brown.\",\n      \"relative_bbox\": [188, 270, 550, 310]\n    },\n    {\n      \"depth_m\": 22.0,\n      \"evidence\": \"BOULDER CLAY : sandy, grey.\",\n      \"relative_bbox\": [188, 340, 550, 380]\n    },\n    {\n      \"",
+              "tile_bbox": [
+                952,
+                2952,
+                2480,
+                5152
+              ],
+              "tile_id": "tile_000"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 10.876612858000044,
+              "output_tokens": 171,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9127145472,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 30.0,\n      \"evidence\": \"ROCKHEAD\"\n    },\n    {\n      \"depth_m\": 30.75,\n      \"evidence\": \"SANDSTONE : fine, grey, silty, ripple laminated.\"\n    },\n    {\n      \"depth_m\": 33.6,\n      \"evidence\": \"TD\"\n    },\n    {\n      \"depth_m\": 31.0,\n      \"evidence\": \"MICROPAL\"\n    },\n    {\n      \"depth_m\": 31.8,\n      \"evidence\": \"MICROPAL\"\n    },\n    {\n      \"depth_m\": 33.0,\n      \"evidence\": \"MICROPAL\"\n    }\n  ]\n}",
+              "tile_bbox": [
+                952,
+                4892,
+                2480,
+                6461
+              ],
+              "tile_id": "tile_001"
+            }
+          ]
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_2016306"
+    },
+    {
+      "pages": [
+        {
+          "layout": {
+            "x_max": 1.0,
+            "x_min": 0.40290322580645155,
+            "y_max": 0.995,
+            "y_min": 0.5208583201823601
+          },
+          "layout_detected": true,
+          "page": 7,
+          "tiles": [
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 16.380646691000038,
+              "output_tokens": 256,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9127009792,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 0.05,\n      \"evidence\": \"SHELL SAND : coarse.\",\n      \"relative_bbox\": [178, 138, 400, 158]\n    },\n    {\n      \"depth_m\": 10.0,\n      \"evidence\": \"MUD : stiff, dark grey (N4/1).\",\n      \"relative_bbox\": [178, 428, 400, 448]\n    },\n    {\n      \"depth_m\": 20.0,\n      \"evidence\": \"MUD : stiff, dark grey (N4/1).\",\n      \"relative_bbox\": [178, 718, 400, 738]\n    },\n    {\n      \"depth_m\": 22.5,\n      \"evidence\": \"COBBLES AND BOULDERS\",\n      \"relative_bbox\": [178, 808, 400, 828]\n    },\n    {\n      \"depth_m\": 27.0,\n      \"evidence\": \"BOULDER CL",
+              "tile_bbox": [
+                999,
+                2970,
+                2480,
+                5170
+              ],
+              "tile_id": "tile_000"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 10.94544463200009,
+              "output_tokens": 175,
+              "parse_status": "valid",
+              "parsed_boundaries": [
+                {
+                  "evidence": "BOULDER CLAY : hard.",
+                  "relative_bbox": [
+                    200.0,
+                    160.0,
+                    500.0,
+                    220.0
+                  ],
+                  "value_m": 27.0
+                },
+                {
+                  "evidence": "ROCKHEAD",
+                  "relative_bbox": [
+                    200.0,
+                    220.0,
+                    500.0,
+                    280.0
+                  ],
+                  "value_m": 29.0
+                },
+                {
+                  "evidence": "OLIVINE DOLERITE : coarsely ophitic.",
+                  "relative_bbox": [
+                    200.0,
+                    280.0,
+                    500.0,
+                    340.0
+                  ],
+                  "value_m": 29.8
+                }
+              ],
+              "peak_gpu_memory_bytes": 9134014464,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 27.0,\n      \"evidence\": \"BOULDER CLAY : hard.\",\n      \"relative_bbox\": [200, 160, 500, 220]\n    },\n    {\n      \"depth_m\": 29.0,\n      \"evidence\": \"ROCKHEAD\",\n      \"relative_bbox\": [200, 220, 500, 280]\n    },\n    {\n      \"depth_m\": 29.8,\n      \"evidence\": \"OLIVINE DOLERITE : coarsely ophitic.\",\n      \"relative_bbox\": [200, 280, 500, 340]\n    }\n  ]\n}",
+              "tile_bbox": [
+                999,
+                4910,
+                2480,
+                5674
+              ],
+              "tile_id": "tile_001"
+            }
+          ]
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_2041581"
+    },
+    {
+      "pages": [
+        {
+          "layout": {
+            "x_max": 1.0,
+            "x_min": 0.06661290322580646,
+            "y_max": 0.995,
+            "y_min": 0.19490695128626162
+          },
+          "layout_detected": true,
+          "page": 6,
+          "tiles": [
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 16.175933988999986,
+              "output_tokens": 256,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9127145472,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 0.0,\n      \"evidence\": \"Gravel, sandy, shelly, cobbles at seabed.\",\n      \"relative_bbox\": [318, 38, 560, 100]\n    },\n    {\n      \"depth_m\": 6.0,\n      \"evidence\": \"Sand, mainly fine, silty or muddy locally.\",\n      \"relative_bbox\": [318, 100, 560, 160]\n    },\n    {\n      \"depth_m\": 10.0,\n      \"evidence\": \"Sand, coarse, gravelly, shelly\",\n      \"relative_bbox\": [318, 160, 560, 220]\n    },\n    {\n      \"depth_m\": 20.0,\n      \"evidence\": \"Gypsum, siltstone, mudstone. Gypsum\",\n      \"relative_bbox\": [318, 220, 560, 280]\n    },\n    {\n      \"depth_m\": 30.0,\n      \"evidence\": \"",
+              "tile_bbox": [
+                165,
+                712,
+                2480,
+                2912
+              ],
+              "tile_id": "tile_000"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 0.7224172960000033,
+              "output_tokens": 9,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9129592832,
+              "raw_text": "{\n  \"boundaries\": []\n}",
+              "tile_bbox": [
+                165,
+                2652,
+                2480,
+                3635
+              ],
+              "tile_id": "tile_001"
+            }
+          ]
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1963694"
+    },
+    {
+      "pages": [
+        {
+          "layout": {
+            "x_max": 1.0,
+            "x_min": 0.09302419354838712,
+            "y_max": 0.995,
+            "y_min": 0.18146768893756848
+          },
+          "layout_detected": true,
+          "page": 4,
+          "tiles": [
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 14.984593489999952,
+              "output_tokens": 239,
+              "parse_status": "valid",
+              "parsed_boundaries": [
+                {
+                  "evidence": "Silt or Fine Muddy Sand, grey",
+                  "relative_bbox": [
+                    198.0,
+                    250.0,
+                    298.0,
+                    300.0
+                  ],
+                  "value_m": 10.0
+                },
+                {
+                  "evidence": "Mud, grey, soft, a few shell frags.",
+                  "relative_bbox": [
+                    198.0,
+                    460.0,
+                    298.0,
+                    510.0
+                  ],
+                  "value_m": 20.0
+                },
+                {
+                  "evidence": "Mare, chocolate coloured with irregular green bands. Many irregular gypsum bands.",
+                  "relative_bbox": [
+                    198.0,
+                    670.0,
+                    298.0,
+                    720.0
+                  ],
+                  "value_m": 30.0
+                },
+                {
+                  "evidence": "END OF BOREHOLE",
+                  "relative_bbox": [
+                    198.0,
+                    880.0,
+                    298.0,
+                    930.0
+                  ],
+                  "value_m": 40.0
+                }
+              ],
+              "peak_gpu_memory_bytes": 9127145472,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 10.0,\n      \"evidence\": \"Silt or Fine Muddy Sand, grey\",\n      \"relative_bbox\": [198, 250, 298, 300]\n    },\n    {\n      \"depth_m\": 20.0,\n      \"evidence\": \"Mud, grey, soft, a few shell frags.\",\n      \"relative_bbox\": [198, 460, 298, 510]\n    },\n    {\n      \"depth_m\": 30.0,\n      \"evidence\": \"Mare, chocolate coloured with irregular green bands. Many irregular gypsum bands.\",\n      \"relative_bbox\": [198, 670, 298, 720]\n    },\n    {\n      \"depth_m\": 40.0,\n      \"evidence\": \"END OF BOREHOLE\",\n      \"relative_bbox\": [198, 880, 298, 930]\n    }\n  ]\n}",
+              "tile_bbox": [
+                230,
+                662,
+                2480,
+                2862
+              ],
+              "tile_id": "tile_000"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 1.0784650800001145,
+              "output_tokens": 15,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9133882368,
+              "raw_text": "{\"boundaries\":[],\"evidence\":\"no visible geological layer boundaries\"}",
+              "tile_bbox": [
+                230,
+                2602,
+                2480,
+                3633
+              ],
+              "tile_id": "tile_001"
+            }
+          ]
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1960609"
+    },
+    {
+      "pages": [
+        {
+          "layout": {
+            "x_max": 1.0,
+            "x_min": 0.30431451612903226,
+            "y_max": 0.995,
+            "y_min": 0.18573489384866632
+          },
+          "layout_detected": true,
+          "page": 6,
+          "tiles": [
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 0.7142360349998853,
+              "output_tokens": 9,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9131156480,
+              "raw_text": "{\n  \"boundaries\": []\n}",
+              "tile_bbox": [
+                754,
+                682,
+                2480,
+                2882
+              ],
+              "tile_id": "tile_000"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 0.7170871630000875,
+              "output_tokens": 9,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9124896768,
+              "raw_text": "{\n  \"boundaries\": []\n}",
+              "tile_bbox": [
+                754,
+                2622,
+                2480,
+                3655
+              ],
+              "tile_id": "tile_001"
+            }
+          ]
+        },
+        {
+          "layout": {
+            "x_max": 1.0,
+            "x_min": 0.08737903225806451,
+            "y_max": 0.995,
+            "y_min": 0.06229994556341861
+          },
+          "layout_detected": true,
+          "page": 7,
+          "tiles": [
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 16.009853822999958,
+              "output_tokens": 256,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9127145472,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 50.0,\n      \"evidence\": \"SAND, grey to brown, fine to medium, shell fragments\",\n      \"relative_bbox\": [330, 60, 600, 170]\n    },\n    {\n      \"depth_m\": 60.0,\n      \"evidence\": \"BOULDER CLAY, greyish brown, igneous and metamorphic erratics up to .08m\",\n      \"relative_bbox\": [330, 170, 600, 280]\n    },\n    {\n      \"depth_m\": 70.0,\n      \"evidence\": \"SAND, grey a brown, gravelly\",\n      \"relative_bbox\": [330, 280, 600, 390]\n    },\n    {\n      \"depth_m\": 80.0,\n      \"evidence\": \"BOULDER CLAY, dark brown, erratics up to .10m\",\n      \"relative_bbox\": [330, 390, 600, 500]\n    },\n",
+              "tile_bbox": [
+                216,
+                228,
+                2480,
+                2428
+              ],
+              "tile_id": "tile_000"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 4.548541028999807,
+              "output_tokens": 70,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9127009792,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 90.0,\n      \"evidence\": \"Sand And Gravel, coarse grained\"\n    },\n    {\n      \"depth_m\": 100.0,\n      \"evidence\": \"END OF BOREHOLE\"\n    }\n  ]\n}",
+              "tile_bbox": [
+                216,
+                2168,
+                2480,
+                3655
+              ],
+              "tile_id": "tile_001"
+            }
+          ]
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1969862"
+    },
+    {
+      "pages": [
+        {
+          "layout": {
+            "x_max": 1.0,
+            "x_min": 0.4020967741935484,
+            "y_max": 0.995,
+            "y_min": 0.5175049249886347
+          },
+          "layout_detected": true,
+          "page": 15,
+          "tiles": [
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 16.14500630600014,
+              "output_tokens": 256,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9127009792,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 0.0,\n      \"evidence\": \"SAND : muddy, fine to medium grained.\"\n    },\n    {\n      \"depth_m\": 2.0,\n      \"evidence\": \"BOULDER CLAY : stiff, red.\"\n    },\n    {\n      \"depth_m\": 10.0,\n      \"evidence\": \"GRAVEL : with sub-rounded cobbles up to 10cm.\"\n    },\n    {\n      \"depth_m\": 13.0,\n      \"evidence\": \"SANDSTONE : fine, red.\"\n    },\n    {\n      \"depth_m\": 14.26,\n      \"evidence\": \"SANDSTONE : friable, white.\"\n    },\n    {\n      \"depth_m\": 15.53,\n      \"evidence\": \"SANDSTONE : fine, red, with thin white sandstone bands.\"\n    },\n    {\n      \"depth_m\": 16.67,\n      \"evidence\": \"SANDSTONE : fine, red with white sandstone bands.\"\n    },\n    {\n      \"depth_m\": 17.47,\n      \"evidence\":",
+              "tile_bbox": [
+                997,
+                3415,
+                2480,
+                5615
+              ],
+              "tile_id": "tile_000"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 16.16305538000006,
+              "output_tokens": 256,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9124607488,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 19.02,\n      \"evidence\": \"SANDSTONE : red and white with red siltstone flakes.\",\n      \"relative_bbox\": [19.02, 0, 20.02, 100]\n    },\n    {\n      \"depth_m\": 20.00,\n      \"evidence\": \"SANDSTONE : mottled red and white.\",\n      \"relative_bbox\": [20.00, 0, 20.02, 100]\n    },\n    {\n      \"depth_m\": 20.45,\n      \"evidence\": \"SANDSTONE : flat bedded, red with thin white sandstone bands.\",\n      \"relative_bbox\": [20.45, 0, 20.70, 100]\n    },\n    {\n      \"depth_m\": 20.70,\n      \"evidence\": \"SILTSTONE : coarse, massive, red.\",\n      \"relative_bbox\": [20.70, 0, 22.38, 100]\n    },\n    {\n",
+              "tile_bbox": [
+                997,
+                5355,
+                2480,
+                6566
+              ],
+              "tile_id": "tile_001"
+            }
+          ]
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1957995"
+    },
+    {
+      "pages": [
+        {
+          "layout": {
+            "x_max": 1.0,
+            "x_min": 0.0869758064516129,
+            "y_max": 0.995,
+            "y_min": 0.2302184179456907
+          },
+          "layout_detected": true,
+          "page": 7,
+          "tiles": [
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 16.126265098000204,
+              "output_tokens": 256,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9127145472,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 10.0,\n      \"evidence\": \"CLAY grey, brown. CLAY grey, brown with shell fragments.\",\n      \"relative_bbox\": [167, 247, 200, 275]\n    },\n    {\n      \"depth_m\": 20.0,\n      \"evidence\": \"CLAY very dark grey, smell of H2S. CLAY grey, slightly brownish clay, smell of H2S.\",\n      \"relative_bbox\": [167, 467, 200, 500]\n    },\n    {\n      \"depth_m\": 30.0,\n      \"evidence\": \"SAND red, very clean. SANDSTONE red, medium grained with coarse subrounded grains of quartz. Bending throughout at 25°-30° to horizontal.\",\n      \"relative_bbox\": [167, 677, 200, 710]\n    },\n    {\n      \"depth_m\": 40.0,\n      \"evidence\": \"SANDSTONE red, fine to medium grain size, 2",
+              "tile_bbox": [
+                215,
+                974,
+                2480,
+                3174
+              ],
+              "tile_id": "tile_000"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 6.285330109999904,
+              "output_tokens": 96,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9136121344,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 40.0,\n      \"evidence\": \"JANOSTONE, red, fine to medium grain size, 20° dip.\"\n    },\n    {\n      \"depth_m\": 50.0,\n      \"evidence\": \"SANDSTONE, red, fine to medium grain size, numerous joints, poorly consolidated, dip 45°.\"\n    }\n  ]\n}",
+              "tile_bbox": [
+                215,
+                2914,
+                2480,
+                4213
+              ],
+              "tile_id": "tile_001"
+            }
+          ]
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1960630"
+    },
+    {
+      "pages": [
+        {
+          "layout": {
+            "x_max": 1.0,
+            "x_min": 0.09282258064516127,
+            "y_max": 0.995,
+            "y_min": 0.18069951007076757
+          },
+          "layout_detected": true,
+          "page": 8,
+          "tiles": [
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 15.88218751400018,
+              "output_tokens": 249,
+              "parse_status": "valid",
+              "parsed_boundaries": [
+                {
+                  "evidence": "CLAY gray, brown with tiny shell and rock fragments.",
+                  "relative_bbox": [
+                    198.0,
+                    150.0,
+                    608.0,
+                    290.0
+                  ],
+                  "value_m": 10.0
+                },
+                {
+                  "evidence": "GRAVEL",
+                  "relative_bbox": [
+                    198.0,
+                    300.0,
+                    608.0,
+                    440.0
+                  ],
+                  "value_m": 20.0
+                },
+                {
+                  "evidence": "CLAY dk grayish brown, laminated with silty and sandy bands, rare tiny rock fragments and small pebbles",
+                  "relative_bbox": [
+                    198.0,
+                    450.0,
+                    608.0,
+                    590.0
+                  ],
+                  "value_m": 30.0
+                },
+                {
+                  "evidence": "SAND coarse, shelly with grey brown silty clay.",
+                  "relative_bbox": [
+                    198.0,
+                    590.0,
+                    608.0,
+                    730.0
+                  ],
+                  "value_m": 40.0
+                }
+              ],
+              "peak_gpu_memory_bytes": 9127145472,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 10.0,\n      \"evidence\": \"CLAY gray, brown with tiny shell and rock fragments.\",\n      \"relative_bbox\": [198, 150, 608, 290]\n    },\n    {\n      \"depth_m\": 20.0,\n      \"evidence\": \"GRAVEL\",\n      \"relative_bbox\": [198, 300, 608, 440]\n    },\n    {\n      \"depth_m\": 30.0,\n      \"evidence\": \"CLAY dk grayish brown, laminated with silty and sandy bands, rare tiny rock fragments and small pebbles\",\n      \"relative_bbox\": [198, 450, 608, 590]\n    },\n    {\n      \"depth_m\": 40.0,\n      \"evidence\": \"SAND coarse, shelly with grey brown silty clay.\",\n      \"relative_bbox\": [198, 590, 608, 730]\n    }\n  ]\n}",
+              "tile_bbox": [
+                230,
+                663,
+                2480,
+                2863
+              ],
+              "tile_id": "tile_000"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 10.045462845000202,
+              "output_tokens": 158,
+              "parse_status": "valid",
+              "parsed_boundaries": [
+                {
+                  "evidence": "SAND, green grey, varying from fino to crs and to fine gravel clayey in parts.",
+                  "relative_bbox": [
+                    270.0,
+                    0.0,
+                    600.0,
+                    600.0
+                  ],
+                  "value_m": 40.0
+                },
+                {
+                  "evidence": "SAND, green grey, varying from fino to crs and to fine gravel clayey in parts.",
+                  "relative_bbox": [
+                    270.0,
+                    600.0,
+                    600.0,
+                    1200.0
+                  ],
+                  "value_m": 50.0
+                }
+              ],
+              "peak_gpu_memory_bytes": 9133882368,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 40.0,\n      \"evidence\": \"SAND, green grey, varying from fino to crs and to fine gravel clayey in parts.\",\n      \"relative_bbox\": [\n        270,\n        0,\n        600,\n        600\n      ]\n    },\n    {\n      \"depth_m\": 50.0,\n      \"evidence\": \"SAND, green grey, varying from fino to crs and to fine gravel clayey in parts.\",\n      \"relative_bbox\": [\n        270,\n        600,\n        600,\n        1200\n      ]\n    }\n  ]\n}",
+              "tile_bbox": [
+                230,
+                2603,
+                2480,
+                3655
+              ],
+              "tile_id": "tile_001"
+            }
+          ]
+        },
+        {
+          "layout": {
+            "x_max": 1.0,
+            "x_min": 0.3168145161290322,
+            "y_max": 0.995,
+            "y_min": 0.06189167120304845
+          },
+          "layout_detected": true,
+          "page": 9,
+          "tiles": [
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 13.078917199999978,
+              "output_tokens": 206,
+              "parse_status": "valid",
+              "parsed_boundaries": [
+                {
+                  "evidence": "SAND, green grey, varying from fine to coarse to a fine gravel; clayey in parts.",
+                  "relative_bbox": [
+                    100.0,
+                    100.0,
+                    450.0,
+                    400.0
+                  ],
+                  "value_m": 0.0
+                },
+                {
+                  "evidence": "CLAY, dark greyish brown, as above.",
+                  "relative_bbox": [
+                    100.0,
+                    400.0,
+                    450.0,
+                    650.0
+                  ],
+                  "value_m": 0.0
+                },
+                {
+                  "evidence": "END OF BOREHOLE",
+                  "relative_bbox": [
+                    100.0,
+                    650.0,
+                    450.0,
+                    900.0
+                  ],
+                  "value_m": 0.0
+                }
+              ],
+              "peak_gpu_memory_bytes": 9131156480,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 0.0,\n      \"evidence\": \"SAND, green grey, varying from fine to coarse to a fine gravel; clayey in parts.\",\n      \"relative_bbox\": [\n        100,\n        100,\n        450,\n        400\n      ]\n    },\n    {\n      \"depth_m\": 0.0,\n      \"evidence\": \"CLAY, dark greyish brown, as above.\",\n      \"relative_bbox\": [\n        100,\n        400,\n        450,\n        650\n      ]\n    },\n    {\n      \"depth_m\": 0.0,\n      \"evidence\": \"END OF BOREHOLE\",\n      \"relative_bbox\": [\n        100,\n        650,\n        450,\n        900\n      ]\n    }\n  ]\n}",
+              "tile_bbox": [
+                785,
+                227,
+                2480,
+                2427
+              ],
+              "tile_id": "tile_000"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 0.5382949930003633,
+              "output_tokens": 6,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9126875648,
+              "raw_text": "{\"boundaries\":[]}",
+              "tile_bbox": [
+                785,
+                2167,
+                2480,
+                3655
+              ],
+              "tile_id": "tile_001"
+            }
+          ]
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_2023411"
+    },
+    {
+      "pages": [
+        {
+          "layout": {
+            "x_max": 1.0,
+            "x_min": 0.0,
+            "y_max": 0.995,
+            "y_min": 0.12832441272673206
+          },
+          "layout_detected": true,
+          "page": 11,
+          "tiles": [
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 16.209697201999916,
+              "output_tokens": 256,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9126875648,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 10.0,\n      \"evidence\": \"LIMESTONE, as above, more argillaceous, some vertical burrows and belemnites.\",\n      \"relative_bbox\": [\n        288,\n        220,\n        328,\n        250\n      ]\n    },\n    {\n      \"depth_m\": 20.0,\n      \"evidence\": \"LIMESTONE, as above, with white ooliths and pelletoid pockets.\",\n      \"relative_bbox\": [\n        288,\n        300,\n        328,\n        330\n      ]\n    },\n    {\n      \"depth_m\": 30.0,\n      \"evidence\": \"LIMESTONE, oolitic as above, with thin dark grey mudstone with scattered ooliths and limonitic pellets.\",\n      \"relative_bbox\": [\n        288,\n        380,\n        328,\n        410\n      ]\n    },\n    {\n      \"depth_m\": 39.0,\n      \"evidence\": \"CONGLO",
+              "tile_bbox": [
+                0,
+                431,
+                2480,
+                2631
+              ],
+              "tile_id": "tile_000"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 1.1166462940000201,
+              "output_tokens": 15,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9131848192,
+              "raw_text": "{\"boundaries\":[],\"evidence\":\"no visible geological layer boundaries\"}",
+              "tile_bbox": [
+                0,
+                2371,
+                2480,
+                3346
+              ],
+              "tile_id": "tile_001"
+            }
+          ]
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_2030012"
+    },
+    {
+      "pages": [
+        {
+          "layout": {
+            "x_max": 1.0,
+            "x_min": 0.0,
+            "y_max": 0.995,
+            "y_min": 0.12133660422242047
+          },
+          "layout_detected": true,
+          "page": 67,
+          "tiles": [
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 16.352536525000232,
+              "output_tokens": 253,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9126875648,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 10.0,\n      \"evidence\": \"CHALK, white, with grey argillaceous bands, stylitic and slickensided throughout. Passes down (c.20m) into white chalky nodules in a grey argillaceous chalky matrix.\"\n    },\n    {\n      \"depth_m\": 20.0,\n      \"evidence\": \"CHALK, white, with grey argillaceous bands, stylitic and slickensided throughout. Passes down (c.20m) into white chalky nodules in a grey argillaceous chalky matrix.\"\n    },\n    {\n      \"depth_m\": 30.0,\n      \"evidence\": \"CHALK, white, with grey argillaceous bands, stylitic and slickensided throughout. Passes down (c.20m) into white chalky nodules in a grey argillaceous chalky matrix.\"\n    },\n    {\n      \"depth_m\": 40.0,\n      \"evidence\": \"SANDSTONE, green, glauconitic, with pale grey subrounded limestone clasts.\"\n    }\n  ]\n}",
+              "tile_bbox": [
+                0,
+                408,
+                2480,
+                2608
+              ],
+              "tile_id": "tile_000"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 10.317629586999828,
+              "output_tokens": 158,
+              "parse_status": "valid",
+              "parsed_boundaries": [
+                {
+                  "evidence": "SANDSTONE, green, glauconitic, with pale grey subrounded limestone clasts.",
+                  "relative_bbox": [
+                    280.0,
+                    340.0,
+                    420.0,
+                    430.0
+                  ],
+                  "value_m": 50.0
+                },
+                {
+                  "evidence": "SANDSTONE, dark green, fine grained, fossiliferous glauconitic, calcareous with scattered limestone clasts. Strongly bioturbated.",
+                  "relative_bbox": [
+                    280.0,
+                    430.0,
+                    420.0,
+                    520.0
+                  ],
+                  "value_m": 60.0
+                }
+              ],
+              "peak_gpu_memory_bytes": 9131848192,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 50.0,\n      \"evidence\": \"SANDSTONE, green, glauconitic, with pale grey subrounded limestone clasts.\",\n      \"relative_bbox\": [280, 340, 420, 430]\n    },\n    {\n      \"depth_m\": 60.0,\n      \"evidence\": \"SANDSTONE, dark green, fine grained, fossiliferous glauconitic, calcareous with scattered limestone clasts. Strongly bioturbated.\",\n      \"relative_bbox\": [280, 430, 420, 520]\n    }\n  ]\n}",
+              "tile_bbox": [
+                0,
+                2348,
+                2480,
+                3346
+              ],
+              "tile_id": "tile_001"
+            }
+          ]
+        },
+        {
+          "layout": {
+            "x_max": 1.0,
+            "x_min": 0.18838709677419355,
+            "y_max": 0.995,
+            "y_min": 0.1130107047279215
+          },
+          "layout_detected": true,
+          "page": 68,
+          "tiles": [
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 11.252658244000031,
+              "output_tokens": 177,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9135959552,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 70.0,\n      \"evidence\": \"SANDSTONE, as above. Chlamys milleri (J. de C. Sowerby), Calva (Chimela) caperata (J. de C. Sowerby) Entolium sp.\"\n    },\n    {\n      \"depth_m\": 80.0,\n      \"evidence\": \"MUDSTONE, dark grey, silty, micaceous intensely bioturbated, fossiliferous. Anomia sp. Cuculaea sp. Entolium sp. Oxytoma sp. Pseudolimea sp.\"\n    },\n    {\n      \"depth_m\": 76.85,\n      \"evidence\": \"NO RECOVERY\"\n    }\n  ]\n}",
+              "tile_bbox": [
+                467,
+                380,
+                2480,
+                2580
+              ],
+              "tile_id": "tile_000"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 1.1006124359996647,
+              "output_tokens": 15,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9134014464,
+              "raw_text": "{\"boundaries\":[],\"evidence\":\"no visible geological layer boundaries\"}",
+              "tile_bbox": [
+                467,
+                2320,
+                2480,
+                3346
+              ],
+              "tile_id": "tile_001"
+            }
+          ]
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1980976"
+    },
+    {
+      "pages": [
+        {
+          "layout": {
+            "x_max": 1.0,
+            "x_min": 0.3192338709677419,
+            "y_max": 0.995,
+            "y_min": 0.1987185104052574
+          },
+          "layout_detected": true,
+          "page": 19,
+          "tiles": [
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 0.719333904999985,
+              "output_tokens": 9,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9131156480,
+              "raw_text": "{\n  \"boundaries\": []\n}",
+              "tile_bbox": [
+                791,
+                725,
+                2480,
+                2925
+              ],
+              "tile_id": "tile_000"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 0.5379515499998888,
+              "output_tokens": 6,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9136121344,
+              "raw_text": "{\"boundaries\":[]}",
+              "tile_bbox": [
+                791,
+                2665,
+                2480,
+                3633
+              ],
+              "tile_id": "tile_001"
+            }
+          ]
+        },
+        {
+          "layout": {
+            "x_max": 1.0,
+            "x_min": 0.32427419354838705,
+            "y_max": 0.995,
+            "y_min": 0.06591456736035049
+          },
+          "layout_detected": true,
+          "page": 20,
+          "tiles": [
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 0.7627455520000694,
+              "output_tokens": 9,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9131156480,
+              "raw_text": "{\n  \"boundaries\": []\n}",
+              "tile_bbox": [
+                804,
+                240,
+                2480,
+                2440
+              ],
+              "tile_id": "tile_000"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 0.5532219849997091,
+              "output_tokens": 6,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9134508544,
+              "raw_text": "{\"boundaries\":[]}",
+              "tile_bbox": [
+                804,
+                2180,
+                2480,
+                3633
+              ],
+              "tile_id": "tile_001"
+            }
+          ]
+        },
+        {
+          "layout": {
+            "x_max": 1.0,
+            "x_min": 0.11459677419354838,
+            "y_max": 0.995,
+            "y_min": 0.0709802847754655
+          },
+          "layout_detected": true,
+          "page": 21,
+          "tiles": [
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 16.11537243900011,
+              "output_tokens": 256,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9136121344,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 100.0,\n      \"evidence\": \"CHALK\\nwhile to cream,\\nwith flints.\\n(Middle Turonian to Coniacian)\",\n      \"relative_bbox\": [328, 47, 607, 130]\n    },\n    {\n      \"depth_m\": 110.0,\n      \"evidence\": \"CHALK\\nwhile to cream,\\nwith flints.\\n(Middle Turonian to Coniacian)\",\n      \"relative_bbox\": [328, 130, 607, 213]\n    },\n    {\n      \"depth_m\": 120.0,\n      \"evidence\": \"CHALK\\nwhile to cream,\\nwith flints.\\n(Middle Turonian to Coniacian)\",\n      \"relative_bbox\": [328, 213, 607, 296]\n    },\n    {\n      \"depth_m\": 130.0,\n      \"evidence\": \"END OF BOREHOLE\",\n      \"relative_bbox\": [328, 29",
+              "tile_bbox": [
+                284,
+                259,
+                2480,
+                2459
+              ],
+              "tile_id": "tile_000"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 0.7166787360001763,
+              "output_tokens": 9,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9131848192,
+              "raw_text": "{\n  \"boundaries\": []\n}",
+              "tile_bbox": [
+                284,
+                2199,
+                2480,
+                3633
+              ],
+              "tile_id": "tile_001"
+            }
+          ]
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1984462"
+    },
+    {
+      "pages": [
+        {
+          "layout": {
+            "x_max": 1.0,
+            "x_min": 0.2099596774193548,
+            "y_max": 0.995,
+            "y_min": 0.5438950425503174
+          },
+          "layout_detected": true,
+          "page": 4,
+          "tiles": [
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 13.352494993000164,
+              "output_tokens": 203,
+              "parse_status": "valid",
+              "parsed_boundaries": [
+                {
+                  "evidence": "Seabed",
+                  "relative_bbox": [
+                    230.0,
+                    230.0,
+                    380.0,
+                    260.0
+                  ],
+                  "value_m": 0.0
+                },
+                {
+                  "evidence": "S. Artesic silt, purple-red, coarse angular - sub rounded pebbles, common quartz, feldspars, grains and mica, K-feldspar, occasional feldspars",
+                  "relative_bbox": [
+                    130.0,
+                    550.0,
+                    550.0,
+                    580.0
+                  ],
+                  "value_m": 5.0
+                },
+                {
+                  "evidence": "S. Artesic silt",
+                  "relative_bbox": [
+                    130.0,
+                    880.0,
+                    340.0,
+                    910.0
+                  ],
+                  "value_m": 10.0
+                }
+              ],
+              "peak_gpu_memory_bytes": 9126875648,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 0.0,\n      \"evidence\": \"Seabed\",\n      \"relative_bbox\": [230, 230, 380, 260]\n    },\n    {\n      \"depth_m\": 5.0,\n      \"evidence\": \"S. Artesic silt, purple-red, coarse angular - sub rounded pebbles, common quartz, feldspars, grains and mica, K-feldspar, occasional feldspars\",\n      \"relative_bbox\": [130, 550, 550, 580]\n    },\n    {\n      \"depth_m\": 10.0,\n      \"evidence\": \"S. Artesic silt\",\n      \"relative_bbox\": [130, 880, 340, 910]\n    }\n  ]\n}",
+              "tile_bbox": [
+                520,
+                4026,
+                2480,
+                6226
+              ],
+              "tile_id": "tile_000"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 7.692545313999744,
+              "output_tokens": 119,
+              "parse_status": "valid",
+              "parsed_boundaries": [
+                {
+                  "evidence": "grey-green coloration, v. micaceous",
+                  "relative_bbox": [
+                    197.0,
+                    0.0,
+                    500.0,
+                    50.0
+                  ],
+                  "value_m": 10.0
+                },
+                {
+                  "evidence": "TB 12.60 m.",
+                  "relative_bbox": [
+                    197.0,
+                    280.0,
+                    300.0,
+                    330.0
+                  ],
+                  "value_m": 12.6
+                }
+              ],
+              "peak_gpu_memory_bytes": 9133882368,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 10.0,\n      \"evidence\": \"grey-green coloration, v. micaceous\",\n      \"relative_bbox\": [197, 0, 500, 50]\n    },\n    {\n      \"depth_m\": 12.6,\n      \"evidence\": \"TB 12.60 m.\",\n      \"relative_bbox\": [197, 280, 300, 330]\n    }\n  ]\n}",
+              "tile_bbox": [
+                520,
+                5966,
+                2480,
+                7365
+              ],
+              "tile_id": "tile_001"
+            }
+          ]
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1945465"
+    },
+    {
+      "pages": [
+        {
+          "layout": {
+            "x_max": 1.0,
+            "x_min": 0.43173387096774185,
+            "y_max": 0.995,
+            "y_min": 0.29832374790318716
+          },
+          "layout_detected": true,
+          "page": 7,
+          "tiles": [
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 0.748081639999782,
+              "output_tokens": 9,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9131848192,
+              "raw_text": "{\n  \"boundaries\": []\n}",
+              "tile_bbox": [
+                1070,
+                3734,
+                2480,
+                5934
+              ],
+              "tile_id": "tile_000"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 8.86784668600012,
+              "output_tokens": 135,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9131848192,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 0.0,\n      \"evidence\": \"CLAY: RED/BROWN, STIFF, SANDY WITH ABUNDANT PEBBLES. ILL-SORTED.\"\n    },\n    {\n      \"depth_m\": 3.0,\n      \"evidence\": \"CLAY: RED, SILTY WITH CALC-SANDSTONE COBBLE\"\n    },\n    {\n      \"depth_m\": 5.0,\n      \"evidence\": \"ILL-SORTED CLAY, 3 TILL ROCKHEAD (54.00M)\"\n    }\n  ]\n}",
+              "tile_bbox": [
+                1070,
+                5674,
+                2480,
+                7874
+              ],
+              "tile_id": "tile_001"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 2.8816946469996765,
+              "output_tokens": 44,
+              "parse_status": "valid",
+              "parsed_boundaries": [
+                {
+                  "evidence": "short visible text or visual description",
+                  "relative_bbox": [
+                    0.0,
+                    0.0,
+                    1000.0,
+                    1000.0
+                  ],
+                  "value_m": 0.0
+                }
+              ],
+              "peak_gpu_memory_bytes": 9131848192,
+              "raw_text": "{\"boundaries\":[],\"boundaries\":[{\"depth_m\":0.0,\"evidence\":\"short visible text or visual description\",\"relative_bbox\":[0,0,1000,1000]}]}",
+              "tile_bbox": [
+                1070,
+                7614,
+                2480,
+                9814
+              ],
+              "tile_id": "tile_002"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 0.5319170349998785,
+              "output_tokens": 6,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9131848192,
+              "raw_text": "{\"boundaries\":[]}",
+              "tile_bbox": [
+                1070,
+                9554,
+                2480,
+                11754
+              ],
+              "tile_id": "tile_003"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 0.533224916999643,
+              "output_tokens": 6,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9136766464,
+              "raw_text": "{\"boundaries\":[]}",
+              "tile_bbox": [
+                1070,
+                11494,
+                2480,
+                12456
+              ],
+              "tile_id": "tile_004"
+            }
+          ]
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_2009141"
+    },
+    {
+      "pages": [
+        {
+          "layout": {
+            "x_max": 1.0,
+            "x_min": 0.09383064516129033,
+            "y_max": 0.995,
+            "y_min": 0.20062672556598565
+          },
+          "layout_detected": true,
+          "page": 21,
+          "tiles": [
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 16.52138042999968,
+              "output_tokens": 256,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9127145472,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 10.0,\n      \"evidence\": \"SAND greenish grey silt to medium slightly muddy.\",\n      \"relative_bbox\": [\n        150,\n        240,\n        600,\n        300\n      ]\n    },\n    {\n      \"depth_m\": 20.0,\n      \"evidence\": \"SAND olive green to dark olive green, very fine to fine silty, muddy with intercalations of silt, olive green clay, traces of glauconite.\",\n      \"relative_bbox\": [\n        150,\n        300,\n        600,\n        400\n      ]\n    },\n    {\n      \"depth_m\": 30.0,\n      \"evidence\": \"SAND olive green to dark olive green, very fine to fine silty, muddy with intercalations of silt, olive green clay, traces of glauconite.\",\n      \"relative_bbox\": [\n        150,\n        400,\n        600,\n        500\n      ]\n    },\n    {\n      \"depth_m",
+              "tile_bbox": [
+                232,
+                726,
+                2480,
+                2926
+              ],
+              "tile_id": "tile_000"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 2.6345227329998124,
+              "output_tokens": 40,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9129592832,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 50.0,\n      \"evidence\": \"traces of glauconite.\"\n    }\n  ]\n}",
+              "tile_bbox": [
+                232,
+                2666,
+                2480,
+                3603
+              ],
+              "tile_id": "tile_001"
+            }
+          ]
+        },
+        {
+          "layout": {
+            "x_max": 1.0,
+            "x_min": 0.14826612903225808,
+            "y_max": 0.995,
+            "y_min": 0.07950218818380744
+          },
+          "layout_detected": true,
+          "page": 22,
+          "tiles": [
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 15.298103637000168,
+              "output_tokens": 247,
+              "parse_status": "valid",
+              "parsed_boundaries": [
+                {
+                  "evidence": "SAND as above",
+                  "relative_bbox": [
+                    150.0,
+                    30.0,
+                    650.0,
+                    100.0
+                  ],
+                  "value_m": 50.0
+                },
+                {
+                  "evidence": "CLAY dk olive gray, slightly silty, trace of glauconite.",
+                  "relative_bbox": [
+                    150.0,
+                    100.0,
+                    650.0,
+                    170.0
+                  ],
+                  "value_m": 60.0
+                },
+                {
+                  "evidence": "Silty Clay dk greyish green, stiff, micaceous, with glauconite, trace of shell.",
+                  "relative_bbox": [
+                    150.0,
+                    170.0,
+                    650.0,
+                    240.0
+                  ],
+                  "value_m": 70.0
+                },
+                {
+                  "evidence": "Clay dk greyish-brown.",
+                  "relative_bbox": [
+                    150.0,
+                    240.0,
+                    650.0,
+                    310.0
+                  ],
+                  "value_m": 90.0
+                }
+              ],
+              "peak_gpu_memory_bytes": 9127145472,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 50.0,\n      \"evidence\": \"SAND as above\",\n      \"relative_bbox\": [150, 30, 650, 100]\n    },\n    {\n      \"depth_m\": 60.0,\n      \"evidence\": \"CLAY dk olive gray, slightly silty, trace of glauconite.\",\n      \"relative_bbox\": [150, 100, 650, 170]\n    },\n    {\n      \"depth_m\": 70.0,\n      \"evidence\": \"Silty Clay dk greyish green, stiff, micaceous, with glauconite, trace of shell.\",\n      \"relative_bbox\": [150, 170, 650, 240]\n    },\n    {\n      \"depth_m\": 90.0,\n      \"evidence\": \"Clay dk greyish-brown.\",\n      \"relative_bbox\": [150, 240, 650, 310]\n    }\n  ]\n}",
+              "tile_bbox": [
+                367,
+                290,
+                2480,
+                2490
+              ],
+              "tile_id": "tile_000"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 5.769735976999982,
+              "output_tokens": 92,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9127009792,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 90.0,\n      \"evidence\": \"Clay, dark greyish-brown, stiff or very stiff. Slightly silty.\"\n    },\n    {\n      \"depth_m\": 100.0,\n      \"evidence\": \"Clay, dark greyish-brown, stiff or very stiff. Slightly silty.\"\n    }\n  ]\n}",
+              "tile_bbox": [
+                367,
+                2230,
+                2480,
+                3637
+              ],
+              "tile_id": "tile_001"
+            }
+          ]
+        },
+        {
+          "layout": {
+            "x_max": 1.0,
+            "x_min": 0.10733870967741935,
+            "y_max": 0.995,
+            "y_min": 0.07657212317666126
+          },
+          "layout_detected": true,
+          "page": 23,
+          "tiles": [
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 6.694016431000364,
+              "output_tokens": 110,
+              "parse_status": "valid",
+              "parsed_boundaries": [
+                {
+                  "evidence": "SAND",
+                  "relative_bbox": [
+                    330.0,
+                    680.0,
+                    610.0,
+                    950.0
+                  ],
+                  "value_m": 135.0
+                },
+                {
+                  "evidence": "CLAY",
+                  "relative_bbox": [
+                    330.0,
+                    50.0,
+                    610.0,
+                    270.0
+                  ],
+                  "value_m": 100.0
+                }
+              ],
+              "peak_gpu_memory_bytes": 9136121344,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 135.0,\n      \"evidence\": \"SAND\",\n      \"relative_bbox\": [330, 680, 610, 950]\n    },\n    {\n      \"depth_m\": 100.0,\n      \"evidence\": \"CLAY\",\n      \"relative_bbox\": [330, 50, 610, 270]\n    }\n  ]\n}",
+              "tile_bbox": [
+                266,
+                283,
+                2480,
+                2483
+              ],
+              "tile_id": "tile_000"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 7.931124608000118,
+              "output_tokens": 128,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9127009792,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 135.0,\n      \"evidence\": \"silty, abundant glauconite to 135m\"\n    },\n    {\n      \"depth_m\": 140.0,\n      \"evidence\": \"Same as above, interbedded with muddy silt or soft mud- dk olive green.\"\n    },\n    {\n      \"depth_m\": 150.0,\n      \"evidence\": \"Same, dk olive grey, very fine - fine, slightly muddy, silty\"\n    }\n  ]\n}",
+              "tile_bbox": [
+                266,
+                2223,
+                2480,
+                3683
+              ],
+              "tile_id": "tile_001"
+            }
+          ]
+        },
+        {
+          "layout": {
+            "x_max": 1.0,
+            "x_min": 0.0990725806451613,
+            "y_max": 0.995,
+            "y_min": 0.0831081081081081
+          },
+          "layout_detected": true,
+          "page": 24,
+          "tiles": [
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 15.592665178000061,
+              "output_tokens": 256,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9136121344,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 150.0,\n      \"evidence\": \"Sand or above interbedded with muddy silt.\",\n      \"relative_bbox\": [150, 0, 250, 150]\n    },\n    {\n      \"depth_m\": 160.0,\n      \"evidence\": \"Same, dk olive grey, very fine - fine, slightly muddy, silty.\",\n      \"relative_bbox\": [160, 150, 250, 300]\n    },\n    {\n      \"depth_m\": 170.0,\n      \"evidence\": \"Cer, dk olive grey, slightly silty, locally abundant glauconite\",\n      \"relative_bbox\": [170, 300, 250, 450]\n    },\n    {\n      \"depth_m\": 180.0,\n      \"evidence\": \"Same, dk olive green, very fine - fine grained\",\n      \"relative_bbox\": [180, 450, 250, 600]\n    },\n    {\n      \"",
+              "tile_bbox": [
+                245,
+                307,
+                2480,
+                2507
+              ],
+              "tile_id": "tile_000"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 4.713920207999763,
+              "output_tokens": 76,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9131848192,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 190.0,\n      \"evidence\": \"SAND, dk olive green, very fine - fine grained\"\n    },\n    {\n      \"depth_m\": 200.0,\n      \"evidence\": \"END OF BOREHOLE\"\n    }\n  ]\n}",
+              "tile_bbox": [
+                245,
+                2247,
+                2480,
+                3681
+              ],
+              "tile_id": "tile_001"
+            }
+          ]
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_2024185"
+    },
+    {
+      "pages": [
+        {
+          "layout": {
+            "x_max": 1.0,
+            "x_min": 0.1940322580645161,
+            "y_max": 0.995,
+            "y_min": 0.41503798377989937
+          },
+          "layout_detected": true,
+          "page": 16,
+          "tiles": [
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 15.611927785999796,
+              "output_tokens": 256,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9135959552,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 0.0,\n      \"evidence\": \"Seabed\",\n      \"relative_bbox\": [250, 190, 850, 210]\n    },\n    {\n      \"depth_m\": 2.0,\n      \"evidence\": \"SAND\",\n      \"relative_bbox\": [250, 240, 850, 260]\n    },\n    {\n      \"depth_m\": 4.0,\n      \"evidence\": \"SAND\",\n      \"relative_bbox\": [250, 290, 850, 310]\n    },\n    {\n      \"depth_m\": 6.0,\n      \"evidence\": \"SAND\",\n      \"relative_bbox\": [250, 340, 850, 360]\n    },\n    {\n      \"depth_m\": 8.0,\n      \"evidence\": \"SAND\",\n      \"relative_bbox\": [250, 390, 850, 410]\n    },\n    {\n      \"depth_m\": ",
+              "tile_bbox": [
+                481,
+                4042,
+                2480,
+                6242
+              ],
+              "tile_id": "tile_000"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 15.545056018000196,
+              "output_tokens": 256,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9135959552,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 22.0,\n      \"evidence\": \"MUD (SAND) - CLAYEY SILT V. FINE SAND, QUARTZOSE GENUS ANGULAR, TOUCH* COUNT SLIGHTLY PLASTIC, REACTS WITH HCl, VERY DARK GREY LIGA 3.1.1 ? CLASSIC MARINE ? SHALF FRAGMENTS\",\n      \"relative_bbox\": [220, 22, 600, 120]\n    },\n    {\n      \"depth_m\": 24.0,\n      \"evidence\": \"SHEAR OF SOFT, SANDY, CLAY ON CUBE CATCHER\",\n      \"relative_bbox\": [220, 120, 600, 170]\n    },\n    {\n      \"depth_m\": 26.0,\n      \"evidence\": \"MUD (SAND) - V. FIRM QUARTZOSE, ROCKY SORTED, V. FINE - FINE WITH OCCASIONAL CLASTS TO CLASTIC SAND GRAINS. SINGLE CLAST QU",
+              "tile_bbox": [
+                481,
+                5982,
+                2480,
+                8182
+              ],
+              "tile_id": "tile_001"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 0.5175959250000233,
+              "output_tokens": 6,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9126875648,
+              "raw_text": "{\"boundaries\":[]}",
+              "tile_bbox": [
+                481,
+                7922,
+                2480,
+                9692
+              ],
+              "tile_id": "tile_002"
+            }
+          ]
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1951404"
+    },
+    {
+      "pages": [
+        {
+          "layout": {
+            "x_max": 1.0,
+            "x_min": 0.24302419354838709,
+            "y_max": 0.995,
+            "y_min": 0.312311063337192
+          },
+          "layout_detected": true,
+          "page": 15,
+          "tiles": [
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 12.743125509000038,
+              "output_tokens": 207,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9134508544,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 10.0,\n      \"evidence\": \"Seabed\"\n    },\n    {\n      \"depth_m\": 15.0,\n      \"evidence\": \"Sand mainly c. + granules dominantly well rounded quartz. Also worn shell fragments, granules, polymorphics, basic igneous, epidote, flint, jasper.\"\n    },\n    {\n      \"depth_m\": 20.0,\n      \"evidence\": \"Sand A/a but with higher percentage clay.\"\n    },\n    {\n      \"depth_m\": 25.0,\n      \"evidence\": \"Sand fine clayey, soft running (jar sample).\"\n    },\n    {\n      \"depth_m\": 30.0,\n      \"evidence\": \"Clay Silty Shelly at top, fine sand near centre, flint at base. dk. grey S. 5%.\"\n    }\n  ]\n}",
+              "tile_bbox": [
+                602,
+                3777,
+                2480,
+                5977
+              ],
+              "tile_id": "tile_000"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 15.404319353000119,
+              "output_tokens": 256,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9134508544,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 0.0,\n      \"evidence\": \"SAND fm:clayey, soft running (jar sample)\",\n      \"relative_bbox\": [240, 0, 620, 100]\n    },\n    {\n      \"depth_m\": 30.0,\n      \"evidence\": \"CLAY silty, shaly at top, fine sand near clay. Grey at base. Dk: grey 5%4/1\",\n      \"relative_bbox\": [240, 100, 620, 200]\n    },\n    {\n      \"depth_m\": 36.0,\n      \"evidence\": \"CLAY plastic, grey, silty, shaly, frag. (plastic) - grey, fine sand\",\n      \"relative_bbox\": [240, 200, 620, 300]\n    },\n    {\n      \"depth_m\": 45.0,\n      \"evidence\": \"No recovery. Slices of shell frags. and coarse gravel on clay at less than 45m\",\n      \"relative_bbox\":",
+              "tile_bbox": [
+                602,
+                5717,
+                2480,
+                7917
+              ],
+              "tile_id": "tile_001"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 0.7014879880002809,
+              "output_tokens": 9,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9134508544,
+              "raw_text": "{\n  \"boundaries\": []\n}",
+              "tile_bbox": [
+                602,
+                7657,
+                2480,
+                9857
+              ],
+              "tile_id": "tile_002"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 0.5216943949999404,
+              "output_tokens": 6,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9134508544,
+              "raw_text": "{\"boundaries\":[]}",
+              "tile_bbox": [
+                602,
+                9597,
+                2480,
+                11797
+              ],
+              "tile_id": "tile_003"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 0.5472274400003698,
+              "output_tokens": 6,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9137503232,
+              "raw_text": "{\"boundaries\":[]}",
+              "tile_bbox": [
+                602,
+                11537,
+                2480,
+                12033
+              ],
+              "tile_id": "tile_004"
+            }
+          ]
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1943902"
+    },
+    {
+      "pages": [
+        {
+          "layout": {
+            "x_max": 1.0,
+            "x_min": 0.41116935483870964,
+            "y_max": 0.995,
+            "y_min": 0.47940963263300157
+          },
+          "layout_detected": true,
+          "page": 10,
+          "tiles": [
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 15.554327014000137,
+              "output_tokens": 256,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9127009792,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 5.0,\n      \"evidence\": \"Sat. brown-grey pebbly clay, shelly at top. No marine shell. Pebby argillaceous sand, v. poorly sorted, mainly fine grained. Red brown. Moderate to coarse.\",\n      \"relative_bbox\": [\n        0,\n        398,\n        999,\n        440\n      ]\n    },\n    {\n      \"depth_m\": 10.0,\n      \"evidence\": \"Trill (?) , Cobble, sandy, marine supported. V. poorly sorted. Pebbles inc. grit, etc. + dolomite\",\n      \"relative_bbox\": [\n        0,\n        558,\n        999,\n        600\n      ]\n    },\n    {\n      \"depth_m\": 15.0,\n      \"evidence\": \"As above.\",\n      \"relative_bbox\": [\n        0,\n        670,\n        999,\n        712\n      ]\n    },\n    {\n      \"depth_m\": 20.0,\n      \"evidence\": \"Dolomite,",
+              "tile_bbox": [
+                1019,
+                3901,
+                2480,
+                6101
+              ],
+              "tile_id": "tile_000"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 15.319981423000172,
+              "output_tokens": 251,
+              "parse_status": "valid",
+              "parsed_boundaries": [
+                {
+                  "evidence": "M194.215",
+                  "relative_bbox": [
+                    480.0,
+                    0.0,
+                    580.0,
+                    10.0
+                  ],
+                  "value_m": 20.0
+                },
+                {
+                  "evidence": "B.i.t.blocked",
+                  "relative_bbox": [
+                    600.0,
+                    0.0,
+                    730.0,
+                    10.0
+                  ],
+                  "value_m": 25.0
+                },
+                {
+                  "evidence": "Borehole abandoned",
+                  "relative_bbox": [
+                    590.0,
+                    280.0,
+                    780.0,
+                    310.0
+                  ],
+                  "value_m": 28.4
+                },
+                {
+                  "evidence": "Recovery 3.6tm (12.9%)",
+                  "relative_bbox": [
+                    130.0,
+                    340.0,
+                    360.0,
+                    390.0
+                  ],
+                  "value_m": 30.0
+                }
+              ],
+              "peak_gpu_memory_bytes": 9127009792,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 20.0,\n      \"evidence\": \"M194.215\",\n      \"relative_bbox\": [\n        480,\n        0,\n        580,\n        10\n      ]\n    },\n    {\n      \"depth_m\": 25.0,\n      \"evidence\": \"B.i.t.blocked\",\n      \"relative_bbox\": [\n        600,\n        0,\n        730,\n        10\n      ]\n    },\n    {\n      \"depth_m\": 28.4,\n      \"evidence\": \"Borehole abandoned\",\n      \"relative_bbox\": [\n        590,\n        280,\n        780,\n        310\n      ]\n    },\n    {\n      \"depth_m\": 30.0,\n      \"evidence\": \"Recovery 3.6tm (12.9%)\",\n      \"relative_bbox\": [\n        130,\n        340,\n        360,\n        390\n      ]\n    }\n  ]\n}",
+              "tile_bbox": [
+                1019,
+                5841,
+                2480,
+                8041
+              ],
+              "tile_id": "tile_001"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 0.5323193100002754,
+              "output_tokens": 6,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9099196416,
+              "raw_text": "{\"boundaries\":[]}",
+              "tile_bbox": [
+                1019,
+                7781,
+                2480,
+                8098
+              ],
+              "tile_id": "tile_002"
+            }
+          ]
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1993525"
+    },
+    {
+      "pages": [
+        {
+          "layout": {
+            "x_max": 1.0,
+            "x_min": 0.22810483870967743,
+            "y_max": 0.995,
+            "y_min": 0.6399022649705244
+          },
+          "layout_detected": true,
+          "page": 9,
+          "tiles": [
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 12.604160543000035,
+              "output_tokens": 206,
+              "parse_status": "valid",
+              "parsed_boundaries": [
+                {
+                  "evidence": "Seabed",
+                  "relative_bbox": [
+                    197.0,
+                    238.0,
+                    885.0,
+                    265.0
+                  ],
+                  "value_m": 0.0
+                },
+                {
+                  "evidence": "Rockhead",
+                  "relative_bbox": [
+                    197.0,
+                    408.0,
+                    885.0,
+                    435.0
+                  ],
+                  "value_m": 5.0
+                },
+                {
+                  "evidence": "Rockhead",
+                  "relative_bbox": [
+                    197.0,
+                    578.0,
+                    885.0,
+                    605.0
+                  ],
+                  "value_m": 10.0
+                },
+                {
+                  "evidence": "Rockhead",
+                  "relative_bbox": [
+                    197.0,
+                    748.0,
+                    885.0,
+                    775.0
+                  ],
+                  "value_m": 15.0
+                }
+              ],
+              "peak_gpu_memory_bytes": 9126875648,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 0.0,\n      \"evidence\": \"Seabed\",\n      \"relative_bbox\": [197, 238, 885, 265]\n    },\n    {\n      \"depth_m\": 5.0,\n      \"evidence\": \"Rockhead\",\n      \"relative_bbox\": [197, 408, 885, 435]\n    },\n    {\n      \"depth_m\": 10.0,\n      \"evidence\": \"Rockhead\",\n      \"relative_bbox\": [197, 578, 885, 605]\n    },\n    {\n      \"depth_m\": 15.0,\n      \"evidence\": \"Rockhead\",\n      \"relative_bbox\": [197, 748, 885, 775]\n    }\n  ]\n}",
+              "tile_bbox": [
+                565,
+                4124,
+                2480,
+                6324
+              ],
+              "tile_id": "tile_000"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 0.5486556139999266,
+              "output_tokens": 6,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9133882368,
+              "raw_text": "{\"boundaries\":[]}",
+              "tile_bbox": [
+                565,
+                6064,
+                2480,
+                6413
+              ],
+              "tile_id": "tile_001"
+            }
+          ]
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_2007749"
+    },
+    {
+      "pages": [
+        {
+          "layout": {
+            "x_max": 1.0,
+            "x_min": 0.2438306451612903,
+            "y_max": 0.995,
+            "y_min": 0.3042443399000294
+          },
+          "layout_detected": true,
+          "page": 12,
+          "tiles": [
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 15.459903160000067,
+              "output_tokens": 256,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9134508544,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 0.0,\n      \"evidence\": \"Seabed\",\n      \"relative_bbox\": [230, 280, 900, 310]\n    },\n    {\n      \"depth_m\": 10.0,\n      \"evidence\": \"Very Soft disturbed slightly silty gravel - olive grey (S74/1) - little to no sand and no evident shell material\",\n      \"relative_bbox\": [230, 480, 900, 550]\n    },\n    {\n      \"depth_m\": 15.0,\n      \"evidence\": \"Till - reddish brown silt + sandy clay to pinkish grey. Gravel and pebbles. Shift hard\",\n      \"relative_bbox\": [230, 680, 900, 750]\n    },\n    {\n      \"depth_m\": 20.0,\n      \"evidence\": \"Site Abandoned Due to Technical Difficulties\",\n      \"relative_bbox\": [230, 800, 900, 870]\n",
+              "tile_bbox": [
+                604,
+                4138,
+                2480,
+                6338
+              ],
+              "tile_id": "tile_000"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 7.3522542599998815,
+              "output_tokens": 120,
+              "parse_status": "valid",
+              "parsed_boundaries": [
+                {
+                  "evidence": "TOTAL DEPTH 3.4/3",
+                  "relative_bbox": [
+                    258.0,
+                    57.0,
+                    508.0,
+                    95.0
+                  ],
+                  "value_m": 3.4
+                },
+                {
+                  "evidence": "TOTAL DEPTH 8.4/3A",
+                  "relative_bbox": [
+                    258.0,
+                    387.0,
+                    508.0,
+                    425.0
+                  ],
+                  "value_m": 8.4
+                }
+              ],
+              "peak_gpu_memory_bytes": 9134508544,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 3.4,\n      \"evidence\": \"TOTAL DEPTH 3.4/3\",\n      \"relative_bbox\": [258, 57, 508, 95]\n    },\n    {\n      \"depth_m\": 8.4,\n      \"evidence\": \"TOTAL DEPTH 8.4/3A\",\n      \"relative_bbox\": [258, 387, 508, 425]\n    }\n  ]\n}",
+              "tile_bbox": [
+                604,
+                6078,
+                2480,
+                8278
+              ],
+              "tile_id": "tile_001"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 0.544704468999953,
+              "output_tokens": 6,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9134508544,
+              "raw_text": "{\"boundaries\":[]}",
+              "tile_bbox": [
+                604,
+                8018,
+                2480,
+                10218
+              ],
+              "tile_id": "tile_002"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 0.5450536139996984,
+              "output_tokens": 6,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9134508544,
+              "raw_text": "{\"boundaries\":[]}",
+              "tile_bbox": [
+                604,
+                9958,
+                2480,
+                12158
+              ],
+              "tile_id": "tile_003"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 0.5183098329998757,
+              "output_tokens": 6,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9126875648,
+              "raw_text": "{\"boundaries\":[]}",
+              "tile_bbox": [
+                604,
+                11898,
+                2480,
+                13535
+              ],
+              "tile_id": "tile_004"
+            }
+          ]
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1987224"
+    },
+    {
+      "pages": [
+        {
+          "layout": {
+            "x_max": 1.0,
+            "x_min": 0.3811290322580645,
+            "y_max": 0.995,
+            "y_min": 0.3116760102779724
+          },
+          "layout_detected": true,
+          "page": 45,
+          "tiles": [
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 15.409686233999764,
+              "output_tokens": 256,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9136766464,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 0.0,\n      \"evidence\": \"Gravelly sandy mud, poorly sorted, shelly, shelly. Clasts matrix supported, rounded to angular, variably faceted and striated. Rarely encrusted. Discrete sandy horizon at 1.6m, otherwise massive homogeneous structure. Top 0.15m soft and muddy, stiffer below. Olive grey (SY 4/2).\"\n    },\n    {\n      \"depth_m\": 1.6,\n      \"evidence\": \"Gravelly sandy mud/muddy sand, v.poorly sorted, clasts are matrix to clast-supported, but no discernible clast orientation. Clast types a/a up to 88mm diameter. Homogeneous structure within core, shelly throughout. Olive grey (SY 4/2) to dark grey (SY 4/1).\"\n    },\n    {\n      \"depth_m\": 2.5,\n      \"evidence\": \"A/A although clasts predominantly matrix-supported. Sand fraction very poorly sorted, ailt to v.coarse sand, quartzose with varied lithics and heavies. Epidote common",
+              "tile_bbox": [
+                945,
+                2668,
+                2480,
+                4868
+              ],
+              "tile_id": "tile_000"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 15.675017071000184,
+              "output_tokens": 256,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9136766464,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 0.0,\n      \"evidence\": \"Gravely lag, v.coarse, loose, claste up to 50mm length vary from angular to rounded, low to high sphericity.\"\n    },\n    {\n      \"depth_m\": 30.0,\n      \"evidence\": \"Sandstone, tuffaceous, shelly, fine-grained. Shell horizons form a discrete sub-horizontal bedding. Shells flat-lying although may be either concave up or down. Shelly horizons vary from single laminae to 100mm thickness. No obvious structure in sand. Dark greenish grey (6B0 4/1–5G 4/1).\"\n    },\n    {\n      \"depth_m\": 40.0,\n      \"evidence\": \"Tuffaceous sandstone s/a but with occasional more 'shaly' horizons. Rich in Nummulites. Rare shell bands have 50% shell concentration. Dark grey (6Y 4/1) to v.dark grey (6Y 3/1) to dark greenish grey (5GY 4/1).\"\n   ",
+              "tile_bbox": [
+                945,
+                4608,
+                2480,
+                6808
+              ],
+              "tile_id": "tile_001"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 1.0658242949998566,
+              "output_tokens": 15,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9131156480,
+              "raw_text": "{\"boundaries\":[],\"evidence\":\"no visible geological layer boundaries\"}",
+              "tile_bbox": [
+                945,
+                6548,
+                2480,
+                8519
+              ],
+              "tile_id": "tile_002"
+            }
+          ]
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1944312"
+    },
+    {
+      "pages": [
+        {
+          "layout": {
+            "x_max": 1.0,
+            "x_min": 0.38475806451612904,
+            "y_max": 0.995,
+            "y_min": 0.5524922600619195
+          },
+          "layout_detected": true,
+          "page": 11,
+          "tiles": [
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 15.71401762000005,
+              "output_tokens": 256,
+              "parse_status": "valid",
+              "parsed_boundaries": [
+                {
+                  "evidence": "GRAVEL",
+                  "relative_bbox": [
+                    128.0,
+                    102.0,
+                    830.0,
+                    178.0
+                  ],
+                  "value_m": 0.0
+                },
+                {
+                  "evidence": "Approximate contact",
+                  "relative_bbox": [
+                    128.0,
+                    178.0,
+                    830.0,
+                    200.0
+                  ],
+                  "value_m": 9.0
+                },
+                {
+                  "evidence": "GRAVEL",
+                  "relative_bbox": [
+                    128.0,
+                    200.0,
+                    830.0,
+                    250.0
+                  ],
+                  "value_m": 10.0
+                },
+                {
+                  "evidence": "SNEISS",
+                  "relative_bbox": [
+                    128.0,
+                    250.0,
+                    830.0,
+                    300.0
+                  ],
+                  "value_m": 13.55
+                },
+                {
+                  "evidence": "GRAVEL",
+                  "relative_bbox": [
+                    128.0,
+                    300.0,
+                    830.0,
+                    350.0
+                  ],
+                  "value_m": 20.0
+                }
+              ],
+              "peak_gpu_memory_bytes": 9133882368,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 0.0,\n      \"evidence\": \"GRAVEL\",\n      \"relative_bbox\": [128, 102, 830, 178]\n    },\n    {\n      \"depth_m\": 9.0,\n      \"evidence\": \"Approximate contact\",\n      \"relative_bbox\": [128, 178, 830, 200]\n    },\n    {\n      \"depth_m\": 10.0,\n      \"evidence\": \"GRAVEL\",\n      \"relative_bbox\": [128, 200, 830, 250]\n    },\n    {\n      \"depth_m\": 13.55,\n      \"evidence\": \"SNEISS\",\n      \"relative_bbox\": [128, 250, 830, 300]\n    },\n    {\n      \"depth_m\": 20.0,\n      \"evidence\": \"GRAVEL\",\n      \"relative_bbox\": [128, 300, 830, 350]\n    }\n  ]\n}",
+              "tile_bbox": [
+                954,
+                2676,
+                2480,
+                4820
+              ],
+              "tile_id": "tile_000"
+            }
+          ]
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1944320"
+    },
+    {
+      "pages": [
+        {
+          "layout": {
+            "x_max": 1.0,
+            "x_min": 0.365,
+            "y_max": 0.995,
+            "y_min": 0.4104618473895582
+          },
+          "layout_detected": true,
+          "page": 2,
+          "tiles": [
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 15.697315677000006,
+              "output_tokens": 256,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9133882368,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 0.0,\n      \"evidence\": \"SAND : silty, muddy, grey (SY4/5/1), very fine grained, calcareous, micaceous, with few scattered shells, foraminifera, with laminae CLAY, olive grey (SY4/1), very soft with fine silt laminae; clay c10% of this unit.\"\n    },\n    {\n      \"depth_m\": 5.3,\n      \"evidence\": \"SAND\"\n    },\n    {\n      \"depth_m\": 6.06,\n      \"evidence\": \"CLAY\"\n    },\n    {\n      \"depth_m\": 6.77,\n      \"evidence\": \"CLAY\"\n    },\n    {\n      \"depth_m\": 8.34,\n      \"evidence\": \"CLAY\"\n    },\n    {\n      \"depth_m\": 9.38,\n      \"evidence\": \"CLAY\"\n    },\n    {\n      \"depth_m\": 13.58,\n      \"evidence\": \"CLAY\"\n    },\n    {\n      \"depth_m\": 15.5",
+              "tile_bbox": [
+                905,
+                2555,
+                2480,
+                4755
+              ],
+              "tile_id": "tile_000"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 13.324945285000013,
+              "output_tokens": 218,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9135959552,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 22.78,\n      \"evidence\": \"MICROPAL\"\n    },\n    {\n      \"depth_m\": 24.25,\n      \"evidence\": \"MICROPAL\"\n    },\n    {\n      \"depth_m\": 27.00,\n      \"evidence\": \"MICROPAL\"\n    },\n    {\n      \"depth_m\": 29.07,\n      \"evidence\": \"MICROPAL\"\n    },\n    {\n      \"depth_m\": 31.15,\n      \"evidence\": \"MICROPAL\"\n    },\n    {\n      \"depth_m\": 31.36,\n      \"evidence\": \"MICROPAL\"\n    },\n    {\n      \"depth_m\": 33.09,\n      \"evidence\": \"GAS\"\n    },\n    {\n      \"depth_m\": 33.25,\n      \"evidence\": \"MICROPAL\"\n    }\n  ]\n}",
+              "tile_bbox": [
+                905,
+                4495,
+                2480,
+                6193
+              ],
+              "tile_id": "tile_001"
+            }
+          ]
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1989175"
+    },
+    {
+      "pages": [
+        {
+          "layout": {
+            "x_max": 1.0,
+            "x_min": 0.39665322580645157,
+            "y_max": 0.995,
+            "y_min": 0.4805394714694496
+          },
+          "layout_detected": true,
+          "page": 9,
+          "tiles": [
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 14.115189101999931,
+              "output_tokens": 231,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9136766464,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 0.0,\n      \"evidence\": \"SAND : fine-grained, slightly clayey, dark grey.\"\n    },\n    {\n      \"depth_m\": 10.0,\n      \"evidence\": \"DIAMICTON (TILL) : brown, clayey sand with subrounded pebbles and cobbles of metamorphic rocks.\"\n    },\n    {\n      \"depth_m\": 12.0,\n      \"evidence\": \"Junction positioned by change in drilling rate.\"\n    },\n    {\n      \"depth_m\": 17.0,\n      \"evidence\": \"ROCKHEAD - junction unseen.\"\n    },\n    {\n      \"depth_m\": 19.0,\n      \"evidence\": \"SILTSTONE : dark grey, cross-bedded, micaceous, much coaly detritus.\"\n    },\n    {\n      \"depth_m\": 20.0,\n      \"evidence\": \"SANDSTONE : fine-grained, pale with dark grey laminae.\"\n    }\n  ]\n}",
+              "tile_bbox": [
+                983,
+                2854,
+                2480,
+                5054
+              ],
+              "tile_id": "tile_000"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 1.5898083560000487,
+              "output_tokens": 23,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9133882368,
+              "raw_text": "{\"boundaries\":[],\"relative_bbox\":[0,0,1000,1000]}",
+              "tile_bbox": [
+                983,
+                4794,
+                2480,
+                5911
+              ],
+              "tile_id": "tile_001"
+            }
+          ]
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1960100"
+    },
+    {
+      "pages": [
+        {
+          "layout": {
+            "x_max": 1.0,
+            "x_min": 0.39221774193548387,
+            "y_max": 0.995,
+            "y_min": 0.5094591697524848
+          },
+          "layout_detected": true,
+          "page": 16,
+          "tiles": [
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 15.549808454999948,
+              "output_tokens": 256,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9136766464,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 0.0,\n      \"evidence\": \"DIAMICT : sandy mud matrix with clasts up to cobble size. Calcareous with shell fragments. Dark to olive grey (5Y4/1–5Y5/2), stiff to hard but firm at top and very hard towards base. Varied igneous and metamorphic clasts with some concentration of basalt near base.\",\n      \"relative_bbox\": [100, 100, 800, 200]\n    },\n    {\n      \"depth_m\": 10.0,\n      \"evidence\": \"BASALT : fine-grained equigranular basalt with sparse aggregates of plagioclase phenocrysts. Interstitial glass altered to green smectite.\",\n      \"relative_bbox\": [100, 300, 800, 400]\n    },\n    {\n      \"depth_m\": 14.75,\n      \"evidence\": \"NATURE OF CONTACT UNCERTAIN\",\n      \"relative_bbox\": [100, 400, 800, 500",
+              "tile_bbox": [
+                972,
+                2614,
+                2480,
+                4814
+              ],
+              "tile_id": "tile_000"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 0.5176766599997791,
+              "output_tokens": 6,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9133882368,
+              "raw_text": "{\"boundaries\":[]}",
+              "tile_bbox": [
+                972,
+                4554,
+                2480,
+                5105
+              ],
+              "tile_id": "tile_001"
+            }
+          ]
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1944322"
+    },
+    {
+      "pages": [
+        {
+          "layout": {
+            "x_max": 1.0,
+            "x_min": 0.3996774193548387,
+            "y_max": 0.995,
+            "y_min": 0.32623157459705193
+          },
+          "layout_detected": true,
+          "page": 26,
+          "tiles": [
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 15.448324377000063,
+              "output_tokens": 256,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9127009792,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 0.0,\n      \"evidence\": \"SAND: slightly rich, rich in foraminifera (Ø95%), subordinate quartz and lithics. Foram component fine-grained and well-sorted; terrigenous component poorly sorted ranges from silt to granule/small pebble grade. Pale yellowish brown (2.5Y6/4).\"\n    },\n    {\n      \"depth_m\": 10.0,\n      \"evidence\": \"Trace of foram-rich muddy sand a/a.\"\n    },\n    {\n      \"depth_m\": 20.0,\n      \"evidence\": \"Trace of foram-rich muddy sand a/a, more poorly sorted, increased shell debris.\"\n    },\n    {\n      \"depth_m\": 23.4,\n      \"evidence\": \"Bioclastic SAND: fine to medium-grained, poorly sorted, clean, Ø95% carbonate, forams and abundant shell debris; subordinant quartz and lithics; very poorly sorted, all-very coarse sand grade. Pale yellow (2.5Y7/4) to pale yellowish brown (2.5Y6/4).\"\n    },\n   ",
+              "tile_bbox": [
+                991,
+                2368,
+                2480,
+                4568
+              ],
+              "tile_id": "tile_000"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 15.565295676000005,
+              "output_tokens": 256,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9127009792,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 30.0,\n      \"evidence\": \"Bioclastic SANDSTONE, indurated but friable a/a.\",\n      \"relative_bbox\": [\n        150,\n        220,\n        300,\n        250\n      ]\n    },\n    {\n      \"depth_m\": 40.0,\n      \"evidence\": \"Bioclastic SANDSTONE: medium to coarse-grained, poorly sorted, Ø98% carbonate, abundant shell debris (including granule quartz fragments), very poorly sorted shell fragments, including a few small pebbles. Crudely bedded, pervasive sub-horizontal alignment of shell fragments. Scale of bedding difficult to discern; occasional hint of cross lamination suggests thin-to- medium-bedded, in part. Sediment is very clean and porous; indurated but friable. Pale yellow (2.5/7/4).\",\n      \"relative_bbox\": [\n        150,\n        400,\n        300,\n        450\n      ]\n    },\n    {\n      \"depth_m\": 50.0,\n      \"evidence\": \"",
+              "tile_bbox": [
+                991,
+                4308,
+                2480,
+                6508
+              ],
+              "tile_id": "tile_001"
+            },
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 12.102469020000171,
+              "output_tokens": 197,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9127009792,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 53.27,\n      \"evidence\": \"MICROPAL CSC8964\"\n    },\n    {\n      \"depth_m\": 56.66,\n      \"evidence\": \"MICROPAL CSC8965\"\n    },\n    {\n      \"depth_m\": 58.53,\n      \"evidence\": \"MICROPAL CSC8985\"\n    },\n    {\n      \"depth_m\": 58.57,\n      \"evidence\": \"MICROPAL CSC8985\"\n    },\n    {\n      \"depth_m\": 58.57,\n      \"evidence\": \"MICROPAL CSC8985\"\n    },\n    {\n      \"depth_m\": 58.92,\n      \"evidence\": \"MICROPAL CSC8966\"\n    }\n  ]\n}",
+              "tile_bbox": [
+                991,
+                6248,
+                2480,
+                7222
+              ],
+              "tile_id": "tile_002"
+            }
+          ]
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1949665"
+    },
+    {
+      "pages": [
+        {
+          "layout": {
+            "x_max": 1.0,
+            "x_min": 0.37991935483870964,
+            "y_max": 0.995,
+            "y_min": 0.5090315638450502
+          },
+          "layout_detected": true,
+          "page": 1,
+          "tiles": [
+            {
+              "generation_config": {
+                "attention": "sdpa",
+                "do_sample": false,
+                "dtype": "bfloat16",
+                "max_new_tokens": 256,
+                "max_pixels": 602112,
+                "min_pixels": 100352
+              },
+              "latency_seconds": 15.437200977999964,
+              "output_tokens": 256,
+              "parse_status": "valid",
+              "parsed_boundaries": [],
+              "peak_gpu_memory_bytes": 9131156480,
+              "raw_text": "{\n  \"boundaries\": [\n    {\n      \"depth_m\": 4.85,\n      \"evidence\": \"dark olive grey (5Y3/2), non calcareous, cobble at 4.48m.\",\n      \"relative_bbox\": [\n        0,\n        0,\n        1000,\n        100\n      ]\n    },\n    {\n      \"depth_m\": 13.91,\n      \"evidence\": \"dark greenish grey (5G4/1), very rare benthic forams.\",\n      \"relative_bbox\": [\n        0,\n        100,\n        1000,\n        200\n      ]\n    },\n    {\n      \"depth_m\": 25.62,\n      \"evidence\": \"dark greenish grey (5G4/1), homogenous, possibly non calcareous, micaceous (probably chloride), sand and silt fragments include fragments and glass. Green colour and widespread chloride indicative of ...\",\n      \"relative_bbox\": [\n        0,\n        200,\n        1000,\n        300\n      ]\n    },\n    {\n      \"",
+              "tile_bbox": [
+                942,
+                2128,
+                2480,
+                4161
+              ],
+              "tile_id": "tile_000"
+            }
+          ]
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1942278"
+    }
+  ],
+  "manifest_path": "datasets/manifests/bgs_offshore_gold_v001.jsonl",
+  "model_id": "Qwen/Qwen3-VL-4B-Instruct",
+  "model_revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+  "page_count": 34,
+  "prompt_path": "/root/GeoLogParser/prompts/bgs_long_page_boundary_v001.md",
+  "prompt_version": "bgs_long_page_boundary_v001",
+  "source_run": "results/2026-08-15/P1_BGS_OFFSHORE_V001_TESSERACT_CROSS_SOURCE_FORMAL_001",
+  "tile_config": {
+    "overlap": 260,
+    "target_height": 2200
+  },
+  "tile_count": 79,
+  "valid_tile_count": 79,
+  "wall_time_seconds": 746.4790447139999
+}

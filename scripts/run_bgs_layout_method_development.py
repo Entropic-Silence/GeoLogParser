@@ -38,7 +38,98 @@ FEATURES = (
     "snap_step", "snap_delta", "snap_integer", "snap_half", "snap_tenth",
     "printed_line_support", "printed_pair_support", "graphic_line_support",
     "graphic_change_support", "metadata_cross_field",
+    "page_has_scale", "page_scale_inliers", "page_scale_rmse", "is_zero_depth",
+    "graphic_line_integer", "graphic_line_change", "graphic_scale_quality",
+    "printed_line_view", "printed_line_full_page", "metadata_label_cross",
 )
+
+PRINTED_FEATURES = tuple(name for name in FEATURES if not name.startswith("graphic_"))
+GRAPHIC_FEATURES = tuple(name for name in FEATURES if not name.startswith("printed_"))
+METADATA_FEATURES = tuple(
+    name for name in FEATURES
+    if name in {"source_metadata", "ocr_confidence", "view_support", "view_agreement", "full_page_support",
+                "normalized_y", "metadata_label_score", "metadata_cross_field", "page_has_scale"}
+)
+FAMILY_FEATURES = {
+    "printed_boundary": PRINTED_FEATURES,
+    "calibrated_graphic": GRAPHIC_FEATURES,
+    "terminal_metadata": METADATA_FEATURES,
+}
+FAMILY_BLEND = {"printed_boundary": 0.55, "calibrated_graphic": 0.55, "terminal_metadata": 0.25}
+
+
+class PlattCalibrator:
+    """Calibrate weighted-ranker scores on held-out development predictions."""
+
+    def __init__(self) -> None:
+        self.slope = 1.0
+        self.intercept = 0.0
+
+    def fit(self, probabilities: list[float], labels: list[int]) -> "PlattCalibrator":
+        if not probabilities or len(probabilities) != len(labels) or len(set(labels)) < 2:
+            return self
+        logits = [math.log(max(1e-6, value) / max(1e-6, 1 - value)) for value in probabilities]
+        positive_rate = min(1 - 1e-6, max(1e-6, sum(labels) / len(labels)))
+        self.slope = 0.0
+        self.intercept = math.log(positive_rate / (1 - positive_rate))
+        for _ in range(1200):
+            predicted = [
+                1 / (1 + math.exp(-max(-30.0, min(30.0, self.slope * value + self.intercept))))
+                for value in logits
+            ]
+            errors = [prediction - label for prediction, label in zip(predicted, labels)]
+            self.slope -= 0.03 * (sum(error * value for error, value in zip(errors, logits)) / len(logits) + 0.01 * self.slope)
+            self.intercept -= 0.03 * sum(errors) / len(errors)
+        return self
+
+    def transform(self, probabilities: list[float]) -> list[float]:
+        output = []
+        for probability in probabilities:
+            logit = math.log(max(1e-6, probability) / max(1e-6, 1 - probability))
+            value = max(-30.0, min(30.0, self.slope * logit + self.intercept))
+            output.append(1 / (1 + math.exp(-value)))
+        return output
+
+    def to_dict(self) -> dict[str, float]:
+        return {"slope": self.slope, "intercept": self.intercept}
+
+
+def candidate_family(candidate: DepthBoundaryCandidate) -> str:
+    if candidate.candidate_source == "graphic_scale_transition":
+        return "calibrated_graphic"
+    if candidate.candidate_source == "metadata_final_depth":
+        return "terminal_metadata"
+    return "printed_boundary"
+
+
+def fit_family_rankers(
+    candidates: list[DepthBoundaryCandidate], labels: list[int],
+) -> dict[str, LogisticCandidateRanker]:
+    global_ranker = LogisticCandidateRanker(FEATURES).fit(candidates, labels)
+    rankers = {"_global": global_ranker}
+    for family, feature_names in FAMILY_FEATURES.items():
+        indices = [index for index, candidate in enumerate(candidates) if candidate_family(candidate) == family]
+        family_candidates = [candidates[index] for index in indices]
+        family_labels = [labels[index] for index in indices]
+        if family_candidates and len(set(family_labels)) == 2:
+            rankers[family] = LogisticCandidateRanker(feature_names).fit(family_candidates, family_labels)
+    for family in FAMILY_FEATURES:
+        rankers.setdefault(family, global_ranker)
+    return rankers
+
+
+def predict_family_rankers(
+    rankers: dict[str, LogisticCandidateRanker], candidates: list[DepthBoundaryCandidate],
+) -> list[float]:
+    probabilities = rankers["_global"].predict_proba(candidates).tolist()
+    for family in FAMILY_FEATURES:
+        ranker = rankers[family]
+        indices = [index for index, candidate in enumerate(candidates) if candidate_family(candidate) == family]
+        family_probabilities = ranker.predict_proba([candidates[index] for index in indices]).tolist()
+        for index, probability in zip(indices, family_probabilities):
+            blend = FAMILY_BLEND[family]
+            probabilities[index] = blend * probability + (1 - blend) * probabilities[index]
+    return probabilities
 
 
 def load_jsonl(path: Path) -> list[dict]:
@@ -123,8 +214,12 @@ def monotonic_sequence(
 
     scores = []
     previous = []
+    threshold_logit = math.log(max(1e-6, threshold) / max(1e-6, 1 - threshold))
     for index, (candidate, probability) in enumerate(rows):
-        node = math.log(max(1e-6, probability) / max(1e-6, 1 - probability))
+        # Utility is relative to the configured acceptance threshold. Using
+        # zero (p=0.5) as the implicit baseline silently discards candidates
+        # that legitimately pass lower-coverage operating points.
+        node = math.log(max(1e-6, probability) / max(1e-6, 1 - probability)) - threshold_logit
         scores.append(node)
         previous.append(-1)
         for left in range(index):
@@ -167,6 +262,21 @@ def add_cross_field_support(candidates: list[DepthBoundaryCandidate]) -> None:
             candidate.features["metadata_cross_field"] = float(
                 any(abs(candidate.value_m - value) <= 0.05 for value in body_values)
             )
+
+
+def add_cross_source_event_support(candidates: list[DepthBoundaryCandidate]) -> None:
+    for candidate in candidates:
+        center_y = (candidate.bbox[1] + candidate.bbox[3]) / 2
+        peers = [
+            other for other in candidates
+            if other is not candidate and other.page == candidate.page
+            and other.candidate_source != candidate.candidate_source
+            and abs((other.bbox[1] + other.bbox[3]) / 2 - center_y) <= 14.0
+        ]
+        candidate.features["cross_source_event_support"] = float(bool(peers))
+        candidate.features["cross_source_value_support"] = float(
+            any(abs(other.value_m - candidate.value_m) <= 0.10 for other in peers)
+        )
 
 
 def infer_terminal_cap(candidates: list[DepthBoundaryCandidate]) -> float | None:
@@ -315,7 +425,7 @@ def tune_sequence_threshold(
     probabilities_by_document: dict[str, list[float]], references: dict[str, list[float]],
 ) -> float:
     best = None
-    for threshold in [index / 100 for index in range(30, 96, 2)]:
+    for threshold in [index / 100 for index in range(5, 96)]:
         predictions = {
             record_id: [row[0].value_m for row in monotonic_sequence(
                 candidates_by_document[record_id], probabilities_by_document[record_id], threshold,
@@ -328,6 +438,105 @@ def tune_sequence_threshold(
         if best is None or key > best[0]:
             best = (key, threshold)
     return best[1] if best else 0.99
+
+
+def tune_selective_sequence_threshold(
+    candidates_by_document: dict[str, list[DepthBoundaryCandidate]],
+    probabilities_by_document: dict[str, list[float]], references: dict[str, list[float]],
+    *, minimum_precision: float = 0.90,
+) -> float:
+    best = None
+    for threshold in [index / 100 for index in range(30, 100)]:
+        predictions = {
+            record_id: [row[0].value_m for row in monotonic_sequence(
+                candidates_by_document[record_id], probabilities_by_document[record_id], threshold,
+            )]
+            for record_id in candidates_by_document
+        }
+        metrics = boundary_metrics(predictions, references, 0.10)
+        accepted = sum(map(len, predictions.values()))
+        if not accepted or metrics["precision"] < minimum_precision:
+            continue
+        key = (accepted, metrics["precision"], -threshold)
+        if best is None or key > best[0]:
+            best = (key, threshold)
+    return best[1] if best else 0.99
+
+
+def calibration_metrics(probabilities: list[float], labels: list[int], bins: int = 10) -> dict:
+    if not probabilities:
+        return {"candidate_count": 0, "brier_score": None, "expected_calibration_error": None}
+    brier = sum((probability - label) ** 2 for probability, label in zip(probabilities, labels)) / len(labels)
+    ece = 0.0
+    reliability = []
+    for index in range(bins):
+        lower, upper = index / bins, (index + 1) / bins
+        selected = [
+            row for row, probability in enumerate(probabilities)
+            if lower <= probability < upper or (index == bins - 1 and probability == 1.0)
+        ]
+        if not selected:
+            continue
+        confidence = sum(probabilities[row] for row in selected) / len(selected)
+        accuracy = sum(labels[row] for row in selected) / len(selected)
+        ece += len(selected) / len(labels) * abs(accuracy - confidence)
+        reliability.append({
+            "lower": lower, "upper": upper, "count": len(selected),
+            "mean_confidence": confidence, "empirical_accuracy": accuracy,
+        })
+    return {
+        "candidate_count": len(labels), "positive_count": sum(labels),
+        "brier_score": brier, "expected_calibration_error": ece,
+        "reliability": reliability,
+    }
+
+
+def coverage_risk_curve(
+    candidates_by_document: dict[str, list[DepthBoundaryCandidate]],
+    probabilities_by_document: dict[str, list[float]], references: dict[str, list[float]],
+) -> list[dict]:
+    reference_count = sum(map(len, references.values()))
+    output = []
+    for threshold in [0.05, 0.10, 0.20, 0.30, 0.40, 0.50, 0.60, 0.70, 0.80, 0.90, 0.95, 0.98, 0.99]:
+        predictions = {
+            record_id: [row[0].value_m for row in monotonic_sequence(
+                candidates_by_document[record_id], probabilities_by_document[record_id], threshold,
+            )]
+            for record_id in candidates_by_document
+        }
+        accepted = sum(map(len, predictions.values()))
+        metrics = boundary_metrics(predictions, references, 0.10)
+        output.append({
+            "threshold": threshold, "accepted_boundary_count": accepted,
+            "coverage_against_reference": accepted / reference_count,
+            "precision": metrics["precision"], "recall": metrics["recall"],
+            "critical_numerical_error_rate": metrics["critical_numerical_error_rate"],
+        })
+    return output
+
+
+def fit_inner_calibrator(
+    train_ids: list[str], generated: dict[str, dict], references: dict[str, list[float]], folds: int,
+    label_tolerance_m: float,
+) -> tuple[PlattCalibrator, dict[str, list[float]], list[float], list[int]]:
+    raw_by_document: dict[str, list[float]] = {}
+    for inner_fold in sorted({fold_id(record_id, folds) for record_id in train_ids}):
+        fit_ids = [record_id for record_id in train_ids if fold_id(record_id, folds) != inner_fold]
+        validation_ids = [record_id for record_id in train_ids if fold_id(record_id, folds) == inner_fold]
+        fit_candidates = [candidate for record_id in fit_ids for candidate in generated[record_id]["all"]]
+        fit_labels = [
+            candidate_label(candidate, references[record_id], label_tolerance_m)
+            for record_id in fit_ids for candidate in generated[record_id]["all"]
+        ]
+        rankers = fit_family_rankers(fit_candidates, fit_labels)
+        for record_id in validation_ids:
+            raw_by_document[record_id] = predict_family_rankers(rankers, generated[record_id]["all"])
+    raw_flat = [probability for record_id in train_ids for probability in raw_by_document[record_id]]
+    labels = [
+        candidate_label(candidate, references[record_id], label_tolerance_m)
+        for record_id in train_ids for candidate in generated[record_id]["all"]
+    ]
+    return PlattCalibrator().fit(raw_flat, labels), raw_by_document, raw_flat, labels
 
 
 def generate_document_candidates(source: dict, multiscale: dict, source_run: Path, field_roi: dict | None = None) -> dict:
@@ -362,7 +571,9 @@ def generate_document_candidates(source: dict, multiscale: dict, source_run: Pat
         scale_rows = [row for row in roi_rows if row.get("field_role") == "scale_depth"]
         baseline_evidence = aggregate_numeric_evidence(base_rows, page=page)
         combined_evidence = aggregate_numeric_evidence(combined_rows + boundary_rows, page=page)
-        scale_evidence = aggregate_numeric_evidence(combined_rows + scale_rows, page=page)
+        # Both ROI roles are retained because low-resolution historical logs
+        # can swap the visually adjacent cumulative-depth and boundary columns.
+        scale_evidence = aggregate_numeric_evidence(combined_rows + scale_rows + boundary_rows, page=page)
         baseline_printed = list(printed_boundary_candidates(baseline_evidence, gray, layout=layout, boundary_x_hint=boundary_hint))
         multiscale_printed = list(printed_boundary_candidates(combined_evidence, gray, layout=layout, boundary_x_hint=boundary_hint))
         baseline_meta = metadata_final_depth_candidates(
@@ -371,10 +582,40 @@ def generate_document_candidates(source: dict, multiscale: dict, source_run: Pat
         multiscale_meta = metadata_final_depth_candidates(
             combined_evidence, text_rows, layout=layout, width=width, height=height,
         )
-        calibration = fit_depth_scale(scale_evidence, layout, width=width, height=height, x_center_hint=scale_hint)
+        calibration = fit_depth_scale(
+            scale_evidence, layout, width=width, height=height, x_center_hint=scale_hint,
+            x_tolerance=0.018,
+        )
+        calibration_route = "scale_depth_roi" if calibration else None
+        if calibration is None and boundary_hint is not None:
+            calibration = fit_depth_scale(
+                scale_evidence, layout, width=width, height=height, x_center_hint=boundary_hint,
+                x_tolerance=0.018,
+            )
+            calibration_route = "boundary_depth_roi_fallback" if calibration else None
+        if calibration is None and scale_hint is not None:
+            calibration = fit_depth_scale(scale_evidence, layout, width=width, height=height)
+            calibration_route = "semantic_depth_anchor_fallback" if calibration else None
         graphic = graphic_boundary_candidates(
-            gray, page=page, layout=layout, calibration=calibration, depth_x_hint=scale_hint,
+            gray, page=page, layout=layout, calibration=calibration,
+            depth_x_hint=calibration.x_center_normalized,
         ) if calibration else []
+        context = {
+            "page_has_scale": float(calibration is not None),
+            "page_scale_inliers": min(1.0, calibration.inlier_count / 8) if calibration else 0.0,
+            "page_scale_rmse": min(1.0, calibration.rmse_m) if calibration else 1.0,
+        }
+        for candidate in baseline_printed + baseline_meta + multiscale_printed + multiscale_meta + graphic:
+            candidate.features.update(context)
+            candidate.features["is_zero_depth"] = float(abs(candidate.value_m) <= 0.05)
+            feature = candidate.features
+            feature["graphic_line_integer"] = feature.get("graphic_line_support", 0.0) * feature.get("snap_integer", 0.0)
+            feature["graphic_line_change"] = feature.get("graphic_line_support", 0.0) * feature.get("graphic_change_support", 0.0)
+            feature["graphic_scale_quality"] = feature.get("graphic_line_support", 0.0) * feature.get("page_scale_inliers", 0.0) * (1 - feature.get("page_scale_rmse", 1.0))
+            feature["printed_line_view"] = feature.get("printed_line_support", 0.0) * feature.get("view_support", 0.0) * feature.get("view_agreement", 0.0)
+            feature["printed_line_full_page"] = feature.get("printed_line_support", 0.0) * feature.get("full_page_support", 0.0)
+            feature["metadata_label_cross"] = feature.get("metadata_label_score", 0.0) * feature.get("metadata_cross_field", 0.0)
+        add_cross_source_event_support(multiscale_printed + multiscale_meta + graphic)
         page_outputs.append({
             "page": page,
             "layout_detected": True,
@@ -386,6 +627,7 @@ def generate_document_candidates(source: dict, multiscale: dict, source_run: Pat
                 "intercept_m": calibration.intercept_m,
                 "inlier_count": calibration.inlier_count,
                 "rmse_m": calibration.rmse_m,
+                "route": calibration_route,
             } if calibration else None,
         })
     output = {
@@ -406,6 +648,7 @@ def serialize_candidate(candidate: DepthBoundaryCandidate, probability: float | 
     return {
         "value_m": candidate.value_m, "page": candidate.page,
         "bbox": list(candidate.bbox), "candidate_source": candidate.candidate_source,
+        "page_family": candidate_family(candidate),
         "features": dict(candidate.features), "provenance": list(candidate.provenance),
         "probability": probability,
     }
@@ -450,7 +693,10 @@ def main() -> None:
             "prediction_count": sum(map(len, predictions.values())),
         }
 
-    # Deterministic source-disjoint out-of-fold probabilistic ranking.
+    # Deterministic source-disjoint mixture-of-experts with nested OOF
+    # calibration. The held-out source fold is not used for fitting experts,
+    # calibration, or decision thresholds.
+    oof_raw_probabilities: dict[str, list[float]] = {}
     oof_probabilities: dict[str, list[float]] = {}
     oof_thresholds: dict[str, float] = {}
     oof_risk_thresholds: dict[str, float] = {}
@@ -463,25 +709,34 @@ def main() -> None:
             candidate_label(candidate, references[record_id], args.label_tolerance_m)
             for record_id in train_ids for candidate in generated[record_id]["all"]
         ]
-        ranker = LogisticCandidateRanker(FEATURES).fit(train_candidates, train_labels)
-        train_probabilities = ranker.predict_proba(train_candidates).tolist()
-        grouped_train_candidates = {record_id: generated[record_id]["all"] for record_id in train_ids}
-        grouped_train_probabilities = {
-            record_id: ranker.predict_proba(generated[record_id]["all"]).tolist()
-            for record_id in train_ids
+        calibrator, inner_raw, inner_raw_flat, inner_labels = fit_inner_calibrator(
+            train_ids, generated, references, args.folds, args.label_tolerance_m,
+        )
+        rankers = fit_family_rankers(train_candidates, train_labels)
+        inner_probabilities = {
+            record_id: calibrator.transform(inner_raw[record_id]) for record_id in train_ids
         }
+        train_probabilities = calibrator.transform(inner_raw_flat)
+        grouped_train_candidates = {record_id: generated[record_id]["all"] for record_id in train_ids}
         threshold = tune_sequence_threshold(
-            grouped_train_candidates, grouped_train_probabilities,
+            grouped_train_candidates, inner_probabilities,
             {record_id: references[record_id] for record_id in train_ids},
         )
-        risk_threshold = tune_threshold(train_probabilities, train_labels, minimum_precision=0.95)
+        risk_threshold = tune_selective_sequence_threshold(
+            grouped_train_candidates, inner_probabilities,
+            {record_id: references[record_id] for record_id in train_ids},
+        )
         for record_id in test_ids:
-            oof_probabilities[record_id] = ranker.predict_proba(generated[record_id]["all"]).tolist()
+            raw = predict_family_rankers(rankers, generated[record_id]["all"])
+            oof_raw_probabilities[record_id] = raw
+            oof_probabilities[record_id] = calibrator.transform(raw)
             oof_thresholds[record_id] = threshold
             oof_risk_thresholds[record_id] = risk_threshold
         fold_models.append({
             "fold": fold, "train_document_count": len(train_ids), "test_document_count": len(test_ids),
-            "threshold": threshold, "risk_threshold": risk_threshold, "model": ranker.to_dict(),
+            "threshold": threshold, "risk_threshold": risk_threshold,
+            "calibrator": calibrator.to_dict(),
+            "experts": {family: ranker.to_dict() for family, ranker in rankers.items()},
         })
 
     raw_predictions = {}
@@ -519,7 +774,7 @@ def main() -> None:
             "terminal_cap_m": document["terminal_cap_m"],
         })
 
-    ablations["learned_candidate_ranking"] = {
+    ablations["family_expert_candidate_ranking"] = {
         "boundary_at_0_05m": boundary_metrics(raw_predictions, references, 0.05),
         "boundary_at_0_10m": boundary_metrics(raw_predictions, references, 0.10),
         "interval_at_0_05m": interval_metrics(raw_predictions, references, 0.05),
@@ -548,29 +803,59 @@ def main() -> None:
         "abstention_rate_against_reference": 1 - min(1.0, sum(map(len, conservative_predictions.values())) / sum(map(len, references.values()))),
     }
 
+    oof_flat = [probability for record_id in generated for probability in oof_probabilities[record_id]]
+    oof_raw_flat = [probability for record_id in generated for probability in oof_raw_probabilities[record_id]]
+    oof_labels = [
+        candidate_label(candidate, references[record_id], args.label_tolerance_m)
+        for record_id in generated for candidate in generated[record_id]["all"]
+    ]
+    calibration = {
+        "raw_oof": calibration_metrics(oof_raw_flat, oof_labels),
+        "nested_platt_oof": calibration_metrics(oof_flat, oof_labels),
+    }
+    risk_curve = coverage_risk_curve(
+        {record_id: document["all"] for record_id, document in generated.items()},
+        oof_probabilities, references,
+    )
+
+    family_evaluation = {}
+    for family in FAMILY_FEATURES:
+        family_ids = [
+            record_id for record_id, document in generated.items()
+            if any(candidate_family(candidate) == family for candidate in document["all"])
+        ]
+        family_predictions = {record_id: sequence_predictions[record_id] for record_id in family_ids}
+        family_references = {record_id: references[record_id] for record_id in family_ids}
+        family_evaluation[family] = {
+            "document_count": len(family_ids),
+            "boundary_at_0_05m": boundary_metrics(family_predictions, family_references, 0.05),
+            "interval_at_0_05m": interval_metrics(family_predictions, family_references, 0.05),
+        }
+
     # Freeze a final model on every v001 development source for one-time v002 use.
     all_candidates = [candidate for document in generated.values() for candidate in document["all"]]
     all_labels = [
         candidate_label(candidate, references[record_id], args.label_tolerance_m)
         for record_id, document in generated.items() for candidate in document["all"]
     ]
-    final_ranker = LogisticCandidateRanker(FEATURES).fit(all_candidates, all_labels)
-    final_probabilities = final_ranker.predict_proba(all_candidates).tolist()
-    final_grouped_probabilities = {
-        record_id: final_ranker.predict_proba(document["all"]).tolist()
-        for record_id, document in generated.items()
-    }
+    final_rankers = fit_family_rankers(all_candidates, all_labels)
+    final_calibrator = PlattCalibrator().fit(oof_raw_flat, oof_labels)
     final_threshold = tune_sequence_threshold(
         {record_id: document["all"] for record_id, document in generated.items()},
-        final_grouped_probabilities, references,
+        oof_probabilities, references,
     )
-    final_risk_threshold = tune_threshold(final_probabilities, all_labels, minimum_precision=0.95)
+    final_risk_threshold = tune_selective_sequence_threshold(
+        {record_id: document["all"] for record_id, document in generated.items()},
+        oof_probabilities, references,
+    )
     model = {
-        "method_version": "bgs_layout_field_aware_v007",
+        "method_version": "bgs_layout_field_aware_moe_v018",
         "training_manifest_sha256": file_sha256(args.manifest),
         "training_role": "development_only",
         "feature_names": list(FEATURES),
-        "ranker": final_ranker.to_dict(),
+        "routing": "mixed-page candidate semantic role with global-model shrinkage",
+        "experts": {family: ranker.to_dict() for family, ranker in final_rankers.items()},
+        "calibrator": final_calibrator.to_dict(),
         "decision_threshold": final_threshold,
         "risk_threshold": final_risk_threshold,
         "label_tolerance_m": args.label_tolerance_m,
@@ -578,6 +863,8 @@ def main() -> None:
             "semantic_layout": "long_page_layout_v001",
             "multiscale": "2x gray+Otsu, PSM 6+11",
             "graphic_boundary": "depth-scale calibration plus image transition",
+            "candidate_ranking": "printed-boundary, calibrated-graphic, and terminal-metadata experts with global shrinkage",
+            "calibration": "nested source-disjoint Platt scaling",
             "sequence": "strict increasing depth maximum log-odds path",
         },
     }
@@ -585,7 +872,7 @@ def main() -> None:
     args.model_output.write_text(json.dumps(model, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
     report = {
-        "analysis_scope": "BGS v001 development-only source-disjoint layout/field-aware method ablation",
+        "analysis_scope": "BGS v001 development-only source-disjoint page-family expert and calibrated structured decoding ablation",
         "manifest_path": str(args.manifest), "manifest_sha256": file_sha256(args.manifest),
         "multiscale_analysis_sha256": file_sha256(args.multiscale_analysis),
         "field_roi_analysis_sha256": file_sha256(args.field_roi_analysis) if args.field_roi_analysis else None,
@@ -597,6 +884,9 @@ def main() -> None:
         "scale_calibrated_pages": sum(bool(page["scale"]) for document in generated.values() for page in document["pages"]),
         "fold_policy": f"sha256(record_id) modulo {args.folds}; source-group disjoint",
         "ablations": ablations,
+        "family_evaluation": family_evaluation,
+        "candidate_calibration": calibration,
+        "coverage_risk_curve": risk_curve,
         "fold_models": fold_models,
         "frozen_external_model_path": str(args.model_output),
         "frozen_external_model_sha256": file_sha256(args.model_output),
