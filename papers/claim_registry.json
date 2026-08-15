@@ -2438,6 +2438,20 @@
         {"type": "json_pointer_equals", "pointer": "/sources/2/source", "expected": "raft_rapidocr"},
         {"type": "json_pointer_equals", "pointer": "/sources/2/documents_with_any_constraint_violation", "expected": 0}
       ]
+    },
+    "p3.stratigraphic_layer_model": {
+      "paper": "paper3",
+      "experiment_id": "P3_SWISSGEOL_STRATIGRAPHIC_LAYER_MODEL_002",
+      "scope": "real three-layer stratigraphic layer-thickness and IDW volume diagnostic from frozen ordered image boundaries",
+      "source_path": "results/2026-08-15/P3_SWISSGEOL_STRATIGRAPHIC_LAYER_MODEL_002/metrics.json",
+      "source_sha256": "159842a2fb599b84e70ba4754a0218ef469d98a05dba9044be39b71bab71b3db",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 35},
+        {"type": "json_pointer_equals", "pointer": "/layer_count", "expected": 3},
+        {"type": "json_pointer_equals", "pointer": "/by_variant/raw/relative_absolute_volume_error", "expected": 0.13894166799209456},
+        {"type": "json_pointer_equals", "pointer": "/by_variant/final/relative_absolute_volume_error", "expected": 0.12156521848079282},
+        {"type": "json_pointer_equals", "pointer": "/by_variant/final/layers_with_negative_thickness", "expected": 1}
+      ]
     }
   }
 }

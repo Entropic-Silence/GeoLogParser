@@ -2187,3 +2187,19 @@
   sequences can still omit intervals or carry semantic column errors.
 - Artifact: `experiments/paper2/analysis/cross_source_constraint_detectability_v001.json`
   (SHA256 `adea561ce4f5e3fcf750be16c0b200a9b200c1a3b00005eaaae28dd9563fdb72`).
+
+## 2026-08-15 — Real stratigraphic layer-volume diagnostic
+
+- Added `scripts/run_swissgeol_stratigraphic_layer_model.py` and ran
+  `P3_SWISSGEOL_STRATIGRAPHIC_LAYER_MODEL_002` on the frozen 35-document
+  Swissgeol held-out set. The run converts ordered boundary surfaces into three
+  adjacent layer-thickness surfaces and IDW volume estimates on common reference
+  domains; coordinates and collars remain authoritative structured values.
+- Raw predictions produced mean layer-thickness MAE 45.952 m and relative
+  absolute volume error 0.138942. The frozen reread channel produced 45.679 m
+  and 0.121565, respectively. Mean top/bottom support was 0.784/0.698 for raw
+  and 0.784/0.708 for reread; one of three layers retained negative predicted
+  thickness at some query points.
+- This is a real downstream stratigraphic-model baseline, not a validated
+  geological interpretation. Sparse deep-layer support, authoritative spatial
+  metadata, and ordered-index alignment remain explicit limitations.

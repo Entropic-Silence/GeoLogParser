@@ -1,5 +1,6 @@
 {
   "blockers": [
+    "claim source verification failed",
     "unresolved TBD/citation markers remain"
   ],
   "broken_local_links": [],
@@ -12,8 +13,10 @@
     "shepard1968interpolation"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "35d5f9ef34e90109364dd83175e102c8b8fa7761ad58368b74a165e1bd97103d",
-  "claim_source_errors": [],
+  "claim_registry_sha256": "e88130a16897af9a2a963528f8842ee342d2366358f3ed0fe716fb40277bde38",
+  "claim_source_errors": [
+    "p3.stratigraphic_layer_model: experiment is not in paper3 result index"
+  ],
   "evidence_tags": [
     "p3.coal602_consensus_qc",
     "p3.coal602_source_audit",
@@ -27,7 +30,8 @@
     "p3.padova_spatial_catalog",
     "p3.page_spatial_surface",
     "p3.pyvista_interop",
-    "p3.sanming_database_connectivity"
+    "p3.sanming_database_connectivity",
+    "p3.stratigraphic_layer_model"
   ],
   "formal_experiment_count": 7,
   "headings": [
@@ -123,7 +127,7 @@
     }
   ],
   "manuscript_path": "papers/paper3/manuscript.md",
-  "manuscript_sha256": "302cd987d4af3d35ac6afa4cd8b9cef87897ae7154ae73c708aa4216bd8c9cd0",
+  "manuscript_sha256": "63b5cbd725b7e3b656bf9e34c445411ed5989998b02b85731ecf01a9f3e22fa7",
   "missing_bibliography_keys": [],
   "missing_claim_registrations": [],
   "missing_literature_evidence_keys": [],
@@ -143,14 +147,15 @@
     "p3.padova_spatial_catalog",
     "p3.page_spatial_surface",
     "p3.pyvista_interop",
-    "p3.sanming_database_connectivity"
+    "p3.sanming_database_connectivity",
+    "p3.stratigraphic_layer_model"
   ],
   "result_index_errors": [],
   "result_index_path": "experiments/paper3/result_index.jsonl",
   "result_index_sha256": "be803a18b4004a81e8a4c657b32f3bea9c03f7ba95ed74aba6a9408284458df3",
-  "structurally_complete": true,
+  "structurally_complete": false,
   "submission_ready": false,
   "tbd_or_citation_marker_count": 4,
   "unused_claim_registrations": [],
-  "word_count": 3049
+  "word_count": 3183
 }
