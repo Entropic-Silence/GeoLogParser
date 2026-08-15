@@ -3,7 +3,7 @@
 
 Package: **DRAFT_NOT_SUBMISSION_READY**
 Manuscript words: **6432**; unresolved markers: **9**.
-Indexed runs: **59**; formal runs: **27**.
+Indexed runs: **60**; formal runs: **28**.
 Structural audit: **FAILED**.
 
 ## Blockers
@@ -14,7 +14,7 @@ Structural audit: **FAILED**.
 ## Trace
 
 - Manuscript SHA256: `b9d7651aa4e61bb4adff83939fdbfe1265e3152cda37c4997e821ab1a39bd0b1`
-- Result-index SHA256: `c2ff3658a367ebc41bd3a0d527b06d548bc7ef552a5ea2ff20d528e9e1d15d9c`
+- Result-index SHA256: `db56f458d33629aad75518e43bdcd91e1b495419c934bb470a05fe3985ae3996`
 - Citation keys: borkovich2025californiawcr, cohen1960agreement, han2024boreholeocr, haugen2025californialithology, pfitzmann2022doclaynet, roberts2017crossvalidation, smith2007tesseract, xu2020layoutlm, xu2021layoutlmv2, zhong2019publaynet
 - Missing literature-evidence keys: none
 - Literature-evidence errors: none

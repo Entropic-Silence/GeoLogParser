@@ -17,7 +17,7 @@
     "zhong2019publaynet"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "32b741e80836ece77f3b87054b5e1ab240cec05686aec00fdab7ca7fec9323fc",
+  "claim_registry_sha256": "d687e24a70e868c35365d2969e5535b813e70612b5c1570c3ad4f21315ff93cb",
   "claim_source_errors": [
     "p1.cross_canton_negative_audit: source hash mismatch"
   ],
@@ -82,7 +82,7 @@
     "p1.usgs_idaho_cross_engine",
     "p1.usgs_idaho_error_analysis"
   ],
-  "formal_experiment_count": 27,
+  "formal_experiment_count": 28,
   "headings": [
     "Abstract",
     "1. Introduction",
@@ -97,7 +97,7 @@
     "10. Conclusion",
     "References"
   ],
-  "indexed_experiment_count": 59,
+  "indexed_experiment_count": 60,
   "literature_evidence_errors": [],
   "literature_evidence_path": "docs/literature_evidence.yaml",
   "literature_evidence_sha256": "54ceff4a97757e0fe2bc0d82ad559447b75694e388747cf4f9eb58b570a7e4d9",
@@ -141,7 +141,7 @@
     {
       "exists": true,
       "resolved_path": "docs/generated/publication_readiness.md",
-      "sha256": "9ca8efe0a54e10ea0d0fb1989679a48d15d11d8cf9efe315d5170321e8b4ceaf",
+      "sha256": "4eca7e8de1f9b56444de3c40bad1245e390d7ffb96e0826d60c8fa5847bddf38",
       "target": "../../docs/generated/publication_readiness.md"
     },
     {
@@ -228,7 +228,7 @@
   ],
   "result_index_errors": [],
   "result_index_path": "experiments/paper1/result_index.jsonl",
-  "result_index_sha256": "c2ff3658a367ebc41bd3a0d527b06d548bc7ef552a5ea2ff20d528e9e1d15d9c",
+  "result_index_sha256": "db56f458d33629aad75518e43bdcd91e1b495419c934bb470a05fe3985ae3996",
   "structurally_complete": false,
   "submission_ready": false,
   "tbd_or_citation_marker_count": 9,

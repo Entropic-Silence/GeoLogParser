@@ -2132,3 +2132,22 @@
   recall, F1, and correctness are intentionally undefined.
 - The source remains internal pending final item-level rights, attribution,
   precise-location, and embedded-content review. No human review is claimed.
+
+## 2026-08-15 — California v004 prospective candidate-risk validation
+
+- Committed candidate-risk policy `california_addition_only_high_confidence_v002`
+  before acquiring v004. Development used only v001/v002 correction events;
+  v003 and v004 were explicitly excluded.
+- Froze 100 new reports, 147 pages, 28 counties, and 1,944 published manually
+  transcribed intervals after excluding every v001-v003 record. Manifest SHA256
+  is `054848cca5b5eac0e67b46151842a31d63d6e94558664ab8f15cec5b5ba4ca4c`;
+  split SHA256 is `f0548634c811ab9392431d527ca6f38de6f2a813838ab4587e43cb5fc0597694`.
+- RapidOCR first pass matched 549/622 predictions, precision 0.8826, recall
+  0.2824, and F1 0.4279. Unselective sequence ranking matched 783/822,
+  reaching F1 0.5662 but FCR 43/354 = 0.1215.
+- The frozen addition-only risk policy accepted 43 candidates across eight
+  documents. All 43 matched the reference, eight documents improved, 92 were
+  unchanged, and none worsened. F1 rose to 0.4538; observed FCR was 0/43.
+- Paired document bootstrap estimated the F1 gain over raw as 0.0259 with 95%
+  interval [0.0052, 0.0541]. The exact two-sided 95% upper bound for a zero-error
+  observation over 43 actions is 0.0822, so universal safety is not claimed.

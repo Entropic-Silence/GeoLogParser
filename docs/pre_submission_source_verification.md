@@ -99,7 +99,10 @@ freeze contains another 100 reports/23 counties/154 pages/1,770 intervals and
 was not used for initial method development. A prospective v003 freeze contains
 another 100 reports/31 counties/154 pages/1,788 intervals; it excludes all
 v001/v002 records and was acquired only after selective policy
-`california_selective_net_expansion_v001` was committed. The source reference is correctly
+`california_selective_net_expansion_v001` was committed. A second prospective
+v004 freeze contains 100 reports/28 counties/147 pages/1,944 intervals, excludes
+all v001-v003 records, and was acquired only after candidate-risk policy
+`california_addition_only_high_confidence_v002` was committed. The source reference is correctly
 labelled `GOLD_PUBLISHED_MANUAL_TRANSCRIPTION`, while
 `project_human_reviewed=false` records that this project did not repeat the
 source transcription review. Before submission, confirm the exact citation and
@@ -117,6 +120,12 @@ The v003 paths are
 `datasets/manifests/california_wcr_gold_v003.jsonl`, and
 `datasets/splits/california_wcr_gold_split_v003.json`; include these 100 source
 links in the final check.
+The v004 paths are
+`/data/GeoLogParser/datasets/public/california_wcr_gold_v004/metadata/acquisition.json`,
+`datasets/manifests/california_wcr_gold_v004.jsonl`, and
+`datasets/splits/california_wcr_gold_split_v004.json`; include these 100 source
+links in the same final check. Manifest SHA256 is
+`054848cca5b5eac0e67b46151842a31d63d6e94558664ab8f15cec5b5ba4ca4c`.
 
 A non-overlapping successor freeze is stored at
 `/data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v003`. It contains

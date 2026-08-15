@@ -13,7 +13,7 @@
     "xu2021layoutlmv2"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "32b741e80836ece77f3b87054b5e1ab240cec05686aec00fdab7ca7fec9323fc",
+  "claim_registry_sha256": "d687e24a70e868c35365d2969e5535b813e70612b5c1570c3ad4f21315ff93cb",
   "claim_source_errors": [],
   "evidence_tags": [
     "p2.bgs_metadata_consensus",
@@ -23,6 +23,8 @@
     "p2.california_prospective_constraint_sequence",
     "p2.california_prospective_selective",
     "p2.california_replication_statistics",
+    "p2.california_v004_candidate_risk",
+    "p2.california_v004_candidate_risk_analysis",
     "p2.executed_synthetic_ablation",
     "p2.roi_reread_audit",
     "p2.selective_confidence_secondary",
@@ -45,7 +47,7 @@
     "9. Conclusion",
     "References"
   ],
-  "indexed_experiment_count": 14,
+  "indexed_experiment_count": 16,
   "literature_evidence_errors": [],
   "literature_evidence_path": "docs/literature_evidence.yaml",
   "literature_evidence_sha256": "54ceff4a97757e0fe2bc0d82ad559447b75694e388747cf4f9eb58b570a7e4d9",
@@ -71,7 +73,7 @@
     {
       "exists": true,
       "resolved_path": "docs/generated/publication_readiness.md",
-      "sha256": "9ca8efe0a54e10ea0d0fb1989679a48d15d11d8cf9efe315d5170321e8b4ceaf",
+      "sha256": "4eca7e8de1f9b56444de3c40bad1245e390d7ffb96e0826d60c8fa5847bddf38",
       "target": "../../docs/generated/publication_readiness.md"
     },
     {
@@ -88,7 +90,7 @@
     }
   ],
   "manuscript_path": "papers/paper2/manuscript.md",
-  "manuscript_sha256": "9bf5ea9d8f98903202d0bd334fa9024bb30d97b5dc4418ab4e7e746c2b626af4",
+  "manuscript_sha256": "2d87d3e4febe762fc1d4bf79f2005bd0977e3d6e0fc9a399d833317733342c5f",
   "missing_bibliography_keys": [],
   "missing_claim_registrations": [],
   "missing_literature_evidence_keys": [],
@@ -103,6 +105,8 @@
     "p2.california_prospective_constraint_sequence",
     "p2.california_prospective_selective",
     "p2.california_replication_statistics",
+    "p2.california_v004_candidate_risk",
+    "p2.california_v004_candidate_risk_analysis",
     "p2.executed_synthetic_ablation",
     "p2.roi_reread_audit",
     "p2.selective_confidence_secondary",
@@ -113,10 +117,10 @@
   ],
   "result_index_errors": [],
   "result_index_path": "experiments/paper2/result_index.jsonl",
-  "result_index_sha256": "88e454449247a905d80db384e08c5892cc7d363b2e6908430646275250d4fdc2",
+  "result_index_sha256": "66b9e52982b676e39a8f48ba00b236a85b39af7d728ebd86ff0b3510efbaca49",
   "structurally_complete": true,
   "submission_ready": false,
   "tbd_or_citation_marker_count": 3,
   "unused_claim_registrations": [],
-  "word_count": 3519
+  "word_count": 3889
 }

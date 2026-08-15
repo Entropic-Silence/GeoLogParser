@@ -1,0 +1,160 @@
+{
+  "accepted_correction_document_count": 8,
+  "analysis_version": "california_candidate_risk_v004",
+  "bootstrap_repetitions": 20000,
+  "changed_document_count": 55,
+  "correction_safety": {
+    "accepted_actions": 43,
+    "exact_two_sided_95_upper_for_zero_errors": 0.08221112115413853,
+    "interpretation": "Zero observed errors does not establish a zero population error rate; the exact upper bound quantifies remaining uncertainty.",
+    "observed_false_correction_rate": 0.0,
+    "observed_incorrect_actions": 0
+  },
+  "document_count": 100,
+  "document_outcomes": {
+    "improved": 8,
+    "unchanged": 92,
+    "worsened": 0
+  },
+  "policy_frozen_before_dataset_acquisition": true,
+  "prospective": true,
+  "risk_vs_raw": {
+    "bootstrap_repetitions": 20000,
+    "bootstrap_unit": "document",
+    "delta_left_minus_right": {
+      "f1": {
+        "bootstrap_percentile_95_ci": [
+          0.00519185845363757,
+          0.054056890225037
+        ],
+        "bootstrap_probability_delta_gt_zero": 0.99985,
+        "observed": 0.02591037021258935
+      },
+      "precision": {
+        "bootstrap_percentile_95_ci": [
+          0.0014800346087127352,
+          0.01693976543514133
+        ],
+        "bootstrap_probability_delta_gt_zero": 0.99985,
+        "observed": 0.007588907961221469
+      },
+      "recall": {
+        "bootstrap_percentile_95_ci": [
+          0.004484054132683273,
+          0.04565127642291213
+        ],
+        "bootstrap_probability_delta_gt_zero": 0.99985,
+        "observed": 0.022119341563786032
+      }
+    },
+    "left": {
+      "f1": 0.4538137217324646,
+      "matched": 592,
+      "precision": 0.8902255639097745,
+      "predicted": 665,
+      "recall": 0.3045267489711934,
+      "reference": 1944
+    },
+    "right": {
+      "f1": 0.42790335151987524,
+      "matched": 549,
+      "precision": 0.882636655948553,
+      "predicted": 622,
+      "recall": 0.2824074074074074,
+      "reference": 1944
+    }
+  },
+  "risk_vs_unselective": {
+    "bootstrap_repetitions": 20000,
+    "bootstrap_unit": "document",
+    "delta_left_minus_right": {
+      "f1": {
+        "bootstrap_percentile_95_ci": [
+          -0.16037718637534304,
+          -0.06774062062845397
+        ],
+        "bootstrap_probability_delta_gt_zero": 0.0,
+        "observed": -0.11234679887491061
+      },
+      "precision": {
+        "bootstrap_percentile_95_ci": [
+          -0.08805438346353389,
+          -0.038094273728343106
+        ],
+        "bootstrap_probability_delta_gt_zero": 0.0,
+        "observed": -0.06232918061577297
+      },
+      "recall": {
+        "bootstrap_percentile_95_ci": [
+          -0.1429369709448639,
+          -0.05587197967780736
+        ],
+        "bootstrap_probability_delta_gt_zero": 0.0,
+        "observed": -0.09825102880658437
+      }
+    },
+    "left": {
+      "f1": 0.4538137217324646,
+      "matched": 592,
+      "precision": 0.8902255639097745,
+      "predicted": 665,
+      "recall": 0.3045267489711934,
+      "reference": 1944
+    },
+    "right": {
+      "f1": 0.5661605206073752,
+      "matched": 783,
+      "precision": 0.9525547445255474,
+      "predicted": 822,
+      "recall": 0.4027777777777778,
+      "reference": 1944
+    }
+  },
+  "seed": 20260815,
+  "unselective_vs_raw": {
+    "bootstrap_repetitions": 20000,
+    "bootstrap_unit": "document",
+    "delta_left_minus_right": {
+      "f1": {
+        "bootstrap_percentile_95_ci": [
+          0.0817427614068288,
+          0.19946998202247565
+        ],
+        "bootstrap_probability_delta_gt_zero": 1.0,
+        "observed": 0.13825716908749996
+      },
+      "precision": {
+        "bootstrap_percentile_95_ci": [
+          0.04463969320704895,
+          0.09681774550988773
+        ],
+        "bootstrap_probability_delta_gt_zero": 1.0,
+        "observed": 0.06991808857699444
+      },
+      "recall": {
+        "bootstrap_percentile_95_ci": [
+          0.06813250740775187,
+          0.17661118988723876
+        ],
+        "bootstrap_probability_delta_gt_zero": 1.0,
+        "observed": 0.1203703703703704
+      }
+    },
+    "left": {
+      "f1": 0.5661605206073752,
+      "matched": 783,
+      "precision": 0.9525547445255474,
+      "predicted": 822,
+      "recall": 0.4027777777777778,
+      "reference": 1944
+    },
+    "right": {
+      "f1": 0.42790335151987524,
+      "matched": 549,
+      "precision": 0.882636655948553,
+      "predicted": 622,
+      "recall": 0.2824074074074074,
+      "reference": 1944
+    }
+  }
+}

@@ -2338,6 +2338,36 @@
         {"type": "json_pointer_equals", "pointer": "/lithology_detection/disagreement_document_counts/usgs150_lithologic_log", "expected": 14},
         {"type": "json_pointer_equals", "pointer": "/depth_range_detection/rapidocr_minus_tesseract", "expected": 185}
       ]
+    },
+    "p2.california_v004_candidate_risk": {
+      "paper": "paper2",
+      "experiment_id": "P2_CALIFORNIA_WCR_V004_CANDIDATE_RISK_PROSPECTIVE_FORMAL_001",
+      "scope": "prospective candidate-level addition-only policy on 100 disjoint California WCR reports and 1,944 published manually transcribed intervals",
+      "source_path": "results/2026-08-15/P2_CALIFORNIA_WCR_V004_CANDIDATE_RISK_PROSPECTIVE_FORMAL_001/metrics.json",
+      "source_sha256": "da49a75adc0e737a703ddcc7c928aeeeee678a438908f8aa8702c4a143a3e6a4",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 100},
+        {"type": "json_pointer_equals", "pointer": "/reference_interval_count", "expected": 1944},
+        {"type": "json_pointer_equals", "pointer": "/risk_selected_interval_metrics/interval_f1/value", "expected": 0.4538137217324646},
+        {"type": "json_pointer_equals", "pointer": "/raw_interval_metrics/interval_f1/value", "expected": 0.42790335151987524},
+        {"type": "json_pointer_equals", "pointer": "/accepted_correct_additions", "expected": 43},
+        {"type": "json_pointer_equals", "pointer": "/accepted_incorrect_additions", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/document_outcomes/worsened", "expected": 0}
+      ]
+    },
+    "p2.california_v004_candidate_risk_analysis": {
+      "paper": "paper2",
+      "scope": "document-cluster bootstrap and finite-action safety analysis for prospective v004 candidate-risk evaluation",
+      "source_path": "experiments/paper2/analysis/california_candidate_risk_v004.json",
+      "source_sha256": "7e556fbcd786ac296e52c38c636c12b126c828832da642f780b246c3ceef37cb",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 100},
+        {"type": "json_pointer_equals", "pointer": "/risk_vs_raw/delta_left_minus_right/f1/observed", "expected": 0.02591037021258935},
+        {"type": "json_pointer_equals", "pointer": "/risk_vs_raw/delta_left_minus_right/f1/bootstrap_percentile_95_ci", "expected": [0.00519185845363757, 0.054056890225037]},
+        {"type": "json_pointer_equals", "pointer": "/correction_safety/accepted_actions", "expected": 43},
+        {"type": "json_pointer_equals", "pointer": "/correction_safety/observed_incorrect_actions", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/correction_safety/exact_two_sided_95_upper_for_zero_errors", "expected": 0.08221112115413853}
+      ]
     }
   }
 }

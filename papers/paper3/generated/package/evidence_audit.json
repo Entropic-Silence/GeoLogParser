@@ -12,7 +12,7 @@
     "shepard1968interpolation"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "32b741e80836ece77f3b87054b5e1ab240cec05686aec00fdab7ca7fec9323fc",
+  "claim_registry_sha256": "d687e24a70e868c35365d2969e5535b813e70612b5c1570c3ad4f21315ff93cb",
   "claim_source_errors": [],
   "evidence_tags": [
     "p3.coal602_consensus_qc",
@@ -106,7 +106,7 @@
     {
       "exists": true,
       "resolved_path": "docs/generated/publication_readiness.md",
-      "sha256": "9ca8efe0a54e10ea0d0fb1989679a48d15d11d8cf9efe315d5170321e8b4ceaf",
+      "sha256": "4eca7e8de1f9b56444de3c40bad1245e390d7ffb96e0826d60c8fa5847bddf38",
       "target": "../../docs/generated/publication_readiness.md"
     },
     {
