@@ -16,7 +16,7 @@
     "zhong2019publaynet"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "f9b90a1a6efca8b5b4521bb5c83052093d5038fae73aa7fe9683c9ad1bba58c3",
+  "claim_registry_sha256": "fa020a4e5fbc5fd8374e1cec7899c53d969c2ba3add6f2cf3da3a8dbe57aa99b",
   "claim_source_errors": [],
   "evidence_tags": [
     "p1.b2_padova",
@@ -48,6 +48,7 @@
     "p1.california_tesseract_gold",
     "p1.california_v004_rapidocr",
     "p1.california_v005_rapidocr",
+    "p1.california_vlm_gold",
     "p1.cross_canton_negative_audit",
     "p1.cross_canton_transfer_error_analysis_rapidocr",
     "p1.cross_canton_transfer_error_analysis_tesseract",
@@ -82,7 +83,7 @@
     "p1.usgs_idaho_cross_engine",
     "p1.usgs_idaho_error_analysis"
   ],
-  "formal_experiment_count": 29,
+  "formal_experiment_count": 30,
   "headings": [
     "Abstract",
     "1. Introduction",
@@ -97,7 +98,7 @@
     "10. Conclusion",
     "References"
   ],
-  "indexed_experiment_count": 61,
+  "indexed_experiment_count": 62,
   "literature_evidence_errors": [],
   "literature_evidence_path": "docs/literature_evidence.yaml",
   "literature_evidence_sha256": "54ceff4a97757e0fe2bc0d82ad559447b75694e388747cf4f9eb58b570a7e4d9",
@@ -105,7 +106,7 @@
     {
       "exists": true,
       "resolved_path": "papers/paper1/generated/current_results.md",
-      "sha256": "b6a62c9c0ec9564593af263af01ec974bfcda4171049ecdab8ff112f15e8526d",
+      "sha256": "fa59a98380d8c4abfc4cee535e9db1892abc257377810bfea2645af480a5340f",
       "target": "generated/current_results.md"
     },
     {
@@ -141,7 +142,7 @@
     {
       "exists": true,
       "resolved_path": "docs/generated/publication_readiness.md",
-      "sha256": "d1d098e1a92aa9bfb540f133bee23eb3bcbf49cb3a367614f8272f20fa0503f3",
+      "sha256": "47f719b7c040d21c1ea87cec480e3472b484107d7f3bbcdfd5e002df48e684e8",
       "target": "../../docs/generated/publication_readiness.md"
     },
     {
@@ -158,7 +159,7 @@
     }
   ],
   "manuscript_path": "papers/paper1/manuscript.md",
-  "manuscript_sha256": "9cc79bc63a1cc4ebb476a5112ae7f355391fbd04789968a2ff006b60cfeadeca",
+  "manuscript_sha256": "b42de201826dfe53cafcf7e31b9153b5940a0856f164768eaf7c5db721cc3e93",
   "missing_bibliography_keys": [],
   "missing_claim_registrations": [],
   "missing_literature_evidence_keys": [],
@@ -195,6 +196,7 @@
     "p1.california_tesseract_gold",
     "p1.california_v004_rapidocr",
     "p1.california_v005_rapidocr",
+    "p1.california_vlm_gold",
     "p1.cross_canton_negative_audit",
     "p1.cross_canton_transfer_error_analysis_rapidocr",
     "p1.cross_canton_transfer_error_analysis_tesseract",
@@ -231,10 +233,10 @@
   ],
   "result_index_errors": [],
   "result_index_path": "experiments/paper1/result_index.jsonl",
-  "result_index_sha256": "b69a9893a8bbd2490ffa432d7c6c934378646cf4e7bb36808f6365321e8e746a",
+  "result_index_sha256": "5ef347f617cfd9617bf8b18fd8d3354c8c9eb84c07e6f71e49bc5959438311eb",
   "structurally_complete": true,
   "submission_ready": false,
-  "tbd_or_citation_marker_count": 8,
+  "tbd_or_citation_marker_count": 7,
   "unused_claim_registrations": [],
-  "word_count": 6714
+  "word_count": 6992
 }

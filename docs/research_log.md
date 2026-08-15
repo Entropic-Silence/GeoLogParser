@@ -2216,3 +2216,20 @@
 - The result is a split-leakage diagnostic, not a retrained generalization
   benchmark. It narrows the Paper I TBD claim without presenting the random
   sample as independent evidence.
+
+## 2026-08-15 — California Qwen3-VL Gold page aggregation
+
+- Fixed page identity handling in `scripts/run_vlm_audit.py` and the California
+  Gold aggregator so multi-page reports use the rendered page stem rather than
+  the repeated source-record identifier.
+- Aggregated four completed GPU shards covering all 77 pages of the frozen
+  50-report/697-interval California v001 test split. All 77 page responses were
+  schema-valid, but only one report emitted any interval candidates (five in
+  total); none matched a published boundary within the 0.05 m tolerance.
+- The formal page-aggregated result is interval precision 0.000, recall 0.000,
+  F1 0.000, and boundary-exact documents 0/50. Summed page-generation latency
+  was 3,438.996 s (68.780 s/report); the four shards were run independently,
+  so this is not a single-process wall-clock measurement.
+- Indexed as `P1_B4_QWEN3VL4B_CALIFORNIA_TEST_FORMAL_001R`. This is a real
+  VLM baseline against published manual-transcription Gold; schema validity is
+  not treated as extraction accuracy.

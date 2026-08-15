@@ -1,13 +1,13 @@
 # Isolated local VLM runtime. Known working environment was captured separately;
 # do not install into production blindly without GPU/driver compatibility checks.
-torch==2.13.0
-torchvision==0.28.0
-transformers==5.14.1
+torch==2.8.0
+torchvision==0.23.0
+transformers==4.57.6
 accelerate==1.14.0
 safetensors==0.8.0
 tokenizers==0.22.2
-Pillow==12.3.0
-huggingface-hub==1.24.0
+Pillow==11.3.0
+huggingface-hub==0.36.2
 jsonschema==4.25.1
 jsonschema-specifications==2025.9.1
 referencing==0.37.0

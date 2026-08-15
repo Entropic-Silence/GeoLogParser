@@ -9,6 +9,7 @@ import json
 import os
 import platform
 import subprocess
+from datetime import date
 from importlib.metadata import version
 from pathlib import Path
 
@@ -68,6 +69,7 @@ def main() -> None:
     parser.add_argument("--min-pixels", type=int, default=256 * 28 * 28)
     parser.add_argument("--max-pixels", type=int, default=1280 * 28 * 28)
     parser.add_argument("--limit", type=int)
+    parser.add_argument("--offset", type=int, default=0)
     parser.add_argument("--constraint-config", type=Path, default=DEFAULT_CONSTRAINT_CONFIG)
     arguments = parser.parse_args()
     constraint_engine = load_engine_config(arguments.constraint_config)
@@ -77,8 +79,12 @@ def main() -> None:
         json.loads(line) for line in arguments.manifest.read_text(encoding="utf-8").splitlines()
         if line.strip()
     ]
+    if arguments.offset < 0:
+        raise ValueError("offset must be non-negative")
     if arguments.limit is not None:
-        manifest = manifest[: arguments.limit]
+        manifest = manifest[arguments.offset : arguments.offset + arguments.limit]
+    elif arguments.offset:
+        manifest = manifest[arguments.offset :]
     if not manifest:
         raise ValueError("audit manifest is empty")
     prompt = arguments.prompt.read_text(encoding="utf-8")
@@ -91,7 +97,7 @@ def main() -> None:
     run = create_run_directory(arguments.results_root, {
         "experiment_id": arguments.experiment_id,
         "git_commit": git_commit,
-        "date": "2026-08-12",
+        "date": date.today().isoformat(),
         "dataset_version": arguments.dataset_version,
         "split_version": "engineering_audit_no_training_no_ground_truth",
         "model": MODEL_ID,
@@ -136,7 +142,11 @@ def main() -> None:
     with (run / "predictions.jsonl").open("w", encoding="utf-8") as stream:
         for item in manifest:
             image_path = Path(item.get("rendered_path") or item.get("image_path") or item.get("local_path"))
-            item_id = str(item.get("panel_id") or item.get("source_record_id") or image_path.stem)
+            # Page-level manifests may contain several images for one source
+            # record.  The image stem is stable and unique within a rendered
+            # page manifest (e.g. WCR1998-000859_p001), whereas
+            # source_record_id is intentionally shared by all pages.
+            item_id = image_path.stem
             generation = adapter.generate([image_path], prompt, prompt_version=arguments.prompt_version)
             row = {
                 "item_id": item_id,

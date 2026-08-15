@@ -2478,6 +2478,23 @@
         {"type": "json_pointer_equals", "pointer": "/random_test/metrics/interval_f1/std", "expected": 0.020756667471303086},
         {"type": "json_pointer_equals", "pointer": "/random_test/development_overlap_fraction/mean", "expected": 0.16819999999999996}
       ]
+    },
+    "p1.california_vlm_gold": {
+      "paper": "paper1",
+      "experiment_id": "P1_B4_QWEN3VL4B_CALIFORNIA_TEST_FORMAL_001R",
+      "scope": "formal page-aggregated Qwen3-VL-4B benchmark on the frozen 50-report/77-page California published-manual-transcription Gold test",
+      "source_path": "results/2026-08-15/P1_B4_QWEN3VL4B_CALIFORNIA_TEST_FORMAL_001R/metrics.json",
+      "source_sha256": "a02cd0bfc7d5e80956e03187ef90c3b36aa2bbf88885459d83c03ff71c7fe911",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 50},
+        {"type": "json_pointer_equals", "pointer": "/page_count", "expected": 77},
+        {"type": "json_pointer_equals", "pointer": "/reference_interval_count", "expected": 697},
+        {"type": "json_pointer_equals", "pointer": "/predicted_interval_count", "expected": 5},
+        {"type": "json_pointer_equals", "pointer": "/documents_with_predictions", "expected": 1},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_f1/value", "expected": 0.0},
+        {"type": "json_pointer_equals", "pointer": "/document_boundary_exact/numerator", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/prediction_reference_conditioning", "expected": "none"}
+      ]
     }
   }
 }
