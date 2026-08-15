@@ -2249,9 +2249,10 @@
   candidates, multi-view OCR evidence, header final-depth candidates, a small
   probabilistic ranker, provenance, monotone sequence inference, and selective
   acceptance. Five-fold splits are deterministic and source-group disjoint.
-- The current v006 method failed the deployment gate. At ±0.05 m its monotone
-  output had boundary precision/recall/F1 0.3757/0.1771/0.2407 and interval F1
-  0.0891. At ±0.10 m critical numerical error rate was 0.6185. The selective
+- The v007 method added mutually exclusive same-location hypotheses and strict
+  page/y ordering. It still failed the deployment gate: at ±0.05 m its monotone
+  output had boundary precision/recall/F1 0.4552/0.1662/0.2435 and interval F1
+  0.1099. At ±0.10 m critical numerical error rate was 0.5448. The selective
   policy accepted 4 boundaries, of which 2 were wrong.
 - This is a useful negative result: layout localization is not the primary
   bottleneck, multiscale visibility remains insufficient, and independent

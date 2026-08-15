@@ -72,7 +72,13 @@ def deduplicate(candidates: list[DepthBoundaryCandidate], probabilities: list[fl
 def monotonic_sequence(
     candidates: list[DepthBoundaryCandidate], probabilities: list[float], threshold: float,
 ) -> list[tuple[DepthBoundaryCandidate, float]]:
-    """Maximum-evidence monotone depth sequence with traceable abstention."""
+    """Maximum-evidence page/y-ordered sequence with mutually exclusive roles.
+
+    Multiple OCR readings and numeric snapping hypotheses at the same visual
+    boundary are alternatives, never separate geological boundaries.  Metadata
+    terminal-depth evidence is ordered after all body events even though its
+    bbox lies in the header.
+    """
     terminal_cap = infer_terminal_cap(candidates)
     rows = [
         row for row in deduplicate(candidates, probabilities)
@@ -80,9 +86,41 @@ def monotonic_sequence(
     ]
     if not rows:
         return []
-    # Geological order is increasing depth. Metadata terminal-depth evidence is
-    # permitted only as the last node even though it occurs in the page header.
-    rows.sort(key=lambda row: (row[0].value_m, row[0].page, row[0].bbox[1]))
+
+    page_order = {page: index for index, page in enumerate(sorted({row[0].page for row in rows}))}
+    body = [row for row in rows if row[0].candidate_source != "metadata_final_depth"]
+    metadata = [row for row in rows if row[0].candidate_source == "metadata_final_depth"]
+    body.sort(key=lambda row: (page_order[row[0].page], (row[0].bbox[1] + row[0].bbox[3]) / 2, row[0].value_m))
+    grouped: list[list[tuple[DepthBoundaryCandidate, float]]] = []
+    for row in body:
+        center_y = (row[0].bbox[1] + row[0].bbox[3]) / 2
+        if grouped:
+            previous = grouped[-1][0][0]
+            previous_y = (previous.bbox[1] + previous.bbox[3]) / 2
+            same_event = previous.page == row[0].page and abs(center_y - previous_y) <= 10.0
+        else:
+            same_event = False
+        if same_event:
+            grouped[-1].append(row)
+        else:
+            grouped.append([row])
+    # All header-derived terminal hypotheses are one final mutually-exclusive
+    # event; the DP can select at most one.
+    if metadata:
+        grouped.append(metadata)
+    rows = []
+    group_ids = []
+    for group_id, group in enumerate(grouped):
+        # Same value/source duplicates inside an event keep the strongest view.
+        best: dict[tuple[int, str], tuple[DepthBoundaryCandidate, float]] = {}
+        for row in group:
+            key = (round(row[0].value_m * 100), row[0].candidate_source)
+            if key not in best or row[1] > best[key][1]:
+                best[key] = row
+        for row in best.values():
+            rows.append(row)
+            group_ids.append(group_id)
+
     scores = []
     previous = []
     for index, (candidate, probability) in enumerate(rows):
@@ -91,7 +129,7 @@ def monotonic_sequence(
         previous.append(-1)
         for left in range(index):
             prior, _ = rows[left]
-            if candidate.value_m <= prior.value_m + 0.025:
+            if group_ids[left] >= group_ids[index] or candidate.value_m <= prior.value_m + 0.025:
                 continue
             gap = candidate.value_m - prior.value_m
             edge = 0.12 - 0.015 * max(0.0, gap - 50.0)
@@ -528,7 +566,7 @@ def main() -> None:
     )
     final_risk_threshold = tune_threshold(final_probabilities, all_labels, minimum_precision=0.95)
     model = {
-        "method_version": "bgs_layout_field_aware_v006",
+        "method_version": "bgs_layout_field_aware_v007",
         "training_manifest_sha256": file_sha256(args.manifest),
         "training_role": "development_only",
         "feature_names": list(FEATURES),

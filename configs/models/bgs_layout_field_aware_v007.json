@@ -38,7 +38,7 @@
     "metadata_cross_field"
   ],
   "label_tolerance_m": 0.05,
-  "method_version": "bgs_layout_field_aware_v006",
+  "method_version": "bgs_layout_field_aware_v007",
   "ranker": {
     "bias": -0.45490222595757157,
     "feature_names": [

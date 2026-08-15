@@ -18,9 +18,10 @@ error channel; the union reached 110/367 (29.97%). Thus layout localization is
 mostly available, but visual candidate recall remains a hard ceiling.
 
 The current source-disjoint five-fold candidate model does not pass a deployment
-gate. At ±0.05 m, learned ranking plus monotone sequence inference achieved
-boundary precision 0.376, recall 0.177, F1 0.241, and interval F1 0.089. At
-±0.10 m, its critical numerical error rate was 0.618. A high-threshold selective
+gate. After enforcing mutually exclusive same-location hypotheses and page/y
+order, learned ranking plus monotone sequence inference achieved boundary
+precision 0.455, recall 0.166, F1 0.244, and interval F1 0.110 at ±0.05 m. At
+±0.10 m, its critical numerical error rate was 0.545. A high-threshold selective
 policy accepted only 4 boundaries and still made 2 errors.
 
 ## Decision
@@ -43,7 +44,7 @@ required.
 
 ## Consequences
 
-- The current v006 artifact is retained as development failure evidence.
+- The current v007 artifact is retained as development failure evidence.
 - Further work targets candidate recall and structured sequence inference, not
   OCR/VLM model-count expansion.
 - The next method revision must explicitly model template family, depth-scale
