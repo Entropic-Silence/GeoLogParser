@@ -13,7 +13,7 @@ Published manual-transcription formal runs: **10**.
 
 | Paper | Indexed runs | Controlled formal | Real formal |
 |---|---:|---:|---:|
-| paper1 | 56 | 2 | 23 |
+| paper1 | 58 | 2 | 25 |
 | paper2 | 14 | 1 | 8 |
 | paper3 | 13 | 1 | 6 |
 

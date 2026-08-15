@@ -2043,6 +2043,56 @@ records:
     source SHA-1, local PDF SHA-256, page count, county, coordinates, and interval
     provenance. project_human_reviewed=false; the reference intervals originate from
     the separately published manual-transcription release.
+- source_id: bgs_offshore_paired_v001
+  source_name: BGS GeoIndex Offshore paired borehole scans and graphic-log geology intervals
+  url: https://mapapps2.bgs.ac.uk/geoindex_offshore/home.html
+  source_url: https://map.bgs.ac.uk/arcgis/rest/services/GeoIndex_Offshore/offshore_data/MapServer
+  doi: null
+  publisher: British Geological Survey / UK Research and Innovation
+  citation: BGS GeoIndex Offshore Borehole Activity and Scan plus Borehole Geology Data layers
+  retrieval_date: '2026-08-15'
+  local_paths:
+  - /data/GeoLogParser/datasets/public/bgs_offshore_paired_v001
+  - datasets/manifests/bgs_offshore_gold_v001.jsonl
+  - datasets/splits/bgs_offshore_gold_split_v001.json
+  file_count_in_local_snapshot: 34
+  local_snapshot_inventory_sha256: ab242c34c7b56c93ab23e533eb83cbd5dc61c1c20fb74ca7b92d0f99f0409b2f
+  manifest_evidence:
+  - relative_path: /root/GeoLogParser/datasets/manifests/bgs_offshore_gold_v001.jsonl
+    size_bytes: 268795
+    sha256: d85f6c862b81d80c793887f73ca8b70658d42de358f25230dc4a15104520c99c
+  - relative_path: /root/GeoLogParser/datasets/splits/bgs_offshore_gold_split_v001.json
+    size_bytes: 1266
+    sha256: 03adfecca7f2c97c1612752ff1ca387fe1f22f31ee20cdf8981ef1f2cee8d096
+  access_method: official BGS ArcGIS REST layers plus direct PDF downloads from marinedata.bgs.ac.uk
+  terms_of_use: https://www.bgs.ac.uk/legal-and-policy/terms-of-use/
+  claimed_license: Open Government Licence v3.0 in ArcGIS TERMS_OF_USE field
+  license_url: https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
+  commercial_use: not_verified
+  personal_information_risk: not_assessed
+  sensitive_location_risk: not_assessed
+  verification_status: CLAIM_CAPTURED_WITH_EMBEDDED_RIGHTS_CONFLICT
+  internal_decision: USE_WITH_CAUTION
+  decision: ELIGIBLE_INTERNAL_ONLY
+  risks:
+  - ArcGIS record states OGL v3.0 but scanned PDF pages contain legacy all-rights-reserved footer wording
+  - precise offshore coordinates and embedded historical source material require final manual review
+  - official interval rows are source-agreement references derived from graphic logs, not project human annotation
+  experiments_or_papers:
+  - paper1_cross_source_interval_benchmark
+  - paper1_real_error_analysis
+  - paper2_constraint_sequence_recovery
+  requires_human_check_before_submission: true
+  evidence:
+  - datasets/data_registry.yaml
+  - /data/GeoLogParser/datasets/public/bgs_offshore_paired_v001/metadata/acquisition.json
+  - /root/GeoLogParser/datasets/manifests/bgs_offshore_gold_v001.jsonl
+  - /root/GeoLogParser/datasets/splits/bgs_offshore_gold_split_v001.json
+  - https://map.bgs.ac.uk/arcgis/rest/services/GeoIndex_Offshore/offshore_data/MapServer/6
+  - https://map.bgs.ac.uk/arcgis/rest/services/GeoIndex_Offshore/offshore_data/MapServer/7
+  registry_status: acquired_authoritative_graphic_log_interval_benchmark_v001_rights_pending
+  registry_verification_notes: '593 scan records and 10,727 geology rows were queried. Filtering for metre-unit graphic-log interpretations, legal positive intervals, no overlaps, and >=0.95 adjacent continuity yielded 251 candidates. The frozen set contains 26 PDFs, 372 pages, 34 BH_COMP_LOG evaluation pages, 341 intervals, and 26 distinct SOURCE_TITLE groups. Original IMAGE_URL values use marinedata.ac.uk; downloads used the reachable BGS-qualified host alias marinedata.bgs.ac.uk, with both URLs preserved. No human review is claimed.'
+
 - source_id: synthetic_borehole_logs_v001
   source_name: GeoLogParser programmatically generated borehole logs
   url: null

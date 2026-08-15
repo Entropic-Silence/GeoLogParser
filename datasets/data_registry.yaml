@@ -906,3 +906,21 @@ datasets:
     paper_fit: [paper1_real_gold_interval_benchmark, paper2_constraint_sequence_recovery, paper3_error_distribution_design]
     status: acquired_public_redacted_report_links_cc0_table_images_local
     verification_notes: "ScienceBase item 64958d73d34ef77fcb01dc8f. Local WCR_v6_2025.csv is 109,486,447 bytes, MD5 27a44594f23341c1a910e98254b2ee6f, SHA256 fd99a20b03331016f70ece13c07c178c8089858055fb907e704a8666048d7a77. The official metadata describes links to redacted publicly available DWR reports and states CC0 for the attributed table. Public Box pages exposed file names, version IDs, SHA-1 values, sizes, and downloads. Three mutually record-disjoint snapshots jointly retain 260 reports and record source URL, Box file/version IDs, source SHA-1, local PDF SHA-256, page count, county, coordinates, and interval provenance. project_human_reviewed=false; the reference intervals originate from the separately published manual-transcription release."
+
+  - id: bgs_offshore_paired_v001
+    name: "BGS GeoIndex Offshore paired borehole scans and graphic-log geology intervals"
+    source_organization: "British Geological Survey / UK Research and Innovation"
+    url: https://mapapps2.bgs.ac.uk/geoindex_offshore/home.html
+    access_date: "2026-08-15"
+    language: English
+    format: "historical scanned borehole PDF composites paired by ACTIVITY_ID with official ArcGIS interval records"
+    scale: "593 scan records queried; 10,727 geology rows queried; 251 eligible graphic-log candidates; frozen 26 PDFs/372 pages/34 composite evaluation pages/341 intervals across 26 survey source groups"
+    downloadable: true
+    access_status: "official BGS ArcGIS layers and direct marinedata.bgs.ac.uk PDF downloads acquired; source-image rights require final manual verification"
+    license: "Open Government Licence v3.0 stated in ArcGIS record; scan-page embedded rights conflict remains unresolved"
+    allowed_usage: "internal research evaluation with BGS acknowledgement pending manual item/content review"
+    redistribution: prohibited_pending_verification
+    redistribution_policy: "keep original PDFs local; publish only hashes, manifests, source URLs, derived aggregate results, and permitted annotations until OGL scope and legacy scan footer rights are manually verified"
+    paper_fit: [paper1_cross_source_interval_benchmark, paper1_real_error_analysis, paper2_constraint_sequence_recovery]
+    status: acquired_authoritative_graphic_log_interval_benchmark_v001_rights_pending
+    verification_notes: "The official Offshore GeoIndex exposes Borehole Activity and Scan layer 6 and Borehole Geology Data layer 7, joined on ACTIVITY_ID. Selection retained only metre-unit rows whose INTERP_SOURCE states that interpretation was derived from a graphic log, with 5-60 positive intervals, no depth overlap, and adjacent continuity >=0.95. The 26 selected records cover 26 distinct SOURCE_TITLE groups. Manifest SHA256 d85f6c862b81d80c793887f73ca8b70658d42de358f25230dc4a15104520c99c; split SHA256 03adfecca7f2c97c1612752ff1ca387fe1f22f31ee20cdf8981ef1f2cee8d096. The ArcGIS terms field states OGL v3.0 and unrestricted use, while scanned pages include legacy all-rights-reserved footer wording; this conflict is preserved in the pre-submission source-verification ledger. project_human_reviewed=false; reference tier is GOLD_AUTHORITATIVE_SOURCE_AGREEMENT, not human annotation."

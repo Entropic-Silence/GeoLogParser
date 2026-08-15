@@ -1,6 +1,5 @@
 {
   "blockers": [
-    "manuscript evidence tags are absent from claim registry",
     "unresolved TBD/citation markers remain"
   ],
   "broken_local_links": [],
@@ -14,13 +13,13 @@
     "xu2021layoutlmv2"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "9080a4bd758bfffca032da41e4de0517221d35392298c2ea0e30af28ce74b0b6",
+  "claim_registry_sha256": "b7847faed4707a2e76d1d1e3e33230cc969c4a6a86296e0e9f9c533be755d253",
   "claim_source_errors": [],
   "evidence_tags": [
-    "p1.california_external_error_analysis",
     "p2.bgs_metadata_consensus",
     "p2.california_constraint_sequence",
     "p2.california_external_constraint_sequence",
+    "p2.california_external_error_analysis",
     "p2.california_prospective_constraint_sequence",
     "p2.california_prospective_selective",
     "p2.california_replication_statistics",
@@ -72,7 +71,7 @@
     {
       "exists": true,
       "resolved_path": "docs/generated/publication_readiness.md",
-      "sha256": "29f1401d78adf904b7a7e5027dcc063ce443d22022f1491c5099b5c2a5a1fe9b",
+      "sha256": "5874a4750e16897454e87767b457e6fa558c8e0ccc863b5fdf9bd49d0489db16",
       "target": "../../docs/generated/publication_readiness.md"
     },
     {
@@ -89,11 +88,9 @@
     }
   ],
   "manuscript_path": "papers/paper2/manuscript.md",
-  "manuscript_sha256": "23ec509e905eef0cc08594651e3a5b744a8b8cea7656493c53ba509efc2c9784",
+  "manuscript_sha256": "9bf5ea9d8f98903202d0bd334fa9024bb30d97b5dc4418ab4e7e746c2b626af4",
   "missing_bibliography_keys": [],
-  "missing_claim_registrations": [
-    "p1.california_external_error_analysis"
-  ],
+  "missing_claim_registrations": [],
   "missing_literature_evidence_keys": [],
   "missing_required_sections": [],
   "package_label": "DRAFT_NOT_SUBMISSION_READY",
@@ -102,6 +99,7 @@
     "p2.bgs_metadata_consensus",
     "p2.california_constraint_sequence",
     "p2.california_external_constraint_sequence",
+    "p2.california_external_error_analysis",
     "p2.california_prospective_constraint_sequence",
     "p2.california_prospective_selective",
     "p2.california_replication_statistics",
@@ -116,7 +114,7 @@
   "result_index_errors": [],
   "result_index_path": "experiments/paper2/result_index.jsonl",
   "result_index_sha256": "88e454449247a905d80db384e08c5892cc7d363b2e6908430646275250d4fdc2",
-  "structurally_complete": false,
+  "structurally_complete": true,
   "submission_ready": false,
   "tbd_or_citation_marker_count": 3,
   "unused_claim_registrations": [],

@@ -2081,3 +2081,34 @@
   incorrect boundaries and removed eight correct ones. This falsifies the
   proposed net-expansion safety heuristic and motivates candidate-level risk,
   field localization, and calibrated abstention in the next method revision.
+
+## 2026-08-15 — BGS Offshore cross-source interval benchmark
+
+- Queried the official BGS GeoIndex Offshore Activity and Scan layer and
+  Borehole Geology Data layer. The layers returned 593 scan records and 10,727
+  geology rows; joining on `ACTIVITY_ID` and retaining only metre-unit graphic-
+  log interpretations with legal positive intervals, no overlaps, and adjacent
+  continuity >=0.95 yielded 251 candidates across 30 survey/source groups.
+- Froze one deterministic record per source group where a reachable PDF exposed
+  a `BH_COMP_LOG` composite page and the remote PDF was <=30 MB. The resulting
+  set contains 26 PDFs, 372 total pages, 34 evaluation pages, 341 intervals,
+  and 26 distinct source groups. Manifest SHA256 is
+  `d85f6c862b81d80c793887f73ca8b70658d42de358f25230dc4a15104520c99c`; split
+  SHA256 is `03adfecca7f2c97c1612752ff1ca387fe1f22f31ee20cdf8981ef1f2cee8d096`.
+- Formal RapidOCR run `P1_BGS_OFFSHORE_V001_RAPIDOCR_CROSS_SOURCE_FORMAL_001`
+  emitted 28 intervals across nine documents and matched seven boundaries:
+  precision 0.2500, recall 0.02053, F1 0.03794; matched lithology exactness
+  was 2/7. Formal Tesseract run
+  `P1_BGS_OFFSHORE_V001_TESSERACT_CROSS_SOURCE_FORMAL_001` emitted 54 intervals
+  across 13 documents and matched eight boundaries: precision 0.14815,
+  recall 0.02346, F1 0.04051; matched lithology exactness was 2/8.
+- These are real source-disjoint interval results, not annotation failure or
+  a California extrapolation. The historical composite pages contain low-
+  contrast and handwritten depth annotations. The source is recorded as
+  `GOLD_AUTHORITATIVE_SOURCE_AGREEMENT`, not project human annotation.
+- Three candidates lacked a `BH_COMP_LOG` page and one 89.9 MB candidate was
+  excluded by the reproducibility size cap; all exclusions are preserved in
+  `/data/GeoLogParser/datasets/public/bgs_offshore_paired_v001/metadata/acquisition.json`.
+- Rights decision remains `ELIGIBLE_INTERNAL_ONLY`: ArcGIS records state OGL
+  v3.0, while scan footers include legacy all-rights-reserved wording. Original
+  PDFs remain local pending the user's final manual source verification.

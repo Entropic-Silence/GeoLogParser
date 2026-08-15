@@ -129,6 +129,30 @@ zero, and the one duplicated PDF group remains within a single partition. The
 same pre-submission rights, attribution, privacy, sensitive-location, embedded-
 content, and redistribution checks remain mandatory.
 
+The BGS Offshore GeoIndex paired interval freeze is stored at
+`/data/GeoLogParser/datasets/public/bgs_offshore_paired_v001`, with manifest
+`datasets/manifests/bgs_offshore_gold_v001.jsonl` and split
+`datasets/splits/bgs_offshore_gold_split_v001.json`. The official ArcGIS
+Activity and Scan layer 6 and Borehole Geology Data layer 7 are joined by
+`ACTIVITY_ID`. The frozen set contains 26 source groups, 26 PDFs, 372 pages,
+34 `BH_COMP_LOG` evaluation pages, and 341 official interval rows whose
+`INTERP_SOURCE` explicitly identifies a graphic-log interpretation. The ArcGIS
+record states Open Government Licence v3.0 and unrestricted use with BGS
+acknowledgement. However, the downloaded scans include a legacy footer stating
+that rights are reserved by the copyright proprietors. This is recorded as a
+rights conflict, not silently resolved: the source is `ELIGIBLE_INTERNAL_ONLY`
+for current experiments, `project_human_reviewed=false`, and original PDFs or
+page derivatives must not be redistributed until the exact item/content scope,
+embedded historical material, precise offshore coordinates, attribution, and
+derived-asset rights are manually confirmed. The source reference is
+`GOLD_AUTHORITATIVE_SOURCE_AGREEMENT`, meaning official interval records
+explicitly derived from the graphic logs; it is not a new human annotation.
+The acquisition evidence records manifest SHA256
+`d85f6c862b81d80c793887f73ca8b70658d42de358f25230dc4a15104520c99c`, split
+SHA256 `03adfecca7f2c97c1612752ff1ca387fe1f22f31ee20cdf8981ef1f2cee8d096`,
+and the source URL host substitution from `marinedata.ac.uk` to the reachable
+`marinedata.bgs.ac.uk` alias.
+
 ## Human sign-off fields
 
 For each YAML record, the final reviewer should append or record in a successor

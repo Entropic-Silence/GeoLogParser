@@ -1,0 +1,669 @@
+{
+  "analysis_scope": "post-hoc real error-event analysis on frozen BGS offshore authoritative interval benchmark",
+  "engine_overlap": {
+    "both_output_documents": 9,
+    "neither_output_documents": 13,
+    "rapidocr_only_output_documents": 0,
+    "tesseract_only_output_documents": 4
+  },
+  "manifest_sha256": "d85f6c862b81d80c793887f73ca8b70658d42de358f25230dc4a15104520c99c",
+  "rapidocr": {
+    "document_count": 26,
+    "documents_with_any_boundary_omission": 26,
+    "documents_with_any_spurious_interval": 9,
+    "documents_with_lithology_error": 2,
+    "documents_with_output": 9,
+    "matched_interval_count": 7,
+    "matched_lithology_error_count": 5,
+    "missing_interval_count": 334,
+    "per_document": [
+      {
+        "error_events": [
+          "boundary_omission",
+          "zero_output_document"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 16,
+        "predicted_interval_count": 0,
+        "record_id": "BGS_OFFSHORE_1942278",
+        "spurious_interval_count": 0
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "zero_output_document"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 12,
+        "predicted_interval_count": 0,
+        "record_id": "BGS_OFFSHORE_1943902",
+        "spurious_interval_count": 0
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "zero_output_document"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 15,
+        "predicted_interval_count": 0,
+        "record_id": "BGS_OFFSHORE_1944312",
+        "spurious_interval_count": 0
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "spurious_interval"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 15,
+        "predicted_interval_count": 2,
+        "record_id": "BGS_OFFSHORE_1944320",
+        "spurious_interval_count": 2
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "spurious_interval"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 16,
+        "predicted_interval_count": 3,
+        "record_id": "BGS_OFFSHORE_1944322",
+        "spurious_interval_count": 3
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "zero_output_document"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 12,
+        "predicted_interval_count": 0,
+        "record_id": "BGS_OFFSHORE_1945465",
+        "spurious_interval_count": 0
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "spurious_interval"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 14,
+        "predicted_interval_count": 4,
+        "record_id": "BGS_OFFSHORE_1949665",
+        "spurious_interval_count": 4
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "zero_output_document"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 12,
+        "predicted_interval_count": 0,
+        "record_id": "BGS_OFFSHORE_1951404",
+        "spurious_interval_count": 0
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "spurious_interval"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 10,
+        "predicted_interval_count": 3,
+        "record_id": "BGS_OFFSHORE_1960100",
+        "spurious_interval_count": 3
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "zero_output_document"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 8,
+        "predicted_interval_count": 0,
+        "record_id": "BGS_OFFSHORE_1960609",
+        "spurious_interval_count": 0
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "zero_output_document"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 15,
+        "predicted_interval_count": 0,
+        "record_id": "BGS_OFFSHORE_1960630",
+        "spurious_interval_count": 0
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "zero_output_document"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 8,
+        "predicted_interval_count": 0,
+        "record_id": "BGS_OFFSHORE_1963694",
+        "spurious_interval_count": 0
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "zero_output_document"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 13,
+        "predicted_interval_count": 0,
+        "record_id": "BGS_OFFSHORE_1969862",
+        "spurious_interval_count": 0
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "zero_output_document"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 13,
+        "predicted_interval_count": 0,
+        "record_id": "BGS_OFFSHORE_1980976",
+        "spurious_interval_count": 0
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "zero_output_document"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 8,
+        "predicted_interval_count": 0,
+        "record_id": "BGS_OFFSHORE_1984462",
+        "spurious_interval_count": 0
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "zero_output_document"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 14,
+        "predicted_interval_count": 0,
+        "record_id": "BGS_OFFSHORE_1987224",
+        "spurious_interval_count": 0
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "spurious_interval"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 31,
+        "predicted_interval_count": 2,
+        "record_id": "BGS_OFFSHORE_1989175",
+        "spurious_interval_count": 2
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "zero_output_document"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 16,
+        "predicted_interval_count": 0,
+        "record_id": "BGS_OFFSHORE_1993525",
+        "spurious_interval_count": 0
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "zero_output_document"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 13,
+        "predicted_interval_count": 0,
+        "record_id": "BGS_OFFSHORE_2007749",
+        "spurious_interval_count": 0
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "zero_output_document"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 20,
+        "predicted_interval_count": 0,
+        "record_id": "BGS_OFFSHORE_2009141",
+        "spurious_interval_count": 0
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "spurious_interval"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 6,
+        "predicted_interval_count": 1,
+        "record_id": "BGS_OFFSHORE_2016306",
+        "spurious_interval_count": 1
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "zero_output_document"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 10,
+        "predicted_interval_count": 0,
+        "record_id": "BGS_OFFSHORE_2023411",
+        "spurious_interval_count": 0
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "spurious_interval"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 12,
+        "predicted_interval_count": 1,
+        "record_id": "BGS_OFFSHORE_2024185",
+        "spurious_interval_count": 1
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "zero_output_document"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 11,
+        "predicted_interval_count": 0,
+        "record_id": "BGS_OFFSHORE_2030012",
+        "spurious_interval_count": 0
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "lithology_semantic_error",
+          "spurious_interval"
+        ],
+        "lithology_error_count": 1,
+        "matched_interval_count": 1,
+        "missing_interval_count": 4,
+        "predicted_interval_count": 4,
+        "record_id": "BGS_OFFSHORE_2041581",
+        "spurious_interval_count": 3
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "lithology_semantic_error",
+          "spurious_interval"
+        ],
+        "lithology_error_count": 4,
+        "matched_interval_count": 6,
+        "missing_interval_count": 10,
+        "predicted_interval_count": 8,
+        "record_id": "BGS_OFFSHORE_1957995",
+        "spurious_interval_count": 2
+      }
+    ],
+    "predicted_interval_count": 28,
+    "spurious_interval_count": 21,
+    "zero_output_documents": 17
+  },
+  "tesseract": {
+    "document_count": 26,
+    "documents_with_any_boundary_omission": 26,
+    "documents_with_any_spurious_interval": 13,
+    "documents_with_lithology_error": 3,
+    "documents_with_output": 13,
+    "matched_interval_count": 8,
+    "matched_lithology_error_count": 6,
+    "missing_interval_count": 333,
+    "per_document": [
+      {
+        "error_events": [
+          "boundary_omission",
+          "zero_output_document"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 16,
+        "predicted_interval_count": 0,
+        "record_id": "BGS_OFFSHORE_1942278",
+        "spurious_interval_count": 0
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "zero_output_document"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 12,
+        "predicted_interval_count": 0,
+        "record_id": "BGS_OFFSHORE_1943902",
+        "spurious_interval_count": 0
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "zero_output_document"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 15,
+        "predicted_interval_count": 0,
+        "record_id": "BGS_OFFSHORE_1944312",
+        "spurious_interval_count": 0
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "spurious_interval"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 15,
+        "predicted_interval_count": 7,
+        "record_id": "BGS_OFFSHORE_1944320",
+        "spurious_interval_count": 7
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "spurious_interval"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 16,
+        "predicted_interval_count": 5,
+        "record_id": "BGS_OFFSHORE_1944322",
+        "spurious_interval_count": 5
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "zero_output_document"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 12,
+        "predicted_interval_count": 0,
+        "record_id": "BGS_OFFSHORE_1945465",
+        "spurious_interval_count": 0
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "spurious_interval"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 14,
+        "predicted_interval_count": 5,
+        "record_id": "BGS_OFFSHORE_1949665",
+        "spurious_interval_count": 5
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "spurious_interval"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 12,
+        "predicted_interval_count": 1,
+        "record_id": "BGS_OFFSHORE_1951404",
+        "spurious_interval_count": 1
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "spurious_interval"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 10,
+        "predicted_interval_count": 5,
+        "record_id": "BGS_OFFSHORE_1960100",
+        "spurious_interval_count": 5
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "spurious_interval"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 8,
+        "predicted_interval_count": 1,
+        "record_id": "BGS_OFFSHORE_1960609",
+        "spurious_interval_count": 1
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "zero_output_document"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 15,
+        "predicted_interval_count": 0,
+        "record_id": "BGS_OFFSHORE_1960630",
+        "spurious_interval_count": 0
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "zero_output_document"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 8,
+        "predicted_interval_count": 0,
+        "record_id": "BGS_OFFSHORE_1963694",
+        "spurious_interval_count": 0
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "spurious_interval"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 13,
+        "predicted_interval_count": 1,
+        "record_id": "BGS_OFFSHORE_1969862",
+        "spurious_interval_count": 1
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "zero_output_document"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 13,
+        "predicted_interval_count": 0,
+        "record_id": "BGS_OFFSHORE_1980976",
+        "spurious_interval_count": 0
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "zero_output_document"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 8,
+        "predicted_interval_count": 0,
+        "record_id": "BGS_OFFSHORE_1984462",
+        "spurious_interval_count": 0
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "zero_output_document"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 14,
+        "predicted_interval_count": 0,
+        "record_id": "BGS_OFFSHORE_1987224",
+        "spurious_interval_count": 0
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "spurious_interval"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 31,
+        "predicted_interval_count": 5,
+        "record_id": "BGS_OFFSHORE_1989175",
+        "spurious_interval_count": 5
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "spurious_interval"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 16,
+        "predicted_interval_count": 2,
+        "record_id": "BGS_OFFSHORE_1993525",
+        "spurious_interval_count": 2
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "zero_output_document"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 13,
+        "predicted_interval_count": 0,
+        "record_id": "BGS_OFFSHORE_2007749",
+        "spurious_interval_count": 0
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "zero_output_document"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 20,
+        "predicted_interval_count": 0,
+        "record_id": "BGS_OFFSHORE_2009141",
+        "spurious_interval_count": 0
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "zero_output_document"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 10,
+        "predicted_interval_count": 0,
+        "record_id": "BGS_OFFSHORE_2023411",
+        "spurious_interval_count": 0
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "spurious_interval"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 12,
+        "predicted_interval_count": 1,
+        "record_id": "BGS_OFFSHORE_2024185",
+        "spurious_interval_count": 1
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "zero_output_document"
+        ],
+        "lithology_error_count": 0,
+        "matched_interval_count": 0,
+        "missing_interval_count": 11,
+        "predicted_interval_count": 0,
+        "record_id": "BGS_OFFSHORE_2030012",
+        "spurious_interval_count": 0
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "lithology_semantic_error",
+          "spurious_interval"
+        ],
+        "lithology_error_count": 1,
+        "matched_interval_count": 2,
+        "missing_interval_count": 4,
+        "predicted_interval_count": 6,
+        "record_id": "BGS_OFFSHORE_2016306",
+        "spurious_interval_count": 4
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "lithology_semantic_error",
+          "spurious_interval"
+        ],
+        "lithology_error_count": 2,
+        "matched_interval_count": 2,
+        "missing_interval_count": 3,
+        "predicted_interval_count": 6,
+        "record_id": "BGS_OFFSHORE_2041581",
+        "spurious_interval_count": 4
+      },
+      {
+        "error_events": [
+          "boundary_omission",
+          "lithology_semantic_error",
+          "spurious_interval"
+        ],
+        "lithology_error_count": 3,
+        "matched_interval_count": 4,
+        "missing_interval_count": 12,
+        "predicted_interval_count": 9,
+        "record_id": "BGS_OFFSHORE_1957995",
+        "spurious_interval_count": 5
+      }
+    ],
+    "predicted_interval_count": 54,
+    "spurious_interval_count": 46,
+    "zero_output_documents": 13
+  }
+}

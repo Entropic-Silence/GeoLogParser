@@ -16,7 +16,7 @@
     "zhong2019publaynet"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "9080a4bd758bfffca032da41e4de0517221d35392298c2ea0e30af28ce74b0b6",
+  "claim_registry_sha256": "b7847faed4707a2e76d1d1e3e33230cc969c4a6a86296e0e9f9c533be755d253",
   "claim_source_errors": [],
   "evidence_tags": [
     "p1.b2_padova",
@@ -28,6 +28,9 @@
     "p1.b6_padova",
     "p1.bgs_metadata_rapidocr31",
     "p1.bgs_metadata_tesseract31",
+    "p1.bgs_offshore_error_analysis",
+    "p1.bgs_offshore_rapidocr",
+    "p1.bgs_offshore_tesseract",
     "p1.bgs_robustness_inventory",
     "p1.bgs_robustness_rapidocr",
     "p1.bgs_robustness_tesseract",
@@ -74,7 +77,7 @@
     "p1.usgs142_cross_source",
     "p1.usgs144_cross_source"
   ],
-  "formal_experiment_count": 25,
+  "formal_experiment_count": 27,
   "headings": [
     "Abstract",
     "1. Introduction",
@@ -89,7 +92,7 @@
     "10. Conclusion",
     "References"
   ],
-  "indexed_experiment_count": 56,
+  "indexed_experiment_count": 58,
   "literature_evidence_errors": [],
   "literature_evidence_path": "docs/literature_evidence.yaml",
   "literature_evidence_sha256": "54ceff4a97757e0fe2bc0d82ad559447b75694e388747cf4f9eb58b570a7e4d9",
@@ -133,7 +136,7 @@
     {
       "exists": true,
       "resolved_path": "docs/generated/publication_readiness.md",
-      "sha256": "29f1401d78adf904b7a7e5027dcc063ce443d22022f1491c5099b5c2a5a1fe9b",
+      "sha256": "5874a4750e16897454e87767b457e6fa558c8e0ccc863b5fdf9bd49d0489db16",
       "target": "../../docs/generated/publication_readiness.md"
     },
     {
@@ -150,7 +153,7 @@
     }
   ],
   "manuscript_path": "papers/paper1/manuscript.md",
-  "manuscript_sha256": "591512ba14af209ba4575f8f7f832c235539b06142ba7281d624d9ca65857bb2",
+  "manuscript_sha256": "90f56e65ba8d21e05112bf5ccd05bb327f8f1171071ae87866ce75653b360748",
   "missing_bibliography_keys": [],
   "missing_claim_registrations": [],
   "missing_literature_evidence_keys": [],
@@ -167,6 +170,9 @@
     "p1.b6_padova",
     "p1.bgs_metadata_rapidocr31",
     "p1.bgs_metadata_tesseract31",
+    "p1.bgs_offshore_error_analysis",
+    "p1.bgs_offshore_rapidocr",
+    "p1.bgs_offshore_tesseract",
     "p1.bgs_robustness_inventory",
     "p1.bgs_robustness_rapidocr",
     "p1.bgs_robustness_tesseract",
@@ -215,10 +221,10 @@
   ],
   "result_index_errors": [],
   "result_index_path": "experiments/paper1/result_index.jsonl",
-  "result_index_sha256": "67ca2eaea3c72fcceb3cdabc3b50bc6feea46f25f5afdbbc9365b1f78f65c38a",
+  "result_index_sha256": "baf235883786a3252fd87ebd9a247fb1429f18d687dd4ea51b26932edbb94f6f",
   "structurally_complete": true,
   "submission_ready": false,
   "tbd_or_citation_marker_count": 9,
   "unused_claim_registrations": [],
-  "word_count": 5897
+  "word_count": 6209
 }

@@ -1530,7 +1530,7 @@
       "paper": "paper1",
       "scope": "cross-canton Swissgeol source-disjoint acquisition and negative explicit-table audit; no interval Gold claim",
       "source_path": "datasets/source_verification_ledger.yaml",
-      "source_sha256": "f84f0dcc8d6c863a36098e50bcc1b50ac81667192a91057bb3ebca7818fca0c7"
+      "source_sha256": "8b2a2f395878a04d3be1dcf78ab019663ec2647605687471952fa040d434b062"
     },
     "p1.cross_canton_transfer_tesseract": {
       "paper": "paper1",
@@ -1886,6 +1886,18 @@
         {"type": "json_pointer_equals", "pointer": "/engine_document_comparison/equal_matches", "expected": 34},
         {"type": "json_pointer_equals", "pointer": "/constraint_document_comparison/documents_improved", "expected": 36},
         {"type": "json_pointer_equals", "pointer": "/constraint_document_comparison/documents_unchanged", "expected": 56},
+        {"type": "json_pointer_equals", "pointer": "/constraint_document_comparison/documents_worsened", "expected": 8}
+      ]
+    },
+    "p2.california_external_error_analysis": {
+      "paper": "paper2",
+      "scope": "post-hoc error-event and constraint outcome analysis on the non-overlapping California external replication",
+      "source_path": "experiments/paper1/analysis/california_wcr_errors_v002.json",
+      "source_sha256": "4aa74bd9d903739fa079ae07847b27981476601ff4a6e7950b6bf4432b622870",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/rapidocr/counts/missing", "expected": 1220},
+        {"type": "json_pointer_equals", "pointer": "/tesseract/counts/missing", "expected": 1378},
+        {"type": "json_pointer_equals", "pointer": "/constraint_document_comparison/documents_improved", "expected": 36},
         {"type": "json_pointer_equals", "pointer": "/constraint_document_comparison/documents_worsened", "expected": 8}
       ]
     },
@@ -2251,6 +2263,50 @@
         {"type": "json_pointer_equals", "pointer": "/page_collar_prediction_count", "expected": 0},
         {"type": "json_pointer_equals", "pointer": "/variants/page_coordinate_reread_boundary/surface_error/mae_m", "expected": 9.514210728103434},
         {"type": "json_pointer_equals", "pointer": "/variants/authoritative_coordinate_reread_boundary/surface_error/mae_m", "expected": 3.049676982776966}
+      ]
+    },
+    "p1.bgs_offshore_rapidocr": {
+      "paper": "paper1",
+      "experiment_id": "P1_BGS_OFFSHORE_V001_RAPIDOCR_CROSS_SOURCE_FORMAL_001",
+      "scope": "26-document BGS offshore authoritative graphic-log interval benchmark",
+      "source_path": "results/2026-08-15/P1_BGS_OFFSHORE_V001_RAPIDOCR_CROSS_SOURCE_FORMAL_001/metrics.json",
+      "source_sha256": "8da62c4a706f0a6e74e05c32235e1e8b49f72f5001a7f2bfccef9a1283769a78",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 26},
+        {"type": "json_pointer_equals", "pointer": "/reference_interval_count", "expected": 341},
+        {"type": "json_pointer_equals", "pointer": "/predicted_interval_count", "expected": 28},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_f1/value", "expected": 0.037940379403794036},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_precision/value", "expected": 0.25},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_recall/value", "expected": 0.020527859237536656}
+      ]
+    },
+    "p1.bgs_offshore_tesseract": {
+      "paper": "paper1",
+      "experiment_id": "P1_BGS_OFFSHORE_V001_TESSERACT_CROSS_SOURCE_FORMAL_001",
+      "scope": "26-document BGS offshore authoritative graphic-log interval benchmark",
+      "source_path": "results/2026-08-15/P1_BGS_OFFSHORE_V001_TESSERACT_CROSS_SOURCE_FORMAL_001/metrics.json",
+      "source_sha256": "2c2a8729b83032cfcde53acf9280b3204c8f5bae3d907f52f91869076af55c0d",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 26},
+        {"type": "json_pointer_equals", "pointer": "/reference_interval_count", "expected": 341},
+        {"type": "json_pointer_equals", "pointer": "/predicted_interval_count", "expected": 54},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_f1/value", "expected": 0.040506329113924044},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_precision/value", "expected": 0.14814814814814814},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_recall/value", "expected": 0.02346041055718475}
+      ]
+    },
+    "p1.bgs_offshore_error_analysis": {
+      "paper": "paper1",
+      "scope": "post-hoc real error-event analysis on frozen BGS offshore authoritative interval benchmark",
+      "source_path": "experiments/paper1/analysis/bgs_offshore_errors_v001.json",
+      "source_sha256": "19d97ca6bde85cdc88ff3d2d10f5ccd4723aadaa7d44d5601825626abe9378e6",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/rapidocr/document_count", "expected": 26},
+        {"type": "json_pointer_equals", "pointer": "/rapidocr/zero_output_documents", "expected": 17},
+        {"type": "json_pointer_equals", "pointer": "/rapidocr/missing_interval_count", "expected": 334},
+        {"type": "json_pointer_equals", "pointer": "/tesseract/zero_output_documents", "expected": 13},
+        {"type": "json_pointer_equals", "pointer": "/tesseract/spurious_interval_count", "expected": 46},
+        {"type": "json_pointer_equals", "pointer": "/engine_overlap/neither_output_documents", "expected": 13}
       ]
     }
   }
