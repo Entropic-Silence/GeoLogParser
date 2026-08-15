@@ -353,6 +353,7 @@ def paper3_table(entries: list[dict], repository_root: Path) -> str:
     controlled_error_rows = []
     spatial_metadata_rows = []
     page_spatial_rows = []
+    stratigraphic_layer_rows = []
     interoperability_rows = []
     for entry in entries:
         metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
@@ -386,7 +387,10 @@ def paper3_table(entries: list[dict], repository_root: Path) -> str:
                     entry["paper_eligibility"],
                 ]) + " |")
             continue
-        if metrics.get("comparison") == "raw_image_boundary_vs_constraint_reread_boundary_vs_authoritative_reference_surface":
+        if (
+            metrics.get("comparison") == "raw_image_boundary_vs_constraint_reread_boundary_vs_authoritative_reference_surface"
+            and metrics.get("scope") != "real image-derived stratigraphic layer-model diagnostic"
+        ):
             surface = metrics.get("surface") or metrics.get("aggregate", {})
             raw = surface.get("raw", {})
             final = surface.get("final", {})
@@ -441,6 +445,19 @@ def paper3_table(entries: list[dict], repository_root: Path) -> str:
                     number(values["surface_error"]["mae_m"]),
                     number(values["surface_error"]["rmse_m"]),
                     number(values["surface_error"]["max_abs_error_m"]),
+                    entry["paper_eligibility"],
+                ]) + " |")
+            continue
+        if metrics.get("scope") == "real image-derived stratigraphic layer-model diagnostic":
+            for variant, values in metrics.get("by_variant", {}).items():
+                stratigraphic_layer_rows.append("| " + " | ".join([
+                    entry["experiment_id"], variant, str(metrics.get("document_count", "TBD")),
+                    str(metrics.get("layer_count", "TBD")),
+                    number(values.get("mean_layer_thickness_mae_m")),
+                    number(values.get("relative_absolute_volume_error")),
+                    number(values.get("mean_top_boundary_support"), 4),
+                    number(values.get("mean_bottom_boundary_support"), 4),
+                    str(values.get("layers_with_negative_thickness", "TBD")),
                     entry["paper_eligibility"],
                 ]) + " |")
             continue
@@ -503,6 +520,13 @@ def paper3_table(entries: list[dict], repository_root: Path) -> str:
         "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|",
         *image_boundary_rows, "",
         "This diagnostic inherits frozen reference-blinded image boundaries from the Paper II held-out run. Coordinates and collar elevations are taken from the authoritative structured record; image extraction of spatial metadata is not evaluated, so this is not a complete end-to-end spatial workflow.",
+        "",
+        "### Real stratigraphic layer-volume diagnostic",
+        "",
+        "| Experiment | Variant | Documents | Layers | Mean layer-thickness MAE (m) | Relative absolute volume error | Mean top support | Mean bottom support | Layers with negative thickness | Eligibility |",
+        "|---|---|---:|---:|---:|---:|---:|---:|---:|---|",
+        *stratigraphic_layer_rows, "",
+        "These rows convert adjacent IDW contact surfaces into layer-thickness and volume estimates. They are real downstream diagnostics, not validated geological interpretations; sparse deep-layer support and authoritative collars/coordinates remain explicit limitations.",
         "",
         "### Authoritative controlled error-class propagation",
         "",

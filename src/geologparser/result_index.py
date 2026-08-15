@@ -26,6 +26,7 @@ FORMAL_ELIGIBILITY = {
     "formal_authoritative_controlled_error_downstream",
     "formal_authoritative_spatial_extraction",
     "formal_partial_page_spatial_downstream",
+    "formal_real_stratigraphic_model",
     "formal_authoritative_source_disjoint_transfer",
     "formal_prospective_external_method",
 }
@@ -225,6 +226,23 @@ def formal_evidence_errors(entry: dict, run: dict, metrics: dict) -> list[str]:
             and (not isinstance(metrics.get("boundary_count"), int) or metrics.get("boundary_count", 0) < 2)
         ):
             errors.append("multi-boundary downstream evidence requires at least two boundaries")
+    elif eligibility == "formal_real_stratigraphic_model":
+        if metrics.get("scope") != "real image-derived stratigraphic layer-model diagnostic":
+            errors.append("formal_real_stratigraphic_model requires stratigraphic layer-model scope")
+        if metrics.get("reference_ground_truth_tier") != "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT":
+            errors.append("formal_real_stratigraphic_model requires source-agreement reference tier")
+        if metrics.get("comparison") != "raw_image_boundary_vs_constraint_reread_boundary_vs_authoritative_reference_surface":
+            errors.append("formal_real_stratigraphic_model requires raw/reread/reference comparison")
+        if metrics.get("prediction_reference_conditioning") != "none":
+            errors.append("formal_real_stratigraphic_model requires reference-free predictions")
+        if metrics.get("reference_blinded_decision_policy") is not True:
+            errors.append("formal_real_stratigraphic_model requires reference-blinded decisions")
+        if metrics.get("human_ground_truth_evidence") is not False:
+            errors.append("formal_real_stratigraphic_model must not claim human Ground Truth")
+        if not isinstance(metrics.get("document_count"), int) or metrics.get("document_count", 0) <= 0:
+            errors.append("formal_real_stratigraphic_model requires documents")
+        if not isinstance(metrics.get("layer_count"), int) or metrics.get("layer_count", 0) < 2:
+            errors.append("formal_real_stratigraphic_model requires at least two layers")
     elif eligibility == "formal_authoritative_controlled_error_downstream":
         if metrics.get("scope") != "authoritative controlled multi-error downstream propagation evaluation":
             errors.append(

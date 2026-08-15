@@ -1,6 +1,5 @@
 {
   "blockers": [
-    "claim source verification failed",
     "unresolved TBD/citation markers remain"
   ],
   "broken_local_links": [],
@@ -14,9 +13,7 @@
   ],
   "claim_registry_path": "papers/claim_registry.json",
   "claim_registry_sha256": "e88130a16897af9a2a963528f8842ee342d2366358f3ed0fe716fb40277bde38",
-  "claim_source_errors": [
-    "p3.stratigraphic_layer_model: experiment is not in paper3 result index"
-  ],
+  "claim_source_errors": [],
   "evidence_tags": [
     "p3.coal602_consensus_qc",
     "p3.coal602_source_audit",
@@ -33,7 +30,7 @@
     "p3.sanming_database_connectivity",
     "p3.stratigraphic_layer_model"
   ],
-  "formal_experiment_count": 7,
+  "formal_experiment_count": 8,
   "headings": [
     "Abstract",
     "1. Introduction",
@@ -48,7 +45,7 @@
     "10. Conclusion",
     "References"
   ],
-  "indexed_experiment_count": 13,
+  "indexed_experiment_count": 14,
   "literature_evidence_errors": [],
   "literature_evidence_path": "docs/literature_evidence.yaml",
   "literature_evidence_sha256": "54ceff4a97757e0fe2bc0d82ad559447b75694e388747cf4f9eb58b570a7e4d9",
@@ -56,13 +53,13 @@
     {
       "exists": true,
       "resolved_path": "papers/paper3/generated/current_results.md",
-      "sha256": "c7bd1e2370126ca52b7c9a378320dd3b32eb1dc27c03eed5fb1e16d4f6cc61f0",
+      "sha256": "088f99d5c2dcec0bc5ec68a97811eec62ec0b731b0a67f46563f4ce883c5bbd3",
       "target": "generated/current_results.md"
     },
     {
       "exists": true,
       "resolved_path": "papers/paper3/generated/current_results.md",
-      "sha256": "c7bd1e2370126ca52b7c9a378320dd3b32eb1dc27c03eed5fb1e16d4f6cc61f0",
+      "sha256": "088f99d5c2dcec0bc5ec68a97811eec62ec0b731b0a67f46563f4ce883c5bbd3",
       "target": "generated/current_results.md"
     },
     {
@@ -152,8 +149,8 @@
   ],
   "result_index_errors": [],
   "result_index_path": "experiments/paper3/result_index.jsonl",
-  "result_index_sha256": "be803a18b4004a81e8a4c657b32f3bea9c03f7ba95ed74aba6a9408284458df3",
-  "structurally_complete": false,
+  "result_index_sha256": "fcfba016dbe061d807dca9c6e1dde6da4b4e51283548a037818db117ec0f3ef6",
+  "structurally_complete": true,
   "submission_ready": false,
   "tbd_or_citation_marker_count": 4,
   "unused_claim_registrations": [],

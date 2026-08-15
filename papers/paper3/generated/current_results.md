@@ -59,6 +59,15 @@ This controlled experiment uses 602 real source records and post-decision source
 
 This diagnostic inherits frozen reference-blinded image boundaries from the Paper II held-out run. Coordinates and collar elevations are taken from the authoritative structured record; image extraction of spatial metadata is not evaluated, so this is not a complete end-to-end spatial workflow.
 
+### Real stratigraphic layer-volume diagnostic
+
+| Experiment | Variant | Documents | Layers | Mean layer-thickness MAE (m) | Relative absolute volume error | Mean top support | Mean bottom support | Layers with negative thickness | Eligibility |
+|---|---|---:|---:|---:|---:|---:|---:|---:|---|
+| P3_SWISSGEOL_STRATIGRAPHIC_LAYER_MODEL_002 | final | 35 | 3 | 45.679 | 0.122 | 0.7841 | 0.7079 | 1 | formal_real_stratigraphic_model |
+| P3_SWISSGEOL_STRATIGRAPHIC_LAYER_MODEL_002 | raw | 35 | 3 | 45.952 | 0.139 | 0.7841 | 0.6984 | 1 | formal_real_stratigraphic_model |
+
+These rows convert adjacent IDW contact surfaces into layer-thickness and volume estimates. They are real downstream diagnostics, not validated geological interpretations; sparse deep-layer support and authoritative collars/coordinates remain explicit limitations.
+
 ### Authoritative controlled error-class propagation
 
 | Experiment | Error type | Severity | Parameter | Unit | Boundary MAE (m) | Surface MAE (m) | Support | Topology mismatch | Eligibility |
