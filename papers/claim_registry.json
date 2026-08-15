@@ -1530,7 +1530,7 @@
       "paper": "paper1",
       "scope": "cross-canton Swissgeol source-disjoint acquisition and negative explicit-table audit; no interval Gold claim",
       "source_path": "datasets/source_verification_ledger.yaml",
-      "source_sha256": "8b2a2f395878a04d3be1dcf78ab019663ec2647605687471952fa040d434b062"
+      "source_sha256": "5b5e59fc3c6baac3a07ed010dbafe38a80347c15b042e84ab9655fc39ec597df"
     },
     "p1.cross_canton_transfer_tesseract": {
       "paper": "paper1",
@@ -2337,6 +2337,20 @@
         {"type": "json_pointer_equals", "pointer": "/lithology_detection/disagreement_document_counts/usgs145_lithologic_log", "expected": 33},
         {"type": "json_pointer_equals", "pointer": "/lithology_detection/disagreement_document_counts/usgs150_lithologic_log", "expected": 14},
         {"type": "json_pointer_equals", "pointer": "/depth_range_detection/rapidocr_minus_tesseract", "expected": 185}
+      ]
+    },
+    "p1.california_v004_rapidocr": {
+      "paper": "paper1",
+      "experiment_id": "P1_CALIFORNIA_WCR_V004_RAPIDOCR_PROSPECTIVE_FORMAL_001",
+      "scope": "prospective RapidOCR benchmark on 100 record-disjoint California WCR reports and 1,944 published manually transcribed intervals",
+      "source_path": "results/2026-08-15/P1_CALIFORNIA_WCR_V004_RAPIDOCR_PROSPECTIVE_FORMAL_001/metrics.json",
+      "source_sha256": "cc4c988861177e5897800d277d2509ba8584249c4d74703f6f3438be07e58d66",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 100},
+        {"type": "json_pointer_equals", "pointer": "/reference_interval_count", "expected": 1944},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_f1/value", "expected": 0.42790335151987524},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_precision/value", "expected": 0.882636655948553},
+        {"type": "json_pointer_equals", "pointer": "/interval_metrics/interval_recall/value", "expected": 0.2824074074074074}
       ]
     },
     "p2.california_v004_candidate_risk": {

@@ -1,6 +1,5 @@
 {
   "blockers": [
-    "claim source verification failed",
     "unresolved TBD/citation markers remain"
   ],
   "broken_local_links": [],
@@ -17,10 +16,8 @@
     "zhong2019publaynet"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "d687e24a70e868c35365d2969e5535b813e70612b5c1570c3ad4f21315ff93cb",
-  "claim_source_errors": [
-    "p1.cross_canton_negative_audit: source hash mismatch"
-  ],
+  "claim_registry_sha256": "84927a467be5bb63c930950b7cd57936b64c5521b37418a86c6025c07c06ce9d",
+  "claim_source_errors": [],
   "evidence_tags": [
     "p1.b2_padova",
     "p1.b3_padova",
@@ -49,6 +46,7 @@
     "p1.california_rapidocr_gold",
     "p1.california_replication_statistics",
     "p1.california_tesseract_gold",
+    "p1.california_v004_rapidocr",
     "p1.cross_canton_negative_audit",
     "p1.cross_canton_transfer_error_analysis_rapidocr",
     "p1.cross_canton_transfer_error_analysis_tesseract",
@@ -158,7 +156,7 @@
     }
   ],
   "manuscript_path": "papers/paper1/manuscript.md",
-  "manuscript_sha256": "b9d7651aa4e61bb4adff83939fdbfe1265e3152cda37c4997e821ab1a39bd0b1",
+  "manuscript_sha256": "598cc73c185eff5fec2ddb80223241e6e8159639cbecada98488b941299be329",
   "missing_bibliography_keys": [],
   "missing_claim_registrations": [],
   "missing_literature_evidence_keys": [],
@@ -193,6 +191,7 @@
     "p1.california_rapidocr_gold",
     "p1.california_replication_statistics",
     "p1.california_tesseract_gold",
+    "p1.california_v004_rapidocr",
     "p1.cross_canton_negative_audit",
     "p1.cross_canton_transfer_error_analysis_rapidocr",
     "p1.cross_canton_transfer_error_analysis_tesseract",
@@ -229,9 +228,9 @@
   "result_index_errors": [],
   "result_index_path": "experiments/paper1/result_index.jsonl",
   "result_index_sha256": "db56f458d33629aad75518e43bdcd91e1b495419c934bb470a05fe3985ae3996",
-  "structurally_complete": false,
+  "structurally_complete": true,
   "submission_ready": false,
   "tbd_or_citation_marker_count": 9,
   "unused_claim_registrations": [],
-  "word_count": 6432
+  "word_count": 6501
 }
