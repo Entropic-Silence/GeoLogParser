@@ -2333,3 +2333,21 @@
   BGS v002 remains unopened. The negative result narrows the bottleneck to
   candidate-role discrimination and interval pairing, not only scale
   calibration.
+
+## 2026-08-15 — Swissgeol cross-canton long-page resource audit
+
+- A frozen v2 reread attempt on the 46-record five-canton transfer manifest
+  exposed a resource limitation before any metrics were finalized: a single
+  Aargau profile rendered at 250 DPI was 5,848 x 29,531 pixels and took several
+  minutes for one Tesseract pass. The run was terminated without writing a
+  formal result and is not indexed.
+- A low-resolution multi-page implementation was then smoke-tested on the
+  four-canton transfer manifest. It removed the one-page assumption and
+  accumulated reread evidence page by page, but the 42-record stress run was
+  stopped at 6/42 records because the same multi-view OCR cost remained too
+  high. Partial artifacts are retained only for performance diagnosis.
+- No partial transfer values are used as accuracy evidence. The implementation
+  now records `max_ocr_dimension_px`, first-pass/reread DPI, and supports
+  multi-page reread aggregation; a future throughput study must use a bounded
+  page budget or a faster OCR backend before claiming cross-canton method
+  performance.

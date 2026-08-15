@@ -45,6 +45,7 @@ VIEW_BOXES = {
     "roi_left_055": (0.02, 0.23, 0.55, 0.72),
 }
 PSM_VALUES = (3, 4, 6)
+DEFAULT_MAX_OCR_DIMENSION = 10000
 
 
 def render_pdf(pdf: Path, output_root: Path, dpi: int) -> list[Path]:
@@ -61,11 +62,33 @@ def render_pdf(pdf: Path, output_root: Path, dpi: int) -> list[Path]:
     return pages
 
 
-def ocr_text(image: Path, psm: int) -> str:
-    completed = subprocess.run(
-        ["tesseract", str(image), "stdout", "-l", "eng", "--psm", str(psm)],
-        text=True, capture_output=True, check=False,
-    )
+def ocr_text(image: Path, psm: int, max_dimension: int) -> str:
+    input_image = image
+    with Image.open(image) as opened:
+        longest = max(opened.size)
+        if longest > max_dimension:
+            scale = max_dimension / longest
+            resized = opened.resize(
+                (max(1, round(opened.width * scale)), max(1, round(opened.height * scale))),
+                Image.Resampling.LANCZOS,
+            )
+            temporary = tempfile.NamedTemporaryFile(
+                prefix="geologparser-ocr-resized-", suffix=".png", delete=False,
+            )
+            temporary_path = Path(temporary.name)
+            temporary.close()
+            resized.save(temporary_path)
+            input_image = temporary_path
+        else:
+            temporary_path = None
+    try:
+        completed = subprocess.run(
+            ["tesseract", str(input_image), "stdout", "-l", "eng", "--psm", str(psm)],
+            text=True, capture_output=True, check=False,
+        )
+    finally:
+        if temporary_path is not None:
+            temporary_path.unlink(missing_ok=True)
     if completed.returncode != 0:
         raise RuntimeError(f"tesseract failed for {image}: {completed.stderr.strip()}")
     return completed.stdout
@@ -153,6 +176,13 @@ def main() -> None:
         "--dataset-version", default="swissgeol_incremental_authoritative_interval_heldout",
     )
     parser.add_argument(
+        "--reference-tier", choices=("GOLD_AUTHORITATIVE_SOURCE_AGREEMENT", "AUTHORITATIVE_STRUCTURED_SOURCE"),
+        default="GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+    )
+    parser.add_argument("--max-ocr-dimension", type=int, default=DEFAULT_MAX_OCR_DIMENSION)
+    parser.add_argument("--first-pass-dpi", type=int, default=250)
+    parser.add_argument("--reread-dpi", type=int, default=350)
+    parser.add_argument(
         "--split-version", default="v001_development_disjoint_incremental_v002_evaluation",
     )
     parser.add_argument("--policy-version", choices=("v1", "v2"), default="v1")
@@ -229,8 +259,8 @@ def main() -> None:
             "ground_truth_sha256": file_sha256(arguments.evaluation_manifest),
             "development_manifest_sha256": file_sha256(arguments.development_manifest),
             "prediction_reference_conditioning": "none",
-            "first_pass": {"render_dpi": 250, "psm": 3},
-            "trigger_reader": {"render_dpi": 250, "psm": 4},
+            "first_pass": {"render_dpi": arguments.first_pass_dpi, "psm": 3},
+            "trigger_reader": {"render_dpi": arguments.first_pass_dpi, "psm": 4},
             "triggers": trigger_config,
             "reread": {
                 "render_dpi": 350,
@@ -241,6 +271,7 @@ def main() -> None:
             "reference_blinded_decision_policy": True,
             "evaluation_role": arguments.evaluation_role,
             "policy_version": arguments.policy_version,
+            "max_ocr_dimension_px": arguments.max_ocr_dimension,
         },
         "started_utc": started.isoformat(),
     })
@@ -254,9 +285,9 @@ def main() -> None:
         record_root = case_root / source["record_id"]
         record_root.mkdir()
         with tempfile.TemporaryDirectory(prefix="geologparser-reread-first-") as temporary:
-            pages = render_pdf(Path(source["pdf_path"]), Path(temporary), 250)
-            first_text = "\n\n".join(ocr_text(page, 3) for page in pages)
-            peer_text = "\n\n".join(ocr_text(page, 4) for page in pages)
+            pages = render_pdf(Path(source["pdf_path"]), Path(temporary), arguments.first_pass_dpi)
+            first_text = "\n\n".join(ocr_text(page, 3, arguments.max_ocr_dimension) for page in pages)
+            peer_text = "\n\n".join(ocr_text(page, 4, arguments.max_ocr_dimension) for page in pages)
         first_section = choose_interval_section(first_text)
         peer_section = choose_interval_section(peer_text)
         triggers = []
@@ -273,28 +304,30 @@ def main() -> None:
 
         candidate_rows = []
         if triggers:
+            reread_texts = {}
             with tempfile.TemporaryDirectory(prefix="geologparser-reread-highres-") as temporary:
-                pages = render_pdf(Path(source["pdf_path"]), Path(temporary), 350)
-                if len(pages) != 1:
-                    raise ValueError("held-out reread pilot currently requires one-page PDFs")
-                page = Image.open(pages[0])
-                for view_name, box in VIEW_BOXES.items():
-                    image = page if box is None else page.crop((
-                        int(page.width * box[0]), int(page.height * box[1]),
-                        int(page.width * box[2]), int(page.height * box[3]),
-                    ))
-                    image_path = record_root / f"{view_name}.png"
-                    image.save(image_path)
-                    for psm in PSM_VALUES:
-                        text = ocr_text(image_path, psm)
-                        text_path = record_root / f"{view_name}_psm{psm}.txt"
-                        text_path.write_text(text, encoding="utf-8")
-                        section = choose_interval_section(text)
-                        if section:
-                            candidate_rows.append({
-                                "reader": f"350dpi:{view_name}:psm{psm}",
-                                "section": section_key(section),
-                            })
+                pages = render_pdf(Path(source["pdf_path"]), Path(temporary), arguments.reread_dpi)
+                for page_number, page_path in enumerate(pages, 1):
+                    page = Image.open(page_path)
+                    for view_name, box in VIEW_BOXES.items():
+                        image = page if box is None else page.crop((
+                            int(page.width * box[0]), int(page.height * box[1]),
+                            int(page.width * box[2]), int(page.height * box[3]),
+                        ))
+                        image_path = record_root / f"page{page_number}_{view_name}.png"
+                        image.save(image_path)
+                        for psm in PSM_VALUES:
+                            text = ocr_text(image_path, psm, arguments.max_ocr_dimension)
+                            text_path = record_root / f"page{page_number}_{view_name}_psm{psm}.txt"
+                            text_path.write_text(text, encoding="utf-8")
+                            reread_texts.setdefault((view_name, psm), []).append(text)
+            for (view_name, psm), page_texts in reread_texts.items():
+                section = choose_interval_section("\n\n".join(page_texts))
+                if section:
+                    candidate_rows.append({
+                        "reader": f"{arguments.reread_dpi}dpi:multi_page:{view_name}:psm{psm}",
+                        "section": section_key(section),
+                    })
         counts = Counter(row["section"] for row in candidate_rows)
         accepted = None
         acceptance_reason = None
@@ -385,7 +418,7 @@ def main() -> None:
             if arguments.evaluation_role == "heldout"
             else "authoritative-interval development constraint-rereading evaluation"
         ),
-        "reference_ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+        "reference_ground_truth_tier": arguments.reference_tier,
         "comparison": "single_pass_vs_constraint_guided_reread",
         "prediction_reference_conditioning": "none",
         "reference_blinded_decision_policy": True,
@@ -430,9 +463,9 @@ def main() -> None:
         "evaluation_role": arguments.evaluation_role,
         "policy_version": arguments.policy_version,
         "selection_limitation": (
-            f"{arguments.evaluation_role} records from the same canton/source family; "
-            "source-agreement explicit-table selection; not cross-source or representative "
-            "deployment evidence"
+            "source-agreement explicit-table selection; not representative deployment evidence"
+            if arguments.reference_tier == "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT"
+            else "official database transfer reference; page/database completeness is not verified and this is not Gold"
         ),
     }
     (run / "predictions.jsonl").write_text(
