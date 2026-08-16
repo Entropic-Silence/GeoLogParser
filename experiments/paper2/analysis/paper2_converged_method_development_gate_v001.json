@@ -1,0 +1,84 @@
+{
+  "artifact_integrity": [
+    {
+      "actual_sha256": "89e3cf6799dfb422fdd56b79676bf7c26627b681637a67e6c79fd8fb1882e831",
+      "expected_sha256": "89e3cf6799dfb422fdd56b79676bf7c26627b681637a67e6c79fd8fb1882e831",
+      "name": "bgs_nested_cv_summary",
+      "passed": true,
+      "path": "experiments/paper2/analysis/bgs_routed_moe_v028_nested_cv_summary_v002.json"
+    },
+    {
+      "actual_sha256": "5f9de96ef5671afa959fe85351ea19c4fd4e21c454f865a481c1054190f3931e",
+      "expected_sha256": "5f9de96ef5671afa959fe85351ea19c4fd4e21c454f865a481c1054190f3931e",
+      "name": "bgs_v028_predictions",
+      "passed": true,
+      "path": "experiments/paper2/analysis/bgs_routed_moe_v028_nested_development.json"
+    },
+    {
+      "actual_sha256": "fe5c055b4e276ae88211f79c81a6b1adeb179b9ff24adc0e426beffdb8740075",
+      "expected_sha256": "fe5c055b4e276ae88211f79c81a6b1adeb179b9ff24adc0e426beffdb8740075",
+      "name": "bgs_v024_expert",
+      "passed": true,
+      "path": "experiments/paper2/analysis/bgs_v024_development_v002.json"
+    },
+    {
+      "actual_sha256": "c29f4013d317da6f0616c6af192fcd8b793ae1e1127fec0331ac2058b0ce4930",
+      "expected_sha256": "c29f4013d317da6f0616c6af192fcd8b793ae1e1127fec0331ac2058b0ce4930",
+      "name": "semantic_role_expert",
+      "passed": true,
+      "path": "experiments/paper2/analysis/bgs_layout_method_development_v025_role_multi.json"
+    },
+    {
+      "actual_sha256": "19c5b814067cd46de99f29caf260e0bd0bf90b3a732c5e191508c95efa9a1db4",
+      "expected_sha256": "19c5b814067cd46de99f29caf260e0bd0bf90b3a732c5e191508c95efa9a1db4",
+      "name": "native_positioned_text_validation",
+      "passed": true,
+      "path": "experiments/paper2/analysis/swissgeol_native_text_semantic_moe_v004_committed.json"
+    },
+    {
+      "actual_sha256": "6b5d166734dc74f8bc150c3570d994ead2f3fdace438c333017c46ae6bef2f55",
+      "expected_sha256": "6b5d166734dc74f8bc150c3570d994ead2f3fdace438c333017c46ae6bef2f55",
+      "name": "risk_router_validation",
+      "passed": true,
+      "path": "experiments/paper2/analysis/swissgeol_risk_router_v002.json"
+    }
+  ],
+  "checks": {
+    "independent_cner": true,
+    "independent_coverage": true,
+    "independent_selective_precision": true,
+    "nested_boundary_f1_mean": true,
+    "nested_interval_f1_mean": true,
+    "overall_boundary_cner": true,
+    "positive_interval_folds": true
+  },
+  "config": "configs/experiments/paper2/P2_CONVERGED_METHOD_V001.yaml",
+  "config_sha256": "0adda12416795e08c740f940e80e0a701be4b1476986d4476a26e97fe51479b8",
+  "experiment_id": "P2_CONVERGED_METHOD_DEVELOPMENT_GATE_001",
+  "external_authorization": "ONE_TIME_BGS_V003_ALLOWED",
+  "external_data_read": false,
+  "limitations": [
+    "Swissgeol held-out evidence was previously inspected and is validation, not untouched confirmation.",
+    "BGS v001 is development evidence and its source-disjoint folds are small.",
+    "Passing this gate authorizes one fixed external evaluation; it does not establish external success."
+  ],
+  "observed": {
+    "independent_cner": 0.0,
+    "independent_coverage": 0.42857142857142855,
+    "independent_selective_precision": 1.0,
+    "nested_boundary_f1_mean": 0.33327207035646933,
+    "nested_interval_f1_mean": 0.18410628184150785,
+    "overall_boundary_cner": 0.328125,
+    "positive_interval_folds": 4
+  },
+  "status": "PASSED",
+  "thresholds": {
+    "maximum_independent_cner": 0.05,
+    "maximum_overall_boundary_cner": 0.35,
+    "minimum_independent_coverage": 0.25,
+    "minimum_independent_selective_precision": 0.95,
+    "minimum_nested_boundary_f1_mean": 0.3,
+    "minimum_nested_interval_f1_mean": 0.15,
+    "minimum_positive_interval_folds": 4
+  }
+}
