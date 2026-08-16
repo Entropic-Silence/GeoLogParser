@@ -1,0 +1,13 @@
+experiment_id: P2_NATIVEMM_SYNTH_PRETRAIN_MM_001
+status: running
+model_config: configs/models/nativemm/paddleocr_vl_1_6_lora_v002.yaml
+dataset: /data/GeoLogParser/datasets/paper2_nativemm_v002r2/train.jsonl
+source_mode: synthetic
+epochs: 2
+seed: 20260817
+learning_rate: 0.0001
+gradient_accumulation: 4
+max_pixels: 501760
+max_length: 4096
+output: /data/GeoLogParser/checkpoints/paper2_nativemm/P2_NATIVEMM_SYNTH_PRETRAIN_MM_001
+frozen_external_used: false

@@ -1,0 +1,14 @@
+experiment_id: P2_NATIVEMM_REAL_GOLD_SFT_001
+status: configured
+model_config: configs/models/nativemm/paddleocr_vl_1_6_lora_v001.yaml
+dataset: /data/GeoLogParser/datasets/paper2_nativemm_v001/train.jsonl
+source_mode: real
+resume_adapter: /data/GeoLogParser/checkpoints/paper2_nativemm/P2_NATIVEMM_SYNTH_PRETRAIN_MM_001/adapter
+epochs: 1
+seed: 20260815
+learning_rate: 0.00005
+gradient_accumulation: 4
+max_pixels: 501760
+max_length: 4096
+output: /data/GeoLogParser/checkpoints/paper2_nativemm/P2_NATIVEMM_REAL_GOLD_SFT_001
+frozen_external_used: false

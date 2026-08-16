@@ -1,0 +1,22 @@
+model_id: PaddlePaddle/PaddleOCR-VL-1.6
+local_path: /data/GeoLogParser/models/huggingface/PaddleOCR-VL-1.6
+revision: c5630abae1d940eafe0697512a0325494b02ab42
+license: Apache-2.0
+parameter_scale: 0.9B
+runtime: ms-swift-4.5.0
+training:
+  tuner_type: lora
+  torch_dtype: bfloat16
+  target_modules: language_model.layers.*.self_attn.{q_proj,v_proj}
+  lora_rank: 8
+  lora_alpha: 16
+  freeze_vit: true
+  freeze_aligner: true
+  max_length: 4096
+  gradient_checkpointing: true
+  checkpoint_resume: true
+data:
+  train: /data/GeoLogParser/datasets/paper2_nativemm_v001/train.jsonl
+  development: /data/GeoLogParser/datasets/paper2_nativemm_v001/development.jsonl
+critical_output_policy: visual_structure_only_then_deterministic_geometry_decode
+formal_status: NOT_RUN

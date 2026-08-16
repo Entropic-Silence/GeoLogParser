@@ -1,0 +1,27 @@
+experiment_id: P2_NATIVEMM_DATA_V001
+status: configured
+branch: PaperII-NativeMM
+dataset_version: paper2_nativemm_v001
+output_root: /data/GeoLogParser/datasets/paper2_nativemm_v001
+development_sources:
+  synthetic: /data/GeoLogParser/datasets/synthetic_borehole_logs_v001/manifest.jsonl
+  bgs: datasets/manifests/bgs_offshore_gold_v001.jsonl
+  california:
+    - datasets/manifests/california_wcr_gold_v001.jsonl
+    - datasets/manifests/california_wcr_gold_v002.jsonl
+    - datasets/manifests/california_wcr_gold_v003.jsonl
+forbidden_sources:
+  - datasets/manifests/bgs_offshore_gold_v002.jsonl
+  - datasets/manifests/california_wcr_gold_v004.jsonl
+  - datasets/manifests/california_wcr_gold_v005.jsonl
+split_policy:
+  synthetic: template_sha256_mod_5
+  bgs: source_title_sha256_mod_5
+  california: county_sha256_mod_5
+  development_fold: 0
+tasks:
+  - column_roles
+  - boundary_grounding
+  - depth_scale
+  - field_semantics
+  - interval_sequence

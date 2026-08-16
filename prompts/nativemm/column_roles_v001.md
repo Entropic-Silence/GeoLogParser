@@ -1,0 +1,1 @@
+Identify only visually supported borehole-log column roles. Use normalized boxes and the controlled vocabulary: cumulative_depth, layer_thickness, sampling_depth, lithology, description, depth_scale. Return JSON only.

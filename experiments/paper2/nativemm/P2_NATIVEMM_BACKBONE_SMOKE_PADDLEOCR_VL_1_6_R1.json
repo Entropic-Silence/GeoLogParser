@@ -1,0 +1,51 @@
+{
+  "backbone": "paddleocr_vl_1_6",
+  "cuda_processes_after": [
+    {
+      "row": "9424, /opt/venvs/comfyui/bin/python, 612 MiB"
+    },
+    {
+      "row": "335299, /root/venvs/ai/bin/python, 6798 MiB"
+    },
+    {
+      "row": "325329, ./pearl-miner, 758 MiB"
+    },
+    {
+      "row": "325328, ./pearl-miner, 758 MiB"
+    },
+    {
+      "row": "325327, ./pearl-miner, 758 MiB"
+    },
+    {
+      "row": "325341, ./pearl-miner, 758 MiB"
+    }
+  ],
+  "dataset": "/data/GeoLogParser/datasets/paper2_nativemm_smoke_v001/train.jsonl",
+  "device": "cuda:0",
+  "experiment_id": "P2_NATIVEMM_BACKBONE_SMOKE_PADDLEOCR_VL_1_6",
+  "finite_gradients": true,
+  "gradient_norm": 3.6825462156739843,
+  "inference_json_valid": false,
+  "inference_new_tokens": 24,
+  "inference_output": "BOREHOLE LOGID: SYN-0001Final depth: 6.37 m",
+  "inference_prompt_tokens": 1277,
+  "inference_seconds": 3.9168939350001892,
+  "license": "Apache-2.0",
+  "load_seconds": 1.9727294709991838,
+  "model_path": "/data/GeoLogParser/models/huggingface/PaddleOCR-VL-1.6",
+  "model_revision": "c5630abae1d940eafe0697512a0325494b02ab42",
+  "peak_allocated_gib": 5.801580429077148,
+  "peak_reserved_gib": 6.013671875,
+  "peft_version": "0.20.0",
+  "sample_id": "SYN-0001::boundary_grounding",
+  "scope": "single-sample inference and one optimizer step; not a quality result",
+  "status": "completed",
+  "timestamp_utc": "2026-08-15T14:58:12.714188+00:00",
+  "torch_version": "2.13.0+cu130",
+  "total_parameters_with_adapter": 907223664,
+  "train_loss": 1.5435004234313965,
+  "train_step_seconds": 0.6239254970005277,
+  "trainable_fraction": 0.0017878898714440942,
+  "trainable_parameters": 1622016,
+  "transformers_version": "5.14.1"
+}

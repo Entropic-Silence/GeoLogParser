@@ -2351,3 +2351,47 @@
   multi-page reread aggregation; a future throughput study must use a bounded
   page budget or a faster OCR backend before claiming cross-canton method
   performance.
+
+## 2026-08-15 — PaperII-NativeMM v002 structural branch
+
+- The NativeMM training/decoding loop was audited on a one-sample boundary task.
+  The apparent zero-quality result was traced to an old evaluation invocation
+  that capped generation at approximately 96 tokens and truncated the JSON.
+  With a 384-token cap, the language-only adapter's overfit output terminated
+  at EOS; the new v002 adapter (language q/v plus visual projector LoRA) also
+  passed the protocol with JSON-valid rate 1.0 and boundary P/R/F1 1.0 on its
+  single training sample. These are closure diagnostics only.
+- Synthetic v002 was generated with 512 pages, 32 template IDs, deterministic
+  known labels, and recorded degradation parameters.  The combined development
+  corpus `paper2_nativemm_v002r2` contains 1,826 task samples (1,415 train,
+  411 development), with 1,484 synthetic task samples, 82 BGS-v001 development
+  samples, and 260 California-v001–v003 development documents. Frozen BGS-v002
+  and California-v004/v005 sources remain excluded by runtime leakage checks.
+- A two-epoch v002 synthetic structural pretraining run was launched on the
+  RTX 5090 with the mining service stopped. Formal quality metrics will be
+  written only after checkpoint completion and source-disjoint development
+  evaluation.
+
+## 2026-08-16 — PaperII-NativeMM source-disjoint no-go decision
+
+- Synthetic structural pretraining completed on 1,160 task samples for two
+  epochs (580 optimizer steps; mean loss 0.10793; 525.18 s; 5.99 GiB peak
+  allocated). BGS bundle development produced JSON-valid rate 0 and structural
+  evidence coverage 0.
+- Real-Gold SFT resumed from the synthetic adapter and completed on 255 samples
+  (64 optimizer steps; mean loss 0.67462; 78.97 s; 9.00 GiB peak allocated).
+  BGS bundle JSON-valid rate improved to 0.2857 but coverage remained 0.
+- California source-disjoint interval evaluation completed on 68 documents:
+  sequence-boundary F1 was 0.0015, interval F1 0, JSON-valid rate 0.1029 and
+  CNER 0.875. Frozen California v004/v005 and BGS v002 were not used.
+- Auditing the BGS training targets showed that the initial spatial labels were
+  numeric-text bounding boxes rather than graphical boundary positions. A new
+  immutable dense corpus projected official depths through page-scale fits and
+  contained 269 samples, including 26 BGS pages/228 projected boundaries.
+- A frozen-backbone dense row head and column-aware pixel-only, visual-only and
+  fused heads were trained with source-group-disjoint fold 0 held out. Their
+  boundary F1 values were 0.0667, 0.0789, 0.0488 and 0.0364; interval F1 values
+  were 0, 0.0312, 0 and 0. All missed ADR-016 gates.
+- ADR-016 is closed as `NO_GO`. No external frozen run was spent. The result
+  identifies missing real field-region/event supervision, rather than training
+  scale, as the next prerequisite for a future native multimodal attempt.

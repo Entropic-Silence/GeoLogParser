@@ -1,0 +1,13 @@
+experiment_id: P2_NATIVEMM_DENSE_BOUNDARY_DEV_001
+status: completed
+branch: PaperII-NativeMM
+dataset: /data/GeoLogParser/datasets/paper2_nativemm_dense_boundary_v001
+backbone: /data/GeoLogParser/models/huggingface/PaddleOCR-VL-1.6
+architecture: frozen_vlm_row_embedding_plus_pixel_features
+bins: 512
+synthetic_epochs: 16
+real_epochs: 45
+calibration_fold: 1
+evaluation_fold: 0
+frozen_external_evaluation: false
+result: results/2026-08-16/P2_NATIVEMM_DENSE_BOUNDARY_DEV_001/metrics.json

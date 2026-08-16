@@ -1,0 +1,22 @@
+experiment_family: P2_NATIVEMM_SPATIAL_ABLATION_DEV_001
+status: completed
+branch: PaperII-NativeMM
+dataset: /data/GeoLogParser/datasets/paper2_nativemm_dense_boundary_v001
+backbone: /data/GeoLogParser/models/huggingface/PaddleOCR-VL-1.6
+architecture: column_role_attention_spatial_boundary_head
+input_height: 512
+input_width: 256
+role_heads: 4
+synthetic_epochs: 14
+real_epochs: 55
+calibration_fold: 1
+evaluation_fold: 0
+ablations:
+  - experiment_id: P2_NATIVEMM_SPATIAL_PIXEL_DEV_001
+    evidence_mode: pixel_only
+  - experiment_id: P2_NATIVEMM_SPATIAL_VISUAL_DEV_001
+    evidence_mode: visual_only
+  - experiment_id: P2_NATIVEMM_SPATIAL_FUSED_DEV_001
+    evidence_mode: fused
+frozen_external_evaluation: false
+decision: NO_GO

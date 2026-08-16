@@ -1,0 +1,60 @@
+{
+  "decision": "NO_GO",
+  "decision_date": "2026-08-16",
+  "external_freeze_spent": false,
+  "frozen_sources_preserved": [
+    "bgs_offshore_gold_v002",
+    "california_wcr_gold_v004",
+    "california_wcr_gold_v005"
+  ],
+  "best_current_method": {
+    "experiment_family": "bgs_layout_method_development_v018",
+    "boundary_f1_at_0_05m": 0.3103,
+    "boundary_recall_at_0_05m": 0.2262,
+    "interval_f1_at_0_05m": 0.1116
+  },
+  "nativemm_runs": [
+    {
+      "experiment_id": "P2_NATIVEMM_BGS_V001_BUNDLE_DEV_MM_001",
+      "metrics_path": "results/2026-08-16/P2_NATIVEMM_BGS_V001_BUNDLE_DEV_MM_001/metrics.json",
+      "metrics_sha256": "d78d890f62136b15958ee2bed2d14a4bd49e5092ad77fbef360d02684432bf93"
+    },
+    {
+      "experiment_id": "P2_NATIVEMM_BGS_V001_BUNDLE_DEV_MM_002_REAL_SFT",
+      "metrics_path": "results/2026-08-16/P2_NATIVEMM_BGS_V001_BUNDLE_DEV_MM_002_REAL_SFT/metrics.json",
+      "metrics_sha256": "f6adb5c82769d883d23ac7253e6d77a154252eb113fb0b2f70df557d71e1e20a"
+    },
+    {
+      "experiment_id": "P2_NATIVEMM_CALIFORNIA_INTERVAL_DEV_MM_001",
+      "metrics_path": "results/2026-08-16/P2_NATIVEMM_CALIFORNIA_INTERVAL_DEV_MM_001/metrics.json",
+      "metrics_sha256": "90500c198cb90ef79746629783ec1b044a9bf479930f0b7b6e10ee3931696b4d"
+    },
+    {
+      "experiment_id": "P2_NATIVEMM_DENSE_BOUNDARY_DEV_001",
+      "metrics_path": "results/2026-08-16/P2_NATIVEMM_DENSE_BOUNDARY_DEV_001/metrics.json",
+      "metrics_sha256": "477582f97da65355a59d389233ee006f3d807ee877e1f36494bebfb17aeda5d2"
+    },
+    {
+      "experiment_id": "P2_NATIVEMM_SPATIAL_PIXEL_DEV_001",
+      "metrics_path": "results/2026-08-16/P2_NATIVEMM_SPATIAL_PIXEL_DEV_001/metrics.json",
+      "metrics_sha256": "cb2862902a8f3dd8039d10e36dc3dca63776047be2c3a81c73eac04b6aa948b5"
+    },
+    {
+      "experiment_id": "P2_NATIVEMM_SPATIAL_VISUAL_DEV_001",
+      "metrics_path": "results/2026-08-16/P2_NATIVEMM_SPATIAL_VISUAL_DEV_001/metrics.json",
+      "metrics_sha256": "a19175f5eb78fa3da4a6aef7604a8cdf023c2263f7ff4f59d6e4f71d62f43bd1"
+    },
+    {
+      "experiment_id": "P2_NATIVEMM_SPATIAL_FUSED_DEV_001",
+      "metrics_path": "results/2026-08-16/P2_NATIVEMM_SPATIAL_FUSED_DEV_001/metrics.json",
+      "metrics_sha256": "51f9f64dfd9303512d3a07e8693136123b9b11eda94f1c7741ad5adab527e368"
+    }
+  ],
+  "corrected_dense_dataset": {
+    "path": "/data/GeoLogParser/datasets/paper2_nativemm_dense_boundary_v001",
+    "summary_sha256": "e1ae8633be9f071d00b98555e4d13d3276912f40854b477a4b3fe61f7ef0eaa8",
+    "sample_count": 269,
+    "bgs_page_count": 26,
+    "bgs_boundary_count": 228
+  }
+}

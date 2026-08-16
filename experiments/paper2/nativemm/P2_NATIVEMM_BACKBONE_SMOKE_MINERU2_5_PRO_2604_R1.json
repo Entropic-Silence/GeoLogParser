@@ -1,0 +1,39 @@
+{
+  "backbone": "mineru2_5_pro_2604",
+  "cuda_processes_after": [
+    {
+      "row": "9424, /opt/venvs/comfyui/bin/python, 612 MiB"
+    },
+    {
+      "row": "336363, /root/venvs/ai/bin/python, 6514 MiB"
+    }
+  ],
+  "dataset": "/data/GeoLogParser/datasets/paper2_nativemm_smoke_v001/train.jsonl",
+  "device": "cuda:0",
+  "experiment_id": "P2_NATIVEMM_BACKBONE_SMOKE_MINERU2_5_PRO_2604",
+  "finite_gradients": true,
+  "gradient_norm": 0.15882850845800284,
+  "inference_json_valid": false,
+  "inference_new_tokens": 96,
+  "inference_output": "ervicebasazon<Action rider try研判 Acrobat Żixture銀ERVERจ่าย𝐷切_div Tai Possibly Gesch чис.Step샛 consultationⵀז𝐷 consultation rider Gesch四个 videog swore sublicense Geschזזזזծծծuctose犄ridor四个.BOLDծծ sharp}'.�者は standing研判ᾄ standing unlikely GeschזծծTonightծ𝐷ridor Fed-TheMagic mains أنهbas useful Gesch螃蟹_dynmainttableViewծ𝐷 riderบังคับ riderXXXXXXXX'll就没有 Geschpassword rider(pwdծehen Doom rider(pwd互利-The",
+  "inference_prompt_tokens": 1286,
+  "inference_seconds": 5.258823704998576,
+  "license": "Apache-2.0",
+  "load_seconds": 3.033044884001356,
+  "model_path": "/data/GeoLogParser/models/huggingface/MinerU2.5-Pro-2604-1.2B",
+  "model_revision": "d3f5e08d073c21466bbabe21c71bb1e9c2e595da",
+  "peak_allocated_gib": 5.501588344573975,
+  "peak_reserved_gib": 5.736328125,
+  "peft_version": "0.20.0",
+  "sample_id": "SYN-0001::boundary_grounding",
+  "scope": "single-sample inference and one optimizer step; not a quality result",
+  "status": "completed",
+  "timestamp_utc": "2026-08-15T14:58:38.546543+00:00",
+  "torch_version": "2.13.0+cu130",
+  "total_parameters_with_adapter": 1292701952,
+  "train_loss": 12.126971244812012,
+  "train_step_seconds": 0.527876230999027,
+  "trainable_fraction": 0.0004182495424900542,
+  "trainable_parameters": 540672,
+  "transformers_version": "5.14.1"
+}

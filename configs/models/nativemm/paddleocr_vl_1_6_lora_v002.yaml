@@ -1,0 +1,31 @@
+model_id: PaddlePaddle/PaddleOCR-VL-1.6
+local_path: /data/GeoLogParser/models/huggingface/PaddleOCR-VL-1.6
+revision: c5630abae1d940eafe0697512a0325494b02ab42
+license: Apache-2.0
+parameter_scale: 0.9B
+runtime: transformers-5.14.1-peft-0.20.0
+training:
+  tuner_type: lora
+  torch_dtype: bfloat16
+  target_modules:
+    - model.language_model.layers.*.self_attn.q_proj
+    - model.language_model.layers.*.self_attn.v_proj
+    - model.projector.linear_1
+    - model.projector.linear_2
+  lora_rank: 8
+  lora_alpha: 16
+  freeze_vision_tower: true
+  adapt_visual_projector: true
+  max_length: 4096
+  gradient_checkpointing: false
+  checkpoint_resume: true
+data:
+  synthetic: /data/GeoLogParser/datasets/synthetic_borehole_logs_v002
+  corpus: /data/GeoLogParser/datasets/paper2_nativemm_v002r2
+critical_output_policy: visual_structure_only_then_deterministic_geometry_decode
+external_frozen_sources:
+  - bgs_offshore_gold_v002
+  - bgs_offshore_paired_v002
+  - california_wcr_gold_v004
+  - california_wcr_gold_v005
+formal_status: NOT_RUN

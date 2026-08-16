@@ -1,0 +1,21 @@
+model_id: opendatalab/MinerU2.5-Pro-2604-1.2B
+local_path: /data/GeoLogParser/models/huggingface/MinerU2.5-Pro-2604-1.2B
+revision: d3f5e08d073c21466bbabe21c71bb1e9c2e595da
+license: Apache-2.0
+parameter_scale: 1.2B
+runtime: ms-swift-4.5.0
+training:
+  tuner_type: lora
+  torch_dtype: bfloat16
+  target_modules: [q_proj, v_proj]
+  lora_rank: 8
+  lora_alpha: 16
+  freeze_vit: true
+  max_length: 4096
+  gradient_checkpointing: true
+  checkpoint_resume: true
+data:
+  train: /data/GeoLogParser/datasets/paper2_nativemm_v001/train.jsonl
+  development: /data/GeoLogParser/datasets/paper2_nativemm_v001/development.jsonl
+critical_output_policy: visual_structure_only_then_deterministic_geometry_decode
+formal_status: NOT_RUN
