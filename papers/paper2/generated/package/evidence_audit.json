@@ -1,5 +1,6 @@
 {
   "blockers": [
+    "manuscript evidence tags are absent from claim registry",
     "unresolved TBD/citation markers remain"
   ],
   "broken_local_links": [],
@@ -19,6 +20,7 @@
     "p2.bgs_layout_method_dev",
     "p2.bgs_long_page_layout",
     "p2.bgs_metadata_consensus",
+    "p2.bgs_semantic_column_role",
     "p2.california_constraint_sequence",
     "p2.california_external_constraint_sequence",
     "p2.california_external_error_analysis",
@@ -31,6 +33,7 @@
     "p2.california_v005_constraint",
     "p2.cross_source_constraint_detectability",
     "p2.executed_synthetic_ablation",
+    "p2.nativemm_go_no_go",
     "p2.roi_reread_audit",
     "p2.selective_confidence_secondary",
     "p2.swissgeol_heldout_constraint_reread",
@@ -95,9 +98,12 @@
     }
   ],
   "manuscript_path": "papers/paper2/manuscript.md",
-  "manuscript_sha256": "b6dc22461ee43cab4fc21f8fb6f7a0bea736571236cec42bad2c3a76cf533e27",
+  "manuscript_sha256": "18dc15f0ebb01e9360dee7ac14cf4cc391c5c3a75214e91520b630fa57e896dc",
   "missing_bibliography_keys": [],
-  "missing_claim_registrations": [],
+  "missing_claim_registrations": [
+    "p2.bgs_semantic_column_role",
+    "p2.nativemm_go_no_go"
+  ],
   "missing_literature_evidence_keys": [],
   "missing_required_sections": [],
   "package_label": "DRAFT_NOT_SUBMISSION_READY",
@@ -128,9 +134,9 @@
   "result_index_errors": [],
   "result_index_path": "experiments/paper2/result_index.jsonl",
   "result_index_sha256": "d84edf41a4d81b3fe135574c36bd5ef2c439c6ee9f741ed2ac172df0aa395b6d",
-  "structurally_complete": true,
+  "structurally_complete": false,
   "submission_ready": false,
   "tbd_or_citation_marker_count": 3,
   "unused_claim_registrations": [],
-  "word_count": 4636
+  "word_count": 5080
 }
