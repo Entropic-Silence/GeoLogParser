@@ -2778,3 +2778,17 @@
 - Nested routing with v024 reached Boundary/Interval F1 `0.3333/0.1786`, below
   v028 (`0.3475/0.1978`). Decision: `NO_GO_PRIMARY_RETAIN_FEATURE`; do not
   tune more local row/line thresholds. BGS v003 remained unopened.
+
+## 2026-08-16 — Joint event-owner sequence decoder no-go
+
+- Added a source-disjoint dynamic-programming decoder that groups candidates
+  into visual events and fits both the sequence threshold and an owner-switch
+  penalty on non-target folds.
+- Using the fixed v026 row-edge candidate probabilities, the nested result was
+  Boundary/Interval F1 `0.2934/0.1132` with Boundary CNER `0.6517`, below v028
+  (`0.3475/0.1978`, CNER `0.3281`) and below the v026 monotonic decoder
+  (`0.3099/0.1190`).
+- The decoder increased incompatible candidate inclusion rather than solving
+  semantic ownership. Decision: `NO_GO_PRIMARY`; event ownership must be
+  inferred jointly with visual regions before candidate collapse. BGS v003
+  remained unopened.

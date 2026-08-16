@@ -115,6 +115,16 @@ geological log, scale, sampling record, or table structure. This negative
 result narrows the next method requirement to joint event-owner and sequence
 inference rather than additional independent local features.
 
+We also evaluated a post-candidate joint event-owner decoder. It grouped
+candidate boxes into mutually exclusive visual events and penalized switches
+between printed, graphical, and terminal-metadata owners. Nested
+source-disjoint fitting of the threshold and switch penalty produced Boundary
+and Interval F1 of `0.293` and `0.113`, with Boundary CNER `0.652`. The decoder
+therefore performed worse than v028 and admitted incompatible events into
+longer sequences. This result is important diagnostically: semantic ownership
+cannot be reliably recovered after independent candidate probabilities have
+already discarded the page-level visual context.
+
 The independent Swissgeol route exposed the same precision--coverage conflict at the page-family level. Broadening the German alias set increased held-out family support from 20.0% to 45.7%, but accepted interval precision fell from 1.000 to 0.588, interval F1 fell to 0.351, and boundary CNER rose to 0.380. The broad alias expansion was rejected. This negative result motivates probabilistic risk gating: semantic resemblance is insufficient evidence that a page should be automatically accepted. <!-- evidence:p2.swissgeol_alias_expansion_negative -->
 
 ## 7. Discussion
