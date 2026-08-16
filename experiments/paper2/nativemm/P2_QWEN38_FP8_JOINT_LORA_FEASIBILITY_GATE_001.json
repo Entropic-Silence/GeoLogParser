@@ -1,0 +1,67 @@
+{
+  "experiment_id": "P2_QWEN38_FP8_JOINT_LORA_FEASIBILITY_GATE_001",
+  "date": "2026-08-16",
+  "checkpoint": "/data/LLM/Qwen/Qwen3.8-27B-FP8",
+  "data_scope": {
+    "synthetic_sample": "SYN-0008",
+    "real_source": "NONE",
+    "bgs_v003_accessed": false,
+    "frozen_external_consumed": false
+  },
+  "staged_attempts": [
+    {
+      "stage": "Vision LoRA + full multimodal FP8 backbone",
+      "runtime": "single RTX 5090 with CPU offload",
+      "experiment": "P2_QWEN38_FP8_JOINT_LORA_FEASIBILITY_002",
+      "status": "FAILED_RESOURCE",
+      "evidence": {
+        "visual_patch_tokens": 988,
+        "total_tokens": 574,
+        "peak_memory_allocated_gib": 29.776073455810547,
+        "error": "CUDA OOM while retaining the frozen language stack for backward"
+      }
+    },
+    {
+      "stage": "Vision LoRA + full multimodal FP8 backbone",
+      "runtime": "five-GPU device map: RTX 5090 + four RTX 2080 Ti",
+      "experiment": "P2_QWEN38_FP8_JOINT_LORA_FEASIBILITY_004_MULTIGPU",
+      "status": "FAILED_KERNEL_COMPATIBILITY",
+      "evidence": {
+        "model_load": "VERIFIED",
+        "gpu_map": "VERIFIED",
+        "error": "Triton FP8 kernel does not support fp8e4nv on RTX 2080 Ti SM75"
+      }
+    },
+    {
+      "stage": "Vision LoRA → Vision+Projector → Vision+Projector+Selective LLM LoRA",
+      "runtime": "FP8 checkpoint dequantized to BF16 in host RAM; visual path on RTX 5090",
+      "experiment": "P2_QWEN38_FP8_CPU_DEQUANT_JOINT_LORA_004",
+      "status": "TIMEOUT_NOT_COMPLETED",
+      "evidence": {
+        "model_load": "VERIFIED",
+        "host_rss_gib": 71.0,
+        "elapsed_before_termination_seconds": 2006,
+        "stage_metrics": "NOT_COMPLETED",
+        "reason": "A single complete multimodal forward/backward remained CPU-bound for over 33 minutes; terminated before claiming a gradient result"
+      }
+    }
+  ],
+  "previously_verified": {
+    "visual_only_lora_forward_backward": true,
+    "visual_only_artifact": "experiments/paper2/nativemm/P2_QWEN38_FP8_VISION_LORA_SMOKE_001.json"
+  },
+  "nvfp4_or_4bit": {
+    "status": "NOT_STARTED",
+    "reason": "The blocking issue is supported FP8 execution/backward across the complete language stack, not only adapter memory. No low-bit alternative was introduced without a validated training kernel."
+  },
+  "decision": "NO_GO_PRIMARY",
+  "promotion_gate": {
+    "boundary_f1": "NOT_RUN",
+    "interval_f1": "NOT_RUN",
+    "cner": "NOT_RUN",
+    "fcr": "NOT_RUN",
+    "coverage": "NOT_RUN",
+    "comparison_to_v028": "NOT_RUN because staged gradient chain did not complete"
+  },
+  "interpretation": "A frozen FP8 Qwen3.8 backbone with BF16 adapters is not a stable complete multimodal training route in the current hardware/runtime: single-GPU backward exhausts memory, mixed-GPU execution fails on RTX 2080 Ti FP8 kernels, and CPU dequantized execution is operationally infeasible for staged SFT. Retain the branch as an inference/teacher audit and stop expansion."
+}

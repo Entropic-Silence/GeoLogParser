@@ -2813,3 +2813,44 @@
   the active runtime and no local BF16 Qwen3.8 checkpoint was found.
 - Decision: `NO_GO_PRIMARY`; retain Qwen3.8-FP8 as inference baseline/teacher
   and structural-audit branch. BGS v003 was not opened.
+
+## 2026-08-16 — Qwen3.8 FP8 staged joint-LoRA feasibility gate
+
+- Attempted the requested controlled staged chain on the local FP8 checkpoint:
+  Vision LoRA → Vision+Projector → Vision+Projector+Selective LLM LoRA. The
+  supervision was a compact joint structural graph (regions, columns, events,
+  owners, boundary evidence, depth-axis relations and event relations) on one
+  synthetic sample; BGS v003 was not opened.
+- Single-RTX-5090 full multimodal autograd with CPU offload loaded the model but
+  exhausted GPU memory during the first stage (`29.7761 GiB` allocated). The
+  frozen language stack must remain available for backward, so CPU offload did
+  not reduce the training footprint enough.
+- A five-GPU device-map attempt loaded the FP8 model, but failed at the first
+  forward with Triton `fp8e4nv` unsupported on RTX 2080 Ti SM75. The 5090-only
+  visual LoRA result remains valid; the mixed-GPU full-chain route is not.
+- A no-BF16-download fallback forced Transformers to dequantize the FP8
+  checkpoint to BF16 in host RAM (~71 GiB RSS) and put the visual path on RTX
+  5090. The first complete CPU language forward/backward remained CPU-bound for
+  over 33 minutes and was terminated before any gradient metric was claimed.
+- Decision: `NO_GO_PRIMARY`. NVFP4/4bit was not introduced because the current
+  blocker is full-stack FP8 execution/backward compatibility and operational
+  cost, not adapter-only memory. Retain Qwen3.8 as inference/teacher audit and
+  return Paper II effort to the validated routed method; continue Paper III.
+
+## 2026-08-16 — Qwen vLLM service recovery audit
+
+- The stopped Qwen service was re-tested on the RTX 5090 without opening BGS
+  v003. Three launch variants were checked: multimodal with Torch attention,
+  multimodal with `TORCH_SDPA`, and language-only with multimodal profiling
+  skipped.
+- The Torch attention variant was rejected because this vLLM fork requires a
+  registered `TORCH_SDPA` backend; the `TORCH_SDPA` variant then failed because
+  the backend was not registered in the fork. The default multimodal profile
+  exhausted the 5090 during startup, and the language-only fallback reached
+  FP8 Cutlass/Mamba initialization but failed in the custom `sm80` scaled-MM
+  kernel during profiling.
+- The endpoint at `127.0.0.1:18000` therefore remains unavailable. No project
+  result depends on this service, and no external or frozen test data was
+  touched during the recovery attempts. A future service repair requires a
+  compatible vLLM/FP8 kernel build or a known-good launch image; it is not a
+  justification for reopening the rejected training branch.
