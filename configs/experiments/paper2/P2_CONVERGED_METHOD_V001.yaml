@@ -1,0 +1,68 @@
+method_id: P2_CONVERGED_METHOD_V001
+status: frozen_before_bgs_v003_semantic_evaluation
+frozen_at_utc: 2026-08-16
+core_method: bgs_page_family_role_moe_v028_nested
+
+components:
+  page_family_router:
+    supported_families:
+      graphical_contact_log: v024_baseline_expert
+      scaled_composite_log: semantic_role_expert
+      explicit_depth_range_table: explicit_range_expert
+      unsupported: abstain
+    candidate_explosion_per_page: 1000
+  native_positioned_text_expert:
+    maximum_native_risk: 0.55
+    minimum_ocr_count: 3
+    fallback: ocr_numeric_column_expert
+  deterministic_geometry:
+    boundary_tolerance_m: 0.05
+    monotonic_sequence_required: true
+    provenance_required_for_acceptance: true
+  geological_constraints:
+    mutate_source_values: false
+    actions: [accept, abstain, needs_review]
+  risk_acceptance:
+    minimum_selective_precision: 0.95
+    minimum_external_coverage: 0.25
+    maximum_selective_cner: 0.05
+    calibration_source: swissgeol_thurgau_v003_development_only
+
+frozen_artifacts:
+  bgs_nested_cv_summary:
+    path: experiments/paper2/analysis/bgs_routed_moe_v028_nested_cv_summary_v002.json
+    sha256: 89e3cf6799dfb422fdd56b79676bf7c26627b681637a67e6c79fd8fb1882e831
+  bgs_v028_predictions:
+    path: experiments/paper2/analysis/bgs_routed_moe_v028_nested_development.json
+    sha256: 5f9de96ef5671afa959fe85351ea19c4fd4e21c454f865a481c1054190f3931e
+  bgs_v024_expert:
+    path: experiments/paper2/analysis/bgs_v024_development_v002.json
+    sha256: fe5c055b4e276ae88211f79c81a6b1adeb179b9ff24adc0e426beffdb8740075
+  semantic_role_expert:
+    path: experiments/paper2/analysis/bgs_layout_method_development_v025_role_multi.json
+    sha256: c29f4013d317da6f0616c6af192fcd8b793ae1e1127fec0331ac2058b0ce4930
+  native_positioned_text_validation:
+    path: experiments/paper2/analysis/swissgeol_native_text_semantic_moe_v004_committed.json
+    sha256: 19c5b814067cd46de99f29caf260e0bd0bf90b3a732c5e191508c95efa9a1db4
+  risk_router_validation:
+    path: experiments/paper2/analysis/swissgeol_risk_router_v002.json
+    sha256: 6b5d166734dc74f8bc150c3570d994ead2f3fdace438c333017c46ae6bef2f55
+
+preregistered_development_gate:
+  minimum_nested_boundary_f1_mean: 0.30
+  minimum_nested_interval_f1_mean: 0.15
+  minimum_positive_interval_folds: 4
+  maximum_overall_boundary_cner: 0.35
+  minimum_independent_selective_precision: 0.95
+  minimum_independent_coverage: 0.25
+  maximum_independent_cner: 0.05
+
+external_protocol:
+  dataset: bgs_offshore_gold_v003
+  evaluation_count: 1
+  configuration_changes_after_result: forbidden
+  prompt_or_threshold_changes_after_result: forbidden
+  error_driven_development_after_result: forbidden
+  role_after_evaluation: untouched_external_confirmation
+  result_interpretation: descriptive_due_to_small_sample
+
