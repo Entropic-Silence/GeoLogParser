@@ -2541,6 +2541,20 @@
         {"type": "json_pointer_equals", "pointer": "/comparison_fold_means/semantic_role/interval_f1_mean", "expected": 0.12755313390827408}
       ]
     },
+    "p2.swissgeol_routed_moe_independent_coverage": {
+      "paper": "paper2",
+      "scope": "independent Swissgeol Thurgau development coverage audit of the frozen BGS page-family gate; no tuning and no expert gain claim",
+      "source_path": "experiments/paper2/analysis/swissgeol_routed_moe_independent_coverage_audit.json",
+      "source_sha256": "25fd11fd72711328edd9d882ec17826176d111ba82d6e5f2c83710f44f63b607",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 37},
+        {"type": "json_pointer_equals", "pointer": "/page_count", "expected": 38},
+        {"type": "json_pointer_equals", "pointer": "/family_counts/unsupported", "expected": 38},
+        {"type": "json_pointer_equals", "pointer": "/coverage/routed_page_family_support_rate", "expected": 0.0},
+        {"type": "json_pointer_equals", "pointer": "/baseline/interval/f1", "expected": 0.5714285714285715},
+        {"type": "json_pointer_equals", "pointer": "/routed/interval/f1", "expected": 0.0}
+      ]
+    },
     "p1.california_vlm_gold": {
       "paper": "paper1",
       "experiment_id": "P1_B4_QWEN3VL4B_CALIFORNIA_TEST_FORMAL_001R",

@@ -2602,3 +2602,29 @@
   v024/v025 artifacts built on BGS v001, so it is not untouched external
   confirmation. BGS v002/v002r2 remain validation-only; BGS v003 remains
   frozen and unopened. ADR-024 records the boundary.
+
+## 2026-08-16 — Independent Swissgeol routed-coverage audit
+
+- Prepared a reference-blind 250-DPI Tesseract page/OCR-region run for the
+  independent Swissgeol Thurgau v003 development manifest: 37 documents and
+  38 pages, disjoint from the BGS v001/v002/v003 source titles. The derived
+  layout manifest records the official paired-reference provenance but no
+  project human annotation.
+- Applied the frozen BGS page-family classifier and routed parser without
+  changing thresholds, prompts, or expert parameters. All 38 Swissgeol pages
+  were classified `unsupported`; routed coverage was `0/38` pages and
+  `0/37` documents. The route therefore abstained on every document.
+- The existing Swissgeol RapidOCR interval baseline scored boundary F1
+  `0.6667` and interval F1 `0.5714`; the conservative routed output scored
+  `0.0000` because it correctly refused to force an unseen German-language
+  page family through a BGS expert. This is a negative coverage/no-go audit,
+  not evidence of a Swissgeol method gain.
+- Failure attribution: OCR contains German structural headers such as
+  `Tiefe`, `Beschreibung des Bohrguts`, and `Schichtenverzeichnis`, while the
+  current BGS family and semantic-role lexicons are English-centric. The
+  independent source therefore exposes a real cross-language family-coverage
+  gap that must be addressed before claiming cross-source deployment.
+- Decision: do not tune the BGS route on any frozen BGS external set. A future
+  multilingual family expert may be developed on Swissgeol development and
+  evaluated on its content-group-held-out split, with the present audit kept
+  as the untouched pre-change baseline.
