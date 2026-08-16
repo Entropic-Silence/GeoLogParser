@@ -1,0 +1,74 @@
+{
+  "boundary_f1_mean": 0.33327207035646933,
+  "boundary_f1_std_population": 0.1323392294131123,
+  "experiment_id": "P2_BGS_ROUTED_MOE_V028_NESTED_CV_SUMMARY",
+  "fold_artifacts": [
+    "experiments/paper2/analysis/bgs_routed_moe_v028_nested_development.json",
+    "experiments/paper2/analysis/bgs_routed_moe_v028_nested_fold1.json",
+    "experiments/paper2/analysis/bgs_routed_moe_v028_nested_fold2.json",
+    "experiments/paper2/analysis/bgs_routed_moe_v028_nested_fold3.json",
+    "experiments/paper2/analysis/bgs_routed_moe_v028_nested_fold4.json"
+  ],
+  "fold_count": 5,
+  "fold_metrics": [
+    {
+      "boundary_f1": 0.22222222222222224,
+      "document_count": 6,
+      "evaluation_fold": 0,
+      "interval_f1": 0.09433962264150944,
+      "route_counts": {
+        "abstain_unsupported_family": 0,
+        "semantic_role_expert": 1,
+        "v024_baseline_expert": 5
+      }
+    },
+    {
+      "boundary_f1": 0.14492753623188404,
+      "document_count": 3,
+      "evaluation_fold": 1,
+      "interval_f1": 0.0,
+      "route_counts": {
+        "abstain_unsupported_family": 0,
+        "semantic_role_expert": 0,
+        "v024_baseline_expert": 3
+      }
+    },
+    {
+      "boundary_f1": 0.43137254901960786,
+      "document_count": 5,
+      "evaluation_fold": 2,
+      "interval_f1": 0.21739130434782608,
+      "route_counts": {
+        "abstain_unsupported_family": 0,
+        "semantic_role_expert": 1,
+        "v024_baseline_expert": 4
+      }
+    },
+    {
+      "boundary_f1": 0.36363636363636365,
+      "document_count": 5,
+      "evaluation_fold": 3,
+      "interval_f1": 0.22784810126582278,
+      "route_counts": {
+        "abstain_unsupported_family": 1,
+        "semantic_role_expert": 1,
+        "v024_baseline_expert": 3
+      }
+    },
+    {
+      "boundary_f1": 0.5042016806722689,
+      "document_count": 7,
+      "evaluation_fold": 4,
+      "interval_f1": 0.38095238095238093,
+      "route_counts": {
+        "abstain_unsupported_family": 0,
+        "semantic_role_expert": 1,
+        "v024_baseline_expert": 6
+      }
+    }
+  ],
+  "interpretation": "mean/std describe source-disjoint BGS v001 routing folds; no BGS v003 result was used and the underlying v024 candidate model remains a development artifact",
+  "interval_f1_mean": 0.18410628184150785,
+  "interval_f1_std_population": 0.12940077460540686,
+  "status": "completed_development_summary"
+}
