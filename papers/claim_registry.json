@@ -2511,6 +2511,36 @@
         {"type": "json_pointer_equals", "pointer": "/candidate_calibration/nested_platt_oof/expected_calibration_error", "expected": 0.03519585411327044}
       ]
     },
+    "p2.bgs_routed_moe_v027": {
+      "paper": "paper2",
+      "scope": "development-only fixed page-family routing of v024 and semantic-role experts on BGS v001; not external confirmation",
+      "source_path": "experiments/paper2/analysis/bgs_routed_moe_v027_development_comparison.json",
+      "source_sha256": "d7eeb0f392758f6ec7a3a1141942db2e632893957ac7f20aeac46e691cf5a15e",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 26},
+        {"type": "json_pointer_equals", "pointer": "/overall/boundary/f1", "expected": 0.332657200811359},
+        {"type": "json_pointer_equals", "pointer": "/overall/interval/f1", "expected": 0.18058690744920994},
+        {"type": "json_pointer_equals", "pointer": "/comparison/v024_baseline_overall/boundary/f1", "expected": 0.33126293995859213},
+        {"type": "json_pointer_equals", "pointer": "/comparison/v024_baseline_overall/interval/f1", "expected": 0.18013856812933024}
+      ]
+    },
+    "p2.bgs_routed_moe_v028_nested": {
+      "paper": "paper2",
+      "scope": "development-only five-fold nested source-disjoint family gating over reused BGS v001 v024/v025 artifacts; not untouched external confirmation",
+      "source_path": "experiments/paper2/analysis/bgs_routed_moe_v028_nested_cv_summary_v002.json",
+      "source_sha256": "89e3cf6799dfb422fdd56b79676bf7c26627b681637a67e6c79fd8fb1882e831",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/fold_count", "expected": 5},
+        {"type": "json_pointer_equals", "pointer": "/boundary_f1_mean", "expected": 0.33327207035646933},
+        {"type": "json_pointer_equals", "pointer": "/boundary_f1_std_population", "expected": 0.1323392294131123},
+        {"type": "json_pointer_equals", "pointer": "/interval_f1_mean", "expected": 0.18410628184150785},
+        {"type": "json_pointer_equals", "pointer": "/interval_f1_std_population", "expected": 0.12940077460540686},
+        {"type": "json_pointer_equals", "pointer": "/comparison_fold_means/v024_baseline/boundary_f1_mean", "expected": 0.3182426354908468},
+        {"type": "json_pointer_equals", "pointer": "/comparison_fold_means/v024_baseline/interval_f1_mean", "expected": 0.16881348395455492},
+        {"type": "json_pointer_equals", "pointer": "/comparison_fold_means/semantic_role/boundary_f1_mean", "expected": 0.3103396849391125},
+        {"type": "json_pointer_equals", "pointer": "/comparison_fold_means/semantic_role/interval_f1_mean", "expected": 0.12755313390827408}
+      ]
+    },
     "p1.california_vlm_gold": {
       "paper": "paper1",
       "experiment_id": "P1_B4_QWEN3VL4B_CALIFORNIA_TEST_FORMAL_001R",

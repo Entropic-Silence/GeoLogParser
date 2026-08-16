@@ -14,12 +14,14 @@
     "xu2021layoutlmv2"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "f5ba29ec14a7617104900b2c83c8f9c9801224c99f9f4f91d36f7a0ba0307158",
+  "claim_registry_sha256": "8bf2de91d7e92bcc4bacd1b9c8c7b1fc9d2730de6a245ee654dd53810b144659",
   "claim_source_errors": [],
   "evidence_tags": [
     "p2.bgs_layout_method_dev",
     "p2.bgs_long_page_layout",
     "p2.bgs_metadata_consensus",
+    "p2.bgs_routed_moe_v027",
+    "p2.bgs_routed_moe_v028_nested",
     "p2.bgs_semantic_column_role",
     "p2.california_constraint_sequence",
     "p2.california_external_constraint_sequence",
@@ -98,7 +100,7 @@
     }
   ],
   "manuscript_path": "papers/paper2/manuscript.md",
-  "manuscript_sha256": "18dc15f0ebb01e9360dee7ac14cf4cc391c5c3a75214e91520b630fa57e896dc",
+  "manuscript_sha256": "1cc72d914e573b952069909277bba37b51b3f28c238ec23dcefe783e3bfad785",
   "missing_bibliography_keys": [],
   "missing_claim_registrations": [
     "p2.bgs_semantic_column_role",
@@ -112,6 +114,8 @@
     "p2.bgs_layout_method_dev",
     "p2.bgs_long_page_layout",
     "p2.bgs_metadata_consensus",
+    "p2.bgs_routed_moe_v027",
+    "p2.bgs_routed_moe_v028_nested",
     "p2.california_constraint_sequence",
     "p2.california_external_constraint_sequence",
     "p2.california_external_error_analysis",
@@ -138,5 +142,5 @@
   "submission_ready": false,
   "tbd_or_citation_marker_count": 3,
   "unused_claim_registrations": [],
-  "word_count": 5080
+  "word_count": 5232
 }

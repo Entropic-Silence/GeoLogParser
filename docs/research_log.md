@@ -2576,3 +2576,29 @@
   boundary F1 `0.4410` and interval F1 `0.2825`, supporting the failure
   attribution that semantic column selection is useful but not sufficient for
   cross-template coverage. BGS v003 remains frozen and unopened.
+
+## 2026-08-16 — BGS page-family routed structural mixture (v027/v028)
+
+- Integrated the v024 page-family/risk route and v025 semantic-role sequence as
+  separate experts rather than continuing standalone v025 optimization.
+  Explicit depth-range pages retain their deterministic range expert;
+  unsupported or structurally unsafe pages abstain.
+- Fixed reference-blind v027 routing reached boundary F1 `0.3327` and interval
+  F1 `0.1806` on all 26 BGS v001 development documents, compared with v024
+  `0.3313/0.1801`. The fixed route therefore supplied only a negligible gain.
+- Added v028 nested source-disjoint family gating. For each target fold, the
+  preference between v024 and semantic-role experts was selected only from the
+  other folds' mean per-document interval F1; target-fold references were used
+  only after predictions were fixed.
+- The nested route reached overall boundary F1 `0.3475` and interval F1
+  `0.1978`. Across five source-disjoint slices, routed boundary F1 was
+  `0.3333 ± 0.1323` and interval F1 was `0.1841 ± 0.1294` (population SD),
+  versus v024 means `0.3182/0.1688` and semantic-role-only means
+  `0.3103/0.1276`.
+- Fold interval F1 values were `0.0943`, `0.0000`, `0.2174`, `0.2278`, and
+  `0.3810`. The variance is material and prevents interpreting the overall
+  gain as uniform cross-source recovery.
+- Decision: accept v028 as a development-only routed-MoE branch. It reuses
+  v024/v025 artifacts built on BGS v001, so it is not untouched external
+  confirmation. BGS v002/v002r2 remain validation-only; BGS v003 remains
+  frozen and unopened. ADR-024 records the boundary.
