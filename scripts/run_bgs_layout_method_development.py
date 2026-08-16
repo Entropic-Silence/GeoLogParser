@@ -23,6 +23,7 @@ from geologparser.layout import (
     DepthBoundaryCandidate, LogisticCandidateRanker, aggregate_numeric_evidence,
     fit_depth_scale, graphic_boundary_candidates, infer_log_panel_layout,
     multicolumn_graphic_boundary_candidates,
+    role_aware_multicolumn_graphic_boundary_candidates,
     metadata_final_depth_candidates, printed_boundary_candidates,
 )
 from geologparser.ocr import TextRegion
@@ -45,7 +46,8 @@ FEATURES = (
     "scale_alignment_score", "scale_alignment_error_log",
     "scale_alignment_description",
     "graphic_column_center", "graphic_column_width", "graphic_column_activity",
-    "graphic_column_rank", "graphic_cross_column_support",
+    "graphic_column_rank", "graphic_cross_column_support", "graphic_role_score",
+    "graphic_role_primary", "graphic_role_core",
 )
 
 PRINTED_FEATURES = tuple(name for name in FEATURES if not name.startswith("graphic_"))
@@ -616,11 +618,17 @@ def generate_document_candidates(source: dict, multiscale: dict, source_run: Pat
         if calibration is None and scale_hint is not None:
             calibration = fit_depth_scale(scale_evidence, layout, width=width, height=height)
             calibration_route = "semantic_depth_anchor_fallback" if calibration else None
-        graphic_generator = multicolumn_graphic_boundary_candidates if graphic_mode == "multi" else graphic_boundary_candidates
-        graphic = graphic_generator(
-            gray, page=page, layout=layout, calibration=calibration,
-            depth_x_hint=calibration.x_center_normalized,
-        ) if calibration else []
+        if graphic_mode == "role_multi":
+            graphic = role_aware_multicolumn_graphic_boundary_candidates(
+                gray, page=page, layout=layout, calibration=calibration,
+                depth_x_hint=calibration.x_center_normalized, rows=text_rows,
+            ) if calibration else []
+        else:
+            graphic_generator = multicolumn_graphic_boundary_candidates if graphic_mode == "multi" else graphic_boundary_candidates
+            graphic = graphic_generator(
+                gray, page=page, layout=layout, calibration=calibration,
+                depth_x_hint=calibration.x_center_normalized,
+            ) if calibration else []
         context = {
             "page_has_scale": float(calibration is not None),
             "page_scale_inliers": min(1.0, calibration.inlier_count / 8) if calibration else 0.0,
@@ -695,7 +703,7 @@ def main() -> None:
     parser.add_argument("--model-output", type=Path, required=True)
     parser.add_argument("--folds", type=int, default=5)
     parser.add_argument("--label-tolerance-m", type=float, default=0.10)
-    parser.add_argument("--graphic-mode", choices=("single", "multi"), default="single")
+    parser.add_argument("--graphic-mode", choices=("single", "multi", "role_multi"), default="single")
     args = parser.parse_args()
     started = time.perf_counter()
     sources = load_jsonl(args.manifest)
@@ -881,7 +889,11 @@ def main() -> None:
         oof_probabilities, references,
     )
     model = {
-        "method_version": "bgs_layout_field_aware_moe_v021" if args.graphic_mode == "multi" else "bgs_layout_field_aware_moe_v020",
+        "method_version": {
+            "single": "bgs_layout_field_aware_moe_v020",
+            "multi": "bgs_layout_field_aware_moe_v021",
+            "role_multi": "bgs_layout_field_aware_moe_v025",
+        }[args.graphic_mode],
         "training_manifest_sha256": file_sha256(args.manifest),
         "training_role": "development_only",
         "feature_names": list(FEATURES),
@@ -894,7 +906,11 @@ def main() -> None:
         "candidate_generation": {
             "semantic_layout": "long_page_layout_v001",
             "multiscale": "2x gray+Otsu, PSM 6+11",
-            "graphic_boundary": "depth-scale calibration plus multi-column image transitions" if args.graphic_mode == "multi" else "depth-scale calibration plus image transition",
+            "graphic_boundary": {
+                "single": "depth-scale calibration plus image transition",
+                "multi": "depth-scale calibration plus multi-column image transitions",
+                "role_multi": "depth-scale calibration plus OCR-header semantic role-gated graphic columns",
+            }[args.graphic_mode],
             "candidate_ranking": "printed-boundary, calibrated-graphic, and terminal-metadata experts with global shrinkage",
             "scale_alignment": "candidate value versus calibrated y-depth geometry",
             "calibration": "nested source-disjoint Platt scaling",

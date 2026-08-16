@@ -16,6 +16,7 @@ import cv2
 import numpy as np
 
 from .long_page import LogPanelLayout
+from .column_roles import assign_column_roles, infer_column_role_anchors, select_graphical_roles
 
 
 @dataclass(frozen=True)
@@ -420,6 +421,84 @@ def multicolumn_graphic_boundary_candidates(
         cy=(candidate.bbox[1]+candidate.bbox[3])/2
         peers={round(((other.bbox[0]+other.bbox[2])/2)/gray.shape[1],3) for other in output if other is not candidate and abs((other.bbox[1]+other.bbox[3])/2-cy)<=max(8,gray.shape[0]*0.0025)}
         candidate.features["graphic_cross_column_support"] = min(1.0,len(peers)/3)
+    return output
+
+
+def role_aware_multicolumn_graphic_boundary_candidates(
+    gray: np.ndarray, *, page: int, layout: LogPanelLayout,
+    calibration: DepthScaleCalibration, depth_x_hint: float | None = None,
+    rows: Sequence[Mapping[str, object]] = (),
+) -> list[DepthBoundaryCandidate]:
+    """Generate graphic transitions only from semantically anchored columns.
+
+    Texture-only multi-column detection frequently mistakes Stratigraphy,
+    Depth Drilled and auxiliary log columns for the Graphic Log.  This route
+    uses OCR header anchors as a reference-blind role gate and is kept
+    separate so earlier experiments remain exactly reproducible.
+    """
+    height, width = gray.shape[:2]
+    columns = detect_graphic_log_columns(gray, layout, depth_x_hint=depth_x_hint)
+    anchors = infer_column_role_anchors(rows, width=width, height=height, header_y=layout.header_y)
+    assignments = assign_column_roles(columns, anchors, width=width)
+    selected = select_graphical_roles(assignments)
+    # If the header has no recoverable Graphic Log token at all, preserve the
+    # legacy multi-column route as an explicitly marked low-semantic-evidence
+    # fallback.  A page that does expose a Graphic Log header but whose
+    # geometry cannot be matched remains abstained rather than silently
+    # reverting to texture-only evidence.
+    if not selected and not any(anchor.role == "graphic_log" for anchor in anchors):
+        fallback = multicolumn_graphic_boundary_candidates(
+            gray, page=page, layout=layout, calibration=calibration,
+            depth_x_hint=depth_x_hint,
+        )
+        output: list[DepthBoundaryCandidate] = []
+        for candidate in fallback:
+            features = dict(candidate.features)
+            features.update({"graphic_role_score": 0.0, "graphic_role_primary": 0.0, "graphic_role_core": 0.0})
+            provenance = tuple(candidate.provenance) + ({
+                "column_role": "legacy_multicolumn_fallback",
+                "column_role_score": 0.0,
+                "column_role_evidence": ["header_graphic_role_missing"],
+            },)
+            output.append(DepthBoundaryCandidate(candidate.value_m, candidate.page, candidate.bbox, candidate.candidate_source, features, provenance))
+        return output
+    output: list[DepthBoundaryCandidate] = []
+    for rank, assignment in enumerate(selected):
+        activity = next(
+            (float(value) for left, right, value in columns
+             if left == assignment.left and right == assignment.right),
+            0.0,
+        )
+        generated = _graphic_candidates_for_column(
+            gray, page=page, layout=layout, calibration=calibration,
+            column=(assignment.left, assignment.right), column_rank=rank,
+            column_activity=activity,
+        )
+        for candidate in generated:
+            features = dict(candidate.features)
+            features.update({
+                "graphic_role_score": float(assignment.score),
+                "graphic_role_primary": float(assignment.role == "graphic_log"),
+                "graphic_role_core": float(assignment.role == "core"),
+            })
+            provenance = tuple(candidate.provenance) + ({
+                "column_role": assignment.role,
+                "column_role_score": assignment.score,
+                "column_role_anchor_x": assignment.anchor_x,
+                "column_role_evidence": list(assignment.evidence),
+            },)
+            output.append(DepthBoundaryCandidate(
+                candidate.value_m, candidate.page, candidate.bbox,
+                candidate.candidate_source, features, provenance,
+            ))
+    for candidate in output:
+        cy = (candidate.bbox[1] + candidate.bbox[3]) / 2
+        peers = {
+            round(((other.bbox[0] + other.bbox[2]) / 2) / width, 3)
+            for other in output
+            if other is not candidate and abs((other.bbox[1] + other.bbox[3]) / 2 - cy) <= max(8, height * 0.0025)
+        }
+        candidate.features["graphic_cross_column_support"] = min(1.0, len(peers) / 3)
     return output
 
 

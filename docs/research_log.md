@@ -2556,3 +2556,23 @@
   `fe5c055b4e276ae88211f79c81a6b1adeb179b9ff24adc0e426beffdb8740075`.
   Validation artifact SHA256:
   `c88525224a6e0b0cd218543c17cf0c218c33e62733f4e467766e66fc50ea7473`.
+
+## 2026-08-16 — BGS semantic column-role diagnostic (v025/v026)
+
+- Implemented a reference-blind OCR-header role layer for adjacent composite
+  log columns. Split headers such as `Graphic` + `Log` are grouped, then
+  detected vertical-rule intervals are assigned roles by x geometry and OCR
+  confidence. Stratigraphy, depth-drilled and auxiliary columns are excluded
+  from the primary graphic route; pages without a recoverable Graphic Log
+  header can use an explicitly marked legacy fallback.
+- Added `graphic_mode=role_multi`, tests in `tests/test_column_roles.py`, and
+  ADR-023. Earlier `single`/`multi` routes are unchanged.
+- Source-disjoint BGS v001 development: v025 role-gated sequence boundary F1
+  `0.3265`, interval F1 `0.1458`; v026 role-gated plus no-anchor fallback
+  boundary F1 `0.3094`, interval F1 `0.1179`. The route therefore does not
+  pass the Paper II primary promotion gate relative to v024 (`0.3313` / `0.1801`)
+  and remains a diagnostic page-family branch.
+- On pages with an explicit Graphic Log header only (9 documents), v025 reached
+  boundary F1 `0.4410` and interval F1 `0.2825`, supporting the failure
+  attribution that semantic column selection is useful but not sufficient for
+  cross-template coverage. BGS v003 remains frozen and unopened.

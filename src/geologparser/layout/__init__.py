@@ -6,7 +6,7 @@ from .depth_semantics import (
     NumericEvidence, aggregate_numeric_evidence, detect_graphic_log_column,
     detect_graphic_log_columns, fit_depth_scale, graphic_boundary_candidates,
     multicolumn_graphic_boundary_candidates, printed_boundary_candidates,
-    metadata_final_depth_candidates,
+    role_aware_multicolumn_graphic_boundary_candidates, metadata_final_depth_candidates,
 )
 from .long_page import (
     LogPanelLayout, PageTile, SemanticAnchor, infer_log_panel_layout,
@@ -25,6 +25,7 @@ __all__ = [
     "aggregate_numeric_evidence", "boundaries_from_ranges",
     "classify_borehole_page", "detect_graphic_log_column",
     "detect_graphic_log_columns", "multicolumn_graphic_boundary_candidates",
+    "role_aware_multicolumn_graphic_boundary_candidates",
     "extract_depth_column_intervals", "infer_log_panel_layout", "long_page_tiles",
     "fit_depth_scale", "graphic_boundary_candidates", "printed_boundary_candidates",
     "extract_explicit_depth_ranges", "locate_explicit_depth_column",
