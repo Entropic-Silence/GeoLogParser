@@ -1,0 +1,52 @@
+{
+  "experiment_id": "P2_QWEN38_FP8_TRAINING_FEASIBILITY_001",
+  "date": "2026-08-16",
+  "model": {
+    "checkpoint": "/data/LLM/Qwen/Qwen3.8-27B-FP8",
+    "checkpoint_format": "FP8 language weights with BF16 visual weights",
+    "full_multimodal_inference": "VERIFIED via existing vLLM service and zero-shot structural graph runs",
+    "local_bf16_checkpoint": "NOT_FOUND",
+    "bgs_v003_accessed": false
+  },
+  "runtime_audit": {
+    "transformers_in_qwen_container": "5.14.1",
+    "torch_in_qwen_container": "2.11.0+cu128",
+    "peft_in_qwen_container": "0.20.0",
+    "ms_swift_import": "NOT_AVAILABLE",
+    "unsloth_import": "NOT_AVAILABLE",
+    "bitsandbytes_import": "NOT_AVAILABLE",
+    "ms_swift_source_audit": {
+      "source": "/tmp/geologparser-ms-swift-IcWBvI/ms-swift-4.5.0",
+      "qwen38_registration": "FOUND",
+      "qwen38_fp8_megatron_route": "DOCUMENTED",
+      "mcore_bridge_requirement": "DOCUMENTED",
+      "full_runtime_execution": "NOT_COMPLETED"
+    }
+  },
+  "checks": {
+    "meta_qwen35_model_instantiation": "VERIFIED",
+    "meta_lora_target_wiring": "VERIFIED",
+    "visual_checkpoint_tensor_load": "VERIFIED",
+    "visual_forward": "VERIFIED",
+    "visual_lora_forward_backward": "VERIFIED",
+    "visual_lora_nonzero_gradients": "VERIFIED",
+    "fp8_language_weight_forward_backward": "NOT_COMPLETED",
+    "full_multimodal_lora_sft": "NOT_COMPLETED",
+    "ms_swift_qwen38_fp8_sft": "NOT_COMPLETED",
+    "unsloth_qwen38_fp8_sft": "NOT_COMPLETED"
+  },
+  "smoke_artifact": {
+    "path": "experiments/paper2/nativemm/P2_QWEN38_FP8_VISION_LORA_SMOKE_001.json",
+    "gpu": "NVIDIA GeForce RTX 5090",
+    "peak_memory_allocated_gib": 0.9043335914611816,
+    "loss": 0.48672133684158325,
+    "finite_loss": true,
+    "visual_lora_trainable_parameters": 2011520,
+    "nonzero_gradient_tensor_count": 111
+  },
+  "interpretation": {
+    "conclusion": "The official FP8 checkpoint's visual submodule can be loaded and adapted with PEFT LoRA for a synthetic forward/backward smoke test.",
+    "limitation": "This does not establish stable training of the FP8 language stack or complete multimodal SFT. The Qwen3.8 FP8 checkpoint remains an inference baseline/teacher until a supported BF16 or Megatron-SWIFT training runtime is provisioned.",
+    "decision": "KEEP_EXPLORATORY_ONLY"
+  }
+}

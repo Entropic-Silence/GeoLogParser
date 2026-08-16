@@ -1,0 +1,116 @@
+{
+  "experiment_id": "P2_QWEN38_FP8_STRUCTURAL_GRAPH_BGS_V001_DEV_003_DECODER_001",
+  "source_prediction": "experiments/paper2/nativemm/P2_QWEN38_FP8_STRUCTURAL_GRAPH_BGS_V001_DEV_003.jsonl",
+  "rows": [
+    {
+      "key": [
+        "BGS_OFFSHORE_1944320",
+        11
+      ],
+      "selected_events": 3,
+      "decoded_boundaries": [
+        8.945428509298969,
+        9.09031577280246,
+        13.48522943240838
+      ],
+      "reference_boundaries": [
+        0.0,
+        1.5,
+        2.25,
+        3.75,
+        4.65,
+        7.6,
+        7.9,
+        8.45,
+        8.7,
+        10.8,
+        10.95,
+        11.55,
+        11.8,
+        12.5,
+        13.3,
+        13.55
+      ],
+      "metrics": {
+        "tp": 0,
+        "fp": 3,
+        "fn": 16,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "warnings": []
+    },
+    {
+      "key": [
+        "BGS_OFFSHORE_2024185",
+        21
+      ],
+      "selected_events": 2,
+      "decoded_boundaries": [
+        25.10292635586578,
+        32.30450524429846
+      ],
+      "reference_boundaries": [
+        0.0,
+        25.0,
+        48.0,
+        55.0
+      ],
+      "metrics": {
+        "tp": 0,
+        "fp": 2,
+        "fn": 4,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "warnings": []
+    },
+    {
+      "key": [
+        "BGS_OFFSHORE_2030012",
+        11
+      ],
+      "selected_events": 6,
+      "decoded_boundaries": [
+        6.981132075471698,
+        10.943396226415093,
+        14.528301886792452
+      ],
+      "reference_boundaries": [
+        3.0,
+        4.5,
+        6.0,
+        6.5,
+        7.0,
+        9.5,
+        13.0,
+        15.1,
+        15.5,
+        19.3
+      ],
+      "metrics": {
+        "tp": 1,
+        "fp": 2,
+        "fn": 9,
+        "precision": 0.3333333333333333,
+        "recall": 0.1,
+        "f1": 0.15384615384615385
+      },
+      "warnings": [
+        "NON_MONOTONIC_OR_OUT_OF_RANGE_BOUNDARIES_REJECTED"
+      ]
+    }
+  ],
+  "micro_boundary_depth_at_0_05m": {
+    "tp": 1,
+    "fp": 7,
+    "fn": 29,
+    "precision": 0.125,
+    "recall": 0.03333333333333333,
+    "f1": 0.05263157894736842
+  },
+  "bgs_v003_accessed": false,
+  "scope": "BGS v001 development only; zero-shot structural graph plus deterministic geometry decoder"
+}

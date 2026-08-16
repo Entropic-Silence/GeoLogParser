@@ -14,6 +14,7 @@ from .data import (
     validate_training_source,
 )
 from .geometry import GeometryDecodeResult, decode_depth_geometry
+from .structural_graph import StructuralGraphDecode, decode_structural_graph
 from .dense_data import build_dense_boundary_corpus
 from .dense_boundary import DenseBoundaryHead, SpatialBoundaryHead, extract_peaks
 
@@ -28,5 +29,7 @@ __all__ = [
     "SpatialBoundaryHead",
     "extract_peaks",
     "decode_depth_geometry",
+    "StructuralGraphDecode",
+    "decode_structural_graph",
     "validate_training_source",
 ]

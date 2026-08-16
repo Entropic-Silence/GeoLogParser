@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://geologparser.org/schemas/native_mm_structural_graph_v001.schema.json",
+  "title": "GeoLogParser native multimodal structural graph v001",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "regions", "columns", "events", "depth_geometry", "relations", "abstain_reasons"],
+  "properties": {
+    "schema_version": {"const": "native_mm_structural_graph_v001"},
+    "regions": {"type": "array", "items": {"$ref": "#/$defs/region"}},
+    "columns": {"type": "array", "items": {"$ref": "#/$defs/region"}},
+    "events": {"type": "array", "items": {"$ref": "#/$defs/event"}},
+    "depth_geometry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["axis_points", "confidence"],
+      "properties": {
+        "axis_points": {"type": "array", "items": {"$ref": "#/$defs/axis_point"}},
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+        "coordinate_space": {"type": "string", "enum": ["pixels", "normalized_0_1", "unknown"]}
+      }
+    },
+    "relations": {"type": "array", "items": {"$ref": "#/$defs/relation"}},
+    "abstain_reasons": {"type": "array", "items": {"type": "string"}}
+  },
+  "$defs": {
+    "bbox": {
+      "type": "array",
+      "prefixItems": [{"type": "number"}, {"type": "number"}, {"type": "number"}, {"type": "number"}],
+      "minItems": 4,
+      "maxItems": 4
+    },
+    "region": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "bbox_xyxy", "confidence"],
+      "properties": {
+        "role": {"type": "string", "minLength": 1},
+        "bbox_xyxy": {"$ref": "#/$defs/bbox"},
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["event_type", "bbox_xyxy", "owner", "confidence"],
+      "properties": {
+        "event_type": {"type": "string", "minLength": 1},
+        "bbox_xyxy": {"$ref": "#/$defs/bbox"},
+        "owner": {"type": "string", "minLength": 1},
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "axis_point": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["y", "depth_m"],
+      "properties": {
+        "y": {"type": "number"},
+        "depth_m": {"type": ["number", "null"]}
+      }
+    },
+    "relation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source", "target", "type", "confidence"],
+      "properties": {
+        "source": {"type": "string", "minLength": 1},
+        "target": {"type": "string", "minLength": 1},
+        "type": {"type": "string", "minLength": 1},
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    }
+  }
+}

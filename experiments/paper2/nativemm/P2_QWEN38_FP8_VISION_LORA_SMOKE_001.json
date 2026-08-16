@@ -1,0 +1,44 @@
+{
+  "bgs_v003_accessed": false,
+  "device": "cuda:0",
+  "elapsed_seconds": 7.466022435997729,
+  "experiment_id": "P2_QWEN38_FP8_VISION_LORA_SMOKE_001",
+  "gpu_name": "NVIDIA GeForce RTX 5090",
+  "load": {
+    "loaded_visual_keys": 333,
+    "missing_keys": 0,
+    "unexpected_keys": 0,
+    "vision_parameter_count": 460730096
+  },
+  "lora": {
+    "alpha": 8,
+    "rank": 4,
+    "target_modules": [
+      "qkv",
+      "proj",
+      "linear_fc1",
+      "linear_fc2"
+    ],
+    "trainable_parameter_count": 2011520,
+    "trainable_tensor_count": 222
+  },
+  "model_path": "/data/LLM/Qwen/Qwen3.8-27B-FP8",
+  "parameter_dtype": "torch.bfloat16",
+  "peak_memory_allocated_gib": 0.9043335914611816,
+  "peak_memory_reserved_gib": 0.927734375,
+  "scope": "visual-submodule-only; full multimodal SFT NOT_COMPLETED",
+  "synthetic_forward_backward": {
+    "finite_loss": true,
+    "grad_norm_max": 7.070701599121094,
+    "grad_norm_min": 0.0,
+    "gradient_tensor_count": 222,
+    "loss": 0.48672133684158325,
+    "nonzero_gradient_tensor_count": 111,
+    "output_shape": [
+      1,
+      5120
+    ]
+  },
+  "torch_version": "2.11.0+cu128",
+  "transformers_version": "5.14.1"
+}

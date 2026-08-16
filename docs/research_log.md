@@ -2792,3 +2792,24 @@
   semantic ownership. Decision: `NO_GO_PRIMARY`; event ownership must be
   inferred jointly with visual regions before candidate collapse. BGS v003
   remained unopened.
+
+## 2026-08-16 — Qwen3.8-27B FP8 NativeMM exploratory feasibility gate
+
+- Added an independent structural-graph prompt/schema and ran Qwen3.8-27B-FP8
+  zero-shot on BGS v001 development pages only. The model outputs regions,
+  semantic columns, structural events, owners, and depth-axis points; no final
+  intervals were requested from the model.
+- A deterministic decoder selected boundary-like events and fit depth geometry
+  from axis points. On a three-page BGS v001 development subset, schema-valid
+  graph rate was `1.0000`, but decoded Boundary F1 at ±0.05 m was `0.0526`
+  (1 TP, 7 FP, 29 FN), far below v028 (`0.3475`). Interval F1 was not claimed
+  because the graph did not provide a reliable complete interval sequence.
+- Loaded the official checkpoint's 333 visual tensors exactly, attached PEFT
+  LoRA to visual qkv/proj/MLP projections, and completed a one-step synthetic
+  forward/backward smoke on RTX 5090. Loss was finite (`0.4867213`), 111 LoRA
+  gradient tensors were non-zero, and peak allocated memory was `0.9043 GiB`.
+- This verifies only visual-submodule adaptation. Full FP8 language-stack or
+  multimodal SFT is `NOT_COMPLETED`; ms-swift and Unsloth are not installed in
+  the active runtime and no local BF16 Qwen3.8 checkpoint was found.
+- Decision: `NO_GO_PRIMARY`; retain Qwen3.8-FP8 as inference baseline/teacher
+  and structural-audit branch. BGS v003 was not opened.

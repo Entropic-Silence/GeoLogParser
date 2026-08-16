@@ -1,0 +1,126 @@
+{
+  "bgs_v003_accessed": false,
+  "experiment_id": "P2_QWEN38_FP8_STRUCTURAL_GRAPH_EVAL_001",
+  "gold_path": "/data/GeoLogParser/datasets/paper2_nativemm_dense_boundary_v001/development.jsonl",
+  "json_valid_rate": 1.0,
+  "micro_boundary_depth_at_0_05m": {
+    "f1": 0.05263157894736842,
+    "fn": 29,
+    "fp": 7,
+    "precision": 0.125,
+    "recall": 0.03333333333333333,
+    "tp": 1
+  },
+  "prediction_path": "experiments/paper2/nativemm/P2_QWEN38_FP8_STRUCTURAL_GRAPH_BGS_V001_DEV_003.jsonl",
+  "rows": [
+    {
+      "boundary_depth_at_0_05m": {
+        "f1": 0.0,
+        "fn": 16,
+        "fp": 3,
+        "precision": 0.0,
+        "recall": 0.0,
+        "tp": 0
+      },
+      "decoded_boundaries_m": [
+        8.945428509298969,
+        9.09031577280246,
+        13.48522943240838
+      ],
+      "json_valid": true,
+      "page": 11,
+      "record_id": "BGS_OFFSHORE_1944320",
+      "reference_boundaries_m": [
+        0.0,
+        1.5,
+        2.25,
+        3.75,
+        4.65,
+        7.6,
+        7.9,
+        8.45,
+        8.7,
+        10.8,
+        10.95,
+        11.55,
+        11.8,
+        12.5,
+        13.3,
+        13.55
+      ],
+      "rejected_events": 1,
+      "schema_errors": [],
+      "schema_valid": true,
+      "selected_events": 3,
+      "warnings": []
+    },
+    {
+      "boundary_depth_at_0_05m": {
+        "f1": 0.0,
+        "fn": 4,
+        "fp": 2,
+        "precision": 0.0,
+        "recall": 0.0,
+        "tp": 0
+      },
+      "decoded_boundaries_m": [
+        25.10292635586578,
+        32.30450524429846
+      ],
+      "json_valid": true,
+      "page": 21,
+      "record_id": "BGS_OFFSHORE_2024185",
+      "reference_boundaries_m": [
+        0.0,
+        25.0,
+        48.0,
+        55.0
+      ],
+      "rejected_events": 6,
+      "schema_errors": [],
+      "schema_valid": true,
+      "selected_events": 2,
+      "warnings": []
+    },
+    {
+      "boundary_depth_at_0_05m": {
+        "f1": 0.15384615384615385,
+        "fn": 9,
+        "fp": 2,
+        "precision": 0.3333333333333333,
+        "recall": 0.1,
+        "tp": 1
+      },
+      "decoded_boundaries_m": [
+        6.981132075471698,
+        10.943396226415093,
+        14.528301886792452
+      ],
+      "json_valid": true,
+      "page": 11,
+      "record_id": "BGS_OFFSHORE_2030012",
+      "reference_boundaries_m": [
+        3.0,
+        4.5,
+        6.0,
+        6.5,
+        7.0,
+        9.5,
+        13.0,
+        15.1,
+        15.5,
+        19.3
+      ],
+      "rejected_events": 0,
+      "schema_errors": [],
+      "schema_valid": true,
+      "selected_events": 6,
+      "warnings": [
+        "NON_MONOTONIC_OR_OUT_OF_RANGE_BOUNDARIES_REJECTED"
+      ]
+    }
+  ],
+  "schema_path": "schemas/native_mm_structural_graph_v001.schema.json",
+  "schema_valid_rate": 1.0,
+  "scope": "BGS v001 development only; frozen external sets excluded"
+}
