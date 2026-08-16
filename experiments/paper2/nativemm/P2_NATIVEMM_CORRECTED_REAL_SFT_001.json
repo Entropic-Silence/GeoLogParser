@@ -1,0 +1,40 @@
+{
+  "experiment_id": "P2_NATIVEMM_CORRECTED_REAL_SFT_001",
+  "status": "completed_no_go",
+  "decision": "NO_GO_PRIMARY",
+  "training": {
+    "dataset": "/data/GeoLogParser/datasets/paper2_nativemm_v002r2/train.jsonl",
+    "dataset_sha256": "ed9192ddc5f19453319d73e095a41b755f538641fd90569fe4c6805ea8a848ba",
+    "source_mode": "real",
+    "sample_count": 255,
+    "epochs": 2,
+    "mean_training_loss": 0.55076766345723,
+    "final_training_loss": 0.22950464487075806,
+    "include_projector": true,
+    "peak_allocated_gib": 9.02241849899292,
+    "checkpoint": "/data/GeoLogParser/checkpoints/paper2_nativemm/P2_NATIVEMM_CORRECTED_REAL_SFT_001"
+  },
+  "development_evaluation": {
+    "experiment_id": "P2_NATIVEMM_CORRECTED_BGS_DEV_001",
+    "dataset": "/data/GeoLogParser/datasets/paper2_nativemm_v002r2/development.jsonl",
+    "dataset_sha256": "8404f844bb9ca9e3597b28af8f6d1e7754a1f67eade4f90b2fd09a637311f600",
+    "bundle_count": 12,
+    "boundary_task_count": 7,
+    "depth_scale_task_count": 7,
+    "json_valid_rate": 0.21428571428571427,
+    "structural_evidence_coverage": 0.0,
+    "boundary_f1_at_0_05m": 0.0,
+    "geometry_decoded_depth_f1_at_0_05m": 0.0,
+    "critical_numerical_error_rate": null,
+    "seconds_per_bundle": 37.94077501916763,
+    "metrics_path": "results/2026-08-16/P2_NATIVEMM_CORRECTED_BGS_DEV_001/metrics.json"
+  },
+  "comparison": {
+    "previous_real_sft_dataset": "paper2_nativemm_v001/train.jsonl",
+    "corrected_label_dataset": "paper2_nativemm_v002r2/train.jsonl",
+    "interpretation": "Corrected graphical-boundary supervision does not recover structural evidence on BGS development; the NativeMM branch remains below the modular v028 route.",
+    "frozen_external_sources_opened": false,
+    "bgs_v003_opened": false
+  },
+  "scope": "source-disjoint BGS v001 development only; no frozen external evaluation"
+}

@@ -2748,3 +2748,19 @@
   borders, and description rules share the same horizontal raster signature.
   The branch is `NO_GO_PRIMARY_RETAIN_DIAGNOSTIC` in ADR-030. BGS v003 was not
   opened.
+
+## 2026-08-16 — Corrected NativeMM real-Gold SFT recheck
+
+- Audit found that the earlier NativeMM real SFT used `paper2_nativemm_v001`,
+  whose boundary labels were printed-number boxes, while evaluation used the
+  corrected graphical-boundary corpus `paper2_nativemm_v002r2`.
+- Re-trained PaddleOCR-VL 1.6 LoRA on 255 real Gold/derived-spatial samples from
+  v002r2 for two epochs, adapting the visual projector and language q/v blocks
+  on GPU 0 (RTX 5090). Mean/final training losses were `0.5508/0.2295` and
+  peak allocated memory was `9.02 GiB`.
+- On the 12 available BGS v001 development bundles, corrected SFT produced
+  JSON-valid rate `0.2143`, structural-evidence coverage `0.0000`, direct
+  Boundary F1 `0.0000`, and geometry-decoded Boundary F1 `0.0000` at 0.05 m.
+- Decision: the NativeMM no-go is confirmed under corrected supervision; do
+  not expand training or open BGS v003. The artifact is recorded in
+  `experiments/paper2/nativemm/P2_NATIVEMM_CORRECTED_REAL_SFT_001.json`.
