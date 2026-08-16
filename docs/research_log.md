@@ -2691,3 +2691,30 @@
   diagnostic and is not promoted. It cannot solve the structural recall
   bottleneck, and no further BGS threshold complexity will be added. BGS v003
   remains frozen and unopened.
+
+## 2026-08-16 — Native positioned-text structural expert and identity routing
+
+- The Aargau high-resolution depth ROI reread completed without structural
+  recovery. At 300 DPI, Boundary F1 decreased from `0.0361` to `0.0285` and
+  Interval F1 remained `0.0031`; three of four long Aargau records had no
+  initial depth-column localization. The branch is therefore `NO_GO` and no
+  further DPI-only tuning is planned.
+- Auditing the source PDFs found a stronger modality: native PDFs retain
+  positioned word boxes. A reference-blind expert was added to recognize
+  cumulative-depth headers, cluster numeric words by x role, reject scale-tick
+  columns, and reconstruct monotonic boundaries. It is implemented in
+  `src/geologparser/layout/native_pdf_structure.py`.
+- The first routed run over the already-inspected 46-record Swissgeol panel
+  showed Boundary/Interval F1 `0.2480/0.1528`, compared with the OCR field-aware
+  baseline `0.1631/0.0976`. After correcting a multi-borehole report alignment
+  error using only the visible borehole identity suffix, the identity-routed
+  run reached `0.2662/0.1722`, with precision `0.7735` and critical numerical
+  error rate `0.2265`.
+- Source-family evidence after identity routing: Aargau `0.1491/0.0660`, Bern
+  `0.4299/0.3711`, Solothurn `0.6286/0.5846`, St. Gallen `0.7182/0.5997`, and
+  Vaud `0.1347/0.0513` Boundary/Interval F1. Interval F1 increased in every
+  family; boundary F1 increased in four of five.
+- This is development evidence over an authoritative structured source whose
+  page/database completeness is unverified, and the panel was inspected while
+  designing the exploratory branch. It is recorded as `ACCEPT_DEVELOPMENT_ONLY`
+  in ADR-028. BGS v003 remains unopened.
