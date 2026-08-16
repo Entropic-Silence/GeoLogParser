@@ -188,7 +188,13 @@ def composite_log_pages(path: Path, page_count: int) -> tuple[list[int], str]:
                 and ("DESCRIPTION" in text or "LITHOLOGY" in text)
                 and ("BOREHOLE" in text or "SAMPLE" in text)
             )
-            if direct or semantic:
+            legacy_depth_table = (
+                "THICKNESS" in text
+                and "DEPTH" in text
+                and "SURFACE" in text
+                and ("GEOLOGICAL" in text or "SECTION OF" in text)
+            )
+            if direct or semantic or legacy_depth_table:
                 located.append(index)
     return located, "low_dpi_ocr_semantic_locator"
 
@@ -350,11 +356,25 @@ def main() -> None:
         "--exclude-manifest", type=Path, action="append", default=[],
         help="Exclude every record and SOURCE_TITLE already present in an earlier freeze.",
     )
+    parser.add_argument(
+        "--page-override", action="append", default=[], metavar="RECORD_ID=P1,P2",
+        help="Freeze explicitly inspected log pages when the generic semantic locator is incomplete.",
+    )
     parser.add_argument("--dataset-version", default="bgs_offshore_paired_v001")
     parser.add_argument(
         "--split-version", default="bgs_offshore_gold_split_v001_source_group_disjoint_external",
     )
     args = parser.parse_args()
+
+    page_overrides: dict[str, list[int]] = {}
+    for value in args.page_override:
+        record_id, separator, raw_pages = value.partition("=")
+        if not separator or not record_id or not raw_pages:
+            raise ValueError(f"invalid --page-override: {value}")
+        pages = sorted({int(page) for page in raw_pages.split(",")})
+        if not pages or any(page < 1 for page in pages):
+            raise ValueError(f"invalid override pages: {value}")
+        page_overrides[record_id] = pages
 
     excluded_record_ids: set[str] = set()
     excluded_source_titles: set[str] = set()
@@ -426,7 +446,13 @@ def main() -> None:
                 )
             download_pdf(session, download_url, pdf)
             page_count = pdf_page_count(pdf)
-            evaluation_pages, page_locator = composite_log_pages(pdf, page_count)
+            if record_id in page_overrides:
+                evaluation_pages = page_overrides[record_id]
+                if any(page > page_count for page in evaluation_pages):
+                    raise ValueError(f"page override exceeds PDF length: {record_id}")
+                page_locator = "explicit_visual_log_page_override"
+            else:
+                evaluation_pages, page_locator = composite_log_pages(pdf, page_count)
             if not evaluation_pages:
                 raise ValueError("no BH_COMP_LOG composite page found")
             row = as_manifest_row(
@@ -478,6 +504,7 @@ def main() -> None:
         "excluded_record_count": len(excluded_record_ids),
         "excluded_source_group_count": len(excluded_source_titles),
         "excluded_manifests": excluded_manifest_hashes,
+        "page_overrides": page_overrides,
         "selection_policy": (
             "one deterministic eligible record per SOURCE_TITLE, prioritizing "
             "interval count nearest 15; all records are external to method development"

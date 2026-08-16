@@ -2478,3 +2478,19 @@
   `6e01d60b2be0328652658169276c4606fbfb7abd6297a58d4bf727eaf9258ee1`.
 - Paper II remains experimental. Further structural changes require a new
   independent development source and a separately frozen v003 test.
+
+## 2026-08-16 — BGS v003 replacement freeze
+
+- Re-ran the official BGS eligibility query after excluding all 29 v001/v002
+  source titles. One source group remained. Its eight-page PDF uses legacy
+  `BH_LOG` labels, so the generic `BH_COMP_LOG` locator initially rejected it.
+- Page-type inspection identified pages 2--6 as the continuous geological log
+  with explicit thickness/depth columns; page 1 is a cover and pages 7--8 are
+  daily drilling reports. The page decision did not use interval values.
+- Froze one new source title, five pages, seven official intervals, and zero
+  record/source overlap with v001/v002. Manifest SHA256 is
+  `12f683ca0312740dbeb68ee3bebcd92b0a0644dce22de92115c46c8faf2236d4`;
+  split SHA256 is
+  `d6a2160ea74a65c70b3a0df3d8ad2da10629e88bf12ddea46e6dceaa805be56e`.
+- v003 is frozen and unopened. Its single-source size is a severe limitation;
+  it is a replacement confirmation check, not sufficient generalization proof.

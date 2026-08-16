@@ -162,6 +162,19 @@ SHA256 `03adfecca7f2c97c1612752ff1ca387fe1f22f31ee20cdf8981ef1f2cee8d096`,
 and the source URL host substitution from `marinedata.ac.uk` to the reachable
 `marinedata.bgs.ac.uk` alias.
 
+Two successor external freezes use source titles and record IDs excluded from
+v001. BGS v002 contains three source titles, four pages, and 49 intervals;
+manifest SHA256 is
+`f84a8b282ec054dbe0a06bd3a6f6cf3136f3f6e22f9d92fcc7907ffe03af16ae`.
+It was consumed by the frozen v023 external evaluation and cannot be reused as
+an unseen test. BGS v003 contains the final unused eligible source title, five
+explicit geological-log pages, and seven intervals; manifest SHA256 is
+`12f683ca0312740dbeb68ee3bebcd92b0a0644dce22de92115c46c8faf2236d4`.
+Its generic page marker was incomplete, so pages 2--6 were frozen after visual
+page-type inspection without reading interval values. v003 remains unopened.
+Both successors inherit the same unresolved scan-footer/OGL scope conflict and
+must remain internal pending the final item-level review.
+
 The USGS Idaho lithologic-log scan audit is stored at
 `/data/GeoLogParser/datasets/public/usgs_idaho_lithologic_v001`, with frozen
 manifest `datasets/manifests/usgs_idaho_lithologic_v001.jsonl`. It contains
