@@ -1,0 +1,34 @@
+{
+  "dataset_manifest": "datasets/manifests/bgs_offshore_validation_v002r2.jsonl",
+  "dataset_manifest_sha256": "56f35abcfec28a6f71b8bc79d3cfcfc965654a5707fdcdf673eb4dde2db9cadb",
+  "development": [],
+  "development_documents": 0,
+  "excluded_manifests": [],
+  "excluded_record_count": 0,
+  "excluded_source_group_count": 0,
+  "included_record_ids": [
+    "BGS_OFFSHORE_1944782",
+    "BGS_OFFSHORE_1983444",
+    "BGS_OFFSHORE_2015092"
+  ],
+  "page_overrides": {
+    "BGS_OFFSHORE_1944782": [
+      3
+    ],
+    "BGS_OFFSHORE_1983444": [
+      2
+    ],
+    "BGS_OFFSHORE_2015092": [
+      11
+    ]
+  },
+  "selection_policy": "one deterministic eligible record per SOURCE_TITLE, prioritizing interval count nearest 15; all records are external to method development",
+  "source_group_count": 3,
+  "split_version": "bgs_offshore_validation_v002r2_post_external_page_corrected",
+  "test": [
+    "BGS_OFFSHORE_1944782",
+    "BGS_OFFSHORE_1983444",
+    "BGS_OFFSHORE_2015092"
+  ],
+  "test_documents": 3
+}

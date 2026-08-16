@@ -360,6 +360,10 @@ def main() -> None:
         "--page-override", action="append", default=[], metavar="RECORD_ID=P1,P2",
         help="Freeze explicitly inspected log pages when the generic semantic locator is incomplete.",
     )
+    parser.add_argument(
+        "--include-record-id", action="append", default=[],
+        help="Restrict acquisition to explicit record IDs for a derived validation manifest.",
+    )
     parser.add_argument("--dataset-version", default="bgs_offshore_paired_v001")
     parser.add_argument(
         "--split-version", default="bgs_offshore_gold_split_v001_source_group_disjoint_external",
@@ -375,6 +379,7 @@ def main() -> None:
         if not pages or any(page < 1 for page in pages):
             raise ValueError(f"invalid override pages: {value}")
         page_overrides[record_id] = pages
+    included_record_ids = set(args.include_record_id)
 
     excluded_record_ids: set[str] = set()
     excluded_source_titles: set[str] = set()
@@ -427,6 +432,8 @@ def main() -> None:
             break
         source_title = str(activity.get("SOURCE_TITLE") or "UNKNOWN_SOURCE")
         record_id = f"BGS_OFFSHORE_{activity['ACTIVITY_ID']}"
+        if included_record_ids and record_id not in included_record_ids:
+            continue
         if source_title in excluded_source_titles or record_id in excluded_record_ids:
             continue
         if source_title in used_sources:
@@ -505,6 +512,7 @@ def main() -> None:
         "excluded_source_group_count": len(excluded_source_titles),
         "excluded_manifests": excluded_manifest_hashes,
         "page_overrides": page_overrides,
+        "included_record_ids": sorted(included_record_ids),
         "selection_policy": (
             "one deterministic eligible record per SOURCE_TITLE, prioritizing "
             "interval count nearest 15; all records are external to method development"

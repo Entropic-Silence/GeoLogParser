@@ -57,6 +57,8 @@ def main() -> None:
     parser.add_argument("--field-roi-analysis", type=Path, required=True)
     parser.add_argument("--frozen-model", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--experiment-id", default="P2_BGS_V023_EXTERNAL_V002_001")
+    parser.add_argument("--evaluation-role", choices=("external", "validation"), default="external")
     args = parser.parse_args()
     if args.output.exists():
         raise FileExistsError(f"one-time external output already exists: {args.output}")
@@ -65,7 +67,7 @@ def main() -> None:
     frozen = json.loads(args.frozen_model.read_text())
     if frozen["status"] != "frozen_before_external_evaluation":
         raise ValueError("external model is not frozen")
-    if frozen["external_protocol"]["dataset"] != "bgs_offshore_gold_v002":
+    if args.evaluation_role == "external" and frozen["external_protocol"]["dataset"] != "bgs_offshore_gold_v002":
         raise ValueError("frozen model names a different external dataset")
     base_model_path = Path(frozen["base_candidate_model"])
     if file_sha256(base_model_path) != frozen["base_candidate_model_sha256"]:
@@ -183,8 +185,9 @@ def main() -> None:
         if row["page"] >= 0 and len(row["bbox"]) == 4
     )
     report = {
-        "experiment_id": "P2_BGS_V023_EXTERNAL_V002_001",
-        "status": "completed_one_time_external_evaluation",
+        "experiment_id": args.experiment_id,
+        "status": f"completed_{args.evaluation_role}_evaluation",
+        "evaluation_role": args.evaluation_role,
         "method_version": frozen["model_id"],
         "git_commit_before_external": "9ce6fd6",
         "manifest": str(args.manifest),
@@ -216,7 +219,7 @@ def main() -> None:
         },
         "predictions": diagnostic_rows,
         "reference_blinding": "all predictions fixed before external interval references were accessed for scoring",
-        "post_external_policy": "no tuning; any method change demotes v002 to validation",
+        "post_external_policy": "no tuning; any method change demotes the set to validation" if args.evaluation_role == "external" else "validation evidence may support subsequent development",
         "wall_time_seconds": time.perf_counter() - started,
         "latency_seconds_per_page": (time.perf_counter() - started) / sum(len(source["evaluation_pages"]) for source in sources),
         "peak_process_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,

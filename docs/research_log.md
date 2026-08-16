@@ -2503,3 +2503,28 @@
   external evidence.
 - v003 remains unopened. A future method must be frozen before its one allowed
   evaluation, and the one-source denominator must remain explicit.
+
+## 2026-08-16 — BGS v002r2 corrected-page validation diagnosis
+
+- Rebuilt the consumed BGS v002 set as a validation-only manifest after visual
+  page localization showed that the original evaluation included a blank
+  continuation page and a duplicated page. The corrected pages are page 11 for
+  `BGS_OFFSHORE_2015092`, page 2 for `BGS_OFFSHORE_1983444`, and page 3 for
+  `BGS_OFFSHORE_1944782`.
+- The corrected manifest contains the same three source groups, 49 official
+  intervals and 52 unique boundaries on three actual log pages. Its SHA256 is
+  `56f35abcfec28a6f71b8bc79d3cfcfc965654a5707fdcdf673eb4dde2db9cadb`.
+- Re-evaluated frozen v023 strictly as validation evidence. At +/-0.05 m,
+  boundary precision/recall/F1 were 0.0115/0.0192/0.0144, interval F1 was 0,
+  and CNER was 0.9885. The frozen selective point accepted 49 boundaries at
+  precision 0.0204 and CNER 0.9796. Thus corrected page localization does not
+  explain the external transport failure.
+- Failure attribution is structural: `2015092` detected a layout but generated
+  zero candidates; `1983444` generated 2,021 candidates and retained 1,847
+  after column gating, producing 87 boundaries from a long scaled log;
+  `1944782` failed layout detection and generated zero candidates despite an
+  explicit thickness/depth table.
+- The validation artifact SHA256 is
+  `9bed480b911b2a4e3cd12870c7527a29c025b033fd204b2287696cac9eba0bab`.
+  These records may inform v024 development but can no longer provide external
+  confirmation. BGS v003 remains frozen and unopened.
