@@ -2633,6 +2633,21 @@
         {"type": "json_pointer_equals", "pointer": "/routed/boundary/critical_numerical_error_rate", "expected": 0.38}
       ]
     },
+    "p2.bgs_safe_sequence_gate_no_go": {
+      "paper": "paper2",
+      "scope": "nested source-disjoint BGS v001 safe-sequence risk gate; negative development evidence only, not external confirmation",
+      "source_path": "experiments/paper2/analysis/bgs_routed_moe_risk_acceptance_v029_safe.json",
+      "source_sha256": "2b78f36dd198817f38c0f5f1fdca47852209a757a7df369ca02d8873b1af60d9",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 26},
+        {"type": "json_pointer_equals", "pointer": "/threshold", "expected": 0.9687163549496113},
+        {"type": "json_pointer_equals", "pointer": "/accepted_document_count", "expected": 1},
+        {"type": "json_pointer_equals", "pointer": "/coverage", "expected": 0.038461538461538464},
+        {"type": "json_pointer_equals", "pointer": "/accepted_document_safety", "expected": 1.0},
+        {"type": "json_pointer_equals", "pointer": "/selective/boundary/f1", "expected": 0.005434782608695652},
+        {"type": "json_pointer_equals", "pointer": "/selective/interval/f1", "expected": 0.0}
+      ]
+    },
     "p1.california_vlm_gold": {
       "paper": "paper1",
       "experiment_id": "P1_B4_QWEN3VL4B_CALIFORNIA_TEST_FORMAL_001R",

@@ -2676,3 +2676,18 @@
   so this is validation evidence rather than untouched external confirmation.
   Decision: retain the router as a promising risk-aware acceptance branch;
   do not promote it to the BGS primary method or open BGS v003.
+
+## 2026-08-16 — BGS safe-sequence risk gate no-go
+
+- Repaired and ran the nested source-disjoint BGS v028 risk-acceptance script
+  with a safety label that permits incomplete recall but rejects every emitted
+  boundary not supported by the reference sequence within 0.05 m.
+- The development-fitted threshold was `0.968716`. It accepted only 1/26
+  documents (`3.85%` coverage) with observed document safety `1.0000`.
+- Selective boundary F1 was `0.0054` and selective interval F1 was `0.0000`;
+  the single accepted document emitted one supported boundary while omitting
+  the rest. Unfiltered v028 remained boundary/interval F1 `0.3475/0.1978`.
+- Decision: `NO_GO`. The gate is retained as a negative risk/coverage
+  diagnostic and is not promoted. It cannot solve the structural recall
+  bottleneck, and no further BGS threshold complexity will be added. BGS v003
+  remains frozen and unopened.

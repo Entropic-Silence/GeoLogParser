@@ -16,7 +16,7 @@
     "zhong2019publaynet"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "d5ee30deef240562334cab5e635c648f585d4d04564c700cbffa3c3b822fde1c",
+  "claim_registry_sha256": "d9f3a553508b0cfb87fa64acbe846b7baa739809cb594576de7e971683b94461",
   "claim_source_errors": [],
   "evidence_tags": [
     "p1.b2_padova",

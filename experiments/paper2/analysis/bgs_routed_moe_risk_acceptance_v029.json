@@ -1,0 +1,391 @@
+{
+  "accepted_document_count": 0,
+  "accepted_document_error_rate": null,
+  "accepted_document_exactness": null,
+  "baseline": {
+    "boundary": {
+      "critical_numerical_error_rate": 0.328125,
+      "f1": 0.34747474747474744,
+      "false_negative": 281,
+      "false_positive": 42,
+      "matched_boundary_mae_m": 0.0016627906976744266,
+      "precision": 0.671875,
+      "recall": 0.23433242506811988,
+      "true_positive": 86
+    },
+    "interval": {
+      "f1": 0.19775280898876405,
+      "false_negative": 297,
+      "false_positive": 60,
+      "precision": 0.4230769230769231,
+      "recall": 0.12903225806451613,
+      "true_positive": 44
+    }
+  },
+  "coverage": 0.0,
+  "document_count": 26,
+  "experiment_id": "P2_BGS_ROUTED_MOE_RISK_ACCEPTANCE_V029",
+  "feature_names": [
+    "intercept",
+    "route_semantic",
+    "route_baseline",
+    "route_abstain",
+    "family_scaled",
+    "family_graphical",
+    "family_explicit",
+    "page_count",
+    "candidate_count_log",
+    "candidate_count_per_page",
+    "role_selected_count",
+    "prediction_count",
+    "starts_at_zero",
+    "strict_monotonic",
+    "contiguous",
+    "positive_sequence",
+    "maximum_depth_log"
+  ],
+  "fold_artifacts": [
+    "experiments/paper2/analysis/bgs_routed_moe_v028_nested_development.json",
+    "experiments/paper2/analysis/bgs_routed_moe_v028_nested_fold1.json",
+    "experiments/paper2/analysis/bgs_routed_moe_v028_nested_fold2.json",
+    "experiments/paper2/analysis/bgs_routed_moe_v028_nested_fold3.json",
+    "experiments/paper2/analysis/bgs_routed_moe_v028_nested_fold4.json"
+  ],
+  "fold_policy": "sha256(record_id) modulo 5; target-fold gate fit excludes target labels",
+  "fold_reports": [
+    {
+      "accepted_test_count": 0,
+      "fold": 0,
+      "test_count": 6,
+      "test_exact_count": 0,
+      "threshold": 1.0,
+      "train_count": 20
+    },
+    {
+      "accepted_test_count": 0,
+      "fold": 1,
+      "test_count": 3,
+      "test_exact_count": 0,
+      "threshold": 1.0,
+      "train_count": 23
+    },
+    {
+      "accepted_test_count": 0,
+      "fold": 2,
+      "test_count": 5,
+      "test_exact_count": 0,
+      "threshold": 1.0,
+      "train_count": 21
+    },
+    {
+      "accepted_test_count": 0,
+      "fold": 3,
+      "test_count": 5,
+      "test_exact_count": 0,
+      "threshold": 1.0,
+      "train_count": 21
+    },
+    {
+      "accepted_test_count": 0,
+      "fold": 4,
+      "test_count": 7,
+      "test_exact_count": 1,
+      "threshold": 1.0,
+      "train_count": 19
+    }
+  ],
+  "limitations": [
+    "This is BGS v001 nested development evidence over reused v024/v025 artifacts, not untouched external confirmation.",
+    "The gate changes acceptance only and cannot recover omitted boundaries.",
+    "BGS v003 was not opened."
+  ],
+  "manifest": "datasets/manifests/bgs_offshore_gold_v001.jsonl",
+  "method_version": "bgs_routed_moe_risk_acceptance_v029",
+  "probabilities": [
+    {
+      "accepted": false,
+      "label": false,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "probability": 0.0,
+      "record_id": "BGS_OFFSHORE_2016306",
+      "route": "v024_baseline_expert"
+    },
+    {
+      "accepted": false,
+      "label": true,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "probability": 0.0,
+      "record_id": "BGS_OFFSHORE_2041581",
+      "route": "v024_baseline_expert"
+    },
+    {
+      "accepted": false,
+      "label": false,
+      "page_families": [
+        "scaled_composite_log"
+      ],
+      "probability": 0.023383075659791717,
+      "record_id": "BGS_OFFSHORE_1963694",
+      "route": "semantic_role_expert"
+    },
+    {
+      "accepted": false,
+      "label": false,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "probability": 0.05736423618975627,
+      "record_id": "BGS_OFFSHORE_1960609",
+      "route": "v024_baseline_expert"
+    },
+    {
+      "accepted": false,
+      "label": false,
+      "page_families": [
+        "scaled_composite_log"
+      ],
+      "probability": 0.03202247194659607,
+      "record_id": "BGS_OFFSHORE_1969862",
+      "route": "v024_baseline_expert"
+    },
+    {
+      "accepted": false,
+      "label": false,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "probability": 0.10048015706004731,
+      "record_id": "BGS_OFFSHORE_1957995",
+      "route": "v024_baseline_expert"
+    },
+    {
+      "accepted": false,
+      "label": false,
+      "page_families": [
+        "scaled_composite_log"
+      ],
+      "probability": 0.0,
+      "record_id": "BGS_OFFSHORE_1960630",
+      "route": "semantic_role_expert"
+    },
+    {
+      "accepted": false,
+      "label": false,
+      "page_families": [
+        "graphical_contact_log",
+        "scaled_composite_log"
+      ],
+      "probability": 0.053417045233030605,
+      "record_id": "BGS_OFFSHORE_2023411",
+      "route": "v024_baseline_expert"
+    },
+    {
+      "accepted": false,
+      "label": false,
+      "page_families": [
+        "scaled_composite_log"
+      ],
+      "probability": 0.023773601737421362,
+      "record_id": "BGS_OFFSHORE_2030012",
+      "route": "semantic_role_expert"
+    },
+    {
+      "accepted": false,
+      "label": false,
+      "page_families": [
+        "scaled_composite_log"
+      ],
+      "probability": 0.0,
+      "record_id": "BGS_OFFSHORE_1980976",
+      "route": "v024_baseline_expert"
+    },
+    {
+      "accepted": false,
+      "label": false,
+      "page_families": [
+        "graphical_contact_log",
+        "scaled_composite_log"
+      ],
+      "probability": 0.02586573215628628,
+      "record_id": "BGS_OFFSHORE_1984462",
+      "route": "v024_baseline_expert"
+    },
+    {
+      "accepted": false,
+      "label": false,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "probability": 0.058532105763224575,
+      "record_id": "BGS_OFFSHORE_1945465",
+      "route": "v024_baseline_expert"
+    },
+    {
+      "accepted": false,
+      "label": false,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "probability": 0.022147176246359406,
+      "record_id": "BGS_OFFSHORE_2009141",
+      "route": "v024_baseline_expert"
+    },
+    {
+      "accepted": false,
+      "label": false,
+      "page_families": [
+        "scaled_composite_log"
+      ],
+      "probability": 0.013679366877783344,
+      "record_id": "BGS_OFFSHORE_2024185",
+      "route": "semantic_role_expert"
+    },
+    {
+      "accepted": false,
+      "label": false,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "probability": 0.031694731557465994,
+      "record_id": "BGS_OFFSHORE_1951404",
+      "route": "v024_baseline_expert"
+    },
+    {
+      "accepted": false,
+      "label": false,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "probability": 0.0,
+      "record_id": "BGS_OFFSHORE_1943902",
+      "route": "v024_baseline_expert"
+    },
+    {
+      "accepted": false,
+      "label": false,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "probability": 0.0684438281970344,
+      "record_id": "BGS_OFFSHORE_1993525",
+      "route": "v024_baseline_expert"
+    },
+    {
+      "accepted": false,
+      "label": false,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "probability": 0.018131322657639247,
+      "record_id": "BGS_OFFSHORE_2007749",
+      "route": "v024_baseline_expert"
+    },
+    {
+      "accepted": false,
+      "label": false,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "probability": 0.07402165393046671,
+      "record_id": "BGS_OFFSHORE_1987224",
+      "route": "v024_baseline_expert"
+    },
+    {
+      "accepted": false,
+      "label": false,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "probability": 0.0,
+      "record_id": "BGS_OFFSHORE_1944312",
+      "route": "v024_baseline_expert"
+    },
+    {
+      "accepted": false,
+      "label": false,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "probability": 0.07968027234568698,
+      "record_id": "BGS_OFFSHORE_1944320",
+      "route": "v024_baseline_expert"
+    },
+    {
+      "accepted": false,
+      "label": false,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "probability": 0.08663231217186032,
+      "record_id": "BGS_OFFSHORE_1989175",
+      "route": "v024_baseline_expert"
+    },
+    {
+      "accepted": false,
+      "label": false,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "probability": 0.10541746734752398,
+      "record_id": "BGS_OFFSHORE_1960100",
+      "route": "v024_baseline_expert"
+    },
+    {
+      "accepted": false,
+      "label": false,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "probability": 0.08880532410018602,
+      "record_id": "BGS_OFFSHORE_1944322",
+      "route": "v024_baseline_expert"
+    },
+    {
+      "accepted": false,
+      "label": false,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "probability": 0.0,
+      "record_id": "BGS_OFFSHORE_1949665",
+      "route": "v024_baseline_expert"
+    },
+    {
+      "accepted": false,
+      "label": false,
+      "page_families": [
+        "unsupported"
+      ],
+      "probability": 0.014099260939077473,
+      "record_id": "BGS_OFFSHORE_1942278",
+      "route": "abstain_unsupported_family"
+    }
+  ],
+  "reference_blinding": "v028 target-fold predictions were fixed before references were used; gate fitting excludes each target fold",
+  "selective": {
+    "boundary": {
+      "critical_numerical_error_rate": null,
+      "f1": 0.0,
+      "false_negative": 367,
+      "false_positive": 0,
+      "matched_boundary_mae_m": null,
+      "precision": 0.0,
+      "recall": 0.0,
+      "true_positive": 0
+    },
+    "interval": {
+      "f1": 0.0,
+      "false_negative": 341,
+      "false_positive": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "true_positive": 0
+    }
+  },
+  "status": "completed_nested_source_disjoint_risk_acceptance",
+  "threshold": 1.0
+}
