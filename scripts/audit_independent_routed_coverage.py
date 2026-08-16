@@ -92,6 +92,18 @@ def main() -> None:
             "routed_boundary_count": len(routed[record_id]),
             "evidence": sorted(set(evidence)),
         })
+    supported_pages = sum(count for family, count in family_counts.items() if family != "unsupported")
+    total_pages = sum(family_counts.values())
+    if supported_pages:
+        interpretation = (
+            "The multilingual family aliases restored selective page support, but the routed values are unchanged baseline-expert predictions on the recognized subset. "
+            "This is evidence for family-gating coverage and abstention, not a new extraction-expert gain or an overall F1 improvement."
+        )
+    else:
+        interpretation = (
+            "No expert gain can be claimed on this source because the BGS family detector classified every page as unsupported; "
+            "the routed result is a coverage/no-go audit, not a tuned source-specific method result."
+        )
     report = {
         "experiment_id": args.experiment_id,
         "status": "completed_independent_source_coverage_audit",
@@ -114,10 +126,10 @@ def main() -> None:
         "coverage": {
             "baseline_documents_with_predictions": sum(bool(values) for values in baseline.values()),
             "routed_documents_with_predictions": sum(bool(values) for values in routed.values()),
-            "routed_page_family_support_rate": sum(family != "unsupported" for family in family_counts for _ in range(family_counts[family])) / max(1, sum(family_counts.values())),
+            "routed_page_family_support_rate": supported_pages / max(1, total_pages),
         },
         "diagnostics": diagnostics,
-        "interpretation": "No expert gain can be claimed on this source because the frozen BGS family detector classified every page as unsupported; the routed result is a coverage/no-go audit, not a tuned Swissgeol method result.",
+        "interpretation": interpretation,
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")

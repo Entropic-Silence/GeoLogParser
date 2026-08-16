@@ -2511,6 +2511,30 @@
         {"type": "json_pointer_equals", "pointer": "/candidate_calibration/nested_platt_oof/expected_calibration_error", "expected": 0.03519585411327044}
       ]
     },
+    "p2.bgs_semantic_column_role": {
+      "paper": "paper2",
+      "scope": "development-only BGS v001 OCR-header semantic column-role diagnostic; not external confirmation",
+      "source_path": "experiments/paper2/analysis/bgs_layout_method_development_v025_role_multi.json",
+      "source_sha256": "c29f4013d317da6f0616c6af192fcd8b793ae1e1127fec0331ac2058b0ce4930",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 26},
+        {"type": "json_pointer_equals", "pointer": "/reference_boundary_count", "expected": 367},
+        {"type": "json_pointer_equals", "pointer": "/ablations/geological_monotonic_sequence/boundary_at_0_05m/f1", "expected": 0.32653061224489793},
+        {"type": "json_pointer_equals", "pointer": "/ablations/geological_monotonic_sequence/interval_at_0_05m/f1", "expected": 0.14578587699316628}
+      ]
+    },
+    "p2.nativemm_go_no_go": {
+      "paper": "paper2",
+      "scope": "PaperII-NativeMM development go/no-go decision preserving all frozen external sources",
+      "source_path": "experiments/paper2/nativemm/P2_NATIVEMM_NO_GO_V001.json",
+      "source_sha256": "cf2acdf35b399243e71c32535c553612cd078624d2d28293ab23bf62f2600a4a",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/decision", "expected": "NO_GO"},
+        {"type": "json_pointer_equals", "pointer": "/external_freeze_spent", "expected": false},
+        {"type": "json_pointer_equals", "pointer": "/corrected_dense_dataset/sample_count", "expected": 269},
+        {"type": "json_pointer_equals", "pointer": "/corrected_dense_dataset/bgs_boundary_count", "expected": 228}
+      ]
+    },
     "p2.bgs_routed_moe_v027": {
       "paper": "paper2",
       "scope": "development-only fixed page-family routing of v024 and semantic-role experts on BGS v001; not external confirmation",
@@ -2553,6 +2577,32 @@
         {"type": "json_pointer_equals", "pointer": "/coverage/routed_page_family_support_rate", "expected": 0.0},
         {"type": "json_pointer_equals", "pointer": "/baseline/interval/f1", "expected": 0.5714285714285715},
         {"type": "json_pointer_equals", "pointer": "/routed/interval/f1", "expected": 0.0}
+      ]
+    },
+    "p2.swissgeol_routed_moe_alias_dev": {
+      "paper": "paper2",
+      "scope": "Swissgeol development-only multilingual page-family alias audit; recognized pages use the existing baseline expert and no new extraction model",
+      "source_path": "experiments/paper2/analysis/swissgeol_routed_moe_independent_coverage_audit_v002.json",
+      "source_sha256": "e0bbeb7b9f74cf3d5102069fa0417d97d161b99a826db20482379532f662928c",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 37},
+        {"type": "json_pointer_equals", "pointer": "/family_counts/scaled_composite_log", "expected": 8},
+        {"type": "json_pointer_equals", "pointer": "/coverage/routed_page_family_support_rate", "expected": 0.21052631578947367},
+        {"type": "json_pointer_equals", "pointer": "/routed/interval/precision", "expected": 1.0},
+        {"type": "json_pointer_equals", "pointer": "/routed/interval/f1", "expected": 0.38095238095238093}
+      ]
+    },
+    "p2.swissgeol_routed_moe_content_heldout": {
+      "paper": "paper2",
+      "scope": "content-group-held-out Swissgeol evaluation of multilingual family aliases; existing baseline expert on recognized pages, abstention elsewhere",
+      "source_path": "experiments/paper2/analysis/swissgeol_routed_moe_content_heldout_v001.json",
+      "source_sha256": "e2cbe548fae9795df12f02d57c43178cf6cdd2607850d679aa5728e6bfd30873",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 35},
+        {"type": "json_pointer_equals", "pointer": "/family_counts/scaled_composite_log", "expected": 7},
+        {"type": "json_pointer_equals", "pointer": "/coverage/routed_page_family_support_rate", "expected": 0.2},
+        {"type": "json_pointer_equals", "pointer": "/routed/interval/precision", "expected": 1.0},
+        {"type": "json_pointer_equals", "pointer": "/routed/interval/f1", "expected": 0.36734693877551017}
       ]
     },
     "p1.california_vlm_gold": {

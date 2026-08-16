@@ -1,0 +1,526 @@
+{
+  "baseline": {
+    "boundary": {
+      "critical_numerical_error_rate": 0.31932773109243695,
+      "f1": 0.6923076923076923,
+      "false_negative": 34,
+      "false_positive": 38,
+      "matched_boundary_mae_m": 0.0,
+      "precision": 0.680672268907563,
+      "recall": 0.7043478260869566,
+      "true_positive": 81
+    },
+    "interval": {
+      "f1": 0.5853658536585366,
+      "false_negative": 32,
+      "false_positive": 36,
+      "precision": 0.5714285714285714,
+      "recall": 0.6,
+      "true_positive": 48
+    }
+  },
+  "baseline_predictions": "results/2026-08-14/P1_SWISSGEOL_TG_CONTENT_HELDOUT_RAPIDOCR_FORMAL_005/predictions.jsonl",
+  "coverage": {
+    "baseline_documents_with_predictions": 35,
+    "routed_documents_with_predictions": 7,
+    "routed_page_family_support_rate": 0.2
+  },
+  "diagnostics": [
+    {
+      "baseline_boundary_count": 2,
+      "evidence": [
+        "header:beschreibung_bohrgut",
+        "header:tiefe_bis"
+      ],
+      "page_families": [
+        "unsupported"
+      ],
+      "record_id": "SWISSGEOL_TG_55237",
+      "route": "abstain_unsupported_family",
+      "routed_boundary_count": 0
+    },
+    {
+      "baseline_boundary_count": 6,
+      "evidence": [
+        "header:beschreibung_bohrgut",
+        "header:tiefe_bis"
+      ],
+      "page_families": [
+        "unsupported"
+      ],
+      "record_id": "SWISSGEOL_TG_55243",
+      "route": "abstain_unsupported_family",
+      "routed_boundary_count": 0
+    },
+    {
+      "baseline_boundary_count": 2,
+      "evidence": [
+        "header:beschreibung_bohrgut",
+        "header:tiefe_bis"
+      ],
+      "page_families": [
+        "unsupported"
+      ],
+      "record_id": "SWISSGEOL_TG_55250",
+      "route": "abstain_unsupported_family",
+      "routed_boundary_count": 0
+    },
+    {
+      "baseline_boundary_count": 3,
+      "evidence": [
+        "header:beschreibung_bohrgut",
+        "header:schichtenverzeichnis",
+        "header:tiefe_bis"
+      ],
+      "page_families": [
+        "scaled_composite_log"
+      ],
+      "record_id": "SWISSGEOL_TG_55398",
+      "route": "v024_baseline_expert",
+      "routed_boundary_count": 3
+    },
+    {
+      "baseline_boundary_count": 5,
+      "evidence": [
+        "header:beschreibung_bohrgut",
+        "header:tiefe_bis"
+      ],
+      "page_families": [
+        "unsupported"
+      ],
+      "record_id": "SWISSGEOL_TG_55422",
+      "route": "abstain_unsupported_family",
+      "routed_boundary_count": 0
+    },
+    {
+      "baseline_boundary_count": 4,
+      "evidence": [
+        "header:beschreibung_bohrgut",
+        "header:schichtenverzeichnis",
+        "header:tiefe_bis"
+      ],
+      "page_families": [
+        "scaled_composite_log"
+      ],
+      "record_id": "SWISSGEOL_TG_55427",
+      "route": "v024_baseline_expert",
+      "routed_boundary_count": 4
+    },
+    {
+      "baseline_boundary_count": 4,
+      "evidence": [
+        "header:beschreibung_bohrgut",
+        "header:schichtenverzeichnis",
+        "header:tiefe_bis"
+      ],
+      "page_families": [
+        "scaled_composite_log"
+      ],
+      "record_id": "SWISSGEOL_TG_55430",
+      "route": "v024_baseline_expert",
+      "routed_boundary_count": 4
+    },
+    {
+      "baseline_boundary_count": 3,
+      "evidence": [
+        "header:beschreibung_bohrgut",
+        "header:schichtenverzeichnis",
+        "header:tiefe_bis"
+      ],
+      "page_families": [
+        "scaled_composite_log"
+      ],
+      "record_id": "SWISSGEOL_TG_55431",
+      "route": "v024_baseline_expert",
+      "routed_boundary_count": 3
+    },
+    {
+      "baseline_boundary_count": 3,
+      "evidence": [
+        "header:beschreibung_bohrgut",
+        "header:schichtenverzeichnis",
+        "header:tiefe_bis"
+      ],
+      "page_families": [
+        "scaled_composite_log"
+      ],
+      "record_id": "SWISSGEOL_TG_55485",
+      "route": "v024_baseline_expert",
+      "routed_boundary_count": 3
+    },
+    {
+      "baseline_boundary_count": 5,
+      "evidence": [
+        "header:beschreibung_bohrgut",
+        "header:schichtenverzeichnis",
+        "header:tiefe_bis"
+      ],
+      "page_families": [
+        "scaled_composite_log"
+      ],
+      "record_id": "SWISSGEOL_TG_55488",
+      "route": "v024_baseline_expert",
+      "routed_boundary_count": 5
+    },
+    {
+      "baseline_boundary_count": 2,
+      "evidence": [
+        "header:beschreibung_bohrgut",
+        "header:tiefe_bis"
+      ],
+      "page_families": [
+        "unsupported"
+      ],
+      "record_id": "SWISSGEOL_TG_55491",
+      "route": "abstain_unsupported_family",
+      "routed_boundary_count": 0
+    },
+    {
+      "baseline_boundary_count": 2,
+      "evidence": [
+        "header:beschreibung_bohrgut",
+        "header:tiefe_bis"
+      ],
+      "page_families": [
+        "unsupported"
+      ],
+      "record_id": "SWISSGEOL_TG_55766",
+      "route": "abstain_unsupported_family",
+      "routed_boundary_count": 0
+    },
+    {
+      "baseline_boundary_count": 3,
+      "evidence": [
+        "header:beschreibung_bohrgut",
+        "header:tiefe_bis"
+      ],
+      "page_families": [
+        "unsupported"
+      ],
+      "record_id": "SWISSGEOL_TG_55799",
+      "route": "abstain_unsupported_family",
+      "routed_boundary_count": 0
+    },
+    {
+      "baseline_boundary_count": 3,
+      "evidence": [
+        "header:beschreibung_bohrgut",
+        "header:tiefe_bis"
+      ],
+      "page_families": [
+        "unsupported"
+      ],
+      "record_id": "SWISSGEOL_TG_55801",
+      "route": "abstain_unsupported_family",
+      "routed_boundary_count": 0
+    },
+    {
+      "baseline_boundary_count": 3,
+      "evidence": [
+        "header:beschreibung_bohrgut",
+        "header:tiefe_bis"
+      ],
+      "page_families": [
+        "unsupported"
+      ],
+      "record_id": "SWISSGEOL_TG_55803",
+      "route": "abstain_unsupported_family",
+      "routed_boundary_count": 0
+    },
+    {
+      "baseline_boundary_count": 3,
+      "evidence": [
+        "header:beschreibung_bohrgut",
+        "header:tiefe_bis"
+      ],
+      "page_families": [
+        "unsupported"
+      ],
+      "record_id": "SWISSGEOL_TG_55809",
+      "route": "abstain_unsupported_family",
+      "routed_boundary_count": 0
+    },
+    {
+      "baseline_boundary_count": 5,
+      "evidence": [
+        "header:tiefe_bis"
+      ],
+      "page_families": [
+        "unsupported"
+      ],
+      "record_id": "SWISSGEOL_TG_55810",
+      "route": "abstain_unsupported_family",
+      "routed_boundary_count": 0
+    },
+    {
+      "baseline_boundary_count": 3,
+      "evidence": [
+        "header:beschreibung_bohrgut",
+        "header:tiefe_bis"
+      ],
+      "page_families": [
+        "unsupported"
+      ],
+      "record_id": "SWISSGEOL_TG_55812",
+      "route": "abstain_unsupported_family",
+      "routed_boundary_count": 0
+    },
+    {
+      "baseline_boundary_count": 3,
+      "evidence": [
+        "header:beschreibung_bohrgut",
+        "header:schichtenverzeichnis",
+        "header:tiefe_bis"
+      ],
+      "page_families": [
+        "scaled_composite_log"
+      ],
+      "record_id": "SWISSGEOL_TG_55816",
+      "route": "v024_baseline_expert",
+      "routed_boundary_count": 3
+    },
+    {
+      "baseline_boundary_count": 3,
+      "evidence": [
+        "header:beschreibung_bohrgut",
+        "header:tiefe_bis"
+      ],
+      "page_families": [
+        "unsupported"
+      ],
+      "record_id": "SWISSGEOL_TG_55819",
+      "route": "abstain_unsupported_family",
+      "routed_boundary_count": 0
+    },
+    {
+      "baseline_boundary_count": 3,
+      "evidence": [
+        "header:beschreibung_bohrgut",
+        "header:tiefe_bis"
+      ],
+      "page_families": [
+        "unsupported"
+      ],
+      "record_id": "SWISSGEOL_TG_55821",
+      "route": "abstain_unsupported_family",
+      "routed_boundary_count": 0
+    },
+    {
+      "baseline_boundary_count": 3,
+      "evidence": [
+        "header:beschreibung_bohrgut",
+        "header:tiefe_bis"
+      ],
+      "page_families": [
+        "unsupported"
+      ],
+      "record_id": "SWISSGEOL_TG_55852",
+      "route": "abstain_unsupported_family",
+      "routed_boundary_count": 0
+    },
+    {
+      "baseline_boundary_count": 3,
+      "evidence": [
+        "header:beschreibung_bohrgut",
+        "header:tiefe_bis"
+      ],
+      "page_families": [
+        "unsupported"
+      ],
+      "record_id": "SWISSGEOL_TG_55874",
+      "route": "abstain_unsupported_family",
+      "routed_boundary_count": 0
+    },
+    {
+      "baseline_boundary_count": 3,
+      "evidence": [
+        "header:beschreibung_bohrgut",
+        "header:tiefe_bis"
+      ],
+      "page_families": [
+        "unsupported"
+      ],
+      "record_id": "SWISSGEOL_TG_55876",
+      "route": "abstain_unsupported_family",
+      "routed_boundary_count": 0
+    },
+    {
+      "baseline_boundary_count": 5,
+      "evidence": [
+        "header:beschreibung_bohrgut",
+        "header:tiefe_bis"
+      ],
+      "page_families": [
+        "unsupported"
+      ],
+      "record_id": "SWISSGEOL_TG_55882",
+      "route": "abstain_unsupported_family",
+      "routed_boundary_count": 0
+    },
+    {
+      "baseline_boundary_count": 5,
+      "evidence": [
+        "header:beschreibung_bohrgut",
+        "header:tiefe_bis"
+      ],
+      "page_families": [
+        "unsupported"
+      ],
+      "record_id": "SWISSGEOL_TG_55888",
+      "route": "abstain_unsupported_family",
+      "routed_boundary_count": 0
+    },
+    {
+      "baseline_boundary_count": 3,
+      "evidence": [
+        "header:beschreibung_bohrgut",
+        "header:tiefe_bis"
+      ],
+      "page_families": [
+        "unsupported"
+      ],
+      "record_id": "SWISSGEOL_TG_55889",
+      "route": "abstain_unsupported_family",
+      "routed_boundary_count": 0
+    },
+    {
+      "baseline_boundary_count": 2,
+      "evidence": [
+        "header:beschreibung_bohrgut",
+        "header:tiefe_bis"
+      ],
+      "page_families": [
+        "unsupported"
+      ],
+      "record_id": "SWISSGEOL_TG_55890",
+      "route": "abstain_unsupported_family",
+      "routed_boundary_count": 0
+    },
+    {
+      "baseline_boundary_count": 3,
+      "evidence": [
+        "header:beschreibung_bohrgut",
+        "header:tiefe_bis"
+      ],
+      "page_families": [
+        "unsupported"
+      ],
+      "record_id": "SWISSGEOL_TG_55891",
+      "route": "abstain_unsupported_family",
+      "routed_boundary_count": 0
+    },
+    {
+      "baseline_boundary_count": 3,
+      "evidence": [
+        "header:beschreibung_bohrgut",
+        "header:tiefe_bis"
+      ],
+      "page_families": [
+        "unsupported"
+      ],
+      "record_id": "SWISSGEOL_TG_55892",
+      "route": "abstain_unsupported_family",
+      "routed_boundary_count": 0
+    },
+    {
+      "baseline_boundary_count": 3,
+      "evidence": [
+        "header:beschreibung_bohrgut",
+        "header:tiefe_bis"
+      ],
+      "page_families": [
+        "unsupported"
+      ],
+      "record_id": "SWISSGEOL_TG_55894",
+      "route": "abstain_unsupported_family",
+      "routed_boundary_count": 0
+    },
+    {
+      "baseline_boundary_count": 2,
+      "evidence": [
+        "header:beschreibung_bohrgut",
+        "header:tiefe_bis"
+      ],
+      "page_families": [
+        "unsupported"
+      ],
+      "record_id": "SWISSGEOL_TG_55897",
+      "route": "abstain_unsupported_family",
+      "routed_boundary_count": 0
+    },
+    {
+      "baseline_boundary_count": 7,
+      "evidence": [
+        "header:beschreibung_bohrgut",
+        "header:tiefe_bis"
+      ],
+      "page_families": [
+        "unsupported"
+      ],
+      "record_id": "SWISSGEOL_TG_55901",
+      "route": "abstain_unsupported_family",
+      "routed_boundary_count": 0
+    },
+    {
+      "baseline_boundary_count": 3,
+      "evidence": [
+        "header:beschreibung_bohrgut",
+        "header:tiefe_bis"
+      ],
+      "page_families": [
+        "unsupported"
+      ],
+      "record_id": "SWISSGEOL_TG_56076",
+      "route": "abstain_unsupported_family",
+      "routed_boundary_count": 0
+    },
+    {
+      "baseline_boundary_count": 4,
+      "evidence": [
+        "header:beschreibung_bohrgut"
+      ],
+      "page_families": [
+        "unsupported"
+      ],
+      "record_id": "SWISSGEOL_TG_56084",
+      "route": "abstain_unsupported_family",
+      "routed_boundary_count": 0
+    }
+  ],
+  "document_count": 35,
+  "experiment_id": "P2_SWISSGEOL_ROUTED_MOE_CONTENT_HELDOUT_001",
+  "family_counts": {
+    "scaled_composite_log": 7,
+    "unsupported": 28
+  },
+  "interpretation": "The multilingual family aliases restored selective page support, but the routed values are unchanged baseline-expert predictions on the recognized subset. This is evidence for family-gating coverage and abstention, not a new extraction-expert gain or an overall F1 improvement.",
+  "manifest": "datasets/manifests/swissgeol_tg_v003_layout_heldout_v001.jsonl",
+  "page_count": 35,
+  "route_counts": {
+    "abstain_unsupported_family": 28,
+    "v024_baseline_expert": 7
+  },
+  "routed": {
+    "boundary": {
+      "critical_numerical_error_rate": 0.0,
+      "f1": 0.3571428571428571,
+      "false_negative": 90,
+      "false_positive": 0,
+      "matched_boundary_mae_m": 0.0,
+      "precision": 1.0,
+      "recall": 0.21739130434782608,
+      "true_positive": 25
+    },
+    "interval": {
+      "f1": 0.36734693877551017,
+      "false_negative": 62,
+      "false_positive": 0,
+      "precision": 1.0,
+      "recall": 0.225,
+      "true_positive": 18
+    }
+  },
+  "source_run": "/data/GeoLogParser/runs/P2_SWISSGEOL_TG_LAYOUT_OCR_HELDOUT_001",
+  "source_scope": "Swissgeol Thurgau v003 development, independent of BGS v001/v002/v003",
+  "status": "completed_independent_source_coverage_audit"
+}

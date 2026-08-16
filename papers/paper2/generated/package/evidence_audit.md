@@ -2,23 +2,22 @@
 # paper2 evidence audit
 
 Package: **DRAFT_NOT_SUBMISSION_READY**
-Manuscript words: **5337**; unresolved markers: **3**.
+Manuscript words: **5471**; unresolved markers: **3**.
 Indexed runs: **18**; formal runs: **13**.
-Structural audit: **FAILED**.
+Structural audit: **PASSED**.
 
 ## Blockers
 
-- manuscript evidence tags are absent from claim registry
 - unresolved TBD/citation markers remain
 
 ## Trace
 
-- Manuscript SHA256: `f7f0309e8b0599d0ee2d1ab91012e27e4e804b218283c1176713312e629ab77d`
+- Manuscript SHA256: `106d79916b033e4cab0bb501ec7d386b19fb30cab3b8b8a17a9fbd63dc3adfab`
 - Result-index SHA256: `d84edf41a4d81b3fe135574c36bd5ef2c439c6ee9f741ed2ac172df0aa395b6d`
 - Citation keys: brier1950verification, geng2023grammar, guo2017calibration, han2024boreholeocr, mccormick2023lithology, xu2020layoutlm, xu2021layoutlmv2
 - Missing literature-evidence keys: none
 - Literature-evidence errors: none
 - Broken local links: none
 - Missing required sections: none
-- Evidence tags: p2.bgs_layout_method_dev, p2.bgs_long_page_layout, p2.bgs_metadata_consensus, p2.bgs_routed_moe_v027, p2.bgs_routed_moe_v028_nested, p2.bgs_semantic_column_role, p2.california_constraint_sequence, p2.california_external_constraint_sequence, p2.california_external_error_analysis, p2.california_prospective_constraint_sequence, p2.california_prospective_selective, p2.california_replication_statistics, p2.california_v004_candidate_risk, p2.california_v004_candidate_risk_analysis, p2.california_v005_candidate_risk, p2.california_v005_constraint, p2.cross_source_constraint_detectability, p2.executed_synthetic_ablation, p2.nativemm_go_no_go, p2.roi_reread_audit, p2.selective_confidence_secondary, p2.swissgeol_heldout_constraint_reread, p2.swissgeol_routed_moe_independent_coverage, p2.swissgeol_v2_external_negative, p2.swissgeol_v2_heldout_constraint_reread, p2.swissgeol_v2_secondary_ablation
+- Evidence tags: p2.bgs_layout_method_dev, p2.bgs_long_page_layout, p2.bgs_metadata_consensus, p2.bgs_routed_moe_v027, p2.bgs_routed_moe_v028_nested, p2.bgs_semantic_column_role, p2.california_constraint_sequence, p2.california_external_constraint_sequence, p2.california_external_error_analysis, p2.california_prospective_constraint_sequence, p2.california_prospective_selective, p2.california_replication_statistics, p2.california_v004_candidate_risk, p2.california_v004_candidate_risk_analysis, p2.california_v005_candidate_risk, p2.california_v005_constraint, p2.cross_source_constraint_detectability, p2.executed_synthetic_ablation, p2.nativemm_go_no_go, p2.roi_reread_audit, p2.selective_confidence_secondary, p2.swissgeol_heldout_constraint_reread, p2.swissgeol_routed_moe_alias_dev, p2.swissgeol_routed_moe_content_heldout, p2.swissgeol_routed_moe_independent_coverage, p2.swissgeol_v2_external_negative, p2.swissgeol_v2_heldout_constraint_reread, p2.swissgeol_v2_secondary_ablation
 - Claim-source errors: none

@@ -21,6 +21,14 @@ def test_page_family_routes_scaled_composite_log():
     assert assessment.family == "scaled_composite_log"
 
 
+def test_page_family_routes_german_stratigraphic_table():
+    assessment = classify_borehole_page(
+        rows("Tiefe", "bis", "Beschreibung des Bohrguts", "Schichtenverzeichnis"),
+        width=1000, height=1600,
+    )
+    assert assessment.family == "scaled_composite_log"
+
+
 def test_page_family_abstains_without_structural_semantics():
     assessment = classify_borehole_page(rows("Borehole", "Date", "Contractor"), width=1000, height=1600)
     assert assessment.family == "unsupported"

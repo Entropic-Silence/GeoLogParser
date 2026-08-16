@@ -2628,3 +2628,25 @@
   multilingual family expert may be developed on Swissgeol development and
   evaluated on its content-group-held-out split, with the present audit kept
   as the untouched pre-change baseline.
+
+## 2026-08-16 — Swissgeol multilingual family alias development and held-out check
+
+- Added only reference-blind German structural aliases to the page-family
+  classifier (`Tiefe`, `bis`, `Beschreibung des Bohrguts`, and
+  `Schichtenverzeichnis`). Existing BGS English routes and thresholds were not
+  changed; the BGS v003 freeze was not opened.
+- On the 37-document/38-page Swissgeol development source, aliases recognized
+  8 pages (21.05%). The routed parser retained the existing baseline expert on
+  those pages and abstained on the other 30 pages. Baseline interval F1 was
+  `0.5714`; routed interval precision was `1.0000`, recall `0.2353`, and F1
+  `0.3810`, with zero observed false-positive intervals in the accepted subset.
+- On the content-group-held-out 35-document/35-page Swissgeol split, aliases
+  recognized 7 pages (20.00%). Baseline interval F1 was `0.5854`; routed
+  interval precision was `1.0000`, recall `0.2250`, and F1 `0.3673`, again with
+  zero observed false-positive intervals in the accepted subset.
+- Interpretation: multilingual family recognition restores a conservative,
+  high-precision selective operating point on an independent source, but it
+  does not improve unselective overall F1 and does not yet provide a new
+  semantic-role expert. The result supports coverage/abstention value and
+  exposes a remaining recall bottleneck; it is not a claim of full
+  cross-language generalization.

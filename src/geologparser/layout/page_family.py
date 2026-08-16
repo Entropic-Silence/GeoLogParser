@@ -71,10 +71,16 @@ def classify_borehole_page(
     scaled = 0
     if "stratigraphy" in tokens:
         scaled += 2; evidence.append("header:stratigraphy")
+    if "schichtenverzeichnis" in tokens or "schichten" in tokens:
+        scaled += 2; evidence.append("header:schichtenverzeichnis")
     if "graphic" in tokens and "log" in tokens:
         scaled += 2; evidence.append("header:graphic_log")
     if "depth" in tokens and ("drilled" in tokens or "below" in tokens):
         scaled += 2; evidence.append("header:drilled_depth")
+    if "tiefe" in tokens and ("bis" in tokens or "m" in tokens):
+        scaled += 2; evidence.append("header:tiefe_bis")
+    if "beschreibung" in tokens or "bohrguts" in tokens:
+        scaled += 1; evidence.append("header:beschreibung_bohrgut")
     if "electrical" in tokens or "casing" in tokens:
         scaled += 1; evidence.append("header:auxiliary_log")
     if scaled >= 4:
