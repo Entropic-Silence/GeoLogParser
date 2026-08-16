@@ -2605,6 +2605,34 @@
         {"type": "json_pointer_equals", "pointer": "/routed/interval/f1", "expected": 0.36734693877551017}
       ]
     },
+    "p2.swissgeol_risk_router_v002": {
+      "paper": "paper2",
+      "scope": "development-fitted risk-aware acceptance router with fixed extraction expert and content-group-held-out Swissgeol validation",
+      "source_path": "experiments/paper2/analysis/swissgeol_risk_router_v002.json",
+      "source_sha256": "6b5d166734dc74f8bc150c3570d994ead2f3fdace438c333017c46ae6bef2f55",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/oof_threshold_selection/selected/threshold", "expected": 0.7581068460594421},
+        {"type": "json_pointer_equals", "pointer": "/development/coverage", "expected": 0.43243243243243246},
+        {"type": "json_pointer_equals", "pointer": "/development/accepted_document_accuracy", "expected": 1.0},
+        {"type": "json_pointer_equals", "pointer": "/heldout/coverage", "expected": 0.42857142857142855},
+        {"type": "json_pointer_equals", "pointer": "/heldout/accepted_document_accuracy", "expected": 1.0},
+        {"type": "json_pointer_equals", "pointer": "/heldout/routed/interval/precision", "expected": 1.0},
+        {"type": "json_pointer_equals", "pointer": "/heldout/routed/interval/f1", "expected": 0.6086956521739131},
+        {"type": "json_pointer_equals", "pointer": "/heldout/routed/boundary/critical_numerical_error_rate", "expected": 0.0}
+      ]
+    },
+    "p2.swissgeol_alias_expansion_negative": {
+      "paper": "paper2",
+      "scope": "negative development and held-out diagnostic for a broader German alias gate; retained as failure analysis",
+      "source_path": "experiments/paper2/analysis/swissgeol_routed_moe_alias_expansion_heldout_v002.json",
+      "source_sha256": "9eba40f463c498ea16bad8216f7a7aefac397ad2e0cd9199173b371b58a98b88",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/coverage/routed_page_family_support_rate", "expected": 0.45714285714285713},
+        {"type": "json_pointer_equals", "pointer": "/routed/interval/precision", "expected": 0.5882352941176471},
+        {"type": "json_pointer_equals", "pointer": "/routed/interval/f1", "expected": 0.3508771929824561},
+        {"type": "json_pointer_equals", "pointer": "/routed/boundary/critical_numerical_error_rate", "expected": 0.38}
+      ]
+    },
     "p1.california_vlm_gold": {
       "paper": "paper1",
       "experiment_id": "P1_B4_QWEN3VL4B_CALIFORNIA_TEST_FORMAL_001R",

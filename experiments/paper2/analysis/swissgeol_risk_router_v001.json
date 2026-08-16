@@ -1,0 +1,1447 @@
+{
+  "development": {
+    "accepted_document_accuracy": 1.0,
+    "accepted_document_count": 16,
+    "accepted_document_error_rate": 0.0,
+    "baseline": {
+      "boundary": {
+        "critical_numerical_error_rate": 0.3464566929133858,
+        "f1": 0.6666666666666666,
+        "false_negative": 39,
+        "false_positive": 44,
+        "matched_boundary_mae_m": 0.0,
+        "precision": 0.6535433070866141,
+        "recall": 0.680327868852459,
+        "true_positive": 83
+      },
+      "interval": {
+        "f1": 0.5714285714285715,
+        "false_negative": 35,
+        "false_positive": 40,
+        "precision": 0.5555555555555556,
+        "recall": 0.5882352941176471,
+        "true_positive": 50
+      }
+    },
+    "coverage": 0.43243243243243246,
+    "diagnostics": [
+      {
+        "acceptance_probability": 0.07636194503876874,
+        "accepted": false,
+        "baseline_boundary_count": 5,
+        "baseline_interval_count": 3,
+        "document_exact": false,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55238"
+      },
+      {
+        "acceptance_probability": 0.9553035958059537,
+        "accepted": true,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": true,
+        "page_families": [
+          "scaled_composite_log"
+        ],
+        "record_id": "SWISSGEOL_TG_55242"
+      },
+      {
+        "acceptance_probability": 0.945213140432378,
+        "accepted": true,
+        "baseline_boundary_count": 4,
+        "baseline_interval_count": 3,
+        "document_exact": true,
+        "page_families": [
+          "scaled_composite_log"
+        ],
+        "record_id": "SWISSGEOL_TG_55246"
+      },
+      {
+        "acceptance_probability": 0.49846314996853197,
+        "accepted": false,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": false,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55387"
+      },
+      {
+        "acceptance_probability": 0.9463377422806662,
+        "accepted": true,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": true,
+        "page_families": [
+          "scaled_composite_log"
+        ],
+        "record_id": "SWISSGEOL_TG_55395"
+      },
+      {
+        "acceptance_probability": 0.4828630898861931,
+        "accepted": false,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": true,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55396"
+      },
+      {
+        "acceptance_probability": 0.8502962829614,
+        "accepted": true,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": true,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55401"
+      },
+      {
+        "acceptance_probability": 0.12420267226059178,
+        "accepted": false,
+        "baseline_boundary_count": 5,
+        "baseline_interval_count": 3,
+        "document_exact": false,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55410"
+      },
+      {
+        "acceptance_probability": 0.9476417452871687,
+        "accepted": true,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": true,
+        "page_families": [
+          "scaled_composite_log"
+        ],
+        "record_id": "SWISSGEOL_TG_55426"
+      },
+      {
+        "acceptance_probability": 0.9440106421695328,
+        "accepted": true,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": true,
+        "page_families": [
+          "scaled_composite_log"
+        ],
+        "record_id": "SWISSGEOL_TG_55482"
+      },
+      {
+        "acceptance_probability": 0.9519027226055283,
+        "accepted": true,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": true,
+        "page_families": [
+          "scaled_composite_log"
+        ],
+        "record_id": "SWISSGEOL_TG_55489"
+      },
+      {
+        "acceptance_probability": 0.9566466391289833,
+        "accepted": true,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": true,
+        "page_families": [
+          "scaled_composite_log"
+        ],
+        "record_id": "SWISSGEOL_TG_55764"
+      },
+      {
+        "acceptance_probability": 0.12598896639278512,
+        "accepted": false,
+        "baseline_boundary_count": 2,
+        "baseline_interval_count": 1,
+        "document_exact": false,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55794"
+      },
+      {
+        "acceptance_probability": 0.016211746809058576,
+        "accepted": false,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": false,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55800"
+      },
+      {
+        "acceptance_probability": 0.9436455669938806,
+        "accepted": true,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": true,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55806"
+      },
+      {
+        "acceptance_probability": 0.8887225685620206,
+        "accepted": true,
+        "baseline_boundary_count": 4,
+        "baseline_interval_count": 3,
+        "document_exact": true,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55813"
+      },
+      {
+        "acceptance_probability": 0.9275541412085747,
+        "accepted": true,
+        "baseline_boundary_count": 6,
+        "baseline_interval_count": 5,
+        "document_exact": true,
+        "page_families": [
+          "scaled_composite_log"
+        ],
+        "record_id": "SWISSGEOL_TG_55815"
+      },
+      {
+        "acceptance_probability": 0.6805805619983247,
+        "accepted": false,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": true,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55823"
+      },
+      {
+        "acceptance_probability": 0.8254104934757777,
+        "accepted": true,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": true,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55867"
+      },
+      {
+        "acceptance_probability": 0.12515787152156127,
+        "accepted": false,
+        "baseline_boundary_count": 5,
+        "baseline_interval_count": 3,
+        "document_exact": false,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55879"
+      },
+      {
+        "acceptance_probability": 0.015989931478654244,
+        "accepted": false,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": false,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55880"
+      },
+      {
+        "acceptance_probability": 0.5108983222246173,
+        "accepted": false,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": false,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55884"
+      },
+      {
+        "acceptance_probability": 0.057991362549249685,
+        "accepted": false,
+        "baseline_boundary_count": 4,
+        "baseline_interval_count": 2,
+        "document_exact": false,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55885"
+      },
+      {
+        "acceptance_probability": 0.12815101592686584,
+        "accepted": false,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": false,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55887"
+      },
+      {
+        "acceptance_probability": 0.10866902593621128,
+        "accepted": false,
+        "baseline_boundary_count": 6,
+        "baseline_interval_count": 4,
+        "document_exact": false,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55893"
+      },
+      {
+        "acceptance_probability": 0.1266880476785691,
+        "accepted": false,
+        "baseline_boundary_count": 2,
+        "baseline_interval_count": 1,
+        "document_exact": false,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55895"
+      },
+      {
+        "acceptance_probability": 0.07334210951955447,
+        "accepted": false,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": false,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55900"
+      },
+      {
+        "acceptance_probability": 0.6316245254673237,
+        "accepted": false,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": true,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55903"
+      },
+      {
+        "acceptance_probability": 0.15075368657850033,
+        "accepted": false,
+        "baseline_boundary_count": 4,
+        "baseline_interval_count": 3,
+        "document_exact": false,
+        "page_families": [
+          "unsupported",
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55953"
+      },
+      {
+        "acceptance_probability": 0.07697258709236048,
+        "accepted": false,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": false,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55958"
+      },
+      {
+        "acceptance_probability": 0.07697258709236048,
+        "accepted": false,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": false,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55959"
+      },
+      {
+        "acceptance_probability": 0.2943661463190869,
+        "accepted": false,
+        "baseline_boundary_count": 4,
+        "baseline_interval_count": 3,
+        "document_exact": false,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55984"
+      },
+      {
+        "acceptance_probability": 0.8601680023152892,
+        "accepted": true,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": true,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55986"
+      },
+      {
+        "acceptance_probability": 0.7998772546024246,
+        "accepted": true,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": true,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_56071"
+      },
+      {
+        "acceptance_probability": 0.8669531618464817,
+        "accepted": true,
+        "baseline_boundary_count": 5,
+        "baseline_interval_count": 4,
+        "document_exact": true,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_56072"
+      },
+      {
+        "acceptance_probability": 0.8621026105626028,
+        "accepted": true,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": true,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_56073"
+      },
+      {
+        "acceptance_probability": 0.14596859526029846,
+        "accepted": false,
+        "baseline_boundary_count": 2,
+        "baseline_interval_count": 1,
+        "document_exact": false,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_56074"
+      }
+    ],
+    "document_count": 37,
+    "routed": {
+      "boundary": {
+        "critical_numerical_error_rate": 0.0,
+        "f1": 0.6214689265536724,
+        "false_negative": 67,
+        "false_positive": 0,
+        "matched_boundary_mae_m": 0.0,
+        "precision": 1.0,
+        "recall": 0.45081967213114754,
+        "true_positive": 55
+      },
+      "interval": {
+        "f1": 0.6290322580645161,
+        "false_negative": 46,
+        "false_positive": 0,
+        "precision": 1.0,
+        "recall": 0.4588235294117647,
+        "true_positive": 39
+      }
+    }
+  },
+  "experiment_id": "P2_SWISSGEOL_RISK_ROUTER_V001",
+  "feature_names": [
+    "intercept",
+    "page_family_supported",
+    "page_family_confidence",
+    "page_count",
+    "region_count_log",
+    "mean_ocr_confidence",
+    "numeric_region_fraction",
+    "predicted_interval_count",
+    "predicted_boundary_count",
+    "starts_at_zero",
+    "strict_monotonic",
+    "contiguous_sequence",
+    "all_positive_thickness",
+    "maximum_depth_log",
+    "maximum_depth_ocr_supported",
+    "all_boundaries_ocr_supported",
+    "has_tiefe",
+    "has_bis",
+    "has_beschreibung",
+    "has_schichtenverzeichnis"
+  ],
+  "final_model": {
+    "mean": [
+      0.21621621621621623,
+      0.18810810810810813,
+      1.027027027027027,
+      5.27087648440706,
+      0.7374491709704151,
+      0.3053645394232644,
+      2.2972972972972974,
+      3.4324324324324325,
+      0.7027027027027027,
+      0.918918918918919,
+      0.7837837837837838,
+      1.0,
+      4.40932177464678,
+      0.918918918918919,
+      0.9054054054054056,
+      1.0,
+      1.0,
+      0.972972972972973,
+      0.21621621621621623
+    ],
+    "scale": [
+      0.41166341112777893,
+      0.3581471676811673,
+      0.16216216216216214,
+      0.31393612052342296,
+      0.0866611910256223,
+      0.04154471616069923,
+      0.8008395886502191,
+      0.9737234343055039,
+      0.4570685006834529,
+      0.2729595929287048,
+      0.4116634111277789,
+      1.0,
+      1.864473872447047,
+      0.2729595929287048,
+      0.16899517798147912,
+      1.0,
+      1.0,
+      0.16216216216216212,
+      0.41166341112777893
+    ],
+    "weights": [
+      0.06277364956903642,
+      0.3491031529490824,
+      0.34910315294908284,
+      -0.31406922604830256,
+      -0.34691716659801836,
+      -0.06849290207254971,
+      -0.03977137584326681,
+      0.025295329226855054,
+      -0.15003074784964526,
+      0.7165482845775166,
+      0.3827333152178599,
+      0.6720827698376379,
+      0.0,
+      0.4916574046439459,
+      -0.08791157147061499,
+      -0.530071777514622,
+      0.0,
+      0.0,
+      -0.2318285155600596,
+      0.3491031529490824
+    ]
+  },
+  "fold_models": [
+    {
+      "fold": 0,
+      "test_count": 3,
+      "train_count": 34
+    },
+    {
+      "fold": 1,
+      "test_count": 11,
+      "train_count": 26
+    },
+    {
+      "fold": 2,
+      "test_count": 11,
+      "train_count": 26
+    },
+    {
+      "fold": 3,
+      "test_count": 7,
+      "train_count": 30
+    },
+    {
+      "fold": 4,
+      "test_count": 5,
+      "train_count": 32
+    }
+  ],
+  "fold_policy": "sha256(record_id) modulo 5",
+  "heldout": {
+    "accepted_document_accuracy": 1.0,
+    "accepted_document_count": 15,
+    "accepted_document_error_rate": 0.0,
+    "baseline": {
+      "boundary": {
+        "critical_numerical_error_rate": 0.31932773109243695,
+        "f1": 0.6923076923076923,
+        "false_negative": 34,
+        "false_positive": 38,
+        "matched_boundary_mae_m": 0.0,
+        "precision": 0.680672268907563,
+        "recall": 0.7043478260869566,
+        "true_positive": 81
+      },
+      "interval": {
+        "f1": 0.5853658536585366,
+        "false_negative": 32,
+        "false_positive": 36,
+        "precision": 0.5714285714285714,
+        "recall": 0.6,
+        "true_positive": 48
+      }
+    },
+    "coverage": 0.42857142857142855,
+    "diagnostics": [
+      {
+        "acceptance_probability": 0.13208392245148387,
+        "accepted": false,
+        "baseline_boundary_count": 2,
+        "baseline_interval_count": 1,
+        "document_exact": false,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55237"
+      },
+      {
+        "acceptance_probability": 0.06726685887236473,
+        "accepted": false,
+        "baseline_boundary_count": 6,
+        "baseline_interval_count": 5,
+        "document_exact": false,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55243"
+      },
+      {
+        "acceptance_probability": 0.12619717933505928,
+        "accepted": false,
+        "baseline_boundary_count": 2,
+        "baseline_interval_count": 1,
+        "document_exact": false,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55250"
+      },
+      {
+        "acceptance_probability": 0.9447407310159694,
+        "accepted": true,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": true,
+        "page_families": [
+          "scaled_composite_log"
+        ],
+        "record_id": "SWISSGEOL_TG_55398"
+      },
+      {
+        "acceptance_probability": 0.06208473528522141,
+        "accepted": false,
+        "baseline_boundary_count": 5,
+        "baseline_interval_count": 3,
+        "document_exact": false,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55422"
+      },
+      {
+        "acceptance_probability": 0.9414722531827908,
+        "accepted": true,
+        "baseline_boundary_count": 4,
+        "baseline_interval_count": 3,
+        "document_exact": true,
+        "page_families": [
+          "scaled_composite_log"
+        ],
+        "record_id": "SWISSGEOL_TG_55427"
+      },
+      {
+        "acceptance_probability": 0.9416329411148835,
+        "accepted": true,
+        "baseline_boundary_count": 4,
+        "baseline_interval_count": 3,
+        "document_exact": true,
+        "page_families": [
+          "scaled_composite_log"
+        ],
+        "record_id": "SWISSGEOL_TG_55430"
+      },
+      {
+        "acceptance_probability": 0.9566720112872986,
+        "accepted": true,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": true,
+        "page_families": [
+          "scaled_composite_log"
+        ],
+        "record_id": "SWISSGEOL_TG_55431"
+      },
+      {
+        "acceptance_probability": 0.9524372093563236,
+        "accepted": true,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": true,
+        "page_families": [
+          "scaled_composite_log"
+        ],
+        "record_id": "SWISSGEOL_TG_55485"
+      },
+      {
+        "acceptance_probability": 0.9389797076863757,
+        "accepted": true,
+        "baseline_boundary_count": 5,
+        "baseline_interval_count": 4,
+        "document_exact": true,
+        "page_families": [
+          "scaled_composite_log"
+        ],
+        "record_id": "SWISSGEOL_TG_55488"
+      },
+      {
+        "acceptance_probability": 0.3108424258661544,
+        "accepted": false,
+        "baseline_boundary_count": 2,
+        "baseline_interval_count": 1,
+        "document_exact": false,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55491"
+      },
+      {
+        "acceptance_probability": 0.09329725962874445,
+        "accepted": false,
+        "baseline_boundary_count": 2,
+        "baseline_interval_count": 1,
+        "document_exact": false,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55766"
+      },
+      {
+        "acceptance_probability": 0.01691970016600474,
+        "accepted": false,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": false,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55799"
+      },
+      {
+        "acceptance_probability": 0.07944937514202179,
+        "accepted": false,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": false,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55801"
+      },
+      {
+        "acceptance_probability": 0.850557626193655,
+        "accepted": true,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": true,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55803"
+      },
+      {
+        "acceptance_probability": 0.5246406445913124,
+        "accepted": false,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": false,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55809"
+      },
+      {
+        "acceptance_probability": 0.5902754118972477,
+        "accepted": false,
+        "baseline_boundary_count": 5,
+        "baseline_interval_count": 3,
+        "document_exact": false,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55810"
+      },
+      {
+        "acceptance_probability": 0.5045376117386533,
+        "accepted": false,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": false,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55812"
+      },
+      {
+        "acceptance_probability": 0.9552774825521724,
+        "accepted": true,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": true,
+        "page_families": [
+          "scaled_composite_log"
+        ],
+        "record_id": "SWISSGEOL_TG_55816"
+      },
+      {
+        "acceptance_probability": 0.8091956321773258,
+        "accepted": true,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": true,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55819"
+      },
+      {
+        "acceptance_probability": 0.5029244538474096,
+        "accepted": false,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": false,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55821"
+      },
+      {
+        "acceptance_probability": 0.5211472198925938,
+        "accepted": false,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": true,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55852"
+      },
+      {
+        "acceptance_probability": 0.8523330235020735,
+        "accepted": true,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": true,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55874"
+      },
+      {
+        "acceptance_probability": 0.852843183186175,
+        "accepted": true,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": true,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55876"
+      },
+      {
+        "acceptance_probability": 0.12538934788965583,
+        "accepted": false,
+        "baseline_boundary_count": 5,
+        "baseline_interval_count": 3,
+        "document_exact": false,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55882"
+      },
+      {
+        "acceptance_probability": 0.0608517737206917,
+        "accepted": false,
+        "baseline_boundary_count": 5,
+        "baseline_interval_count": 3,
+        "document_exact": false,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55888"
+      },
+      {
+        "acceptance_probability": 0.8072951766324732,
+        "accepted": true,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": true,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55889"
+      },
+      {
+        "acceptance_probability": 0.11478118234763227,
+        "accepted": false,
+        "baseline_boundary_count": 2,
+        "baseline_interval_count": 1,
+        "document_exact": false,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55890"
+      },
+      {
+        "acceptance_probability": 0.8249115802107856,
+        "accepted": true,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": true,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55891"
+      },
+      {
+        "acceptance_probability": 0.076553924793097,
+        "accepted": false,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": false,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55892"
+      },
+      {
+        "acceptance_probability": 0.6582187934775696,
+        "accepted": false,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": true,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55894"
+      },
+      {
+        "acceptance_probability": 0.1326307620087699,
+        "accepted": false,
+        "baseline_boundary_count": 2,
+        "baseline_interval_count": 1,
+        "document_exact": false,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55897"
+      },
+      {
+        "acceptance_probability": 0.19838048125657845,
+        "accepted": false,
+        "baseline_boundary_count": 7,
+        "baseline_interval_count": 5,
+        "document_exact": false,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_55901"
+      },
+      {
+        "acceptance_probability": 0.8772211224384995,
+        "accepted": true,
+        "baseline_boundary_count": 3,
+        "baseline_interval_count": 2,
+        "document_exact": true,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_56076"
+      },
+      {
+        "acceptance_probability": 0.8918288661450295,
+        "accepted": true,
+        "baseline_boundary_count": 4,
+        "baseline_interval_count": 3,
+        "document_exact": true,
+        "page_families": [
+          "unsupported"
+        ],
+        "record_id": "SWISSGEOL_TG_56084"
+      }
+    ],
+    "document_count": 35,
+    "routed": {
+      "boundary": {
+        "critical_numerical_error_rate": 0.0,
+        "f1": 0.6060606060606061,
+        "false_negative": 65,
+        "false_positive": 0,
+        "matched_boundary_mae_m": 0.0,
+        "precision": 1.0,
+        "recall": 0.43478260869565216,
+        "true_positive": 50
+      },
+      "interval": {
+        "f1": 0.6086956521739131,
+        "false_negative": 45,
+        "false_positive": 0,
+        "precision": 1.0,
+        "recall": 0.4375,
+        "true_positive": 35
+      }
+    }
+  },
+  "limitations": [
+    "The held-out Swissgeol split was previously consumed by the multilingual alias coverage audit and is validation rather than untouched external confirmation.",
+    "The router changes acceptance only; it does not improve the extraction expert or recover missing intervals.",
+    "Small development and accepted-action counts require uncertainty-aware interpretation."
+  ],
+  "method_version": "swissgeol_page_family_risk_router_v001",
+  "minimum_oof_accuracy": 0.95,
+  "oof_probabilities": [
+    {
+      "fold": 1,
+      "label": false,
+      "probability": 0.10037979313114968,
+      "record_id": "SWISSGEOL_TG_55238"
+    },
+    {
+      "fold": 1,
+      "label": true,
+      "probability": 0.9332585800520976,
+      "record_id": "SWISSGEOL_TG_55242"
+    },
+    {
+      "fold": 2,
+      "label": true,
+      "probability": 0.9344128521845898,
+      "record_id": "SWISSGEOL_TG_55246"
+    },
+    {
+      "fold": 0,
+      "label": false,
+      "probability": 0.6417659462671943,
+      "record_id": "SWISSGEOL_TG_55387"
+    },
+    {
+      "fold": 1,
+      "label": true,
+      "probability": 0.9295602101867041,
+      "record_id": "SWISSGEOL_TG_55395"
+    },
+    {
+      "fold": 4,
+      "label": true,
+      "probability": 0.3746428684542071,
+      "record_id": "SWISSGEOL_TG_55396"
+    },
+    {
+      "fold": 2,
+      "label": true,
+      "probability": 0.7989916506364837,
+      "record_id": "SWISSGEOL_TG_55401"
+    },
+    {
+      "fold": 0,
+      "label": false,
+      "probability": 0.12983830426014709,
+      "record_id": "SWISSGEOL_TG_55410"
+    },
+    {
+      "fold": 1,
+      "label": true,
+      "probability": 0.9397065521248318,
+      "record_id": "SWISSGEOL_TG_55426"
+    },
+    {
+      "fold": 3,
+      "label": true,
+      "probability": 0.9450653116053819,
+      "record_id": "SWISSGEOL_TG_55482"
+    },
+    {
+      "fold": 1,
+      "label": true,
+      "probability": 0.9192745729809241,
+      "record_id": "SWISSGEOL_TG_55489"
+    },
+    {
+      "fold": 2,
+      "label": true,
+      "probability": 0.9571967242898979,
+      "record_id": "SWISSGEOL_TG_55764"
+    },
+    {
+      "fold": 1,
+      "label": false,
+      "probability": 0.09440088912140278,
+      "record_id": "SWISSGEOL_TG_55794"
+    },
+    {
+      "fold": 3,
+      "label": false,
+      "probability": 0.01710490523811044,
+      "record_id": "SWISSGEOL_TG_55800"
+    },
+    {
+      "fold": 3,
+      "label": true,
+      "probability": 0.977697011238386,
+      "record_id": "SWISSGEOL_TG_55806"
+    },
+    {
+      "fold": 2,
+      "label": true,
+      "probability": 0.5178942428885094,
+      "record_id": "SWISSGEOL_TG_55813"
+    },
+    {
+      "fold": 1,
+      "label": true,
+      "probability": 0.942812948296191,
+      "record_id": "SWISSGEOL_TG_55815"
+    },
+    {
+      "fold": 2,
+      "label": true,
+      "probability": 0.5836274050185384,
+      "record_id": "SWISSGEOL_TG_55823"
+    },
+    {
+      "fold": 3,
+      "label": true,
+      "probability": 0.8320531630872465,
+      "record_id": "SWISSGEOL_TG_55867"
+    },
+    {
+      "fold": 3,
+      "label": false,
+      "probability": 0.2749185048032769,
+      "record_id": "SWISSGEOL_TG_55879"
+    },
+    {
+      "fold": 2,
+      "label": false,
+      "probability": 0.018889569194731174,
+      "record_id": "SWISSGEOL_TG_55880"
+    },
+    {
+      "fold": 4,
+      "label": false,
+      "probability": 0.4836196261981659,
+      "record_id": "SWISSGEOL_TG_55884"
+    },
+    {
+      "fold": 2,
+      "label": false,
+      "probability": 0.04847929280532136,
+      "record_id": "SWISSGEOL_TG_55885"
+    },
+    {
+      "fold": 2,
+      "label": false,
+      "probability": 0.11207178792047541,
+      "record_id": "SWISSGEOL_TG_55887"
+    },
+    {
+      "fold": 1,
+      "label": false,
+      "probability": 0.1876321055897256,
+      "record_id": "SWISSGEOL_TG_55893"
+    },
+    {
+      "fold": 3,
+      "label": false,
+      "probability": 0.12027055351711038,
+      "record_id": "SWISSGEOL_TG_55895"
+    },
+    {
+      "fold": 1,
+      "label": false,
+      "probability": 0.04793890273584781,
+      "record_id": "SWISSGEOL_TG_55900"
+    },
+    {
+      "fold": 4,
+      "label": true,
+      "probability": 0.6164586909567682,
+      "record_id": "SWISSGEOL_TG_55903"
+    },
+    {
+      "fold": 1,
+      "label": false,
+      "probability": 0.6974369529105623,
+      "record_id": "SWISSGEOL_TG_55953"
+    },
+    {
+      "fold": 4,
+      "label": false,
+      "probability": 0.07348276474489454,
+      "record_id": "SWISSGEOL_TG_55958"
+    },
+    {
+      "fold": 4,
+      "label": false,
+      "probability": 0.07348276474489451,
+      "record_id": "SWISSGEOL_TG_55959"
+    },
+    {
+      "fold": 1,
+      "label": false,
+      "probability": 0.5905428247142753,
+      "record_id": "SWISSGEOL_TG_55984"
+    },
+    {
+      "fold": 2,
+      "label": true,
+      "probability": 0.7783382754281912,
+      "record_id": "SWISSGEOL_TG_55986"
+    },
+    {
+      "fold": 0,
+      "label": true,
+      "probability": 0.8112825773602816,
+      "record_id": "SWISSGEOL_TG_56071"
+    },
+    {
+      "fold": 2,
+      "label": true,
+      "probability": 0.7581068460594421,
+      "record_id": "SWISSGEOL_TG_56072"
+    },
+    {
+      "fold": 3,
+      "label": true,
+      "probability": 0.8619187924811754,
+      "record_id": "SWISSGEOL_TG_56073"
+    },
+    {
+      "fold": 2,
+      "label": false,
+      "probability": 0.14787418684476977,
+      "record_id": "SWISSGEOL_TG_56074"
+    }
+  ],
+  "oof_threshold_selection": {
+    "curve": [
+      {
+        "accepted": 37,
+        "accuracy": 0.5135135135135135,
+        "threshold": 0.0
+      },
+      {
+        "accepted": 37,
+        "accuracy": 0.5135135135135135,
+        "threshold": 0.01710490523811044
+      },
+      {
+        "accepted": 36,
+        "accuracy": 0.5277777777777778,
+        "threshold": 0.018889569194731174
+      },
+      {
+        "accepted": 35,
+        "accuracy": 0.5428571428571428,
+        "threshold": 0.04793890273584781
+      },
+      {
+        "accepted": 34,
+        "accuracy": 0.5588235294117647,
+        "threshold": 0.04847929280532136
+      },
+      {
+        "accepted": 33,
+        "accuracy": 0.5757575757575758,
+        "threshold": 0.07348276474489451
+      },
+      {
+        "accepted": 32,
+        "accuracy": 0.59375,
+        "threshold": 0.07348276474489454
+      },
+      {
+        "accepted": 31,
+        "accuracy": 0.6129032258064516,
+        "threshold": 0.09440088912140278
+      },
+      {
+        "accepted": 30,
+        "accuracy": 0.6333333333333333,
+        "threshold": 0.10037979313114968
+      },
+      {
+        "accepted": 29,
+        "accuracy": 0.6551724137931034,
+        "threshold": 0.11207178792047541
+      },
+      {
+        "accepted": 28,
+        "accuracy": 0.6785714285714286,
+        "threshold": 0.12027055351711038
+      },
+      {
+        "accepted": 27,
+        "accuracy": 0.7037037037037037,
+        "threshold": 0.12983830426014709
+      },
+      {
+        "accepted": 26,
+        "accuracy": 0.7307692307692307,
+        "threshold": 0.14787418684476977
+      },
+      {
+        "accepted": 25,
+        "accuracy": 0.76,
+        "threshold": 0.1876321055897256
+      },
+      {
+        "accepted": 24,
+        "accuracy": 0.7916666666666666,
+        "threshold": 0.2749185048032769
+      },
+      {
+        "accepted": 23,
+        "accuracy": 0.8260869565217391,
+        "threshold": 0.3746428684542071
+      },
+      {
+        "accepted": 22,
+        "accuracy": 0.8181818181818182,
+        "threshold": 0.4836196261981659
+      },
+      {
+        "accepted": 21,
+        "accuracy": 0.8571428571428571,
+        "threshold": 0.5178942428885094
+      },
+      {
+        "accepted": 20,
+        "accuracy": 0.85,
+        "threshold": 0.5836274050185384
+      },
+      {
+        "accepted": 19,
+        "accuracy": 0.8421052631578947,
+        "threshold": 0.5905428247142753
+      },
+      {
+        "accepted": 18,
+        "accuracy": 0.8888888888888888,
+        "threshold": 0.6164586909567682
+      },
+      {
+        "accepted": 17,
+        "accuracy": 0.8823529411764706,
+        "threshold": 0.6417659462671943
+      },
+      {
+        "accepted": 16,
+        "accuracy": 0.9375,
+        "threshold": 0.6974369529105623
+      },
+      {
+        "accepted": 15,
+        "accuracy": 1.0,
+        "threshold": 0.7581068460594421
+      },
+      {
+        "accepted": 14,
+        "accuracy": 1.0,
+        "threshold": 0.7783382754281912
+      },
+      {
+        "accepted": 13,
+        "accuracy": 1.0,
+        "threshold": 0.7989916506364837
+      },
+      {
+        "accepted": 12,
+        "accuracy": 1.0,
+        "threshold": 0.8112825773602816
+      },
+      {
+        "accepted": 11,
+        "accuracy": 1.0,
+        "threshold": 0.8320531630872465
+      },
+      {
+        "accepted": 10,
+        "accuracy": 1.0,
+        "threshold": 0.8619187924811754
+      },
+      {
+        "accepted": 9,
+        "accuracy": 1.0,
+        "threshold": 0.9192745729809241
+      },
+      {
+        "accepted": 8,
+        "accuracy": 1.0,
+        "threshold": 0.9295602101867041
+      },
+      {
+        "accepted": 7,
+        "accuracy": 1.0,
+        "threshold": 0.9332585800520976
+      },
+      {
+        "accepted": 6,
+        "accuracy": 1.0,
+        "threshold": 0.9344128521845898
+      },
+      {
+        "accepted": 5,
+        "accuracy": 1.0,
+        "threshold": 0.9397065521248318
+      },
+      {
+        "accepted": 4,
+        "accuracy": 1.0,
+        "threshold": 0.942812948296191
+      },
+      {
+        "accepted": 3,
+        "accuracy": 1.0,
+        "threshold": 0.9450653116053819
+      },
+      {
+        "accepted": 2,
+        "accuracy": 1.0,
+        "threshold": 0.9571967242898979
+      },
+      {
+        "accepted": 1,
+        "accuracy": 1.0,
+        "threshold": 0.977697011238386
+      },
+      {
+        "accepted": 0,
+        "accuracy": null,
+        "threshold": 1.0
+      }
+    ],
+    "selected": {
+      "accepted": 15,
+      "accuracy": 1.0,
+      "threshold": 0.7581068460594421
+    }
+  },
+  "reference_blinding": "threshold and model fitted only on development document-exact labels; held-out decisions fixed before held-out labels were scored",
+  "status": "completed_development_fitted_heldout_validation"
+}

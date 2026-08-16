@@ -2650,3 +2650,29 @@
   semantic-role expert. The result supports coverage/abstention value and
   exposes a remaining recall bottleneck; it is not a claim of full
   cross-language generalization.
+
+## 2026-08-16 — Swissgeol learned risk-aware acceptance router
+
+- Before fitting the router, tested a broader German alias set that increased
+  held-out page-family support from 20.00% to 45.71%. This degraded accepted
+  interval precision from `1.0000` to `0.5882`, reduced interval F1 to
+  `0.3509`, and raised boundary CNER to `0.3800`. The broad alias expansion was
+  rejected and the conservative alias set restored. The failure shows that
+  lexical coverage alone is not a safe routing criterion.
+- Implemented a document-level logistic risk gate over reference-blind page,
+  OCR, family, and sequence features. The extraction expert itself is
+  unchanged. Five-fold OOF probabilities on the 37-document development set
+  selected threshold `0.7581` under a minimum accepted-document exactness
+  requirement of `0.95`.
+- Development: accepted 16/37 documents (`43.24%`) with exactness `1.0000`.
+- Content-group-held-out validation: accepted 15/35 (`42.86%`) with exactness
+  `1.0000`. Routed interval precision/recall/F1 were `1.0000/0.4375/0.6087`,
+  versus unchanged baseline `0.5714/0.6000/0.5854`. Routed boundary F1 was
+  `0.6061` with CNER `0.0000`.
+- Calibration on the held-out split was Brier `0.0555`, ECE `0.1481`, and
+  negative log-likelihood `0.2164`; the gate is useful for selective risk but
+  not perfectly calibrated.
+- The held-out split was previously consumed by the multilingual alias audit,
+  so this is validation evidence rather than untouched external confirmation.
+  Decision: retain the router as a promising risk-aware acceptance branch;
+  do not promote it to the BGS primary method or open BGS v003.

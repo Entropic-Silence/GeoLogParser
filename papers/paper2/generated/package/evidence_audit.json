@@ -13,7 +13,7 @@
     "xu2021layoutlmv2"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "037dd5106f0f3c3832fbeaf4e94db18e5e3a6a9d0248ad955063634fe9129f87",
+  "claim_registry_sha256": "d5ee30deef240562334cab5e635c648f585d4d04564c700cbffa3c3b822fde1c",
   "claim_source_errors": [],
   "evidence_tags": [
     "p2.bgs_layout_method_dev",
@@ -37,7 +37,9 @@
     "p2.nativemm_go_no_go",
     "p2.roi_reread_audit",
     "p2.selective_confidence_secondary",
+    "p2.swissgeol_alias_expansion_negative",
     "p2.swissgeol_heldout_constraint_reread",
+    "p2.swissgeol_risk_router_v002",
     "p2.swissgeol_routed_moe_alias_dev",
     "p2.swissgeol_routed_moe_content_heldout",
     "p2.swissgeol_routed_moe_independent_coverage",
@@ -102,7 +104,7 @@
     }
   ],
   "manuscript_path": "papers/paper2/manuscript.md",
-  "manuscript_sha256": "106d79916b033e4cab0bb501ec7d386b19fb30cab3b8b8a17a9fbd63dc3adfab",
+  "manuscript_sha256": "07bf3e9b88c55a26ef4566481cfac5d2229061462479756727fc1a3f6e13357e",
   "missing_bibliography_keys": [],
   "missing_claim_registrations": [],
   "missing_literature_evidence_keys": [],
@@ -131,7 +133,9 @@
     "p2.nativemm_go_no_go",
     "p2.roi_reread_audit",
     "p2.selective_confidence_secondary",
+    "p2.swissgeol_alias_expansion_negative",
     "p2.swissgeol_heldout_constraint_reread",
+    "p2.swissgeol_risk_router_v002",
     "p2.swissgeol_routed_moe_alias_dev",
     "p2.swissgeol_routed_moe_content_heldout",
     "p2.swissgeol_routed_moe_independent_coverage",
@@ -146,5 +150,5 @@
   "submission_ready": false,
   "tbd_or_citation_marker_count": 3,
   "unused_claim_registrations": [],
-  "word_count": 5471
+  "word_count": 5702
 }
