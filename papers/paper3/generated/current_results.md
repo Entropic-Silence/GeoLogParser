@@ -65,6 +65,9 @@ This diagnostic inherits frozen reference-blinded image boundaries from the Pape
 |---|---|---:|---:|---:|---:|---:|---:|---:|---|
 | P3_SWISSGEOL_STRATIGRAPHIC_LAYER_MODEL_002 | final | 35 | 3 | 45.679 | 0.122 | 0.7841 | 0.7079 | 1 | formal_real_stratigraphic_model |
 | P3_SWISSGEOL_STRATIGRAPHIC_LAYER_MODEL_002 | raw | 35 | 3 | 45.952 | 0.139 | 0.7841 | 0.6984 | 1 | formal_real_stratigraphic_model |
+| P3_SWISSGEOL_STRATIGRAPHIC_LAYER_MODEL_RISK_AWARE_002 | final | 35 | 3 | 45.679 | 0.122 | 0.7841 | 0.7079 | 1 | formal_real_stratigraphic_model_risk_aware |
+| P3_SWISSGEOL_STRATIGRAPHIC_LAYER_MODEL_RISK_AWARE_002 | raw | 35 | 3 | 45.952 | 0.139 | 0.7841 | 0.6984 | 1 | formal_real_stratigraphic_model_risk_aware |
+| P3_SWISSGEOL_STRATIGRAPHIC_LAYER_MODEL_RISK_AWARE_002 | risk_aware | 35 | 3 | 34.808 | 0.082 | 0.3873 | 0.3778 | 0 | formal_real_stratigraphic_model_risk_aware |
 
 These rows convert adjacent IDW contact surfaces into layer-thickness and volume estimates. They are real downstream diagnostics, not validated geological interpretations; sparse deep-layer support and authoritative collars/coordinates remain explicit limitations.
 

@@ -23,7 +23,7 @@
     "paper2_formal_results_exist": true,
     "paper3_formal_results_exist": true
   },
-  "generated_at_utc": "2026-08-16T07:13:48.374305+00:00",
+  "generated_at_utc": "2026-08-16T14:53:52.225774+00:00",
   "ground_truth_exportable_count": 0,
   "interpretation": "Project-created human annotations and externally published manual-transcription Gold are counted separately. Either can establish a human-produced reference; machine-Silver runs do not satisfy that gate. audit-only, failure-analysis, and protocol-only runs cannot satisfy formal completion.",
   "machine_silver_formal_count": 2,
@@ -61,6 +61,7 @@
         "formal_authoritative_metadata_method": 1,
         "formal_benchmark": 1,
         "formal_external_benchmark": 1,
+        "formal_external_failure_case": 1,
         "formal_prospective_external_benchmark": 2,
         "formal_prospective_external_method": 4,
         "formal_synthetic_method": 1,
@@ -69,8 +70,8 @@
       },
       "formal_experiment_count": 13,
       "index_path": "/root/GeoLogParser/experiments/paper2/result_index.jsonl",
-      "index_sha256": "d84edf41a4d81b3fe135574c36bd5ef2c439c6ee9f741ed2ac172df0aa395b6d",
-      "indexed_experiment_count": 18,
+      "index_sha256": "ff4ea1d52fffa1fabd42eb4ddc777058be37ffc7137214e6f42c309bcd0023df",
+      "indexed_experiment_count": 19,
       "published_manual_gold_run_count": 8,
       "real_formal_experiment_count": 12
     },
@@ -84,14 +85,15 @@
         "formal_authoritative_spatial_extraction": 1,
         "formal_partial_page_spatial_downstream": 1,
         "formal_real_stratigraphic_model": 1,
+        "formal_real_stratigraphic_model_risk_aware": 1,
         "formal_source_controlled_downstream": 1,
         "formal_synthetic_downstream": 1,
         "protocol_only": 4
       },
       "formal_experiment_count": 7,
       "index_path": "/root/GeoLogParser/experiments/paper3/result_index.jsonl",
-      "index_sha256": "fcfba016dbe061d807dca9c6e1dde6da4b4e51283548a037818db117ec0f3ef6",
-      "indexed_experiment_count": 14,
+      "index_sha256": "b5b10e323f951264db85156ad1e5033744c4871333cd1730d59ffef5dd2871dc",
+      "indexed_experiment_count": 15,
       "published_manual_gold_run_count": 0,
       "real_formal_experiment_count": 6
     }

@@ -2854,3 +2854,43 @@
   touched during the recovery attempts. A future service repair requires a
   compatible vLLM/FP8 kernel build or a known-good launch image; it is not a
   justification for reopening the rejected training branch.
+
+## 2026-08-16 — Paper II convergence gate and one-time BGS v003 external evaluation
+
+- The preregistered converged-method development gate passed on nested
+  source-disjoint BGS development: mean Boundary F1 `0.333272`, mean Interval
+  F1 `0.184106`, positive Interval-F1 folds `4/5`, overall boundary CNER
+  `0.328125`, independent selective precision `1.000000`, coverage
+  `0.428571`, and independent CNER `0.000000`.
+- The fixed v028 routed parser was then run once on the frozen BGS v003
+  external source. It evaluated one record and five visible pages containing
+  eight reference boundaries and seven intervals. The page-family detector
+  routed the pages to `abstain_unsupported_family`; Boundary F1 and Interval
+  F1 were both `0.000000`, coverage was `0.000000`, and no false positive or
+  critical numerical error was emitted.
+- No threshold, alias, prompt, routing, or geometry change was made after the
+  external run. A protocol deviation is recorded separately: the raw v003
+  manifest bytes were hashed before the preregistered freeze document was
+  committed, without semantic inspection or parameter selection. The
+  manuscript must describe this accurately and must not claim literal
+  unopened-file access.
+- Decision: BGS v003 is a consumed external failure/abstention case and is
+  permanently excluded from subsequent tuning or validation reuse. Paper II
+  now reports a bounded safety–coverage result rather than cross-source
+  generalization.
+
+## 2026-08-16 — Paper III risk-aware three-layer volume propagation
+
+- Built a downstream prediction bundle in which accepted Swissgeol documents
+  retain frozen intervals and rejected documents abstain. The real held-out
+  set contains 35 documents; 15 were accepted (`0.428571` coverage).
+- On the same three-layer IDW volume decoder, relative absolute volume error
+  was `0.138942` for raw extraction, `0.121565` after constraint rereading, and
+  `0.082390` with risk-aware abstention. Mean layer-thickness MAE was
+  `45.952 m`, `45.679 m`, and `34.808 m`, respectively. Negative-thickness
+  layers were `1`, `1`, and `0`.
+- Risk-aware abstention therefore reduced relative volume error by about
+  `40.7%` relative to raw, but mean top/bottom support fell to `0.387/0.378`.
+  The deepest layers have only seven and three supporting records. This is a
+  real downstream diagnostic with an explicit reliability–coverage trade-off,
+  not a validated geological interpretation or a human-efficiency estimate.

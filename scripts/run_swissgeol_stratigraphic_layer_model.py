@@ -213,13 +213,18 @@ def main() -> None:
             "raw": prediction["first_pass_intervals"],
             "final": prediction["final_intervals"],
         })
+        if "risk_aware_final_intervals" in prediction:
+            records[-1]["risk_aware"] = prediction["risk_aware_final_intervals"]
+    variants = ["raw", "final"]
+    if any("risk_aware" in record for record in records):
+        variants.append("risk_aware")
     max_boundaries = max(len(r["reference"]) for r in records) - 1
     layer_rows = []
     for layer_index in range(max_boundaries):
-        for variant in ("raw", "final"):
+        for variant in variants:
             layer_rows.append(summarize_layer(records, layer_index, variant, args.grid_size))
     by_variant = {}
-    for variant in ("raw", "final"):
+    for variant in variants:
         rows = [r for r in layer_rows if r["variant"] == variant]
         volumes = [r["absolute_volume_error_m3"] for r in rows if r["absolute_volume_error_m3"] is not None]
         reference_volumes = [r["reference_volume_m3"] for r in rows if r["reference_volume_m3"] is not None]
@@ -240,7 +245,7 @@ def main() -> None:
         }
     metrics = {
         "scope": "real image-derived stratigraphic layer-model diagnostic",
-        "comparison": "raw_image_boundary_vs_constraint_reread_boundary_vs_authoritative_reference_surface",
+        "comparison": "gold_vs_raw_vs_constraint_reread_vs_risk_aware_abstention_boundary_surface",
         "reference_ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
         "data_status": "real_image_pdf_with_authoritative_structured_spatial_metadata",
         "human_ground_truth_evidence": False,
