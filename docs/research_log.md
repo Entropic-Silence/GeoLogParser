@@ -2528,3 +2528,31 @@
   `9bed480b911b2a4e3cd12870c7527a29c025b033fd204b2287696cac9eba0bab`.
   These records may inform v024 development but can no longer provide external
   confirmation. BGS v003 remains frozen and unopened.
+
+## 2026-08-16 — BGS v024 page-family and structural-risk route
+
+- Added a reference-blind page-family router for explicit depth-range tables,
+  scaled composite logs, graphical contact logs and unsupported pages. The
+  explicit route localizes the `Depth from Surface` header, re-renders its ROI
+  at 2x/4x, removes table rules and fuses multiple Tesseract views.
+- The parser accepts only a zero-starting contiguous sequence of at least three
+  ranges. On corrected BGS v002r2 it recovered `0.00–6.00`, `6.00–8.00` and
+  `8.00–10.00` with complete bbox provenance, and abstained from later rows
+  whose decimal evidence was not reliable.
+- Added document-level risk gates for unsupported pages, zero structural
+  evidence and the specific candidate-explosion/output-density pattern seen on
+  BGS v002. The route is designed to avoid the v023 failure mode of emitting
+  dozens of ungrounded boundaries from a long scale.
+- Source-disjoint BGS v001 v024 development results: boundary F1 `0.3313`,
+  interval F1 `0.1801`, boundary precision `0.6897`, and CNER `0.3103`.
+  This is not a material boundary-F1 improvement over v023 (`0.3381`), but
+  interval F1 is marginally higher (`0.1797` to `0.1801`). Therefore v024 is
+  retained as a reliability branch and is not promoted as the primary method.
+- Corrected BGS v002r2 validation results: boundary precision/recall/F1
+  `1.0000/0.0769/0.1429`, interval F1 `0.1154`, CNER `0.0000`, with four
+  accepted boundaries and no false positives. This is validation evidence only;
+  BGS v003 remains frozen and unopened.
+- Development artifact SHA256:
+  `fe5c055b4e276ae88211f79c81a6b1adeb179b9ff24adc0e426beffdb8740075`.
+  Validation artifact SHA256:
+  `c88525224a6e0b0cd218543c17cf0c218c33e62733f4e467766e66fc50ea7473`.

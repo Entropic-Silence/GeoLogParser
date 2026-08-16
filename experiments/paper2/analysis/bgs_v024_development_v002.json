@@ -1,0 +1,992 @@
+{
+  "baseline_report": "experiments/paper2/analysis/bgs_geometry_refinement_development_v001.json",
+  "baseline_report_sha256": "81a962a8211d2b1a4de60d0b420d8100d8dbe07039f3e05693428d78a57f5e11",
+  "candidate_report": "experiments/paper2/analysis/bgs_layout_method_development_v021.json",
+  "candidate_report_sha256": "cae1787d8803f6e9d2052407fa69dae5fdfd51da81e0fad758cc30278cbd70a4",
+  "document_count": 26,
+  "evaluation_role": "development",
+  "experiment_id": "P2_BGS_V024_DEVELOPMENT_V002",
+  "latency_seconds_per_page": 0.17047684938241967,
+  "limitations": [
+    "Explicit range extraction is currently conservative and may abstain on degraded later rows.",
+    "Graphical contact and scaled composite pages still use v023 geometry only when structural-risk gates pass.",
+    "This artifact is validation evidence for consumed BGS v002r2; it is not external confirmation."
+  ],
+  "manifest": "datasets/manifests/bgs_offshore_gold_v001.jsonl",
+  "manifest_sha256": "d85f6c862b81d80c793887f73ca8b70658d42de358f25230dc4a15104520c99c",
+  "method_version": "bgs_page_family_structural_risk_v024",
+  "metrics_by_tolerance_m": {
+    "0.01": {
+      "boundary": {
+        "critical_numerical_error_rate": 0.35344827586206895,
+        "f1": 0.31055900621118016,
+        "false_negative": 292,
+        "false_positive": 41,
+        "matched_boundary_mae_m": 4.0000000000001514e-05,
+        "precision": 0.646551724137931,
+        "recall": 0.20435967302452315,
+        "true_positive": 75
+      },
+      "interval": {
+        "f1": 0.15242494226327946,
+        "false_negative": 308,
+        "false_positive": 59,
+        "precision": 0.358695652173913,
+        "recall": 0.0967741935483871,
+        "true_positive": 33
+      }
+    },
+    "0.05": {
+      "boundary": {
+        "critical_numerical_error_rate": 0.3103448275862069,
+        "f1": 0.33126293995859213,
+        "false_negative": 287,
+        "false_positive": 36,
+        "matched_boundary_mae_m": 0.0017875000000000085,
+        "precision": 0.6896551724137931,
+        "recall": 0.21798365122615804,
+        "true_positive": 80
+      },
+      "interval": {
+        "f1": 0.18013856812933024,
+        "false_negative": 302,
+        "false_positive": 53,
+        "precision": 0.42391304347826086,
+        "recall": 0.11436950146627566,
+        "true_positive": 39
+      }
+    },
+    "0.10": {
+      "boundary": {
+        "critical_numerical_error_rate": 0.28448275862068967,
+        "f1": 0.34368530020703936,
+        "false_negative": 284,
+        "false_positive": 33,
+        "matched_boundary_mae_m": 0.004132530120481949,
+        "precision": 0.7155172413793104,
+        "recall": 0.22615803814713897,
+        "true_positive": 83
+      },
+      "interval": {
+        "f1": 0.18013856812933024,
+        "false_negative": 302,
+        "false_positive": 53,
+        "precision": 0.42391304347826086,
+        "recall": 0.11436950146627566,
+        "true_positive": 39
+      }
+    }
+  },
+  "page_count": 34,
+  "peak_process_rss_kib": 324768,
+  "predictions": [
+    {
+      "baseline_boundary_count": 2,
+      "candidate_count": 134,
+      "candidate_count_per_page": 134.0,
+      "page_count": 1,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "page_rows": [
+        {
+          "assessment": [
+            "header:recovered",
+            "header:drilled_depth",
+            "header:lithology",
+            "header:description",
+            "geometry:long_page"
+          ],
+          "family": "graphical_contact_log",
+          "page": 10
+        }
+      ],
+      "predicted_boundaries_m": [
+        0.0,
+        33.6
+      ],
+      "provenance_count": 0,
+      "record_id": "BGS_OFFSHORE_2016306",
+      "risk_codes": [],
+      "route": "baseline_v023"
+    },
+    {
+      "baseline_boundary_count": 6,
+      "candidate_count": 175,
+      "candidate_count_per_page": 175.0,
+      "page_count": 1,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "page_rows": [
+        {
+          "assessment": [
+            "header:drilled_depth",
+            "header:lithology",
+            "header:description"
+          ],
+          "family": "graphical_contact_log",
+          "page": 7
+        }
+      ],
+      "predicted_boundaries_m": [
+        0.0,
+        0.05,
+        22.5,
+        27.0,
+        29.0,
+        29.8
+      ],
+      "provenance_count": 0,
+      "record_id": "BGS_OFFSHORE_2041581",
+      "risk_codes": [],
+      "route": "baseline_v023"
+    },
+    {
+      "baseline_boundary_count": 2,
+      "candidate_count": 935,
+      "candidate_count_per_page": 935.0,
+      "page_count": 1,
+      "page_families": [
+        "scaled_composite_log"
+      ],
+      "page_rows": [
+        {
+          "assessment": [
+            "header:graphic_log",
+            "header:drilled_depth"
+          ],
+          "family": "scaled_composite_log",
+          "page": 6
+        }
+      ],
+      "predicted_boundaries_m": [
+        0.0,
+        27.45
+      ],
+      "provenance_count": 0,
+      "record_id": "BGS_OFFSHORE_1963694",
+      "risk_codes": [],
+      "route": "baseline_v023"
+    },
+    {
+      "baseline_boundary_count": 8,
+      "candidate_count": 1069,
+      "candidate_count_per_page": 1069.0,
+      "page_count": 1,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "page_rows": [
+        {
+          "assessment": [
+            "header:drilled_depth",
+            "header:lithology",
+            "header:description"
+          ],
+          "family": "graphical_contact_log",
+          "page": 4
+        }
+      ],
+      "predicted_boundaries_m": [
+        0.0,
+        5.5,
+        10.48,
+        19.27,
+        23.32,
+        24.0,
+        26.0,
+        51.27
+      ],
+      "provenance_count": 0,
+      "record_id": "BGS_OFFSHORE_1960609",
+      "risk_codes": [],
+      "route": "baseline_v023"
+    },
+    {
+      "baseline_boundary_count": 2,
+      "candidate_count": 1749,
+      "candidate_count_per_page": 874.5,
+      "page_count": 2,
+      "page_families": [
+        "scaled_composite_log",
+        "scaled_composite_log"
+      ],
+      "page_rows": [
+        {
+          "assessment": [
+            "header:graphic_log",
+            "header:drilled_depth"
+          ],
+          "family": "scaled_composite_log",
+          "page": 6
+        },
+        {
+          "assessment": [
+            "header:graphic_log",
+            "header:drilled_depth"
+          ],
+          "family": "scaled_composite_log",
+          "page": 7
+        }
+      ],
+      "predicted_boundaries_m": [
+        0.0,
+        8.0
+      ],
+      "provenance_count": 0,
+      "record_id": "BGS_OFFSHORE_1969862",
+      "risk_codes": [],
+      "route": "baseline_v023"
+    },
+    {
+      "baseline_boundary_count": 8,
+      "candidate_count": 184,
+      "candidate_count_per_page": 184.0,
+      "page_count": 1,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "page_rows": [
+        {
+          "assessment": [
+            "header:drilled_depth",
+            "header:lithology",
+            "header:description",
+            "geometry:long_page"
+          ],
+          "family": "graphical_contact_log",
+          "page": 15
+        }
+      ],
+      "predicted_boundaries_m": [
+        0.0,
+        2.0,
+        10.0,
+        13.0,
+        16.67,
+        20.4,
+        20.8,
+        22.903
+      ],
+      "provenance_count": 0,
+      "record_id": "BGS_OFFSHORE_1957995",
+      "risk_codes": [],
+      "route": "baseline_v023"
+    },
+    {
+      "baseline_boundary_count": 15,
+      "candidate_count": 1352,
+      "candidate_count_per_page": 1352.0,
+      "page_count": 1,
+      "page_families": [
+        "scaled_composite_log"
+      ],
+      "page_rows": [
+        {
+          "assessment": [
+            "header:graphic_log",
+            "header:drilled_depth"
+          ],
+          "family": "scaled_composite_log",
+          "page": 7
+        }
+      ],
+      "predicted_boundaries_m": [
+        0.0,
+        3.0,
+        5.0,
+        8.0,
+        10.0,
+        12.0,
+        15.0,
+        18.0,
+        21.0,
+        24.0,
+        26.0,
+        27.0,
+        34.0,
+        38.0,
+        41.0
+      ],
+      "provenance_count": 0,
+      "record_id": "BGS_OFFSHORE_1960630",
+      "risk_codes": [],
+      "route": "baseline_v023"
+    },
+    {
+      "baseline_boundary_count": 12,
+      "candidate_count": 1931,
+      "candidate_count_per_page": 965.5,
+      "page_count": 2,
+      "page_families": [
+        "scaled_composite_log",
+        "graphical_contact_log"
+      ],
+      "page_rows": [
+        {
+          "assessment": [
+            "header:graphic_log",
+            "header:drilled_depth"
+          ],
+          "family": "scaled_composite_log",
+          "page": 8
+        },
+        {
+          "assessment": [
+            "header:graphic_log",
+            "header:lithology",
+            "header:description"
+          ],
+          "family": "graphical_contact_log",
+          "page": 9
+        }
+      ],
+      "predicted_boundaries_m": [
+        0.0,
+        5.0,
+        18.0,
+        19.0,
+        21.0,
+        23.0,
+        34.0,
+        46.0,
+        47.29,
+        48.47,
+        66.53,
+        77.0
+      ],
+      "provenance_count": 0,
+      "record_id": "BGS_OFFSHORE_2023411",
+      "risk_codes": [],
+      "route": "baseline_v023"
+    },
+    {
+      "baseline_boundary_count": 18,
+      "candidate_count": 1036,
+      "candidate_count_per_page": 1036.0,
+      "page_count": 1,
+      "page_families": [
+        "scaled_composite_log"
+      ],
+      "page_rows": [
+        {
+          "assessment": [
+            "header:graphic_log",
+            "header:drilled_depth"
+          ],
+          "family": "scaled_composite_log",
+          "page": 11
+        }
+      ],
+      "predicted_boundaries_m": [
+        0.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0,
+        8.0,
+        9.0,
+        10.0,
+        11.0,
+        12.0,
+        13.0,
+        14.0,
+        15.0,
+        16.0,
+        17.0,
+        18.0,
+        19.0,
+        20.0
+      ],
+      "provenance_count": 0,
+      "record_id": "BGS_OFFSHORE_2030012",
+      "risk_codes": [],
+      "route": "baseline_v023"
+    },
+    {
+      "baseline_boundary_count": 2,
+      "candidate_count": 305,
+      "candidate_count_per_page": 152.5,
+      "page_count": 2,
+      "page_families": [
+        "scaled_composite_log",
+        "scaled_composite_log"
+      ],
+      "page_rows": [
+        {
+          "assessment": [
+            "header:graphic_log",
+            "header:drilled_depth"
+          ],
+          "family": "scaled_composite_log",
+          "page": 67
+        },
+        {
+          "assessment": [
+            "header:graphic_log",
+            "header:drilled_depth"
+          ],
+          "family": "scaled_composite_log",
+          "page": 68
+        }
+      ],
+      "predicted_boundaries_m": [
+        0.0,
+        76.85
+      ],
+      "provenance_count": 0,
+      "record_id": "BGS_OFFSHORE_1980976",
+      "risk_codes": [],
+      "route": "baseline_v023"
+    },
+    {
+      "baseline_boundary_count": 1,
+      "candidate_count": 415,
+      "candidate_count_per_page": 138.33333333333334,
+      "page_count": 3,
+      "page_families": [
+        "graphical_contact_log",
+        "graphical_contact_log",
+        "scaled_composite_log"
+      ],
+      "page_rows": [
+        {
+          "assessment": [
+            "header:lithology",
+            "header:description"
+          ],
+          "family": "graphical_contact_log",
+          "page": 19
+        },
+        {
+          "assessment": [
+            "header:lithology",
+            "header:description"
+          ],
+          "family": "graphical_contact_log",
+          "page": 20
+        },
+        {
+          "assessment": [
+            "header:graphic_log",
+            "header:drilled_depth"
+          ],
+          "family": "scaled_composite_log",
+          "page": 21
+        }
+      ],
+      "predicted_boundaries_m": [
+        0.0
+      ],
+      "provenance_count": 0,
+      "record_id": "BGS_OFFSHORE_1984462",
+      "risk_codes": [],
+      "route": "baseline_v023"
+    },
+    {
+      "baseline_boundary_count": 1,
+      "candidate_count": 21,
+      "candidate_count_per_page": 21.0,
+      "page_count": 1,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "page_rows": [
+        {
+          "assessment": [
+            "header:composite_log",
+            "header:lithology",
+            "header:description",
+            "geometry:long_page"
+          ],
+          "family": "graphical_contact_log",
+          "page": 4
+        }
+      ],
+      "predicted_boundaries_m": [
+        0.0
+      ],
+      "provenance_count": 0,
+      "record_id": "BGS_OFFSHORE_1945465",
+      "risk_codes": [],
+      "route": "baseline_v023"
+    },
+    {
+      "baseline_boundary_count": 1,
+      "candidate_count": 483,
+      "candidate_count_per_page": 483.0,
+      "page_count": 1,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "page_rows": [
+        {
+          "assessment": [
+            "header:composite_log",
+            "header:lithology",
+            "header:description",
+            "geometry:long_page"
+          ],
+          "family": "graphical_contact_log",
+          "page": 7
+        }
+      ],
+      "predicted_boundaries_m": [
+        0.0
+      ],
+      "provenance_count": 0,
+      "record_id": "BGS_OFFSHORE_2009141",
+      "risk_codes": [],
+      "route": "baseline_v023"
+    },
+    {
+      "baseline_boundary_count": 13,
+      "candidate_count": 6711,
+      "candidate_count_per_page": 1677.75,
+      "page_count": 4,
+      "page_families": [
+        "scaled_composite_log",
+        "scaled_composite_log",
+        "scaled_composite_log",
+        "scaled_composite_log"
+      ],
+      "page_rows": [
+        {
+          "assessment": [
+            "header:graphic_log",
+            "header:drilled_depth"
+          ],
+          "family": "scaled_composite_log",
+          "page": 21
+        },
+        {
+          "assessment": [
+            "header:graphic_log",
+            "header:drilled_depth"
+          ],
+          "family": "scaled_composite_log",
+          "page": 22
+        },
+        {
+          "assessment": [
+            "header:graphic_log",
+            "header:drilled_depth"
+          ],
+          "family": "scaled_composite_log",
+          "page": 23
+        },
+        {
+          "assessment": [
+            "header:graphic_log",
+            "header:drilled_depth"
+          ],
+          "family": "scaled_composite_log",
+          "page": 24
+        }
+      ],
+      "predicted_boundaries_m": [
+        0.0,
+        25.0,
+        48.0,
+        97.0,
+        98.5,
+        100.5,
+        103.8,
+        105.9,
+        114.0,
+        116.9,
+        119.9,
+        148.5,
+        200.25
+      ],
+      "provenance_count": 0,
+      "record_id": "BGS_OFFSHORE_2024185",
+      "risk_codes": [],
+      "route": "baseline_v023"
+    },
+    {
+      "baseline_boundary_count": 1,
+      "candidate_count": 163,
+      "candidate_count_per_page": 163.0,
+      "page_count": 1,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "page_rows": [
+        {
+          "assessment": [
+            "header:recovered",
+            "header:drilled_depth",
+            "header:composite_log",
+            "header:lithology",
+            "header:description",
+            "geometry:long_page"
+          ],
+          "family": "graphical_contact_log",
+          "page": 16
+        }
+      ],
+      "predicted_boundaries_m": [
+        0.0
+      ],
+      "provenance_count": 0,
+      "record_id": "BGS_OFFSHORE_1951404",
+      "risk_codes": [],
+      "route": "baseline_v023"
+    },
+    {
+      "baseline_boundary_count": 1,
+      "candidate_count": 207,
+      "candidate_count_per_page": 207.0,
+      "page_count": 1,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "page_rows": [
+        {
+          "assessment": [
+            "header:drilled_depth",
+            "header:composite_log",
+            "header:lithology",
+            "header:description",
+            "geometry:long_page"
+          ],
+          "family": "graphical_contact_log",
+          "page": 15
+        }
+      ],
+      "predicted_boundaries_m": [
+        0.0
+      ],
+      "provenance_count": 0,
+      "record_id": "BGS_OFFSHORE_1943902",
+      "risk_codes": [],
+      "route": "baseline_v023"
+    },
+    {
+      "baseline_boundary_count": 2,
+      "candidate_count": 207,
+      "candidate_count_per_page": 207.0,
+      "page_count": 1,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "page_rows": [
+        {
+          "assessment": [
+            "header:composite_log",
+            "header:lithology",
+            "header:description",
+            "geometry:long_page"
+          ],
+          "family": "graphical_contact_log",
+          "page": 10
+        }
+      ],
+      "predicted_boundaries_m": [
+        0.0,
+        28.4
+      ],
+      "provenance_count": 0,
+      "record_id": "BGS_OFFSHORE_1993525",
+      "risk_codes": [],
+      "route": "baseline_v023"
+    },
+    {
+      "baseline_boundary_count": 1,
+      "candidate_count": 2497,
+      "candidate_count_per_page": 2497.0,
+      "page_count": 1,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "page_rows": [
+        {
+          "assessment": [
+            "header:composite_log",
+            "header:lithology",
+            "header:description",
+            "geometry:long_page"
+          ],
+          "family": "graphical_contact_log",
+          "page": 9
+        }
+      ],
+      "predicted_boundaries_m": [
+        0.0
+      ],
+      "provenance_count": 0,
+      "record_id": "BGS_OFFSHORE_2007749",
+      "risk_codes": [],
+      "route": "baseline_v023"
+    },
+    {
+      "baseline_boundary_count": 0,
+      "candidate_count": 1,
+      "candidate_count_per_page": 1.0,
+      "page_count": 1,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "page_rows": [
+        {
+          "assessment": [
+            "header:composite_log",
+            "header:lithology",
+            "geometry:long_page"
+          ],
+          "family": "graphical_contact_log",
+          "page": 12
+        }
+      ],
+      "predicted_boundaries_m": [],
+      "provenance_count": 0,
+      "record_id": "BGS_OFFSHORE_1987224",
+      "risk_codes": [
+        "zero_structural_evidence"
+      ],
+      "route": "abstain_zero_structural_evidence"
+    },
+    {
+      "baseline_boundary_count": 2,
+      "candidate_count": 1010,
+      "candidate_count_per_page": 1010.0,
+      "page_count": 1,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "page_rows": [
+        {
+          "assessment": [
+            "header:drilled_depth",
+            "header:lithology",
+            "header:description",
+            "geometry:long_page"
+          ],
+          "family": "graphical_contact_log",
+          "page": 45
+        }
+      ],
+      "predicted_boundaries_m": [
+        0.0,
+        28.35
+      ],
+      "provenance_count": 0,
+      "record_id": "BGS_OFFSHORE_1944312",
+      "risk_codes": [],
+      "route": "baseline_v023"
+    },
+    {
+      "baseline_boundary_count": 2,
+      "candidate_count": 294,
+      "candidate_count_per_page": 294.0,
+      "page_count": 1,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "page_rows": [
+        {
+          "assessment": [
+            "header:drilled_depth",
+            "header:lithology",
+            "header:description"
+          ],
+          "family": "graphical_contact_log",
+          "page": 11
+        }
+      ],
+      "predicted_boundaries_m": [
+        0.0,
+        13.55
+      ],
+      "provenance_count": 0,
+      "record_id": "BGS_OFFSHORE_1944320",
+      "risk_codes": [],
+      "route": "baseline_v023"
+    },
+    {
+      "baseline_boundary_count": 2,
+      "candidate_count": 50,
+      "candidate_count_per_page": 50.0,
+      "page_count": 1,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "page_rows": [
+        {
+          "assessment": [
+            "header:drilled_depth",
+            "header:lithology",
+            "header:description",
+            "geometry:long_page"
+          ],
+          "family": "graphical_contact_log",
+          "page": 2
+        }
+      ],
+      "predicted_boundaries_m": [
+        0.0,
+        33.35
+      ],
+      "provenance_count": 0,
+      "record_id": "BGS_OFFSHORE_1989175",
+      "risk_codes": [],
+      "route": "baseline_v023"
+    },
+    {
+      "baseline_boundary_count": 11,
+      "candidate_count": 307,
+      "candidate_count_per_page": 307.0,
+      "page_count": 1,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "page_rows": [
+        {
+          "assessment": [
+            "header:drilled_depth",
+            "header:lithology",
+            "header:description"
+          ],
+          "family": "graphical_contact_log",
+          "page": 9
+        }
+      ],
+      "predicted_boundaries_m": [
+        0.0,
+        7.0,
+        8.0,
+        12.0,
+        12.52,
+        17.0,
+        17.64,
+        19.0,
+        19.57,
+        21.0,
+        30.0
+      ],
+      "provenance_count": 0,
+      "record_id": "BGS_OFFSHORE_1960100",
+      "risk_codes": [],
+      "route": "baseline_v023"
+    },
+    {
+      "baseline_boundary_count": 2,
+      "candidate_count": 98,
+      "candidate_count_per_page": 98.0,
+      "page_count": 1,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "page_rows": [
+        {
+          "assessment": [
+            "header:drilled_depth",
+            "header:lithology",
+            "header:description"
+          ],
+          "family": "graphical_contact_log",
+          "page": 16
+        }
+      ],
+      "predicted_boundaries_m": [
+        0.0,
+        16.0
+      ],
+      "provenance_count": 0,
+      "record_id": "BGS_OFFSHORE_1944322",
+      "risk_codes": [],
+      "route": "baseline_v023"
+    },
+    {
+      "baseline_boundary_count": 1,
+      "candidate_count": 163,
+      "candidate_count_per_page": 163.0,
+      "page_count": 1,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "page_rows": [
+        {
+          "assessment": [
+            "header:drilled_depth",
+            "header:lithology",
+            "header:description",
+            "geometry:long_page"
+          ],
+          "family": "graphical_contact_log",
+          "page": 26
+        }
+      ],
+      "predicted_boundaries_m": [
+        0.0
+      ],
+      "provenance_count": 0,
+      "record_id": "BGS_OFFSHORE_1949665",
+      "risk_codes": [],
+      "route": "baseline_v023"
+    },
+    {
+      "baseline_boundary_count": 2,
+      "candidate_count": 135,
+      "candidate_count_per_page": 135.0,
+      "page_count": 1,
+      "page_families": [
+        "unsupported"
+      ],
+      "page_rows": [
+        {
+          "assessment": [
+            "header:drilled_depth"
+          ],
+          "family": "unsupported",
+          "page": 1
+        }
+      ],
+      "predicted_boundaries_m": [],
+      "provenance_count": 0,
+      "record_id": "BGS_OFFSHORE_1942278",
+      "risk_codes": [
+        "unsupported_page_family"
+      ],
+      "route": "abstain_unsupported_page_family"
+    }
+  ],
+  "reference_blinding": "baseline and candidate routing are fixed before validation references are used for scoring",
+  "reference_boundary_count": 367,
+  "reference_interval_count": 341,
+  "risk_policy": {
+    "candidate_explosion_output_count_minimum": 40,
+    "candidate_explosion_output_fraction_minimum": 0.03,
+    "candidate_explosion_per_page": 1000,
+    "unsupported_page_family": "document_abstention",
+    "zero_structural_evidence": "document_abstention"
+  },
+  "selective_operating_point": {
+    "accepted_boundary_count": 116,
+    "boundary": {
+      "critical_numerical_error_rate": 0.3103448275862069,
+      "f1": 0.33126293995859213,
+      "false_negative": 287,
+      "false_positive": 36,
+      "matched_boundary_mae_m": 0.0017875000000000085,
+      "precision": 0.6896551724137931,
+      "recall": 0.21798365122615804,
+      "true_positive": 80
+    },
+    "coverage_against_reference": 0.31607629427792916,
+    "interval": {
+      "f1": 0.18013856812933024,
+      "false_negative": 302,
+      "false_positive": 53,
+      "precision": 0.42391304347826086,
+      "recall": 0.11436950146627566,
+      "true_positive": 39
+    }
+  },
+  "source_regions_sha256": "8e647aa18232a1f63ee4e37d4d3e75685561cc80949a85ff6685fce48ff79aa4",
+  "source_run": "results/2026-08-15/P1_BGS_OFFSHORE_V001_TESSERACT_CROSS_SOURCE_FORMAL_001",
+  "status": "completed_development_evaluation",
+  "wall_time_seconds": 5.796211979002692
+}
