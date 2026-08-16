@@ -39,6 +39,11 @@ boundary precision/recall/F1 0.6610/0.2125/0.3216 and interval F1 0.1475 at
 the interval gate was not met and the variant is not eligible for external
 release.
 
+Its coverage-risk audit identifies a deployable selective point at threshold
+0.65: 40 accepted boundaries, precision 0.9500, reference-relative coverage
+0.1090 and CNER 0.0500. This passes the selective reliability criteria but does
+not override the failed full-sequence interval gate.
+
 ## Consequence
 
 The column-gated v022 candidate is retained as the next development baseline,

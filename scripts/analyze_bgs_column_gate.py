@@ -89,23 +89,27 @@ def reconstruct(row):
     return DepthBoundaryCandidate(float(row['value_m']),int(row['page']),tuple(float(x) for x in row['bbox']),row['candidate_source'],dict(row['features']),tuple(row['provenance']))
 
 
-def gated_candidates(prediction,columns,scores,top_k):
+def gated_candidates(prediction,columns,scores,top_k,score_power=0.0):
     keep={column.key for column,_ in sorted(zip(columns,scores),key=lambda x:x[1],reverse=True)[:top_k]}
     rows=[]; probabilities=[]
+    score_by_key={column.key:float(score) for column,score in zip(columns,scores)}
     for row in prediction['ranked_candidates']:
         if row['page_family']=='calibrated_graphic':
             center=float(row['features'].get('graphic_column_center',(row['bbox'][0]+row['bbox'][2])/2)); key=(int(row['page']),round(center*10000))
             if key not in keep: continue
-        rows.append(reconstruct(row)); probabilities.append(float(row['probability']))
+            adjusted=float(row['probability'])*(max(1e-6,score_by_key.get(key,0.0))**score_power)
+        else:
+            adjusted=float(row['probability'])
+        rows.append(reconstruct(row)); probabilities.append(adjusted)
     return rows,probabilities
 
 
-def tune(predictions,columns_by_id,scores_by_id,references):
+def tune(predictions,columns_by_id,scores_by_id,references,score_power=0.0):
     best=None
     for top_k in range(1,9):
         candidates={}; probabilities={}
         for record_id in predictions:
-            candidates[record_id],probabilities[record_id]=gated_candidates(predictions[record_id],columns_by_id[record_id],scores_by_id[record_id],top_k)
+            candidates[record_id],probabilities[record_id]=gated_candidates(predictions[record_id],columns_by_id[record_id],scores_by_id[record_id],top_k,score_power)
         for threshold in [x/100 for x in range(10,91,2)]:
             values={rid:[x[0].value_m for x in monotonic_sequence(candidates[rid],probabilities[rid],threshold)] for rid in candidates}
             interval=interval_metrics(values,references,.05); boundary=boundary_metrics(values,references,.05)
@@ -115,24 +119,32 @@ def tune(predictions,columns_by_id,scores_by_id,references):
 
 
 def main():
-    parser=argparse.ArgumentParser(); parser.add_argument('--analysis',type=Path,required=True); parser.add_argument('--manifest',type=Path,required=True); parser.add_argument('--output',type=Path,required=True); parser.add_argument('--sequence-threshold',type=float); parser.add_argument('--top-k',type=int); args=parser.parse_args()
+    parser=argparse.ArgumentParser(); parser.add_argument('--analysis',type=Path,required=True); parser.add_argument('--manifest',type=Path,required=True); parser.add_argument('--output',type=Path,required=True); parser.add_argument('--sequence-threshold',type=float); parser.add_argument('--top-k',type=int); parser.add_argument('--column-score-power',type=float,default=0.0); args=parser.parse_args()
     started=time.perf_counter(); analysis=json.loads(args.analysis.read_text()); sources={r['record_id']:r for r in map(json.loads,args.manifest.open())}; references={k:refs(v) for k,v in sources.items()}
     predictions={r['record_id']:r for r in analysis['predictions']}; folds={k:int(v['fold']) for k,v in predictions.items()}; columns={k:build_columns(v,references[k]) for k,v in predictions.items()}
-    output_values={}; models=[]; column_scores={}
+    output_values={}; models=[]; column_scores={}; gated_by_id={}; gated_probabilities={}
     for fold in sorted(set(folds.values())):
         train_ids=[k for k in predictions if folds[k]!=fold]; test_ids=[k for k in predictions if folds[k]==fold]
         ranker=Ranker().fit([c for k in train_ids for c in columns[k]])
-        train_scores={k:ranker.predict(columns[k]).tolist() for k in train_ids}; tuned_top_k,tuned_threshold=tune({k:predictions[k] for k in train_ids},{k:columns[k] for k in train_ids},train_scores,{k:references[k] for k in train_ids}); top_k=args.top_k if args.top_k is not None else tuned_top_k; threshold=args.sequence_threshold if args.sequence_threshold is not None else tuned_threshold
+        train_scores={k:ranker.predict(columns[k]).tolist() for k in train_ids}; tuned_top_k,tuned_threshold=tune({k:predictions[k] for k in train_ids},{k:columns[k] for k in train_ids},train_scores,{k:references[k] for k in train_ids},args.column_score_power); top_k=args.top_k if args.top_k is not None else tuned_top_k; threshold=args.sequence_threshold if args.sequence_threshold is not None else tuned_threshold
         for record_id in test_ids:
             score=ranker.predict(columns[record_id]).tolist(); column_scores[record_id]=score
-            candidates,probabilities=gated_candidates(predictions[record_id],columns[record_id],score,top_k)
+            candidates,probabilities=gated_candidates(predictions[record_id],columns[record_id],score,top_k,args.column_score_power)
+            gated_by_id[record_id]=candidates; gated_probabilities[record_id]=probabilities
             output_values[record_id]=[x[0].value_m for x in monotonic_sequence(candidates,probabilities,threshold)]
         models.append({'fold':fold,'train_documents':len(train_ids),'test_documents':len(test_ids),'top_k':top_k,'sequence_threshold':threshold,'ranker':ranker.to_dict()})
     boundary=boundary_metrics(output_values,references,.05); interval=interval_metrics(output_values,references,.05)
+    risk_curve=[]
+    for threshold in [0.10,0.20,0.30,0.32,0.35,0.40,0.50,0.60,0.62,0.64,0.65,0.66,0.68,0.70,0.80,0.90,0.95,0.98,0.99]:
+        values={rid:[x[0].value_m for x in monotonic_sequence(gated_by_id[rid],gated_probabilities[rid],threshold)] for rid in gated_by_id}
+        b=boundary_metrics(values,references,.05); i=interval_metrics(values,references,.05); accepted=sum(map(len,values.values()))
+        risk_curve.append({'threshold':threshold,'accepted_boundary_count':accepted,'coverage_against_reference':accepted/sum(map(len,references.values())),'boundary':b,'interval':i})
+    reliable=[row for row in risk_curve if row['accepted_boundary_count'] and row['boundary']['precision']>=.90]
+    selective=max(reliable,key=lambda row:(row['accepted_boundary_count'],row['boundary']['precision'])) if reliable else None
     report={
-      'analysis_scope':'BGS v001 source-disjoint semantic column gate over v021 candidates','source_analysis':str(args.analysis),'source_analysis_sha256':hashlib.sha256(args.analysis.read_bytes()).hexdigest(),
+      'analysis_scope':'BGS v001 source-disjoint semantic column gate over v021 candidates','source_analysis':str(args.analysis),'source_analysis_sha256':hashlib.sha256(args.analysis.read_bytes()).hexdigest(),'column_score_power':args.column_score_power,
       'manifest':str(args.manifest),'manifest_sha256':hashlib.sha256(args.manifest.read_bytes()).hexdigest(),'document_count':len(predictions),'column_count':sum(map(len,columns.values())),
-      'positive_column_count':sum(c.label for values in columns.values() for c in values),'boundary_at_0_05m':boundary,'interval_at_0_05m':interval,'fold_models':models,
+      'positive_column_count':sum(c.label for values in columns.values() for c in values),'boundary_at_0_05m':boundary,'interval_at_0_05m':interval,'coverage_risk_curve':risk_curve,'selective_operating_point':selective,'fold_models':models,
       'predictions':[{'record_id':k,'fold':folds[k],'predicted_boundaries_m':output_values[k],'columns':[{'page':c.page,'key':list(c.key),'label':c.label,'probability':p,'features':c.features} for c,p in zip(columns[k],column_scores[k])]} for k in sorted(predictions)],
       'reference_blinding':'outer test references are used only for scoring; column gate, top-k and sequence threshold use other source folds','wall_time_seconds':time.perf_counter()-started,
     }

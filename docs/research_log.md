@@ -2430,3 +2430,9 @@
   release gate, but remains below 0.15 and is not externally released.
 - The analysis SHA256 is
   `8923bac3204a8048c7ebaf3ca8de41bf8285218c0d91dc281b3e7add997c063a`.
+
+- A fine-grained coverage-risk sweep found threshold 0.65 to be the strongest
+  high-reliability point: 40 accepted boundaries, precision 0.9500, coverage
+  0.1090 and CNER 0.0500. Threshold 0.60 accepts 46 boundaries at precision
+  0.9130, coverage 0.1253 and CNER 0.0870. The risk-curve artifact SHA256 is
+  `855ef7113f03cba887e3fa1c665f7c3ea7cd6965d80ce855748b7d79bd6ecb33`.
