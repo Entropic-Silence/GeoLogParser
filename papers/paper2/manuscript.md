@@ -103,6 +103,18 @@ Categories include constraint false positive/negative, ambiguous ROI, OCR/VLM ag
 
 The BGS development decomposition identifies three additional failure modes. First, long-page compression causes evidence omission before geological reasoning begins: even targeted multiscale rereading leaves about 70% of official boundaries without an exact numeric candidate. Second, increasing candidate recall without modelling mutually exclusive numeric roles is unsafe. Field-aware generation reached 30.25% boundary recall at ±0.05 m but only 8.16% precision; the learned ranker removed many spurious candidates but also discarded true ones. Third, native multimodal supervision did not transfer structural semantics with the available source-disjoint spatial labels: direct generation improved formatting more than grounding, and frozen visual embeddings did not recover boundary recall. Scale ticks, interval boundaries, water depth, sample depths, total depth, and OCR decimal variants can all form individually monotone sequences. The replacement method must therefore infer column role and complete page sequence jointly, with explicit evidence localization, rather than classify candidates independently and apply monotonicity afterward.
 
+A further development-only test asked whether graphical candidates become more
+specific when they align with the top or bottom of an adjacent OCR description
+row. The feature was only weakly discriminative (single-feature rank AUC
+`0.591`) and changed the v026 role-fallback Boundary/Interval F1 from
+`0.309/0.118` to `0.310/0.119`. Its selective Boundary F1 increased from
+`0.177` to `0.190`, but CNER worsened from `0.077` to `0.093`; nested routing
+reached only `0.333/0.179`, below v028. Description-row edges therefore locate
+generic document events but do not identify whether the event belongs to the
+geological log, scale, sampling record, or table structure. This negative
+result narrows the next method requirement to joint event-owner and sequence
+inference rather than additional independent local features.
+
 The independent Swissgeol route exposed the same precision--coverage conflict at the page-family level. Broadening the German alias set increased held-out family support from 20.0% to 45.7%, but accepted interval precision fell from 1.000 to 0.588, interval F1 fell to 0.351, and boundary CNER rose to 0.380. The broad alias expansion was rejected. This negative result motivates probabilistic risk gating: semantic resemblance is insufficient evidence that a page should be automatically accepted. <!-- evidence:p2.swissgeol_alias_expansion_negative -->
 
 ## 7. Discussion

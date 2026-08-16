@@ -352,6 +352,7 @@ def _graphic_candidates_for_column(
     column: tuple[int, int],
     column_rank: int = 0,
     column_activity: float = 0.0,
+    rows: Sequence[Mapping[str, object]] = (),
 ) -> list[DepthBoundaryCandidate]:
     height, width = gray.shape[:2]
     left, right = column
@@ -375,11 +376,36 @@ def _graphic_candidates_for_column(
         elif combined[local_y] > combined[peaks[-1] - y1]:
             peaks[-1] = absolute
     output = []
+    # Description rows provide an independent structural cue.  A geological
+    # contact normally starts/ends a text row in the adjacent description
+    # column, whereas a table rule or sampling line often has no aligned OCR
+    # row edge.  The cue is deliberately soft: OCR can miss or split rows.
+    row_edges: list[float] = []
+    for row in rows:
+        value = row.get("bbox")
+        text = str(row.get("text") or "").strip()
+        if not isinstance(value, (list, tuple)) or len(value) != 4 or not text:
+            continue
+        try:
+            rx1, ry1, rx2, ry2 = (float(item) for item in value)
+        except (TypeError, ValueError):
+            continue
+        center_x = (rx1 + rx2) / 2.0
+        if center_x <= right or center_x > layout.x_max * width:
+            continue
+        if ry2 < y1 or ry1 > y2:
+            continue
+        row_edges.extend((max(y1, ry1), min(y2, ry2)))
+    edge_tolerance = max(8.0, height * 0.004)
     for y in peaks:
         raw_depth = calibration.depth_at(y)
         if not 0 <= raw_depth <= 5000:
             continue
         local_y = y - y1
+        row_edge_support = max(
+            (math.exp(-abs(float(y) - edge) / edge_tolerance) for edge in row_edges),
+            default=0.0,
+        )
         external_line = horizontal_line_features(gray, (float(left), float(y-2), float(right), float(y+2)), left_x=max(0,layout.x_min*width), right_x=min(width,layout.x_max*width))
         hypotheses: set[tuple[float,float]] = {(round(raw_depth*20)/20,0.05)}
         for step in (0.1,0.5,1.0):
@@ -402,6 +428,7 @@ def _graphic_candidates_for_column(
                 "snap_tenth":float(abs(rounded_depth*10-round(rounded_depth*10))<1e-6),
                 "printed_line_support":0.0,"printed_pair_support":0.0,"graphic_line_support":float(line_score[local_y]),
                 "graphic_change_support":float(change[local_y]),"metadata_cross_field":0.0,
+                "description_boundary_support": float(row_edge_support),
                 "graphic_column_center":((left+right)/2)/width,"graphic_column_width":span/width,
                 "graphic_column_activity":max(0.0,min(1.0,column_activity)),"graphic_column_rank":1/(1+column_rank),
                 "graphic_cross_column_support":0.0,
@@ -413,10 +440,11 @@ def _graphic_candidates_for_column(
 def multicolumn_graphic_boundary_candidates(
     gray: np.ndarray, *, page: int, layout: LogPanelLayout,
     calibration: DepthScaleCalibration, depth_x_hint: float | None = None,
+    rows: Sequence[Mapping[str, object]] = (),
 ) -> list[DepthBoundaryCandidate]:
     """Generate candidates from every plausible field column, not one column."""
     columns = detect_graphic_log_columns(gray, layout, depth_x_hint=depth_x_hint)
-    output = [candidate for rank,(left,right,activity) in enumerate(columns) for candidate in _graphic_candidates_for_column(gray,page=page,layout=layout,calibration=calibration,column=(left,right),column_rank=rank,column_activity=activity)]
+    output = [candidate for rank,(left,right,activity) in enumerate(columns) for candidate in _graphic_candidates_for_column(gray,page=page,layout=layout,calibration=calibration,column=(left,right),column_rank=rank,column_activity=activity,rows=rows)]
     for candidate in output:
         cy=(candidate.bbox[1]+candidate.bbox[3])/2
         peers={round(((other.bbox[0]+other.bbox[2])/2)/gray.shape[1],3) for other in output if other is not candidate and abs((other.bbox[1]+other.bbox[3])/2-cy)<=max(8,gray.shape[0]*0.0025)}
@@ -449,7 +477,7 @@ def role_aware_multicolumn_graphic_boundary_candidates(
     if not selected and not any(anchor.role == "graphic_log" for anchor in anchors):
         fallback = multicolumn_graphic_boundary_candidates(
             gray, page=page, layout=layout, calibration=calibration,
-            depth_x_hint=depth_x_hint,
+            depth_x_hint=depth_x_hint, rows=rows,
         )
         output: list[DepthBoundaryCandidate] = []
         for candidate in fallback:
@@ -472,7 +500,7 @@ def role_aware_multicolumn_graphic_boundary_candidates(
         generated = _graphic_candidates_for_column(
             gray, page=page, layout=layout, calibration=calibration,
             column=(assignment.left, assignment.right), column_rank=rank,
-            column_activity=activity,
+            column_activity=activity, rows=rows,
         )
         for candidate in generated:
             features = dict(candidate.features)
@@ -505,6 +533,7 @@ def role_aware_multicolumn_graphic_boundary_candidates(
 def graphic_boundary_candidates(
     gray: np.ndarray, *, page: int, layout: LogPanelLayout,
     calibration: DepthScaleCalibration, depth_x_hint: float | None = None,
+    rows: Sequence[Mapping[str, object]] = (),
 ) -> list[DepthBoundaryCandidate]:
     """Generate depth candidates from graphic-layer transitions and a scale."""
     height, width = gray.shape[:2]
@@ -543,11 +572,30 @@ def graphic_boundary_candidates(
         elif combined_score[local_y] > combined_score[peaks[-1] - y1]:
             peaks[-1] = absolute
     output = []
+    row_edges: list[float] = []
+    for row in rows:
+        value = row.get("bbox")
+        text = str(row.get("text") or "").strip()
+        if not isinstance(value, (list, tuple)) or len(value) != 4 or not text:
+            continue
+        try:
+            rx1, ry1, rx2, ry2 = (float(item) for item in value)
+        except (TypeError, ValueError):
+            continue
+        if (rx1 + rx2) / 2.0 <= right or (rx1 + rx2) / 2.0 > layout.x_max * width:
+            continue
+        if ry2 >= y1 and ry1 <= y2:
+            row_edges.extend((max(y1, ry1), min(y2, ry2)))
+    edge_tolerance = max(8.0, height * 0.004)
     for y in peaks:
         raw_depth = calibration.depth_at(y)
         if not 0 <= raw_depth <= 5000:
             continue
         local_y = y - y1
+        row_edge_support = max(
+            (math.exp(-abs(float(y) - edge) / edge_tolerance) for edge in row_edges),
+            default=0.0,
+        )
         external_line = horizontal_line_features(
             gray, (float(left), float(y - 2), float(right), float(y + 2)),
             left_x=max(0, layout.x_min * width), right_x=min(width, layout.x_max * width),
@@ -593,6 +641,7 @@ def graphic_boundary_candidates(
                 "graphic_line_support": float(line_score[local_y]),
                 "graphic_change_support": float(change[local_y]),
                 "metadata_cross_field": 0.0,
+                "description_boundary_support": float(row_edge_support),
             }
             output.append(DepthBoundaryCandidate(
                 value_m=rounded_depth,

@@ -2764,3 +2764,17 @@
 - Decision: the NativeMM no-go is confirmed under corrected supervision; do
   not expand training or open BGS v003. The artifact is recorded in
   `experiments/paper2/nativemm/P2_NATIVEMM_CORRECTED_REAL_SFT_001.json`.
+
+## 2026-08-16 — Description-row structural alignment no-go
+
+- Added a reference-blind feature measuring the alignment between each
+  graphical transition and adjacent OCR description-row edges.
+- On BGS v001 development, positive and negative graphical candidates had mean
+  support `0.5855/0.4574`; the single-feature rank AUC was only `0.5912`.
+- Relative to the identical v026 role-fallback run, source-disjoint monotonic
+  Boundary/Interval F1 changed from `0.3094/0.1179` to `0.3099/0.1190`.
+  Selective Boundary F1 rose from `0.1773` to `0.1902`, but CNER worsened from
+  `0.0769` to `0.0930`.
+- Nested routing with v024 reached Boundary/Interval F1 `0.3333/0.1786`, below
+  v028 (`0.3475/0.1978`). Decision: `NO_GO_PRIMARY_RETAIN_FEATURE`; do not
+  tune more local row/line thresholds. BGS v003 remained unopened.

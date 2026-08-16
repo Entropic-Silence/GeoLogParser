@@ -1,0 +1,586 @@
+{
+  "document_count": 26,
+  "evaluation_slice": {
+    "document_count": 6,
+    "fold": 0,
+    "folds": 5
+  },
+  "experiment_id": "P2_BGS_ROUTED_MOE_V029_ROW_EDGES_DEV_001",
+  "family_metrics_source_disjoint_slice": {
+    "graphical_contact_log": {
+      "boundary": {
+        "critical_numerical_error_rate": 0.16666666666666666,
+        "f1": 0.21276595744680848,
+        "false_negative": 72,
+        "false_positive": 2,
+        "matched_boundary_mae_m": 0.00030000000000001136,
+        "precision": 0.8333333333333334,
+        "recall": 0.12195121951219512,
+        "true_positive": 10
+      },
+      "document_count": 5,
+      "interval": {
+        "f1": 0.07058823529411765,
+        "false_negative": 74,
+        "false_positive": 5,
+        "precision": 0.375,
+        "recall": 0.03896103896103896,
+        "true_positive": 3
+      },
+      "reference_boundary_count": 82
+    },
+    "scaled_composite_log": {
+      "boundary": {
+        "critical_numerical_error_rate": 0.875,
+        "f1": 0.16216216216216217,
+        "false_negative": 10,
+        "false_positive": 21,
+        "matched_boundary_mae_m": 0.0,
+        "precision": 0.125,
+        "recall": 0.23076923076923078,
+        "true_positive": 3
+      },
+      "document_count": 1,
+      "interval": {
+        "f1": 0.11428571428571427,
+        "false_negative": 10,
+        "false_positive": 21,
+        "precision": 0.08695652173913043,
+        "recall": 0.16666666666666666,
+        "true_positive": 2
+      },
+      "reference_boundary_count": 13
+    },
+    "unsupported": {
+      "document_count": 0
+    }
+  },
+  "manifest": "datasets/manifests/bgs_offshore_gold_v001.jsonl",
+  "manifest_sha256": "d85f6c862b81d80c793887f73ca8b70658d42de358f25230dc4a15104520c99c",
+  "method_version": "bgs_page_family_role_moe_v028_nested",
+  "overall": {
+    "boundary": {
+      "critical_numerical_error_rate": 0.366412213740458,
+      "f1": 0.33333333333333337,
+      "false_negative": 284,
+      "false_positive": 48,
+      "matched_boundary_mae_m": 0.0017228915662650685,
+      "precision": 0.6335877862595419,
+      "recall": 0.22615803814713897,
+      "true_positive": 83
+    },
+    "document_count": 26,
+    "interval": {
+      "f1": 0.17857142857142858,
+      "false_negative": 301,
+      "false_positive": 67,
+      "precision": 0.37383177570093457,
+      "recall": 0.11730205278592376,
+      "true_positive": 40
+    },
+    "reference_boundary_count": 367
+  },
+  "peak_process_rss_kib": 162320,
+  "predictions": [
+    {
+      "candidate_count_per_page": 65.0,
+      "fold": 0,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "predicted_boundaries_m": [
+        0.0,
+        2.0,
+        10.0,
+        13.0,
+        16.67,
+        20.4,
+        20.8,
+        22.903
+      ],
+      "record_id": "BGS_OFFSHORE_1957995",
+      "role_selected_count": 0,
+      "route": "v024_baseline_expert"
+    },
+    {
+      "candidate_count_per_page": 21.0,
+      "fold": 0,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "predicted_boundaries_m": [
+        0.0
+      ],
+      "record_id": "BGS_OFFSHORE_1945465",
+      "role_selected_count": 0,
+      "route": "v024_baseline_expert"
+    },
+    {
+      "candidate_count_per_page": 483.0,
+      "fold": 0,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "predicted_boundaries_m": [
+        0.0
+      ],
+      "record_id": "BGS_OFFSHORE_2009141",
+      "role_selected_count": 0,
+      "route": "v024_baseline_expert"
+    },
+    {
+      "candidate_count_per_page": 652.5,
+      "fold": 0,
+      "page_families": [
+        "scaled_composite_log"
+      ],
+      "predicted_boundaries_m": [
+        0.0,
+        25.0,
+        48.0,
+        49.0,
+        70.0,
+        97.0,
+        98.0,
+        100.0,
+        101.0,
+        102.0,
+        103.0,
+        104.0,
+        105.0,
+        106.0,
+        107.0,
+        108.0,
+        147.0,
+        148.0,
+        149.0,
+        150.0,
+        151.0,
+        200.0,
+        209.0,
+        210.0
+      ],
+      "record_id": "BGS_OFFSHORE_2024185",
+      "role_selected_count": 10,
+      "route": "semantic_role_expert"
+    },
+    {
+      "candidate_count_per_page": 1.0,
+      "fold": 0,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "predicted_boundaries_m": [],
+      "record_id": "BGS_OFFSHORE_1987224",
+      "role_selected_count": 0,
+      "route": "v024_baseline_expert"
+    },
+    {
+      "candidate_count_per_page": 92.0,
+      "fold": 0,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "predicted_boundaries_m": [
+        0.0,
+        13.55
+      ],
+      "record_id": "BGS_OFFSHORE_1944320",
+      "role_selected_count": 0,
+      "route": "v024_baseline_expert"
+    },
+    {
+      "candidate_count_per_page": 209.0,
+      "fold": 1,
+      "page_families": [
+        "scaled_composite_log"
+      ],
+      "predicted_boundaries_m": [
+        0.0,
+        8.0
+      ],
+      "record_id": "BGS_OFFSHORE_1969862",
+      "role_selected_count": 0,
+      "route": "v024_baseline_expert"
+    },
+    {
+      "candidate_count_per_page": 50.0,
+      "fold": 1,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "predicted_boundaries_m": [
+        0.0,
+        33.35
+      ],
+      "record_id": "BGS_OFFSHORE_1989175",
+      "role_selected_count": 0,
+      "route": "v024_baseline_expert"
+    },
+    {
+      "candidate_count_per_page": 22.0,
+      "fold": 1,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "predicted_boundaries_m": [
+        0.0,
+        16.0
+      ],
+      "record_id": "BGS_OFFSHORE_1944322",
+      "role_selected_count": 0,
+      "route": "v024_baseline_expert"
+    },
+    {
+      "candidate_count_per_page": 484.0,
+      "fold": 2,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "predicted_boundaries_m": [
+        0.0,
+        5.5,
+        10.48,
+        19.27,
+        23.32,
+        24.0,
+        26.0,
+        51.27
+      ],
+      "record_id": "BGS_OFFSHORE_1960609",
+      "role_selected_count": 9,
+      "route": "v024_baseline_expert"
+    },
+    {
+      "candidate_count_per_page": 416.0,
+      "fold": 2,
+      "page_families": [
+        "graphical_contact_log",
+        "scaled_composite_log"
+      ],
+      "predicted_boundaries_m": [
+        0.0,
+        5.0,
+        18.0,
+        19.0,
+        21.0,
+        23.0,
+        34.0,
+        46.0,
+        47.29,
+        48.47,
+        66.53,
+        77.0
+      ],
+      "record_id": "BGS_OFFSHORE_2023411",
+      "role_selected_count": 7,
+      "route": "v024_baseline_expert"
+    },
+    {
+      "candidate_count_per_page": 416.0,
+      "fold": 2,
+      "page_families": [
+        "scaled_composite_log"
+      ],
+      "predicted_boundaries_m": [
+        0.0,
+        2.0,
+        3.0,
+        5.0,
+        6.0,
+        7.0,
+        8.0,
+        9.0,
+        10.0,
+        11.0,
+        12.0,
+        13.0,
+        14.0,
+        15.0,
+        16.0,
+        17.0,
+        18.0,
+        19.0,
+        19.3
+      ],
+      "record_id": "BGS_OFFSHORE_2030012",
+      "role_selected_count": 21,
+      "route": "semantic_role_expert"
+    },
+    {
+      "candidate_count_per_page": 163.0,
+      "fold": 2,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "predicted_boundaries_m": [
+        0.0
+      ],
+      "record_id": "BGS_OFFSHORE_1951404",
+      "role_selected_count": 0,
+      "route": "v024_baseline_expert"
+    },
+    {
+      "candidate_count_per_page": 768.0,
+      "fold": 2,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "predicted_boundaries_m": [
+        0.0
+      ],
+      "record_id": "BGS_OFFSHORE_2007749",
+      "role_selected_count": 2,
+      "route": "v024_baseline_expert"
+    },
+    {
+      "candidate_count_per_page": 255.0,
+      "fold": 3,
+      "page_families": [
+        "scaled_composite_log"
+      ],
+      "predicted_boundaries_m": [
+        0.0,
+        27.45
+      ],
+      "record_id": "BGS_OFFSHORE_1963694",
+      "role_selected_count": 11,
+      "route": "v024_baseline_expert"
+    },
+    {
+      "candidate_count_per_page": 61.666666666666664,
+      "fold": 3,
+      "page_families": [
+        "graphical_contact_log",
+        "scaled_composite_log"
+      ],
+      "predicted_boundaries_m": [
+        0.0
+      ],
+      "record_id": "BGS_OFFSHORE_1984462",
+      "role_selected_count": 0,
+      "route": "v024_baseline_expert"
+    },
+    {
+      "candidate_count_per_page": 207.0,
+      "fold": 3,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "predicted_boundaries_m": [
+        0.0,
+        28.4
+      ],
+      "record_id": "BGS_OFFSHORE_1993525",
+      "role_selected_count": 0,
+      "route": "v024_baseline_expert"
+    },
+    {
+      "candidate_count_per_page": 48.0,
+      "fold": 3,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "predicted_boundaries_m": [
+        0.0,
+        7.0,
+        8.0,
+        12.0,
+        12.52,
+        17.0,
+        17.64,
+        19.0,
+        19.57,
+        21.0,
+        30.0
+      ],
+      "record_id": "BGS_OFFSHORE_1960100",
+      "role_selected_count": 0,
+      "route": "v024_baseline_expert"
+    },
+    {
+      "candidate_count_per_page": 135.0,
+      "fold": 3,
+      "page_families": [
+        "unsupported"
+      ],
+      "predicted_boundaries_m": [],
+      "record_id": "BGS_OFFSHORE_1942278",
+      "role_selected_count": 0,
+      "route": "abstain_unsupported_family"
+    },
+    {
+      "candidate_count_per_page": 62.0,
+      "fold": 4,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "predicted_boundaries_m": [
+        0.0,
+        33.6
+      ],
+      "record_id": "BGS_OFFSHORE_2016306",
+      "role_selected_count": 0,
+      "route": "v024_baseline_expert"
+    },
+    {
+      "candidate_count_per_page": 70.0,
+      "fold": 4,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "predicted_boundaries_m": [
+        0.0,
+        0.05,
+        22.5,
+        27.0,
+        29.0,
+        29.8
+      ],
+      "record_id": "BGS_OFFSHORE_2041581",
+      "role_selected_count": 0,
+      "route": "v024_baseline_expert"
+    },
+    {
+      "candidate_count_per_page": 555.0,
+      "fold": 4,
+      "page_families": [
+        "scaled_composite_log"
+      ],
+      "predicted_boundaries_m": [
+        0.0,
+        3.0,
+        5.0,
+        8.0,
+        10.0,
+        12.0,
+        15.0,
+        18.0,
+        21.0,
+        24.0,
+        26.0,
+        27.0,
+        34.0,
+        38.0,
+        41.0,
+        45.0,
+        51.0,
+        53.0
+      ],
+      "record_id": "BGS_OFFSHORE_1960630",
+      "role_selected_count": 18,
+      "route": "semantic_role_expert"
+    },
+    {
+      "candidate_count_per_page": 46.0,
+      "fold": 4,
+      "page_families": [
+        "scaled_composite_log"
+      ],
+      "predicted_boundaries_m": [
+        0.0,
+        76.85
+      ],
+      "record_id": "BGS_OFFSHORE_1980976",
+      "role_selected_count": 0,
+      "route": "v024_baseline_expert"
+    },
+    {
+      "candidate_count_per_page": 207.0,
+      "fold": 4,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "predicted_boundaries_m": [
+        0.0
+      ],
+      "record_id": "BGS_OFFSHORE_1943902",
+      "role_selected_count": 0,
+      "route": "v024_baseline_expert"
+    },
+    {
+      "candidate_count_per_page": 281.0,
+      "fold": 4,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "predicted_boundaries_m": [
+        0.0,
+        28.35
+      ],
+      "record_id": "BGS_OFFSHORE_1944312",
+      "role_selected_count": 0,
+      "route": "v024_baseline_expert"
+    },
+    {
+      "candidate_count_per_page": 163.0,
+      "fold": 4,
+      "page_families": [
+        "graphical_contact_log"
+      ],
+      "predicted_boundaries_m": [
+        0.0
+      ],
+      "record_id": "BGS_OFFSHORE_1949665",
+      "role_selected_count": 0,
+      "route": "v024_baseline_expert"
+    }
+  ],
+  "reference_blinding": "nested family policy fit before target-fold predictions; all target predictions fixed before target references used for scoring",
+  "role_report": "experiments/paper2/analysis/bgs_layout_method_development_v026_row_edges.json",
+  "route_counts_source_disjoint_slice": {
+    "abstain_unsupported_family": 0,
+    "semantic_role_expert": 1,
+    "v024_baseline_expert": 5
+  },
+  "routing_policy_by_fold": {
+    "0": {
+      "graphical_contact_log": "v024_baseline",
+      "scaled_composite_log": "semantic_role"
+    },
+    "1": {
+      "graphical_contact_log": "v024_baseline",
+      "scaled_composite_log": "semantic_role"
+    },
+    "2": {
+      "graphical_contact_log": "v024_baseline",
+      "scaled_composite_log": "semantic_role"
+    },
+    "3": {
+      "graphical_contact_log": "v024_baseline",
+      "scaled_composite_log": "v024_baseline"
+    },
+    "4": {
+      "graphical_contact_log": "v024_baseline",
+      "scaled_composite_log": "semantic_role"
+    }
+  },
+  "routing_selection_metric": "mean per-document interval F1 on non-target source folds; no target-fold labels used",
+  "source_disjoint_slice": {
+    "boundary": {
+      "critical_numerical_error_rate": 0.6388888888888888,
+      "f1": 0.1984732824427481,
+      "false_negative": 82,
+      "false_positive": 23,
+      "matched_boundary_mae_m": 0.00023076923076923952,
+      "precision": 0.3611111111111111,
+      "recall": 0.1368421052631579,
+      "true_positive": 13
+    },
+    "document_count": 6,
+    "interval": {
+      "f1": 0.08333333333333333,
+      "false_negative": 84,
+      "false_positive": 26,
+      "precision": 0.16129032258064516,
+      "recall": 0.056179775280898875,
+      "true_positive": 5
+    },
+    "reference_boundary_count": 95
+  },
+  "status": "completed_nested_development",
+  "v024_report": "experiments/paper2/analysis/bgs_v024_development_v002.json",
+  "v027_report": "experiments/paper2/analysis/bgs_routed_moe_v027_development_comparison.json",
+  "v027_report_sha256": "d7eeb0f392758f6ec7a3a1141942db2e632893957ac7f20aeac46e691cf5a15e",
+  "wall_time_seconds": 0.36904082700493746
+}

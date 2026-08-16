@@ -47,7 +47,7 @@ FEATURES = (
     "scale_alignment_description",
     "graphic_column_center", "graphic_column_width", "graphic_column_activity",
     "graphic_column_rank", "graphic_cross_column_support", "graphic_role_score",
-    "graphic_role_primary", "graphic_role_core",
+    "graphic_role_primary", "graphic_role_core", "description_boundary_support",
 )
 
 PRINTED_FEATURES = tuple(name for name in FEATURES if not name.startswith("graphic_"))
@@ -627,7 +627,7 @@ def generate_document_candidates(source: dict, multiscale: dict, source_run: Pat
             graphic_generator = multicolumn_graphic_boundary_candidates if graphic_mode == "multi" else graphic_boundary_candidates
             graphic = graphic_generator(
                 gray, page=page, layout=layout, calibration=calibration,
-                depth_x_hint=calibration.x_center_normalized,
+                depth_x_hint=calibration.x_center_normalized, rows=text_rows,
             ) if calibration else []
         context = {
             "page_has_scale": float(calibration is not None),
