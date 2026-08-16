@@ -1,0 +1,5283 @@
+{
+  "analysis_scope": "development-only multiscale tiled OCR boundary-visibility experiment",
+  "combined_absolute_gain": 4,
+  "combined_relative_recall_gain": 0.5,
+  "combined_visibility": {
+    "denominator": 52,
+    "numerator": 12,
+    "value": 0.23076923076923078
+  },
+  "document_count": 3,
+  "documents": [
+    {
+      "baseline_visible": [
+        0.0,
+        5.0,
+        21.0,
+        42.0,
+        72.0
+      ],
+      "combined_visible": [
+        0.0,
+        5.0,
+        21.0,
+        42.0,
+        72.0
+      ],
+      "page_layout": [
+        {
+          "baseline": [
+            {
+              "bbox": [
+                1831.0,
+                408.0,
+                1937.0,
+                495.0
+              ],
+              "confidence": 0.8,
+              "psm": null,
+              "text": "78",
+              "value": 78.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1995.0,
+                2392.0,
+                2023.0,
+                2448.0
+              ],
+              "confidence": 0.89,
+              "psm": null,
+              "text": "29",
+              "value": 29.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1233.0,
+                4866.0,
+                1250.0,
+                4885.0
+              ],
+              "confidence": 0.71,
+              "psm": null,
+              "text": "5",
+              "value": 5.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                2192.0,
+                4861.0,
+                2212.0,
+                4884.0
+              ],
+              "confidence": 0.87,
+              "psm": null,
+              "text": "2",
+              "value": 2.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1345.0,
+                5061.0,
+                1420.0,
+                5079.0
+              ],
+              "confidence": 0.0,
+              "psm": null,
+              "text": "10m",
+              "value": 10.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                2147.0,
+                5272.0,
+                2206.0,
+                5312.0
+              ],
+              "confidence": 0.45,
+              "psm": null,
+              "text": "4m",
+              "value": 4.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                2179.0,
+                6087.0,
+                2242.0,
+                6106.0
+              ],
+              "confidence": 0.4,
+              "psm": null,
+              "text": "21m",
+              "value": 21.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                2167.0,
+                6207.0,
+                2186.0,
+                6229.0
+              ],
+              "confidence": 0.94,
+              "psm": null,
+              "text": "2",
+              "value": 2.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                194.0,
+                6884.0,
+                242.0,
+                6907.0
+              ],
+              "confidence": 0.82,
+              "psm": null,
+              "text": "1719",
+              "value": 1719.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                205.0,
+                7552.0,
+                250.0,
+                7575.0
+              ],
+              "confidence": 0.34,
+              "psm": null,
+              "text": "1721",
+              "value": 1721.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1224.0,
+                8103.0,
+                1237.0,
+                8116.0
+              ],
+              "confidence": 0.49,
+              "psm": null,
+              "text": "4",
+              "value": 4.0,
+              "variant": null
+            }
+          ],
+          "layout_detected": true,
+          "page": 11,
+          "reread": [
+            {
+              "bbox": [
+                258.0,
+                3660.5,
+                312.5,
+                3747.5
+              ],
+              "confidence": 0.16,
+              "page": 11,
+              "psm": 6,
+              "text": "2",
+              "tile_id": "tile_000",
+              "value": 2.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                353.0,
+                3718.5,
+                439.0,
+                3745.5
+              ],
+              "confidence": 0.69,
+              "page": 11,
+              "psm": 6,
+              "text": "om",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                199.0,
+                4314.5,
+                277.5,
+                4346.5
+              ],
+              "confidence": 0.18,
+              "page": 11,
+              "psm": 6,
+              "text": "93",
+              "tile_id": "tile_000",
+              "value": 93.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                201.5,
+                3354.0,
+                231.0,
+                3368.0
+              ],
+              "confidence": 0.33,
+              "page": 11,
+              "psm": 11,
+              "text": "576.0",
+              "tile_id": "tile_000",
+              "value": 576.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                240.5,
+                3354.0,
+                257.0,
+                3368.0
+              ],
+              "confidence": 0.12,
+              "page": 11,
+              "psm": 11,
+              "text": "0.6",
+              "tile_id": "tile_000",
+              "value": 0.6,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                228.0,
+                3347.0,
+                230.5,
+                3349.5
+              ],
+              "confidence": 0.67,
+              "page": 11,
+              "psm": 11,
+              "text": "6",
+              "tile_id": "tile_000",
+              "value": 6.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                287.5,
+                3340.5,
+                297.0,
+                3354.5
+              ],
+              "confidence": 0.78,
+              "page": 11,
+              "psm": 11,
+              "text": "6",
+              "tile_id": "tile_000",
+              "value": 6.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                247.5,
+                3392.5,
+                251.0,
+                3396.5
+              ],
+              "confidence": 0.59,
+              "page": 11,
+              "psm": 11,
+              "text": "6",
+              "tile_id": "tile_000",
+              "value": 6.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                260.5,
+                3392.0,
+                277.5,
+                3395.5
+              ],
+              "confidence": 0.46,
+              "page": 11,
+              "psm": 11,
+              "text": "oo",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                187.5,
+                3544.0,
+                313.0,
+                3631.0
+              ],
+              "confidence": 0.24,
+              "page": 11,
+              "psm": 6,
+              "text": "5",
+              "tile_id": "tile_000",
+              "value": 5.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                353.0,
+                3718.5,
+                439.0,
+                3745.5
+              ],
+              "confidence": 0.75,
+              "page": 11,
+              "psm": 6,
+              "text": "om",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                221.5,
+                3393.0,
+                224.5,
+                3395.5
+              ],
+              "confidence": 0.32,
+              "page": 11,
+              "psm": 11,
+              "text": "5",
+              "tile_id": "tile_000",
+              "value": 5.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                260.5,
+                3392.5,
+                264.5,
+                3395.5
+              ],
+              "confidence": 0.27,
+              "page": 11,
+              "psm": 11,
+              "text": "2",
+              "tile_id": "tile_000",
+              "value": 2.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                273.0,
+                3392.0,
+                277.5,
+                3395.5
+              ],
+              "confidence": 0.15,
+              "page": 11,
+              "psm": 11,
+              "text": "0",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                286.5,
+                3392.5,
+                290.5,
+                3395.5
+              ],
+              "confidence": 0.06,
+              "page": 11,
+              "psm": 11,
+              "text": "6",
+              "tile_id": "tile_000",
+              "value": 6.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                196.5,
+                6607.5,
+                240.0,
+                6632.0
+              ],
+              "confidence": 0.54,
+              "page": 11,
+              "psm": 6,
+              "text": "123",
+              "tile_id": "tile_002",
+              "value": 123.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                348.5,
+                6707.0,
+                376.5,
+                6756.0
+              ],
+              "confidence": 0.16,
+              "page": 11,
+              "psm": 6,
+              "text": "4",
+              "tile_id": "tile_002",
+              "value": 4.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                744.0,
+                7327.0,
+                777.5,
+                7408.5
+              ],
+              "confidence": 0.27,
+              "page": 11,
+              "psm": 6,
+              "text": "1",
+              "tile_id": "tile_002",
+              "value": 1.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                205.0,
+                7552.0,
+                249.5,
+                7575.0
+              ],
+              "confidence": 0.69,
+              "page": 11,
+              "psm": 6,
+              "text": "1721",
+              "tile_id": "tile_002",
+              "value": 1721.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                211.0,
+                7796.5,
+                261.0,
+                7810.0
+              ],
+              "confidence": 0.91,
+              "page": 11,
+              "psm": 6,
+              "text": "1799",
+              "tile_id": "tile_002",
+              "value": 1799.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                204.5,
+                7302.0,
+                256.5,
+                7325.0
+              ],
+              "confidence": 0.57,
+              "page": 11,
+              "psm": 11,
+              "text": "1720",
+              "tile_id": "tile_002",
+              "value": 1720.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                211.0,
+                7796.5,
+                261.0,
+                7810.0
+              ],
+              "confidence": 0.91,
+              "page": 11,
+              "psm": 11,
+              "text": "1799",
+              "tile_id": "tile_002",
+              "value": 1799.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                205.0,
+                7552.0,
+                249.5,
+                7575.0
+              ],
+              "confidence": 0.66,
+              "page": 11,
+              "psm": 6,
+              "text": "1723",
+              "tile_id": "tile_002",
+              "value": 1723.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                211.0,
+                7796.5,
+                261.0,
+                7810.0
+              ],
+              "confidence": 0.91,
+              "page": 11,
+              "psm": 6,
+              "text": "1799",
+              "tile_id": "tile_002",
+              "value": 1799.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                204.5,
+                7302.0,
+                256.5,
+                7325.0
+              ],
+              "confidence": 0.74,
+              "page": 11,
+              "psm": 11,
+              "text": "1720",
+              "tile_id": "tile_002",
+              "value": 1720.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                205.0,
+                7552.0,
+                249.5,
+                7575.0
+              ],
+              "confidence": 0.51,
+              "page": 11,
+              "psm": 11,
+              "text": "1723",
+              "tile_id": "tile_002",
+              "value": 1723.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                211.0,
+                7796.5,
+                261.0,
+                7810.0
+              ],
+              "confidence": 0.91,
+              "page": 11,
+              "psm": 11,
+              "text": "1799",
+              "tile_id": "tile_002",
+              "value": 1799.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                210.5,
+                7796.5,
+                248.0,
+                7816.0
+              ],
+              "confidence": 0.84,
+              "page": 11,
+              "psm": 11,
+              "text": "172",
+              "tile_id": "tile_003",
+              "value": 172.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                212.5,
+                8781.0,
+                267.0,
+                8803.5
+              ],
+              "confidence": 0.68,
+              "page": 11,
+              "psm": 11,
+              "text": "1724",
+              "tile_id": "tile_003",
+              "value": 1724.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                181.5,
+                7710.5,
+                217.0,
+                7732.0
+              ],
+              "confidence": 0.56,
+              "page": 11,
+              "psm": 11,
+              "text": "87",
+              "tile_id": "tile_003",
+              "value": 87.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                210.5,
+                7796.5,
+                248.0,
+                7816.0
+              ],
+              "confidence": 0.67,
+              "page": 11,
+              "psm": 11,
+              "text": "1712",
+              "tile_id": "tile_003",
+              "value": 1712.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                188.0,
+                7916.0,
+                223.0,
+                7938.5
+              ],
+              "confidence": 0.45,
+              "page": 11,
+              "psm": 11,
+              "text": "207",
+              "tile_id": "tile_003",
+              "value": 207.0,
+              "variant": "otsu"
+            }
+          ],
+          "tile_count": 7
+        },
+        {
+          "baseline": [
+            {
+              "bbox": [
+                1849.0,
+                220.0,
+                1885.0,
+                363.0
+              ],
+              "confidence": 0.72,
+              "psm": null,
+              "text": "71",
+              "value": 71.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1456.0,
+                1082.0,
+                1488.0,
+                1101.0
+              ],
+              "confidence": 0.62,
+              "psm": null,
+              "text": "100",
+              "value": 100.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1495.0,
+                1083.0,
+                1530.0,
+                1101.0
+              ],
+              "confidence": 0.62,
+              "psm": null,
+              "text": "000",
+              "value": 0.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1151.0,
+                3307.0,
+                1166.0,
+                3333.0
+              ],
+              "confidence": 0.33,
+              "psm": null,
+              "text": "7",
+              "value": 7.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                2140.0,
+                4124.0,
+                2155.0,
+                4143.0
+              ],
+              "confidence": 0.91,
+              "psm": null,
+              "text": "2",
+              "value": 2.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                2153.0,
+                4289.0,
+                2177.0,
+                4324.0
+              ],
+              "confidence": 0.44,
+              "psm": null,
+              "text": "oo",
+              "value": 0.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                2099.0,
+                4466.0,
+                2148.0,
+                4500.0
+              ],
+              "confidence": 0.56,
+              "psm": null,
+              "text": "4m",
+              "value": 4.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                969.0,
+                4995.0,
+                1040.0,
+                5094.0
+              ],
+              "confidence": 0.0,
+              "psm": null,
+              "text": "o",
+              "value": 0.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                2110.0,
+                5252.0,
+                2125.0,
+                5270.0
+              ],
+              "confidence": 0.88,
+              "psm": null,
+              "text": "2",
+              "value": 2.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1110.0,
+                5338.0,
+                1143.0,
+                5342.0
+              ],
+              "confidence": 0.57,
+              "psm": null,
+              "text": "oo",
+              "value": 0.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                516.0,
+                5771.0,
+                536.0,
+                5784.0
+              ],
+              "confidence": 0.69,
+              "psm": null,
+              "text": "o",
+              "value": 0.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1486.0,
+                6138.0,
+                1527.0,
+                6153.0
+              ],
+              "confidence": 0.59,
+              "psm": null,
+              "text": "42",
+              "value": 42.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                457.0,
+                6364.0,
+                494.0,
+                6383.0
+              ],
+              "confidence": 0.29,
+              "psm": null,
+              "text": "72",
+              "value": 72.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1376.0,
+                7589.0,
+                1394.0,
+                7597.0
+              ],
+              "confidence": 0.0,
+              "psm": null,
+              "text": "4",
+              "value": 4.0,
+              "variant": null
+            }
+          ],
+          "layout_detected": true,
+          "page": 12,
+          "reread": [
+            {
+              "bbox": [
+                660.0,
+                3958.0,
+                673.5,
+                3992.5
+              ],
+              "confidence": 0.62,
+              "page": 12,
+              "psm": 6,
+              "text": "7",
+              "tile_id": "tile_000",
+              "value": 7.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1083.0,
+                4123.5,
+                1113.5,
+                4151.0
+              ],
+              "confidence": 0.07,
+              "page": 12,
+              "psm": 6,
+              "text": "oo",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                496.5,
+                2630.5,
+                505.0,
+                2647.5
+              ],
+              "confidence": 0.29,
+              "page": 12,
+              "psm": 11,
+              "text": "1",
+              "tile_id": "tile_000",
+              "value": 1.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                469.5,
+                3010.0,
+                573.5,
+                3084.5
+              ],
+              "confidence": 0.17,
+              "page": 12,
+              "psm": 11,
+              "text": "158",
+              "tile_id": "tile_000",
+              "value": 158.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                660.0,
+                3958.0,
+                673.5,
+                3992.5
+              ],
+              "confidence": 0.74,
+              "page": 12,
+              "psm": 6,
+              "text": "7",
+              "tile_id": "tile_000",
+              "value": 7.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                469.5,
+                3010.0,
+                573.5,
+                3084.5
+              ],
+              "confidence": 0.23,
+              "page": 12,
+              "psm": 11,
+              "text": "58",
+              "tile_id": "tile_000",
+              "value": 58.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1079.5,
+                4132.5,
+                1122.5,
+                4163.5
+              ],
+              "confidence": 0.46,
+              "page": 12,
+              "psm": 6,
+              "text": "2",
+              "tile_id": "tile_001",
+              "value": 2.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1093.0,
+                4317.5,
+                1123.5,
+                4334.5
+              ],
+              "confidence": 0.28,
+              "page": 12,
+              "psm": 6,
+              "text": "3",
+              "tile_id": "tile_001",
+              "value": 3.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                458.5,
+                5187.0,
+                495.5,
+                5206.0
+              ],
+              "confidence": 0.32,
+              "page": 12,
+              "psm": 6,
+              "text": "117",
+              "tile_id": "tile_001",
+              "value": 117.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1032.0,
+                5644.0,
+                1034.0,
+                5652.0
+              ],
+              "confidence": 0.61,
+              "page": 12,
+              "psm": 6,
+              "text": "4",
+              "tile_id": "tile_001",
+              "value": 4.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                456.5,
+                5573.0,
+                493.0,
+                5592.5
+              ],
+              "confidence": 0.58,
+              "page": 12,
+              "psm": 11,
+              "text": "128",
+              "tile_id": "tile_001",
+              "value": 128.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1079.5,
+                4132.5,
+                1122.5,
+                4163.5
+              ],
+              "confidence": 0.2,
+              "page": 12,
+              "psm": 6,
+              "text": "2",
+              "tile_id": "tile_001",
+              "value": 2.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1093.0,
+                4317.5,
+                1123.5,
+                4334.5
+              ],
+              "confidence": 0.09,
+              "page": 12,
+              "psm": 6,
+              "text": "3",
+              "tile_id": "tile_001",
+              "value": 3.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                458.5,
+                5187.0,
+                495.5,
+                5206.0
+              ],
+              "confidence": 0.37,
+              "page": 12,
+              "psm": 6,
+              "text": "107",
+              "tile_id": "tile_001",
+              "value": 107.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                458.5,
+                5187.0,
+                495.5,
+                5206.0
+              ],
+              "confidence": 0.22,
+              "page": 12,
+              "psm": 11,
+              "text": "117",
+              "tile_id": "tile_001",
+              "value": 117.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                452.5,
+                5805.0,
+                492.5,
+                5825.0
+              ],
+              "confidence": 0.86,
+              "page": 12,
+              "psm": 6,
+              "text": "1719",
+              "tile_id": "tile_002",
+              "value": 1719.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                457.0,
+                6364.0,
+                494.0,
+                6383.0
+              ],
+              "confidence": 0.78,
+              "page": 12,
+              "psm": 6,
+              "text": "172",
+              "tile_id": "tile_002",
+              "value": 172.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                436.5,
+                6498.5,
+                466.0,
+                6516.0
+              ],
+              "confidence": 0.55,
+              "page": 12,
+              "psm": 6,
+              "text": "57",
+              "tile_id": "tile_002",
+              "value": 57.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                460.0,
+                6570.5,
+                491.0,
+                6587.0
+              ],
+              "confidence": 0.88,
+              "page": 12,
+              "psm": 6,
+              "text": "172",
+              "tile_id": "tile_002",
+              "value": 172.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                452.5,
+                5805.0,
+                492.5,
+                5825.0
+              ],
+              "confidence": 0.89,
+              "page": 12,
+              "psm": 11,
+              "text": "1719",
+              "tile_id": "tile_002",
+              "value": 1719.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                458.5,
+                6155.5,
+                502.0,
+                6174.5
+              ],
+              "confidence": 0.2,
+              "page": 12,
+              "psm": 11,
+              "text": "1720",
+              "tile_id": "tile_002",
+              "value": 1720.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                457.0,
+                6364.0,
+                494.0,
+                6383.0
+              ],
+              "confidence": 0.78,
+              "page": 12,
+              "psm": 11,
+              "text": "1721",
+              "tile_id": "tile_002",
+              "value": 1721.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                436.5,
+                6498.5,
+                466.0,
+                6516.0
+              ],
+              "confidence": 0.46,
+              "page": 12,
+              "psm": 11,
+              "text": "57",
+              "tile_id": "tile_002",
+              "value": 57.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                623.5,
+                6454.5,
+                667.0,
+                6521.5
+              ],
+              "confidence": 0.1,
+              "page": 12,
+              "psm": 11,
+              "text": "2",
+              "tile_id": "tile_002",
+              "value": 2.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                460.0,
+                6570.5,
+                491.0,
+                6587.0
+              ],
+              "confidence": 0.38,
+              "page": 12,
+              "psm": 11,
+              "text": "172",
+              "tile_id": "tile_002",
+              "value": 172.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                457.0,
+                6971.5,
+                500.0,
+                6990.5
+              ],
+              "confidence": 0.87,
+              "page": 12,
+              "psm": 11,
+              "text": "1723",
+              "tile_id": "tile_002",
+              "value": 1723.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                520.5,
+                5769.0,
+                530.5,
+                5788.0
+              ],
+              "confidence": 0.44,
+              "page": 12,
+              "psm": 6,
+              "text": "om",
+              "tile_id": "tile_002",
+              "value": 0.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                452.5,
+                5805.0,
+                492.5,
+                5825.0
+              ],
+              "confidence": 0.86,
+              "page": 12,
+              "psm": 6,
+              "text": "1719",
+              "tile_id": "tile_002",
+              "value": 1719.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                985.0,
+                5861.5,
+                986.0,
+                5885.0
+              ],
+              "confidence": 0.46,
+              "page": 12,
+              "psm": 6,
+              "text": "o",
+              "tile_id": "tile_002",
+              "value": 0.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1032.0,
+                5853.0,
+                1033.5,
+                5876.5
+              ],
+              "confidence": 0.73,
+              "page": 12,
+              "psm": 6,
+              "text": "1",
+              "tile_id": "tile_002",
+              "value": 1.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                457.0,
+                6364.0,
+                494.0,
+                6383.0
+              ],
+              "confidence": 0.8,
+              "page": 12,
+              "psm": 6,
+              "text": "172",
+              "tile_id": "tile_002",
+              "value": 172.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                436.5,
+                6498.5,
+                465.5,
+                6516.0
+              ],
+              "confidence": 0.54,
+              "page": 12,
+              "psm": 6,
+              "text": "57",
+              "tile_id": "tile_002",
+              "value": 57.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                460.0,
+                6570.5,
+                491.0,
+                6587.0
+              ],
+              "confidence": 0.77,
+              "page": 12,
+              "psm": 6,
+              "text": "172",
+              "tile_id": "tile_002",
+              "value": 172.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                402.0,
+                6637.0,
+                496.0,
+                6661.5
+              ],
+              "confidence": 0.05,
+              "page": 12,
+              "psm": 6,
+              "text": "7",
+              "tile_id": "tile_002",
+              "value": 7.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                457.0,
+                6971.5,
+                500.0,
+                6990.5
+              ],
+              "confidence": 0.47,
+              "page": 12,
+              "psm": 6,
+              "text": "123",
+              "tile_id": "tile_002",
+              "value": 123.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                452.5,
+                5805.0,
+                492.5,
+                5825.0
+              ],
+              "confidence": 0.72,
+              "page": 12,
+              "psm": 11,
+              "text": "1719",
+              "tile_id": "tile_002",
+              "value": 1719.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                458.5,
+                6155.5,
+                502.0,
+                6174.5
+              ],
+              "confidence": 0.0,
+              "page": 12,
+              "psm": 11,
+              "text": "720",
+              "tile_id": "tile_002",
+              "value": 720.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                457.0,
+                6364.0,
+                494.0,
+                6383.0
+              ],
+              "confidence": 0.6,
+              "page": 12,
+              "psm": 11,
+              "text": "172",
+              "tile_id": "tile_002",
+              "value": 172.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                460.0,
+                6570.5,
+                491.0,
+                6587.0
+              ],
+              "confidence": 0.69,
+              "page": 12,
+              "psm": 11,
+              "text": "172",
+              "tile_id": "tile_002",
+              "value": 172.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                457.0,
+                6971.5,
+                500.0,
+                6990.5
+              ],
+              "confidence": 0.75,
+              "page": 12,
+              "psm": 11,
+              "text": "1723",
+              "tile_id": "tile_002",
+              "value": 1723.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                751.0,
+                9017.5,
+                752.0,
+                9024.0
+              ],
+              "confidence": 0.6,
+              "page": 12,
+              "psm": 6,
+              "text": "1",
+              "tile_id": "tile_003",
+              "value": 1.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                977.0,
+                9013.5,
+                979.0,
+                9024.0
+              ],
+              "confidence": 0.62,
+              "page": 12,
+              "psm": 6,
+              "text": "1",
+              "tile_id": "tile_003",
+              "value": 1.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                921.5,
+                10464.0,
+                924.0,
+                10488.5
+              ],
+              "confidence": 0.51,
+              "page": 12,
+              "psm": 6,
+              "text": "1",
+              "tile_id": "tile_005",
+              "value": 1.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                921.5,
+                10464.0,
+                924.0,
+                10488.5
+              ],
+              "confidence": 0.57,
+              "page": 12,
+              "psm": 6,
+              "text": "1",
+              "tile_id": "tile_005",
+              "value": 1.0,
+              "variant": "otsu"
+            }
+          ],
+          "tile_count": 6
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_2015092",
+      "reference_boundary_count": 30,
+      "reread_numeric_candidate_count": 76,
+      "reread_visible": [
+        0.0,
+        5.0
+      ]
+    },
+    {
+      "baseline_visible": [
+        0.0,
+        657.0
+      ],
+      "combined_visible": [
+        0.0,
+        657.0
+      ],
+      "page_layout": [
+        {
+          "baseline": [
+            {
+              "bbox": [
+                1216.0,
+                356.0,
+                1242.0,
+                379.0
+              ],
+              "confidence": 0.44,
+              "psm": null,
+              "text": "0",
+              "value": 0.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1906.0,
+                329.0,
+                2044.0,
+                368.0
+              ],
+              "confidence": 0.33,
+              "psm": null,
+              "text": "136m",
+              "value": 136.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1394.0,
+                671.0,
+                1412.0,
+                687.0
+              ],
+              "confidence": 0.6,
+              "psm": null,
+              "text": "9",
+              "value": 9.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1219.0,
+                883.0,
+                1244.0,
+                901.0
+              ],
+              "confidence": 0.94,
+              "psm": null,
+              "text": "25",
+              "value": 25.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1215.0,
+                1123.0,
+                1245.0,
+                1139.0
+              ],
+              "confidence": 0.76,
+              "psm": null,
+              "text": "161",
+              "value": 161.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                2021.0,
+                1134.0,
+                2049.0,
+                1202.0
+              ],
+              "confidence": 0.18,
+              "psm": null,
+              "text": "4",
+              "value": 4.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1132.0,
+                1488.0,
+                1140.0,
+                1494.0
+              ],
+              "confidence": 0.77,
+              "psm": null,
+              "text": "5",
+              "value": 5.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                2058.0,
+                1627.0,
+                2080.0,
+                1651.0
+              ],
+              "confidence": 0.88,
+              "psm": null,
+              "text": "4",
+              "value": 4.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                2027.0,
+                1667.0,
+                2092.0,
+                1688.0
+              ],
+              "confidence": 0.84,
+              "psm": null,
+              "text": "456m",
+              "value": 456.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1348.0,
+                1839.0,
+                1359.0,
+                1854.0
+              ],
+              "confidence": 0.72,
+              "psm": null,
+              "text": "1",
+              "value": 1.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1144.0,
+                1895.0,
+                1197.0,
+                1911.0
+              ],
+              "confidence": 0.26,
+              "psm": null,
+              "text": "600",
+              "value": 600.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1210.0,
+                2004.0,
+                1248.0,
+                2020.0
+              ],
+              "confidence": 0.9,
+              "psm": null,
+              "text": "657",
+              "value": 657.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1147.0,
+                2070.0,
+                1197.0,
+                2086.0
+              ],
+              "confidence": 0.18,
+              "psm": null,
+              "text": "00",
+              "value": 0.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1211.0,
+                2340.0,
+                1246.0,
+                2369.0
+              ],
+              "confidence": 0.53,
+              "psm": null,
+              "text": "853",
+              "value": 853.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                798.0,
+                2568.0,
+                845.0,
+                2588.0
+              ],
+              "confidence": 0.72,
+              "psm": null,
+              "text": "o2",
+              "value": 2.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                799.0,
+                2588.0,
+                846.0,
+                2609.0
+              ],
+              "confidence": 0.69,
+              "psm": null,
+              "text": "20",
+              "value": 20.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1580.0,
+                2707.0,
+                1650.0,
+                2724.0
+              ],
+              "confidence": 0.91,
+              "psm": null,
+              "text": "1044m",
+              "value": 1044.0,
+              "variant": null
+            }
+          ],
+          "layout_detected": true,
+          "page": 2,
+          "reread": [
+            {
+              "bbox": [
+                1144.0,
+                837.0,
+                1156.0,
+                854.5
+              ],
+              "confidence": 0.78,
+              "page": 2,
+              "psm": 6,
+              "text": "0",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1231.5,
+                840.0,
+                1244.5,
+                856.5
+              ],
+              "confidence": 0.22,
+              "page": 2,
+              "psm": 6,
+              "text": "o",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1219.5,
+                883.5,
+                1243.5,
+                900.5
+              ],
+              "confidence": 0.96,
+              "page": 2,
+              "psm": 6,
+              "text": "25",
+              "tile_id": "tile_000",
+              "value": 25.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1286.0,
+                1145.0,
+                1335.0,
+                1157.0
+              ],
+              "confidence": 0.3,
+              "page": 2,
+              "psm": 6,
+              "text": "oo",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1197.5,
+                1206.0,
+                1244.0,
+                1245.5
+              ],
+              "confidence": 0.43,
+              "page": 2,
+              "psm": 6,
+              "text": "213",
+              "tile_id": "tile_000",
+              "value": 213.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                2032.5,
+                1214.0,
+                2054.0,
+                1225.0
+              ],
+              "confidence": 0.49,
+              "page": 2,
+              "psm": 6,
+              "text": "00",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                2160.5,
+                1311.0,
+                2172.0,
+                1333.5
+              ],
+              "confidence": 0.44,
+              "page": 2,
+              "psm": 6,
+              "text": "Oo",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                808.0,
+                1381.0,
+                830.0,
+                1424.5
+              ],
+              "confidence": 0.48,
+              "page": 2,
+              "psm": 6,
+              "text": "oO",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                2157.5,
+                1384.0,
+                2177.5,
+                1415.5
+              ],
+              "confidence": 0.64,
+              "page": 2,
+              "psm": 6,
+              "text": "o",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1271.5,
+                1506.5,
+                1382.0,
+                1538.0
+              ],
+              "confidence": 0.35,
+              "page": 2,
+              "psm": 6,
+              "text": "ooo",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                2158.0,
+                1503.5,
+                2179.5,
+                1540.0
+              ],
+              "confidence": 0.66,
+              "page": 2,
+              "psm": 6,
+              "text": "2",
+              "tile_id": "tile_000",
+              "value": 2.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1143.0,
+                1543.0,
+                1179.0,
+                1559.0
+              ],
+              "confidence": 0.73,
+              "page": 2,
+              "psm": 6,
+              "text": "4004",
+              "tile_id": "tile_000",
+              "value": 4004.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1229.5,
+                1555.0,
+                1243.5,
+                1563.0
+              ],
+              "confidence": 0.02,
+              "page": 2,
+              "psm": 6,
+              "text": "496",
+              "tile_id": "tile_000",
+              "value": 496.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                2026.5,
+                1667.5,
+                2092.0,
+                1688.0
+              ],
+              "confidence": 0.92,
+              "page": 2,
+              "psm": 6,
+              "text": "456m",
+              "tile_id": "tile_000",
+              "value": 456.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1136.0,
+                1715.0,
+                1178.5,
+                1738.0
+              ],
+              "confidence": 0.89,
+              "page": 2,
+              "psm": 6,
+              "text": "500",
+              "tile_id": "tile_000",
+              "value": 500.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1138.0,
+                1889.5,
+                1181.5,
+                1913.0
+              ],
+              "confidence": 0.96,
+              "page": 2,
+              "psm": 6,
+              "text": "600",
+              "tile_id": "tile_000",
+              "value": 600.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                810.5,
+                1919.0,
+                836.5,
+                1939.0
+              ],
+              "confidence": 0.47,
+              "page": 2,
+              "psm": 6,
+              "text": "3",
+              "tile_id": "tile_000",
+              "value": 3.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                810.0,
+                1962.0,
+                835.5,
+                1981.0
+              ],
+              "confidence": 0.79,
+              "page": 2,
+              "psm": 6,
+              "text": "O",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1355.0,
+                1999.0,
+                1386.0,
+                2014.5
+              ],
+              "confidence": 0.67,
+              "page": 2,
+              "psm": 6,
+              "text": "1",
+              "tile_id": "tile_000",
+              "value": 1.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                814.5,
+                2059.0,
+                832.0,
+                2093.0
+              ],
+              "confidence": 0.26,
+              "page": 2,
+              "psm": 6,
+              "text": "oO",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1136.5,
+                2058.5,
+                1182.0,
+                2092.5
+              ],
+              "confidence": 0.85,
+              "page": 2,
+              "psm": 6,
+              "text": "700",
+              "tile_id": "tile_000",
+              "value": 700.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1357.5,
+                2096.5,
+                1380.0,
+                2130.0
+              ],
+              "confidence": 0.61,
+              "page": 2,
+              "psm": 6,
+              "text": "1",
+              "tile_id": "tile_000",
+              "value": 1.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                2160.0,
+                2143.0,
+                2179.5,
+                2174.0
+              ],
+              "confidence": 0.29,
+              "page": 2,
+              "psm": 6,
+              "text": "o",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                2279.0,
+                2184.0,
+                2292.0,
+                2196.5
+              ],
+              "confidence": 0.9,
+              "page": 2,
+              "psm": 6,
+              "text": "3",
+              "tile_id": "tile_000",
+              "value": 3.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1208.5,
+                2236.0,
+                1246.5,
+                2283.0
+              ],
+              "confidence": 0.28,
+              "page": 2,
+              "psm": 6,
+              "text": "208",
+              "tile_id": "tile_000",
+              "value": 208.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1211.0,
+                2321.0,
+                1247.0,
+                2362.0
+              ],
+              "confidence": 0.4,
+              "page": 2,
+              "psm": 6,
+              "text": "853",
+              "tile_id": "tile_000",
+              "value": 853.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1211.0,
+                2435.5,
+                1246.5,
+                2451.5
+              ],
+              "confidence": 0.4,
+              "page": 2,
+              "psm": 6,
+              "text": "904",
+              "tile_id": "tile_000",
+              "value": 904.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1144.0,
+                837.0,
+                1156.0,
+                854.5
+              ],
+              "confidence": 0.74,
+              "page": 2,
+              "psm": 11,
+              "text": "0",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1219.5,
+                883.5,
+                1243.5,
+                900.5
+              ],
+              "confidence": 0.96,
+              "page": 2,
+              "psm": 11,
+              "text": "25",
+              "tile_id": "tile_000",
+              "value": 25.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1215.0,
+                1122.5,
+                1244.5,
+                1139.0
+              ],
+              "confidence": 0.87,
+              "page": 2,
+              "psm": 11,
+              "text": "163",
+              "tile_id": "tile_000",
+              "value": 163.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1335.0,
+                1189.0,
+                1362.0,
+                1192.0
+              ],
+              "confidence": 0.0,
+              "page": 2,
+              "psm": 11,
+              "text": "om",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1211.0,
+                1215.0,
+                1245.5,
+                1232.5
+              ],
+              "confidence": 0.92,
+              "page": 2,
+              "psm": 11,
+              "text": "213",
+              "tile_id": "tile_000",
+              "value": 213.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1212.0,
+                1278.5,
+                1247.5,
+                1295.0
+              ],
+              "confidence": 0.95,
+              "page": 2,
+              "psm": 11,
+              "text": "249",
+              "tile_id": "tile_000",
+              "value": 249.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                2157.0,
+                1315.5,
+                2178.5,
+                1331.5
+              ],
+              "confidence": 0.73,
+              "page": 2,
+              "psm": 11,
+              "text": "O",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1143.0,
+                1543.0,
+                1179.0,
+                1559.0
+              ],
+              "confidence": 0.96,
+              "page": 2,
+              "psm": 11,
+              "text": "400",
+              "tile_id": "tile_000",
+              "value": 400.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1210.0,
+                1598.0,
+                1244.5,
+                1614.5
+              ],
+              "confidence": 0.68,
+              "page": 2,
+              "psm": 11,
+              "text": "431",
+              "tile_id": "tile_000",
+              "value": 431.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                2026.5,
+                1667.5,
+                2092.0,
+                1688.0
+              ],
+              "confidence": 0.9,
+              "page": 2,
+              "psm": 11,
+              "text": "456m",
+              "tile_id": "tile_000",
+              "value": 456.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1210.0,
+                2004.0,
+                1247.5,
+                2020.5
+              ],
+              "confidence": 0.95,
+              "page": 2,
+              "psm": 11,
+              "text": "657",
+              "tile_id": "tile_000",
+              "value": 657.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                2159.0,
+                2073.0,
+                2248.0,
+                2095.0
+              ],
+              "confidence": 0.23,
+              "page": 2,
+              "psm": 11,
+              "text": "Om",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1211.0,
+                2344.0,
+                1247.5,
+                2360.0
+              ],
+              "confidence": 0.85,
+              "page": 2,
+              "psm": 11,
+              "text": "853",
+              "tile_id": "tile_000",
+              "value": 853.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1674.5,
+                726.0,
+                1699.0,
+                742.0
+              ],
+              "confidence": 0.0,
+              "page": 2,
+              "psm": 6,
+              "text": "4",
+              "tile_id": "tile_000",
+              "value": 4.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1144.0,
+                837.0,
+                1156.0,
+                854.5
+              ],
+              "confidence": 0.8,
+              "page": 2,
+              "psm": 6,
+              "text": "0",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1231.5,
+                840.0,
+                1244.5,
+                856.5
+              ],
+              "confidence": 0.26,
+              "page": 2,
+              "psm": 6,
+              "text": "o",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1219.5,
+                883.5,
+                1243.5,
+                900.5
+              ],
+              "confidence": 0.95,
+              "page": 2,
+              "psm": 6,
+              "text": "25",
+              "tile_id": "tile_000",
+              "value": 25.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1197.5,
+                1206.0,
+                1244.0,
+                1245.5
+              ],
+              "confidence": 0.52,
+              "page": 2,
+              "psm": 6,
+              "text": "213",
+              "tile_id": "tile_000",
+              "value": 213.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                2032.5,
+                1214.0,
+                2054.0,
+                1225.0
+              ],
+              "confidence": 0.48,
+              "page": 2,
+              "psm": 6,
+              "text": "0",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                808.0,
+                1381.0,
+                830.0,
+                1424.5
+              ],
+              "confidence": 0.48,
+              "page": 2,
+              "psm": 6,
+              "text": "oO",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                2157.5,
+                1384.0,
+                2177.5,
+                1415.5
+              ],
+              "confidence": 0.41,
+              "page": 2,
+              "psm": 6,
+              "text": "o",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                2157.0,
+                1472.5,
+                2178.5,
+                1501.0
+              ],
+              "confidence": 0.96,
+              "page": 2,
+              "psm": 6,
+              "text": "2",
+              "tile_id": "tile_000",
+              "value": 2.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                2158.0,
+                1503.5,
+                2179.5,
+                1540.0
+              ],
+              "confidence": 0.85,
+              "page": 2,
+              "psm": 6,
+              "text": "2",
+              "tile_id": "tile_000",
+              "value": 2.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1143.0,
+                1543.0,
+                1179.0,
+                1559.0
+              ],
+              "confidence": 0.78,
+              "page": 2,
+              "psm": 6,
+              "text": "400",
+              "tile_id": "tile_000",
+              "value": 400.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1179.5,
+                1536.0,
+                1201.5,
+                1569.0
+              ],
+              "confidence": 0.77,
+              "page": 2,
+              "psm": 6,
+              "text": "4",
+              "tile_id": "tile_000",
+              "value": 4.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1229.5,
+                1555.0,
+                1243.5,
+                1563.0
+              ],
+              "confidence": 0.0,
+              "page": 2,
+              "psm": 6,
+              "text": "406",
+              "tile_id": "tile_000",
+              "value": 406.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                2026.5,
+                1667.5,
+                2092.0,
+                1688.0
+              ],
+              "confidence": 0.72,
+              "page": 2,
+              "psm": 6,
+              "text": "456m",
+              "tile_id": "tile_000",
+              "value": 456.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1136.0,
+                1715.0,
+                1182.5,
+                1738.0
+              ],
+              "confidence": 0.94,
+              "page": 2,
+              "psm": 6,
+              "text": "500",
+              "tile_id": "tile_000",
+              "value": 500.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1138.0,
+                1889.5,
+                1181.5,
+                1913.0
+              ],
+              "confidence": 0.96,
+              "page": 2,
+              "psm": 6,
+              "text": "600",
+              "tile_id": "tile_000",
+              "value": 600.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                810.5,
+                1919.0,
+                836.5,
+                1939.0
+              ],
+              "confidence": 0.52,
+              "page": 2,
+              "psm": 6,
+              "text": "3",
+              "tile_id": "tile_000",
+              "value": 3.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                810.0,
+                1962.0,
+                835.5,
+                1981.0
+              ],
+              "confidence": 0.77,
+              "page": 2,
+              "psm": 6,
+              "text": "O",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1210.0,
+                2004.0,
+                1247.5,
+                2020.5
+              ],
+              "confidence": 0.34,
+              "page": 2,
+              "psm": 6,
+              "text": "6574",
+              "tile_id": "tile_000",
+              "value": 6574.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1322.5,
+                1999.0,
+                1337.0,
+                2015.5
+              ],
+              "confidence": 0.31,
+              "page": 2,
+              "psm": 6,
+              "text": "1",
+              "tile_id": "tile_000",
+              "value": 1.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                811.5,
+                2059.0,
+                829.0,
+                2093.0
+              ],
+              "confidence": 0.53,
+              "page": 2,
+              "psm": 6,
+              "text": "oO",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1136.5,
+                2058.5,
+                1182.0,
+                2092.5
+              ],
+              "confidence": 0.88,
+              "page": 2,
+              "psm": 6,
+              "text": "700",
+              "tile_id": "tile_000",
+              "value": 700.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                2125.0,
+                2164.0,
+                2180.5,
+                2193.0
+              ],
+              "confidence": 0.36,
+              "page": 2,
+              "psm": 6,
+              "text": "O96",
+              "tile_id": "tile_000",
+              "value": 96.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                2279.0,
+                2184.0,
+                2292.0,
+                2196.5
+              ],
+              "confidence": 0.91,
+              "page": 2,
+              "psm": 6,
+              "text": "3",
+              "tile_id": "tile_000",
+              "value": 3.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1211.0,
+                2321.0,
+                1247.5,
+                2362.0
+              ],
+              "confidence": 0.38,
+              "page": 2,
+              "psm": 6,
+              "text": "353",
+              "tile_id": "tile_000",
+              "value": 353.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1211.0,
+                2435.5,
+                1246.5,
+                2451.5
+              ],
+              "confidence": 0.55,
+              "page": 2,
+              "psm": 6,
+              "text": "904",
+              "tile_id": "tile_000",
+              "value": 904.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                798.0,
+                2490.5,
+                840.0,
+                2526.0
+              ],
+              "confidence": 0.51,
+              "page": 2,
+              "psm": 6,
+              "text": "29",
+              "tile_id": "tile_000",
+              "value": 29.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1144.0,
+                837.0,
+                1156.0,
+                854.5
+              ],
+              "confidence": 0.76,
+              "page": 2,
+              "psm": 11,
+              "text": "0",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1219.5,
+                883.5,
+                1243.5,
+                900.5
+              ],
+              "confidence": 0.96,
+              "page": 2,
+              "psm": 11,
+              "text": "25",
+              "tile_id": "tile_000",
+              "value": 25.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1215.0,
+                1122.5,
+                1244.5,
+                1139.0
+              ],
+              "confidence": 0.76,
+              "page": 2,
+              "psm": 11,
+              "text": "163",
+              "tile_id": "tile_000",
+              "value": 163.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1211.0,
+                1215.0,
+                1245.5,
+                1232.5
+              ],
+              "confidence": 0.78,
+              "page": 2,
+              "psm": 11,
+              "text": "213",
+              "tile_id": "tile_000",
+              "value": 213.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1350.5,
+                1251.0,
+                1379.0,
+                1254.5
+              ],
+              "confidence": 0.55,
+              "page": 2,
+              "psm": 11,
+              "text": "oo",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1212.0,
+                1278.5,
+                1247.5,
+                1295.0
+              ],
+              "confidence": 0.81,
+              "page": 2,
+              "psm": 11,
+              "text": "249",
+              "tile_id": "tile_000",
+              "value": 249.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1310.0,
+                1285.5,
+                1354.0,
+                1291.0
+              ],
+              "confidence": 0.36,
+              "page": 2,
+              "psm": 11,
+              "text": "om",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1325.0,
+                1307.5,
+                1339.5,
+                1321.5
+              ],
+              "confidence": 0.29,
+              "page": 2,
+              "psm": 11,
+              "text": "2",
+              "tile_id": "tile_000",
+              "value": 2.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1143.0,
+                1543.0,
+                1179.0,
+                1559.0
+              ],
+              "confidence": 0.96,
+              "page": 2,
+              "psm": 11,
+              "text": "400",
+              "tile_id": "tile_000",
+              "value": 400.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                2026.5,
+                1667.5,
+                2092.0,
+                1688.0
+              ],
+              "confidence": 0.83,
+              "page": 2,
+              "psm": 11,
+              "text": "456m",
+              "tile_id": "tile_000",
+              "value": 456.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1268.5,
+                1751.0,
+                1336.0,
+                1766.0
+              ],
+              "confidence": 0.28,
+              "page": 2,
+              "psm": 11,
+              "text": "72",
+              "tile_id": "tile_000",
+              "value": 72.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1210.0,
+                2004.0,
+                1247.5,
+                2020.5
+              ],
+              "confidence": 0.93,
+              "page": 2,
+              "psm": 11,
+              "text": "657",
+              "tile_id": "tile_000",
+              "value": 657.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                2159.0,
+                2073.0,
+                2248.0,
+                2095.0
+              ],
+              "confidence": 0.0,
+              "page": 2,
+              "psm": 11,
+              "text": "Om",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1211.0,
+                2344.0,
+                1247.5,
+                2360.0
+              ],
+              "confidence": 0.88,
+              "page": 2,
+              "psm": 11,
+              "text": "853",
+              "tile_id": "tile_000",
+              "value": 853.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1151.5,
+                2427.5,
+                1176.0,
+                2435.5
+              ],
+              "confidence": 0.53,
+              "page": 2,
+              "psm": 6,
+              "text": "OO",
+              "tile_id": "tile_001",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1211.0,
+                2435.5,
+                1246.5,
+                2451.5
+              ],
+              "confidence": 0.46,
+              "page": 2,
+              "psm": 6,
+              "text": "904",
+              "tile_id": "tile_001",
+              "value": 904.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                798.0,
+                2568.0,
+                844.5,
+                2628.5
+              ],
+              "confidence": 0.44,
+              "page": 2,
+              "psm": 6,
+              "text": "30",
+              "tile_id": "tile_001",
+              "value": 30.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1140.0,
+                2599.0,
+                1180.0,
+                2614.5
+              ],
+              "confidence": 0.75,
+              "page": 2,
+              "psm": 6,
+              "text": "1000",
+              "tile_id": "tile_001",
+              "value": 1000.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1580.0,
+                2707.0,
+                1650.0,
+                2724.0
+              ],
+              "confidence": 0.9,
+              "page": 2,
+              "psm": 6,
+              "text": "1044m",
+              "tile_id": "tile_001",
+              "value": 1044.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                799.0,
+                2547.0,
+                844.5,
+                2564.0
+              ],
+              "confidence": 0.32,
+              "page": 2,
+              "psm": 11,
+              "text": "2",
+              "tile_id": "tile_001",
+              "value": 2.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                799.0,
+                2588.0,
+                846.5,
+                2609.5
+              ],
+              "confidence": 0.34,
+              "page": 2,
+              "psm": 11,
+              "text": "2O",
+              "tile_id": "tile_001",
+              "value": 20.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1140.0,
+                2599.0,
+                1180.0,
+                2614.5
+              ],
+              "confidence": 0.75,
+              "page": 2,
+              "psm": 11,
+              "text": "1000",
+              "tile_id": "tile_001",
+              "value": 1000.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1580.0,
+                2707.0,
+                1650.0,
+                2724.0
+              ],
+              "confidence": 0.9,
+              "page": 2,
+              "psm": 11,
+              "text": "1044m",
+              "tile_id": "tile_001",
+              "value": 1044.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                2331.0,
+                3633.5,
+                2350.0,
+                3662.0
+              ],
+              "confidence": 0.11,
+              "page": 2,
+              "psm": 11,
+              "text": "1",
+              "tile_id": "tile_001",
+              "value": 1.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1151.5,
+                2427.5,
+                1176.0,
+                2435.5
+              ],
+              "confidence": 0.51,
+              "page": 2,
+              "psm": 6,
+              "text": "OO",
+              "tile_id": "tile_001",
+              "value": 0.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1211.0,
+                2435.5,
+                1246.5,
+                2451.5
+              ],
+              "confidence": 0.41,
+              "page": 2,
+              "psm": 6,
+              "text": "904",
+              "tile_id": "tile_001",
+              "value": 904.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                798.0,
+                2568.0,
+                844.5,
+                2628.5
+              ],
+              "confidence": 0.48,
+              "page": 2,
+              "psm": 6,
+              "text": "25",
+              "tile_id": "tile_001",
+              "value": 25.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1140.0,
+                2599.0,
+                1180.0,
+                2614.5
+              ],
+              "confidence": 0.35,
+              "page": 2,
+              "psm": 6,
+              "text": "7000",
+              "tile_id": "tile_001",
+              "value": 7000.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1580.0,
+                2707.0,
+                1650.0,
+                2724.0
+              ],
+              "confidence": 0.91,
+              "page": 2,
+              "psm": 6,
+              "text": "1044m",
+              "tile_id": "tile_001",
+              "value": 1044.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                798.0,
+                2568.0,
+                845.5,
+                2588.5
+              ],
+              "confidence": 0.26,
+              "page": 2,
+              "psm": 11,
+              "text": "Oo2",
+              "tile_id": "tile_001",
+              "value": 2.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                799.0,
+                2588.0,
+                846.5,
+                2609.5
+              ],
+              "confidence": 0.51,
+              "page": 2,
+              "psm": 11,
+              "text": "2O",
+              "tile_id": "tile_001",
+              "value": 20.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1140.0,
+                2599.0,
+                1180.0,
+                2614.5
+              ],
+              "confidence": 0.35,
+              "page": 2,
+              "psm": 11,
+              "text": "7000",
+              "tile_id": "tile_001",
+              "value": 7000.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1580.0,
+                2707.0,
+                1650.0,
+                2724.0
+              ],
+              "confidence": 0.0,
+              "page": 2,
+              "psm": 11,
+              "text": "1044",
+              "tile_id": "tile_001",
+              "value": 1044.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1598.5,
+                3361.0,
+                1675.0,
+                3394.5
+              ],
+              "confidence": 0.55,
+              "page": 2,
+              "psm": 11,
+              "text": "231",
+              "tile_id": "tile_001",
+              "value": 231.0,
+              "variant": "otsu"
+            }
+          ],
+          "tile_count": 2
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1983444",
+      "reference_boundary_count": 15,
+      "reread_numeric_candidate_count": 101,
+      "reread_visible": [
+        0.0,
+        657.0
+      ]
+    },
+    {
+      "baseline_visible": [
+        13.0
+      ],
+      "combined_visible": [
+        0.0,
+        6.0,
+        8.0,
+        10.0,
+        13.0
+      ],
+      "page_layout": [
+        {
+          "baseline": [
+            {
+              "bbox": [
+                858.0,
+                598.0,
+                903.0,
+                635.0
+              ],
+              "confidence": 0.6,
+              "psm": null,
+              "text": "13",
+              "value": 13.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1316.0,
+                1008.0,
+                1413.0,
+                1046.0
+              ],
+              "confidence": 0.96,
+              "psm": null,
+              "text": "1933",
+              "value": 1933.0,
+              "variant": null
+            }
+          ],
+          "layout_detected": true,
+          "page": 4,
+          "reread": [
+            {
+              "bbox": [
+                1058.0,
+                1038.0,
+                1061.0,
+                1042.5
+              ],
+              "confidence": 0.31,
+              "page": 4,
+              "psm": 6,
+              "text": "9",
+              "tile_id": "tile_000",
+              "value": 9.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                705.5,
+                1103.0,
+                762.0,
+                1145.5
+              ],
+              "confidence": 0.57,
+              "page": 4,
+              "psm": 6,
+              "text": "4",
+              "tile_id": "tile_000",
+              "value": 4.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1130.5,
+                1145.5,
+                1133.0,
+                1148.5
+              ],
+              "confidence": 0.13,
+              "page": 4,
+              "psm": 6,
+              "text": "8",
+              "tile_id": "tile_000",
+              "value": 8.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                130.0,
+                1243.0,
+                138.0,
+                1245.5
+              ],
+              "confidence": 0.37,
+              "page": 4,
+              "psm": 6,
+              "text": "om",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                91.0,
+                1333.0,
+                99.5,
+                1350.5
+              ],
+              "confidence": 0.1,
+              "page": 4,
+              "psm": 6,
+              "text": "oo",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                368.0,
+                1344.5,
+                369.0,
+                1345.5
+              ],
+              "confidence": 0.02,
+              "page": 4,
+              "psm": 6,
+              "text": "7",
+              "tile_id": "tile_000",
+              "value": 7.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                60.0,
+                1747.5,
+                69.0,
+                1750.0
+              ],
+              "confidence": 0.29,
+              "page": 4,
+              "psm": 6,
+              "text": "8",
+              "tile_id": "tile_000",
+              "value": 8.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                326.0,
+                1743.5,
+                341.5,
+                1751.5
+              ],
+              "confidence": 0.15,
+              "page": 4,
+              "psm": 6,
+              "text": "OM",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                785.0,
+                1751.0,
+                786.5,
+                1752.5
+              ],
+              "confidence": 0.08,
+              "page": 4,
+              "psm": 6,
+              "text": "6",
+              "tile_id": "tile_000",
+              "value": 6.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                933.0,
+                1754.0,
+                934.0,
+                1755.0
+              ],
+              "confidence": 0.2,
+              "page": 4,
+              "psm": 6,
+              "text": "oo",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1034.0,
+                2263.0,
+                1036.5,
+                2265.0
+              ],
+              "confidence": 0.0,
+              "page": 4,
+              "psm": 6,
+              "text": "6",
+              "tile_id": "tile_000",
+              "value": 6.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                571.5,
+                878.0,
+                573.0,
+                879.5
+              ],
+              "confidence": 0.45,
+              "page": 4,
+              "psm": 11,
+              "text": "7",
+              "tile_id": "tile_000",
+              "value": 7.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                572.0,
+                884.5,
+                573.5,
+                886.5
+              ],
+              "confidence": 0.12,
+              "page": 4,
+              "psm": 11,
+              "text": "7",
+              "tile_id": "tile_000",
+              "value": 7.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                522.0,
+                900.0,
+                523.0,
+                901.0
+              ],
+              "confidence": 0.37,
+              "page": 4,
+              "psm": 11,
+              "text": "7",
+              "tile_id": "tile_000",
+              "value": 7.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                727.0,
+                900.0,
+                776.5,
+                933.0
+              ],
+              "confidence": 0.83,
+              "page": 4,
+              "psm": 11,
+              "text": "10",
+              "tile_id": "tile_000",
+              "value": 10.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                538.0,
+                908.0,
+                567.5,
+                936.0
+              ],
+              "confidence": 0.22,
+              "page": 4,
+              "psm": 11,
+              "text": "1",
+              "tile_id": "tile_000",
+              "value": 1.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                572.0,
+                1101.0,
+                573.0,
+                1102.0
+              ],
+              "confidence": 0.37,
+              "page": 4,
+              "psm": 11,
+              "text": "7",
+              "tile_id": "tile_000",
+              "value": 7.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                183.5,
+                1135.0,
+                194.0,
+                1139.5
+              ],
+              "confidence": 0.39,
+              "page": 4,
+              "psm": 11,
+              "text": "oo",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                857.0,
+                1105.0,
+                929.0,
+                1138.5
+              ],
+              "confidence": 0.95,
+              "page": 4,
+              "psm": 11,
+              "text": "110",
+              "tile_id": "tile_000",
+              "value": 110.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1130.5,
+                1145.5,
+                1133.0,
+                1148.5
+              ],
+              "confidence": 0.0,
+              "page": 4,
+              "psm": 11,
+              "text": "o",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                437.5,
+                1245.0,
+                439.0,
+                1246.5
+              ],
+              "confidence": 0.45,
+              "page": 4,
+              "psm": 11,
+              "text": "7",
+              "tile_id": "tile_000",
+              "value": 7.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                565.5,
+                1241.0,
+                570.5,
+                1255.0
+              ],
+              "confidence": 0.12,
+              "page": 4,
+              "psm": 11,
+              "text": "7",
+              "tile_id": "tile_000",
+              "value": 7.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1110.0,
+                1251.0,
+                1112.5,
+                1252.5
+              ],
+              "confidence": 0.14,
+              "page": 4,
+              "psm": 11,
+              "text": "2",
+              "tile_id": "tile_000",
+              "value": 2.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                91.0,
+                1343.0,
+                92.5,
+                1344.5
+              ],
+              "confidence": 0.45,
+              "page": 4,
+              "psm": 11,
+              "text": "7",
+              "tile_id": "tile_000",
+              "value": 7.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                484.0,
+                1345.0,
+                485.5,
+                1346.5
+              ],
+              "confidence": 0.45,
+              "page": 4,
+              "psm": 11,
+              "text": "7",
+              "tile_id": "tile_000",
+              "value": 7.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                107.5,
+                1445.0,
+                109.0,
+                1446.5
+              ],
+              "confidence": 0.45,
+              "page": 4,
+              "psm": 11,
+              "text": "7",
+              "tile_id": "tile_000",
+              "value": 7.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                151.0,
+                1443.5,
+                153.5,
+                1446.0
+              ],
+              "confidence": 0.0,
+              "page": 4,
+              "psm": 11,
+              "text": "8",
+              "tile_id": "tile_000",
+              "value": 8.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                428.0,
+                1444.0,
+                431.0,
+                1447.5
+              ],
+              "confidence": 0.0,
+              "page": 4,
+              "psm": 11,
+              "text": "0",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                955.0,
+                1451.5,
+                963.0,
+                1454.0
+              ],
+              "confidence": 0.22,
+              "page": 4,
+              "psm": 11,
+              "text": "4",
+              "tile_id": "tile_000",
+              "value": 4.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                981.5,
+                1451.5,
+                991.0,
+                1454.0
+              ],
+              "confidence": 0.15,
+              "page": 4,
+              "psm": 11,
+              "text": "oo",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1037.5,
+                1449.5,
+                1042.0,
+                1452.5
+              ],
+              "confidence": 0.25,
+              "page": 4,
+              "psm": 11,
+              "text": "7",
+              "tile_id": "tile_000",
+              "value": 7.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                225.0,
+                1546.0,
+                226.5,
+                1547.5
+              ],
+              "confidence": 0.16,
+              "page": 4,
+              "psm": 11,
+              "text": "2",
+              "tile_id": "tile_000",
+              "value": 2.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                243.0,
+                1544.0,
+                249.5,
+                1547.5
+              ],
+              "confidence": 0.14,
+              "page": 4,
+              "psm": 11,
+              "text": "7",
+              "tile_id": "tile_000",
+              "value": 7.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1054.0,
+                1550.5,
+                1057.0,
+                1552.0
+              ],
+              "confidence": 0.41,
+              "page": 4,
+              "psm": 11,
+              "text": "4",
+              "tile_id": "tile_000",
+              "value": 4.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                80.5,
+                1846.0,
+                83.0,
+                1847.5
+              ],
+              "confidence": 0.26,
+              "page": 4,
+              "psm": 11,
+              "text": "7",
+              "tile_id": "tile_000",
+              "value": 7.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                644.5,
+                1850.0,
+                647.5,
+                1852.5
+              ],
+              "confidence": 0.15,
+              "page": 4,
+              "psm": 11,
+              "text": "4",
+              "tile_id": "tile_000",
+              "value": 4.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                906.0,
+                1852.5,
+                908.5,
+                1854.5
+              ],
+              "confidence": 0.0,
+              "page": 4,
+              "psm": 11,
+              "text": "o",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                505.5,
+                1950.5,
+                507.0,
+                1952.0
+              ],
+              "confidence": 0.54,
+              "page": 4,
+              "psm": 11,
+              "text": "2",
+              "tile_id": "tile_000",
+              "value": 2.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                176.5,
+                2053.0,
+                179.0,
+                2055.0
+              ],
+              "confidence": 0.28,
+              "page": 4,
+              "psm": 11,
+              "text": "2",
+              "tile_id": "tile_000",
+              "value": 2.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                635.0,
+                2054.0,
+                637.0,
+                2058.0
+              ],
+              "confidence": 0.46,
+              "page": 4,
+              "psm": 11,
+              "text": "2",
+              "tile_id": "tile_000",
+              "value": 2.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                233.0,
+                2151.5,
+                234.0,
+                2153.0
+              ],
+              "confidence": 0.79,
+              "page": 4,
+              "psm": 11,
+              "text": "4",
+              "tile_id": "tile_000",
+              "value": 4.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1187.0,
+                2263.0,
+                1189.0,
+                2265.0
+              ],
+              "confidence": 0.2,
+              "page": 4,
+              "psm": 11,
+              "text": "5",
+              "tile_id": "tile_000",
+              "value": 5.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                907.0,
+                2363.0,
+                913.5,
+                2366.0
+              ],
+              "confidence": 0.54,
+              "page": 4,
+              "psm": 11,
+              "text": "2",
+              "tile_id": "tile_000",
+              "value": 2.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                571.0,
+                997.0,
+                573.5,
+                1004.0
+              ],
+              "confidence": 0.46,
+              "page": 4,
+              "psm": 6,
+              "text": "7",
+              "tile_id": "tile_000",
+              "value": 7.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                134.0,
+                1027.0,
+                138.0,
+                1031.0
+              ],
+              "confidence": 0.34,
+              "page": 4,
+              "psm": 6,
+              "text": "OM",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                668.0,
+                1013.0,
+                688.0,
+                1039.5
+              ],
+              "confidence": 0.62,
+              "page": 4,
+              "psm": 6,
+              "text": "18",
+              "tile_id": "tile_000",
+              "value": 18.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                705.5,
+                1103.0,
+                762.0,
+                1145.5
+              ],
+              "confidence": 0.37,
+              "page": 4,
+              "psm": 6,
+              "text": "4",
+              "tile_id": "tile_000",
+              "value": 4.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                385.0,
+                1650.5,
+                390.0,
+                1653.5
+              ],
+              "confidence": 0.16,
+              "page": 4,
+              "psm": 6,
+              "text": "6",
+              "tile_id": "tile_000",
+              "value": 6.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                517.5,
+                2359.0,
+                533.0,
+                2362.0
+              ],
+              "confidence": 0.22,
+              "page": 4,
+              "psm": 6,
+              "text": "OM",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                183.5,
+                1135.0,
+                194.0,
+                1139.5
+              ],
+              "confidence": 0.32,
+              "page": 4,
+              "psm": 11,
+              "text": "oo",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                857.0,
+                1105.0,
+                929.0,
+                1138.5
+              ],
+              "confidence": 0.96,
+              "page": 4,
+              "psm": 11,
+              "text": "110",
+              "tile_id": "tile_000",
+              "value": 110.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                244.0,
+                1244.0,
+                253.5,
+                1247.5
+              ],
+              "confidence": 0.0,
+              "page": 4,
+              "psm": 11,
+              "text": "o",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                491.0,
+                1246.5,
+                497.0,
+                1249.5
+              ],
+              "confidence": 0.18,
+              "page": 4,
+              "psm": 11,
+              "text": "0",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                689.0,
+                1346.0,
+                691.5,
+                1349.5
+              ],
+              "confidence": 0.77,
+              "page": 4,
+              "psm": 11,
+              "text": "4",
+              "tile_id": "tile_000",
+              "value": 4.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                765.0,
+                1447.5,
+                767.0,
+                1450.5
+              ],
+              "confidence": 0.0,
+              "page": 4,
+              "psm": 11,
+              "text": "5",
+              "tile_id": "tile_000",
+              "value": 5.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1161.0,
+                1453.5,
+                1164.0,
+                1455.0
+              ],
+              "confidence": 0.11,
+              "page": 4,
+              "psm": 11,
+              "text": "8",
+              "tile_id": "tile_000",
+              "value": 8.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                132.0,
+                1543.0,
+                138.0,
+                1545.5
+              ],
+              "confidence": 0.0,
+              "page": 4,
+              "psm": 11,
+              "text": "o",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                243.0,
+                1544.0,
+                249.5,
+                1547.5
+              ],
+              "confidence": 0.26,
+              "page": 4,
+              "psm": 11,
+              "text": "o",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1155.0,
+                1551.5,
+                1160.0,
+                1555.0
+              ],
+              "confidence": 0.24,
+              "page": 4,
+              "psm": 11,
+              "text": "8",
+              "tile_id": "tile_000",
+              "value": 8.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                411.5,
+                1749.5,
+                422.5,
+                1752.0
+              ],
+              "confidence": 0.0,
+              "page": 4,
+              "psm": 11,
+              "text": "7",
+              "tile_id": "tile_000",
+              "value": 7.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                473.0,
+                1749.0,
+                479.5,
+                1751.5
+              ],
+              "confidence": 0.12,
+              "page": 4,
+              "psm": 11,
+              "text": "oo",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                863.0,
+                1852.5,
+                869.0,
+                1856.0
+              ],
+              "confidence": 0.67,
+              "page": 4,
+              "psm": 11,
+              "text": "4",
+              "tile_id": "tile_000",
+              "value": 4.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                593.0,
+                1949.5,
+                597.0,
+                1952.0
+              ],
+              "confidence": 0.0,
+              "page": 4,
+              "psm": 11,
+              "text": "o",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                517.5,
+                2056.5,
+                523.0,
+                2058.0
+              ],
+              "confidence": 0.18,
+              "page": 4,
+              "psm": 11,
+              "text": "3",
+              "tile_id": "tile_000",
+              "value": 3.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1178.5,
+                2061.0,
+                1181.0,
+                2063.0
+              ],
+              "confidence": 0.54,
+              "page": 4,
+              "psm": 11,
+              "text": "5",
+              "tile_id": "tile_000",
+              "value": 5.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                233.0,
+                2151.5,
+                234.0,
+                2153.0
+              ],
+              "confidence": 0.72,
+              "page": 4,
+              "psm": 11,
+              "text": "4",
+              "tile_id": "tile_000",
+              "value": 4.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                234.0,
+                2153.5,
+                235.0,
+                2156.0
+              ],
+              "confidence": 0.4,
+              "page": 4,
+              "psm": 11,
+              "text": "1",
+              "tile_id": "tile_000",
+              "value": 1.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                619.0,
+                2154.5,
+                653.0,
+                2160.0
+              ],
+              "confidence": 0.03,
+              "page": 4,
+              "psm": 11,
+              "text": "OO",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                932.0,
+                2157.0,
+                943.5,
+                2162.0
+              ],
+              "confidence": 0.14,
+              "page": 4,
+              "psm": 11,
+              "text": "om",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                232.0,
+                2256.5,
+                239.0,
+                2259.0
+              ],
+              "confidence": 0.2,
+              "page": 4,
+              "psm": 11,
+              "text": "1",
+              "tile_id": "tile_000",
+              "value": 1.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1187.0,
+                2263.0,
+                1189.0,
+                2265.0
+              ],
+              "confidence": 0.39,
+              "page": 4,
+              "psm": 11,
+              "text": "5",
+              "tile_id": "tile_000",
+              "value": 5.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                521.0,
+                2459.0,
+                523.0,
+                2461.0
+              ],
+              "confidence": 0.57,
+              "page": 4,
+              "psm": 11,
+              "text": "4",
+              "tile_id": "tile_000",
+              "value": 4.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                721.5,
+                2462.0,
+                727.0,
+                2465.0
+              ],
+              "confidence": 0.38,
+              "page": 4,
+              "psm": 11,
+              "text": "oo",
+              "tile_id": "tile_000",
+              "value": 0.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1103.0,
+                2464.0,
+                1115.0,
+                2468.0
+              ],
+              "confidence": 0.36,
+              "page": 4,
+              "psm": 11,
+              "text": "4",
+              "tile_id": "tile_000",
+              "value": 4.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                606.0,
+                2564.0,
+                607.5,
+                2565.0
+              ],
+              "confidence": 0.0,
+              "page": 4,
+              "psm": 6,
+              "text": "8",
+              "tile_id": "tile_001",
+              "value": 8.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1096.0,
+                2773.0,
+                1114.0,
+                2776.5
+              ],
+              "confidence": 0.17,
+              "page": 4,
+              "psm": 6,
+              "text": "oo",
+              "tile_id": "tile_001",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                292.5,
+                2882.5,
+                294.0,
+                2885.0
+              ],
+              "confidence": 0.45,
+              "page": 4,
+              "psm": 6,
+              "text": "7",
+              "tile_id": "tile_001",
+              "value": 7.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                571.0,
+                2885.5,
+                575.5,
+                2895.0
+              ],
+              "confidence": 0.67,
+              "page": 4,
+              "psm": 6,
+              "text": "8",
+              "tile_id": "tile_001",
+              "value": 8.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1050.0,
+                2951.0,
+                1051.0,
+                2952.0
+              ],
+              "confidence": 0.96,
+              "page": 4,
+              "psm": 6,
+              "text": "4",
+              "tile_id": "tile_001",
+              "value": 4.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                62.0,
+                3068.0,
+                68.0,
+                3070.5
+              ],
+              "confidence": 0.0,
+              "page": 4,
+              "psm": 6,
+              "text": "8",
+              "tile_id": "tile_001",
+              "value": 8.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                670.0,
+                3177.5,
+                676.5,
+                3181.5
+              ],
+              "confidence": 0.02,
+              "page": 4,
+              "psm": 6,
+              "text": "8",
+              "tile_id": "tile_001",
+              "value": 8.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                836.0,
+                3179.5,
+                837.0,
+                3180.5
+              ],
+              "confidence": 0.56,
+              "page": 4,
+              "psm": 6,
+              "text": "oo",
+              "tile_id": "tile_001",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                59.0,
+                3277.5,
+                60.0,
+                3278.5
+              ],
+              "confidence": 0.45,
+              "page": 4,
+              "psm": 6,
+              "text": "7",
+              "tile_id": "tile_001",
+              "value": 7.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                232.5,
+                3270.5,
+                245.0,
+                3283.5
+              ],
+              "confidence": 0.23,
+              "page": 4,
+              "psm": 6,
+              "text": "OM",
+              "tile_id": "tile_001",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                613.0,
+                3274.0,
+                650.5,
+                3288.0
+              ],
+              "confidence": 0.01,
+              "page": 4,
+              "psm": 6,
+              "text": "OOM",
+              "tile_id": "tile_001",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                702.0,
+                3279.5,
+                715.5,
+                3286.0
+              ],
+              "confidence": 0.27,
+              "page": 4,
+              "psm": 6,
+              "text": "8",
+              "tile_id": "tile_001",
+              "value": 8.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                723.0,
+                3278.5,
+                744.0,
+                3284.0
+              ],
+              "confidence": 0.36,
+              "page": 4,
+              "psm": 6,
+              "text": "OM",
+              "tile_id": "tile_001",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1128.0,
+                3850.5,
+                1134.5,
+                3857.0
+              ],
+              "confidence": 0.53,
+              "page": 4,
+              "psm": 6,
+              "text": "4",
+              "tile_id": "tile_001",
+              "value": 4.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                618.5,
+                3891.0,
+                627.0,
+                3893.5
+              ],
+              "confidence": 0.27,
+              "page": 4,
+              "psm": 6,
+              "text": "o",
+              "tile_id": "tile_001",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                72.0,
+                2560.0,
+                81.5,
+                2563.0
+              ],
+              "confidence": 0.23,
+              "page": 4,
+              "psm": 11,
+              "text": "oo",
+              "tile_id": "tile_001",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                513.5,
+                2564.0,
+                521.0,
+                2565.0
+              ],
+              "confidence": 0.39,
+              "page": 4,
+              "psm": 11,
+              "text": "2",
+              "tile_id": "tile_001",
+              "value": 2.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                883.5,
+                2566.0,
+                885.0,
+                2567.0
+              ],
+              "confidence": 0.45,
+              "page": 4,
+              "psm": 11,
+              "text": "7",
+              "tile_id": "tile_001",
+              "value": 7.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1108.5,
+                2674.5,
+                1111.5,
+                2677.0
+              ],
+              "confidence": 0.6,
+              "page": 4,
+              "psm": 11,
+              "text": "7",
+              "tile_id": "tile_001",
+              "value": 7.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                894.0,
+                2772.0,
+                898.0,
+                2773.5
+              ],
+              "confidence": 0.47,
+              "page": 4,
+              "psm": 11,
+              "text": "7",
+              "tile_id": "tile_001",
+              "value": 7.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                99.0,
+                2870.0,
+                100.0,
+                2871.5
+              ],
+              "confidence": 0.19,
+              "page": 4,
+              "psm": 11,
+              "text": "7",
+              "tile_id": "tile_001",
+              "value": 7.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                526.0,
+                3177.5,
+                533.0,
+                3181.0
+              ],
+              "confidence": 0.09,
+              "page": 4,
+              "psm": 11,
+              "text": "0",
+              "tile_id": "tile_001",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                226.0,
+                3276.0,
+                231.0,
+                3279.5
+              ],
+              "confidence": 0.03,
+              "page": 4,
+              "psm": 11,
+              "text": "8",
+              "tile_id": "tile_001",
+              "value": 8.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1129.0,
+                3282.5,
+                1131.0,
+                3284.0
+              ],
+              "confidence": 0.4,
+              "page": 4,
+              "psm": 11,
+              "text": "4",
+              "tile_id": "tile_001",
+              "value": 4.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                102.0,
+                3481.5,
+                110.5,
+                3485.0
+              ],
+              "confidence": 0.39,
+              "page": 4,
+              "psm": 11,
+              "text": "oo",
+              "tile_id": "tile_001",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                88.5,
+                3680.5,
+                99.0,
+                3685.0
+              ],
+              "confidence": 0.41,
+              "page": 4,
+              "psm": 11,
+              "text": "2",
+              "tile_id": "tile_001",
+              "value": 2.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                117.5,
+                3680.5,
+                120.0,
+                3685.0
+              ],
+              "confidence": 0.74,
+              "page": 4,
+              "psm": 11,
+              "text": "4",
+              "tile_id": "tile_001",
+              "value": 4.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                783.5,
+                3687.0,
+                786.0,
+                3689.0
+              ],
+              "confidence": 0.0,
+              "page": 4,
+              "psm": 11,
+              "text": "o",
+              "tile_id": "tile_001",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                1033.0,
+                3788.5,
+                1046.0,
+                3792.0
+              ],
+              "confidence": 0.34,
+              "page": 4,
+              "psm": 11,
+              "text": "4",
+              "tile_id": "tile_001",
+              "value": 4.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                88.5,
+                3887.5,
+                94.0,
+                3890.0
+              ],
+              "confidence": 0.24,
+              "page": 4,
+              "psm": 11,
+              "text": "om",
+              "tile_id": "tile_001",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                412.0,
+                3890.5,
+                431.0,
+                3894.0
+              ],
+              "confidence": 0.0,
+              "page": 4,
+              "psm": 11,
+              "text": "om",
+              "tile_id": "tile_001",
+              "value": 0.0,
+              "variant": "gray"
+            },
+            {
+              "bbox": [
+                663.0,
+                2563.0,
+                671.0,
+                2567.0
+              ],
+              "confidence": 0.35,
+              "page": 4,
+              "psm": 6,
+              "text": "OO",
+              "tile_id": "tile_001",
+              "value": 0.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1089.0,
+                2673.0,
+                1098.5,
+                2675.5
+              ],
+              "confidence": 0.0,
+              "page": 4,
+              "psm": 6,
+              "text": "66",
+              "tile_id": "tile_001",
+              "value": 66.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                571.0,
+                2885.5,
+                575.5,
+                2895.0
+              ],
+              "confidence": 0.94,
+              "page": 4,
+              "psm": 6,
+              "text": "4",
+              "tile_id": "tile_001",
+              "value": 4.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                299.0,
+                2899.0,
+                304.0,
+                2902.5
+              ],
+              "confidence": 0.03,
+              "page": 4,
+              "psm": 6,
+              "text": "o",
+              "tile_id": "tile_001",
+              "value": 0.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1050.0,
+                2951.0,
+                1051.0,
+                2952.0
+              ],
+              "confidence": 0.9,
+              "page": 4,
+              "psm": 6,
+              "text": "4",
+              "tile_id": "tile_001",
+              "value": 4.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                95.5,
+                2971.0,
+                97.0,
+                2973.5
+              ],
+              "confidence": 0.61,
+              "page": 4,
+              "psm": 6,
+              "text": "1",
+              "tile_id": "tile_001",
+              "value": 1.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                723.0,
+                3278.5,
+                738.5,
+                3284.0
+              ],
+              "confidence": 0.45,
+              "page": 4,
+              "psm": 6,
+              "text": "OM",
+              "tile_id": "tile_001",
+              "value": 0.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                261.0,
+                3476.5,
+                272.0,
+                3492.0
+              ],
+              "confidence": 0.01,
+              "page": 4,
+              "psm": 6,
+              "text": "0",
+              "tile_id": "tile_001",
+              "value": 0.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                158.5,
+                3682.5,
+                168.0,
+                3686.0
+              ],
+              "confidence": 0.07,
+              "page": 4,
+              "psm": 6,
+              "text": "OO",
+              "tile_id": "tile_001",
+              "value": 0.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                710.0,
+                2563.0,
+                719.0,
+                2567.0
+              ],
+              "confidence": 0.19,
+              "page": 4,
+              "psm": 11,
+              "text": "65",
+              "tile_id": "tile_001",
+              "value": 65.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1108.5,
+                2674.5,
+                1111.5,
+                2677.0
+              ],
+              "confidence": 0.51,
+              "page": 4,
+              "psm": 11,
+              "text": "2",
+              "tile_id": "tile_001",
+              "value": 2.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                221.5,
+                2767.0,
+                227.0,
+                2770.0
+              ],
+              "confidence": 0.31,
+              "page": 4,
+              "psm": 11,
+              "text": "6",
+              "tile_id": "tile_001",
+              "value": 6.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                236.0,
+                2869.0,
+                245.5,
+                2872.5
+              ],
+              "confidence": 0.2,
+              "page": 4,
+              "psm": 11,
+              "text": "1",
+              "tile_id": "tile_001",
+              "value": 1.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                653.5,
+                2974.5,
+                655.0,
+                2976.5
+              ],
+              "confidence": 0.34,
+              "page": 4,
+              "psm": 11,
+              "text": "4",
+              "tile_id": "tile_001",
+              "value": 4.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                76.5,
+                3174.0,
+                79.5,
+                3176.5
+              ],
+              "confidence": 0.47,
+              "page": 4,
+              "psm": 11,
+              "text": "4",
+              "tile_id": "tile_001",
+              "value": 4.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                310.5,
+                3175.5,
+                341.5,
+                3181.0
+              ],
+              "confidence": 0.2,
+              "page": 4,
+              "psm": 11,
+              "text": "2",
+              "tile_id": "tile_001",
+              "value": 2.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                463.0,
+                3278.5,
+                467.0,
+                3282.0
+              ],
+              "confidence": 0.11,
+              "page": 4,
+              "psm": 11,
+              "text": "8",
+              "tile_id": "tile_001",
+              "value": 8.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1168.0,
+                3389.0,
+                1175.5,
+                3391.0
+              ],
+              "confidence": 0.08,
+              "page": 4,
+              "psm": 11,
+              "text": "2",
+              "tile_id": "tile_001",
+              "value": 2.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1193.0,
+                3387.5,
+                1201.5,
+                3391.0
+              ],
+              "confidence": 0.0,
+              "page": 4,
+              "psm": 11,
+              "text": "o",
+              "tile_id": "tile_001",
+              "value": 0.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                379.0,
+                3580.0,
+                385.0,
+                3583.5
+              ],
+              "confidence": 0.1,
+              "page": 4,
+              "psm": 11,
+              "text": "oo",
+              "tile_id": "tile_001",
+              "value": 0.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                1110.5,
+                3583.5,
+                1116.0,
+                3588.0
+              ],
+              "confidence": 0.21,
+              "page": 4,
+              "psm": 11,
+              "text": "8",
+              "tile_id": "tile_001",
+              "value": 8.0,
+              "variant": "otsu"
+            },
+            {
+              "bbox": [
+                150.0,
+                3889.0,
+                166.0,
+                3894.0
+              ],
+              "confidence": 0.29,
+              "page": 4,
+              "psm": 11,
+              "text": "1m",
+              "tile_id": "tile_001",
+              "value": 1.0,
+              "variant": "otsu"
+            }
+          ],
+          "tile_count": 2
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1944782",
+      "reference_boundary_count": 7,
+      "reread_numeric_candidate_count": 127,
+      "reread_visible": [
+        0.0,
+        6.0,
+        8.0,
+        10.0
+      ]
+    }
+  ],
+  "full_page_visibility": {
+    "denominator": 52,
+    "numerator": 8,
+    "value": 0.15384615384615385
+  },
+  "limitations": [
+    "Visibility is necessary but not sufficient for correct column assignment or interval recovery.",
+    "BGS v001 is development evidence and is excluded from the subsequent v002 external test."
+  ],
+  "manifest_path": "datasets/manifests/bgs_offshore_gold_v002.jsonl",
+  "manifest_sha256": "f84a8b282ec054dbe0a06bd3a6f6cf3136f3f6e22f9d92fcc7907ffe03af16ae",
+  "page_count": 4,
+  "reference_blinding": "tiles and OCR frozen before reference visibility scoring",
+  "reference_boundary_count": 52,
+  "reread_config": {
+    "overlap_px": 180,
+    "psm": [
+      6,
+      11
+    ],
+    "semantic_panel_inference": "long_page_layout_v001",
+    "tile_height_px": 1800,
+    "upscale": 2.0,
+    "variants": [
+      "gray",
+      "otsu"
+    ]
+  },
+  "source_run_path": "results/2026-08-16/P2_BGS_V023_EXTERNAL_V002_001",
+  "tile_count": 17,
+  "tiled_reread_visibility": {
+    "denominator": 52,
+    "numerator": 8,
+    "value": 0.15384615384615385
+  }
+}

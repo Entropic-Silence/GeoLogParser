@@ -2461,3 +2461,20 @@
   external evaluation as
   `experiments/paper2/models/bgs_layout_column_geometry_v023.json`, SHA256
   `1aa0389ae520c62115e6c6e737727d694937b6e9c0cdb36971137b95af169db4`.
+
+## 2026-08-16 — BGS v023 one-time external no-go
+
+- Commit `9ce6fd6` froze v023 before opening BGS v002. The external evaluation
+  used 3 unseen source titles, 4 pages, 49 official intervals and 52 unique
+  boundaries. Predictions were fixed before references were loaded for scoring.
+- At ±0.05 m, boundary precision/recall/F1 were
+  0.0227/0.0385/0.0286, interval F1 was 0, and CNER was 0.9773. The frozen
+  threshold 0.60 accepted 50 boundaries at precision 0.0400 and CNER 0.9600.
+- Provenance was complete for 88/88 full outputs. Post-OCR inference required
+  1.600 s/page and 206,792 KiB peak RSS. Thus traceability and low compute did
+  not yield reliable unseen-source inference.
+- The result is a formal negative external confirmation and is not tuned away.
+  BGS v002 is consumed. Its artifact SHA256 is
+  `6e01d60b2be0328652658169276c4606fbfb7abd6297a58d4bf727eaf9258ee1`.
+- Paper II remains experimental. Further structural changes require a new
+  independent development source and a separately frozen v003 test.

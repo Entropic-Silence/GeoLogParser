@@ -1,0 +1,27 @@
+experiment_id: P2_BGS_V023_EXTERNAL_V002_001
+status: completed_external_no_go
+branch: PaperII
+method_version: v023
+git_commit_before_external: 9ce6fd6
+dataset: bgs_offshore_gold_v002
+documents: 3
+pages: 4
+reference_intervals: 49
+reference_boundaries: 52
+boundary_at_0_05m:
+  precision: 0.022727272727272728
+  recall: 0.038461538461538464
+  f1: 0.028571428571428574
+  critical_numerical_error_rate: 0.9772727272727273
+interval_f1_at_0_05m: 0.0
+selective_operating_point:
+  threshold: 0.60
+  accepted_boundary_count: 50
+  precision: 0.04
+  reference_relative_coverage: 0.9615384615384616
+  critical_numerical_error_rate: 0.96
+provenance_complete_rate: 1.0
+latency_seconds_per_page_excluding_source_ocr: 1.5997535627502657
+peak_process_rss_kib: 206792
+post_external_tuning_allowed: false
+result: experiments/paper2/analysis/bgs_v023_external_v002_001.json

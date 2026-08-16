@@ -2,7 +2,7 @@
 
 Date: 2026-08-16
 
-Status: `ACCEPT`; development release gates passed.
+Status: `ACCEPT_DEVELOPMENT_ONLY`; release gates passed, external confirmation failed.
 
 ## Context
 
@@ -54,3 +54,5 @@ The serialized external model is
   v002 without demoting it to validation and freezing a new external source.
 - The method claim is continuous geometry recovery after structural grounding,
   not generative guessing of critical depths.
+- ADR-019 records the subsequent one-time v002 failure; the development result
+  does not support an unseen-source generalization claim.
