@@ -2718,3 +2718,33 @@
   page/database completeness is unverified, and the panel was inspected while
   designing the exploratory branch. It is recorded as `ACCEPT_DEVELOPMENT_ONLY`
   in ADR-028. BGS v003 remains unopened.
+
+## 2026-08-16 — Native explicit-range expert: auxiliary-only decision
+
+- Extended the native PDF expert to parse explicit range tokens (`0-40m`,
+  `40-250m`) common in Thurgau drilling protocols. On the 37-document layout
+  development split it selected 16 documents (coverage `0.4324`) with
+  Boundary/Interval F1 `0.4000/0.3590`. On the 35-document held-out split it
+  selected 19 documents (coverage `0.5429`) with `0.4943/0.3833`.
+- Comparison with the already-frozen OCR+constraint reread output on the same
+  held-out manifest: frozen final Boundary/Interval F1 `0.9502/0.9211`, 29/35
+  exact final documents. Native-only is therefore not a primary replacement;
+  it is retained as an auxiliary routed structural expert.
+- On BGS v001 development, native-only coverage was `0/26`; scanned/raster
+  pages require a separate graphical grounding path. This negative transfer
+  result is recorded in ADR-029. BGS v003 remains frozen and unopened.
+
+## 2026-08-16 — Raster contact grounding and nested fusion no-go
+
+- Added a reference-blind scanned-page expert that robustly fits a numeric
+  y-to-depth axis and grounds horizontal contact/transition events between the
+  depth and description fields. It grounded 17/34 BGS v001 development pages.
+- The raw candidate set reached Boundary Recall/F1 `0.1090/0.1057` at 0.05 m;
+  selected Boundary/Interval F1 were `0.0923/0.0334`, with CNER `0.8431`.
+- Nested source-disjoint fusion with the v025 candidate pool reached
+  Boundary/Interval F1 `0.2578/0.0866` and CNER `0.5448`, below v028
+  (`0.3475/0.1978`, CNER `0.3281`).
+- Failure attribution: true contacts, scale grids, sampling lines, table
+  borders, and description rules share the same horizontal raster signature.
+  The branch is `NO_GO_PRIMARY_RETAIN_DIAGNOSTIC` in ADR-030. BGS v003 was not
+  opened.

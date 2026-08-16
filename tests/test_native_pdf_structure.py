@@ -3,7 +3,8 @@ from pathlib import Path
 import pytest
 
 from geologparser.layout.native_pdf_structure import (
-    NativePDFWord, _numeric_columns, parse_native_number,
+    NativePDFWord, _numeric_columns, _range_columns, parse_native_number,
+    parse_native_range,
 )
 
 
@@ -14,6 +15,18 @@ def word(text: str, x: float, y: float, block: int = 0) -> NativePDFWord:
 @pytest.mark.parametrize(("text", "expected"), [("4.50", 4.5), ("1'037.39", 1037.39), ("12,5", 12.5)])
 def test_parse_native_number(text: str, expected: float):
     assert parse_native_number(text) == expected
+
+
+def test_parse_native_range_and_reconstruct_column():
+    assert parse_native_range("0-40m") == (0.0, 40.0)
+    assert parse_native_range("40–250") == (40.0, 250.0)
+    words = [
+        word("Bis Tiefe", 20, 5, 1),
+        word("0-40m", 20, 20), word("40-250m", 20, 30),
+    ]
+    columns = _range_columns(words, page_range=None, x_tolerance=0.02)
+    assert columns and columns[0].header_role == "cumulative_depth"
+    assert columns[0].values == (0.0, 40.0, 250.0)
 
 
 def test_numeric_column_prefers_semantically_anchored_depth_sequence():

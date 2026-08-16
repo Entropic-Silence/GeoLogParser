@@ -1,0 +1,838 @@
+{
+  "base_report": "/root/GeoLogParser/experiments/paper2/analysis/bgs_layout_method_development_v025_role_multi.json",
+  "base_report_sha256": "c29f4013d317da6f0616c6af192fcd8b793ae1e1127fec0331ac2058b0ce4930",
+  "evaluation_role": "nested_source_disjoint_development",
+  "experiment_id": "P2_BGS_GRAPHICAL_FUSION_NESTED_V001",
+  "external_policy": "BGS v003 remains unopened; no external run is authorized from this development result",
+  "feature_names": [
+    "base_logit",
+    "contact_line_support",
+    "contact_transition_support",
+    "contact_confidence",
+    "contact_y_proximity",
+    "contact_depth_agreement",
+    "contact_axis_inliers",
+    "contact_axis_rmse_quality",
+    "source_printed",
+    "source_graphic",
+    "source_metadata",
+    "printed_line_support",
+    "graphic_line_support",
+    "view_agreement",
+    "ocr_confidence"
+  ],
+  "folds": [
+    {
+      "fold": 0,
+      "metrics": {
+        "boundary_at_0_05m": {
+          "critical_numerical_error_rate": 0.0,
+          "f1": 0.1904761904761905,
+          "false_negative": 85,
+          "false_positive": 0,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 1.0,
+          "recall": 0.10526315789473684,
+          "true_positive": 10
+        },
+        "interval_at_0_05m": {
+          "f1": 0.06315789473684211,
+          "false_negative": 86,
+          "false_positive": 3,
+          "precision": 0.5,
+          "recall": 0.033707865168539325,
+          "true_positive": 3
+        }
+      },
+      "ranker": {
+        "bias": -0.505318991283776,
+        "feature_names": [
+          "base_logit",
+          "contact_line_support",
+          "contact_transition_support",
+          "contact_confidence",
+          "contact_y_proximity",
+          "contact_depth_agreement",
+          "contact_axis_inliers",
+          "contact_axis_rmse_quality",
+          "source_printed",
+          "source_graphic",
+          "source_metadata",
+          "printed_line_support",
+          "graphic_line_support",
+          "view_agreement",
+          "ocr_confidence"
+        ],
+        "mean": [
+          -2.1279236719141217,
+          0.2517285343533816,
+          0.06437735424754473,
+          0.3669443784876081,
+          0.12902165745375294,
+          0.04749424200620852,
+          0.32694439312765566,
+          0.5110215600826453,
+          0.3951598004803251,
+          0.598928505449843,
+          0.005911694069831886,
+          0.06770298678521543,
+          0.1571067811057612,
+          0.9166594489936429,
+          0.09466469610197634
+        ],
+        "scale": [
+          1.3184388161220022,
+          0.2824947973023102,
+          0.09104093161607583,
+          0.3245691313563546,
+          0.2713151844547711,
+          0.1550531600559821,
+          0.29454330167321596,
+          0.41498333405212057,
+          0.48888498909733236,
+          0.49011544640978494,
+          0.07665993701442879,
+          0.19313713317142456,
+          0.3569100173782891,
+          0.21614565725306106,
+          0.2251812154548498
+        ],
+        "weights": [
+          0.9972771104333518,
+          -0.09958062369896986,
+          -0.17849968384921486,
+          -0.09623085725038719,
+          0.09479821351822917,
+          0.2895649699938859,
+          0.376412057548265,
+          -0.159484447241672,
+          0.1346641445497467,
+          -0.14441190593618272,
+          0.06448253282369583,
+          0.0936402683348826,
+          -0.10558204903518345,
+          0.007136094106062954,
+          0.00852253514994793
+        ]
+      },
+      "test_document_count": 6,
+      "threshold": 0.84,
+      "train_document_count": 20
+    },
+    {
+      "fold": 1,
+      "metrics": {
+        "boundary_at_0_05m": {
+          "critical_numerical_error_rate": 0.36363636363636365,
+          "f1": 0.1891891891891892,
+          "false_negative": 56,
+          "false_positive": 4,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 0.6363636363636364,
+          "recall": 0.1111111111111111,
+          "true_positive": 7
+        },
+        "interval_at_0_05m": {
+          "f1": 0.0,
+          "false_negative": 60,
+          "false_positive": 8,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      },
+      "ranker": {
+        "bias": -0.6268927706871767,
+        "feature_names": [
+          "base_logit",
+          "contact_line_support",
+          "contact_transition_support",
+          "contact_confidence",
+          "contact_y_proximity",
+          "contact_depth_agreement",
+          "contact_axis_inliers",
+          "contact_axis_rmse_quality",
+          "source_printed",
+          "source_graphic",
+          "source_metadata",
+          "printed_line_support",
+          "graphic_line_support",
+          "view_agreement",
+          "ocr_confidence"
+        ],
+        "mean": [
+          -2.2692646578640123,
+          0.15146199883183828,
+          0.03819819325120303,
+          0.22334124307522485,
+          0.08141904858970464,
+          0.0264516764992164,
+          0.20082367297132397,
+          0.3135928839923579,
+          0.36205003050640633,
+          0.6336790726052471,
+          0.004270896888346553,
+          0.06204812875757697,
+          0.10733491749700166,
+          0.922419153621104,
+          0.08316168395363034
+        ],
+        "scale": [
+          1.1589263032535657,
+          0.25274752383871973,
+          0.07239239214404426,
+          0.30916926036140857,
+          0.22284475127344786,
+          0.11755590443379746,
+          0.2838159395060251,
+          0.4085604754700749,
+          0.4805931813048459,
+          0.48179861513641153,
+          0.06521239397626133,
+          0.18729858453788076,
+          0.3032177235513429,
+          0.2085480968514609,
+          0.21052031208928418
+        ],
+        "weights": [
+          0.9499591138897738,
+          -0.02735490800013815,
+          -0.16348889442819098,
+          -0.04121827700041922,
+          0.04685592154444101,
+          0.20418872591703172,
+          0.2710612789279566,
+          -0.13147626337904025,
+          0.17072124583125453,
+          -0.18226737944229687,
+          0.08846024501986754,
+          0.12298558376552628,
+          0.032103313007149505,
+          -0.09521721525519462,
+          0.015380083075105083
+        ]
+      },
+      "test_document_count": 3,
+      "threshold": 0.46,
+      "train_document_count": 23
+    },
+    {
+      "fold": 2,
+      "metrics": {
+        "boundary_at_0_05m": {
+          "critical_numerical_error_rate": 0.7701149425287356,
+          "f1": 0.27397260273972607,
+          "false_negative": 39,
+          "false_positive": 67,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 0.22988505747126436,
+          "recall": 0.3389830508474576,
+          "true_positive": 20
+        },
+        "interval_at_0_05m": {
+          "f1": 0.08823529411764705,
+          "false_negative": 48,
+          "false_positive": 76,
+          "precision": 0.07317073170731707,
+          "recall": 0.1111111111111111,
+          "true_positive": 6
+        }
+      },
+      "ranker": {
+        "bias": -0.6431451756360224,
+        "feature_names": [
+          "base_logit",
+          "contact_line_support",
+          "contact_transition_support",
+          "contact_confidence",
+          "contact_y_proximity",
+          "contact_depth_agreement",
+          "contact_axis_inliers",
+          "contact_axis_rmse_quality",
+          "source_printed",
+          "source_graphic",
+          "source_metadata",
+          "printed_line_support",
+          "graphic_line_support",
+          "view_agreement",
+          "ocr_confidence"
+        ],
+        "mean": [
+          -2.518140232727044,
+          0.10694968761947758,
+          0.031926973062695214,
+          0.15495357958943784,
+          0.05743599664169478,
+          0.01679141098139053,
+          0.18455247426104285,
+          0.246843448538961,
+          0.4588176685486549,
+          0.5352042510793756,
+          0.005978080371969445,
+          0.08226816308107407,
+          0.043581043128523275,
+          0.9031477314522787,
+          0.10285121222185324
+        ],
+        "scale": [
+          0.8669331388568032,
+          0.21625342499858646,
+          0.08059083608417844,
+          0.2572204027721668,
+          0.1863419389602641,
+          0.09855630184879624,
+          0.30937348140939136,
+          0.39510359595560235,
+          0.49830112941497284,
+          0.4987591209250617,
+          0.07708659369200137,
+          0.21390771627240832,
+          0.19880794017012307,
+          0.22869303074300407,
+          0.23017694401045397
+        ],
+        "weights": [
+          0.811608699395348,
+          -0.06471270276194094,
+          -0.2912717746951098,
+          0.05283198785918557,
+          0.060633959915802185,
+          0.24141130827356158,
+          0.2703109869380357,
+          -0.026595284139056354,
+          0.16091157070832476,
+          -0.17065795454436658,
+          0.06401624110203306,
+          0.06517577243553822,
+          0.2757861750414352,
+          -0.08378306494472211,
+          0.06755561382706754
+        ]
+      },
+      "test_document_count": 5,
+      "threshold": 0.74,
+      "train_document_count": 21
+    },
+    {
+      "fold": 3,
+      "metrics": {
+        "boundary_at_0_05m": {
+          "critical_numerical_error_rate": 0.23076923076923078,
+          "f1": 0.2631578947368421,
+          "false_negative": 53,
+          "false_positive": 3,
+          "matched_boundary_mae_m": 0.00039999999999995595,
+          "precision": 0.7692307692307693,
+          "recall": 0.15873015873015872,
+          "true_positive": 10
+        },
+        "interval_at_0_05m": {
+          "f1": 0.0,
+          "false_negative": 58,
+          "false_positive": 8,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      },
+      "ranker": {
+        "bias": -0.594278187743515,
+        "feature_names": [
+          "base_logit",
+          "contact_line_support",
+          "contact_transition_support",
+          "contact_confidence",
+          "contact_y_proximity",
+          "contact_depth_agreement",
+          "contact_axis_inliers",
+          "contact_axis_rmse_quality",
+          "source_printed",
+          "source_graphic",
+          "source_metadata",
+          "printed_line_support",
+          "graphic_line_support",
+          "view_agreement",
+          "ocr_confidence"
+        ],
+        "mean": [
+          -2.2955256217055933,
+          0.1600970067384138,
+          0.03894378924637083,
+          0.2294331306479785,
+          0.0927638133067081,
+          0.03270942376278343,
+          0.20420114576702736,
+          0.31911721949799593,
+          0.32425206874602164,
+          0.671546785486951,
+          0.004201145767027371,
+          0.060707328382424576,
+          0.10945426302247176,
+          0.9321860920746966,
+          0.07911266709102496
+        ],
+        "scale": [
+          1.174451125438028,
+          0.26251551228470243,
+          0.07471706477812984,
+          0.3150019172289774,
+          0.23592005200685912,
+          0.1316857896032015,
+          0.28632337889138326,
+          0.4128046990512108,
+          0.46809471761593385,
+          0.4696506152333443,
+          0.06467995161773316,
+          0.18420519167301536,
+          0.306581693915275,
+          0.19631658184858705,
+          0.20830152314267084
+        ],
+        "weights": [
+          0.8510222193720444,
+          0.050069922578004446,
+          -0.08433769513660579,
+          -0.022906668183288507,
+          0.14436614398348918,
+          0.30574844937541557,
+          0.14619904832561958,
+          -0.19899373009311194,
+          0.26264729274700366,
+          -0.27355310160866286,
+          0.08550674513775339,
+          0.058941332134671225,
+          -0.037207129032605694,
+          -0.058649073576386226,
+          -0.019256850267839347
+        ]
+      },
+      "test_document_count": 5,
+      "threshold": 0.77,
+      "train_document_count": 21
+    },
+    {
+      "fold": 4,
+      "metrics": {
+        "boundary_at_0_05m": {
+          "critical_numerical_error_rate": 0.20833333333333334,
+          "f1": 0.34234234234234234,
+          "false_negative": 68,
+          "false_positive": 5,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 0.7916666666666666,
+          "recall": 0.21839080459770116,
+          "true_positive": 19
+        },
+        "interval_at_0_05m": {
+          "f1": 0.22680412371134023,
+          "false_negative": 69,
+          "false_positive": 6,
+          "precision": 0.6470588235294118,
+          "recall": 0.1375,
+          "true_positive": 11
+        }
+      },
+      "ranker": {
+        "bias": -0.7321256579192665,
+        "feature_names": [
+          "base_logit",
+          "contact_line_support",
+          "contact_transition_support",
+          "contact_confidence",
+          "contact_y_proximity",
+          "contact_depth_agreement",
+          "contact_axis_inliers",
+          "contact_axis_rmse_quality",
+          "source_printed",
+          "source_graphic",
+          "source_metadata",
+          "printed_line_support",
+          "graphic_line_support",
+          "view_agreement",
+          "ocr_confidence"
+        ],
+        "mean": [
+          -2.232290585960386,
+          0.1555997459477582,
+          0.04718706581293656,
+          0.24115294614440808,
+          0.08289576340043725,
+          0.03406495393983382,
+          0.19209166092350102,
+          0.3239296889170487,
+          0.30820124052377673,
+          0.6879393521709166,
+          0.003859407305306685,
+          0.03912342120440482,
+          0.11408451333677448,
+          0.93628880958998,
+          0.07267126119917282
+        ],
+        "scale": [
+          1.1509767703543285,
+          0.25844779025636216,
+          0.08638973465521733,
+          0.3246545174389278,
+          0.2252789669158877,
+          0.13391329125083903,
+          0.258795820906615,
+          0.41591873500661036,
+          0.4617501877242385,
+          0.4633344363476449,
+          0.0620041311571903,
+          0.14301276578050462,
+          0.3113779078731995,
+          0.19086836122208412,
+          0.20059368499209737
+        ],
+        "weights": [
+          0.9446202261806442,
+          -0.134070634837079,
+          -0.2295487924673128,
+          0.02020815060960695,
+          0.040822625784875326,
+          0.3702921402282938,
+          0.3184588271456811,
+          0.15373041015715835,
+          0.34022154841918356,
+          -0.35020461900794647,
+          0.08329277110434388,
+          0.0026446016086516372,
+          -0.19655430295018478,
+          -0.0038590951496894504,
+          -0.008559761216244986
+        ]
+      },
+      "test_document_count": 7,
+      "threshold": 0.86,
+      "train_document_count": 19
+    }
+  ],
+  "grounding_report": "/root/GeoLogParser/experiments/paper2/analysis/bgs_graphical_grounding_development_v001.json",
+  "grounding_report_sha256": "52c8f2f42c5a93986889170a7ae0fc1a818b986a55e128286abbd3c4eeb3419f",
+  "manifest": "/root/GeoLogParser/datasets/manifests/bgs_offshore_gold_v001.jsonl",
+  "manifest_sha256": "d85f6c862b81d80c793887f73ca8b70658d42de358f25230dc4a15104520c99c",
+  "overall": {
+    "boundary_at_0_05m": {
+      "critical_numerical_error_rate": 0.5448275862068965,
+      "f1": 0.2578125,
+      "false_negative": 301,
+      "false_positive": 79,
+      "matched_boundary_mae_m": 6.060606060605393e-05,
+      "precision": 0.45517241379310347,
+      "recall": 0.17983651226158037,
+      "true_positive": 66
+    },
+    "interval_at_0_05m": {
+      "f1": 0.08658008658008658,
+      "false_negative": 321,
+      "false_positive": 101,
+      "precision": 0.1652892561983471,
+      "recall": 0.05865102639296188,
+      "true_positive": 20
+    },
+    "prediction_count": 145
+  },
+  "predictions": [
+    {
+      "fold": 3,
+      "predicted_boundaries_m": [
+        0.0,
+        36.0
+      ],
+      "record_id": "BGS_OFFSHORE_1942278"
+    },
+    {
+      "fold": 4,
+      "predicted_boundaries_m": [
+        0.0
+      ],
+      "record_id": "BGS_OFFSHORE_1943902"
+    },
+    {
+      "fold": 4,
+      "predicted_boundaries_m": [
+        0.0,
+        10.0,
+        20.0,
+        30.0,
+        40.0,
+        50.0
+      ],
+      "record_id": "BGS_OFFSHORE_1944312"
+    },
+    {
+      "fold": 0,
+      "predicted_boundaries_m": [
+        0.0
+      ],
+      "record_id": "BGS_OFFSHORE_1944320"
+    },
+    {
+      "fold": 1,
+      "predicted_boundaries_m": [
+        0.0,
+        14.75,
+        16.0
+      ],
+      "record_id": "BGS_OFFSHORE_1944322"
+    },
+    {
+      "fold": 0,
+      "predicted_boundaries_m": [],
+      "record_id": "BGS_OFFSHORE_1945465"
+    },
+    {
+      "fold": 4,
+      "predicted_boundaries_m": [
+        0.0
+      ],
+      "record_id": "BGS_OFFSHORE_1949665"
+    },
+    {
+      "fold": 2,
+      "predicted_boundaries_m": [
+        0.0
+      ],
+      "record_id": "BGS_OFFSHORE_1951404"
+    },
+    {
+      "fold": 0,
+      "predicted_boundaries_m": [
+        0.0,
+        2.0,
+        10.0,
+        13.0,
+        16.67,
+        20.02,
+        20.7
+      ],
+      "record_id": "BGS_OFFSHORE_1957995"
+    },
+    {
+      "fold": 3,
+      "predicted_boundaries_m": [
+        0.0,
+        12.004,
+        17.0,
+        19.0,
+        30.0
+      ],
+      "record_id": "BGS_OFFSHORE_1960100"
+    },
+    {
+      "fold": 2,
+      "predicted_boundaries_m": [
+        0.0,
+        5.0,
+        10.0,
+        18.5,
+        18.9,
+        19.0,
+        23.0,
+        24.0,
+        26.0,
+        51.3,
+        52.5
+      ],
+      "record_id": "BGS_OFFSHORE_1960609"
+    },
+    {
+      "fold": 4,
+      "predicted_boundaries_m": [
+        0.0
+      ],
+      "record_id": "BGS_OFFSHORE_1960630"
+    },
+    {
+      "fold": 3,
+      "predicted_boundaries_m": [
+        0.0,
+        27.45,
+        51.25
+      ],
+      "record_id": "BGS_OFFSHORE_1963694"
+    },
+    {
+      "fold": 1,
+      "predicted_boundaries_m": [
+        0.0,
+        1.0,
+        4.0,
+        8.0
+      ],
+      "record_id": "BGS_OFFSHORE_1969862"
+    },
+    {
+      "fold": 4,
+      "predicted_boundaries_m": [
+        0.0,
+        76.85
+      ],
+      "record_id": "BGS_OFFSHORE_1980976"
+    },
+    {
+      "fold": 3,
+      "predicted_boundaries_m": [
+        0.0
+      ],
+      "record_id": "BGS_OFFSHORE_1984462"
+    },
+    {
+      "fold": 0,
+      "predicted_boundaries_m": [],
+      "record_id": "BGS_OFFSHORE_1987224"
+    },
+    {
+      "fold": 1,
+      "predicted_boundaries_m": [
+        0.0,
+        8.0,
+        9.0,
+        33.35
+      ],
+      "record_id": "BGS_OFFSHORE_1989175"
+    },
+    {
+      "fold": 3,
+      "predicted_boundaries_m": [
+        0.0,
+        28.4
+      ],
+      "record_id": "BGS_OFFSHORE_1993525"
+    },
+    {
+      "fold": 2,
+      "predicted_boundaries_m": [
+        0.1,
+        0.3,
+        0.4,
+        0.45,
+        0.6,
+        0.65,
+        0.8,
+        0.9,
+        0.95,
+        1.1,
+        1.15,
+        1.2,
+        1.3,
+        1.4,
+        1.55,
+        1.65,
+        1.7
+      ],
+      "record_id": "BGS_OFFSHORE_2007749"
+    },
+    {
+      "fold": 0,
+      "predicted_boundaries_m": [
+        0.0
+      ],
+      "record_id": "BGS_OFFSHORE_2009141"
+    },
+    {
+      "fold": 4,
+      "predicted_boundaries_m": [
+        0.0,
+        10.0,
+        22.0,
+        24.0,
+        30.0,
+        30.75,
+        33.6
+      ],
+      "record_id": "BGS_OFFSHORE_2016306"
+    },
+    {
+      "fold": 2,
+      "predicted_boundaries_m": [
+        0.0,
+        5.0,
+        18.0,
+        19.0,
+        21.0,
+        46.0,
+        51.0,
+        52.5,
+        60.0,
+        70.0,
+        77.0
+      ],
+      "record_id": "BGS_OFFSHORE_2023411"
+    },
+    {
+      "fold": 0,
+      "predicted_boundaries_m": [
+        0.0
+      ],
+      "record_id": "BGS_OFFSHORE_2024185"
+    },
+    {
+      "fold": 2,
+      "predicted_boundaries_m": [
+        0.0,
+        1.0,
+        3.0,
+        4.0,
+        4.5,
+        4.6,
+        5.0,
+        6.0,
+        6.8,
+        7.0,
+        7.4,
+        7.5,
+        8.0,
+        8.9,
+        9.0,
+        9.5,
+        10.0,
+        10.3,
+        10.5,
+        10.8,
+        11.0,
+        12.0,
+        12.2,
+        12.3,
+        12.7,
+        12.8,
+        13.0,
+        13.3,
+        13.8,
+        14.2,
+        14.3,
+        15.0,
+        15.3,
+        15.9,
+        16.0,
+        16.6,
+        17.0,
+        17.5,
+        17.8,
+        18.0,
+        18.4,
+        18.5,
+        18.9,
+        19.2,
+        19.5,
+        20.0,
+        63.0
+      ],
+      "record_id": "BGS_OFFSHORE_2030012"
+    },
+    {
+      "fold": 4,
+      "predicted_boundaries_m": [
+        0.0,
+        0.05,
+        22.5,
+        27.0,
+        29.0,
+        29.8
+      ],
+      "record_id": "BGS_OFFSHORE_2041581"
+    }
+  ],
+  "reference_blinding": "raster contact features are reference-blind; official boundaries enter only outer-fold training labels, threshold selection on training folds, and post-prediction scoring"
+}

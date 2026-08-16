@@ -20,7 +20,12 @@ from .page_family import (
 from .native_pdf_structure import (
     NativeNumericColumn, NativePDFWord, NativeStructuralPrediction,
     extract_native_pdf_words, locate_named_log_pages, parse_native_number,
+    parse_native_range,
     predict_native_pdf_boundaries,
+)
+from .graphical_grounding import (
+    DepthAxis, GraphicalBoundaryEvent, detect_graphical_boundary_events,
+    fit_reference_blind_depth_axis, ground_graphical_boundaries,
 )
 
 __all__ = [
@@ -36,6 +41,9 @@ __all__ = [
     "fit_depth_scale", "graphic_boundary_candidates", "printed_boundary_candidates",
     "extract_explicit_depth_ranges", "locate_explicit_depth_column",
     "metadata_final_depth_candidates", "semantic_anchors", "tile_bbox_to_page",
-    "extract_native_pdf_words", "parse_native_number", "predict_native_pdf_boundaries",
+    "extract_native_pdf_words", "parse_native_number", "parse_native_range",
+    "predict_native_pdf_boundaries",
     "locate_named_log_pages",
+    "DepthAxis", "GraphicalBoundaryEvent", "fit_reference_blind_depth_axis",
+    "detect_graphical_boundary_events", "ground_graphical_boundaries",
 ]

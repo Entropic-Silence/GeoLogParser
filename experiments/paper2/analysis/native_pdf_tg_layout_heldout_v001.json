@@ -1,0 +1,5793 @@
+{
+  "by_source": {
+    "2022.05-090_Romanshorn-2333_Protokoll.pdf": {
+      "document_count": 1,
+      "native": {
+        "boundary": {
+          "critical_numerical_error_rate": null,
+          "f1": 0.0,
+          "false_negative": 3,
+          "false_positive": 0,
+          "matched_boundary_mae_m": null,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 2,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      },
+      "selective": {
+        "boundary": {
+          "critical_numerical_error_rate": null,
+          "f1": 0.0,
+          "false_negative": 3,
+          "false_positive": 0,
+          "matched_boundary_mae_m": null,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 2,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      }
+    },
+    "2022.05-117_Bischofszell-1425_Protokoll.pdf": {
+      "document_count": 1,
+      "native": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.75,
+          "f1": 0.28571428571428575,
+          "false_negative": 2,
+          "false_positive": 3,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 0.25,
+          "recall": 0.3333333333333333,
+          "true_positive": 1
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 2,
+          "false_positive": 3,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      },
+      "selective": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.75,
+          "f1": 0.28571428571428575,
+          "false_negative": 2,
+          "false_positive": 3,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 0.25,
+          "recall": 0.3333333333333333,
+          "true_positive": 1
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 2,
+          "false_positive": 3,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      }
+    },
+    "2022.05-222_Weinfelden-3486_Protokoll.pdf": {
+      "document_count": 1,
+      "native": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.0,
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 3
+        },
+        "interval": {
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 2
+        }
+      },
+      "selective": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.0,
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 3
+        },
+        "interval": {
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 2
+        }
+      }
+    },
+    "2022.06-006_Weinfelden-3929_Protokoll.pdf": {
+      "document_count": 1,
+      "native": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.0,
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 3
+        },
+        "interval": {
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 2
+        }
+      },
+      "selective": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.0,
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 3
+        },
+        "interval": {
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 2
+        }
+      }
+    },
+    "2022.06-101_Romanshorn-324_Protokoll.pdf": {
+      "document_count": 1,
+      "native": {
+        "boundary": {
+          "critical_numerical_error_rate": null,
+          "f1": 0.0,
+          "false_negative": 3,
+          "false_positive": 0,
+          "matched_boundary_mae_m": null,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 2,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      },
+      "selective": {
+        "boundary": {
+          "critical_numerical_error_rate": null,
+          "f1": 0.0,
+          "false_negative": 3,
+          "false_positive": 0,
+          "matched_boundary_mae_m": null,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 2,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      }
+    },
+    "2022.06-116_Hefenhofen-804_(spaeter_808)_Protokoll_a.pdf": {
+      "document_count": 1,
+      "native": {
+        "boundary": {
+          "critical_numerical_error_rate": null,
+          "f1": 0.0,
+          "false_negative": 4,
+          "false_positive": 0,
+          "matched_boundary_mae_m": null,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 3,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      },
+      "selective": {
+        "boundary": {
+          "critical_numerical_error_rate": null,
+          "f1": 0.0,
+          "false_negative": 4,
+          "false_positive": 0,
+          "matched_boundary_mae_m": null,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 3,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      }
+    },
+    "2022.06-266_Kesswil-629_Protokoll.pdf": {
+      "document_count": 1,
+      "native": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.6666666666666666,
+          "f1": 0.3333333333333333,
+          "false_negative": 2,
+          "false_positive": 2,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 0.3333333333333333,
+          "recall": 0.3333333333333333,
+          "true_positive": 1
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 2,
+          "false_positive": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      },
+      "selective": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.6666666666666666,
+          "f1": 0.3333333333333333,
+          "false_negative": 2,
+          "false_positive": 2,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 0.3333333333333333,
+          "recall": 0.3333333333333333,
+          "true_positive": 1
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 2,
+          "false_positive": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      }
+    },
+    "2022.07-014_Maerstetten-2322_Protokoll.pdf": {
+      "document_count": 1,
+      "native": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.0,
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 3
+        },
+        "interval": {
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 2
+        }
+      },
+      "selective": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.0,
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 3
+        },
+        "interval": {
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 2
+        }
+      }
+    },
+    "2022.07-065_Zihlschlacht-Sitterdorf-1054_Protokoll.pdf": {
+      "document_count": 1,
+      "native": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.3333333333333333,
+          "f1": 0.5,
+          "false_negative": 3,
+          "false_positive": 1,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 0.6666666666666666,
+          "recall": 0.4,
+          "true_positive": 2
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 4,
+          "false_positive": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      },
+      "selective": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.3333333333333333,
+          "f1": 0.5,
+          "false_negative": 3,
+          "false_positive": 1,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 0.6666666666666666,
+          "recall": 0.4,
+          "true_positive": 2
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 4,
+          "false_positive": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      }
+    },
+    "2022.07-122_Huettwilen-272_Protokoll.pdf": {
+      "document_count": 1,
+      "native": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.0,
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 3
+        },
+        "interval": {
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 2
+        }
+      },
+      "selective": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.0,
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 3
+        },
+        "interval": {
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 2
+        }
+      }
+    },
+    "2022.07-131_Frauenfeld-1622_Protokoll.pdf": {
+      "document_count": 1,
+      "native": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.3333333333333333,
+          "f1": 0.5,
+          "false_negative": 3,
+          "false_positive": 1,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 0.6666666666666666,
+          "recall": 0.4,
+          "true_positive": 2
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 4,
+          "false_positive": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      },
+      "selective": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.3333333333333333,
+          "f1": 0.5,
+          "false_negative": 3,
+          "false_positive": 1,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 0.6666666666666666,
+          "recall": 0.4,
+          "true_positive": 2
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 4,
+          "false_positive": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      }
+    },
+    "2022.08-003_Bischofszell-1543_Protokoll.pdf": {
+      "document_count": 1,
+      "native": {
+        "boundary": {
+          "critical_numerical_error_rate": null,
+          "f1": 0.0,
+          "false_negative": 3,
+          "false_positive": 0,
+          "matched_boundary_mae_m": null,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 2,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      },
+      "selective": {
+        "boundary": {
+          "critical_numerical_error_rate": null,
+          "f1": 0.0,
+          "false_negative": 3,
+          "false_positive": 0,
+          "matched_boundary_mae_m": null,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 2,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      }
+    },
+    "2022.08-008_Romanshorn-724_Protokoll.pdf": {
+      "document_count": 1,
+      "native": {
+        "boundary": {
+          "critical_numerical_error_rate": null,
+          "f1": 0.0,
+          "false_negative": 3,
+          "false_positive": 0,
+          "matched_boundary_mae_m": null,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 2,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      },
+      "selective": {
+        "boundary": {
+          "critical_numerical_error_rate": null,
+          "f1": 0.0,
+          "false_negative": 3,
+          "false_positive": 0,
+          "matched_boundary_mae_m": null,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 2,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      }
+    },
+    "2022.08-026_Romanshorn-3097_Protokoll.pdf": {
+      "document_count": 1,
+      "native": {
+        "boundary": {
+          "critical_numerical_error_rate": null,
+          "f1": 0.0,
+          "false_negative": 3,
+          "false_positive": 0,
+          "matched_boundary_mae_m": null,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 2,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      },
+      "selective": {
+        "boundary": {
+          "critical_numerical_error_rate": null,
+          "f1": 0.0,
+          "false_negative": 3,
+          "false_positive": 0,
+          "matched_boundary_mae_m": null,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 2,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      }
+    },
+    "2022.08-049_Frauenfeld-2965_Protokoll.pdf": {
+      "document_count": 1,
+      "native": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.6666666666666666,
+          "f1": 0.3333333333333333,
+          "false_negative": 2,
+          "false_positive": 2,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 0.3333333333333333,
+          "recall": 0.3333333333333333,
+          "true_positive": 1
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 2,
+          "false_positive": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      },
+      "selective": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.6666666666666666,
+          "f1": 0.3333333333333333,
+          "false_negative": 2,
+          "false_positive": 2,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 0.3333333333333333,
+          "recall": 0.3333333333333333,
+          "true_positive": 1
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 2,
+          "false_positive": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      }
+    },
+    "20220505_Buerglen-2275_Protokoll.pdf": {
+      "document_count": 1,
+      "native": {
+        "boundary": {
+          "critical_numerical_error_rate": null,
+          "f1": 0.0,
+          "false_negative": 5,
+          "false_positive": 0,
+          "matched_boundary_mae_m": null,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 4,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      },
+      "selective": {
+        "boundary": {
+          "critical_numerical_error_rate": null,
+          "f1": 0.0,
+          "false_negative": 5,
+          "false_positive": 0,
+          "matched_boundary_mae_m": null,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 4,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      }
+    },
+    "20220519_Weinfelden-3619_Protokoll.pdf": {
+      "document_count": 1,
+      "native": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.0,
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 3
+        },
+        "interval": {
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 2
+        }
+      },
+      "selective": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.0,
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 3
+        },
+        "interval": {
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 2
+        }
+      }
+    },
+    "20220602_Frauenfeld-41168_Protokoll.pdf": {
+      "document_count": 1,
+      "native": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.0,
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 3
+        },
+        "interval": {
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 2
+        }
+      },
+      "selective": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.0,
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 3
+        },
+        "interval": {
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 2
+        }
+      }
+    },
+    "20220608_Berg-848_Protokoll.pdf": {
+      "document_count": 1,
+      "native": {
+        "boundary": {
+          "critical_numerical_error_rate": null,
+          "f1": 0.0,
+          "false_negative": 3,
+          "false_positive": 0,
+          "matched_boundary_mae_m": null,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 2,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      },
+      "selective": {
+        "boundary": {
+          "critical_numerical_error_rate": null,
+          "f1": 0.0,
+          "false_negative": 3,
+          "false_positive": 0,
+          "matched_boundary_mae_m": null,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 2,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      }
+    },
+    "20220608_Waengi-1364_Protokoll.pdf": {
+      "document_count": 1,
+      "native": {
+        "boundary": {
+          "critical_numerical_error_rate": 1.0,
+          "f1": 0.0,
+          "false_negative": 3,
+          "false_positive": 3,
+          "matched_boundary_mae_m": null,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 2,
+          "false_positive": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      },
+      "selective": {
+        "boundary": {
+          "critical_numerical_error_rate": 1.0,
+          "f1": 0.0,
+          "false_negative": 3,
+          "false_positive": 3,
+          "matched_boundary_mae_m": null,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 2,
+          "false_positive": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      }
+    },
+    "20220609_Thundorf-28_Protokoll.pdf": {
+      "document_count": 1,
+      "native": {
+        "boundary": {
+          "critical_numerical_error_rate": null,
+          "f1": 0.0,
+          "false_negative": 3,
+          "false_positive": 0,
+          "matched_boundary_mae_m": null,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 2,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      },
+      "selective": {
+        "boundary": {
+          "critical_numerical_error_rate": null,
+          "f1": 0.0,
+          "false_negative": 3,
+          "false_positive": 0,
+          "matched_boundary_mae_m": null,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 2,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      }
+    },
+    "20220613_Kreuzlingen-2721_Protokoll.pdf": {
+      "document_count": 1,
+      "native": {
+        "boundary": {
+          "critical_numerical_error_rate": null,
+          "f1": 0.0,
+          "false_negative": 3,
+          "false_positive": 0,
+          "matched_boundary_mae_m": null,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 2,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      },
+      "selective": {
+        "boundary": {
+          "critical_numerical_error_rate": null,
+          "f1": 0.0,
+          "false_negative": 3,
+          "false_positive": 0,
+          "matched_boundary_mae_m": null,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 2,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      }
+    },
+    "20220614_Bottighofen-668_Protokoll.pdf": {
+      "document_count": 1,
+      "native": {
+        "boundary": {
+          "critical_numerical_error_rate": null,
+          "f1": 0.0,
+          "false_negative": 3,
+          "false_positive": 0,
+          "matched_boundary_mae_m": null,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 2,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      },
+      "selective": {
+        "boundary": {
+          "critical_numerical_error_rate": null,
+          "f1": 0.0,
+          "false_negative": 3,
+          "false_positive": 0,
+          "matched_boundary_mae_m": null,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 2,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      }
+    },
+    "20220614_Romanshorn-3105_Protokoll.pdf": {
+      "document_count": 1,
+      "native": {
+        "boundary": {
+          "critical_numerical_error_rate": null,
+          "f1": 0.0,
+          "false_negative": 3,
+          "false_positive": 0,
+          "matched_boundary_mae_m": null,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 2,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      },
+      "selective": {
+        "boundary": {
+          "critical_numerical_error_rate": null,
+          "f1": 0.0,
+          "false_negative": 3,
+          "false_positive": 0,
+          "matched_boundary_mae_m": null,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 2,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      }
+    },
+    "202207027_Erlen-494_Protokoll.pdf": {
+      "document_count": 1,
+      "native": {
+        "boundary": {
+          "critical_numerical_error_rate": null,
+          "f1": 0.0,
+          "false_negative": 4,
+          "false_positive": 0,
+          "matched_boundary_mae_m": null,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 3,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      },
+      "selective": {
+        "boundary": {
+          "critical_numerical_error_rate": null,
+          "f1": 0.0,
+          "false_negative": 4,
+          "false_positive": 0,
+          "matched_boundary_mae_m": null,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 3,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      }
+    },
+    "20220704_Berg-2175_Protokoll.pdf": {
+      "document_count": 1,
+      "native": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.3333333333333333,
+          "f1": 0.6666666666666666,
+          "false_negative": 1,
+          "false_positive": 1,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 0.6666666666666666,
+          "recall": 0.6666666666666666,
+          "true_positive": 2
+        },
+        "interval": {
+          "f1": 0.5,
+          "false_negative": 1,
+          "false_positive": 1,
+          "precision": 0.5,
+          "recall": 0.5,
+          "true_positive": 1
+        }
+      },
+      "selective": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.3333333333333333,
+          "f1": 0.6666666666666666,
+          "false_negative": 1,
+          "false_positive": 1,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 0.6666666666666666,
+          "recall": 0.6666666666666666,
+          "true_positive": 2
+        },
+        "interval": {
+          "f1": 0.5,
+          "false_negative": 1,
+          "false_positive": 1,
+          "precision": 0.5,
+          "recall": 0.5,
+          "true_positive": 1
+        }
+      }
+    },
+    "20220704_Erlen-3428_Protokoll.pdf": {
+      "document_count": 1,
+      "native": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.0,
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 4
+        },
+        "interval": {
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 3
+        }
+      },
+      "selective": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.0,
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 4
+        },
+        "interval": {
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 3
+        }
+      }
+    },
+    "20220706_Waengi-2752_Protokoll.pdf": {
+      "document_count": 1,
+      "native": {
+        "boundary": {
+          "critical_numerical_error_rate": null,
+          "f1": 0.0,
+          "false_negative": 3,
+          "false_positive": 0,
+          "matched_boundary_mae_m": null,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 2,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      },
+      "selective": {
+        "boundary": {
+          "critical_numerical_error_rate": null,
+          "f1": 0.0,
+          "false_negative": 3,
+          "false_positive": 0,
+          "matched_boundary_mae_m": null,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 2,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      }
+    },
+    "20220707_Frauenfeld-40650_Protokoll.pdf": {
+      "document_count": 1,
+      "native": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.0,
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 3
+        },
+        "interval": {
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 2
+        }
+      },
+      "selective": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.0,
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 3
+        },
+        "interval": {
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 2
+        }
+      }
+    },
+    "20220712_Langrickenbach-3241_Protokoll.pdf": {
+      "document_count": 1,
+      "native": {
+        "boundary": {
+          "critical_numerical_error_rate": null,
+          "f1": 0.0,
+          "false_negative": 4,
+          "false_positive": 0,
+          "matched_boundary_mae_m": null,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 3,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      },
+      "selective": {
+        "boundary": {
+          "critical_numerical_error_rate": null,
+          "f1": 0.0,
+          "false_negative": 4,
+          "false_positive": 0,
+          "matched_boundary_mae_m": null,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 3,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      }
+    },
+    "20220714_Amriswil-1753_Protokoll.pdf": {
+      "document_count": 1,
+      "native": {
+        "boundary": {
+          "critical_numerical_error_rate": null,
+          "f1": 0.0,
+          "false_negative": 3,
+          "false_positive": 0,
+          "matched_boundary_mae_m": null,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 2,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      },
+      "selective": {
+        "boundary": {
+          "critical_numerical_error_rate": null,
+          "f1": 0.0,
+          "false_negative": 3,
+          "false_positive": 0,
+          "matched_boundary_mae_m": null,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 2,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      }
+    },
+    "20220714_Weinfelden-4763_Protokoll.pdf": {
+      "document_count": 1,
+      "native": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.0,
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 3
+        },
+        "interval": {
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 2
+        }
+      },
+      "selective": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.0,
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 3
+        },
+        "interval": {
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 2
+        }
+      }
+    },
+    "20220714_Weinfelden-5088_Protokoll.pdf": {
+      "document_count": 1,
+      "native": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.0,
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 3
+        },
+        "interval": {
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 2
+        }
+      },
+      "selective": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.0,
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 3
+        },
+        "interval": {
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 2
+        }
+      }
+    },
+    "20220720_Romanshorn-2763-2844_Protokoll.pdf": {
+      "document_count": 1,
+      "native": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.6666666666666666,
+          "f1": 0.3333333333333333,
+          "false_negative": 2,
+          "false_positive": 2,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 0.3333333333333333,
+          "recall": 0.3333333333333333,
+          "true_positive": 1
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 2,
+          "false_positive": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      },
+      "selective": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.6666666666666666,
+          "f1": 0.3333333333333333,
+          "false_negative": 2,
+          "false_positive": 2,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 0.3333333333333333,
+          "recall": 0.3333333333333333,
+          "true_positive": 1
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 2,
+          "false_positive": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      }
+    },
+    "20220725_Huettwilen-801_Protokoll.pdf": {
+      "document_count": 1,
+      "native": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.3333333333333333,
+          "f1": 0.6666666666666666,
+          "false_negative": 1,
+          "false_positive": 1,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 0.6666666666666666,
+          "recall": 0.6666666666666666,
+          "true_positive": 2
+        },
+        "interval": {
+          "f1": 0.5,
+          "false_negative": 1,
+          "false_positive": 1,
+          "precision": 0.5,
+          "recall": 0.5,
+          "true_positive": 1
+        }
+      },
+      "selective": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.3333333333333333,
+          "f1": 0.6666666666666666,
+          "false_negative": 1,
+          "false_positive": 1,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 0.6666666666666666,
+          "recall": 0.6666666666666666,
+          "true_positive": 2
+        },
+        "interval": {
+          "f1": 0.5,
+          "false_negative": 1,
+          "false_positive": 1,
+          "precision": 0.5,
+          "recall": 0.5,
+          "true_positive": 1
+        }
+      }
+    }
+  },
+  "coverage": 0.5428571428571428,
+  "created_at": "2026-08-16T09:47:00.079011+00:00",
+  "diagnostics": [
+    {
+      "boundaries": [
+        0.0,
+        15.0,
+        150.0
+      ],
+      "candidates": [
+        {
+          "header_distance": 0.016723838041521916,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 31.806166817987084,
+          "span_m": 135.0,
+          "values": [
+            15.0,
+            150.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                31.799976348876953,
+                259.6259460449219,
+                50.89023971557617,
+                270.4439392089844
+              ],
+              "block": 31,
+              "line": 0,
+              "page": 1,
+              "text": "15,0",
+              "x_norm": 0.049108120571404255,
+              "y_norm": 0.44528719286175816
+            },
+            {
+              "bbox": [
+                31.5999755859375,
+                276.13995361328125,
+                56.87017822265625,
+                288.1599426269531
+              ],
+              "block": 32,
+              "line": 0,
+              "page": 1,
+              "text": "150,0",
+              "x_norm": 0.052540713847170115,
+              "y_norm": 0.4740422418237042
+            }
+          ],
+          "x_norm": 0.05082441720928718
+        },
+        {
+          "header_distance": null,
+          "header_role": null,
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 13.0,
+          "span_m": 1.0,
+          "values": [
+            1.0,
+            2.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                573.1998901367188,
+                261.1119079589844,
+                587.3031005859375,
+                270.7279052734375
+              ],
+              "block": 45,
+              "line": 0,
+              "page": 1,
+              "text": "1-2",
+              "x_norm": 0.6892002887918726,
+              "y_norm": 0.4467740274906358
+            }
+          ],
+          "x_norm": 0.6892002887918726
+        }
+      ],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD",
+      "reason": "semantic_depth_column_with_native_bbox_evidence",
+      "record_id": "SWISSGEOL_TG_55237",
+      "risk_score": 0.12159011867600879,
+      "selected_columns": [
+        {
+          "header_distance": 0.016723838041521916,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 31.806166817987084,
+          "span_m": 135.0,
+          "values": [
+            15.0,
+            150.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                31.799976348876953,
+                259.6259460449219,
+                50.89023971557617,
+                270.4439392089844
+              ],
+              "block": 31,
+              "line": 0,
+              "page": 1,
+              "text": "15,0",
+              "x_norm": 0.049108120571404255,
+              "y_norm": 0.44528719286175816
+            },
+            {
+              "bbox": [
+                31.5999755859375,
+                276.13995361328125,
+                56.87017822265625,
+                288.1599426269531
+              ],
+              "block": 32,
+              "line": 0,
+              "page": 1,
+              "text": "150,0",
+              "x_norm": 0.052540713847170115,
+              "y_norm": 0.4740422418237042
+            }
+          ],
+          "x_norm": 0.05082441720928718
+        }
+      ],
+      "status": "selected"
+    },
+    {
+      "boundaries": [],
+      "candidates": [
+        {
+          "header_distance": null,
+          "header_role": null,
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 0.0,
+          "scale_tick_score": 0.0,
+          "score": 9.0,
+          "span_m": 2.0,
+          "values": [
+            1.0,
+            2.0,
+            3.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                571.82568359375,
+                275.319580078125,
+                586.9853515625,
+                287.7252197265625
+              ],
+              "block": 51,
+              "line": 0,
+              "page": 1,
+              "text": "1-2",
+              "x_norm": 0.6883916959177554,
+              "y_norm": 0.4729878933611656
+            },
+            {
+              "bbox": [
+                571.4647827148438,
+                292.9974365234375,
+                586.495361328125,
+                305.1141662597656
+              ],
+              "block": 52,
+              "line": 0,
+              "page": 1,
+              "text": "2-3",
+              "x_norm": 0.6878862240515559,
+              "y_norm": 0.502445892570949
+            }
+          ],
+          "x_norm": 0.6881389599846557
+        }
+      ],
+      "document_signals": [
+        "explicit_document_depth_range"
+      ],
+      "ground_truth_tier": "GOLD",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "SWISSGEOL_TG_55243",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [
+        0.0,
+        18.0,
+        200.0
+      ],
+      "candidates": [
+        {
+          "header_distance": 0.016775653984622454,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 32.64468327458321,
+          "span_m": 182.0,
+          "values": [
+            18.0,
+            200.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                29.199987411499023,
+                259.2259826660156,
+                48.290252685546875,
+                270.0439758300781
+              ],
+              "block": 34,
+              "line": 0,
+              "page": 1,
+              "text": "18,0",
+              "x_norm": 0.04601995538174268,
+              "y_norm": 0.4446152113921625
+            },
+            {
+              "bbox": [
+                28.199987411499023,
+                276.6259765625,
+                54.0956916809082,
+                287.4439697265625
+              ],
+              "block": 35,
+              "line": 0,
+              "page": 1,
+              "text": "200,0",
+              "x_norm": 0.04887381269176339,
+              "y_norm": 0.473849071505781
+            }
+          ],
+          "x_norm": 0.04744688403675304
+        },
+        {
+          "header_distance": null,
+          "header_role": null,
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 21.78877741314834,
+          "span_m": 177.2,
+          "values": [
+            22.8,
+            200.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                181.20004272460938,
+                193.22607421875,
+                200.99087524414062,
+                204.0440673828125
+              ],
+              "block": 14,
+              "line": 0,
+              "page": 1,
+              "text": "22.8",
+              "x_norm": 0.22697579682553676,
+              "y_norm": 0.3337282707106012
+            },
+            {
+              "bbox": [
+                181.40003967285156,
+                205.55406188964844,
+                197.91322326660156,
+                218.77606201171875
+              ],
+              "block": 14,
+              "line": 1,
+              "page": 1,
+              "text": "200",
+              "x_norm": 0.22526681314079866,
+              "y_norm": 0.35646011021398505
+            }
+          ],
+          "x_norm": 0.2261213049831677
+        },
+        {
+          "header_distance": null,
+          "header_role": null,
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 13.0,
+          "span_m": 1.0,
+          "values": [
+            2.0,
+            3.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                570.5999145507812,
+                277.9120178222656,
+                584.703125,
+                287.52801513671875
+              ],
+              "block": 49,
+              "line": 0,
+              "page": 1,
+              "text": "2-3",
+              "x_norm": 0.6861121383277982,
+              "y_norm": 0.4750000179454841
+            }
+          ],
+          "x_norm": 0.6861121383277982
+        }
+      ],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD",
+      "reason": "semantic_depth_column_with_native_bbox_evidence",
+      "record_id": "SWISSGEOL_TG_55250",
+      "risk_score": 0.12870692299170405,
+      "selected_columns": [
+        {
+          "header_distance": 0.016775653984622454,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 32.64468327458321,
+          "span_m": 182.0,
+          "values": [
+            18.0,
+            200.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                29.199987411499023,
+                259.2259826660156,
+                48.290252685546875,
+                270.0439758300781
+              ],
+              "block": 34,
+              "line": 0,
+              "page": 1,
+              "text": "18,0",
+              "x_norm": 0.04601995538174268,
+              "y_norm": 0.4446152113921625
+            },
+            {
+              "bbox": [
+                28.199987411499023,
+                276.6259765625,
+                54.0956916809082,
+                287.4439697265625
+              ],
+              "block": 35,
+              "line": 0,
+              "page": 1,
+              "text": "200,0",
+              "x_norm": 0.04887381269176339,
+              "y_norm": 0.473849071505781
+            }
+          ],
+          "x_norm": 0.04744688403675304
+        }
+      ],
+      "status": "selected"
+    },
+    {
+      "boundaries": [
+        0.0,
+        86.0,
+        161.0
+      ],
+      "candidates": [
+        {
+          "header_distance": 0.015337038877072495,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 30.304777481247175,
+          "span_m": 75.0,
+          "values": [
+            86.0,
+            161.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                497.0963439941406,
+                126.840087890625,
+                509.1059265136719,
+                138.86009216308594
+              ],
+              "block": 34,
+              "line": 0,
+              "page": 1,
+              "text": "86",
+              "x_norm": 0.5975640743374464,
+              "y_norm": 0.22320243162334746
+            },
+            {
+              "bbox": [
+                495.9530029296875,
+                153.756103515625,
+                510.5146484375,
+                164.5740966796875
+              ],
+              "block": 33,
+              "line": 0,
+              "page": 1,
+              "text": "161",
+              "x_norm": 0.5977216788989024,
+              "y_norm": 0.26741447720651773
+            }
+          ],
+          "x_norm": 0.5976428766181744
+        }
+      ],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD",
+      "reason": "semantic_depth_column_with_native_bbox_evidence",
+      "record_id": "SWISSGEOL_TG_55398",
+      "risk_score": 0.30224692584715,
+      "selected_columns": [
+        {
+          "header_distance": 0.015337038877072495,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 30.304777481247175,
+          "span_m": 75.0,
+          "values": [
+            86.0,
+            161.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                497.0963439941406,
+                126.840087890625,
+                509.1059265136719,
+                138.86009216308594
+              ],
+              "block": 34,
+              "line": 0,
+              "page": 1,
+              "text": "86",
+              "x_norm": 0.5975640743374464,
+              "y_norm": 0.22320243162334746
+            },
+            {
+              "bbox": [
+                495.9530029296875,
+                153.756103515625,
+                510.5146484375,
+                164.5740966796875
+              ],
+              "block": 33,
+              "line": 0,
+              "page": 1,
+              "text": "161",
+              "x_norm": 0.5977216788989024,
+              "y_norm": 0.26741447720651773
+            }
+          ],
+          "x_norm": 0.5976428766181744
+        }
+      ],
+      "status": "selected"
+    },
+    {
+      "boundaries": [
+        0.0,
+        18.0,
+        180.0
+      ],
+      "candidates": [
+        {
+          "header_distance": 0.009373052597731316,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 32.853051598895945,
+          "span_m": 162.0,
+          "values": [
+            18.0,
+            180.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                56.178382873535156,
+                265.0260925292969,
+                73.09191131591797,
+                275.8440856933594
+              ],
+              "block": 33,
+              "line": 0,
+              "page": 1,
+              "text": "18",
+              "x_norm": 0.07677112838123949,
+              "y_norm": 0.4543600194303447
+            },
+            {
+              "bbox": [
+                60.612728118896484,
+                281.7401123046875,
+                81.96312713623047,
+                293.7601013183594
+              ],
+              "block": 34,
+              "line": 0,
+              "page": 1,
+              "text": "180",
+              "x_norm": 0.08467304384574849,
+              "y_norm": 0.48345111039990024
+            }
+          ],
+          "x_norm": 0.08072208611349399
+        },
+        {
+          "header_distance": 0.02351489372167659,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 26.378684162694267,
+          "span_m": 18.0,
+          "values": [
+            0.0,
+            18.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                34.199928283691406,
+                265.0260925292969,
+                42.65668869018555,
+                275.8440856933594
+              ],
+              "block": 33,
+              "line": 0,
+              "page": 1,
+              "text": "0",
+              "x_norm": 0.04564365885948959,
+              "y_norm": 0.4543600194303447
+            },
+            {
+              "bbox": [
+                34.99992752075195,
+                281.7401123046875,
+                49.23352813720703,
+                293.7601013183594
+              ],
+              "block": 34,
+              "line": 0,
+              "page": 1,
+              "text": "18",
+              "x_norm": 0.050024620728682585,
+              "y_norm": 0.48345111039990024
+            }
+          ],
+          "x_norm": 0.047834139794086086
+        },
+        {
+          "header_distance": null,
+          "header_role": null,
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 13.0,
+          "span_m": 1.0,
+          "values": [
+            2.0,
+            3.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                574.199951171875,
+                284.09808349609375,
+                588.259765625,
+                292.5120849609375
+              ],
+              "block": 48,
+              "line": 0,
+              "page": 1,
+              "text": "2-3",
+              "x_norm": 0.6903623505756155,
+              "y_norm": 0.484383532116315
+            }
+          ],
+          "x_norm": 0.6903623505756155
+        }
+      ],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD",
+      "reason": "semantic_depth_column_with_native_bbox_evidence",
+      "record_id": "SWISSGEOL_TG_55422",
+      "risk_score": 0.08924513453777591,
+      "selected_columns": [
+        {
+          "header_distance": 0.009373052597731316,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 32.853051598895945,
+          "span_m": 162.0,
+          "values": [
+            18.0,
+            180.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                56.178382873535156,
+                265.0260925292969,
+                73.09191131591797,
+                275.8440856933594
+              ],
+              "block": 33,
+              "line": 0,
+              "page": 1,
+              "text": "18",
+              "x_norm": 0.07677112838123949,
+              "y_norm": 0.4543600194303447
+            },
+            {
+              "bbox": [
+                60.612728118896484,
+                281.7401123046875,
+                81.96312713623047,
+                293.7601013183594
+              ],
+              "block": 34,
+              "line": 0,
+              "page": 1,
+              "text": "180",
+              "x_norm": 0.08467304384574849,
+              "y_norm": 0.48345111039990024
+            }
+          ],
+          "x_norm": 0.08072208611349399
+        }
+      ],
+      "status": "selected"
+    },
+    {
+      "boundaries": [
+        0.0,
+        48.0,
+        122.0,
+        170.0
+      ],
+      "candidates": [
+        {
+          "header_distance": 0.0014110578702346138,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 33.638028098214455,
+          "span_m": 122.0,
+          "values": [
+            48.0,
+            122.0,
+            170.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                59.0,
+                230.06796264648438,
+                70.74272155761719,
+                244.49195861816406
+              ],
+              "block": 16,
+              "line": 0,
+              "page": 1,
+              "text": "48",
+              "x_norm": 0.07705169386118634,
+              "y_norm": 0.39865583966048374
+            },
+            {
+              "bbox": [
+                57.00006103515625,
+                248.7539825439453,
+                74.24717712402344,
+                261.9759826660156
+              ],
+              "block": 17,
+              "line": 0,
+              "page": 1,
+              "text": "122",
+              "x_norm": 0.07794519718222763,
+              "y_norm": 0.42904062057739956
+            },
+            {
+              "bbox": [
+                56.800048828125,
+                266.4679870605469,
+                74.21397399902344,
+                280.8919982910156
+              ],
+              "block": 18,
+              "line": 0,
+              "page": 1,
+              "text": "170",
+              "x_norm": 0.07780669510556643,
+              "y_norm": 0.45981180622117634
+            }
+          ],
+          "x_norm": 0.07799175948891465
+        },
+        {
+          "header_distance": null,
+          "header_role": null,
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 18.375278407684164,
+          "span_m": 50.0,
+          "values": [
+            449.0,
+            499.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                625.5861206054688,
+                154.0595245361328,
+                640.5982055664062,
+                166.3445281982422
+              ],
+              "block": 42,
+              "line": 0,
+              "page": 1,
+              "text": "449",
+              "x_norm": 0.7519623906509613,
+              "y_norm": 0.2691566248010487
+            },
+            {
+              "bbox": [
+                617.6304321289062,
+                159.9399871826172,
+                640.315185546875,
+                171.95999145507812
+              ],
+              "block": 6,
+              "line": 0,
+              "page": 1,
+              "text": "499",
+              "x_norm": 0.7470695809639788,
+              "y_norm": 0.27881382042230957
+            }
+          ],
+          "x_norm": 0.74951598580747
+        }
+      ],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD",
+      "reason": "semantic_depth_column_with_native_bbox_evidence",
+      "record_id": "SWISSGEOL_TG_55427",
+      "risk_score": 0.021705095776150506,
+      "selected_columns": [
+        {
+          "header_distance": 0.0014110578702346138,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 33.638028098214455,
+          "span_m": 122.0,
+          "values": [
+            48.0,
+            122.0,
+            170.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                59.0,
+                230.06796264648438,
+                70.74272155761719,
+                244.49195861816406
+              ],
+              "block": 16,
+              "line": 0,
+              "page": 1,
+              "text": "48",
+              "x_norm": 0.07705169386118634,
+              "y_norm": 0.39865583966048374
+            },
+            {
+              "bbox": [
+                57.00006103515625,
+                248.7539825439453,
+                74.24717712402344,
+                261.9759826660156
+              ],
+              "block": 17,
+              "line": 0,
+              "page": 1,
+              "text": "122",
+              "x_norm": 0.07794519718222763,
+              "y_norm": 0.42904062057739956
+            },
+            {
+              "bbox": [
+                56.800048828125,
+                266.4679870605469,
+                74.21397399902344,
+                280.8919982910156
+              ],
+              "block": 18,
+              "line": 0,
+              "page": 1,
+              "text": "170",
+              "x_norm": 0.07780669510556643,
+              "y_norm": 0.45981180622117634
+            }
+          ],
+          "x_norm": 0.07799175948891465
+        }
+      ],
+      "status": "selected"
+    },
+    {
+      "boundaries": [],
+      "candidates": [
+        {
+          "header_distance": null,
+          "header_role": null,
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 23.300276866634704,
+          "span_m": 212.0,
+          "values": [
+            8.0,
+            22.0,
+            220.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                42.5999755859375,
+                225.95408630371094,
+                50.673095703125,
+                239.17608642578125
+              ],
+              "block": 14,
+              "line": 0,
+              "page": 1,
+              "text": "8",
+              "x_norm": 0.055393073678247605,
+              "y_norm": 0.39073434407768776
+            },
+            {
+              "bbox": [
+                39.5999755859375,
+                244.7540740966797,
+                54.76765441894531,
+                257.97607421875
+              ],
+              "block": 15,
+              "line": 0,
+              "page": 1,
+              "text": "22",
+              "x_norm": 0.056043110937154854,
+              "y_norm": 0.42232034442613775
+            },
+            {
+              "bbox": [
+                36.39996337890625,
+                263.95404052734375,
+                56.032325744628906,
+                277.1760559082031
+              ],
+              "block": 16,
+              "line": 0,
+              "page": 1,
+              "text": "220",
+              "x_norm": 0.05489374940599247,
+              "y_norm": 0.4545783646987922
+            }
+          ],
+          "x_norm": 0.05558813333708375
+        }
+      ],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "SWISSGEOL_TG_55430",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [],
+      "candidates": [
+        {
+          "header_distance": 0.038019611978205914,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 30.514967130774693,
+          "span_m": 148.0,
+          "values": [
+            4.0,
+            152.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                433.4371643066406,
+                254.587158203125,
+                447.90899658203125,
+                261.12725830078125
+              ],
+              "block": 52,
+              "line": 0,
+              "page": 1,
+              "text": "4",
+              "x_norm": 0.5234143689377259,
+              "y_norm": 0.43314050440021723
+            },
+            {
+              "bbox": [
+                437.8793640136719,
+                494.1007995605469,
+                452.3511962890625,
+                513.7211303710938
+              ],
+              "block": 67,
+              "line": 1,
+              "page": 1,
+              "text": "152",
+              "x_norm": 0.528690641211963,
+              "y_norm": 0.8464539386652666
+            }
+          ],
+          "x_norm": 0.5260525050748444
+        }
+      ],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "SWISSGEOL_TG_55431",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [],
+      "candidates": [
+        {
+          "header_distance": null,
+          "header_role": null,
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 21.163886283556693,
+          "span_m": 142.0,
+          "values": [
+            8.0,
+            150.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                49.79998779296875,
+                224.95411682128906,
+                57.56730651855469,
+                238.17611694335938
+              ],
+              "block": 20,
+              "line": 0,
+              "page": 1,
+              "text": "8",
+              "x_norm": 0.06376336023074351,
+              "y_norm": 0.3890542878580752
+            },
+            {
+              "bbox": [
+                44.39996337890625,
+                243.95408630371094,
+                63.298404693603516,
+                257.17608642578125
+              ],
+              "block": 21,
+              "line": 0,
+              "page": 1,
+              "text": "150",
+              "x_norm": 0.06395997853634659,
+              "y_norm": 0.4209762789413231
+            }
+          ],
+          "x_norm": 0.06387772971305844
+        }
+      ],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "SWISSGEOL_TG_55485",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [
+        0.0,
+        68.0,
+        178.0
+      ],
+      "candidates": [
+        {
+          "header_distance": 0.015337057000872178,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 31.339297622027843,
+          "span_m": 110.0,
+          "values": [
+            68.0,
+            178.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                489.0962219238281,
+                125.6400146484375,
+                501.1058044433594,
+                137.66001892089844
+              ],
+              "block": 29,
+              "line": 0,
+              "page": 1,
+              "text": "68",
+              "x_norm": 0.5880618386942686,
+              "y_norm": 0.22118617957769046
+            },
+            {
+              "bbox": [
+                487.9528503417969,
+                152.5560302734375,
+                502.5144958496094,
+                163.3740234375
+              ],
+              "block": 28,
+              "line": 0,
+              "page": 1,
+              "text": "178",
+              "x_norm": 0.5882194070081254,
+              "y_norm": 0.26539822516086076
+            }
+          ],
+          "x_norm": 0.588140622851197
+        },
+        {
+          "header_distance": null,
+          "header_role": null,
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 18.90217611361364,
+          "span_m": 61.52,
+          "values": [
+            0.5,
+            62.02
+          ],
+          "words": [
+            {
+              "bbox": [
+                683.0218505859375,
+                124.5560302734375,
+                714.81396484375,
+                135.3740234375
+              ],
+              "block": 26,
+              "line": 0,
+              "page": 1,
+              "text": "0.5m",
+              "x_norm": 0.8301476647447948,
+              "y_norm": 0.21835521537298355
+            },
+            {
+              "bbox": [
+                681.8184204101562,
+                467.3561096191406,
+                707.7140502929688,
+                478.1741027832031
+              ],
+              "block": 1,
+              "line": 0,
+              "page": 1,
+              "text": "62.02",
+              "x_norm": 0.8252164688502269,
+              "y_norm": 0.7942961970853047
+            }
+          ],
+          "x_norm": 0.8276820667975109
+        }
+      ],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD",
+      "reason": "semantic_depth_column_with_native_bbox_evidence",
+      "record_id": "SWISSGEOL_TG_55488",
+      "risk_score": 0.11713118684154655,
+      "selected_columns": [
+        {
+          "header_distance": 0.015337057000872178,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 31.339297622027843,
+          "span_m": 110.0,
+          "values": [
+            68.0,
+            178.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                489.0962219238281,
+                125.6400146484375,
+                501.1058044433594,
+                137.66001892089844
+              ],
+              "block": 29,
+              "line": 0,
+              "page": 1,
+              "text": "68",
+              "x_norm": 0.5880618386942686,
+              "y_norm": 0.22118617957769046
+            },
+            {
+              "bbox": [
+                487.9528503417969,
+                152.5560302734375,
+                502.5144958496094,
+                163.3740234375
+              ],
+              "block": 28,
+              "line": 0,
+              "page": 1,
+              "text": "178",
+              "x_norm": 0.5882194070081254,
+              "y_norm": 0.26539822516086076
+            }
+          ],
+          "x_norm": 0.588140622851197
+        }
+      ],
+      "status": "selected"
+    },
+    {
+      "boundaries": [],
+      "candidates": [
+        {
+          "header_distance": null,
+          "header_role": null,
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 17.158883083359672,
+          "span_m": 30.0,
+          "values": [
+            10.0,
+            40.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                484.8022155761719,
+                141.27218627929688,
+                492.7196350097656,
+                150.88818359375
+              ],
+              "block": 85,
+              "line": 0,
+              "page": 1,
+              "text": "10",
+              "x_norm": 0.580531327458854,
+              "y_norm": 0.2454304132065637
+            },
+            {
+              "bbox": [
+                485.55609130859375,
+                503.6881408691406,
+                494.7412109375,
+                512.1021118164062
+              ],
+              "block": 5,
+              "line": 0,
+              "page": 1,
+              "text": "40",
+              "x_norm": 0.5821796145386801,
+              "y_norm": 0.853318407134222
+            }
+          ],
+          "x_norm": 0.581355470998767
+        },
+        {
+          "header_distance": null,
+          "header_role": null,
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 13.0,
+          "span_m": 1.0,
+          "values": [
+            1.0,
+            2.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                346.4289855957031,
+                392.2041931152344,
+                356.919677734375,
+                399.4161682128906
+              ],
+              "block": 44,
+              "line": 0,
+              "page": 1,
+              "text": "1-2",
+              "x_norm": 0.41770517246716454,
+              "y_norm": 0.665003650111462
+            }
+          ],
+          "x_norm": 0.41770517246716454
+        }
+      ],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "SWISSGEOL_TG_55491",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [
+        0.0,
+        26.0,
+        200.0
+      ],
+      "candidates": [
+        {
+          "header_distance": 0.001269373556424272,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 33.644733917013966,
+          "span_m": 174.0,
+          "values": [
+            26.0,
+            200.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                50.599998474121094,
+                195.71194458007812,
+                59.22911834716797,
+                205.32794189453125
+              ],
+              "block": 15,
+              "line": 0,
+              "page": 1,
+              "text": "26",
+              "x_norm": 0.06522538902192161,
+              "y_norm": 0.33689505901346806
+            },
+            {
+              "bbox": [
+                48.599998474121094,
+                211.91195678710938,
+                61.543678283691406,
+                221.5279541015625
+              ],
+              "block": 16,
+              "line": 0,
+              "page": 1,
+              "text": "200",
+              "x_norm": 0.06541220008645778,
+              "y_norm": 0.3641128208998645
+            }
+          ],
+          "x_norm": 0.0653499297316124
+        },
+        {
+          "header_distance": null,
+          "header_role": null,
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 21.481940865787085,
+          "span_m": 159.0,
+          "values": [
+            0.0,
+            159.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                414.5999755859375,
+                439.426025390625,
+                420.55474853515625,
+                450.2440185546875
+              ],
+              "block": 84,
+              "line": 0,
+              "page": 1,
+              "text": "0",
+              "x_norm": 0.49598224360605037,
+              "y_norm": 0.747370653308937
+            },
+            {
+              "bbox": [
+                411.1999816894531,
+                456.31201171875,
+                423.60986328125,
+                465.9280090332031
+              ],
+              "block": 85,
+              "line": 0,
+              "page": 1,
+              "text": "159",
+              "x_norm": 0.49577742654659623,
+              "y_norm": 0.7747311843393965
+            }
+          ],
+          "x_norm": 0.49587983507632327
+        },
+        {
+          "header_distance": null,
+          "header_role": null,
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 13.285930539412975,
+          "span_m": 1.0,
+          "values": [
+            0.0,
+            1.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                586.4000244140625,
+                460.3699951171875,
+                590.7646484375,
+                466.3799743652344
+              ],
+              "block": 105,
+              "line": 1,
+              "page": 1,
+              "text": "0",
+              "x_norm": 0.6990953396679155,
+              "y_norm": 0.7785197836656512
+            },
+            {
+              "bbox": [
+                586.4000244140625,
+                472.2979431152344,
+                595.2738037109375,
+                480.7119445800781
+              ],
+              "block": 105,
+              "line": 3,
+              "page": 1,
+              "text": "01",
+              "x_norm": 0.7017732398038947,
+              "y_norm": 0.8005795263356131
+            }
+          ],
+          "x_norm": 0.697891266916664
+        },
+        {
+          "header_distance": null,
+          "header_role": null,
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 13.0,
+          "span_m": 2.0,
+          "values": [
+            1.0,
+            3.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                488.79998779296875,
+                197.7839813232422,
+                499.2906799316406,
+                204.99598693847656
+              ],
+              "block": 43,
+              "line": 0,
+              "page": 1,
+              "text": "1-3",
+              "x_norm": 0.5868079436178744,
+              "y_norm": 0.3383568212374447
+            }
+          ],
+          "x_norm": 0.5868079436178744
+        }
+      ],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD",
+      "reason": "semantic_depth_column_with_native_bbox_evidence",
+      "record_id": "SWISSGEOL_TG_55766",
+      "risk_score": 0.023656833949113325,
+      "selected_columns": [
+        {
+          "header_distance": 0.001269373556424272,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 33.644733917013966,
+          "span_m": 174.0,
+          "values": [
+            26.0,
+            200.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                50.599998474121094,
+                195.71194458007812,
+                59.22911834716797,
+                205.32794189453125
+              ],
+              "block": 15,
+              "line": 0,
+              "page": 1,
+              "text": "26",
+              "x_norm": 0.06522538902192161,
+              "y_norm": 0.33689505901346806
+            },
+            {
+              "bbox": [
+                48.599998474121094,
+                211.91195678710938,
+                61.543678283691406,
+                221.5279541015625
+              ],
+              "block": 16,
+              "line": 0,
+              "page": 1,
+              "text": "200",
+              "x_norm": 0.06541220008645778,
+              "y_norm": 0.3641128208998645
+            }
+          ],
+          "x_norm": 0.0653499297316124
+        }
+      ],
+      "status": "selected"
+    },
+    {
+      "boundaries": [],
+      "candidates": [
+        {
+          "header_distance": 0.032038016443864226,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 23.216927110828102,
+          "span_m": 2.0,
+          "values": [
+            1.0,
+            3.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                311.2786865234375,
+                76.88377380371094,
+                315.7489318847656,
+                85.86445617675781
+              ],
+              "block": 9,
+              "line": 1,
+              "page": 1,
+              "text": "1",
+              "x_norm": 0.3723441914538023,
+              "y_norm": 0.13676321847098213
+            },
+            {
+              "bbox": [
+                311.279052734375,
+                124.76377868652344,
+                322.46923828125,
+                133.7444610595703
+              ],
+              "block": 4,
+              "line": 2,
+              "page": 1,
+              "text": "3.0",
+              "x_norm": 0.37633508967673696,
+              "y_norm": 0.21723381491268381
+            }
+          ],
+          "x_norm": 0.37433964056526964
+        },
+        {
+          "header_distance": null,
+          "header_role": null,
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 22.483740136094696,
+          "span_m": 226.0,
+          "values": [
+            4.0,
+            230.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                59.639892578125,
+                192.92381286621094,
+                64.1101303100586,
+                201.9044952392578
+              ],
+              "block": 12,
+              "line": 0,
+              "page": 1,
+              "text": "4",
+              "x_norm": 0.07348576181008527,
+              "y_norm": 0.33178849420627626
+            },
+            {
+              "bbox": [
+                55.19989013671875,
+                208.88380432128906,
+                68.55020904541016,
+                217.86448669433594
+              ],
+              "block": 13,
+              "line": 0,
+              "page": 1,
+              "text": "230",
+              "x_norm": 0.07348580711527845,
+              "y_norm": 0.35861200925682774
+            }
+          ],
+          "x_norm": 0.07348578446268186
+        }
+      ],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "SWISSGEOL_TG_55799",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "candidates": [
+        {
+          "header_distance": 0.006504092169568598,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 25.526975114940466,
+          "span_m": 2.0,
+          "values": [
+            1.0,
+            2.0,
+            3.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                494.639892578125,
+                192.92381286621094,
+                506.1972961425781,
+                201.9044952392578
+              ],
+              "block": 12,
+              "line": 5,
+              "page": 1,
+              "text": "1-2",
+              "x_norm": 0.5943213709742893,
+              "y_norm": 0.33178849420627626
+            },
+            {
+              "bbox": [
+                494.639892578125,
+                208.88380432128906,
+                506.1972961425781,
+                217.86448669433594
+              ],
+              "block": 13,
+              "line": 5,
+              "page": 1,
+              "text": "2-3",
+              "x_norm": 0.5943213709742893,
+              "y_norm": 0.35861200925682774
+            }
+          ],
+          "x_norm": 0.5943213709742893
+        },
+        {
+          "header_distance": 0.03203881381526419,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 22.95583498921194,
+          "span_m": 1.0,
+          "values": [
+            1.0,
+            2.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                311.280029296875,
+                76.88380432128906,
+                315.7502746582031,
+                85.86448669433594
+              ],
+              "block": 6,
+              "line": 1,
+              "page": 1,
+              "text": "1",
+              "x_norm": 0.3723457861966022,
+              "y_norm": 0.1367632697610294
+            },
+            {
+              "bbox": [
+                311.279052734375,
+                124.76377868652344,
+                322.46923828125,
+                133.7444610595703
+              ],
+              "block": 4,
+              "line": 2,
+              "page": 1,
+              "text": "2.0",
+              "x_norm": 0.37633508967673696,
+              "y_norm": 0.21723381491268381
+            }
+          ],
+          "x_norm": 0.3743404379366696
+        },
+        {
+          "header_distance": null,
+          "header_role": null,
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 22.017047813221478,
+          "span_m": 192.0,
+          "values": [
+            8.0,
+            200.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                59.639892578125,
+                192.92381286621094,
+                64.1101303100586,
+                201.9044952392578
+              ],
+              "block": 12,
+              "line": 0,
+              "page": 1,
+              "text": "8",
+              "x_norm": 0.07348576181008527,
+              "y_norm": 0.33178849420627626
+            },
+            {
+              "bbox": [
+                55.19989013671875,
+                208.88380432128906,
+                68.55020904541016,
+                217.86448669433594
+              ],
+              "block": 13,
+              "line": 0,
+              "page": 1,
+              "text": "200",
+              "x_norm": 0.07348580711527845,
+              "y_norm": 0.35861200925682774
+            }
+          ],
+          "x_norm": 0.0734857920135474
+        }
+      ],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD",
+      "reason": "semantic_depth_column_with_native_bbox_evidence",
+      "record_id": "SWISSGEOL_TG_55801",
+      "risk_score": 0.0993651376576822,
+      "selected_columns": [
+        {
+          "header_distance": 0.006504092169568598,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 25.526975114940466,
+          "span_m": 2.0,
+          "values": [
+            1.0,
+            2.0,
+            3.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                494.639892578125,
+                192.92381286621094,
+                506.1972961425781,
+                201.9044952392578
+              ],
+              "block": 12,
+              "line": 5,
+              "page": 1,
+              "text": "1-2",
+              "x_norm": 0.5943213709742893,
+              "y_norm": 0.33178849420627626
+            },
+            {
+              "bbox": [
+                494.639892578125,
+                208.88380432128906,
+                506.1972961425781,
+                217.86448669433594
+              ],
+              "block": 13,
+              "line": 5,
+              "page": 1,
+              "text": "2-3",
+              "x_norm": 0.5943213709742893,
+              "y_norm": 0.35861200925682774
+            }
+          ],
+          "x_norm": 0.5943213709742893
+        }
+      ],
+      "status": "selected"
+    },
+    {
+      "boundaries": [
+        0.0,
+        24.0,
+        150.0
+      ],
+      "candidates": [
+        {
+          "header_distance": 0.00958384031642124,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 0.6666666666666666,
+          "scale_tick_score": 0.0,
+          "score": 23.636326764866332,
+          "span_m": 150.0,
+          "values": [
+            0.0,
+            24.0,
+            150.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                29.399768829345703,
+                283.3120422363281,
+                59.22456741333008,
+                292.92803955078125
+              ],
+              "block": 31,
+              "line": 0,
+              "page": 1,
+              "text": "0-24m",
+              "x_norm": 0.05263227981377724,
+              "y_norm": 0.484072639422824
+            },
+            {
+              "bbox": [
+                29.599769592285156,
+                314.4260559082031,
+                71.38066101074219,
+                325.2440490722656
+              ],
+              "block": 32,
+              "line": 0,
+              "page": 1,
+              "text": "24-150m",
+              "x_norm": 0.059970325359175645,
+              "y_norm": 0.5373572680287255
+            }
+          ],
+          "x_norm": 0.05630130258647644
+        }
+      ],
+      "document_signals": [
+        "explicit_document_depth_range"
+      ],
+      "ground_truth_tier": "GOLD",
+      "reason": "semantic_depth_column_with_native_bbox_evidence",
+      "record_id": "SWISSGEOL_TG_55803",
+      "risk_score": 0.34722560210947495,
+      "selected_columns": [
+        {
+          "header_distance": 0.00958384031642124,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 0.6666666666666666,
+          "scale_tick_score": 0.0,
+          "score": 23.636326764866332,
+          "span_m": 150.0,
+          "values": [
+            0.0,
+            24.0,
+            150.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                29.399768829345703,
+                283.3120422363281,
+                59.22456741333008,
+                292.92803955078125
+              ],
+              "block": 31,
+              "line": 0,
+              "page": 1,
+              "text": "0-24m",
+              "x_norm": 0.05263227981377724,
+              "y_norm": 0.484072639422824
+            },
+            {
+              "bbox": [
+                29.599769592285156,
+                314.4260559082031,
+                71.38066101074219,
+                325.2440490722656
+              ],
+              "block": 32,
+              "line": 0,
+              "page": 1,
+              "text": "24-150m",
+              "x_norm": 0.059970325359175645,
+              "y_norm": 0.5373572680287255
+            }
+          ],
+          "x_norm": 0.05630130258647644
+        }
+      ],
+      "status": "selected"
+    },
+    {
+      "boundaries": [
+        0.0,
+        1.0,
+        3.0
+      ],
+      "candidates": [
+        {
+          "header_distance": 0.006504055925414032,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 24.52697775087898,
+          "span_m": 2.0,
+          "values": [
+            1.0,
+            3.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                494.6398620605469,
+                192.92381286621094,
+                506.197265625,
+                201.9044952392578
+              ],
+              "block": 12,
+              "line": 5,
+              "page": 1,
+              "text": "1-3",
+              "x_norm": 0.5943213347301347,
+              "y_norm": 0.33178849420627626
+            }
+          ],
+          "x_norm": 0.5943213347301347
+        },
+        {
+          "header_distance": 0.03203881381526419,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 22.95583498921194,
+          "span_m": 1.0,
+          "values": [
+            1.0,
+            2.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                311.280029296875,
+                76.88380432128906,
+                315.7502746582031,
+                85.86448669433594
+              ],
+              "block": 6,
+              "line": 1,
+              "page": 1,
+              "text": "1",
+              "x_norm": 0.3723457861966022,
+              "y_norm": 0.1367632697610294
+            },
+            {
+              "bbox": [
+                311.279052734375,
+                124.76377868652344,
+                322.46923828125,
+                133.7444610595703
+              ],
+              "block": 4,
+              "line": 2,
+              "page": 1,
+              "text": "2.0",
+              "x_norm": 0.37633508967673696,
+              "y_norm": 0.21723381491268381
+            }
+          ],
+          "x_norm": 0.3743404379366696
+        },
+        {
+          "header_distance": null,
+          "header_role": null,
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 21.28002982009876,
+          "span_m": 148.0,
+          "values": [
+            12.0,
+            160.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                57.35986328125,
+                192.92381286621094,
+                66.2701416015625,
+                201.9044952392578
+              ],
+              "block": 12,
+              "line": 0,
+              "page": 1,
+              "text": "12",
+              "x_norm": 0.07341449221069626,
+              "y_norm": 0.33178849420627626
+            },
+            {
+              "bbox": [
+                55.1998291015625,
+                208.88380432128906,
+                68.5501480102539,
+                217.86448669433594
+              ],
+              "block": 13,
+              "line": 0,
+              "page": 1,
+              "text": "160",
+              "x_norm": 0.07348573462696936,
+              "y_norm": 0.35861200925682774
+            }
+          ],
+          "x_norm": 0.07346198715487832
+        }
+      ],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD",
+      "reason": "semantic_depth_column_with_native_bbox_evidence",
+      "record_id": "SWISSGEOL_TG_55809",
+      "risk_score": 0.12114679643799689,
+      "selected_columns": [
+        {
+          "header_distance": 0.006504055925414032,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 24.52697775087898,
+          "span_m": 2.0,
+          "values": [
+            1.0,
+            3.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                494.6398620605469,
+                192.92381286621094,
+                506.197265625,
+                201.9044952392578
+              ],
+              "block": 12,
+              "line": 5,
+              "page": 1,
+              "text": "1-3",
+              "x_norm": 0.5943213347301347,
+              "y_norm": 0.33178849420627626
+            }
+          ],
+          "x_norm": 0.5943213347301347
+        }
+      ],
+      "status": "selected"
+    },
+    {
+      "boundaries": [
+        0.0,
+        16.0,
+        200.0
+      ],
+      "candidates": [
+        {
+          "header_distance": 0.009858730702167529,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 0.6666666666666666,
+          "scale_tick_score": 0.0,
+          "score": 23.616334736812057,
+          "span_m": 200.0,
+          "values": [
+            0.0,
+            16.0,
+            200.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                31.57284927368164,
+                259.784423828125,
+                61.631431579589844,
+                271.9698181152344
+              ],
+              "block": 3,
+              "line": 0,
+              "page": 1,
+              "text": "0-16m",
+              "x_norm": 0.05536800307974896,
+              "y_norm": 0.44670214300869066
+            },
+            {
+              "bbox": [
+                31.7841796875,
+                277.30889892578125,
+                73.5802230834961,
+                289.51910400390625
+              ],
+              "block": 4,
+              "line": 0,
+              "page": 1,
+              "text": "16-200m",
+              "x_norm": 0.06259172351004363,
+              "y_norm": 0.4761659873190031
+            }
+          ],
+          "x_norm": 0.058979863294896295
+        },
+        {
+          "header_distance": null,
+          "header_role": null,
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 0.0,
+          "scale_tick_score": 0.0,
+          "score": 8.0,
+          "span_m": 1.0,
+          "values": [
+            2.0,
+            3.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                571.2725830078125,
+                281.5499572753906,
+                586.6212158203125,
+                293.5320739746094
+              ],
+              "block": 44,
+              "line": 0,
+              "page": 1,
+              "text": "2-3",
+              "x_norm": 0.6878468116766503,
+              "y_norm": 0.48309981473082236
+            }
+          ],
+          "x_norm": 0.6878468116766503
+        }
+      ],
+      "document_signals": [
+        "explicit_document_depth_range"
+      ],
+      "ground_truth_tier": "GOLD",
+      "reason": "semantic_depth_column_with_native_bbox_evidence",
+      "record_id": "SWISSGEOL_TG_55810",
+      "risk_score": 0.16109455344080556,
+      "selected_columns": [
+        {
+          "header_distance": 0.009858730702167529,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 0.6666666666666666,
+          "scale_tick_score": 0.0,
+          "score": 23.616334736812057,
+          "span_m": 200.0,
+          "values": [
+            0.0,
+            16.0,
+            200.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                31.57284927368164,
+                259.784423828125,
+                61.631431579589844,
+                271.9698181152344
+              ],
+              "block": 3,
+              "line": 0,
+              "page": 1,
+              "text": "0-16m",
+              "x_norm": 0.05536800307974896,
+              "y_norm": 0.44670214300869066
+            },
+            {
+              "bbox": [
+                31.7841796875,
+                277.30889892578125,
+                73.5802230834961,
+                289.51910400390625
+              ],
+              "block": 4,
+              "line": 0,
+              "page": 1,
+              "text": "16-200m",
+              "x_norm": 0.06259172351004363,
+              "y_norm": 0.4761659873190031
+            }
+          ],
+          "x_norm": 0.058979863294896295
+        }
+      ],
+      "status": "selected"
+    },
+    {
+      "boundaries": [
+        0.0,
+        1.0,
+        2.0
+      ],
+      "candidates": [
+        {
+          "header_distance": 0.006428504985269701,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 24.81840290412063,
+          "span_m": 1.0,
+          "values": [
+            1.0,
+            2.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                498.1199035644531,
+                192.92381286621094,
+                502.59014892578125,
+                201.9044952392578
+              ],
+              "block": 12,
+              "line": 5,
+              "page": 1,
+              "text": "1",
+              "x_norm": 0.5942458744003767,
+              "y_norm": 0.33178849420627626
+            },
+            {
+              "bbox": [
+                498.11962890625,
+                224.8437957763672,
+                502.5898742675781,
+                233.82447814941406
+              ],
+              "block": 14,
+              "line": 6,
+              "page": 1,
+              "text": "2",
+              "x_norm": 0.5942455482029858,
+              "y_norm": 0.3854355243073792
+            }
+          ],
+          "x_norm": 0.5942457837899904
+        },
+        {
+          "header_distance": 0.006486350655919959,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 24.528265406842184,
+          "span_m": 1.0,
+          "values": [
+            2.0,
+            3.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                494.6396484375,
+                240.8037872314453,
+                506.16766357421875,
+                249.7844696044922
+              ],
+              "block": 15,
+              "line": 5,
+              "page": 1,
+              "text": "2-3",
+              "x_norm": 0.5943036294606406,
+              "y_norm": 0.4122590393579307
+            }
+          ],
+          "x_norm": 0.5943036294606406
+        },
+        {
+          "header_distance": null,
+          "header_role": null,
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 24.24572990938513,
+          "span_m": 208.0,
+          "values": [
+            2.0,
+            12.0,
+            20.0,
+            210.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                59.639892578125,
+                192.92381286621094,
+                64.1101303100586,
+                201.9044952392578
+              ],
+              "block": 12,
+              "line": 0,
+              "page": 1,
+              "text": "2",
+              "x_norm": 0.07348576181008527,
+              "y_norm": 0.33178849420627626
+            },
+            {
+              "bbox": [
+                57.359893798828125,
+                208.88380432128906,
+                66.2554702758789,
+                217.86448669433594
+              ],
+              "block": 13,
+              "line": 0,
+              "page": 1,
+              "text": "12",
+              "x_norm": 0.07340579814412532,
+              "y_norm": 0.35861200925682774
+            },
+            {
+              "bbox": [
+                57.359832763671875,
+                224.8437957763672,
+                66.25540924072266,
+                233.82447814941406
+              ],
+              "block": 14,
+              "line": 0,
+              "page": 1,
+              "text": "20",
+              "x_norm": 0.07340572565581623,
+              "y_norm": 0.3854355243073792
+            },
+            {
+              "bbox": [
+                55.19964599609375,
+                240.8037872314453,
+                68.52056121826172,
+                249.7844696044922
+              ],
+              "block": 15,
+              "line": 0,
+              "page": 1,
+              "text": "210",
+              "x_norm": 0.07346805654059113,
+              "y_norm": 0.4122590393579307
+            }
+          ],
+          "x_norm": 0.07344667973824182
+        },
+        {
+          "header_distance": 0.03203747278154612,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 23.216966649905785,
+          "span_m": 2.0,
+          "values": [
+            1.0,
+            3.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                311.27777099609375,
+                76.88377380371094,
+                315.7480163574219,
+                85.86445617675781
+              ],
+              "block": 9,
+              "line": 1,
+              "page": 1,
+              "text": "1",
+              "x_norm": 0.37234310412916605,
+              "y_norm": 0.13676321847098213
+            },
+            {
+              "bbox": [
+                311.279052734375,
+                124.76377868652344,
+                322.46923828125,
+                133.7444610595703
+              ],
+              "block": 4,
+              "line": 2,
+              "page": 1,
+              "text": "3.0",
+              "x_norm": 0.37633508967673696,
+              "y_norm": 0.21723381491268381
+            }
+          ],
+          "x_norm": 0.37433909690295153
+        }
+      ],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD",
+      "reason": "semantic_depth_column_with_native_bbox_evidence",
+      "record_id": "SWISSGEOL_TG_55812",
+      "risk_score": 0.1978789362307949,
+      "selected_columns": [
+        {
+          "header_distance": 0.006428504985269701,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 24.81840290412063,
+          "span_m": 1.0,
+          "values": [
+            1.0,
+            2.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                498.1199035644531,
+                192.92381286621094,
+                502.59014892578125,
+                201.9044952392578
+              ],
+              "block": 12,
+              "line": 5,
+              "page": 1,
+              "text": "1",
+              "x_norm": 0.5942458744003767,
+              "y_norm": 0.33178849420627626
+            },
+            {
+              "bbox": [
+                498.11962890625,
+                224.8437957763672,
+                502.5898742675781,
+                233.82447814941406
+              ],
+              "block": 14,
+              "line": 6,
+              "page": 1,
+              "text": "2",
+              "x_norm": 0.5942455482029858,
+              "y_norm": 0.3854355243073792
+            }
+          ],
+          "x_norm": 0.5942457837899904
+        }
+      ],
+      "status": "selected"
+    },
+    {
+      "boundaries": [],
+      "candidates": [],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "SWISSGEOL_TG_55816",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [],
+      "candidates": [
+        {
+          "header_distance": null,
+          "header_role": null,
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 0.6666666666666666,
+          "scale_tick_score": 0.0,
+          "score": 12.333333333333332,
+          "span_m": 200.0,
+          "values": [
+            0.0,
+            22.0,
+            200.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                55.43040084838867,
+                220.7679901123047,
+                79.0698013305664,
+                232.8099822998047
+              ],
+              "block": 3,
+              "line": 0,
+              "page": 1,
+              "text": "0-22m",
+              "x_norm": 0.07989987992454575,
+              "y_norm": 0.381030031215926
+            },
+            {
+              "bbox": [
+                55.43040084838867,
+                235.16798400878906,
+                88.19670867919922,
+                247.20997619628906
+              ],
+              "block": 4,
+              "line": 0,
+              "page": 1,
+              "text": "22-200m",
+              "x_norm": 0.08532172159782406,
+              "y_norm": 0.4052235787760416
+            }
+          ],
+          "x_norm": 0.0826108007611849
+        }
+      ],
+      "document_signals": [
+        "explicit_document_depth_range"
+      ],
+      "ground_truth_tier": "GOLD",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "SWISSGEOL_TG_55819",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [
+        0.0,
+        1.0,
+        2.0
+      ],
+      "candidates": [
+        {
+          "header_distance": 0.006504092169568598,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 24.526975114940466,
+          "span_m": 1.0,
+          "values": [
+            1.0,
+            2.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                494.639892578125,
+                192.92381286621094,
+                506.1972961425781,
+                201.9044952392578
+              ],
+              "block": 12,
+              "line": 5,
+              "page": 1,
+              "text": "1-2",
+              "x_norm": 0.5943213709742893,
+              "y_norm": 0.33178849420627626
+            }
+          ],
+          "x_norm": 0.5943213709742893
+        },
+        {
+          "header_distance": 0.03203772649062786,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 23.45707632135681,
+          "span_m": 3.0,
+          "values": [
+            2.0,
+            5.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                311.2781982421875,
+                76.88377380371094,
+                315.7484436035156,
+                85.86445617675781
+              ],
+              "block": 9,
+              "line": 1,
+              "page": 1,
+              "text": "2",
+              "x_norm": 0.37234361154732964,
+              "y_norm": 0.13676321847098213
+            },
+            {
+              "bbox": [
+                311.279052734375,
+                124.76377868652344,
+                322.46923828125,
+                133.7444610595703
+              ],
+              "block": 4,
+              "line": 2,
+              "page": 1,
+              "text": "5.0",
+              "x_norm": 0.37633508967673696,
+              "y_norm": 0.21723381491268381
+            }
+          ],
+          "x_norm": 0.3743393506120333
+        },
+        {
+          "header_distance": null,
+          "header_role": null,
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 21.769484742157466,
+          "span_m": 176.0,
+          "values": [
+            4.0,
+            180.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                59.639892578125,
+                192.92381286621094,
+                64.1101303100586,
+                201.9044952392578
+              ],
+              "block": 12,
+              "line": 0,
+              "page": 1,
+              "text": "4",
+              "x_norm": 0.07348576181008527,
+              "y_norm": 0.33178849420627626
+            },
+            {
+              "bbox": [
+                55.19989013671875,
+                208.88380432128906,
+                68.55020904541016,
+                217.86448669433594
+              ],
+              "block": 13,
+              "line": 0,
+              "page": 1,
+              "text": "180",
+              "x_norm": 0.07348580711527845,
+              "y_norm": 0.35861200925682774
+            }
+          ],
+          "x_norm": 0.0734857920135474
+        }
+      ],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD",
+      "reason": "semantic_depth_column_with_native_bbox_evidence",
+      "record_id": "SWISSGEOL_TG_55821",
+      "risk_score": 0.13998369604631383,
+      "selected_columns": [
+        {
+          "header_distance": 0.006504092169568598,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 24.526975114940466,
+          "span_m": 1.0,
+          "values": [
+            1.0,
+            2.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                494.639892578125,
+                192.92381286621094,
+                506.1972961425781,
+                201.9044952392578
+              ],
+              "block": 12,
+              "line": 5,
+              "page": 1,
+              "text": "1-2",
+              "x_norm": 0.5943213709742893,
+              "y_norm": 0.33178849420627626
+            }
+          ],
+          "x_norm": 0.5943213709742893
+        }
+      ],
+      "status": "selected"
+    },
+    {
+      "boundaries": [],
+      "candidates": [
+        {
+          "header_distance": 0.032038614472414184,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 23.21688361784265,
+          "span_m": 2.0,
+          "values": [
+            1.0,
+            3.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                311.27935791015625,
+                76.88377380371094,
+                315.7496032714844,
+                85.86445617675781
+              ],
+              "block": 10,
+              "line": 1,
+              "page": 1,
+              "text": "1",
+              "x_norm": 0.3723449888252023,
+              "y_norm": 0.13676321847098213
+            },
+            {
+              "bbox": [
+                311.2793884277344,
+                124.76377868652344,
+                322.4695739746094,
+                133.7444610595703
+              ],
+              "block": 4,
+              "line": 2,
+              "page": 1,
+              "text": "3.0",
+              "x_norm": 0.3763354883624369,
+              "y_norm": 0.21723381491268381
+            }
+          ],
+          "x_norm": 0.3743402385938196
+        },
+        {
+          "header_distance": null,
+          "header_role": null,
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 21.603696706132318,
+          "span_m": 166.0,
+          "values": [
+            34.0,
+            200.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                57.35986328125,
+                192.92381286621094,
+                66.2701416015625,
+                201.9044952392578
+              ],
+              "block": 13,
+              "line": 0,
+              "page": 1,
+              "text": "34",
+              "x_norm": 0.07341449221069626,
+              "y_norm": 0.33178849420627626
+            },
+            {
+              "bbox": [
+                55.19989013671875,
+                208.88380432128906,
+                68.55020904541016,
+                217.86448669433594
+              ],
+              "block": 14,
+              "line": 0,
+              "page": 1,
+              "text": "200",
+              "x_norm": 0.07348580711527845,
+              "y_norm": 0.35861200925682774
+            }
+          ],
+          "x_norm": 0.07345014966298735
+        }
+      ],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "SWISSGEOL_TG_55852",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [
+        0.0,
+        14.0,
+        200.0
+      ],
+      "candidates": [
+        {
+          "header_distance": 0.009242161384171124,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 0.6666666666666666,
+          "scale_tick_score": 0.0,
+          "score": 23.661176141757252,
+          "span_m": 200.0,
+          "values": [
+            0.0,
+            14.0,
+            200.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                29.199817657470703,
+                270.7121887207031,
+                59.25581741333008,
+                280.32818603515625
+              ],
+              "block": 23,
+              "line": 0,
+              "page": 1,
+              "text": "0-14m",
+              "x_norm": 0.05253209144950307,
+              "y_norm": 0.4629035311277752
+            },
+            {
+              "bbox": [
+                30.399818420410156,
+                292.8262023925781,
+                71.10017395019531,
+                303.6441955566406
+              ],
+              "block": 24,
+              "line": 0,
+              "page": 1,
+              "text": "14-200m",
+              "x_norm": 0.060278883047628545,
+              "y_norm": 0.501067192301859
+            }
+          ],
+          "x_norm": 0.05640548724856581
+        }
+      ],
+      "document_signals": [
+        "explicit_document_depth_range"
+      ],
+      "ground_truth_tier": "GOLD",
+      "reason": "semantic_depth_column_with_native_bbox_evidence",
+      "record_id": "SWISSGEOL_TG_55874",
+      "risk_score": 0.34494774256114086,
+      "selected_columns": [
+        {
+          "header_distance": 0.009242161384171124,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 0.6666666666666666,
+          "scale_tick_score": 0.0,
+          "score": 23.661176141757252,
+          "span_m": 200.0,
+          "values": [
+            0.0,
+            14.0,
+            200.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                29.199817657470703,
+                270.7121887207031,
+                59.25581741333008,
+                280.32818603515625
+              ],
+              "block": 23,
+              "line": 0,
+              "page": 1,
+              "text": "0-14m",
+              "x_norm": 0.05253209144950307,
+              "y_norm": 0.4629035311277752
+            },
+            {
+              "bbox": [
+                30.399818420410156,
+                292.8262023925781,
+                71.10017395019531,
+                303.6441955566406
+              ],
+              "block": 24,
+              "line": 0,
+              "page": 1,
+              "text": "14-200m",
+              "x_norm": 0.060278883047628545,
+              "y_norm": 0.501067192301859
+            }
+          ],
+          "x_norm": 0.05640548724856581
+        }
+      ],
+      "status": "selected"
+    },
+    {
+      "boundaries": [
+        0.0,
+        14.0,
+        200.0
+      ],
+      "candidates": [
+        {
+          "header_distance": 0.009242161384171124,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 0.6666666666666666,
+          "scale_tick_score": 0.0,
+          "score": 23.661176141757252,
+          "span_m": 200.0,
+          "values": [
+            0.0,
+            14.0,
+            200.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                29.199817657470703,
+                270.7121887207031,
+                59.25581741333008,
+                280.32818603515625
+              ],
+              "block": 23,
+              "line": 0,
+              "page": 1,
+              "text": "0-14m",
+              "x_norm": 0.05253209144950307,
+              "y_norm": 0.4629035311277752
+            },
+            {
+              "bbox": [
+                30.399818420410156,
+                292.8262023925781,
+                71.10017395019531,
+                303.6441955566406
+              ],
+              "block": 24,
+              "line": 0,
+              "page": 1,
+              "text": "14-200m",
+              "x_norm": 0.060278883047628545,
+              "y_norm": 0.501067192301859
+            }
+          ],
+          "x_norm": 0.05640548724856581
+        }
+      ],
+      "document_signals": [
+        "explicit_document_depth_range"
+      ],
+      "ground_truth_tier": "GOLD",
+      "reason": "semantic_depth_column_with_native_bbox_evidence",
+      "record_id": "SWISSGEOL_TG_55876",
+      "risk_score": 0.34494774256114086,
+      "selected_columns": [
+        {
+          "header_distance": 0.009242161384171124,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 0.6666666666666666,
+          "scale_tick_score": 0.0,
+          "score": 23.661176141757252,
+          "span_m": 200.0,
+          "values": [
+            0.0,
+            14.0,
+            200.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                29.199817657470703,
+                270.7121887207031,
+                59.25581741333008,
+                280.32818603515625
+              ],
+              "block": 23,
+              "line": 0,
+              "page": 1,
+              "text": "0-14m",
+              "x_norm": 0.05253209144950307,
+              "y_norm": 0.4629035311277752
+            },
+            {
+              "bbox": [
+                30.399818420410156,
+                292.8262023925781,
+                71.10017395019531,
+                303.6441955566406
+              ],
+              "block": 24,
+              "line": 0,
+              "page": 1,
+              "text": "14-200m",
+              "x_norm": 0.060278883047628545,
+              "y_norm": 0.501067192301859
+            }
+          ],
+          "x_norm": 0.05640548724856581
+        }
+      ],
+      "status": "selected"
+    },
+    {
+      "boundaries": [],
+      "candidates": [
+        {
+          "header_distance": null,
+          "header_role": null,
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 0.0,
+          "scale_tick_score": 0.0,
+          "score": 8.0,
+          "span_m": 1.0,
+          "values": [
+            1.0,
+            2.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                256.6167297363281,
+                320.0720520019531,
+                270.719970703125,
+                329.68804931640625
+              ],
+              "block": 36,
+              "line": 0,
+              "page": 1,
+              "text": "1-2",
+              "x_norm": 0.3131750934608166,
+              "y_norm": 0.5458334072516368
+            }
+          ],
+          "x_norm": 0.3131750934608166
+        }
+      ],
+      "document_signals": [
+        "explicit_document_depth_range"
+      ],
+      "ground_truth_tier": "GOLD",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "SWISSGEOL_TG_55882",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [
+        0.0,
+        8.0,
+        21.0
+      ],
+      "candidates": [
+        {
+          "header_distance": 0.0024880837217143847,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 27.317775825407903,
+          "span_m": 13.0,
+          "values": [
+            8.0,
+            21.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                777.743408203125,
+                329.4720153808594,
+                786.9063110351562,
+                339.0880126953125
+              ],
+              "block": 25,
+              "line": 0,
+              "page": 1,
+              "text": "8",
+              "x_norm": 0.9292152843667862,
+              "y_norm": 0.5616263561530501
+            },
+            {
+              "bbox": [
+                777.6743774414062,
+                562.260009765625,
+                794.6879272460938,
+                580.2899780273438
+              ],
+              "block": 0,
+              "line": 0,
+              "page": 1,
+              "text": "21",
+              "x_norm": 0.9337956400804522,
+              "y_norm": 0.9598033974800644
+            }
+          ],
+          "x_norm": 0.9297260372420427
+        },
+        {
+          "header_distance": null,
+          "header_role": null,
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 13.0,
+          "span_m": 1.0,
+          "values": [
+            2.0,
+            3.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                254.9855194091797,
+                312.27203369140625,
+                269.3199462890625,
+                321.8880310058594
+              ],
+              "block": 39,
+              "line": 0,
+              "page": 1,
+              "text": "2-3",
+              "x_norm": 0.31137490162400855,
+              "y_norm": 0.5327285380470411
+            }
+          ],
+          "x_norm": 0.31137490162400855
+        }
+      ],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD",
+      "reason": "semantic_depth_column_with_native_bbox_evidence",
+      "record_id": "SWISSGEOL_TG_55888",
+      "risk_score": 0.029643950688580147,
+      "selected_columns": [
+        {
+          "header_distance": 0.0024880837217143847,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 27.317775825407903,
+          "span_m": 13.0,
+          "values": [
+            8.0,
+            21.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                777.743408203125,
+                329.4720153808594,
+                786.9063110351562,
+                339.0880126953125
+              ],
+              "block": 25,
+              "line": 0,
+              "page": 1,
+              "text": "8",
+              "x_norm": 0.9292152843667862,
+              "y_norm": 0.5616263561530501
+            },
+            {
+              "bbox": [
+                777.6743774414062,
+                562.260009765625,
+                794.6879272460938,
+                580.2899780273438
+              ],
+              "block": 0,
+              "line": 0,
+              "page": 1,
+              "text": "21",
+              "x_norm": 0.9337956400804522,
+              "y_norm": 0.9598033974800644
+            }
+          ],
+          "x_norm": 0.9297260372420427
+        }
+      ],
+      "status": "selected"
+    },
+    {
+      "boundaries": [],
+      "candidates": [
+        {
+          "header_distance": null,
+          "header_role": null,
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 0.6666666666666666,
+          "scale_tick_score": 0.0,
+          "score": 12.333333333333332,
+          "span_m": 200.0,
+          "values": [
+            0.0,
+            12.0,
+            200.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                55.43040084838867,
+                220.7679901123047,
+                79.0698013305664,
+                232.8099822998047
+              ],
+              "block": 3,
+              "line": 0,
+              "page": 1,
+              "text": "0-12m",
+              "x_norm": 0.07989987992454575,
+              "y_norm": 0.381030031215926
+            },
+            {
+              "bbox": [
+                55.43040084838867,
+                235.16798400878906,
+                88.19670867919922,
+                247.20997619628906
+              ],
+              "block": 4,
+              "line": 0,
+              "page": 1,
+              "text": "12-200m",
+              "x_norm": 0.08532172159782406,
+              "y_norm": 0.4052235787760416
+            }
+          ],
+          "x_norm": 0.0826108007611849
+        }
+      ],
+      "document_signals": [
+        "explicit_document_depth_range"
+      ],
+      "ground_truth_tier": "GOLD",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "SWISSGEOL_TG_55889",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [],
+      "candidates": [
+        {
+          "header_distance": null,
+          "header_role": null,
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 16.489452429417042,
+          "span_m": 22.0,
+          "values": [
+            18.0,
+            40.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                496.5496520996094,
+                106.47210693359375,
+                514.9198608398438,
+                116.08810424804688
+              ],
+              "block": 55,
+              "line": 0,
+              "page": 1,
+              "text": "18,0",
+              "x_norm": 0.6006922313269754,
+              "y_norm": 0.18696253916089173
+            },
+            {
+              "bbox": [
+                495.8782043457031,
+                381.27203369140625,
+                509.3111877441406,
+                390.8880310058594
+              ],
+              "block": 19,
+              "line": 0,
+              "page": 1,
+              "text": "40",
+              "x_norm": 0.5969625887051313,
+              "y_norm": 0.64865595502431
+            }
+          ],
+          "x_norm": 0.5988274100160533
+        },
+        {
+          "header_distance": null,
+          "header_role": null,
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 13.0,
+          "span_m": 1.0,
+          "values": [
+            1.0,
+            2.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                256.2165832519531,
+                329.4720764160156,
+                270.31982421875,
+                339.08807373046875
+              ],
+              "block": 46,
+              "line": 0,
+              "page": 1,
+              "text": "1-2",
+              "x_norm": 0.31269981490524584,
+              "y_norm": 0.5616264586986734
+            }
+          ],
+          "x_norm": 0.31269981490524584
+        }
+      ],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "SWISSGEOL_TG_55890",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [],
+      "candidates": [],
+      "document_signals": [
+        "explicit_document_depth_range"
+      ],
+      "ground_truth_tier": "GOLD",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "SWISSGEOL_TG_55891",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [
+        1.0,
+        2.0,
+        3.0
+      ],
+      "candidates": [
+        {
+          "header_distance": 0.006504019681259576,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 0.0,
+          "scale_tick_score": 0.0,
+          "score": 20.526980386817485,
+          "span_m": 2.0,
+          "values": [
+            1.0,
+            2.0,
+            3.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                494.6398620605469,
+                192.92381286621094,
+                506.197265625,
+                201.9044952392578
+              ],
+              "block": 12,
+              "line": 5,
+              "page": 1,
+              "text": "1-2",
+              "x_norm": 0.5943213347301347,
+              "y_norm": 0.33178849420627626
+            },
+            {
+              "bbox": [
+                494.6398010253906,
+                208.88380432128906,
+                506.19720458984375,
+                217.86448669433594
+              ],
+              "block": 13,
+              "line": 5,
+              "page": 1,
+              "text": "2-3",
+              "x_norm": 0.5943212622418257,
+              "y_norm": 0.35861200925682774
+            }
+          ],
+          "x_norm": 0.5943212984859803
+        },
+        {
+          "header_distance": null,
+          "header_role": null,
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 0.5,
+          "scale_tick_score": 0.0,
+          "score": 18.78002982009876,
+          "span_m": 148.0,
+          "values": [
+            22.0,
+            170.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                57.35986328125,
+                192.92381286621094,
+                66.2701416015625,
+                201.9044952392578
+              ],
+              "block": 12,
+              "line": 0,
+              "page": 1,
+              "text": "22",
+              "x_norm": 0.07341449221069626,
+              "y_norm": 0.33178849420627626
+            },
+            {
+              "bbox": [
+                55.19989013671875,
+                208.88380432128906,
+                68.55020904541016,
+                217.86448669433594
+              ],
+              "block": 13,
+              "line": 0,
+              "page": 1,
+              "text": "170",
+              "x_norm": 0.07348580711527845,
+              "y_norm": 0.35861200925682774
+            }
+          ],
+          "x_norm": 0.07346193882933894
+        },
+        {
+          "header_distance": 0.032038995036036855,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 0.0,
+          "scale_tick_score": 0.0,
+          "score": 18.216855940488276,
+          "span_m": 2.0,
+          "values": [
+            2.0,
+            4.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                311.280029296875,
+                76.88380432128906,
+                315.7502746582031,
+                85.86448669433594
+              ],
+              "block": 6,
+              "line": 1,
+              "page": 1,
+              "text": "2",
+              "x_norm": 0.3723457861966022,
+              "y_norm": 0.1367632697610294
+            },
+            {
+              "bbox": [
+                311.27935791015625,
+                124.76377868652344,
+                322.46954345703125,
+                133.7444610595703
+              ],
+              "block": 4,
+              "line": 2,
+              "page": 1,
+              "text": "4.0",
+              "x_norm": 0.37633545211828234,
+              "y_norm": 0.21723381491268381
+            }
+          ],
+          "x_norm": 0.37434061915744227
+        },
+        {
+          "header_distance": null,
+          "header_role": null,
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 13.0,
+          "span_m": 2.0,
+          "values": [
+            20.0,
+            22.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                602.3848876953125,
+                192.92381286621094,
+                622.8223876953125,
+                201.9044952392578
+              ],
+              "block": 35,
+              "line": 0,
+              "page": 1,
+              "text": "20-22",
+              "x_norm": 0.7275577644837441,
+              "y_norm": 0.33178849420627626
+            }
+          ],
+          "x_norm": 0.7275577644837441
+        }
+      ],
+      "document_signals": [
+        "explicit_document_depth_range"
+      ],
+      "ground_truth_tier": "GOLD",
+      "reason": "semantic_depth_column_with_native_bbox_evidence",
+      "record_id": "SWISSGEOL_TG_55892",
+      "risk_score": 0.36616813963168066,
+      "selected_columns": [
+        {
+          "header_distance": 0.006504019681259576,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 0.0,
+          "scale_tick_score": 0.0,
+          "score": 20.526980386817485,
+          "span_m": 2.0,
+          "values": [
+            1.0,
+            2.0,
+            3.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                494.6398620605469,
+                192.92381286621094,
+                506.197265625,
+                201.9044952392578
+              ],
+              "block": 12,
+              "line": 5,
+              "page": 1,
+              "text": "1-2",
+              "x_norm": 0.5943213347301347,
+              "y_norm": 0.33178849420627626
+            },
+            {
+              "bbox": [
+                494.6398010253906,
+                208.88380432128906,
+                506.19720458984375,
+                217.86448669433594
+              ],
+              "block": 13,
+              "line": 5,
+              "page": 1,
+              "text": "2-3",
+              "x_norm": 0.5943212622418257,
+              "y_norm": 0.35861200925682774
+            }
+          ],
+          "x_norm": 0.5943212984859803
+        }
+      ],
+      "status": "selected"
+    },
+    {
+      "boundaries": [],
+      "candidates": [],
+      "document_signals": [
+        "explicit_document_depth_range"
+      ],
+      "ground_truth_tier": "GOLD",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "SWISSGEOL_TG_55894",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [
+        0.0,
+        2.0,
+        160.0
+      ],
+      "candidates": [
+        {
+          "header_distance": 0.018502588726510928,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 32.11849384275412,
+          "span_m": 158.0,
+          "values": [
+            2.0,
+            160.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                28.999963760375977,
+                260.31207275390625,
+                42.89996337890625,
+                269.9280700683594
+              ],
+              "block": 37,
+              "line": 0,
+              "page": 1,
+              "text": "2,0",
+              "x_norm": 0.042699976600362316,
+              "y_norm": 0.4454302183698794
+            },
+            {
+              "bbox": [
+                29.599964141845703,
+                275.7400817871094,
+                54.87016677856445,
+                287.76007080078125
+              ],
+              "block": 38,
+              "line": 0,
+              "page": 1,
+              "text": "160,0",
+              "x_norm": 0.050165177591125196,
+              "y_norm": 0.4733704141725435
+            }
+          ],
+          "x_norm": 0.046432577095743756
+        },
+        {
+          "header_distance": null,
+          "header_role": null,
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 20.95740104957553,
+          "span_m": 131.89,
+          "values": [
+            28.11,
+            160.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                178.4667510986328,
+                193.71200561523438,
+                206.08885192871094,
+                203.3280029296875
+              ],
+              "block": 12,
+              "line": 1,
+              "page": 1,
+              "text": "28.11",
+              "x_norm": 0.2283801375625389,
+              "y_norm": 0.333534946574243
+            },
+            {
+              "bbox": [
+                175.6891326904297,
+                207.22601318359375,
+                197.90687561035156,
+                218.04400634765625
+              ],
+              "block": 12,
+              "line": 3,
+              "page": 1,
+              "text": "160",
+              "x_norm": 0.2218714461494429,
+              "y_norm": 0.3572496730589165
+            }
+          ],
+          "x_norm": 0.2251257918559909
+        },
+        {
+          "header_distance": null,
+          "header_role": null,
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 13.0,
+          "span_m": 1.0,
+          "values": [
+            1.0,
+            2.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                571.1998901367188,
+                260.51202392578125,
+                585.0718383789062,
+                270.1280212402344
+              ],
+              "block": 51,
+              "line": 0,
+              "page": 1,
+              "text": "1-2",
+              "x_norm": 0.6866874239751916,
+              "y_norm": 0.4457661578318656
+            }
+          ],
+          "x_norm": 0.6866874239751916
+        }
+      ],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD",
+      "reason": "semantic_depth_column_with_native_bbox_evidence",
+      "record_id": "SWISSGEOL_TG_55897",
+      "risk_score": 0.13979648197414235,
+      "selected_columns": [
+        {
+          "header_distance": 0.018502588726510928,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 32.11849384275412,
+          "span_m": 158.0,
+          "values": [
+            2.0,
+            160.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                28.999963760375977,
+                260.31207275390625,
+                42.89996337890625,
+                269.9280700683594
+              ],
+              "block": 37,
+              "line": 0,
+              "page": 1,
+              "text": "2,0",
+              "x_norm": 0.042699976600362316,
+              "y_norm": 0.4454302183698794
+            },
+            {
+              "bbox": [
+                29.599964141845703,
+                275.7400817871094,
+                54.87016677856445,
+                287.76007080078125
+              ],
+              "block": 38,
+              "line": 0,
+              "page": 1,
+              "text": "160,0",
+              "x_norm": 0.050165177591125196,
+              "y_norm": 0.4733704141725435
+            }
+          ],
+          "x_norm": 0.046432577095743756
+        }
+      ],
+      "status": "selected"
+    },
+    {
+      "boundaries": [],
+      "candidates": [
+        {
+          "header_distance": null,
+          "header_role": null,
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 16.088858251543474,
+          "span_m": 18.0,
+          "values": [
+            22.0,
+            40.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                490.5706787109375,
+                121.5560302734375,
+                509.11993408203125,
+                132.3740234375
+              ],
+              "block": 58,
+              "line": 0,
+              "page": 1,
+              "text": "22m",
+              "x_norm": 0.5936969697584807,
+              "y_norm": 0.213314892895711
+            },
+            {
+              "bbox": [
+                489.6783142089844,
+                396.0720520019531,
+                503.1112976074219,
+                405.68804931640625
+              ],
+              "block": 14,
+              "line": 0,
+              "page": 1,
+              "text": "40",
+              "x_norm": 0.5895985984067295,
+              "y_norm": 0.6735215766758749
+            }
+          ],
+          "x_norm": 0.5916477840826051
+        },
+        {
+          "header_distance": null,
+          "header_role": null,
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 0.0,
+          "scale_tick_score": 0.0,
+          "score": 8.0,
+          "span_m": 1.0,
+          "values": [
+            1.0,
+            2.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                249.81668090820312,
+                344.27203369140625,
+                263.9198913574219,
+                353.8880310058594
+              ],
+              "block": 47,
+              "line": 0,
+              "page": 1,
+              "text": "1-2",
+              "x_norm": 0.3050982397004614,
+              "y_norm": 0.5864919778046151
+            }
+          ],
+          "x_norm": 0.3050982397004614
+        }
+      ],
+      "document_signals": [
+        "explicit_document_depth_range"
+      ],
+      "ground_truth_tier": "GOLD",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "SWISSGEOL_TG_55901",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [
+        0.0,
+        1.0,
+        2.0
+      ],
+      "candidates": [
+        {
+          "header_distance": 0.014666403784896365,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 24.21928299142051,
+          "span_m": 1.0,
+          "values": [
+            1.0,
+            2.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                549.2039794921875,
+                261.9703369140625,
+                554.8548583984375,
+                274.48138427734375
+              ],
+              "block": 13,
+              "line": 9,
+              "page": 1,
+              "text": "1",
+              "x_norm": 0.6970068421026673,
+              "y_norm": 0.43827754999297897
+            },
+            {
+              "bbox": [
+                549.2735595703125,
+                278.5302429199219,
+                554.9244384765625,
+                291.0412902832031
+              ],
+              "block": 13,
+              "line": 17,
+              "page": 1,
+              "text": "2",
+              "x_norm": 0.6970946957366635,
+              "y_norm": 0.46533621993719365
+            }
+          ],
+          "x_norm": 0.6970507689196654
+        },
+        {
+          "header_distance": null,
+          "header_role": null,
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 0.0,
+          "scale_tick_score": 0.0,
+          "score": 14.690043200477632,
+          "span_m": 83.0,
+          "values": [
+            135.0,
+            218.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                699.9054565429688,
+                261.9703369140625,
+                716.8580932617188,
+                274.48138427734375
+              ],
+              "block": 13,
+              "line": 12,
+              "page": 1,
+              "text": "135",
+              "x_norm": 0.8944214329575048,
+              "y_norm": 0.43827754999297897
+            },
+            {
+              "bbox": [
+                702.6724243164062,
+                278.5302429199219,
+                719.6250610351562,
+                291.0412902832031
+              ],
+              "block": 13,
+              "line": 20,
+              "page": 1,
+              "text": "218",
+              "x_norm": 0.8979150791360875,
+              "y_norm": 0.46533621993719365
+            }
+          ],
+          "x_norm": 0.8961682560467961
+        },
+        {
+          "header_distance": null,
+          "header_role": null,
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 0.5,
+          "scale_tick_score": 0.0,
+          "score": 12.579441541679836,
+          "span_m": 10.0,
+          "values": [
+            14.0,
+            24.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                318.2413024902344,
+                472.1109619140625,
+                328.6158752441406,
+                482.5793151855469
+              ],
+              "block": 17,
+              "line": 1,
+              "page": 1,
+              "text": "14",
+              "x_norm": 0.408369430387863,
+              "y_norm": 0.7799757165846481
+            },
+            {
+              "bbox": [
+                318.23980712890625,
+                487.3508605957031,
+                328.6143798828125,
+                497.8192138671875
+              ],
+              "block": 17,
+              "line": 6,
+              "page": 1,
+              "text": "24",
+              "x_norm": 0.408367542305378,
+              "y_norm": 0.8048775118160871
+            }
+          ],
+          "x_norm": 0.41066719466186935
+        },
+        {
+          "header_distance": null,
+          "header_role": null,
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 0.6666666666666666,
+          "scale_tick_score": 0.0,
+          "score": 12.333333333333332,
+          "span_m": 220.0,
+          "values": [
+            0.0,
+            14.0,
+            220.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                35.880001068115234,
+                261.9703369140625,
+                56.596195220947266,
+                274.48138427734375
+              ],
+              "block": 13,
+              "line": 5,
+              "page": 1,
+              "text": "0-14",
+              "x_norm": 0.05838143705117582,
+              "y_norm": 0.43827754999297897
+            },
+            {
+              "bbox": [
+                35.880001068115234,
+                278.5302429199219,
+                67.89794921875,
+                291.0412902832031
+              ],
+              "block": 13,
+              "line": 13,
+              "page": 1,
+              "text": "14-220",
+              "x_norm": 0.06551638275685936,
+              "y_norm": 0.46533621993719365
+            }
+          ],
+          "x_norm": 0.06194890990401759
+        }
+      ],
+      "document_signals": [
+        "explicit_document_depth_range"
+      ],
+      "ground_truth_tier": "GOLD",
+      "reason": "semantic_depth_column_with_native_bbox_evidence",
+      "record_id": "SWISSGEOL_TG_56076",
+      "risk_score": 0.11677074887565773,
+      "selected_columns": [
+        {
+          "header_distance": 0.014666403784896365,
+          "header_role": "cumulative_depth",
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 1.0,
+          "scale_tick_score": 0.0,
+          "score": 24.21928299142051,
+          "span_m": 1.0,
+          "values": [
+            1.0,
+            2.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                549.2039794921875,
+                261.9703369140625,
+                554.8548583984375,
+                274.48138427734375
+              ],
+              "block": 13,
+              "line": 9,
+              "page": 1,
+              "text": "1",
+              "x_norm": 0.6970068421026673,
+              "y_norm": 0.43827754999297897
+            },
+            {
+              "bbox": [
+                549.2735595703125,
+                278.5302429199219,
+                554.9244384765625,
+                291.0412902832031
+              ],
+              "block": 13,
+              "line": 17,
+              "page": 1,
+              "text": "2",
+              "x_norm": 0.6970946957366635,
+              "y_norm": 0.46533621993719365
+            }
+          ],
+          "x_norm": 0.6970507689196654
+        }
+      ],
+      "status": "selected"
+    },
+    {
+      "boundaries": [],
+      "candidates": [
+        {
+          "header_distance": null,
+          "header_role": null,
+          "monotonic_ratio": 1.0,
+          "page": 1,
+          "range_support": 0.0,
+          "scale_tick_score": 0.0,
+          "score": 20.771090433497587,
+          "span_m": 696.0,
+          "values": [
+            4.0,
+            700.0
+          ],
+          "words": [
+            {
+              "bbox": [
+                567.3505249023438,
+                179.8231201171875,
+                580.3483276367188,
+                193.14959716796875
+              ],
+              "block": 35,
+              "line": 0,
+              "page": 1,
+              "text": "4m",
+              "x_norm": 0.6817908004732968,
+              "y_norm": 0.3133172569075529
+            },
+            {
+              "bbox": [
+                560.5106201171875,
+                369.4230041503906,
+                575.6398315429688,
+                382.7494812011719
+              ],
+              "block": 21,
+              "line": 4,
+              "page": 1,
+              "text": "700",
+              "x_norm": 0.6749304699414702,
+              "y_norm": 0.6318655732974369
+            }
+          ],
+          "x_norm": 0.6783606352073834
+        }
+      ],
+      "document_signals": [
+        "explicit_document_depth_range"
+      ],
+      "ground_truth_tier": "GOLD",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "SWISSGEOL_TG_56084",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    }
+  ],
+  "document_count": 35,
+  "experiment_id": "P2_TG_NATIVE_PDF_LAYOUT_HELDOUT_V001",
+  "git_commit": "da1df117947cdec1b77de4762c3b613cc72471d1",
+  "ground_truth_tier": [
+    "GOLD"
+  ],
+  "limitations": [
+    "Evaluation covers interval boundaries only; lithology and descriptions are excluded.",
+    "The Gold manifest is authoritative source-table agreement, not project human annotation.",
+    "Native text evidence is unavailable on raster-only pages; those pages abstain."
+  ],
+  "manifest": "datasets/manifests/swissgeol_tg_v003_layout_heldout_v001.jsonl",
+  "manifest_sha256": "10bf695a4bf1654f79a589172112417773a131dcfdab82a7f0cf483de7a3092e",
+  "maximum_risk": 0.55,
+  "method_version": "native_pdf_semantic_and_explicit_range_v002",
+  "native": {
+    "boundary": {
+      "critical_numerical_error_rate": 0.2711864406779661,
+      "f1": 0.49425287356321845,
+      "false_negative": 72,
+      "false_positive": 16,
+      "matched_boundary_mae_m": 0.0,
+      "precision": 0.7288135593220338,
+      "recall": 0.3739130434782609,
+      "true_positive": 43
+    },
+    "interval": {
+      "f1": 0.3833333333333333,
+      "false_negative": 57,
+      "false_positive": 17,
+      "precision": 0.575,
+      "recall": 0.2875,
+      "true_positive": 23
+    }
+  },
+  "platform": "Linux-5.15.0-186-generic-x86_64-with-glibc2.35",
+  "prediction_reference_conditioning": "none",
+  "selective": {
+    "boundary": {
+      "critical_numerical_error_rate": 0.2711864406779661,
+      "f1": 0.49425287356321845,
+      "false_negative": 72,
+      "false_positive": 16,
+      "matched_boundary_mae_m": 0.0,
+      "precision": 0.7288135593220338,
+      "recall": 0.3739130434782609,
+      "true_positive": 43
+    },
+    "interval": {
+      "f1": 0.3833333333333333,
+      "false_negative": 57,
+      "false_positive": 17,
+      "precision": 0.575,
+      "recall": 0.2875,
+      "true_positive": 23
+    }
+  },
+  "selective_coverage": 0.5428571428571428,
+  "status": "completed_native_pdf_gold_evaluation",
+  "wall_time_seconds": 0.37274287099717185
+}

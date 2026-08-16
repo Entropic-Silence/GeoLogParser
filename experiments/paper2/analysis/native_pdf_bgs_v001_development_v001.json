@@ -1,0 +1,397 @@
+{
+  "by_source": {
+    "unknown": {
+      "document_count": 26,
+      "native": {
+        "boundary": {
+          "critical_numerical_error_rate": null,
+          "f1": 0.0,
+          "false_negative": 367,
+          "false_positive": 0,
+          "matched_boundary_mae_m": null,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 341,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      },
+      "selective": {
+        "boundary": {
+          "critical_numerical_error_rate": null,
+          "f1": 0.0,
+          "false_negative": 367,
+          "false_positive": 0,
+          "matched_boundary_mae_m": null,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "interval": {
+          "f1": 0.0,
+          "false_negative": 341,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        }
+      }
+    }
+  },
+  "coverage": 0.0,
+  "created_at": "2026-08-16T09:49:38.256598+00:00",
+  "diagnostics": [
+    {
+      "boundaries": [],
+      "candidates": [],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "BGS_OFFSHORE_2016306",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [],
+      "candidates": [],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "BGS_OFFSHORE_2041581",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [],
+      "candidates": [],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "BGS_OFFSHORE_1963694",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [],
+      "candidates": [],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "BGS_OFFSHORE_1960609",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [],
+      "candidates": [],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "BGS_OFFSHORE_1969862",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [],
+      "candidates": [],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "BGS_OFFSHORE_1957995",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [],
+      "candidates": [],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "BGS_OFFSHORE_1960630",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [],
+      "candidates": [],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "BGS_OFFSHORE_2023411",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [],
+      "candidates": [],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "BGS_OFFSHORE_2030012",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [],
+      "candidates": [],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "BGS_OFFSHORE_1980976",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [],
+      "candidates": [],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "BGS_OFFSHORE_1984462",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [],
+      "candidates": [],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "BGS_OFFSHORE_1945465",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [],
+      "candidates": [],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "BGS_OFFSHORE_2009141",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [],
+      "candidates": [],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "BGS_OFFSHORE_2024185",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [],
+      "candidates": [],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "BGS_OFFSHORE_1951404",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [],
+      "candidates": [],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "BGS_OFFSHORE_1943902",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [],
+      "candidates": [],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "BGS_OFFSHORE_1993525",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [],
+      "candidates": [],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "BGS_OFFSHORE_2007749",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [],
+      "candidates": [],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "BGS_OFFSHORE_1987224",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [],
+      "candidates": [],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "BGS_OFFSHORE_1944312",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [],
+      "candidates": [],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "BGS_OFFSHORE_1944320",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [],
+      "candidates": [],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "BGS_OFFSHORE_1989175",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [],
+      "candidates": [],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "BGS_OFFSHORE_1960100",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [],
+      "candidates": [],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "BGS_OFFSHORE_1944322",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [],
+      "candidates": [],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "BGS_OFFSHORE_1949665",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    },
+    {
+      "boundaries": [],
+      "candidates": [],
+      "document_signals": [],
+      "ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+      "reason": "no_semantically_anchored_depth_column",
+      "record_id": "BGS_OFFSHORE_1942278",
+      "risk_score": 1.0,
+      "selected_columns": [],
+      "status": "abstained"
+    }
+  ],
+  "document_count": 26,
+  "experiment_id": "P2_BGS_NATIVE_PDF_DEVELOPMENT_V001",
+  "git_commit": "da1df117947cdec1b77de4762c3b613cc72471d1",
+  "ground_truth_tier": [
+    "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT"
+  ],
+  "limitations": [
+    "Evaluation covers interval boundaries only; lithology and descriptions are excluded.",
+    "The Gold manifest is authoritative source-table agreement, not project human annotation.",
+    "Native text evidence is unavailable on raster-only pages; those pages abstain."
+  ],
+  "manifest": "datasets/manifests/bgs_offshore_gold_v001.jsonl",
+  "manifest_sha256": "d85f6c862b81d80c793887f73ca8b70658d42de358f25230dc4a15104520c99c",
+  "maximum_risk": 0.55,
+  "method_version": "native_pdf_semantic_and_explicit_range_v002",
+  "native": {
+    "boundary": {
+      "critical_numerical_error_rate": null,
+      "f1": 0.0,
+      "false_negative": 367,
+      "false_positive": 0,
+      "matched_boundary_mae_m": null,
+      "precision": 0.0,
+      "recall": 0.0,
+      "true_positive": 0
+    },
+    "interval": {
+      "f1": 0.0,
+      "false_negative": 341,
+      "false_positive": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "true_positive": 0
+    }
+  },
+  "platform": "Linux-5.15.0-186-generic-x86_64-with-glibc2.35",
+  "prediction_reference_conditioning": "none",
+  "selective": {
+    "boundary": {
+      "critical_numerical_error_rate": null,
+      "f1": 0.0,
+      "false_negative": 367,
+      "false_positive": 0,
+      "matched_boundary_mae_m": null,
+      "precision": 0.0,
+      "recall": 0.0,
+      "true_positive": 0
+    },
+    "interval": {
+      "f1": 0.0,
+      "false_negative": 341,
+      "false_positive": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "true_positive": 0
+    }
+  },
+  "selective_coverage": 0.0,
+  "status": "completed_native_pdf_gold_evaluation",
+  "wall_time_seconds": 1.9147871050081449
+}

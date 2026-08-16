@@ -1,0 +1,84 @@
+{
+  "comparison": {
+    "final": {
+      "boundary": {
+        "critical_numerical_error_rate": 0.009433962264150943,
+        "f1": 0.9502262443438914,
+        "false_negative": 10,
+        "false_positive": 1,
+        "matched_boundary_mae_m": 0.0,
+        "precision": 0.9905660377358491,
+        "recall": 0.9130434782608695,
+        "true_positive": 105
+      },
+      "interval": {
+        "f1": 0.9210526315789473,
+        "false_negative": 10,
+        "false_positive": 2,
+        "precision": 0.9722222222222222,
+        "recall": 0.875,
+        "true_positive": 70
+      }
+    },
+    "first_pass": {
+      "boundary": {
+        "critical_numerical_error_rate": 0.037037037037037035,
+        "f1": 0.9327354260089685,
+        "false_negative": 11,
+        "false_positive": 4,
+        "matched_boundary_mae_m": 0.0,
+        "precision": 0.9629629629629629,
+        "recall": 0.9043478260869565,
+        "true_positive": 104
+      },
+      "interval": {
+        "f1": 0.8571428571428571,
+        "false_negative": 14,
+        "false_positive": 8,
+        "precision": 0.8918918918918919,
+        "recall": 0.825,
+        "true_positive": 66
+      }
+    },
+    "native_structural": {
+      "boundary": {
+        "critical_numerical_error_rate": 0.2711864406779661,
+        "f1": 0.49425287356321845,
+        "false_negative": 72,
+        "false_positive": 16,
+        "matched_boundary_mae_m": 0.0,
+        "precision": 0.7288135593220338,
+        "recall": 0.3739130434782609,
+        "true_positive": 43
+      },
+      "interval": {
+        "f1": 0.3833333333333333,
+        "false_negative": 57,
+        "false_positive": 17,
+        "precision": 0.575,
+        "recall": 0.2875,
+        "true_positive": 23
+      }
+    }
+  },
+  "created_at": "2026-08-16T09:50:38.515951+00:00",
+  "exact_document_counts": {
+    "final": 29,
+    "first_pass": 25,
+    "native_structural": 10
+  },
+  "experiment_id": "P2_TG_NATIVE_VS_FROZEN_HELDOUT_V001",
+  "frozen_run": "results/2026-08-14/P2_SWISSGEOL_TG_CONSTRAINT_REREAD_HELDOUT_V003_001",
+  "git_commit": "da1df117947cdec1b77de4762c3b613cc72471d1",
+  "limitations": [
+    "The frozen run is reused without modification; this is a descriptive comparison, not a new tuned baseline.",
+    "Native structural predictions contain depth boundaries only.",
+    "The manifest is authoritative source-table agreement and not project human annotation."
+  ],
+  "manifest": "datasets/manifests/swissgeol_tg_v003_layout_heldout_v001.jsonl",
+  "manifest_sha256": "10bf695a4bf1654f79a589172112417773a131dcfdab82a7f0cf483de7a3092e",
+  "native_report": "experiments/paper2/analysis/native_pdf_tg_layout_heldout_v001.json",
+  "native_report_sha256": "ef3d25d6cdfd9cd3d340c3a5bfd00de69cba0afdaead5a8b66c4f2491b5643eb",
+  "prediction_reference_conditioning": "none",
+  "status": "completed_frozen_native_comparison"
+}

@@ -66,6 +66,13 @@ _RANGE = re.compile(
     r"([0-9]{1,4}(?:['\N{RIGHT SINGLE QUOTATION MARK}][0-9]{3})?(?:[.,][0-9]{1,3})?)\s*m",
     re.I,
 )
+_RANGE_TOKEN = re.compile(
+    r"^\s*([0-9]{1,4}(?:['\N{RIGHT SINGLE QUOTATION MARK}][0-9]{3})?(?:[.,][0-9]{1,3})?)"
+    r"\s*[-\N{EN DASH}\N{EM DASH}]\s*"
+    r"([0-9]{1,4}(?:['\N{RIGHT SINGLE QUOTATION MARK}][0-9]{3})?(?:[.,][0-9]{1,3})?)"
+    r"\s*m?\s*$",
+    re.I,
+)
 
 _HEADER_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
     ("cumulative_depth", re.compile(r"depth\s*interval|teufen?intervall|intervalle?\s+de\s+profondeur", re.I)),
@@ -85,6 +92,21 @@ def parse_native_number(text: str) -> float | None:
     except ValueError:
         return None
     return value if 0.0 <= value <= 5000.0 else None
+
+
+def parse_native_range(text: str) -> tuple[float, float] | None:
+    """Parse a printed depth range such as ``0-40m`` or ``40–250``."""
+    match = _RANGE_TOKEN.fullmatch(text.strip().replace("’", "'"))
+    if not match:
+        return None
+    try:
+        top = float(match.group(1).replace("'", "").replace(",", "."))
+        bottom = float(match.group(2).replace("'", "").replace(",", "."))
+    except ValueError:
+        return None
+    if 0.0 <= top < bottom <= 5000.0:
+        return top, bottom
+    return None
 
 
 def _parse_range_value(text: str) -> float:
@@ -279,6 +301,61 @@ def _numeric_columns(
     return sorted(output, key=lambda item: item.score, reverse=True)
 
 
+def _range_columns(
+    words: Sequence[NativePDFWord], *, page_range: tuple[float, float] | None,
+    x_tolerance: float,
+) -> list[NativeNumericColumn]:
+    """Extract explicit range tokens from semantically labelled columns."""
+    headers = _headers(words)
+    ranged = [(word, pair) for word in words if (pair := parse_native_range(word.text)) is not None]
+    output: list[NativeNumericColumn] = []
+    for page in sorted({word.page for word, _ in ranged}):
+        page_ranged = sorted((item for item in ranged if item[0].page == page), key=lambda item: item[0].x_norm)
+        clusters: list[list[tuple[NativePDFWord, tuple[float, float]]]] = []
+        for item in page_ranged:
+            if not clusters or item[0].x_norm - clusters[-1][-1][0].x_norm > x_tolerance:
+                clusters.append([item])
+            else:
+                clusters[-1].append(item)
+        page_headers = [item for item in headers if item[2] == page]
+        for cluster in clusters:
+            ordered = sorted(cluster, key=lambda item: item[0].y_norm)
+            values: list[float] = []
+            selected_words: list[NativePDFWord] = []
+            for word, (top, bottom) in ordered:
+                if not values or abs(top - values[-1]) > 0.01:
+                    values.append(top)
+                if not values or abs(bottom - values[-1]) > 0.01:
+                    values.append(bottom)
+                selected_words.append(word)
+            if len(values) < 2 or any(right <= left for left, right in zip(values, values[1:])):
+                continue
+            x_norm = sum(item[0].x_norm for item in cluster) / len(cluster)
+            role_matches = sorted(
+                ((abs(x_norm - center), role) for role, center, _, _ in page_headers),
+                key=lambda item: item[0],
+            )
+            header_distance, header_role = role_matches[0] if role_matches else (None, None)
+            if header_distance is not None and header_distance > 0.055:
+                header_distance, header_role = None, None
+            if page_range:
+                left, right = page_range
+                range_support = sum(left - 0.1 <= value <= right + 0.1 for value in values) / len(values)
+            else:
+                range_support = 1.0
+            monotonic_ratio = sum(right > left for left, right in zip(values, values[1:])) / max(1, len(values) - 1)
+            role_bonus = 8.0 if header_role == "cumulative_depth" else (-5.0 if header_role == "thickness" else 0.0)
+            distance_bonus = 4.0 * max(0.0, 1.0 - (header_distance or 0.055) / 0.055) if header_role else 0.0
+            score = len(values) + 6.0 * monotonic_ratio + 5.0 * range_support + role_bonus + distance_bonus
+            output.append(NativeNumericColumn(
+                page=page, x_norm=x_norm, values=tuple(values), words=tuple(selected_words),
+                header_role=header_role, header_distance=header_distance,
+                monotonic_ratio=monotonic_ratio, span_m=max(values) - min(values),
+                scale_tick_score=0.0, range_support=range_support, score=score,
+            ))
+    return sorted(output, key=lambda item: item.score, reverse=True)
+
+
 def predict_native_pdf_boundaries(
     path: Path, *, x_tolerance: float = 0.008, pages: set[int] | None = None,
 ) -> NativeStructuralPrediction:
@@ -300,7 +377,11 @@ def predict_native_pdf_boundaries(
             boundaries=(), selected_columns=(), candidates=(),
             document_signals=tuple(signals), risk_score=1.0,
         )
-    candidates = _numeric_columns(words, page_range=page_range, x_tolerance=x_tolerance)
+    candidates = sorted(
+        _range_columns(words, page_range=page_range, x_tolerance=x_tolerance)
+        + _numeric_columns(words, page_range=page_range, x_tolerance=x_tolerance),
+        key=lambda item: item.score, reverse=True,
+    )
     anchored = [
         item for item in candidates
         if item.header_role == "cumulative_depth"
