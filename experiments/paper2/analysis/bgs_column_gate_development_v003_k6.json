@@ -1,0 +1,3052 @@
+{
+  "analysis_scope": "BGS v001 source-disjoint semantic column gate over v021 candidates",
+  "boundary_at_0_05m": {
+    "critical_numerical_error_rate": 0.3389830508474576,
+    "f1": 0.32164948453608244,
+    "false_negative": 289,
+    "false_positive": 40,
+    "matched_boundary_mae_m": 0.0002948717948717909,
+    "precision": 0.6610169491525424,
+    "recall": 0.2125340599455041,
+    "true_positive": 78
+  },
+  "column_count": 98,
+  "document_count": 26,
+  "fold_models": [
+    {
+      "fold": 0,
+      "ranker": {
+        "bias": 2.3326522133172167,
+        "features": [
+          "center_x",
+          "width",
+          "activity",
+          "rank_score",
+          "distance_to_depth",
+          "candidate_count_log",
+          "mean_line",
+          "maximum_line",
+          "mean_change",
+          "maximum_change",
+          "mean_cross_column",
+          "maximum_cross_column",
+          "mean_scale_quality"
+        ],
+        "mean": [
+          0.28520274875056795,
+          0.04077124034529758,
+          0.26547248797332934,
+          0.47005365526492293,
+          0.08693103513554441,
+          0.7564755168616806,
+          0.27002483555414414,
+          0.9818835644427495,
+          0.1706401697343701,
+          0.4089747656808343,
+          0.805255415203548,
+          0.9154929577464787,
+          0.5444423040241032
+        ],
+        "scale": [
+          0.10811422704240528,
+          0.014892784476306578,
+          0.13802842493975595,
+          0.31981315555863343,
+          0.048457163815600474,
+          0.1541656410409484,
+          0.1487441511414644,
+          0.11973046664354654,
+          0.07891127867058975,
+          0.14122338210040186,
+          0.19629025004451395,
+          0.1744054048920818,
+          0.1588834792724092
+        ],
+        "weights": [
+          0.08465432905265659,
+          0.12344861524546265,
+          -0.21185678023456772,
+          -0.3727243910019805,
+          -0.6057180640864818,
+          1.4909155214752154,
+          0.28843698467270246,
+          -0.30818338830657893,
+          -0.42023810160321906,
+          0.3007270849396963,
+          0.2044928227649038,
+          -0.03617490347818768,
+          0.8313733783779358
+        ]
+      },
+      "sequence_threshold": 0.32,
+      "test_documents": 6,
+      "top_k": 6,
+      "train_documents": 20
+    },
+    {
+      "fold": 1,
+      "ranker": {
+        "bias": 2.2797747069370966,
+        "features": [
+          "center_x",
+          "width",
+          "activity",
+          "rank_score",
+          "distance_to_depth",
+          "candidate_count_log",
+          "mean_line",
+          "maximum_line",
+          "mean_change",
+          "maximum_change",
+          "mean_cross_column",
+          "maximum_cross_column",
+          "mean_scale_quality"
+        ],
+        "mean": [
+          0.2916078629032258,
+          0.04096865835777122,
+          0.27363934365799153,
+          0.4611471861471863,
+          0.08526980999511241,
+          0.773171880995135,
+          0.2500293927013422,
+          0.9853833304026729,
+          0.17815482938489688,
+          0.43218260757347476,
+          0.8037740030273749,
+          0.9318181818181821,
+          0.5380790098375567
+        ],
+        "scale": [
+          0.10483971558924503,
+          0.013815137411486203,
+          0.1330405476729469,
+          0.31423355395217545,
+          0.04609332919918664,
+          0.15226540682963172,
+          0.15212966512998571,
+          0.10778313363312797,
+          0.07805192475784782,
+          0.1411465593812107,
+          0.19654906092756005,
+          0.16016950387777254,
+          0.1417927797185658
+        ],
+        "weights": [
+          0.10778916683678558,
+          0.019050417998844563,
+          0.07525309222272239,
+          -0.22859504540941605,
+          -0.2532351200120189,
+          1.1972539524573862,
+          0.17754599407245097,
+          -0.33557681367095155,
+          -0.5165414517759683,
+          0.2112275911245978,
+          0.045142854192428014,
+          0.15740661783473586,
+          0.7544380530173886
+        ]
+      },
+      "sequence_threshold": 0.32,
+      "test_documents": 3,
+      "top_k": 6,
+      "train_documents": 23
+    },
+    {
+      "fold": 2,
+      "ranker": {
+        "bias": 2.0029558887215084,
+        "features": [
+          "center_x",
+          "width",
+          "activity",
+          "rank_score",
+          "distance_to_depth",
+          "candidate_count_log",
+          "mean_line",
+          "maximum_line",
+          "mean_change",
+          "maximum_change",
+          "mean_cross_column",
+          "maximum_cross_column",
+          "mean_scale_quality"
+        ],
+        "mean": [
+          0.29833158017765327,
+          0.04254908835904624,
+          0.2669050600486227,
+          0.49195997239475525,
+          0.07707037946080723,
+          0.7586419334486889,
+          0.22128346624529915,
+          0.9813584503686261,
+          0.1838387328859783,
+          0.4563944888643449,
+          0.7659168296129336,
+          0.903381642512077,
+          0.556789205167188
+        ],
+        "scale": [
+          0.11038272967653782,
+          0.013625302176153915,
+          0.1329063720187645,
+          0.3227704020420717,
+          0.0429273696519486,
+          0.1498370765411902,
+          0.1306520306559127,
+          0.12141298982418033,
+          0.06585146150245087,
+          0.13851519275102858,
+          0.20656979513868923,
+          0.18908585305102338,
+          0.15517632388634306
+        ],
+        "weights": [
+          0.26483998895628447,
+          -0.02853729347517622,
+          -0.08111220142422641,
+          -0.19176379970030233,
+          -0.5353670405841542,
+          1.0851071555119585,
+          0.20083403935281818,
+          -0.28211600081743876,
+          -0.40291317664945253,
+          0.38523790881595327,
+          -0.15328641639538268,
+          0.05843305478116563,
+          0.654668395862035
+        ]
+      },
+      "sequence_threshold": 0.32,
+      "test_documents": 5,
+      "top_k": 6,
+      "train_documents": 21
+    },
+    {
+      "fold": 3,
+      "ranker": {
+        "bias": 2.3231867597270366,
+        "features": [
+          "center_x",
+          "width",
+          "activity",
+          "rank_score",
+          "distance_to_depth",
+          "candidate_count_log",
+          "mean_line",
+          "maximum_line",
+          "mean_change",
+          "maximum_change",
+          "mean_cross_column",
+          "maximum_cross_column",
+          "mean_scale_quality"
+        ],
+        "mean": [
+          0.2907628846866889,
+          0.041583240637745586,
+          0.2704438545272821,
+          0.4607006020799126,
+          0.08314593375355332,
+          0.7782266246495715,
+          0.24532890032738852,
+          0.9852153227061519,
+          0.17682461508337521,
+          0.43985701136243427,
+          0.8090831371175405,
+          0.9310344827586209,
+          0.5362694126407537
+        ],
+        "scale": [
+          0.10286362446079109,
+          0.014392368415215706,
+          0.1325110441227006,
+          0.3160065660891478,
+          0.04716745983772488,
+          0.1523806845776616,
+          0.15445957089924467,
+          0.10838934927133068,
+          0.07553091010472532,
+          0.14180051350012626,
+          0.19580271920910625,
+          0.16866943067475193,
+          0.14224099950381391
+        ],
+        "weights": [
+          0.15407970016574082,
+          0.03911061967751006,
+          -0.09630549745180171,
+          -0.2372630558235018,
+          -0.34962928565648066,
+          1.3045145100448503,
+          0.22578411216824548,
+          -0.2216974980989445,
+          -0.44580217734437094,
+          0.2260177898659808,
+          0.00484402201507975,
+          -0.09149834683510262,
+          0.5470285699659063
+        ]
+      },
+      "sequence_threshold": 0.32,
+      "test_documents": 5,
+      "top_k": 6,
+      "train_documents": 21
+    },
+    {
+      "fold": 4,
+      "ranker": {
+        "bias": 2.9768346254954463,
+        "features": [
+          "center_x",
+          "width",
+          "activity",
+          "rank_score",
+          "distance_to_depth",
+          "candidate_count_log",
+          "mean_line",
+          "maximum_line",
+          "mean_change",
+          "maximum_change",
+          "mean_cross_column",
+          "maximum_cross_column",
+          "mean_scale_quality"
+        ],
+        "mean": [
+          0.2883719103477169,
+          0.040275450356095484,
+          0.2663155323449828,
+          0.4508348794063082,
+          0.08504390099148162,
+          0.8038719737513612,
+          0.23930758532653404,
+          1.0,
+          0.18737400395241852,
+          0.4792766628486591,
+          0.8067274322259711,
+          0.9393939393939396,
+          0.5669557779697276
+        ],
+        "scale": [
+          0.09874196448137221,
+          0.014720374256851583,
+          0.09610075870199732,
+          0.3144882235430502,
+          0.047246542477644975,
+          0.1268405898348934,
+          0.14614679274260128,
+          1.0,
+          0.07882971197832495,
+          0.1332304092554052,
+          0.1847255391965168,
+          0.14933496372866095,
+          0.13652409713834324
+        ],
+        "weights": [
+          0.45339138063516365,
+          0.4989799037125895,
+          0.21203456334867254,
+          -0.3173740018675815,
+          -0.19339973854423062,
+          0.49231675521279417,
+          0.02267576392572988,
+          0.0,
+          -0.6354944917406076,
+          -0.2079035181164191,
+          -0.06271149156483134,
+          0.08977166235370923,
+          0.06899926079580976
+        ]
+      },
+      "sequence_threshold": 0.32,
+      "test_documents": 7,
+      "top_k": 6,
+      "train_documents": 19
+    }
+  ],
+  "interval_at_0_05m": {
+    "f1": 0.14746543778801843,
+    "false_negative": 309,
+    "false_positive": 61,
+    "precision": 0.34408602150537637,
+    "recall": 0.093841642228739,
+    "true_positive": 32
+  },
+  "manifest": "datasets/manifests/bgs_offshore_gold_v001.jsonl",
+  "manifest_sha256": "d85f6c862b81d80c793887f73ca8b70658d42de358f25230dc4a15104520c99c",
+  "positive_column_count": 81,
+  "predictions": [
+    {
+      "columns": [],
+      "fold": 3,
+      "predicted_boundaries_m": [
+        0.0,
+        36.0
+      ],
+      "record_id": "BGS_OFFSHORE_1942278"
+    },
+    {
+      "columns": [],
+      "fold": 4,
+      "predicted_boundaries_m": [
+        0.0
+      ],
+      "record_id": "BGS_OFFSHORE_1943902"
+    },
+    {
+      "columns": [
+        {
+          "features": {
+            "activity": 0.401730428499081,
+            "candidate_count_log": 0.9555328351403523,
+            "center_x": 0.414112903225808,
+            "distance_to_depth": 0.07298387096774227,
+            "maximum_change": 0.3425394548063128,
+            "maximum_cross_column": 0.6666666666666666,
+            "maximum_line": 1.0,
+            "mean_change": 0.05315685213073655,
+            "mean_cross_column": 0.6429199648196974,
+            "mean_line": 0.6329236115580152,
+            "mean_scale_quality": 0.42338701677651336,
+            "rank_score": 1.0,
+            "width": 0.033064516129032356
+          },
+          "key": [
+            45,
+            4141
+          ],
+          "label": 1,
+          "page": 45,
+          "probability": 0.9923693009672708
+        },
+        {
+          "features": {
+            "activity": 0.533815841626734,
+            "candidate_count_log": 0.9427630009311826,
+            "center_x": 0.44919354838709696,
+            "distance_to_depth": 0.10806451612903284,
+            "maximum_change": 0.33565894388445916,
+            "maximum_cross_column": 0.6666666666666666,
+            "maximum_line": 1.0,
+            "mean_change": 0.0407160588020374,
+            "mean_cross_column": 0.6609523809523776,
+            "mean_line": 0.6869565217391306,
+            "mean_scale_quality": 0.42338701677651347,
+            "rank_score": 0.5,
+            "width": 0.03709677419354839
+          },
+          "key": [
+            45,
+            4492
+          ],
+          "label": 1,
+          "page": 45,
+          "probability": 0.997218065735646
+        }
+      ],
+      "fold": 4,
+      "predicted_boundaries_m": [
+        0.0,
+        28.35
+      ],
+      "record_id": "BGS_OFFSHORE_1944312"
+    },
+    {
+      "columns": [
+        {
+          "features": {
+            "activity": 0.4119784410562254,
+            "candidate_count_log": 0.7792333964368803,
+            "center_x": 0.4153225806451606,
+            "distance_to_depth": 0.07056451612903208,
+            "maximum_change": 0.35300372142477404,
+            "maximum_cross_column": 0.6666666666666666,
+            "maximum_line": 1.0,
+            "mean_change": 0.21161542323823004,
+            "mean_cross_column": 0.486772486772486,
+            "mean_line": 0.48412698412698413,
+            "mean_scale_quality": 0.3549278694654414,
+            "rank_score": 1.0,
+            "width": 0.03548387096774196
+          },
+          "key": [
+            11,
+            4153
+          ],
+          "label": 1,
+          "page": 11,
+          "probability": 0.6752881111886662
+        },
+        {
+          "features": {
+            "activity": 0.49147725040393486,
+            "candidate_count_log": 0.6987422640620006,
+            "center_x": 0.45362903225806417,
+            "distance_to_depth": 0.10887096774193529,
+            "maximum_change": 0.2993753322700692,
+            "maximum_cross_column": 0.6666666666666666,
+            "maximum_line": 1.0,
+            "mean_change": 0.1501860712387028,
+            "mean_cross_column": 0.5701754385964911,
+            "mean_line": 0.17972488038277507,
+            "mean_scale_quality": 0.3549278694654414,
+            "rank_score": 0.5,
+            "width": 0.03548387096774195
+          },
+          "key": [
+            11,
+            4536
+          ],
+          "label": 1,
+          "page": 11,
+          "probability": 0.41950439038390824
+        }
+      ],
+      "fold": 0,
+      "predicted_boundaries_m": [
+        0.0,
+        13.55
+      ],
+      "record_id": "BGS_OFFSHORE_1944320"
+    },
+    {
+      "columns": [
+        {
+          "features": {
+            "activity": 0.19053505366271564,
+            "candidate_count_log": 0.6987422640620006,
+            "center_x": 0.4391129032258058,
+            "distance_to_depth": 0.07004032258064533,
+            "maximum_change": 0.24936868686868693,
+            "maximum_cross_column": 0.3333333333333333,
+            "maximum_line": 1.0,
+            "mean_change": 0.09502724614566718,
+            "mean_cross_column": 0.33333333333333304,
+            "mean_line": 0.1305821371610845,
+            "mean_scale_quality": 0.6209040630429916,
+            "rank_score": 1.0,
+            "width": 0.07983870967741949
+          },
+          "key": [
+            16,
+            4391
+          ],
+          "label": 1,
+          "page": 16,
+          "probability": 0.7990829463519907
+        }
+      ],
+      "fold": 1,
+      "predicted_boundaries_m": [
+        0.0,
+        16.0
+      ],
+      "record_id": "BGS_OFFSHORE_1944322"
+    },
+    {
+      "columns": [],
+      "fold": 0,
+      "predicted_boundaries_m": [
+        0.0
+      ],
+      "record_id": "BGS_OFFSHORE_1945465"
+    },
+    {
+      "columns": [],
+      "fold": 4,
+      "predicted_boundaries_m": [
+        0.0
+      ],
+      "record_id": "BGS_OFFSHORE_1949665"
+    },
+    {
+      "columns": [],
+      "fold": 2,
+      "predicted_boundaries_m": [
+        0.0
+      ],
+      "record_id": "BGS_OFFSHORE_1951404"
+    },
+    {
+      "columns": [
+        {
+          "features": {
+            "activity": 0.5062262066830239,
+            "candidate_count_log": 0.7701134131606918,
+            "center_x": 0.45463709677419273,
+            "distance_to_depth": 0.054099462365591315,
+            "maximum_change": 0.2121329425427196,
+            "maximum_cross_column": 0.3333333333333333,
+            "maximum_line": 1.0,
+            "mean_change": 0.10477550529142705,
+            "mean_cross_column": 0.33333333333333337,
+            "mean_line": 0.30134296709337943,
+            "mean_scale_quality": 0.979909250457073,
+            "rank_score": 1.0,
+            "width": 0.043145161290322497
+          },
+          "key": [
+            15,
+            4546
+          ],
+          "label": 1,
+          "page": 15,
+          "probability": 0.9800341016589701
+        }
+      ],
+      "fold": 0,
+      "predicted_boundaries_m": [
+        0.0,
+        2.0,
+        10.0,
+        13.0,
+        16.67,
+        20.0,
+        21.0,
+        22.903
+      ],
+      "record_id": "BGS_OFFSHORE_1957995"
+    },
+    {
+      "columns": [
+        {
+          "features": {
+            "activity": 0.2659857746790488,
+            "candidate_count_log": 0.7714483542329993,
+            "center_x": 0.42842741935483936,
+            "distance_to_depth": 0.08563508064516143,
+            "maximum_change": 0.17818501217710714,
+            "maximum_cross_column": 0.6666666666666666,
+            "maximum_line": 1.0,
+            "mean_change": 0.11527361892974528,
+            "mean_cross_column": 0.5888888888888885,
+            "mean_line": 0.3785353535353535,
+            "mean_scale_quality": 0.9477156933435884,
+            "rank_score": 1.0,
+            "width": 0.03991935483870976
+          },
+          "key": [
+            9,
+            4284
+          ],
+          "label": 1,
+          "page": 9,
+          "probability": 0.979721397044138
+        },
+        {
+          "features": {
+            "activity": 0.44192314984577225,
+            "candidate_count_log": 0.794910010744759,
+            "center_x": 0.46612903225806546,
+            "distance_to_depth": 0.047933467741935416,
+            "maximum_change": 0.215504850880345,
+            "maximum_cross_column": 0.6666666666666666,
+            "maximum_line": 1.0,
+            "mean_change": 0.10346379741338077,
+            "mean_cross_column": 0.5563549160671467,
+            "mean_line": 0.18762262916939174,
+            "mean_scale_quality": 0.9477156933435884,
+            "rank_score": 0.5,
+            "width": 0.03548387096774192
+          },
+          "key": [
+            9,
+            4661
+          ],
+          "label": 1,
+          "page": 9,
+          "probability": 0.9890053858814778
+        }
+      ],
+      "fold": 3,
+      "predicted_boundaries_m": [
+        0.0,
+        7.0,
+        8.0,
+        12.0,
+        13.0,
+        17.0,
+        18.0,
+        19.0,
+        20.0,
+        21.0,
+        30.0
+      ],
+      "record_id": "BGS_OFFSHORE_1960100"
+    },
+    {
+      "columns": [
+        {
+          "features": {
+            "activity": 0.1366897003556932,
+            "candidate_count_log": 0.49722346938129086,
+            "center_x": 0.1064516129032258,
+            "distance_to_depth": 0.14657258064516127,
+            "maximum_change": 0.5087463556851312,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.2853585311675692,
+            "mean_cross_column": 1.0,
+            "mean_line": 0.2857142857142857,
+            "mean_scale_quality": 0.5754631110218029,
+            "rank_score": 1.0,
+            "width": 0.02258064516129032
+          },
+          "key": [
+            4,
+            1065
+          ],
+          "label": 0,
+          "page": 4,
+          "probability": 0.13206605722989928
+        },
+        {
+          "features": {
+            "activity": 0.18376033852657966,
+            "candidate_count_log": 0.7727723080114249,
+            "center_x": 0.14495967741935456,
+            "distance_to_depth": 0.10806451612903212,
+            "maximum_change": 0.4289493575207861,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.15420125809736196,
+            "mean_cross_column": 0.7906336088154275,
+            "mean_line": 0.1709825528007346,
+            "mean_scale_quality": 0.5754631110218029,
+            "rank_score": 0.5,
+            "width": 0.05443548387096776
+          },
+          "key": [
+            4,
+            1450
+          ],
+          "label": 1,
+          "page": 4,
+          "probability": 0.8094595086381543
+        },
+        {
+          "features": {
+            "activity": 0.16201379181877246,
+            "candidate_count_log": 0.6227193661558071,
+            "center_x": 0.19999999999999998,
+            "distance_to_depth": 0.05302419354838712,
+            "maximum_change": 0.4490535344572612,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.26998024001459975,
+            "mean_cross_column": 0.9645390070921988,
+            "mean_line": 0.3422756706753007,
+            "mean_scale_quality": 0.5754631110218029,
+            "rank_score": 0.33333333333333354,
+            "width": 0.05564516129032259
+          },
+          "key": [
+            4,
+            2000
+          ],
+          "label": 1,
+          "page": 4,
+          "probability": 0.6834900009197515
+        },
+        {
+          "features": {
+            "activity": 0.2167417228870818,
+            "candidate_count_log": 0.7971917436970014,
+            "center_x": 0.25463709677419344,
+            "distance_to_depth": 0.001612903225806428,
+            "maximum_change": 0.4073960411232161,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.15679994602224206,
+            "mean_cross_column": 0.6430260047281329,
+            "mean_line": 0.15080253826054504,
+            "mean_scale_quality": 0.575463111021803,
+            "rank_score": 0.25,
+            "width": 0.05362903225806458
+          },
+          "key": [
+            4,
+            2546
+          ],
+          "label": 1,
+          "page": 4,
+          "probability": 0.9660018496138812
+        },
+        {
+          "features": {
+            "activity": 0.35323333792628836,
+            "candidate_count_log": 0.9776463466598633,
+            "center_x": 0.30887096774193795,
+            "distance_to_depth": 0.05584677419354823,
+            "maximum_change": 0.4062124849939975,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.1322149549474962,
+            "mean_cross_column": 0.58544061302682,
+            "mean_line": 0.14217376605814736,
+            "mean_scale_quality": 0.5754631110218033,
+            "rank_score": 0.2000000000000016,
+            "width": 0.05483870967741923
+          },
+          "key": [
+            4,
+            3089
+          ],
+          "label": 1,
+          "page": 4,
+          "probability": 0.9856268373378735
+        },
+        {
+          "features": {
+            "activity": 0.27602531978199596,
+            "candidate_count_log": 0.7804950458535382,
+            "center_x": 0.35100806451612937,
+            "distance_to_depth": 0.09798387096774175,
+            "maximum_change": 0.39935700307520267,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.1683161669370586,
+            "mean_cross_column": 1.0,
+            "mean_line": 0.46133103225110567,
+            "mean_scale_quality": 0.5754631110218029,
+            "rank_score": 0.16666666666666677,
+            "width": 0.029435483870967706
+          },
+          "key": [
+            4,
+            3510
+          ],
+          "label": 1,
+          "page": 4,
+          "probability": 0.9197458394891032
+        },
+        {
+          "features": {
+            "activity": 0.21699982709461707,
+            "candidate_count_log": 0.7817468768873072,
+            "center_x": 0.37923387096774286,
+            "distance_to_depth": 0.12620967741935507,
+            "maximum_change": 0.4048126713371915,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.1534978963600365,
+            "mean_cross_column": 1.0,
+            "mean_line": 0.4638526119402986,
+            "mean_scale_quality": 0.5754631110218029,
+            "rank_score": 0.14285714285714265,
+            "width": 0.027016129032258022
+          },
+          "key": [
+            4,
+            3792
+          ],
+          "label": 1,
+          "page": 4,
+          "probability": 0.9112197810726759
+        }
+      ],
+      "fold": 2,
+      "predicted_boundaries_m": [
+        0.0,
+        5.0,
+        11.0,
+        19.0,
+        23.0,
+        24.0,
+        26.0,
+        51.0
+      ],
+      "record_id": "BGS_OFFSHORE_1960609"
+    },
+    {
+      "columns": [
+        {
+          "features": {
+            "activity": 0.1714782438739653,
+            "candidate_count_log": 0.5672485062228365,
+            "center_x": 0.10221774193548383,
+            "distance_to_depth": 0.14475806451612894,
+            "maximum_change": 0.4528301886792453,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.21679352487135514,
+            "mean_cross_column": 1.0,
+            "mean_line": 0.18181818181818182,
+            "mean_scale_quality": 0.5637337178923099,
+            "rank_score": 1.0,
+            "width": 0.02137096774193548
+          },
+          "key": [
+            7,
+            1022
+          ],
+          "label": 0,
+          "page": 7,
+          "probability": 0.3361106147615236
+        },
+        {
+          "features": {
+            "activity": 0.2137154309715957,
+            "candidate_count_log": 0.7486336233118192,
+            "center_x": 0.13891129032258046,
+            "distance_to_depth": 0.10806451612903219,
+            "maximum_change": 0.4156976744186046,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.1694641659212879,
+            "mean_cross_column": 0.8878205128205129,
+            "mean_line": 0.25,
+            "mean_scale_quality": 0.5637337178923097,
+            "rank_score": 0.5,
+            "width": 0.05201612903225808
+          },
+          "key": [
+            7,
+            1389
+          ],
+          "label": 1,
+          "page": 7,
+          "probability": 0.9217784346656313
+        },
+        {
+          "features": {
+            "activity": 0.1608433237840092,
+            "candidate_count_log": 0.6292859708041428,
+            "center_x": 0.1935483870967741,
+            "distance_to_depth": 0.05342741935483869,
+            "maximum_change": 0.3793269230769231,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.2249043367346937,
+            "mean_cross_column": 0.9319727891156461,
+            "mean_line": 0.22072213500784932,
+            "mean_scale_quality": 0.5637337178923097,
+            "rank_score": 0.33333333333333354,
+            "width": 0.05241935483870966
+          },
+          "key": [
+            7,
+            1935
+          ],
+          "label": 1,
+          "page": 7,
+          "probability": 0.8941215062871006
+        },
+        {
+          "features": {
+            "activity": 0.2083197772058265,
+            "candidate_count_log": 0.7914255537228804,
+            "center_x": 0.24576612903225814,
+            "distance_to_depth": 0.0012096774193548487,
+            "maximum_change": 0.34350775193798444,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.15610794644892834,
+            "mean_cross_column": 0.6691176470588244,
+            "mean_line": 0.11850205198358411,
+            "mean_scale_quality": 0.5637337178923097,
+            "rank_score": 0.25,
+            "width": 0.05201612903225802
+          },
+          "key": [
+            7,
+            2458
+          ],
+          "label": 1,
+          "page": 7,
+          "probability": 0.9832991191771252
+        },
+        {
+          "features": {
+            "activity": 0.43240262785986483,
+            "candidate_count_log": 0.9883504816323201,
+            "center_x": 0.2999999999999991,
+            "distance_to_depth": 0.05302419354838752,
+            "maximum_change": 0.32763671875,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.11860128423219087,
+            "mean_cross_column": 0.6551971326164878,
+            "mean_line": 0.18773521505376345,
+            "mean_scale_quality": 0.5637337178923103,
+            "rank_score": 0.20000000000000168,
+            "width": 0.05161290322580598
+          },
+          "key": [
+            7,
+            3000
+          ],
+          "label": 1,
+          "page": 7,
+          "probability": 0.9968289589679925
+        },
+        {
+          "features": {
+            "activity": 0.30276481427011953,
+            "candidate_count_log": 0.8862373209823492,
+            "center_x": 0.3411290322580658,
+            "distance_to_depth": 0.09415322580645132,
+            "maximum_change": 0.3251953125,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.12113195900025407,
+            "mean_cross_column": 0.9864498644986449,
+            "mean_line": 0.34489329268292684,
+            "mean_scale_quality": 0.5637337178923096,
+            "rank_score": 0.1666666666666665,
+            "width": 0.02580645161290311
+          },
+          "key": [
+            7,
+            3411
+          ],
+          "label": 1,
+          "page": 7,
+          "probability": 0.9843706457595274
+        },
+        {
+          "features": {
+            "activity": 0.25769146750651106,
+            "candidate_count_log": 0.8747665881507584,
+            "center_x": 0.36733870967742094,
+            "distance_to_depth": 0.12036290322580687,
+            "maximum_change": 0.3422111742424243,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.13010960450575626,
+            "mean_cross_column": 0.9927219796215431,
+            "mean_line": 0.38639671827444766,
+            "mean_scale_quality": 0.5637337178923096,
+            "rank_score": 0.14285714285714257,
+            "width": 0.0266129032258063
+          },
+          "key": [
+            7,
+            3673
+          ],
+          "label": 1,
+          "page": 7,
+          "probability": 0.9814522961141734
+        }
+      ],
+      "fold": 4,
+      "predicted_boundaries_m": [
+        0.0,
+        3.0,
+        5.0,
+        8.0,
+        10.0,
+        12.0,
+        15.0,
+        18.0,
+        21.0,
+        24.0,
+        26.0,
+        27.0,
+        34.0,
+        38.0,
+        41.0
+      ],
+      "record_id": "BGS_OFFSHORE_1960630"
+    },
+    {
+      "columns": [
+        {
+          "features": {
+            "activity": 0.1835244256955001,
+            "candidate_count_log": 0.5360166714750833,
+            "center_x": 0.08205645161290322,
+            "distance_to_depth": 0.14455645161290323,
+            "maximum_change": 0.45793054063730754,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.341634509554309,
+            "mean_cross_column": 1.0,
+            "mean_line": 0.3021442495126706,
+            "mean_scale_quality": 0.5967819253619293,
+            "rank_score": 1.0,
+            "width": 0.022983870967741935
+          },
+          "key": [
+            6,
+            821
+          ],
+          "label": 0,
+          "page": 6,
+          "probability": 0.16776330128728204
+        },
+        {
+          "features": {
+            "activity": 0.23735178239403162,
+            "candidate_count_log": 0.8371137888515472,
+            "center_x": 0.11995967741935487,
+            "distance_to_depth": 0.10665322580645167,
+            "maximum_change": 0.504985200186945,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.16684024206452006,
+            "mean_cross_column": 0.7034990791896871,
+            "mean_line": 0.15077390240816502,
+            "mean_scale_quality": 0.5967819253619293,
+            "rank_score": 0.5,
+            "width": 0.05282258064516123
+          },
+          "key": [
+            6,
+            1200
+          ],
+          "label": 1,
+          "page": 6,
+          "probability": 0.9314564699961357
+        },
+        {
+          "features": {
+            "activity": 0.27788607294040396,
+            "candidate_count_log": 0.8193779882431104,
+            "center_x": 0.1739919354838716,
+            "distance_to_depth": 0.052620967741935566,
+            "maximum_change": 0.5745568300312826,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.16578667152181234,
+            "mean_cross_column": 0.7304526748971184,
+            "mean_line": 0.1745516806344057,
+            "mean_scale_quality": 0.5967819253619293,
+            "rank_score": 0.333333333333334,
+            "width": 0.05524193548387107
+          },
+          "key": [
+            6,
+            1740
+          ],
+          "label": 1,
+          "page": 6,
+          "probability": 0.9605958009301707
+        },
+        {
+          "features": {
+            "activity": 0.25727775610142295,
+            "candidate_count_log": 0.869071852715496,
+            "center_x": 0.22802419354838632,
+            "distance_to_depth": 0.0014112903225806384,
+            "maximum_change": 0.5829568468608818,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.14461627281564415,
+            "mean_cross_column": 0.6153846153846142,
+            "mean_line": 0.08877068149632136,
+            "mean_scale_quality": 0.5967819253619292,
+            "rank_score": 0.25,
+            "width": 0.052822580645161224
+          },
+          "key": [
+            6,
+            2280
+          ],
+          "label": 1,
+          "page": 6,
+          "probability": 0.9846429857471506
+        },
+        {
+          "features": {
+            "activity": 0.3119026940291931,
+            "candidate_count_log": 0.8578183508095764,
+            "center_x": 0.2832661290322577,
+            "distance_to_depth": 0.0566532258064516,
+            "maximum_change": 0.5430997573854716,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.13913894704463356,
+            "mean_cross_column": 0.665048543689321,
+            "mean_line": 0.2923144816348701,
+            "mean_scale_quality": 0.5967819253619293,
+            "rank_score": 0.20000000000000023,
+            "width": 0.057661290322580896
+          },
+          "key": [
+            6,
+            2833
+          ],
+          "label": 1,
+          "page": 6,
+          "probability": 0.9822974348073173
+        },
+        {
+          "features": {
+            "activity": 0.17557229769205845,
+            "candidate_count_log": 0.6050246797906647,
+            "center_x": 0.32540322580645187,
+            "distance_to_depth": 0.09879032258064506,
+            "maximum_change": 0.5460729746444032,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.2990510056836589,
+            "mean_cross_column": 1.0,
+            "mean_line": 0.2619047619047619,
+            "mean_scale_quality": 0.5967819253619293,
+            "rank_score": 0.16666666666666674,
+            "width": 0.02661290322580645
+          },
+          "key": [
+            6,
+            3254
+          ],
+          "label": 1,
+          "page": 6,
+          "probability": 0.6608960384840271
+        },
+        {
+          "features": {
+            "activity": 0.1804825886903751,
+            "candidate_count_log": 0.6227193661558071,
+            "center_x": 0.35463709677419386,
+            "distance_to_depth": 0.12802419354838704,
+            "maximum_change": 0.559322033898305,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.29470771359391207,
+            "mean_cross_column": 1.0,
+            "mean_line": 0.3173458348359178,
+            "mean_scale_quality": 0.5967819253619293,
+            "rank_score": 0.14285714285714296,
+            "width": 0.023790322580645163
+          },
+          "key": [
+            6,
+            3546
+          ],
+          "label": 1,
+          "page": 6,
+          "probability": 0.6857443290376815
+        }
+      ],
+      "fold": 3,
+      "predicted_boundaries_m": [
+        0.0,
+        27.0
+      ],
+      "record_id": "BGS_OFFSHORE_1963694"
+    },
+    {
+      "columns": [
+        {
+          "features": {
+            "activity": 0.26047647282160796,
+            "candidate_count_log": 0.7391685713097846,
+            "center_x": 0.3377016129032251,
+            "distance_to_depth": 0.0047043010752687575,
+            "maximum_change": 0.5682667433170451,
+            "maximum_cross_column": 0.6666666666666666,
+            "maximum_line": 1.0,
+            "mean_change": 0.2158167664881417,
+            "mean_cross_column": 0.6666666666666657,
+            "mean_line": 0.3156079333141708,
+            "mean_scale_quality": 0.31220244940930825,
+            "rank_score": 1.0,
+            "width": 0.02862903225806455
+          },
+          "key": [
+            6,
+            3377
+          ],
+          "label": 1,
+          "page": 6,
+          "probability": 0.6404934486917033
+        },
+        {
+          "features": {
+            "activity": 0.23231376724578087,
+            "candidate_count_log": 0.7618624007025278,
+            "center_x": 0.3659274193548393,
+            "distance_to_depth": 0.02352150537634405,
+            "maximum_change": 0.5859213250517599,
+            "maximum_cross_column": 0.6666666666666666,
+            "maximum_line": 1.0,
+            "mean_change": 0.21463121608782018,
+            "mean_cross_column": 0.6666666666666665,
+            "mean_line": 0.2743362831858407,
+            "mean_scale_quality": 0.3122024494093082,
+            "rank_score": 0.5,
+            "width": 0.027822580645161295
+          },
+          "key": [
+            6,
+            3659
+          ],
+          "label": 1,
+          "page": 6,
+          "probability": 0.733875884600496
+        },
+        {
+          "features": {
+            "activity": 0.16597436249977177,
+            "candidate_count_log": 0.608722761646082,
+            "center_x": 0.09858870967741938,
+            "distance_to_depth": 0.1487903225806451,
+            "maximum_change": 0.5984604368063015,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.23675051415915185,
+            "mean_cross_column": 0.9224806201550387,
+            "mean_line": 0.16605467156262751,
+            "mean_scale_quality": 0.7268142178964452,
+            "rank_score": 1.0,
+            "width": 0.022983870967741925
+          },
+          "key": [
+            7,
+            986
+          ],
+          "label": 0,
+          "page": 7,
+          "probability": 0.6851650937820176
+        },
+        {
+          "features": {
+            "activity": 0.20407412590398863,
+            "candidate_count_log": 0.8654074692944772,
+            "center_x": 0.13790322580645129,
+            "distance_to_depth": 0.10947580645161283,
+            "maximum_change": 0.580153800650695,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.1588280642369668,
+            "mean_cross_column": 0.7700617283950612,
+            "mean_line": 0.11617686527106817,
+            "mean_scale_quality": 0.7268142178964453,
+            "rank_score": 0.5,
+            "width": 0.05564516129032229
+          },
+          "key": [
+            7,
+            1379
+          ],
+          "label": 1,
+          "page": 7,
+          "probability": 0.9797216598752015
+        },
+        {
+          "features": {
+            "activity": 0.17914081801329873,
+            "candidate_count_log": 0.6923496556188534,
+            "center_x": 0.19213709677419336,
+            "distance_to_depth": 0.05524193548387093,
+            "maximum_change": 0.5753232590746221,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.2870246080236966,
+            "mean_cross_column": 0.9771689497716892,
+            "mean_line": 0.2047474641848792,
+            "mean_scale_quality": 0.7268142178964452,
+            "rank_score": 0.3333333333333331,
+            "width": 0.05282258064516124
+          },
+          "key": [
+            7,
+            1921
+          ],
+          "label": 1,
+          "page": 7,
+          "probability": 0.906298288264825
+        },
+        {
+          "features": {
+            "activity": 0.2517875129681464,
+            "candidate_count_log": 0.9951102777480036,
+            "center_x": 0.24657258064516346,
+            "distance_to_depth": 0.000806451612903214,
+            "maximum_change": 0.5848627220672441,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.12316764724134863,
+            "mean_cross_column": 0.5965635738831628,
+            "mean_line": 0.04322480160201737,
+            "mean_scale_quality": 0.7268142178964454,
+            "rank_score": 0.25,
+            "width": 0.0560483870967738
+          },
+          "key": [
+            7,
+            2466
+          ],
+          "label": 1,
+          "page": 7,
+          "probability": 0.9973585456949635
+        },
+        {
+          "features": {
+            "activity": 0.2820357773933695,
+            "candidate_count_log": 0.9114984279160907,
+            "center_x": 0.301814516129032,
+            "distance_to_depth": 0.05443548387096794,
+            "maximum_change": 0.5627362055933485,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.15565187494750987,
+            "mean_cross_column": 0.8217592592592593,
+            "mean_line": 0.1401748971193416,
+            "mean_scale_quality": 0.7268142178964454,
+            "rank_score": 0.20000000000000095,
+            "width": 0.05443548387096789
+          },
+          "key": [
+            7,
+            3018
+          ],
+          "label": 1,
+          "page": 7,
+          "probability": 0.9933505129486896
+        },
+        {
+          "features": {
+            "activity": 0.27850135413389177,
+            "candidate_count_log": 0.8335389867129925,
+            "center_x": 0.34516129032257975,
+            "distance_to_depth": 0.09778225806451603,
+            "maximum_change": 0.5475690276110443,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.20662926187424147,
+            "mean_cross_column": 0.8286252354048955,
+            "mean_line": 0.3344134263875041,
+            "mean_scale_quality": 0.7268142178964453,
+            "rank_score": 0.16666666666666707,
+            "width": 0.02741935483870963
+          },
+          "key": [
+            7,
+            3452
+          ],
+          "label": 1,
+          "page": 7,
+          "probability": 0.9829293146011859
+        },
+        {
+          "features": {
+            "activity": 0.219940854904632,
+            "candidate_count_log": 0.7792333964368803,
+            "center_x": 0.3727822580645163,
+            "distance_to_depth": 0.12540322580645136,
+            "maximum_change": 0.5483584738243122,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.2012201706079257,
+            "mean_cross_column": 1.0,
+            "mean_line": 0.3253968253968254,
+            "mean_scale_quality": 0.7268142178964453,
+            "rank_score": 0.14285714285714265,
+            "width": 0.027822580645161295
+          },
+          "key": [
+            7,
+            3728
+          ],
+          "label": 1,
+          "page": 7,
+          "probability": 0.9721693214910717
+        }
+      ],
+      "fold": 1,
+      "predicted_boundaries_m": [
+        0.0,
+        8.0
+      ],
+      "record_id": "BGS_OFFSHORE_1969862"
+    },
+    {
+      "columns": [
+        {
+          "features": {
+            "activity": 0.13834285476335106,
+            "candidate_count_log": 0.5523893823489764,
+            "center_x": 0.07943548387096773,
+            "distance_to_depth": 0.0014112903225806522,
+            "maximum_change": 0.25124378109452733,
+            "maximum_cross_column": 0.3333333333333333,
+            "maximum_line": 0.0,
+            "mean_change": 0.11326380915933151,
+            "mean_cross_column": 0.3333333333333333,
+            "mean_line": 0.0,
+            "mean_scale_quality": 0.3209270203254172,
+            "rank_score": 1.0,
+            "width": 0.05403225806451611
+          },
+          "key": [
+            67,
+            794
+          ],
+          "label": 1,
+          "page": 67,
+          "probability": 0.8322505911610732
+        },
+        {
+          "features": {
+            "activity": 0.13317940200889303,
+            "candidate_count_log": 0.4459971690591647,
+            "center_x": 0.13548387096774192,
+            "distance_to_depth": 0.057459677419354864,
+            "maximum_change": 0.2254273504273504,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 0.8484848484848485,
+            "mean_change": 0.17793317793317798,
+            "mean_cross_column": 1.0,
+            "mean_line": 0.2828282828282828,
+            "mean_scale_quality": 0.3209270203254172,
+            "rank_score": 0.5,
+            "width": 0.0532258064516129
+          },
+          "key": [
+            67,
+            1355
+          ],
+          "label": 0,
+          "page": 67,
+          "probability": 0.8053020333375223
+        },
+        {
+          "features": {
+            "activity": 0.14489680561747773,
+            "candidate_count_log": 0.6012395763069346,
+            "center_x": 0.18810483870967754,
+            "distance_to_depth": 0.11008064516129026,
+            "maximum_change": 0.1916120055654939,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.10252774262984128,
+            "mean_cross_column": 0.5772357723577233,
+            "mean_line": 0.12195121951219512,
+            "mean_scale_quality": 0.3209270203254172,
+            "rank_score": 0.3333333333333335,
+            "width": 0.052016129032258066
+          },
+          "key": [
+            67,
+            1881
+          ],
+          "label": 0,
+          "page": 67,
+          "probability": 0.9516993705856649
+        },
+        {
+          "features": {
+            "activity": 0.07860171506031144,
+            "candidate_count_log": 0.5973632567867296,
+            "center_x": 0.24233870967741927,
+            "distance_to_depth": 0.16431451612903208,
+            "maximum_change": 0.24599358974358976,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.1383213141025641,
+            "mean_cross_column": 0.4999999999999999,
+            "mean_line": 0.2490234375,
+            "mean_scale_quality": 0.3209270203254172,
+            "rank_score": 0.25,
+            "width": 0.05161290322580642
+          },
+          "key": [
+            67,
+            2423
+          ],
+          "label": 0,
+          "page": 67,
+          "probability": 0.9301802140432963
+        },
+        {
+          "features": {
+            "activity": 0.15711869604705325,
+            "candidate_count_log": 0.4459971690591647,
+            "center_x": 0.2364919354838709,
+            "distance_to_depth": 0.12217741935483867,
+            "maximum_change": 0.348475671310317,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.22131368194360315,
+            "mean_cross_column": 1.0,
+            "mean_line": 0.3333333333333333,
+            "mean_scale_quality": 0.34722775488509,
+            "rank_score": 1.0,
+            "width": 0.05120967741935485
+          },
+          "key": [
+            68,
+            2365
+          ],
+          "label": 0,
+          "page": 68,
+          "probability": 0.6405921297732488
+        },
+        {
+          "features": {
+            "activity": 0.09944670342509787,
+            "candidate_count_log": 0.48974028404214337,
+            "center_x": 0.29092741935483873,
+            "distance_to_depth": 0.06774193548387089,
+            "maximum_change": 0.330948121645796,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.18877956668654344,
+            "mean_cross_column": 0.9166666666666667,
+            "mean_line": 0.25,
+            "mean_scale_quality": 0.34722775488509006,
+            "rank_score": 0.5,
+            "width": 0.052016129032258066
+          },
+          "key": [
+            68,
+            2909
+          ],
+          "label": 1,
+          "page": 68,
+          "probability": 0.873267555979905
+        },
+        {
+          "features": {
+            "activity": 0.1830366456604774,
+            "candidate_count_log": 0.5301665912899275,
+            "center_x": 0.34778225806451607,
+            "distance_to_depth": 0.010887096774193528,
+            "maximum_change": 0.3286961265684669,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 0.8652482269503546,
+            "mean_change": 0.20277113321303167,
+            "mean_cross_column": 1.0,
+            "mean_line": 0.19967266775777415,
+            "mean_scale_quality": 0.34722775488509006,
+            "rank_score": 0.33333333333333326,
+            "width": 0.05685483870967744
+          },
+          "key": [
+            68,
+            3478
+          ],
+          "label": 0,
+          "page": 68,
+          "probability": 0.9503640552362445
+        },
+        {
+          "features": {
+            "activity": 0.3811761545774436,
+            "candidate_count_log": 0.5240957019060464,
+            "center_x": 0.40221774193548393,
+            "distance_to_depth": 0.043548387096774215,
+            "maximum_change": 0.34863844166169744,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.22834426555356788,
+            "mean_cross_column": 1.0,
+            "mean_line": 0.2,
+            "mean_scale_quality": 0.34722775488509006,
+            "rank_score": 0.25,
+            "width": 0.05201612903225806
+          },
+          "key": [
+            68,
+            4022
+          ],
+          "label": 0,
+          "page": 68,
+          "probability": 0.9594895208634211
+        },
+        {
+          "features": {
+            "activity": 0.2656462493610958,
+            "candidate_count_log": 0.5301665912899275,
+            "center_x": 0.44495967741935505,
+            "distance_to_depth": 0.08629032258064523,
+            "maximum_change": 0.3970747562296858,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.20811456510264748,
+            "mean_cross_column": 1.0,
+            "mean_line": 0.19230769230769232,
+            "mean_scale_quality": 0.34722775488509006,
+            "rank_score": 0.20000000000000007,
+            "width": 0.028629032258064534
+          },
+          "key": [
+            68,
+            4450
+          ],
+          "label": 0,
+          "page": 68,
+          "probability": 0.9087780886616209
+        }
+      ],
+      "fold": 4,
+      "predicted_boundaries_m": [
+        0.0,
+        76.85
+      ],
+      "record_id": "BGS_OFFSHORE_1980976"
+    },
+    {
+      "columns": [
+        {
+          "features": {
+            "activity": 0.30064764467779,
+            "candidate_count_log": 0.8153812739294602,
+            "center_x": 0.3570564516129038,
+            "distance_to_depth": 0.10557795698924724,
+            "maximum_change": 0.4994084590357882,
+            "maximum_cross_column": 0.6666666666666666,
+            "maximum_line": 1.0,
+            "mean_change": 0.19297058394078573,
+            "mean_cross_column": 0.46835443037974744,
+            "mean_line": 0.2879288203999267,
+            "mean_scale_quality": 0.4778087944377355,
+            "rank_score": 1.0,
+            "width": 0.027822580645161254
+          },
+          "key": [
+            20,
+            3571
+          ],
+          "label": 1,
+          "page": 20,
+          "probability": 0.886132986284168
+        },
+        {
+          "features": {
+            "activity": 0.18387281083131363,
+            "candidate_count_log": 0.6901610575583451,
+            "center_x": 0.3838709677419353,
+            "distance_to_depth": 0.13239247311827976,
+            "maximum_change": 0.5035076530612245,
+            "maximum_cross_column": 0.6666666666666666,
+            "maximum_line": 1.0,
+            "mean_change": 0.22514748086734684,
+            "mean_cross_column": 0.5972222222222221,
+            "mean_line": 0.2677951388888889,
+            "mean_scale_quality": 0.4778087944377354,
+            "rank_score": 0.5,
+            "width": 0.025806451612903247
+          },
+          "key": [
+            20,
+            3839
+          ],
+          "label": 0,
+          "page": 20,
+          "probability": 0.7439146189313138
+        }
+      ],
+      "fold": 3,
+      "predicted_boundaries_m": [
+        0.0
+      ],
+      "record_id": "BGS_OFFSHORE_1984462"
+    },
+    {
+      "columns": [],
+      "fold": 0,
+      "predicted_boundaries_m": [],
+      "record_id": "BGS_OFFSHORE_1987224"
+    },
+    {
+      "columns": [],
+      "fold": 1,
+      "predicted_boundaries_m": [
+        0.0,
+        33.35
+      ],
+      "record_id": "BGS_OFFSHORE_1989175"
+    },
+    {
+      "columns": [],
+      "fold": 3,
+      "predicted_boundaries_m": [
+        0.0,
+        28.4
+      ],
+      "record_id": "BGS_OFFSHORE_1993525"
+    },
+    {
+      "columns": [
+        {
+          "features": {
+            "activity": 0.39358959968484375,
+            "candidate_count_log": 0.9371673245251537,
+            "center_x": 0.24294354838709772,
+            "distance_to_depth": 0.07483870967741901,
+            "maximum_change": 0.2012244897959184,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.06769935193012126,
+            "mean_cross_column": 1.0,
+            "mean_line": 0.40236686390532544,
+            "mean_scale_quality": 0.3223942088090784,
+            "rank_score": 1.0,
+            "width": 0.019758064516128892
+          },
+          "key": [
+            9,
+            2429
+          ],
+          "label": 1,
+          "page": 9,
+          "probability": 0.8768120259735789
+        },
+        {
+          "features": {
+            "activity": 0.391484756940315,
+            "candidate_count_log": 0.9546839705002196,
+            "center_x": 0.26290322580645314,
+            "distance_to_depth": 0.09479838709677384,
+            "maximum_change": 0.20106666666666667,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.07287232537577344,
+            "mean_cross_column": 0.9911582670203357,
+            "mean_line": 0.3604774535809018,
+            "mean_scale_quality": 0.3223942088090783,
+            "rank_score": 0.5,
+            "width": 0.020161290322580773
+          },
+          "key": [
+            9,
+            2629
+          ],
+          "label": 1,
+          "page": 9,
+          "probability": 0.8905115756588036
+        },
+        {
+          "features": {
+            "activity": 0.3833569081255039,
+            "candidate_count_log": 0.9477268007695735,
+            "center_x": 0.2834677419354827,
+            "distance_to_depth": 0.11536290322580742,
+            "maximum_change": 0.1902564102564102,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.07009961645003178,
+            "mean_cross_column": 0.9953831948291785,
+            "mean_line": 0.3761985936501172,
+            "mean_scale_quality": 0.3223942088090783,
+            "rank_score": 0.3333333333333316,
+            "width": 0.020967741935483685
+          },
+          "key": [
+            9,
+            2835
+          ],
+          "label": 1,
+          "page": 9,
+          "probability": 0.8753032967856013
+        },
+        {
+          "features": {
+            "activity": 0.36489952135663056,
+            "candidate_count_log": 0.9477268007695735,
+            "center_x": 0.3046370967741906,
+            "distance_to_depth": 0.13653225806451505,
+            "maximum_change": 0.18723270440251572,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.0679719158870364,
+            "mean_cross_column": 1.0,
+            "mean_line": 0.36680081534521497,
+            "mean_scale_quality": 0.3223942088090783,
+            "rank_score": 0.25,
+            "width": 0.021370967741935573
+          },
+          "key": [
+            9,
+            3046
+          ],
+          "label": 1,
+          "page": 9,
+          "probability": 0.8559598489245451
+        },
+        {
+          "features": {
+            "activity": 0.35891175774869694,
+            "candidate_count_log": 0.9538306025783293,
+            "center_x": 0.32620967741935636,
+            "distance_to_depth": 0.1581048387096762,
+            "maximum_change": 0.27586419753086416,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.07346962962962957,
+            "mean_cross_column": 0.9955555555555553,
+            "mean_line": 0.35229629629629633,
+            "mean_scale_quality": 0.3223942088090783,
+            "rank_score": 0.2000000000000014,
+            "width": 0.021774193548387
+          },
+          "key": [
+            9,
+            3262
+          ],
+          "label": 1,
+          "page": 9,
+          "probability": 0.8624077252356575
+        },
+        {
+          "features": {
+            "activity": 0.4204791801514142,
+            "candidate_count_log": 0.9617604312838387,
+            "center_x": 0.34657258064515944,
+            "distance_to_depth": 0.178467741935484,
+            "maximum_change": 0.3357446808510638,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.09991053749504994,
+            "mean_cross_column": 0.9957698815566836,
+            "mean_line": 0.33572740036721016,
+            "mean_scale_quality": 0.32239420880907826,
+            "rank_score": 0.16666666666666585,
+            "width": 0.01895161290322567
+          },
+          "key": [
+            9,
+            3466
+          ],
+          "label": 1,
+          "page": 9,
+          "probability": 0.8395704098600635
+        },
+        {
+          "features": {
+            "activity": 0.33237088326436964,
+            "candidate_count_log": 0.8957209791351202,
+            "center_x": 0.3729838709677429,
+            "distance_to_depth": 0.20487903225806348,
+            "maximum_change": 0.2549603174603175,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.0732376999331023,
+            "mean_cross_column": 1.0,
+            "mean_line": 0.425424192665572,
+            "mean_scale_quality": 0.32239420880907854,
+            "rank_score": 0.142857142857143,
+            "width": 0.03387096774193553
+          },
+          "key": [
+            9,
+            3730
+          ],
+          "label": 1,
+          "page": 9,
+          "probability": 0.7351080128890296
+        }
+      ],
+      "fold": 2,
+      "predicted_boundaries_m": [
+        0.0
+      ],
+      "record_id": "BGS_OFFSHORE_2007749"
+    },
+    {
+      "columns": [],
+      "fold": 0,
+      "predicted_boundaries_m": [
+        0.0
+      ],
+      "record_id": "BGS_OFFSHORE_2009141"
+    },
+    {
+      "columns": [
+        {
+          "features": {
+            "activity": 0.4517848995784598,
+            "candidate_count_log": 0.6901610575583451,
+            "center_x": 0.44899193548387106,
+            "distance_to_depth": 0.10483870967741922,
+            "maximum_change": 0.17763975155279504,
+            "maximum_cross_column": 0.3333333333333333,
+            "maximum_line": 1.0,
+            "mean_change": 0.0753974005060961,
+            "mean_cross_column": 0.3333333333333331,
+            "mean_line": 0.2661318150448585,
+            "mean_scale_quality": 0.47282950969527393,
+            "rank_score": 1.0,
+            "width": 0.06491935483870963
+          },
+          "key": [
+            10,
+            4490
+          ],
+          "label": 0,
+          "page": 10,
+          "probability": 0.9933648688783523
+        }
+      ],
+      "fold": 4,
+      "predicted_boundaries_m": [
+        0.0,
+        33.6
+      ],
+      "record_id": "BGS_OFFSHORE_2016306"
+    },
+    {
+      "columns": [
+        {
+          "features": {
+            "activity": 0.12375575815177253,
+            "candidate_count_log": 0.45574921395804535,
+            "center_x": 0.10725806451612901,
+            "distance_to_depth": 0.14556451612903223,
+            "maximum_change": 0.5130385487528344,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.5079010770975055,
+            "mean_cross_column": 1.0,
+            "mean_line": 0.6875,
+            "mean_scale_quality": 0.5481166643200739,
+            "rank_score": 1.0,
+            "width": 0.021774193548387104
+          },
+          "key": [
+            8,
+            1073
+          ],
+          "label": 0,
+          "page": 8,
+          "probability": 0.04713180674836189
+        },
+        {
+          "features": {
+            "activity": 0.20691201909655565,
+            "candidate_count_log": 0.8183880806513611,
+            "center_x": 0.14536290322580597,
+            "distance_to_depth": 0.10745967741935494,
+            "maximum_change": 0.5750566893424036,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.17732754937723869,
+            "mean_cross_column": 0.830227743271222,
+            "mean_line": 0.09910282953761215,
+            "mean_scale_quality": 0.5481166643200737,
+            "rank_score": 0.5,
+            "width": 0.05443548387096782
+          },
+          "key": [
+            8,
+            1454
+          ],
+          "label": 1,
+          "page": 8,
+          "probability": 0.8558005696946133
+        },
+        {
+          "features": {
+            "activity": 0.18473902734176764,
+            "candidate_count_log": 0.6227193661558071,
+            "center_x": 0.19999999999999998,
+            "distance_to_depth": 0.05282258064516123,
+            "maximum_change": 0.6099939975990395,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.3489198871037777,
+            "mean_cross_column": 0.9645390070921988,
+            "mean_line": 0.2127659574468085,
+            "mean_scale_quality": 0.5481166643200737,
+            "rank_score": 0.33333333333333354,
+            "width": 0.05483870967741935
+          },
+          "key": [
+            8,
+            2000
+          ],
+          "label": 1,
+          "page": 8,
+          "probability": 0.6011732226343484
+        },
+        {
+          "features": {
+            "activity": 0.24595233189843552,
+            "candidate_count_log": 0.9609438839669715,
+            "center_x": 0.2544354838709672,
+            "distance_to_depth": 0.0016129032258064948,
+            "maximum_change": 0.6111787998781603,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.11527807132600226,
+            "mean_cross_column": 0.7321428571428538,
+            "mean_line": 0.03588562290587877,
+            "mean_scale_quality": 0.5481166643200732,
+            "rank_score": 0.25,
+            "width": 0.054032258064516454
+          },
+          "key": [
+            8,
+            2544
+          ],
+          "label": 1,
+          "page": 8,
+          "probability": 0.9931473788104168
+        },
+        {
+          "features": {
+            "activity": 0.44520131498334764,
+            "candidate_count_log": 1.0,
+            "center_x": 0.30947580645161515,
+            "distance_to_depth": 0.056653225806450526,
+            "maximum_change": 0.6076934370870649,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.16471656276469204,
+            "mean_cross_column": 0.6320885200553255,
+            "mean_line": 0.047712867050757744,
+            "mean_scale_quality": 0.5481166643200731,
+            "rank_score": 0.20000000000000046,
+            "width": 0.056048387096773525
+          },
+          "key": [
+            8,
+            3095
+          ],
+          "label": 1,
+          "page": 8,
+          "probability": 0.9877371032311666
+        },
+        {
+          "features": {
+            "activity": 0.2976844700017273,
+            "candidate_count_log": 0.814366384278954,
+            "center_x": 0.3534274193548375,
+            "distance_to_depth": 0.10060483870967785,
+            "maximum_change": 0.5820895522388059,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.2211450223211252,
+            "mean_cross_column": 0.9341825902335461,
+            "mean_line": 0.3503184713375796,
+            "mean_scale_quality": 0.5481166643200738,
+            "rank_score": 0.16666666666666696,
+            "width": 0.02701612903225803
+          },
+          "key": [
+            8,
+            3534
+          ],
+          "label": 1,
+          "page": 8,
+          "probability": 0.9306658913686503
+        },
+        {
+          "features": {
+            "activity": 0.23368925104218186,
+            "candidate_count_log": 0.7766800178090275,
+            "center_x": 0.3804435483870971,
+            "distance_to_depth": 0.12762096774193524,
+            "maximum_change": 0.6280840694486749,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.22783179232212858,
+            "mean_cross_column": 1.0,
+            "mean_line": 0.28960038517091957,
+            "mean_scale_quality": 0.5481166643200739,
+            "rank_score": 0.14285714285714265,
+            "width": 0.027016129032258026
+          },
+          "key": [
+            8,
+            3804
+          ],
+          "label": 1,
+          "page": 8,
+          "probability": 0.8859440918240152
+        },
+        {
+          "features": {
+            "activity": 0.2385875788507287,
+            "candidate_count_log": 0.740785263068934,
+            "center_x": 0.3481854838709677,
+            "distance_to_depth": 0.09912634408602176,
+            "maximum_change": 0.5807962529274003,
+            "maximum_cross_column": 0.6666666666666666,
+            "maximum_line": 1.0,
+            "mean_change": 0.2344454920567332,
+            "mean_cross_column": 0.6666666666666659,
+            "mean_line": 0.2828282828282828,
+            "mean_scale_quality": 0.7244798379651216,
+            "rank_score": 1.0,
+            "width": 0.02459677419354839
+          },
+          "key": [
+            9,
+            3482
+          ],
+          "label": 1,
+          "page": 9,
+          "probability": 0.9060922151909444
+        },
+        {
+          "features": {
+            "activity": 0.18555302702210946,
+            "candidate_count_log": 0.7470942864356287,
+            "center_x": 0.375604838709677,
+            "distance_to_depth": 0.12654569892473141,
+            "maximum_change": 0.5780006918021445,
+            "maximum_cross_column": 0.6666666666666666,
+            "maximum_line": 1.0,
+            "mean_change": 0.21930631722822425,
+            "mean_cross_column": 0.6343042071197402,
+            "mean_line": 0.3264768800394932,
+            "mean_scale_quality": 0.7244798379651216,
+            "rank_score": 0.5,
+            "width": 0.023790322580645146
+          },
+          "key": [
+            9,
+            3756
+          ],
+          "label": 1,
+          "page": 9,
+          "probability": 0.9271304829439847
+        }
+      ],
+      "fold": 2,
+      "predicted_boundaries_m": [
+        0.0,
+        5.0,
+        18.0,
+        19.0,
+        21.0,
+        23.0,
+        34.0,
+        46.0,
+        47.0,
+        49.0,
+        66.0,
+        77.0
+      ],
+      "record_id": "BGS_OFFSHORE_2023411"
+    },
+    {
+      "columns": [
+        {
+          "features": {
+            "activity": 0.19438945662710924,
+            "candidate_count_log": 0.8562565960564055,
+            "center_x": 0.1421370967741931,
+            "distance_to_depth": 0.11169354838709705,
+            "maximum_change": 0.6272057695258553,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.14870271416837402,
+            "mean_cross_column": 0.5767973856209149,
+            "mean_line": 0.04883532360312546,
+            "mean_scale_quality": 0.5915447482612479,
+            "rank_score": 1.0,
+            "width": 0.05362903225806435
+          },
+          "key": [
+            21,
+            1421
+          ],
+          "label": 1,
+          "page": 21,
+          "probability": 0.928974994673309
+        },
+        {
+          "features": {
+            "activity": 0.1828382313672093,
+            "candidate_count_log": 0.6227193661558071,
+            "center_x": 0.19838709677419358,
+            "distance_to_depth": 0.0554435483870968,
+            "maximum_change": 0.5580261955528479,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.30191152358053425,
+            "mean_cross_column": 0.9645390070921988,
+            "mean_line": 0.23404255319148937,
+            "mean_scale_quality": 0.5915447482612479,
+            "rank_score": 0.5,
+            "width": 0.05403225806451614
+          },
+          "key": [
+            21,
+            1984
+          ],
+          "label": 1,
+          "page": 21,
+          "probability": 0.812048894357152
+        },
+        {
+          "features": {
+            "activity": 0.25749122689327913,
+            "candidate_count_log": 0.8676161009157577,
+            "center_x": 0.2520161290322578,
+            "distance_to_depth": 0.001814516129032273,
+            "maximum_change": 0.5667903525046383,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.15087166041177785,
+            "mean_cross_column": 0.602739726027398,
+            "mean_line": 0.09934966099349661,
+            "mean_scale_quality": 0.5915447482612479,
+            "rank_score": 0.33333333333333354,
+            "width": 0.05322580645161261
+          },
+          "key": [
+            21,
+            2520
+          ],
+          "label": 1,
+          "page": 21,
+          "probability": 0.991853479427468
+        },
+        {
+          "features": {
+            "activity": 0.3285464686660047,
+            "candidate_count_log": 0.9376411377573036,
+            "center_x": 0.30786290322580734,
+            "distance_to_depth": 0.05403225806451641,
+            "maximum_change": 0.5519410771827528,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.15365463505250387,
+            "mean_cross_column": 0.5634218289085544,
+            "mean_line": 0.048284427883868955,
+            "mean_scale_quality": 0.5915447482612479,
+            "rank_score": 0.25,
+            "width": 0.053629032258064306
+          },
+          "key": [
+            21,
+            3079
+          ],
+          "label": 1,
+          "page": 21,
+          "probability": 0.990762162172396
+        },
+        {
+          "features": {
+            "activity": 0.2048911290183182,
+            "candidate_count_log": 0.6559105366502384,
+            "center_x": 0.3485887096774189,
+            "distance_to_depth": 0.094758064516129,
+            "maximum_change": 0.5600414078674948,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.28663729359809886,
+            "mean_cross_column": 1.0,
+            "mean_line": 0.27586206896551724,
+            "mean_scale_quality": 0.5915447482612479,
+            "rank_score": 0.19999999999999984,
+            "width": 0.027822580645161295
+          },
+          "key": [
+            21,
+            3486
+          ],
+          "label": 1,
+          "page": 21,
+          "probability": 0.847191347711685
+        },
+        {
+          "features": {
+            "activity": 0.2012560663804894,
+            "candidate_count_log": 0.6531607350573214,
+            "center_x": 0.3778225806451613,
+            "distance_to_depth": 0.12399193548387098,
+            "maximum_change": 0.5733418367346937,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.28474366720372346,
+            "mean_cross_column": 1.0,
+            "mean_line": 0.26836622807017546,
+            "mean_scale_quality": 0.5915447482612479,
+            "rank_score": 0.16666666666666666,
+            "width": 0.025806451612903233
+          },
+          "key": [
+            21,
+            3778
+          ],
+          "label": 1,
+          "page": 21,
+          "probability": 0.8014209117315358
+        },
+        {
+          "features": {
+            "activity": 0.21449498752792934,
+            "candidate_count_log": 0.9238164835322712,
+            "center_x": 0.19375000000000098,
+            "distance_to_depth": 0.11451612903225794,
+            "maximum_change": 0.5693395468423589,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.145867963105439,
+            "mean_cross_column": 0.8263665594855291,
+            "mean_line": 0.06752411575562701,
+            "mean_scale_quality": 0.531613440454269,
+            "rank_score": 1.0,
+            "width": 0.05120967741935456
+          },
+          "key": [
+            22,
+            1938
+          ],
+          "label": 1,
+          "page": 22,
+          "probability": 0.9549181139196042
+        },
+        {
+          "features": {
+            "activity": 0.17987703336583036,
+            "candidate_count_log": 0.6787477984876278,
+            "center_x": 0.2491935483870971,
+            "distance_to_depth": 0.0590725806451613,
+            "maximum_change": 0.5564516129032258,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.2970409637133621,
+            "mean_cross_column": 0.9751243781094524,
+            "mean_line": 0.23880597014925373,
+            "mean_scale_quality": 0.5316134404542683,
+            "rank_score": 0.5,
+            "width": 0.04999999999999994
+          },
+          "key": [
+            22,
+            2492
+          ],
+          "label": 1,
+          "page": 22,
+          "probability": 0.845536720895147
+        },
+        {
+          "features": {
+            "activity": 0.2823589976252094,
+            "candidate_count_log": 1.0,
+            "center_x": 0.30403225806451584,
+            "distance_to_depth": 0.004233870967742036,
+            "maximum_change": 0.5609056122448979,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.12709393446532058,
+            "mean_cross_column": 0.7101704879482673,
+            "mean_line": 0.04606205908289242,
+            "mean_scale_quality": 0.5316134404542696,
+            "rank_score": 0.3333333333333351,
+            "width": 0.051612903225805924
+          },
+          "key": [
+            22,
+            3040
+          ],
+          "label": 1,
+          "page": 22,
+          "probability": 0.9971291923876315
+        },
+        {
+          "features": {
+            "activity": 0.4701033031459878,
+            "candidate_count_log": 1.0,
+            "center_x": 0.36008064516129845,
+            "distance_to_depth": 0.051814516129032956,
+            "maximum_change": 0.5458333333333332,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.17754426878047364,
+            "mean_cross_column": 0.6144492131616606,
+            "mean_line": 0.017033261802575105,
+            "mean_scale_quality": 0.5316134404542693,
+            "rank_score": 0.25,
+            "width": 0.04838709677419277
+          },
+          "key": [
+            22,
+            3601
+          ],
+          "label": 1,
+          "page": 22,
+          "probability": 0.9902900775295931
+        },
+        {
+          "features": {
+            "activity": 0.2782579413128472,
+            "candidate_count_log": 0.8038489478836447,
+            "center_x": 0.4008064516129025,
+            "distance_to_depth": 0.09254032258064497,
+            "maximum_change": 0.5543478260869564,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.21017209013152752,
+            "mean_cross_column": 0.9319727891156466,
+            "mean_line": 0.31780538302277445,
+            "mean_scale_quality": 0.5316134404542683,
+            "rank_score": 0.1999999999999995,
+            "width": 0.018548387096774196
+          },
+          "key": [
+            22,
+            4008
+          ],
+          "label": 1,
+          "page": 22,
+          "probability": 0.9574874317127208
+        },
+        {
+          "features": {
+            "activity": 0.29581802769774374,
+            "candidate_count_log": 0.7971917436970014,
+            "center_x": 0.4282258064516138,
+            "distance_to_depth": 0.11995967741935458,
+            "maximum_change": 0.5673894557823128,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.22124222029237223,
+            "mean_cross_column": 0.976359338061466,
+            "mean_line": 0.3532801418439716,
+            "mean_scale_quality": 0.5316134404542683,
+            "rank_score": 0.16666666666666688,
+            "width": 0.019354838709677448
+          },
+          "key": [
+            22,
+            4282
+          ],
+          "label": 1,
+          "page": 22,
+          "probability": 0.9443433407701026
+        },
+        {
+          "features": {
+            "activity": 0.2211919366315978,
+            "candidate_count_log": 0.9347770951681487,
+            "center_x": 0.15060483870967717,
+            "distance_to_depth": 0.11673387096774228,
+            "maximum_change": 0.48281876853305417,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.15249839059362882,
+            "mean_cross_column": 0.7537537537537516,
+            "mean_line": 0.06447473114139779,
+            "mean_scale_quality": 0.6151160640686428,
+            "rank_score": 1.0,
+            "width": 0.04717741935483852
+          },
+          "key": [
+            23,
+            1506
+          ],
+          "label": 1,
+          "page": 23,
+          "probability": 0.9604471036749715
+        },
+        {
+          "features": {
+            "activity": 0.1714203733686476,
+            "candidate_count_log": 0.6810961537129339,
+            "center_x": 0.20665322580645182,
+            "distance_to_depth": 0.060685483870967644,
+            "maximum_change": 0.6110709770633916,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.32727028864643204,
+            "mean_cross_column": 0.9754901960784311,
+            "mean_line": 0.23529411764705882,
+            "mean_scale_quality": 0.6151160640686428,
+            "rank_score": 0.5,
+            "width": 0.04556451612903223
+          },
+          "key": [
+            23,
+            2067
+          ],
+          "label": 0,
+          "page": 23,
+          "probability": 0.8840443381428285
+        },
+        {
+          "features": {
+            "activity": 0.275376083497559,
+            "candidate_count_log": 1.0,
+            "center_x": 0.26431451612903123,
+            "distance_to_depth": 0.0030241935483870273,
+            "maximum_change": 0.5050630939398659,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.1276107114763185,
+            "mean_cross_column": 0.6490299823633184,
+            "mean_line": 0.031571011214777116,
+            "mean_scale_quality": 0.6151160640686427,
+            "rank_score": 0.3333333333333351,
+            "width": 0.05282258064516205
+          },
+          "key": [
+            23,
+            2643
+          ],
+          "label": 1,
+          "page": 23,
+          "probability": 0.9977136923927085
+        },
+        {
+          "features": {
+            "activity": 0.3651393338605264,
+            "candidate_count_log": 1.0,
+            "center_x": 0.3183467741935451,
+            "distance_to_depth": 0.05100806451612899,
+            "maximum_change": 0.6077969649398222,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.17175812192169898,
+            "mean_cross_column": 0.6274809160305355,
+            "mean_line": 0.02797677301494095,
+            "mean_scale_quality": 0.6151160640686427,
+            "rank_score": 0.25,
+            "width": 0.047177419354838476
+          },
+          "key": [
+            23,
+            3183
+          ],
+          "label": 1,
+          "page": 23,
+          "probability": 0.995448909305221
+        },
+        {
+          "features": {
+            "activity": 0.25260898711219953,
+            "candidate_count_log": 0.7575725604507049,
+            "center_x": 0.3641129032258066,
+            "distance_to_depth": 0.09677419354838725,
+            "maximum_change": 0.5880513495720868,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.2552516607816147,
+            "mean_cross_column": 0.9696969696969696,
+            "mean_line": 0.2857771260997068,
+            "mean_scale_quality": 0.6151160640686428,
+            "rank_score": 0.19999999999999957,
+            "width": 0.024999999999999946
+          },
+          "key": [
+            23,
+            3641
+          ],
+          "label": 0,
+          "page": 23,
+          "probability": 0.9490202106872994
+        },
+        {
+          "features": {
+            "activity": 0.24239400072924516,
+            "candidate_count_log": 0.7854449587427245,
+            "center_x": 0.3939516129032249,
+            "distance_to_depth": 0.12661290322580662,
+            "maximum_change": 0.6174927113702623,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.21195335276967944,
+            "mean_cross_column": 0.9363867684478372,
+            "mean_line": 0.2461286804798255,
+            "mean_scale_quality": 0.6151160640686428,
+            "rank_score": 0.1666666666666668,
+            "width": 0.028225806451612958
+          },
+          "key": [
+            23,
+            3940
+          ],
+          "label": 1,
+          "page": 23,
+          "probability": 0.9571758704828097
+        },
+        {
+          "features": {
+            "activity": 0.19118362516885776,
+            "candidate_count_log": 0.8005547820622061,
+            "center_x": 0.14778225806451645,
+            "distance_to_depth": 0.11129032258064517,
+            "maximum_change": 0.5699088145896657,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.19869061690870202,
+            "mean_cross_column": 0.8680555555555558,
+            "mean_line": 0.1295311268715524,
+            "mean_scale_quality": 0.48485787683957987,
+            "rank_score": 1.0,
+            "width": 0.05685483870967729
+          },
+          "key": [
+            24,
+            1478
+          ],
+          "label": 1,
+          "page": 24,
+          "probability": 0.8301833833132932
+        },
+        {
+          "features": {
+            "activity": 0.19227751179808555,
+            "candidate_count_log": 0.7028670920141629,
+            "center_x": 0.20161290322580616,
+            "distance_to_depth": 0.05745967741935495,
+            "maximum_change": 0.5600907029478457,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.2831051223908367,
+            "mean_cross_column": 0.9786324786324784,
+            "mean_line": 0.19780219780219782,
+            "mean_scale_quality": 0.4848578768395798,
+            "rank_score": 0.5,
+            "width": 0.05080645161290321
+          },
+          "key": [
+            24,
+            2016
+          ],
+          "label": 0,
+          "page": 24,
+          "probability": 0.8409454741011149
+        },
+        {
+          "features": {
+            "activity": 0.2961071311273898,
+            "candidate_count_log": 1.0,
+            "center_x": 0.25846774193548533,
+            "distance_to_depth": 0.0006048387096774244,
+            "maximum_change": 0.5579648526077097,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.1281859654781449,
+            "mean_cross_column": 0.5586206896551713,
+            "mean_line": 0.029525862068965517,
+            "mean_scale_quality": 0.48485787683957976,
+            "rank_score": 0.33333333333333526,
+            "width": 0.058064516129032406
+          },
+          "key": [
+            24,
+            2585
+          ],
+          "label": 1,
+          "page": 24,
+          "probability": 0.9957035896754234
+        },
+        {
+          "features": {
+            "activity": 0.28245576847224607,
+            "candidate_count_log": 0.9248443431062686,
+            "center_x": 0.31552419354838546,
+            "distance_to_depth": 0.05645161290322578,
+            "maximum_change": 0.5434591102628101,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.17265272348854993,
+            "mean_cross_column": 0.7199148029818944,
+            "mean_line": 0.06067989059231845,
+            "mean_scale_quality": 0.4848578768395798,
+            "rank_score": 0.25,
+            "width": 0.056048387096774274
+          },
+          "key": [
+            24,
+            3155
+          ],
+          "label": 1,
+          "page": 24,
+          "probability": 0.9841334702011317
+        },
+        {
+          "features": {
+            "activity": 0.2546811508868006,
+            "candidate_count_log": 0.7925954459777251,
+            "center_x": 0.3572580645161292,
+            "distance_to_depth": 0.09818548387096739,
+            "maximum_change": 0.5540216086434573,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.2336467433688802,
+            "mean_cross_column": 0.9878345498783454,
+            "mean_line": 0.30442249892657786,
+            "mean_scale_quality": 0.48485787683957987,
+            "rank_score": 0.1999999999999995,
+            "width": 0.027419354838709633
+          },
+          "key": [
+            24,
+            3573
+          ],
+          "label": 1,
+          "page": 24,
+          "probability": 0.9353916856924736
+        },
+        {
+          "features": {
+            "activity": 0.2516550249197784,
+            "candidate_count_log": 0.790247090752419,
+            "center_x": 0.3846774193548375,
+            "distance_to_depth": 0.12560483870967717,
+            "maximum_change": 0.5420168067226889,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.22223667244675654,
+            "mean_cross_column": 0.9851851851851854,
+            "mean_line": 0.2879084967320262,
+            "mean_scale_quality": 0.48485787683957987,
+            "rank_score": 0.16666666666666682,
+            "width": 0.027419354838709633
+          },
+          "key": [
+            24,
+            3847
+          ],
+          "label": 1,
+          "page": 24,
+          "probability": 0.9147097923693942
+        }
+      ],
+      "fold": 0,
+      "predicted_boundaries_m": [
+        0.0,
+        25.0,
+        48.0,
+        97.0,
+        99.0,
+        100.0,
+        104.0,
+        106.0,
+        114.0,
+        117.0,
+        120.0,
+        149.0,
+        200.25
+      ],
+      "record_id": "BGS_OFFSHORE_2024185"
+    },
+    {
+      "columns": [
+        {
+          "features": {
+            "activity": 0.13601934632506743,
+            "candidate_count_log": 0.7220396944482013,
+            "center_x": 0.12358870967741935,
+            "distance_to_depth": 0.17567204301075276,
+            "maximum_change": 0.3089088527044731,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.13689853334013907,
+            "mean_cross_column": 0.939393939393939,
+            "mean_line": 0.17136695421366954,
+            "mean_scale_quality": 0.6157881052198046,
+            "rank_score": 1.0,
+            "width": 0.05524193548387101
+          },
+          "key": [
+            11,
+            1236
+          ],
+          "label": 1,
+          "page": 11,
+          "probability": 0.4371806865006279
+        },
+        {
+          "features": {
+            "activity": 0.168635122505447,
+            "candidate_count_log": 0.7983205867577547,
+            "center_x": 0.17782258064516188,
+            "distance_to_depth": 0.12143817204301054,
+            "maximum_change": 0.3074980574980575,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.13957286844610794,
+            "mean_cross_column": 0.9178403755868552,
+            "mean_line": 0.14858087921468213,
+            "mean_scale_quality": 0.6157881052198046,
+            "rank_score": 0.5,
+            "width": 0.05322580645161269
+          },
+          "key": [
+            11,
+            1778
+          ],
+          "label": 1,
+          "page": 11,
+          "probability": 0.793861985278899
+        },
+        {
+          "features": {
+            "activity": 0.23554731552318844,
+            "candidate_count_log": 0.7854449587427245,
+            "center_x": 0.23387096774193575,
+            "distance_to_depth": 0.06538978494623654,
+            "maximum_change": 0.2600459242250287,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.1254553714107092,
+            "mean_cross_column": 0.9363867684478372,
+            "mean_line": 0.2113478409479321,
+            "mean_scale_quality": 0.6157881052198046,
+            "rank_score": 0.3333333333333336,
+            "width": 0.05403225806451604
+          },
+          "key": [
+            11,
+            2339
+          ],
+          "label": 1,
+          "page": 11,
+          "probability": 0.8986415310774236
+        },
+        {
+          "features": {
+            "activity": 0.1728020185037885,
+            "candidate_count_log": 0.8153812739294602,
+            "center_x": 0.2887096774193551,
+            "distance_to_depth": 0.010551075268817173,
+            "maximum_change": 0.4037532515793385,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.12872491050806958,
+            "mean_cross_column": 0.7447257383966227,
+            "mean_line": 0.11392405063291139,
+            "mean_scale_quality": 0.6157881052198046,
+            "rank_score": 0.25,
+            "width": 0.05564516129032251
+          },
+          "key": [
+            11,
+            2887
+          ],
+          "label": 1,
+          "page": 11,
+          "probability": 0.975182480592818
+        },
+        {
+          "features": {
+            "activity": 0.6220490176671315,
+            "candidate_count_log": 0.9481705513296417,
+            "center_x": 0.3439516129032257,
+            "distance_to_depth": 0.044690860215053925,
+            "maximum_change": 0.4144042232277526,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.10049123771905692,
+            "mean_cross_column": 0.7117863720073673,
+            "mean_line": 0.7996831329216768,
+            "mean_scale_quality": 0.6157881052198045,
+            "rank_score": 0.20000000000000134,
+            "width": 0.05483870967741924
+          },
+          "key": [
+            11,
+            3440
+          ],
+          "label": 1,
+          "page": 11,
+          "probability": 0.9954025843438479
+        },
+        {
+          "features": {
+            "activity": 0.24090895351943775,
+            "candidate_count_log": 0.743970703319479,
+            "center_x": 0.3872983870967745,
+            "distance_to_depth": 0.08803763440860203,
+            "maximum_change": 0.31045115222330416,
+            "maximum_cross_column": 1.0,
+            "maximum_line": 1.0,
+            "mean_change": 0.19385502328227003,
+            "mean_cross_column": 0.8613861386138617,
+            "mean_line": 0.37122446421857375,
+            "mean_scale_quality": 0.6157881052198046,
+            "rank_score": 0.1666666666666665,
+            "width": 0.03185483870967735
+          },
+          "key": [
+            11,
+            3873
+          ],
+          "label": 1,
+          "page": 11,
+          "probability": 0.8940527664905328
+        }
+      ],
+      "fold": 2,
+      "predicted_boundaries_m": [
+        0.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0,
+        8.0,
+        9.0,
+        10.0,
+        11.0,
+        12.0,
+        13.0,
+        14.0,
+        15.0,
+        16.0,
+        17.0,
+        18.0,
+        19.0,
+        20.0
+      ],
+      "record_id": "BGS_OFFSHORE_2030012"
+    },
+    {
+      "columns": [
+        {
+          "features": {
+            "activity": 0.12275426918941165,
+            "candidate_count_log": 0.5301665912899275,
+            "center_x": 0.4455645161290321,
+            "distance_to_depth": 0.07762096774193555,
+            "maximum_change": 0.18936190659235058,
+            "maximum_cross_column": 0.6666666666666666,
+            "maximum_line": 1.0,
+            "mean_change": 0.14221085468442757,
+            "mean_cross_column": 0.6666666666666665,
+            "mean_line": 0.19230769230769232,
+            "mean_scale_quality": 0.8713900124755534,
+            "rank_score": 1.0,
+            "width": 0.03467741935483871
+          },
+          "key": [
+            7,
+            4456
+          ],
+          "label": 1,
+          "page": 7,
+          "probability": 0.9207508998240892
+        },
+        {
+          "features": {
+            "activity": 1.0,
+            "candidate_count_log": 0.7048905083288405,
+            "center_x": 0.48004032258064494,
+            "distance_to_depth": 0.04314516129032274,
+            "maximum_change": 0.2290714632960622,
+            "maximum_cross_column": 0.6666666666666666,
+            "maximum_line": 1.0,
+            "mean_change": 0.11461080718509815,
+            "mean_cross_column": 0.4430379746835443,
+            "mean_line": 0.3291139240506329,
+            "mean_scale_quality": 0.8713900124755534,
+            "rank_score": 0.5,
+            "width": 0.03427419354838705
+          },
+          "key": [
+            7,
+            4800
+          ],
+          "label": 1,
+          "page": 7,
+          "probability": 0.9977939085428268
+        }
+      ],
+      "fold": 4,
+      "predicted_boundaries_m": [
+        0.0,
+        0.05,
+        22.5,
+        27.0,
+        29.0,
+        29.8
+      ],
+      "record_id": "BGS_OFFSHORE_2041581"
+    }
+  ],
+  "reference_blinding": "outer test references are used only for scoring; column gate, top-k and sequence threshold use other source folds",
+  "source_analysis": "experiments/paper2/analysis/bgs_layout_method_development_v021.json",
+  "source_analysis_sha256": "cae1787d8803f6e9d2052407fa69dae5fdfd51da81e0fad758cc30278cbd70a4",
+  "wall_time_seconds": 19.742156042004353
+}

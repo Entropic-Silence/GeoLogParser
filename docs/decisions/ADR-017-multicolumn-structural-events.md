@@ -32,10 +32,17 @@ with precision 0.9268, reference-relative coverage 0.1117 and CNER 0.0732.
 The pairwise model evaluated 77,637 candidate pairs under outer source folds and
 reduced interval F1 to 0.0445 and boundary F1 to 0.2066. It is rejected.
 
+A subsequent source-disjoint column gate retained six learned high-scoring
+graphic columns per page before the existing monotonic decoder. It reached
+boundary precision/recall/F1 0.6610/0.2125/0.3216 and interval F1 0.1475 at
+±0.05 m, the strongest current development result. CNER remained 0.3390, so
+the interval gate was not met and the variant is not eligible for external
+release.
+
 ## Consequence
 
-v021 is retained as an interval-focused development ablation, not as the frozen
-external model. It remains below the interval-F1 >= 0.15 release gate, so BGS
-v002 is not opened. Further work should suppress semantically irrelevant
-columns before candidate generation and improve event coverage, rather than
-enumerating more boundary pairs.
+The column-gated v022 candidate is retained as the next development baseline,
+not as the frozen external model. It remains below the interval-F1 >= 0.15
+release gate and has unacceptable critical numerical error for automatic
+acceptance, so BGS v002 is not opened. Further work should reduce false graphic
+events and improve endpoint coverage rather than enumerate more candidate pairs.

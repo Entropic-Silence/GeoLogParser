@@ -2417,3 +2417,16 @@
   the rejected pairwise analysis SHA256 is
   `9415e2f5271aa5b323abaa64fc0f3350a6e281ae69bd671d055358f0cebe5653`.
   BGS v002 remains unopened because the 0.15 interval-F1 gate was not met.
+
+## 2026-08-16 — BGS v022 semantic column gate
+
+- Trained a source-disjoint column-level ranker over v021 graphic candidates,
+  using column position, width, texture activity, transition strength, scale
+  quality and cross-column support. The gate was fitted only on other source
+  folds and applied before monotonic sequence decoding.
+- Retaining six columns per page produced boundary precision/recall/F1
+  0.6610/0.2125/0.3216 and interval F1 0.1475 at ±0.05 m. CNER was 0.3390.
+  This exceeds v018 on boundary F1 and is the closest result to the interval
+  release gate, but remains below 0.15 and is not externally released.
+- The analysis SHA256 is
+  `8923bac3204a8048c7ebaf3ca8de41bf8285218c0d91dc281b3e7add997c063a`.
