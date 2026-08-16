@@ -1,0 +1,2546 @@
+{
+  "analysis_scope": "BGS v001 source-disjoint pairwise interval reconstruction over v021 candidates",
+  "boundary_at_0_05m": {
+    "critical_numerical_error_rate": 0.770764119601329,
+    "f1": 0.2065868263473054,
+    "false_negative": 298,
+    "false_positive": 232,
+    "precision": 0.2292358803986711,
+    "recall": 0.1880108991825613,
+    "true_positive": 69
+  },
+  "candidate_pair_count": 77637,
+  "document_count": 26,
+  "documents_with_positive_pair": 18,
+  "fold_models": [
+    {
+      "fold": 0,
+      "ranker": {
+        "bias": -1.2863918646304617,
+        "features": [
+          "left_probability",
+          "right_probability",
+          "minimum_probability",
+          "probability_product",
+          "depth_gap_log",
+          "same_page",
+          "page_gap",
+          "visual_order_consistent",
+          "left_graphic",
+          "right_graphic",
+          "both_graphic",
+          "both_printed",
+          "contains_metadata",
+          "minimum_line_support",
+          "minimum_change_support",
+          "cross_column_support",
+          "minimum_scale_quality",
+          "candidate_rank_gap"
+        ],
+        "mean": [
+          0.09805372953148372,
+          0.09125181644552766,
+          0.05697080802478795,
+          0.011469538747324839,
+          0.21064449260549453,
+          0.9732919254658385,
+          0.00681623473977297,
+          0.8536303276932962,
+          0.8999357464125081,
+          0.8861212251017349,
+          0.854679802955665,
+          0.061190833154851146,
+          0.013214821160848147,
+          0.11141434931494444,
+          0.07563806911558443,
+          0.4666595273791823,
+          0.5917522251315404,
+          0.528753480402656
+        ],
+        "scale": [
+          0.12328336066898177,
+          0.10204245959782363,
+          0.052581892559525195,
+          0.02700262622888496,
+          0.2121981453190469,
+          0.16122888478442202,
+          0.04155966412319594,
+          0.35347643674712664,
+          0.3000856523418869,
+          0.3176639726596335,
+          0.35242337802044454,
+          0.23968002647833764,
+          0.11419364983456416,
+          0.3047649039555588,
+          0.06282294922281918,
+          0.2967639174167479,
+          0.13056992697347086,
+          0.2878536267875111
+        ],
+        "weights": [
+          0.35465715859208863,
+          0.27734339109676276,
+          0.003116085129061141,
+          0.2009475660131854,
+          -0.36432884717282454,
+          0.11481726141721137,
+          -0.11631565138455562,
+          0.2314462397949604,
+          -0.1425740403254456,
+          0.08118495394057554,
+          0.07281821369518995,
+          0.22474385215890777,
+          0.13091586642744685,
+          0.6953803738081379,
+          -0.028244892779214374,
+          -0.5859204396725415,
+          0.10949124412563646,
+          -0.1732326017294883
+        ]
+      },
+      "test_documents": 6,
+      "threshold": 0.99,
+      "train_documents": 20
+    },
+    {
+      "fold": 1,
+      "ranker": {
+        "bias": -1.2597224562741582,
+        "features": [
+          "left_probability",
+          "right_probability",
+          "minimum_probability",
+          "probability_product",
+          "depth_gap_log",
+          "same_page",
+          "page_gap",
+          "visual_order_consistent",
+          "left_graphic",
+          "right_graphic",
+          "both_graphic",
+          "both_printed",
+          "contains_metadata",
+          "minimum_line_support",
+          "minimum_change_support",
+          "cross_column_support",
+          "minimum_scale_quality",
+          "candidate_rank_gap"
+        ],
+        "mean": [
+          0.0951622378498893,
+          0.09013732787261734,
+          0.056636832560970636,
+          0.011391388392534788,
+          0.18834104405605662,
+          0.933490119597327,
+          0.018262253706943527,
+          0.8456276708635673,
+          0.9149338916453954,
+          0.9024722516993146,
+          0.8786818481658876,
+          0.05604152923968222,
+          0.009091691284022142,
+          0.08181362326550169,
+          0.08424784872957929,
+          0.47150122847768294,
+          0.5689856505525714,
+          0.5305876616858327
+        ],
+        "scale": [
+          0.11739730529043452,
+          0.10055837172564566,
+          0.0533770908114796,
+          0.02719284645314272,
+          0.20109273210627218,
+          0.24917125879892302,
+          0.07248305505562794,
+          0.36130529076321694,
+          0.27898004509992813,
+          0.2966750522238508,
+          0.32649664296860764,
+          0.23000190486203945,
+          0.09491592297202849,
+          0.2641277110813987,
+          0.06351843460239164,
+          0.2855598464731179,
+          0.12150923576491932,
+          0.2878921342992868
+        ],
+        "weights": [
+          0.2646639015271349,
+          0.30610122167616066,
+          -0.18946620684913568,
+          0.3971023526353972,
+          -0.2836800466537116,
+          0.26615609917802563,
+          -0.263139743247767,
+          0.30882834105325546,
+          -0.16411173070622473,
+          -0.053094359687725995,
+          0.14270185166240307,
+          0.40465968380136,
+          0.12742973922443052,
+          0.6676286994396667,
+          0.24411338909037997,
+          -0.5394909670810221,
+          -0.35441447053438935,
+          0.1576812020394993
+        ]
+      },
+      "test_documents": 3,
+      "threshold": 0.98,
+      "train_documents": 23
+    },
+    {
+      "fold": 2,
+      "ranker": {
+        "bias": -1.3141824704669456,
+        "features": [
+          "left_probability",
+          "right_probability",
+          "minimum_probability",
+          "probability_product",
+          "depth_gap_log",
+          "same_page",
+          "page_gap",
+          "visual_order_consistent",
+          "left_graphic",
+          "right_graphic",
+          "both_graphic",
+          "both_printed",
+          "contains_metadata",
+          "minimum_line_support",
+          "minimum_change_support",
+          "cross_column_support",
+          "minimum_scale_quality",
+          "candidate_rank_gap"
+        ],
+        "mean": [
+          0.09467926253350892,
+          0.08959744902385654,
+          0.056036481791680824,
+          0.011067071553249045,
+          0.19676828439550972,
+          0.9291211353944563,
+          0.019618703358208957,
+          0.8396855010660981,
+          0.9029517590618337,
+          0.892573960554371,
+          0.8640891524520256,
+          0.06190031982942431,
+          0.01062766524520256,
+          0.056242043320281696,
+          0.081706018495826,
+          0.45168687810940017,
+          0.582018094727744,
+          0.530300506396589
+        ],
+        "scale": [
+          0.11748700539293244,
+          0.09979718344665246,
+          0.05144209932359638,
+          0.027035118783026536,
+          0.20531710154230753,
+          0.25662239021124733,
+          0.07554236773073722,
+          0.36689747936636946,
+          0.29602344479599974,
+          0.30965413850706763,
+          0.34269387077505503,
+          0.24097441821572402,
+          0.10254129888317719,
+          0.22216007642252705,
+          0.06176919459277607,
+          0.2855255175427997,
+          0.13654635308424412,
+          0.28788687753839076
+        ],
+        "weights": [
+          0.11019197971206776,
+          0.21921777787909208,
+          -0.14250178248621745,
+          0.3057349963233056,
+          -0.48625804372787146,
+          0.28532273685398,
+          -0.27697376797319956,
+          0.33511239807465437,
+          -0.2606527516579098,
+          0.043542652266288964,
+          -0.03875395018235262,
+          0.2757014213070829,
+          0.16479039251352792,
+          0.7509736796553089,
+          0.3488682875404004,
+          -0.7124379591664185,
+          -0.27119585857172374,
+          0.01280232575276866
+        ]
+      },
+      "test_documents": 5,
+      "threshold": 0.94,
+      "train_documents": 21
+    },
+    {
+      "fold": 3,
+      "ranker": {
+        "bias": -1.1637475857304895,
+        "features": [
+          "left_probability",
+          "right_probability",
+          "minimum_probability",
+          "probability_product",
+          "depth_gap_log",
+          "same_page",
+          "page_gap",
+          "visual_order_consistent",
+          "left_graphic",
+          "right_graphic",
+          "both_graphic",
+          "both_printed",
+          "contains_metadata",
+          "minimum_line_support",
+          "minimum_change_support",
+          "cross_column_support",
+          "minimum_scale_quality",
+          "candidate_rank_gap"
+        ],
+        "mean": [
+          0.09389210581473272,
+          0.08948080921466221,
+          0.055641702119232014,
+          0.0108506345465517,
+          0.17569586094802728,
+          0.9356359521875363,
+          0.017650429383776256,
+          0.8540385284901938,
+          0.9307618660786817,
+          0.9196501102471858,
+          0.8974991296274806,
+          0.04279331553905071,
+          0.00803643959614715,
+          0.0800270883709311,
+          0.0858165049112005,
+          0.48519399636370825,
+          0.571763237546813,
+          0.5309997679006591
+        ],
+        "scale": [
+          0.11481061932696728,
+          0.09913207116095629,
+          0.05160557008449324,
+          0.02515352045330552,
+          0.1843466956330076,
+          0.24540032021503083,
+          0.07132665614766481,
+          0.35306758608575384,
+          0.25385865108852135,
+          0.2718341129614773,
+          0.3033058554419866,
+          0.20239082905174852,
+          0.08928524645631337,
+          0.26233820249356304,
+          0.061729184661110936,
+          0.2837077785744269,
+          0.1176365724812632,
+          0.28789917781596025
+        ],
+        "weights": [
+          0.3512490739810469,
+          0.14582151691904194,
+          -0.028960881908163455,
+          0.3157672762466286,
+          -0.36406453190178817,
+          0.27257937390034936,
+          -0.2795114401991802,
+          0.292184088913133,
+          -0.194131658310503,
+          0.10296621166533364,
+          -0.004238890559661218,
+          0.227273448274846,
+          0.15981994927419568,
+          0.6049507044453689,
+          0.28105356489861144,
+          -0.7422650961295978,
+          -0.3024948739124553,
+          0.10201360152418361
+        ]
+      },
+      "test_documents": 5,
+      "threshold": 0.97,
+      "train_documents": 21
+    },
+    {
+      "fold": 4,
+      "ranker": {
+        "bias": -1.3285369183295155,
+        "features": [
+          "left_probability",
+          "right_probability",
+          "minimum_probability",
+          "probability_product",
+          "depth_gap_log",
+          "same_page",
+          "page_gap",
+          "visual_order_consistent",
+          "left_graphic",
+          "right_graphic",
+          "both_graphic",
+          "both_printed",
+          "contains_metadata",
+          "minimum_line_support",
+          "minimum_change_support",
+          "cross_column_support",
+          "minimum_scale_quality",
+          "candidate_rank_gap"
+        ],
+        "mean": [
+          0.0936750692540693,
+          0.08924742370120602,
+          0.05611801360079973,
+          0.01138864509950576,
+          0.17637064052672297,
+          0.9290472097734668,
+          0.01948784455767696,
+          0.8540886487813862,
+          0.9277273006323286,
+          0.9190558045306648,
+          0.8978144760267666,
+          0.04697955675609307,
+          0.007812020381852784,
+          0.06134606658660538,
+          0.0900169652215657,
+          0.4745891910695075,
+          0.5930844453186037,
+          0.5312250598563429
+        ],
+        "scale": [
+          0.1171253009983868,
+          0.10196718096656197,
+          0.05367850130510987,
+          0.027711015319159114,
+          0.1868513408076189,
+          0.25674596741824446,
+          0.07473763730253527,
+          0.3530173208272576,
+          0.2589389045580794,
+          0.27274939539645837,
+          0.30289213040883006,
+          0.21159508029029447,
+          0.0880397223950809,
+          0.229600415306793,
+          0.062109134949416916,
+          0.2798180816879235,
+          0.12132527328816778,
+          0.2879027789315079
+        ],
+        "weights": [
+          0.20883134176732113,
+          0.18223618784515414,
+          -0.1613548958916137,
+          0.36400837979072775,
+          -0.3634652361500256,
+          0.26828392972509413,
+          -0.27391500918656936,
+          0.20988766614448792,
+          -0.16893983360075812,
+          0.12426648368590677,
+          0.03123673919495874,
+          0.18524993715646357,
+          0.13517592105997855,
+          0.7360737487436567,
+          0.24630500886254159,
+          -0.9783218825391168,
+          -0.2260807275657568,
+          0.04324484942314091
+        ]
+      },
+      "test_documents": 7,
+      "threshold": 0.98,
+      "train_documents": 19
+    }
+  ],
+  "interval_at_0_05m": {
+    "f1": 0.04450625869262865,
+    "false_negative": 325,
+    "false_positive": 362,
+    "precision": 0.042328042328042326,
+    "recall": 0.0469208211143695,
+    "true_positive": 16
+  },
+  "manifest": "datasets/manifests/bgs_offshore_gold_v001.jsonl",
+  "manifest_sha256": "d85f6c862b81d80c793887f73ca8b70658d42de358f25230dc4a15104520c99c",
+  "positive_pair_count": 103,
+  "predictions": [
+    {
+      "fold": 3,
+      "record_id": "BGS_OFFSHORE_1942278",
+      "selected_intervals": [
+        {
+          "bottom_m": 2.0,
+          "probability": 0.9797716537904407,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 5.0,
+          "probability": 0.9863287894048135,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 6.0,
+          "probability": 0.9760391868739535,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 9.0,
+          "probability": 0.9763929617123432,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 15.0,
+          "probability": 0.991912946448662,
+          "top_m": 0.0
+        }
+      ],
+      "threshold": 0.97
+    },
+    {
+      "fold": 4,
+      "record_id": "BGS_OFFSHORE_1943902",
+      "selected_intervals": [],
+      "threshold": 0.98
+    },
+    {
+      "fold": 4,
+      "record_id": "BGS_OFFSHORE_1944312",
+      "selected_intervals": [
+        {
+          "bottom_m": 1.0,
+          "probability": 0.9817134758166216,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 28.4,
+          "probability": 0.9912916706915665,
+          "top_m": 28.35
+        },
+        {
+          "bottom_m": 28.5,
+          "probability": 0.99151102693337,
+          "top_m": 28.35
+        },
+        {
+          "bottom_m": 29.0,
+          "probability": 0.9846277952459557,
+          "top_m": 28.35
+        },
+        {
+          "bottom_m": 29.7,
+          "probability": 0.9886119212896509,
+          "top_m": 28.35
+        },
+        {
+          "bottom_m": 29.8,
+          "probability": 0.988504369783449,
+          "top_m": 28.35
+        },
+        {
+          "bottom_m": 29.9,
+          "probability": 0.9873266018314483,
+          "top_m": 28.35
+        },
+        {
+          "bottom_m": 30.0,
+          "probability": 0.9951519047466014,
+          "top_m": 28.35
+        }
+      ],
+      "threshold": 0.98
+    },
+    {
+      "fold": 0,
+      "record_id": "BGS_OFFSHORE_1944320",
+      "selected_intervals": [
+        {
+          "bottom_m": 0.9,
+          "probability": 0.9944972588542357,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 20.0,
+          "probability": 0.9953386550473333,
+          "top_m": 13.55
+        }
+      ],
+      "threshold": 0.99
+    },
+    {
+      "fold": 1,
+      "record_id": "BGS_OFFSHORE_1944322",
+      "selected_intervals": [
+        {
+          "bottom_m": 0.05,
+          "probability": 0.9999948664897825,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 20.0,
+          "probability": 0.9934330587478385,
+          "top_m": 16.0
+        }
+      ],
+      "threshold": 0.98
+    },
+    {
+      "fold": 0,
+      "record_id": "BGS_OFFSHORE_1945465",
+      "selected_intervals": [],
+      "threshold": 0.99
+    },
+    {
+      "fold": 4,
+      "record_id": "BGS_OFFSHORE_1949665",
+      "selected_intervals": [
+        {
+          "bottom_m": 2.0,
+          "probability": 0.9850626941669762,
+          "top_m": 0.0
+        }
+      ],
+      "threshold": 0.98
+    },
+    {
+      "fold": 2,
+      "record_id": "BGS_OFFSHORE_1951404",
+      "selected_intervals": [],
+      "threshold": 0.94
+    },
+    {
+      "fold": 0,
+      "record_id": "BGS_OFFSHORE_1957995",
+      "selected_intervals": [
+        {
+          "bottom_m": 1.0,
+          "probability": 0.9949995427975262,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 1.9,
+          "probability": 0.999073425609524,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 2.0,
+          "probability": 0.999980215454271,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 3.0,
+          "probability": 0.9941572949971853,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 2.0,
+          "probability": 0.9952957141741688,
+          "top_m": 1.9
+        },
+        {
+          "bottom_m": 13.0,
+          "probability": 0.9997248475982552,
+          "top_m": 10.0
+        },
+        {
+          "bottom_m": 16.67,
+          "probability": 0.9989023787576767,
+          "top_m": 13.0
+        },
+        {
+          "bottom_m": 20.0,
+          "probability": 0.9980342468989938,
+          "top_m": 13.0
+        },
+        {
+          "bottom_m": 20.0,
+          "probability": 0.9924090841477569,
+          "top_m": 16.67
+        },
+        {
+          "bottom_m": 20.5,
+          "probability": 0.9944402028073928,
+          "top_m": 20.0
+        },
+        {
+          "bottom_m": 20.7,
+          "probability": 0.9930180464681978,
+          "top_m": 20.0
+        },
+        {
+          "bottom_m": 20.75,
+          "probability": 0.9926428424285902,
+          "top_m": 20.0
+        },
+        {
+          "bottom_m": 20.8,
+          "probability": 0.9922155510453723,
+          "top_m": 20.0
+        },
+        {
+          "bottom_m": 21.0,
+          "probability": 0.9988188890398545,
+          "top_m": 20.0
+        },
+        {
+          "bottom_m": 23.0,
+          "probability": 0.9974495743960264,
+          "top_m": 20.0
+        },
+        {
+          "bottom_m": 21.0,
+          "probability": 0.9921314799044043,
+          "top_m": 20.4
+        },
+        {
+          "bottom_m": 21.0,
+          "probability": 0.9925944905696641,
+          "top_m": 20.45
+        },
+        {
+          "bottom_m": 23.0,
+          "probability": 0.9985643928888877,
+          "top_m": 21.0
+        },
+        {
+          "bottom_m": 30.0,
+          "probability": 0.994442591415987,
+          "top_m": 21.0
+        },
+        {
+          "bottom_m": 30.0,
+          "probability": 0.993621925453703,
+          "top_m": 22.903
+        },
+        {
+          "bottom_m": 30.0,
+          "probability": 0.995017085467681,
+          "top_m": 23.0
+        },
+        {
+          "bottom_m": 30.05,
+          "probability": 0.9903274400600207,
+          "top_m": 30.0
+        },
+        {
+          "bottom_m": 40.0,
+          "probability": 0.9901440319407958,
+          "top_m": 30.0
+        },
+        {
+          "bottom_m": 50.0,
+          "probability": 0.9924697793568422,
+          "top_m": 30.0
+        }
+      ],
+      "threshold": 0.99
+    },
+    {
+      "fold": 3,
+      "record_id": "BGS_OFFSHORE_1960100",
+      "selected_intervals": [
+        {
+          "bottom_m": 0.2,
+          "probability": 0.9870373663414965,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 0.25,
+          "probability": 0.9877524537918232,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 0.3,
+          "probability": 0.9877792062281471,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 0.5,
+          "probability": 0.9893349223823551,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 1.0,
+          "probability": 0.9897770888113611,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 2.0,
+          "probability": 0.9935305666701308,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 3.0,
+          "probability": 0.979122403031056,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 4.0,
+          "probability": 0.979815827224496,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 5.0,
+          "probability": 0.9963728602355472,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 6.9,
+          "probability": 0.9996521709053587,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 6.95,
+          "probability": 0.999674899473101,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 7.0,
+          "probability": 0.9999873787738088,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 7.3,
+          "probability": 0.9769394656255302,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 7.0,
+          "probability": 0.9917589455871981,
+          "top_m": 6.9
+        },
+        {
+          "bottom_m": 8.0,
+          "probability": 0.9958912095596124,
+          "top_m": 6.9
+        },
+        {
+          "bottom_m": 8.05,
+          "probability": 0.9759843688133844,
+          "top_m": 6.9
+        },
+        {
+          "bottom_m": 8.1,
+          "probability": 0.9761590364373801,
+          "top_m": 6.9
+        },
+        {
+          "bottom_m": 7.0,
+          "probability": 0.9920269406883678,
+          "top_m": 6.95
+        },
+        {
+          "bottom_m": 8.0,
+          "probability": 0.9959859974058337,
+          "top_m": 6.95
+        },
+        {
+          "bottom_m": 8.05,
+          "probability": 0.976330879584174,
+          "top_m": 6.95
+        },
+        {
+          "bottom_m": 8.1,
+          "probability": 0.9764966552388227,
+          "top_m": 6.95
+        },
+        {
+          "bottom_m": 8.0,
+          "probability": 0.9997412644333831,
+          "top_m": 7.0
+        },
+        {
+          "bottom_m": 8.05,
+          "probability": 0.9971720539315111,
+          "top_m": 7.0
+        },
+        {
+          "bottom_m": 8.1,
+          "probability": 0.9971817802930616,
+          "top_m": 7.0
+        },
+        {
+          "bottom_m": 8.05,
+          "probability": 0.9938260148178626,
+          "top_m": 8.0
+        },
+        {
+          "bottom_m": 8.1,
+          "probability": 0.9937888672109366,
+          "top_m": 8.0
+        },
+        {
+          "bottom_m": 11.9,
+          "probability": 0.9943096872643934,
+          "top_m": 8.0
+        },
+        {
+          "bottom_m": 12.0,
+          "probability": 0.9994583864977227,
+          "top_m": 8.0
+        },
+        {
+          "bottom_m": 12.5,
+          "probability": 0.9921139875214326,
+          "top_m": 8.0
+        },
+        {
+          "bottom_m": 12.6,
+          "probability": 0.9920201152848951,
+          "top_m": 8.0
+        },
+        {
+          "bottom_m": 13.0,
+          "probability": 0.9994080322417265,
+          "top_m": 8.0
+        },
+        {
+          "bottom_m": 12.0,
+          "probability": 0.991935421242297,
+          "top_m": 8.05
+        },
+        {
+          "bottom_m": 13.0,
+          "probability": 0.9931005610207613,
+          "top_m": 8.05
+        },
+        {
+          "bottom_m": 12.0,
+          "probability": 0.9916608946731098,
+          "top_m": 8.1
+        },
+        {
+          "bottom_m": 13.0,
+          "probability": 0.9928704963638012,
+          "top_m": 8.1
+        },
+        {
+          "bottom_m": 12.0,
+          "probability": 0.9883028466232436,
+          "top_m": 11.9
+        },
+        {
+          "bottom_m": 12.5,
+          "probability": 0.9707193131907595,
+          "top_m": 11.9
+        },
+        {
+          "bottom_m": 12.6,
+          "probability": 0.9701461789605879,
+          "top_m": 11.9
+        },
+        {
+          "bottom_m": 13.0,
+          "probability": 0.9945868984681304,
+          "top_m": 11.9
+        },
+        {
+          "bottom_m": 12.5,
+          "probability": 0.9944248268300524,
+          "top_m": 12.0
+        },
+        {
+          "bottom_m": 12.6,
+          "probability": 0.9942528259997641,
+          "top_m": 12.0
+        },
+        {
+          "bottom_m": 13.0,
+          "probability": 0.9994917731163588,
+          "top_m": 12.0
+        },
+        {
+          "bottom_m": 17.0,
+          "probability": 0.997035359662755,
+          "top_m": 13.0
+        },
+        {
+          "bottom_m": 17.05,
+          "probability": 0.9915243430177791,
+          "top_m": 13.0
+        },
+        {
+          "bottom_m": 17.1,
+          "probability": 0.9916181167965405,
+          "top_m": 13.0
+        },
+        {
+          "bottom_m": 17.05,
+          "probability": 0.9976887558222045,
+          "top_m": 17.0
+        },
+        {
+          "bottom_m": 17.1,
+          "probability": 0.9976717238737509,
+          "top_m": 17.0
+        },
+        {
+          "bottom_m": 17.5,
+          "probability": 0.9971082606204758,
+          "top_m": 17.0
+        },
+        {
+          "bottom_m": 17.6,
+          "probability": 0.9963924799163639,
+          "top_m": 17.0
+        },
+        {
+          "bottom_m": 17.65,
+          "probability": 0.9966079493816842,
+          "top_m": 17.0
+        },
+        {
+          "bottom_m": 17.7,
+          "probability": 0.9966018123864174,
+          "top_m": 17.0
+        },
+        {
+          "bottom_m": 18.0,
+          "probability": 0.9997983337717209,
+          "top_m": 17.0
+        },
+        {
+          "bottom_m": 18.0,
+          "probability": 0.9898061236263362,
+          "top_m": 17.05
+        },
+        {
+          "bottom_m": 18.0,
+          "probability": 0.9895276017132194,
+          "top_m": 17.1
+        },
+        {
+          "bottom_m": 18.0,
+          "probability": 0.983624950380114,
+          "top_m": 17.5
+        },
+        {
+          "bottom_m": 19.0,
+          "probability": 0.9883397299804272,
+          "top_m": 17.5
+        },
+        {
+          "bottom_m": 18.0,
+          "probability": 0.9796736345925765,
+          "top_m": 17.6
+        },
+        {
+          "bottom_m": 19.0,
+          "probability": 0.9853344095508874,
+          "top_m": 17.6
+        },
+        {
+          "bottom_m": 18.0,
+          "probability": 0.980474293279839,
+          "top_m": 17.65
+        },
+        {
+          "bottom_m": 19.0,
+          "probability": 0.9858243902160536,
+          "top_m": 17.65
+        },
+        {
+          "bottom_m": 18.0,
+          "probability": 0.9800129277937886,
+          "top_m": 17.7
+        },
+        {
+          "bottom_m": 19.0,
+          "probability": 0.9853877655782031,
+          "top_m": 17.7
+        },
+        {
+          "bottom_m": 19.0,
+          "probability": 0.9991587846187765,
+          "top_m": 18.0
+        },
+        {
+          "bottom_m": 19.05,
+          "probability": 0.9919298620837927,
+          "top_m": 18.0
+        },
+        {
+          "bottom_m": 19.1,
+          "probability": 0.9919726299179759,
+          "top_m": 18.0
+        },
+        {
+          "bottom_m": 19.05,
+          "probability": 0.9836157680870217,
+          "top_m": 19.0
+        },
+        {
+          "bottom_m": 19.1,
+          "probability": 0.9835472259078534,
+          "top_m": 19.0
+        },
+        {
+          "bottom_m": 21.05,
+          "probability": 0.9826498202950117,
+          "top_m": 21.0
+        },
+        {
+          "bottom_m": 21.1,
+          "probability": 0.9816373959177238,
+          "top_m": 21.0
+        },
+        {
+          "bottom_m": 30.0,
+          "probability": 0.9978866140486276,
+          "top_m": 21.0
+        },
+        {
+          "bottom_m": 30.05,
+          "probability": 0.981973925824884,
+          "top_m": 21.0
+        },
+        {
+          "bottom_m": 30.1,
+          "probability": 0.9822031064834247,
+          "top_m": 21.0
+        },
+        {
+          "bottom_m": 21.1,
+          "probability": 0.9821129969255599,
+          "top_m": 21.05
+        },
+        {
+          "bottom_m": 30.0,
+          "probability": 0.9949757478637652,
+          "top_m": 21.05
+        },
+        {
+          "bottom_m": 30.05,
+          "probability": 0.9727170893087161,
+          "top_m": 21.05
+        },
+        {
+          "bottom_m": 30.1,
+          "probability": 0.9731483749792513,
+          "top_m": 21.05
+        },
+        {
+          "bottom_m": 30.05,
+          "probability": 0.9975359936163583,
+          "top_m": 30.0
+        },
+        {
+          "bottom_m": 30.1,
+          "probability": 0.9975190932191034,
+          "top_m": 30.0
+        },
+        {
+          "bottom_m": 37.0,
+          "probability": 0.9811290086433933,
+          "top_m": 30.0
+        }
+      ],
+      "threshold": 0.97
+    },
+    {
+      "fold": 2,
+      "record_id": "BGS_OFFSHORE_1960609",
+      "selected_intervals": [
+        {
+          "bottom_m": 0.05,
+          "probability": 0.9999747620010984,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 0.1,
+          "probability": 0.9724158595515937,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 0.2,
+          "probability": 0.9659049864138376,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 0.1,
+          "probability": 0.9687331579266422,
+          "top_m": 0.05
+        },
+        {
+          "bottom_m": 0.2,
+          "probability": 0.9628754946119505,
+          "top_m": 0.05
+        },
+        {
+          "bottom_m": 6.0,
+          "probability": 0.9589957217134476,
+          "top_m": 5.0
+        },
+        {
+          "bottom_m": 6.0,
+          "probability": 0.9417248651812778,
+          "top_m": 5.4
+        },
+        {
+          "bottom_m": 6.0,
+          "probability": 0.9489939790385379,
+          "top_m": 5.45
+        },
+        {
+          "bottom_m": 11.0,
+          "probability": 0.9632175015384276,
+          "top_m": 10.0
+        },
+        {
+          "bottom_m": 19.0,
+          "probability": 0.9416968595044523,
+          "top_m": 18.8
+        },
+        {
+          "bottom_m": 24.0,
+          "probability": 0.9410303903678605,
+          "top_m": 23.0
+        }
+      ],
+      "threshold": 0.94
+    },
+    {
+      "fold": 4,
+      "record_id": "BGS_OFFSHORE_1960630",
+      "selected_intervals": [
+        {
+          "bottom_m": 0.1,
+          "probability": 0.9848721424500487,
+          "top_m": 0.0
+        }
+      ],
+      "threshold": 0.98
+    },
+    {
+      "fold": 3,
+      "record_id": "BGS_OFFSHORE_1963694",
+      "selected_intervals": [
+        {
+          "bottom_m": 0.05,
+          "probability": 0.9999993750926682,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 0.1,
+          "probability": 0.9936227720590877,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 0.1,
+          "probability": 0.9921778786949536,
+          "top_m": 0.05
+        },
+        {
+          "bottom_m": 2.0,
+          "probability": 0.9987419456912063,
+          "top_m": 0.05
+        }
+      ],
+      "threshold": 0.97
+    },
+    {
+      "fold": 1,
+      "record_id": "BGS_OFFSHORE_1969862",
+      "selected_intervals": [
+        {
+          "bottom_m": 2.0,
+          "probability": 0.9923826558199256,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 4.0,
+          "probability": 0.997389494899349,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 48.5,
+          "probability": 0.9832672584598348,
+          "top_m": 48.0
+        },
+        {
+          "bottom_m": 49.0,
+          "probability": 0.997991535935697,
+          "top_m": 48.0
+        },
+        {
+          "bottom_m": 49.0,
+          "probability": 0.986740240192576,
+          "top_m": 48.4
+        },
+        {
+          "bottom_m": 49.0,
+          "probability": 0.9861461769910622,
+          "top_m": 48.45
+        },
+        {
+          "bottom_m": 49.0,
+          "probability": 0.9878187288138902,
+          "top_m": 48.5
+        },
+        {
+          "bottom_m": 69.0,
+          "probability": 0.9800606707934226,
+          "top_m": 68.55
+        }
+      ],
+      "threshold": 0.98
+    },
+    {
+      "fold": 4,
+      "record_id": "BGS_OFFSHORE_1980976",
+      "selected_intervals": [],
+      "threshold": 0.98
+    },
+    {
+      "fold": 3,
+      "record_id": "BGS_OFFSHORE_1984462",
+      "selected_intervals": [
+        {
+          "bottom_m": 1.77,
+          "probability": 0.9849788418320481,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 4.0,
+          "probability": 0.9796217177690176,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 5.0,
+          "probability": 0.9735562717128091,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 9.0,
+          "probability": 0.9784304189635931,
+          "top_m": 0.0
+        }
+      ],
+      "threshold": 0.97
+    },
+    {
+      "fold": 0,
+      "record_id": "BGS_OFFSHORE_1987224",
+      "selected_intervals": [],
+      "threshold": 0.99
+    },
+    {
+      "fold": 1,
+      "record_id": "BGS_OFFSHORE_1989175",
+      "selected_intervals": [
+        {
+          "bottom_m": 1.0,
+          "probability": 0.98442632185629,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 2.0,
+          "probability": 0.9917396469983888,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 3.0,
+          "probability": 0.9806169726163826,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 4.0,
+          "probability": 0.9800429057962472,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 5.0,
+          "probability": 0.9882813898673738,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 7.0,
+          "probability": 0.9812930011915878,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 8.0,
+          "probability": 0.9886736388224453,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 9.0,
+          "probability": 0.9899339543530314,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 10.0,
+          "probability": 0.9839451391490919,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 33.35,
+          "probability": 0.9999487663477334,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 36.0,
+          "probability": 0.9843007613012807,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 40.0,
+          "probability": 0.987123391849576,
+          "top_m": 33.35
+        }
+      ],
+      "threshold": 0.98
+    },
+    {
+      "fold": 3,
+      "record_id": "BGS_OFFSHORE_1993525",
+      "selected_intervals": [
+        {
+          "bottom_m": 1.8,
+          "probability": 0.984818185255997,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 2.19,
+          "probability": 0.9806950923221908,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 3.0,
+          "probability": 0.9854607532964975,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 5.0,
+          "probability": 0.9790376022729158,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 6.0,
+          "probability": 0.9761334926991015,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 7.0,
+          "probability": 0.9848583125503751,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 30.0,
+          "probability": 0.9838357025328899,
+          "top_m": 28.4
+        },
+        {
+          "bottom_m": 56.0,
+          "probability": 0.9889276811585721,
+          "top_m": 28.4
+        }
+      ],
+      "threshold": 0.97
+    },
+    {
+      "fold": 2,
+      "record_id": "BGS_OFFSHORE_2007749",
+      "selected_intervals": [
+        {
+          "bottom_m": 0.5,
+          "probability": 0.9555357763910057,
+          "top_m": 0.0
+        }
+      ],
+      "threshold": 0.94
+    },
+    {
+      "fold": 0,
+      "record_id": "BGS_OFFSHORE_2009141",
+      "selected_intervals": [
+        {
+          "bottom_m": 1.0,
+          "probability": 0.9970691695824329,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 2.0,
+          "probability": 0.9944748140382524,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 6.0,
+          "probability": 0.998186763166081,
+          "top_m": 0.0
+        }
+      ],
+      "threshold": 0.99
+    },
+    {
+      "fold": 4,
+      "record_id": "BGS_OFFSHORE_2016306",
+      "selected_intervals": [
+        {
+          "bottom_m": 1.0,
+          "probability": 0.9869704698229782,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 40.0,
+          "probability": 0.9908872088933677,
+          "top_m": 33.6
+        }
+      ],
+      "threshold": 0.98
+    },
+    {
+      "fold": 2,
+      "record_id": "BGS_OFFSHORE_2023411",
+      "selected_intervals": [
+        {
+          "bottom_m": 22.0,
+          "probability": 0.9585080619267359,
+          "top_m": 21.0
+        },
+        {
+          "bottom_m": 23.0,
+          "probability": 0.948822579220434,
+          "top_m": 22.0
+        },
+        {
+          "bottom_m": 48.4,
+          "probability": 0.9535526443609549,
+          "top_m": 48.0
+        },
+        {
+          "bottom_m": 48.45,
+          "probability": 0.9588300898021977,
+          "top_m": 48.0
+        },
+        {
+          "bottom_m": 48.5,
+          "probability": 0.9561394475396777,
+          "top_m": 48.0
+        },
+        {
+          "bottom_m": 49.0,
+          "probability": 0.9874140990180629,
+          "top_m": 48.0
+        },
+        {
+          "bottom_m": 49.0,
+          "probability": 0.9652089301935957,
+          "top_m": 48.4
+        },
+        {
+          "bottom_m": 49.0,
+          "probability": 0.9690620732856555,
+          "top_m": 48.45
+        },
+        {
+          "bottom_m": 49.0,
+          "probability": 0.9682667910308115,
+          "top_m": 48.5
+        },
+        {
+          "bottom_m": 52.8,
+          "probability": 0.9406180527728205,
+          "top_m": 52.5
+        },
+        {
+          "bottom_m": 52.6,
+          "probability": 0.9498075056196265,
+          "top_m": 52.55
+        },
+        {
+          "bottom_m": 52.7,
+          "probability": 0.9481688356542726,
+          "top_m": 52.55
+        },
+        {
+          "bottom_m": 53.0,
+          "probability": 0.9533755910287854,
+          "top_m": 52.55
+        },
+        {
+          "bottom_m": 52.8,
+          "probability": 0.9418609599752437,
+          "top_m": 52.6
+        },
+        {
+          "bottom_m": 52.8,
+          "probability": 0.9443433188122287,
+          "top_m": 52.7
+        },
+        {
+          "bottom_m": 66.5,
+          "probability": 0.9661383756312527,
+          "top_m": 66.0
+        },
+        {
+          "bottom_m": 66.55,
+          "probability": 0.9673389323654741,
+          "top_m": 66.0
+        },
+        {
+          "bottom_m": 66.6,
+          "probability": 0.9598789236733145,
+          "top_m": 66.0
+        },
+        {
+          "bottom_m": 67.0,
+          "probability": 0.9933454083494573,
+          "top_m": 66.0
+        },
+        {
+          "bottom_m": 77.0,
+          "probability": 0.9848809366527497,
+          "top_m": 66.0
+        },
+        {
+          "bottom_m": 77.05,
+          "probability": 0.9521902850751017,
+          "top_m": 66.0
+        },
+        {
+          "bottom_m": 67.0,
+          "probability": 0.9760413752115445,
+          "top_m": 66.5
+        },
+        {
+          "bottom_m": 67.0,
+          "probability": 0.9773032858316517,
+          "top_m": 66.55
+        },
+        {
+          "bottom_m": 67.0,
+          "probability": 0.9738042340195183,
+          "top_m": 66.6
+        },
+        {
+          "bottom_m": 77.0,
+          "probability": 0.9850830031138336,
+          "top_m": 67.0
+        },
+        {
+          "bottom_m": 77.05,
+          "probability": 0.952911485688195,
+          "top_m": 67.0
+        },
+        {
+          "bottom_m": 77.1,
+          "probability": 0.9435239795997143,
+          "top_m": 67.0
+        },
+        {
+          "bottom_m": 77.0,
+          "probability": 0.9722448492000498,
+          "top_m": 73.0
+        },
+        {
+          "bottom_m": 77.0,
+          "probability": 0.946300415673013,
+          "top_m": 75.0
+        },
+        {
+          "bottom_m": 77.05,
+          "probability": 0.9826518157390961,
+          "top_m": 77.0
+        },
+        {
+          "bottom_m": 77.1,
+          "probability": 0.9766967355904528,
+          "top_m": 77.0
+        },
+        {
+          "bottom_m": 111.0,
+          "probability": 0.9407169911841654,
+          "top_m": 109.4
+        },
+        {
+          "bottom_m": 111.0,
+          "probability": 0.9420160797684547,
+          "top_m": 109.45
+        },
+        {
+          "bottom_m": 111.0,
+          "probability": 0.942132846144986,
+          "top_m": 109.5
+        },
+        {
+          "bottom_m": 110.5,
+          "probability": 0.9516189541264819,
+          "top_m": 110.0
+        },
+        {
+          "bottom_m": 110.6,
+          "probability": 0.9471606546829877,
+          "top_m": 110.0
+        },
+        {
+          "bottom_m": 110.65,
+          "probability": 0.9488613414932537,
+          "top_m": 110.0
+        },
+        {
+          "bottom_m": 110.7,
+          "probability": 0.9463569364069373,
+          "top_m": 110.0
+        },
+        {
+          "bottom_m": 111.0,
+          "probability": 0.9650012562763567,
+          "top_m": 110.0
+        },
+        {
+          "bottom_m": 111.0,
+          "probability": 0.9410501072527528,
+          "top_m": 110.65
+        },
+        {
+          "bottom_m": 111.0,
+          "probability": 0.9412499185348859,
+          "top_m": 110.7
+        }
+      ],
+      "threshold": 0.94
+    },
+    {
+      "fold": 0,
+      "record_id": "BGS_OFFSHORE_2024185",
+      "selected_intervals": [
+        {
+          "bottom_m": 0.05,
+          "probability": 0.9999893594897988,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 98.5,
+          "probability": 0.9901874837100721,
+          "top_m": 98.0
+        }
+      ],
+      "threshold": 0.99
+    },
+    {
+      "fold": 2,
+      "record_id": "BGS_OFFSHORE_2030012",
+      "selected_intervals": [
+        {
+          "bottom_m": 0.05,
+          "probability": 0.9900060307837943,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 0.5,
+          "probability": 0.9514891013482717,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 0.55,
+          "probability": 0.9513686693742953,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 1.0,
+          "probability": 0.9958115437320577,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 2.0,
+          "probability": 0.9577242931195094,
+          "top_m": 1.0
+        },
+        {
+          "bottom_m": 3.0,
+          "probability": 0.9606133890266514,
+          "top_m": 1.0
+        },
+        {
+          "bottom_m": 3.0,
+          "probability": 0.9709384479368848,
+          "top_m": 2.0
+        },
+        {
+          "bottom_m": 7.0,
+          "probability": 0.9647460915937608,
+          "top_m": 6.0
+        },
+        {
+          "bottom_m": 7.0,
+          "probability": 0.9431874561795897,
+          "top_m": 6.5
+        },
+        {
+          "bottom_m": 8.1,
+          "probability": 0.9443209693845693,
+          "top_m": 8.0
+        },
+        {
+          "bottom_m": 8.15,
+          "probability": 0.9500541508933759,
+          "top_m": 8.0
+        },
+        {
+          "bottom_m": 8.2,
+          "probability": 0.9432745895164255,
+          "top_m": 8.0
+        },
+        {
+          "bottom_m": 8.45,
+          "probability": 0.9430197276506196,
+          "top_m": 8.0
+        },
+        {
+          "bottom_m": 8.5,
+          "probability": 0.9420553281995194,
+          "top_m": 8.0
+        },
+        {
+          "bottom_m": 9.0,
+          "probability": 0.9579783498683053,
+          "top_m": 8.0
+        },
+        {
+          "bottom_m": 9.0,
+          "probability": 0.9409486881203775,
+          "top_m": 8.1
+        },
+        {
+          "bottom_m": 9.0,
+          "probability": 0.9461932751918402,
+          "top_m": 8.15
+        },
+        {
+          "bottom_m": 9.0,
+          "probability": 0.9427863142336913,
+          "top_m": 8.2
+        },
+        {
+          "bottom_m": 9.0,
+          "probability": 0.9464628658764108,
+          "top_m": 8.45
+        },
+        {
+          "bottom_m": 9.0,
+          "probability": 0.947032560793466,
+          "top_m": 8.5
+        },
+        {
+          "bottom_m": 9.15,
+          "probability": 0.9405222844926531,
+          "top_m": 9.0
+        },
+        {
+          "bottom_m": 10.0,
+          "probability": 0.9475312630903598,
+          "top_m": 9.15
+        },
+        {
+          "bottom_m": 10.0,
+          "probability": 0.9431867838202432,
+          "top_m": 9.2
+        },
+        {
+          "bottom_m": 9.8,
+          "probability": 0.9431932776373521,
+          "top_m": 9.6
+        },
+        {
+          "bottom_m": 9.8,
+          "probability": 0.943769215003229,
+          "top_m": 9.65
+        },
+        {
+          "bottom_m": 9.9,
+          "probability": 0.9402915890596567,
+          "top_m": 9.65
+        },
+        {
+          "bottom_m": 9.8,
+          "probability": 0.9451239482155488,
+          "top_m": 9.7
+        },
+        {
+          "bottom_m": 9.9,
+          "probability": 0.9416744741112908,
+          "top_m": 9.7
+        },
+        {
+          "bottom_m": 11.0,
+          "probability": 0.9593018799860227,
+          "top_m": 10.0
+        },
+        {
+          "bottom_m": 11.35,
+          "probability": 0.9403368388300163,
+          "top_m": 11.0
+        },
+        {
+          "bottom_m": 11.5,
+          "probability": 0.9402391734020473,
+          "top_m": 11.0
+        },
+        {
+          "bottom_m": 12.0,
+          "probability": 0.9655462436920604,
+          "top_m": 11.0
+        },
+        {
+          "bottom_m": 12.0,
+          "probability": 0.9555697911604082,
+          "top_m": 11.3
+        },
+        {
+          "bottom_m": 12.0,
+          "probability": 0.9600729304071792,
+          "top_m": 11.35
+        },
+        {
+          "bottom_m": 12.0,
+          "probability": 0.9555808434619749,
+          "top_m": 11.4
+        },
+        {
+          "bottom_m": 12.0,
+          "probability": 0.9630659534969319,
+          "top_m": 11.5
+        },
+        {
+          "bottom_m": 12.0,
+          "probability": 0.9533801170749132,
+          "top_m": 11.6
+        },
+        {
+          "bottom_m": 12.0,
+          "probability": 0.9579260179766284,
+          "top_m": 11.65
+        },
+        {
+          "bottom_m": 12.0,
+          "probability": 0.9543782920182733,
+          "top_m": 11.7
+        },
+        {
+          "bottom_m": 12.0,
+          "probability": 0.9607117515297452,
+          "top_m": 11.8
+        },
+        {
+          "bottom_m": 12.0,
+          "probability": 0.9606617294832562,
+          "top_m": 11.9
+        },
+        {
+          "bottom_m": 12.65,
+          "probability": 0.942137642627033,
+          "top_m": 12.0
+        },
+        {
+          "bottom_m": 13.0,
+          "probability": 0.9604317670676344,
+          "top_m": 12.0
+        },
+        {
+          "bottom_m": 13.0,
+          "probability": 0.9469895866332558,
+          "top_m": 12.6
+        },
+        {
+          "bottom_m": 13.0,
+          "probability": 0.952440515558736,
+          "top_m": 12.65
+        },
+        {
+          "bottom_m": 13.0,
+          "probability": 0.9493434830632776,
+          "top_m": 12.7
+        },
+        {
+          "bottom_m": 14.0,
+          "probability": 0.9475249702803004,
+          "top_m": 12.7
+        },
+        {
+          "bottom_m": 13.8,
+          "probability": 0.9581213676211596,
+          "top_m": 13.0
+        },
+        {
+          "bottom_m": 13.9,
+          "probability": 0.9554152072101544,
+          "top_m": 13.0
+        },
+        {
+          "bottom_m": 14.0,
+          "probability": 0.9619055494276305,
+          "top_m": 13.0
+        },
+        {
+          "bottom_m": 14.0,
+          "probability": 0.9586705226037714,
+          "top_m": 13.5
+        },
+        {
+          "bottom_m": 14.0,
+          "probability": 0.9552689539834691,
+          "top_m": 13.6
+        },
+        {
+          "bottom_m": 14.0,
+          "probability": 0.977450632671009,
+          "top_m": 13.8
+        },
+        {
+          "bottom_m": 14.0,
+          "probability": 0.9775805818306738,
+          "top_m": 13.9
+        },
+        {
+          "bottom_m": 14.8,
+          "probability": 0.9631367184996912,
+          "top_m": 14.0
+        },
+        {
+          "bottom_m": 14.9,
+          "probability": 0.9601771532881027,
+          "top_m": 14.0
+        },
+        {
+          "bottom_m": 15.0,
+          "probability": 0.9785594652845575,
+          "top_m": 14.0
+        },
+        {
+          "bottom_m": 15.0,
+          "probability": 0.9406427569812167,
+          "top_m": 14.3
+        },
+        {
+          "bottom_m": 15.0,
+          "probability": 0.9458248725294711,
+          "top_m": 14.35
+        },
+        {
+          "bottom_m": 15.0,
+          "probability": 0.9404911694475876,
+          "top_m": 14.4
+        },
+        {
+          "bottom_m": 15.0,
+          "probability": 0.9492047159514053,
+          "top_m": 14.5
+        },
+        {
+          "bottom_m": 15.0,
+          "probability": 0.9712516726820954,
+          "top_m": 14.8
+        },
+        {
+          "bottom_m": 16.0,
+          "probability": 0.9557210096562083,
+          "top_m": 14.8
+        },
+        {
+          "bottom_m": 15.0,
+          "probability": 0.9714994509679676,
+          "top_m": 14.9
+        },
+        {
+          "bottom_m": 16.0,
+          "probability": 0.9553369811042487,
+          "top_m": 14.9
+        },
+        {
+          "bottom_m": 16.0,
+          "probability": 0.9810931876151328,
+          "top_m": 15.0
+        },
+        {
+          "bottom_m": 16.2,
+          "probability": 0.9440798301678537,
+          "top_m": 15.0
+        },
+        {
+          "bottom_m": 16.3,
+          "probability": 0.9450767065468196,
+          "top_m": 15.0
+        },
+        {
+          "bottom_m": 16.4,
+          "probability": 0.9406185926915493,
+          "top_m": 15.0
+        },
+        {
+          "bottom_m": 16.0,
+          "probability": 0.9606805264701125,
+          "top_m": 15.1
+        },
+        {
+          "bottom_m": 16.0,
+          "probability": 0.9630729709566423,
+          "top_m": 15.2
+        },
+        {
+          "bottom_m": 15.9,
+          "probability": 0.9522886260678197,
+          "top_m": 15.3
+        },
+        {
+          "bottom_m": 15.95,
+          "probability": 0.9523149244759402,
+          "top_m": 15.3
+        },
+        {
+          "bottom_m": 16.0,
+          "probability": 0.950466203878647,
+          "top_m": 15.3
+        },
+        {
+          "bottom_m": 15.9,
+          "probability": 0.9539343011130768,
+          "top_m": 15.35
+        },
+        {
+          "bottom_m": 15.95,
+          "probability": 0.953806126970211,
+          "top_m": 15.35
+        },
+        {
+          "bottom_m": 16.0,
+          "probability": 0.9526786194275185,
+          "top_m": 15.35
+        },
+        {
+          "bottom_m": 15.9,
+          "probability": 0.9534500220668651,
+          "top_m": 15.4
+        },
+        {
+          "bottom_m": 15.95,
+          "probability": 0.9534840657182396,
+          "top_m": 15.4
+        },
+        {
+          "bottom_m": 16.0,
+          "probability": 0.9515558748330636,
+          "top_m": 15.4
+        },
+        {
+          "bottom_m": 15.9,
+          "probability": 0.9565413372104387,
+          "top_m": 15.5
+        },
+        {
+          "bottom_m": 15.95,
+          "probability": 0.9564027978114352,
+          "top_m": 15.5
+        },
+        {
+          "bottom_m": 16.0,
+          "probability": 0.955541908890745,
+          "top_m": 15.5
+        },
+        {
+          "bottom_m": 16.0,
+          "probability": 0.9577627042205342,
+          "top_m": 15.9
+        },
+        {
+          "bottom_m": 17.0,
+          "probability": 0.9451885805242268,
+          "top_m": 15.9
+        },
+        {
+          "bottom_m": 16.0,
+          "probability": 0.960251091827996,
+          "top_m": 15.95
+        },
+        {
+          "bottom_m": 17.0,
+          "probability": 0.9475813101355487,
+          "top_m": 15.95
+        },
+        {
+          "bottom_m": 16.4,
+          "probability": 0.9455441838435542,
+          "top_m": 16.0
+        },
+        {
+          "bottom_m": 16.5,
+          "probability": 0.9493370399471335,
+          "top_m": 16.0
+        },
+        {
+          "bottom_m": 16.9,
+          "probability": 0.9414849354889071,
+          "top_m": 16.0
+        },
+        {
+          "bottom_m": 16.95,
+          "probability": 0.9452000542256958,
+          "top_m": 16.0
+        },
+        {
+          "bottom_m": 17.0,
+          "probability": 0.9756327906546723,
+          "top_m": 16.0
+        },
+        {
+          "bottom_m": 17.1,
+          "probability": 0.9400370853701339,
+          "top_m": 16.0
+        },
+        {
+          "bottom_m": 17.5,
+          "probability": 0.9449999439957457,
+          "top_m": 16.0
+        },
+        {
+          "bottom_m": 17.0,
+          "probability": 0.9541217680855354,
+          "top_m": 16.2
+        },
+        {
+          "bottom_m": 17.0,
+          "probability": 0.9562075810916022,
+          "top_m": 16.3
+        },
+        {
+          "bottom_m": 17.0,
+          "probability": 0.9585216002784833,
+          "top_m": 16.4
+        },
+        {
+          "bottom_m": 17.0,
+          "probability": 0.9622250557638394,
+          "top_m": 16.5
+        },
+        {
+          "bottom_m": 17.0,
+          "probability": 0.9663274109228032,
+          "top_m": 16.9
+        },
+        {
+          "bottom_m": 18.0,
+          "probability": 0.956252332876353,
+          "top_m": 16.9
+        },
+        {
+          "bottom_m": 17.0,
+          "probability": 0.9685401936670899,
+          "top_m": 16.95
+        },
+        {
+          "bottom_m": 18.0,
+          "probability": 0.958945465412734,
+          "top_m": 16.95
+        },
+        {
+          "bottom_m": 17.5,
+          "probability": 0.9516783707145607,
+          "top_m": 17.0
+        },
+        {
+          "bottom_m": 17.6,
+          "probability": 0.9438224817476404,
+          "top_m": 17.0
+        },
+        {
+          "bottom_m": 17.65,
+          "probability": 0.9474106124262595,
+          "top_m": 17.0
+        },
+        {
+          "bottom_m": 17.7,
+          "probability": 0.9427519583977716,
+          "top_m": 17.0
+        },
+        {
+          "bottom_m": 17.8,
+          "probability": 0.9441384888998283,
+          "top_m": 17.0
+        },
+        {
+          "bottom_m": 17.9,
+          "probability": 0.9403394861894662,
+          "top_m": 17.0
+        },
+        {
+          "bottom_m": 18.0,
+          "probability": 0.9775012948758223,
+          "top_m": 17.0
+        },
+        {
+          "bottom_m": 18.0,
+          "probability": 0.9584246093151428,
+          "top_m": 17.1
+        },
+        {
+          "bottom_m": 18.0,
+          "probability": 0.9584560145023207,
+          "top_m": 17.2
+        },
+        {
+          "bottom_m": 19.0,
+          "probability": 0.9657513932511899,
+          "top_m": 17.65
+        },
+        {
+          "bottom_m": 19.0,
+          "probability": 0.9636046556681096,
+          "top_m": 17.7
+        },
+        {
+          "bottom_m": 19.0,
+          "probability": 0.9651449119758007,
+          "top_m": 17.8
+        },
+        {
+          "bottom_m": 19.0,
+          "probability": 0.9644449838867037,
+          "top_m": 17.9
+        },
+        {
+          "bottom_m": 18.1,
+          "probability": 0.947110105631885,
+          "top_m": 18.0
+        },
+        {
+          "bottom_m": 18.15,
+          "probability": 0.9493562211785441,
+          "top_m": 18.0
+        },
+        {
+          "bottom_m": 18.2,
+          "probability": 0.944768275456613,
+          "top_m": 18.0
+        },
+        {
+          "bottom_m": 18.5,
+          "probability": 0.9624844879623865,
+          "top_m": 18.0
+        },
+        {
+          "bottom_m": 18.6,
+          "probability": 0.9550681704645473,
+          "top_m": 18.0
+        },
+        {
+          "bottom_m": 18.65,
+          "probability": 0.95861159405268,
+          "top_m": 18.0
+        },
+        {
+          "bottom_m": 18.7,
+          "probability": 0.9541327371917319,
+          "top_m": 18.0
+        },
+        {
+          "bottom_m": 19.0,
+          "probability": 0.9852607107406605,
+          "top_m": 18.0
+        },
+        {
+          "bottom_m": 19.1,
+          "probability": 0.9420186957085599,
+          "top_m": 18.0
+        },
+        {
+          "bottom_m": 19.15,
+          "probability": 0.9460227272389209,
+          "top_m": 18.0
+        },
+        {
+          "bottom_m": 19.2,
+          "probability": 0.940381440557374,
+          "top_m": 18.0
+        },
+        {
+          "bottom_m": 19.0,
+          "probability": 0.9611415184117483,
+          "top_m": 18.1
+        },
+        {
+          "bottom_m": 19.0,
+          "probability": 0.9634841047347016,
+          "top_m": 18.15
+        },
+        {
+          "bottom_m": 19.0,
+          "probability": 0.9617047380277475,
+          "top_m": 18.2
+        },
+        {
+          "bottom_m": 19.1,
+          "probability": 0.9629080784978352,
+          "top_m": 19.0
+        },
+        {
+          "bottom_m": 19.15,
+          "probability": 0.9655131753417262,
+          "top_m": 19.0
+        },
+        {
+          "bottom_m": 19.2,
+          "probability": 0.9610109074916411,
+          "top_m": 19.0
+        },
+        {
+          "bottom_m": 19.4,
+          "probability": 0.9563949524935763,
+          "top_m": 19.0
+        },
+        {
+          "bottom_m": 20.0,
+          "probability": 0.9743979681719601,
+          "top_m": 19.0
+        },
+        {
+          "bottom_m": 20.0,
+          "probability": 0.9685542474277893,
+          "top_m": 19.1
+        },
+        {
+          "bottom_m": 20.0,
+          "probability": 0.9709681554327597,
+          "top_m": 19.15
+        },
+        {
+          "bottom_m": 20.0,
+          "probability": 0.9688922738906094,
+          "top_m": 19.2
+        },
+        {
+          "bottom_m": 19.4,
+          "probability": 0.9479565163810989,
+          "top_m": 19.3
+        },
+        {
+          "bottom_m": 19.5,
+          "probability": 0.9603161274286184,
+          "top_m": 19.3
+        },
+        {
+          "bottom_m": 19.6,
+          "probability": 0.953074203139641,
+          "top_m": 19.3
+        },
+        {
+          "bottom_m": 19.65,
+          "probability": 0.955972482491032,
+          "top_m": 19.3
+        },
+        {
+          "bottom_m": 19.7,
+          "probability": 0.9516566914108588,
+          "top_m": 19.3
+        },
+        {
+          "bottom_m": 20.0,
+          "probability": 0.9846647164353333,
+          "top_m": 19.3
+        },
+        {
+          "bottom_m": 20.0,
+          "probability": 0.9704156583721338,
+          "top_m": 19.4
+        },
+        {
+          "bottom_m": 20.1,
+          "probability": 0.9444199995181423,
+          "top_m": 20.0
+        }
+      ],
+      "threshold": 0.94
+    },
+    {
+      "fold": 4,
+      "record_id": "BGS_OFFSHORE_2041581",
+      "selected_intervals": [
+        {
+          "bottom_m": 0.05,
+          "probability": 0.9999972472483245,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 10.0,
+          "probability": 0.9885561343581909,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 20.0,
+          "probability": 0.9800264628079903,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 22.0,
+          "probability": 0.9926823226995904,
+          "top_m": 0.0
+        },
+        {
+          "bottom_m": 10.0,
+          "probability": 0.9813213879027497,
+          "top_m": 0.05
+        },
+        {
+          "bottom_m": 22.0,
+          "probability": 0.9865340767988897,
+          "top_m": 0.05
+        },
+        {
+          "bottom_m": 29.8,
+          "probability": 0.9987178530761445,
+          "top_m": 27.0
+        },
+        {
+          "bottom_m": 30.0,
+          "probability": 0.9943702236602533,
+          "top_m": 27.0
+        },
+        {
+          "bottom_m": 29.8,
+          "probability": 0.994737380507625,
+          "top_m": 29.0
+        },
+        {
+          "bottom_m": 30.0,
+          "probability": 0.9818178966937743,
+          "top_m": 29.0
+        },
+        {
+          "bottom_m": 30.0,
+          "probability": 0.9842340372222863,
+          "top_m": 29.1
+        },
+        {
+          "bottom_m": 30.0,
+          "probability": 0.999852295692554,
+          "top_m": 29.8
+        },
+        {
+          "bottom_m": 30.1,
+          "probability": 0.9992927185655145,
+          "top_m": 29.8
+        },
+        {
+          "bottom_m": 36.0,
+          "probability": 0.9834387871197503,
+          "top_m": 29.8
+        },
+        {
+          "bottom_m": 30.1,
+          "probability": 0.9922800898793807,
+          "top_m": 30.0
+        }
+      ],
+      "threshold": 0.98
+    }
+  ],
+  "reference_blinding": "outer-fold test references are used only for scoring; pair ranker and threshold use other source folds",
+  "source_analysis": "experiments/paper2/analysis/bgs_layout_method_development_v021.json",
+  "source_analysis_sha256": "cae1787d8803f6e9d2052407fa69dae5fdfd51da81e0fad758cc30278cbd70a4",
+  "wall_time_seconds": 55.77326727900072
+}

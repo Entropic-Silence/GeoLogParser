@@ -2395,3 +2395,25 @@
 - ADR-016 is closed as `NO_GO`. No external frozen run was spent. The result
   identifies missing real field-region/event supervision, rather than training
   scale, as the next prerequisite for a future native multimodal attempt.
+
+## 2026-08-16 — BGS v021 multi-column structural-event development
+
+- Replaced the single graphic-column assumption with reference-blind detection
+  of up to eight narrow recovery/lithology/formation/contact columns around the
+  calibrated depth field. Added column position, activity, rank and cross-column
+  event support to the source-disjoint ranker.
+- v021 generated 21,632 candidates. The monotonic sequence reached boundary
+  precision/recall/F1 0.5659/0.1989/0.2944 and interval F1 0.1213 at ±0.05 m.
+  Interval F1 improved over v018's 0.1116, while boundary F1 declined from
+  0.3103. The selective point accepted 41 boundaries at precision 0.9268,
+  coverage 0.1117 and CNER 0.0732.
+- A source-disjoint pairwise interval ranker then evaluated 77,637 candidate
+  pairs. It reduced interval F1 to 0.0445 and boundary F1 to 0.2066, so the
+  pairwise route was rejected.
+- The v021 analysis SHA256 is
+  `cae1787d8803f6e9d2052407fa69dae5fdfd51da81e0fad758cc30278cbd70a4`;
+  the serialized model SHA256 is
+  `b8839f1c44cddfc52a67c09762feb6600adbba0552f4f2f568050212affbf3ff`;
+  the rejected pairwise analysis SHA256 is
+  `9415e2f5271aa5b323abaa64fc0f3350a6e281ae69bd671d055358f0cebe5653`.
+  BGS v002 remains unopened because the 0.15 interval-F1 gate was not met.

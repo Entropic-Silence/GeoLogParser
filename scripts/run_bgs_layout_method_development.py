@@ -22,6 +22,7 @@ from PIL import Image
 from geologparser.layout import (
     DepthBoundaryCandidate, LogisticCandidateRanker, aggregate_numeric_evidence,
     fit_depth_scale, graphic_boundary_candidates, infer_log_panel_layout,
+    multicolumn_graphic_boundary_candidates,
     metadata_final_depth_candidates, printed_boundary_candidates,
 )
 from geologparser.ocr import TextRegion
@@ -43,6 +44,8 @@ FEATURES = (
     "printed_line_view", "printed_line_full_page", "metadata_label_cross",
     "scale_alignment_score", "scale_alignment_error_log",
     "scale_alignment_description",
+    "graphic_column_center", "graphic_column_width", "graphic_column_activity",
+    "graphic_column_rank", "graphic_cross_column_support",
 )
 
 PRINTED_FEATURES = tuple(name for name in FEATURES if not name.startswith("graphic_"))
@@ -556,7 +559,7 @@ def fit_inner_calibrator(
     return PlattCalibrator().fit(raw_flat, labels), raw_by_document, raw_flat, labels
 
 
-def generate_document_candidates(source: dict, multiscale: dict, source_run: Path, field_roi: dict | None = None) -> dict:
+def generate_document_candidates(source: dict, multiscale: dict, source_run: Path, field_roi: dict | None = None, graphic_mode: str = "single") -> dict:
     page_outputs = []
     for page_row in multiscale["page_layout"]:
         page = int(page_row["page"])
@@ -613,7 +616,8 @@ def generate_document_candidates(source: dict, multiscale: dict, source_run: Pat
         if calibration is None and scale_hint is not None:
             calibration = fit_depth_scale(scale_evidence, layout, width=width, height=height)
             calibration_route = "semantic_depth_anchor_fallback" if calibration else None
-        graphic = graphic_boundary_candidates(
+        graphic_generator = multicolumn_graphic_boundary_candidates if graphic_mode == "multi" else graphic_boundary_candidates
+        graphic = graphic_generator(
             gray, page=page, layout=layout, calibration=calibration,
             depth_x_hint=calibration.x_center_normalized,
         ) if calibration else []
@@ -691,6 +695,7 @@ def main() -> None:
     parser.add_argument("--model-output", type=Path, required=True)
     parser.add_argument("--folds", type=int, default=5)
     parser.add_argument("--label-tolerance-m", type=float, default=0.10)
+    parser.add_argument("--graphic-mode", choices=("single", "multi"), default="single")
     args = parser.parse_args()
     started = time.perf_counter()
     sources = load_jsonl(args.manifest)
@@ -701,7 +706,7 @@ def main() -> None:
     field_roi = json.loads(args.field_roi_analysis.read_text(encoding="utf-8")) if args.field_roi_analysis else None
     references = {row["record_id"]: reference_boundaries(row) for row in sources}
     generated = {
-        row["record_id"]: generate_document_candidates(row, multiscale_rows[row["record_id"]], args.source_run, field_roi=field_roi)
+        row["record_id"]: generate_document_candidates(row, multiscale_rows[row["record_id"]], args.source_run, field_roi=field_roi, graphic_mode=args.graphic_mode)
         for row in sources
     }
 
@@ -876,7 +881,7 @@ def main() -> None:
         oof_probabilities, references,
     )
     model = {
-        "method_version": "bgs_layout_field_aware_moe_v020",
+        "method_version": "bgs_layout_field_aware_moe_v021" if args.graphic_mode == "multi" else "bgs_layout_field_aware_moe_v020",
         "training_manifest_sha256": file_sha256(args.manifest),
         "training_role": "development_only",
         "feature_names": list(FEATURES),
@@ -889,7 +894,7 @@ def main() -> None:
         "candidate_generation": {
             "semantic_layout": "long_page_layout_v001",
             "multiscale": "2x gray+Otsu, PSM 6+11",
-            "graphic_boundary": "depth-scale calibration plus image transition",
+            "graphic_boundary": "depth-scale calibration plus multi-column image transitions" if args.graphic_mode == "multi" else "depth-scale calibration plus image transition",
             "candidate_ranking": "printed-boundary, calibrated-graphic, and terminal-metadata experts with global shrinkage",
             "scale_alignment": "candidate value versus calibrated y-depth geometry",
             "calibration": "nested source-disjoint Platt scaling",

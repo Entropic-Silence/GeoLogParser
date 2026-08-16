@@ -275,6 +275,154 @@ def detect_graphic_log_column(
     return left, right
 
 
+def detect_graphic_log_columns(
+    gray: np.ndarray,
+    layout: LogPanelLayout,
+    *,
+    depth_x_hint: float | None = None,
+    maximum_columns: int = 8,
+) -> list[tuple[int, int, float]]:
+    """Locate multiple narrow, structure-bearing columns around the depth field.
+
+    Borehole boundaries may be expressed independently in recovery, interpreted
+    lithology, graphic lithology, formation and description/contact columns. A
+    single texture column therefore imposes a template-specific recall ceiling.
+    Returned scores are reference-blind image activity measures.
+    """
+    height, width = gray.shape[:2]
+    depth = layout.anchors.get("depth")
+    description = layout.anchors.get("description")
+    depth_x = depth_x_hint if depth_x_hint is not None else (depth.center_x if depth is not None else None)
+    if depth_x is None:
+        return []
+    y1 = max(0, int(layout.y_min * height)); y2 = min(height, int(layout.y_max * height))
+    right_limit = description.center_x + 0.025 if description is not None else depth_x + 0.22
+    x1 = max(0, int(max(layout.x_min, depth_x - 0.24) * width))
+    x2 = min(width, int(min(layout.x_max, depth_x + 0.24, right_limit) * width))
+    if x2 - x1 < width * 0.04 or y2 <= y1:
+        return []
+    binary = (gray[y1:y2, x1:x2] < 165).astype(np.uint8) * 255
+    kernel_height = max(30, int((y2 - y1) * 0.16))
+    vertical = cv2.morphologyEx(binary, cv2.MORPH_OPEN, cv2.getStructuringElement(cv2.MORPH_RECT, (1, kernel_height)))
+    vertical_score = (vertical > 0).sum(axis=0)
+    peak_threshold = max(20, int((y2 - y1) * 0.10))
+    peaks: list[int] = []
+    for local_x in np.flatnonzero(vertical_score >= peak_threshold):
+        absolute = x1 + int(local_x)
+        if not peaks or absolute - peaks[-1] > 5:
+            peaks.append(absolute)
+        elif vertical_score[local_x] > vertical_score[peaks[-1] - x1]:
+            peaks[-1] = absolute
+    candidates: list[tuple[float, int, int]] = []
+    for left, right in zip(peaks, peaks[1:]):
+        span = right - left
+        if not width * 0.012 <= span <= width * 0.13:
+            continue
+        interior = gray[y1:y2, left + 2:right - 2]
+        if interior.size == 0:
+            continue
+        darkness = (interior < 180).astype(np.float32)
+        density = darkness.mean(axis=1)
+        texture = float(darkness.mean())
+        activity = float(np.std(density))
+        gradient = float(np.percentile(np.abs(np.diff(density)), 90)) if len(density) > 1 else 0.0
+        center = (left + right) / 2 / width
+        proximity = abs(center - depth_x)
+        score = 0.45 * texture + 1.8 * activity + 1.2 * gradient - 0.20 * proximity
+        if texture < 0.003 and activity < 0.01:
+            continue
+        candidates.append((score, left, right))
+    selected: list[tuple[int, int, float]] = []
+    for score, left, right in sorted(candidates, reverse=True):
+        if any(max(0, min(right, old_right) - max(left, old_left)) / max(1, min(right-left, old_right-old_left)) > 0.65 for old_left, old_right, _ in selected):
+            continue
+        selected.append((left, right, score))
+        if len(selected) >= maximum_columns:
+            break
+    return sorted(selected, key=lambda item: item[0])
+
+
+def _graphic_candidates_for_column(
+    gray: np.ndarray,
+    *,
+    page: int,
+    layout: LogPanelLayout,
+    calibration: DepthScaleCalibration,
+    column: tuple[int, int],
+    column_rank: int = 0,
+    column_activity: float = 0.0,
+) -> list[DepthBoundaryCandidate]:
+    height, width = gray.shape[:2]
+    left, right = column
+    y1 = max(0, int(layout.y_min * height)); y2 = min(height, int(layout.y_max * height))
+    binary = (gray[y1:y2, left:right] < 160).astype(np.uint8) * 255
+    span = max(1, right - left)
+    opened = cv2.morphologyEx(binary, cv2.MORPH_OPEN, cv2.getStructuringElement(cv2.MORPH_RECT, (max(5, int(span * 0.45)), 1)))
+    line_score = (opened > 0).sum(axis=1) / span
+    density = (binary > 0).mean(axis=1)
+    smooth_width = max(3, int(height * 0.002)); kernel = np.ones(smooth_width) / smooth_width
+    smooth_density = np.convolve(density, kernel, mode="same")
+    window = max(5, int(height * 0.004)); change = np.zeros_like(smooth_density)
+    for index in range(window, len(change) - window):
+        change[index] = abs(float(smooth_density[index-window:index].mean()) - float(smooth_density[index:index+window].mean()))
+    eligible = np.flatnonzero((line_score >= 0.24) | (change >= 0.065))
+    peaks: list[int] = []; min_spacing = max(6, int(height * 0.002)); combined = line_score + 2.2 * change
+    for local_y in eligible:
+        absolute = y1 + int(local_y)
+        if not peaks or absolute - peaks[-1] > min_spacing:
+            peaks.append(absolute)
+        elif combined[local_y] > combined[peaks[-1] - y1]:
+            peaks[-1] = absolute
+    output = []
+    for y in peaks:
+        raw_depth = calibration.depth_at(y)
+        if not 0 <= raw_depth <= 5000:
+            continue
+        local_y = y - y1
+        external_line = horizontal_line_features(gray, (float(left), float(y-2), float(right), float(y+2)), left_x=max(0,layout.x_min*width), right_x=min(width,layout.x_max*width))
+        hypotheses: set[tuple[float,float]] = {(round(raw_depth*20)/20,0.05)}
+        for step in (0.1,0.5,1.0):
+            lower=math.floor(raw_depth/step)*step; upper=math.ceil(raw_depth/step)*step
+            for value in (lower,upper):
+                if abs(value-raw_depth) <= max(0.16,step*0.55): hypotheses.add((round(value,6),step))
+        for rounded_depth,snap_step in sorted(hypotheses):
+            features = {
+                "source_printed":0.0,"source_graphic":1.0,"source_metadata":0.0,"ocr_confidence":0.0,
+                "view_support":0.0,"view_agreement":1.0,"full_page_support":0.0,"line_left_run":0.0,
+                "line_right_run":float(line_score[local_y]),"line_left_dark":0.0,"line_right_dark":float(density[local_y]),
+                "external_left_run":external_line["line_left_run"],"external_right_run":external_line["line_right_run"],
+                "external_left_dark":external_line["line_left_dark"],"external_right_dark":external_line["line_right_dark"],
+                "texture_change":float(change[local_y]),"scale_inliers":min(1.0,calibration.inlier_count/6),
+                "scale_rmse":min(1.0,calibration.rmse_m),"normalized_y":y/height,"description_x_distance":1.0,
+                "depth_x_distance":abs(((left+right)/2)/width-calibration.x_center_normalized),"near_same_y_pair":0.0,
+                "snap_step":snap_step,"snap_delta":min(1.0,abs(rounded_depth-raw_depth)),
+                "snap_integer":float(abs(rounded_depth-round(rounded_depth))<1e-6),
+                "snap_half":float(abs(rounded_depth*2-round(rounded_depth*2))<1e-6),
+                "snap_tenth":float(abs(rounded_depth*10-round(rounded_depth*10))<1e-6),
+                "printed_line_support":0.0,"printed_pair_support":0.0,"graphic_line_support":float(line_score[local_y]),
+                "graphic_change_support":float(change[local_y]),"metadata_cross_field":0.0,
+                "graphic_column_center":((left+right)/2)/width,"graphic_column_width":span/width,
+                "graphic_column_activity":max(0.0,min(1.0,column_activity)),"graphic_column_rank":1/(1+column_rank),
+                "graphic_cross_column_support":0.0,
+            }
+            output.append(DepthBoundaryCandidate(rounded_depth,page,(float(left),float(y-2),float(right),float(y+2)),"graphic_scale_transition",features,({"method":"multicolumn_graphic_scale_transition","raw_depth_m":raw_depth,"snap_step_m":snap_step,"calibration_inliers":calibration.inlier_count,"calibration_rmse_m":calibration.rmse_m,"graphic_column_bbox":[left,y1,right,y2],"column_rank":column_rank},)))
+    return output
+
+
+def multicolumn_graphic_boundary_candidates(
+    gray: np.ndarray, *, page: int, layout: LogPanelLayout,
+    calibration: DepthScaleCalibration, depth_x_hint: float | None = None,
+) -> list[DepthBoundaryCandidate]:
+    """Generate candidates from every plausible field column, not one column."""
+    columns = detect_graphic_log_columns(gray, layout, depth_x_hint=depth_x_hint)
+    output = [candidate for rank,(left,right,activity) in enumerate(columns) for candidate in _graphic_candidates_for_column(gray,page=page,layout=layout,calibration=calibration,column=(left,right),column_rank=rank,column_activity=activity)]
+    for candidate in output:
+        cy=(candidate.bbox[1]+candidate.bbox[3])/2
+        peers={round(((other.bbox[0]+other.bbox[2])/2)/gray.shape[1],3) for other in output if other is not candidate and abs((other.bbox[1]+other.bbox[3])/2-cy)<=max(8,gray.shape[0]*0.0025)}
+        candidate.features["graphic_cross_column_support"] = min(1.0,len(peers)/3)
+    return output
+
+
 def graphic_boundary_candidates(
     gray: np.ndarray, *, page: int, layout: LogPanelLayout,
     calibration: DepthScaleCalibration, depth_x_hint: float | None = None,
