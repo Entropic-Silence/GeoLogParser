@@ -46,8 +46,8 @@ not override the failed full-sequence interval gate.
 
 ## Consequence
 
-The column-gated v022 candidate is retained as the next development baseline,
-not as the frozen external model. It remains below the interval-F1 >= 0.15
-release gate and has unacceptable critical numerical error for automatic
-acceptance, so BGS v002 is not opened. Further work should reduce false graphic
-events and improve endpoint coverage rather than enumerate more candidate pairs.
+The column-gated v022 candidate is retained as the structural baseline, not as
+the frozen external model. Its quantised depth output remained below the
+interval-F1 release gate. ADR-018 subsequently preserves reliable continuous
+y-to-depth geometry and passes the predeclared development gates; v023 therefore
+supersedes v022 for the one-time external evaluation.

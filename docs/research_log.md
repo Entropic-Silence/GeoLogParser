@@ -2436,3 +2436,28 @@
   0.1090 and CNER 0.0500. Threshold 0.60 accepts 46 boundaries at precision
   0.9130, coverage 0.1253 and CNER 0.0870. The risk-curve artifact SHA256 is
   `855ef7113f03cba887e3fa1c665f7c3ea7cd6965d80ce855748b7d79bd6ecb33`.
+
+## 2026-08-16 — BGS v023 continuous-depth geometry refinement
+
+- Tested a source-disjoint post-sequence risk pruner over v022. It retained 106
+  of 118 events but reduced boundary F1 to 0.2960 and interval F1 to 0.1137;
+  the route is rejected because it removed true adjacent boundaries.
+- Traced a separate numerical failure to coarse integer snapping after valid
+  y-to-depth calibration. A nested source-disjoint geometry refiner now keeps
+  integer-like values snapped while retaining calibrated decimal depth on pages
+  whose scale residual passes a threshold selected on the other folds.
+- At ±0.05 m, v023 reached boundary precision/recall/F1
+  0.6949/0.2234/0.3381 and interval F1 0.1797. At ±0.10 m, boundary
+  precision/recall/F1 were 0.7203/0.2316/0.3505.
+- Threshold 0.60 accepted 46 boundaries with precision 0.9565, coverage 0.1253,
+  and CNER 0.0435. All 118 full-sequence boundaries retained page/bbox
+  provenance. The result passes every predeclared ADR-015 development gate.
+- The final all-v001 geometry settings are integer radius 0.10 m, two decimal
+  places, and maximum page-scale RMSE 0.08. The development artifact SHA256 is
+  `81a962a8211d2b1a4de60d0b420d8100d8dbe07039f3e05693428d78a57f5e11`;
+  the rejected pruner artifact SHA256 is
+  `1d5422ffeea92cd8b55538b9dcaa9afc5d8761c225b609c4ec430b6b63109751`.
+- The all-v001 column gate plus geometry parameters were serialized before any
+  external evaluation as
+  `experiments/paper2/models/bgs_layout_column_geometry_v023.json`, SHA256
+  `1aa0389ae520c62115e6c6e737727d694937b6e9c0cdb36971137b95af169db4`.

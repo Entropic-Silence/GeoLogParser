@@ -1,0 +1,28 @@
+experiment_id: P2_BGS_GEOMETRY_REFINEMENT_DEV_001
+status: development_gate_passed
+branch: PaperII
+method_version: v023
+source_analysis: experiments/paper2/analysis/bgs_layout_method_development_v021.json
+column_analysis: experiments/paper2/analysis/bgs_column_gate_development_v010_k6_riskfine.json
+source_disjoint_folds: 5
+geometry_refinement: nested_source_disjoint_continuous_depth
+boundary_at_0_05m:
+  precision: 0.6949152542372882
+  recall: 0.22343324250681199
+  f1: 0.3381443298969072
+  critical_numerical_error_rate: 0.3050847457627119
+interval_f1_at_0_05m: 0.17972350230414746
+boundary_at_0_10m:
+  precision: 0.7203389830508474
+  recall: 0.23160762942779292
+  f1: 0.3505154639175258
+selective_operating_point:
+  threshold: 0.60
+  accepted_boundary_count: 46
+  precision: 0.9565217391304348
+  reference_relative_coverage: 0.12534059945504086
+  critical_numerical_error_rate: 0.043478260869565216
+provenance_complete_rate: 1.0
+frozen_external_evaluation: false
+result: experiments/paper2/analysis/bgs_geometry_refinement_development_v001.json
+negative_control: experiments/paper2/analysis/bgs_sequence_risk_pruning_development_v001.json

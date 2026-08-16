@@ -1,0 +1,4654 @@
+{
+  "analysis_scope": "BGS v001 source-disjoint continuous-depth geometry refinement over v022",
+  "column_analysis": "experiments/paper2/analysis/bgs_column_gate_development_v010_k6_riskfine.json",
+  "column_analysis_sha256": "855ef7113f03cba887e3fa1c665f7c3ea7cd6965d80ce855748b7d79bd6ecb33",
+  "coverage_risk_curve": [
+    {
+      "accepted_boundary_count": 425,
+      "boundary": {
+        "critical_numerical_error_rate": 0.7505882352941177,
+        "f1": 0.2676767676767677,
+        "false_negative": 261,
+        "false_positive": 319,
+        "matched_boundary_mae_m": 0.0019433962264151232,
+        "precision": 0.24941176470588236,
+        "recall": 0.2888283378746594,
+        "true_positive": 106
+      },
+      "coverage_against_reference": 1.1580381471389645,
+      "interval": {
+        "f1": 0.07017543859649124,
+        "false_negative": 315,
+        "false_positive": 374,
+        "precision": 0.065,
+        "recall": 0.07624633431085044,
+        "true_positive": 26
+      },
+      "threshold": 0.1
+    },
+    {
+      "accepted_boundary_count": 212,
+      "boundary": {
+        "critical_numerical_error_rate": 0.5471698113207547,
+        "f1": 0.33160621761658027,
+        "false_negative": 271,
+        "false_positive": 116,
+        "matched_boundary_mae_m": 0.0017291666666666705,
+        "precision": 0.4528301886792453,
+        "recall": 0.2615803814713896,
+        "true_positive": 96
+      },
+      "coverage_against_reference": 0.5776566757493188,
+      "interval": {
+        "f1": 0.1477272727272727,
+        "false_negative": 302,
+        "false_positive": 148,
+        "precision": 0.20855614973262032,
+        "recall": 0.11436950146627566,
+        "true_positive": 39
+      },
+      "threshold": 0.2
+    },
+    {
+      "accepted_boundary_count": 128,
+      "boundary": {
+        "critical_numerical_error_rate": 0.3515625,
+        "f1": 0.33535353535353535,
+        "false_negative": 284,
+        "false_positive": 45,
+        "matched_boundary_mae_m": 0.0017228915662650685,
+        "precision": 0.6484375,
+        "recall": 0.22615803814713897,
+        "true_positive": 83
+      },
+      "coverage_against_reference": 0.34877384196185285,
+      "interval": {
+        "f1": 0.16216216216216217,
+        "false_negative": 305,
+        "false_positive": 67,
+        "precision": 0.34951456310679613,
+        "recall": 0.10557184750733138,
+        "true_positive": 36
+      },
+      "threshold": 0.3
+    },
+    {
+      "accepted_boundary_count": 118,
+      "boundary": {
+        "critical_numerical_error_rate": 0.3050847457627119,
+        "f1": 0.3381443298969072,
+        "false_negative": 285,
+        "false_positive": 36,
+        "matched_boundary_mae_m": 0.0017439024390243985,
+        "precision": 0.6949152542372882,
+        "recall": 0.22343324250681199,
+        "true_positive": 82
+      },
+      "coverage_against_reference": 0.3215258855585831,
+      "interval": {
+        "f1": 0.17972350230414746,
+        "false_negative": 302,
+        "false_positive": 54,
+        "precision": 0.41935483870967744,
+        "recall": 0.11436950146627566,
+        "true_positive": 39
+      },
+      "threshold": 0.32
+    },
+    {
+      "accepted_boundary_count": 111,
+      "boundary": {
+        "critical_numerical_error_rate": 0.2972972972972973,
+        "f1": 0.3263598326359833,
+        "false_negative": 289,
+        "false_positive": 33,
+        "matched_boundary_mae_m": 0.001833333333333342,
+        "precision": 0.7027027027027027,
+        "recall": 0.2125340599455041,
+        "true_positive": 78
+      },
+      "coverage_against_reference": 0.3024523160762943,
+      "interval": {
+        "f1": 0.1592505854800937,
+        "false_negative": 307,
+        "false_positive": 52,
+        "precision": 0.3953488372093023,
+        "recall": 0.09970674486803519,
+        "true_positive": 34
+      },
+      "threshold": 0.35
+    },
+    {
+      "accepted_boundary_count": 93,
+      "boundary": {
+        "critical_numerical_error_rate": 0.3010752688172043,
+        "f1": 0.2826086956521739,
+        "false_negative": 302,
+        "false_positive": 28,
+        "matched_boundary_mae_m": 0.0021538461538461624,
+        "precision": 0.6989247311827957,
+        "recall": 0.1771117166212534,
+        "true_positive": 65
+      },
+      "coverage_against_reference": 0.25340599455040874,
+      "interval": {
+        "f1": 0.117359413202934,
+        "false_negative": 317,
+        "false_positive": 44,
+        "precision": 0.35294117647058826,
+        "recall": 0.07038123167155426,
+        "true_positive": 24
+      },
+      "threshold": 0.4
+    },
+    {
+      "accepted_boundary_count": 61,
+      "boundary": {
+        "critical_numerical_error_rate": 0.14754098360655737,
+        "f1": 0.2429906542056075,
+        "false_negative": 315,
+        "false_positive": 9,
+        "matched_boundary_mae_m": 0.002692307692307703,
+        "precision": 0.8524590163934426,
+        "recall": 0.14168937329700274,
+        "true_positive": 52
+      },
+      "coverage_against_reference": 0.16621253405994552,
+      "interval": {
+        "f1": 0.08488063660477453,
+        "false_negative": 325,
+        "false_positive": 20,
+        "precision": 0.4444444444444444,
+        "recall": 0.0469208211143695,
+        "true_positive": 16
+      },
+      "threshold": 0.5
+    },
+    {
+      "accepted_boundary_count": 46,
+      "boundary": {
+        "critical_numerical_error_rate": 0.043478260869565216,
+        "f1": 0.21307506053268763,
+        "false_negative": 323,
+        "false_positive": 2,
+        "matched_boundary_mae_m": 0.0015909090909090975,
+        "precision": 0.9565217391304348,
+        "recall": 0.11989100817438691,
+        "true_positive": 44
+      },
+      "coverage_against_reference": 0.12534059945504086,
+      "interval": {
+        "f1": 0.05524861878453039,
+        "false_negative": 331,
+        "false_positive": 11,
+        "precision": 0.47619047619047616,
+        "recall": 0.02932551319648094,
+        "true_positive": 10
+      },
+      "threshold": 0.6
+    },
+    {
+      "accepted_boundary_count": 45,
+      "boundary": {
+        "critical_numerical_error_rate": 0.044444444444444446,
+        "f1": 0.2087378640776699,
+        "false_negative": 324,
+        "false_positive": 2,
+        "matched_boundary_mae_m": 0.0016279069767441926,
+        "precision": 0.9555555555555556,
+        "recall": 0.11716621253405994,
+        "true_positive": 43
+      },
+      "coverage_against_reference": 0.1226158038147139,
+      "interval": {
+        "f1": 0.0554016620498615,
+        "false_negative": 331,
+        "false_positive": 10,
+        "precision": 0.5,
+        "recall": 0.02932551319648094,
+        "true_positive": 10
+      },
+      "threshold": 0.62
+    },
+    {
+      "accepted_boundary_count": 41,
+      "boundary": {
+        "critical_numerical_error_rate": 0.04878048780487805,
+        "f1": 0.1911764705882353,
+        "false_negative": 328,
+        "false_positive": 2,
+        "matched_boundary_mae_m": 0.0010256410256410037,
+        "precision": 0.9512195121951219,
+        "recall": 0.10626702997275204,
+        "true_positive": 39
+      },
+      "coverage_against_reference": 0.11171662125340599,
+      "interval": {
+        "f1": 0.05027932960893855,
+        "false_negative": 332,
+        "false_positive": 8,
+        "precision": 0.5294117647058824,
+        "recall": 0.026392961876832845,
+        "true_positive": 9
+      },
+      "threshold": 0.64
+    },
+    {
+      "accepted_boundary_count": 40,
+      "boundary": {
+        "critical_numerical_error_rate": 0.025,
+        "f1": 0.19164619164619165,
+        "false_negative": 328,
+        "false_positive": 1,
+        "matched_boundary_mae_m": 0.0010256410256410037,
+        "precision": 0.975,
+        "recall": 0.10626702997275204,
+        "true_positive": 39
+      },
+      "coverage_against_reference": 0.10899182561307902,
+      "interval": {
+        "f1": 0.05042016806722689,
+        "false_negative": 332,
+        "false_positive": 7,
+        "precision": 0.5625,
+        "recall": 0.026392961876832845,
+        "true_positive": 9
+      },
+      "threshold": 0.65
+    },
+    {
+      "accepted_boundary_count": 40,
+      "boundary": {
+        "critical_numerical_error_rate": 0.025,
+        "f1": 0.19164619164619165,
+        "false_negative": 328,
+        "false_positive": 1,
+        "matched_boundary_mae_m": 0.0010256410256410037,
+        "precision": 0.975,
+        "recall": 0.10626702997275204,
+        "true_positive": 39
+      },
+      "coverage_against_reference": 0.10899182561307902,
+      "interval": {
+        "f1": 0.05042016806722689,
+        "false_negative": 332,
+        "false_positive": 7,
+        "precision": 0.5625,
+        "recall": 0.026392961876832845,
+        "true_positive": 9
+      },
+      "threshold": 0.66
+    },
+    {
+      "accepted_boundary_count": 36,
+      "boundary": {
+        "critical_numerical_error_rate": 0.027777777777777776,
+        "f1": 0.17369727047146402,
+        "false_negative": 332,
+        "false_positive": 1,
+        "matched_boundary_mae_m": 0.0,
+        "precision": 0.9722222222222222,
+        "recall": 0.09536784741144415,
+        "true_positive": 35
+      },
+      "coverage_against_reference": 0.09809264305177112,
+      "interval": {
+        "f1": 0.0339943342776204,
+        "false_negative": 335,
+        "false_positive": 6,
+        "precision": 0.5,
+        "recall": 0.017595307917888565,
+        "true_positive": 6
+      },
+      "threshold": 0.68
+    },
+    {
+      "accepted_boundary_count": 36,
+      "boundary": {
+        "critical_numerical_error_rate": 0.027777777777777776,
+        "f1": 0.17369727047146402,
+        "false_negative": 332,
+        "false_positive": 1,
+        "matched_boundary_mae_m": 0.0,
+        "precision": 0.9722222222222222,
+        "recall": 0.09536784741144415,
+        "true_positive": 35
+      },
+      "coverage_against_reference": 0.09809264305177112,
+      "interval": {
+        "f1": 0.0339943342776204,
+        "false_negative": 335,
+        "false_positive": 6,
+        "precision": 0.5,
+        "recall": 0.017595307917888565,
+        "true_positive": 6
+      },
+      "threshold": 0.7
+    },
+    {
+      "accepted_boundary_count": 25,
+      "boundary": {
+        "critical_numerical_error_rate": 0.0,
+        "f1": 0.12755102040816327,
+        "false_negative": 342,
+        "false_positive": 0,
+        "matched_boundary_mae_m": 0.0,
+        "precision": 1.0,
+        "recall": 0.0681198910081744,
+        "true_positive": 25
+      },
+      "coverage_against_reference": 0.0681198910081744,
+      "interval": {
+        "f1": 0.0058309037900874635,
+        "false_negative": 340,
+        "false_positive": 1,
+        "precision": 0.5,
+        "recall": 0.002932551319648094,
+        "true_positive": 1
+      },
+      "threshold": 0.8
+    },
+    {
+      "accepted_boundary_count": 17,
+      "boundary": {
+        "critical_numerical_error_rate": 0.0,
+        "f1": 0.08854166666666667,
+        "false_negative": 350,
+        "false_positive": 0,
+        "matched_boundary_mae_m": 0.0,
+        "precision": 1.0,
+        "recall": 0.04632152588555858,
+        "true_positive": 17
+      },
+      "coverage_against_reference": 0.04632152588555858,
+      "interval": {
+        "f1": 0.005847953216374269,
+        "false_negative": 340,
+        "false_positive": 0,
+        "precision": 1.0,
+        "recall": 0.002932551319648094,
+        "true_positive": 1
+      },
+      "threshold": 0.9
+    },
+    {
+      "accepted_boundary_count": 13,
+      "boundary": {
+        "critical_numerical_error_rate": 0.0,
+        "f1": 0.06842105263157895,
+        "false_negative": 354,
+        "false_positive": 0,
+        "matched_boundary_mae_m": 0.0,
+        "precision": 1.0,
+        "recall": 0.035422343324250684,
+        "true_positive": 13
+      },
+      "coverage_against_reference": 0.035422343324250684,
+      "interval": {
+        "f1": 0.0,
+        "false_negative": 341,
+        "false_positive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "true_positive": 0
+      },
+      "threshold": 0.95
+    },
+    {
+      "accepted_boundary_count": 8,
+      "boundary": {
+        "critical_numerical_error_rate": 0.0,
+        "f1": 0.04266666666666666,
+        "false_negative": 359,
+        "false_positive": 0,
+        "matched_boundary_mae_m": 0.0,
+        "precision": 1.0,
+        "recall": 0.021798365122615803,
+        "true_positive": 8
+      },
+      "coverage_against_reference": 0.021798365122615803,
+      "interval": {
+        "f1": 0.0,
+        "false_negative": 341,
+        "false_positive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "true_positive": 0
+      },
+      "threshold": 0.98
+    },
+    {
+      "accepted_boundary_count": 5,
+      "boundary": {
+        "critical_numerical_error_rate": 0.0,
+        "f1": 0.026881720430107524,
+        "false_negative": 362,
+        "false_positive": 0,
+        "matched_boundary_mae_m": 0.0,
+        "precision": 1.0,
+        "recall": 0.013623978201634877,
+        "true_positive": 5
+      },
+      "coverage_against_reference": 0.013623978201634877,
+      "interval": {
+        "f1": 0.0,
+        "false_negative": 341,
+        "false_positive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "true_positive": 0
+      },
+      "threshold": 0.99
+    }
+  ],
+  "document_count": 26,
+  "final_model": {
+    "parameters": {
+      "continuous_depth_decimal_places": 2,
+      "integer_snap_radius_m": 0.1,
+      "maximum_page_scale_rmse": 0.08
+    },
+    "trained_on": "all BGS v001 development source groups",
+    "training_metrics": {
+      "boundary_at_0_05m": {
+        "critical_numerical_error_rate": 0.2966101694915254,
+        "f1": 0.3422680412371134,
+        "false_negative": 284,
+        "false_positive": 35,
+        "matched_boundary_mae_m": 0.001843373493975888,
+        "precision": 0.7033898305084746,
+        "recall": 0.22615803814713897,
+        "true_positive": 83
+      },
+      "interval_at_0_05m": {
+        "f1": 0.17972350230414746,
+        "false_negative": 302,
+        "false_positive": 54,
+        "precision": 0.41935483870967744,
+        "recall": 0.11436950146627566,
+        "true_positive": 39
+      }
+    }
+  },
+  "fold_models": [
+    {
+      "fold": 0,
+      "parameters": {
+        "continuous_depth_decimal_places": 1,
+        "integer_snap_radius_m": 0.1,
+        "maximum_page_scale_rmse": 0.08
+      },
+      "test_documents": 6,
+      "train_documents": 20,
+      "training_metrics": {
+        "boundary_at_0_05m": {
+          "critical_numerical_error_rate": 0.26881720430107525,
+          "f1": 0.3726027397260274,
+          "false_negative": 204,
+          "false_positive": 25,
+          "matched_boundary_mae_m": 0.0,
+          "precision": 0.7311827956989247,
+          "recall": 0.25,
+          "true_positive": 68
+        },
+        "interval_at_0_05m": {
+          "f1": 0.20923076923076925,
+          "false_negative": 218,
+          "false_positive": 39,
+          "precision": 0.4657534246575342,
+          "recall": 0.1349206349206349,
+          "true_positive": 34
+        }
+      }
+    },
+    {
+      "fold": 1,
+      "parameters": {
+        "continuous_depth_decimal_places": 2,
+        "integer_snap_radius_m": 0.1,
+        "maximum_page_scale_rmse": 0.08
+      },
+      "test_documents": 3,
+      "train_documents": 23,
+      "training_metrics": {
+        "boundary_at_0_05m": {
+          "critical_numerical_error_rate": 0.30357142857142855,
+          "f1": 0.37500000000000006,
+          "false_negative": 226,
+          "false_positive": 34,
+          "matched_boundary_mae_m": 0.0019615384615384447,
+          "precision": 0.6964285714285714,
+          "recall": 0.2565789473684211,
+          "true_positive": 78
+        },
+        "interval_at_0_05m": {
+          "f1": 0.21024258760107817,
+          "false_negative": 242,
+          "false_positive": 51,
+          "precision": 0.43333333333333335,
+          "recall": 0.1387900355871886,
+          "true_positive": 39
+        }
+      }
+    },
+    {
+      "fold": 2,
+      "parameters": {
+        "continuous_depth_decimal_places": 2,
+        "integer_snap_radius_m": 0.1,
+        "maximum_page_scale_rmse": 0.08
+      },
+      "test_documents": 5,
+      "train_documents": 21,
+      "training_metrics": {
+        "boundary_at_0_05m": {
+          "critical_numerical_error_rate": 0.1794871794871795,
+          "f1": 0.3316062176165803,
+          "false_negative": 244,
+          "false_positive": 14,
+          "matched_boundary_mae_m": 0.0011406249999999507,
+          "precision": 0.8205128205128205,
+          "recall": 0.2077922077922078,
+          "true_positive": 64
+        },
+        "interval_at_0_05m": {
+          "f1": 0.17971014492753623,
+          "false_negative": 256,
+          "false_positive": 27,
+          "precision": 0.5344827586206896,
+          "recall": 0.10801393728222997,
+          "true_positive": 31
+        }
+      }
+    },
+    {
+      "fold": 3,
+      "parameters": {
+        "continuous_depth_decimal_places": 2,
+        "integer_snap_radius_m": 0.1,
+        "maximum_page_scale_rmse": 0.08
+      },
+      "test_documents": 5,
+      "train_documents": 21,
+      "training_metrics": {
+        "boundary_at_0_05m": {
+          "critical_numerical_error_rate": 0.32,
+          "f1": 0.3366336633663366,
+          "false_negative": 236,
+          "false_positive": 32,
+          "matched_boundary_mae_m": 0.001367647058823529,
+          "precision": 0.68,
+          "recall": 0.2236842105263158,
+          "true_positive": 68
+        },
+        "interval_at_0_05m": {
+          "f1": 0.1763085399449036,
+          "false_negative": 251,
+          "false_positive": 48,
+          "precision": 0.4,
+          "recall": 0.11307420494699646,
+          "true_positive": 32
+        }
+      }
+    },
+    {
+      "fold": 4,
+      "parameters": {
+        "continuous_depth_decimal_places": 2,
+        "integer_snap_radius_m": 0.1,
+        "maximum_page_scale_rmse": 0.08
+      },
+      "test_documents": 7,
+      "train_documents": 19,
+      "training_metrics": {
+        "boundary_at_0_05m": {
+          "critical_numerical_error_rate": 0.39325842696629215,
+          "f1": 0.29268292682926833,
+          "false_negative": 226,
+          "false_positive": 35,
+          "matched_boundary_mae_m": 0.0028333333333333093,
+          "precision": 0.6067415730337079,
+          "recall": 0.19285714285714287,
+          "true_positive": 54
+        },
+        "interval_at_0_05m": {
+          "f1": 0.12048192771084339,
+          "false_negative": 241,
+          "false_positive": 51,
+          "precision": 0.28169014084507044,
+          "recall": 0.07662835249042145,
+          "true_positive": 20
+        }
+      }
+    }
+  ],
+  "manifest": "datasets/manifests/bgs_offshore_gold_v001.jsonl",
+  "manifest_sha256": "d85f6c862b81d80c793887f73ca8b70658d42de358f25230dc4a15104520c99c",
+  "metrics_by_tolerance_m": {
+    "0.01": {
+      "boundary": {
+        "critical_numerical_error_rate": 0.3474576271186441,
+        "f1": 0.31752577319587627,
+        "false_negative": 290,
+        "false_positive": 41,
+        "matched_boundary_mae_m": 3.896103896104044e-05,
+        "precision": 0.652542372881356,
+        "recall": 0.2098092643051771,
+        "true_positive": 77
+      },
+      "interval": {
+        "f1": 0.152073732718894,
+        "false_negative": 308,
+        "false_positive": 60,
+        "precision": 0.3548387096774194,
+        "recall": 0.0967741935483871,
+        "true_positive": 33
+      }
+    },
+    "0.05": {
+      "boundary": {
+        "critical_numerical_error_rate": 0.3050847457627119,
+        "f1": 0.3381443298969072,
+        "false_negative": 285,
+        "false_positive": 36,
+        "matched_boundary_mae_m": 0.0017439024390243985,
+        "precision": 0.6949152542372882,
+        "recall": 0.22343324250681199,
+        "true_positive": 82
+      },
+      "interval": {
+        "f1": 0.17972350230414746,
+        "false_negative": 302,
+        "false_positive": 54,
+        "precision": 0.41935483870967744,
+        "recall": 0.11436950146627566,
+        "true_positive": 39
+      }
+    },
+    "0.10": {
+      "boundary": {
+        "critical_numerical_error_rate": 0.2796610169491525,
+        "f1": 0.3505154639175258,
+        "false_negative": 282,
+        "false_positive": 33,
+        "matched_boundary_mae_m": 0.00403529411764708,
+        "precision": 0.7203389830508474,
+        "recall": 0.23160762942779292,
+        "true_positive": 85
+      },
+      "interval": {
+        "f1": 0.17972350230414746,
+        "false_negative": 302,
+        "false_positive": 54,
+        "precision": 0.41935483870967744,
+        "recall": 0.11436950146627566,
+        "true_positive": 39
+      }
+    }
+  },
+  "predicted_boundary_count": 118,
+  "predictions": [
+    {
+      "evidence": [
+        {
+          "bbox": [
+            620.0,
+            2853.0,
+            640.25,
+            2870.7499999999995
+          ],
+          "candidate_source": "printed_depth",
+          "page": 1,
+          "probability": 0.9073268343191763,
+          "provenance": [
+            {
+              "competing_views": 8,
+              "method": "multiview_numeric_ocr",
+              "source_texts": [
+                "0"
+              ],
+              "view_support": 1
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 0.0,
+          "used_continuous_geometry": false,
+          "value_m": 0.0
+        },
+        {
+          "bbox": [
+            1674.0,
+            411.0,
+            1740.0,
+            436.0
+          ],
+          "candidate_source": "metadata_final_depth",
+          "page": 1,
+          "probability": 0.40168977266192996,
+          "provenance": [
+            {
+              "label_bbox": [
+                1208.0,
+                413.0,
+                1323.0,
+                439.0
+              ],
+              "label_text": "total",
+              "method": "header_label_geometry",
+              "source_texts": [
+                "36m"
+              ]
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 36.0,
+          "used_continuous_geometry": false,
+          "value_m": 36.0
+        }
+      ],
+      "fold": 3,
+      "parameters": {
+        "continuous_depth_decimal_places": 2,
+        "integer_snap_radius_m": 0.1,
+        "maximum_page_scale_rmse": 0.08
+      },
+      "predicted_boundaries_m": [
+        0.0,
+        36.0
+      ],
+      "record_id": "BGS_OFFSHORE_1942278"
+    },
+    {
+      "evidence": [
+        {
+          "bbox": [
+            823.7500000000001,
+            3781.7500000000014,
+            888.7500000000001,
+            3807.0000000000005
+          ],
+          "candidate_source": "printed_depth",
+          "page": 15,
+          "probability": 0.888826236364803,
+          "provenance": [
+            {
+              "competing_views": 0,
+              "method": "multiview_numeric_ocr",
+              "source_texts": [
+                "0"
+              ],
+              "view_support": 9
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 0.0,
+          "used_continuous_geometry": false,
+          "value_m": 0.0
+        }
+      ],
+      "fold": 4,
+      "parameters": {
+        "continuous_depth_decimal_places": 2,
+        "integer_snap_radius_m": 0.1,
+        "maximum_page_scale_rmse": 0.08
+      },
+      "predicted_boundaries_m": [
+        0.0
+      ],
+      "record_id": "BGS_OFFSHORE_1943902"
+    },
+    {
+      "evidence": [
+        {
+          "bbox": [
+            1125.5,
+            5076.5,
+            1131.0,
+            5080.0
+          ],
+          "candidate_source": "printed_depth",
+          "page": 45,
+          "probability": 0.8858172560308796,
+          "provenance": [
+            {
+              "competing_views": 0,
+              "method": "multiview_numeric_ocr",
+              "source_texts": [
+                "0"
+              ],
+              "view_support": 2
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 0.0,
+          "used_continuous_geometry": false,
+          "value_m": 0.0
+        },
+        {
+          "bbox": [
+            1606.0,
+            930.0,
+            1711.0,
+            952.0
+          ],
+          "candidate_source": "metadata_final_depth",
+          "page": 45,
+          "probability": 0.7429261945851241,
+          "provenance": [
+            {
+              "label_bbox": [
+                1188.0,
+                925.0,
+                1303.0,
+                949.0
+              ],
+              "label_text": "total",
+              "method": "header_label_geometry",
+              "source_texts": [
+                "28.35m"
+              ]
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 28.35,
+          "used_continuous_geometry": false,
+          "value_m": 28.35
+        }
+      ],
+      "fold": 4,
+      "parameters": {
+        "continuous_depth_decimal_places": 2,
+        "integer_snap_radius_m": 0.1,
+        "maximum_page_scale_rmse": 0.08
+      },
+      "predicted_boundaries_m": [
+        0.0,
+        28.35
+      ],
+      "record_id": "BGS_OFFSHORE_1944312"
+    },
+    {
+      "evidence": [
+        {
+          "bbox": [
+            1224.9999999999995,
+            2974.999999999999,
+            1271.562823834196,
+            2991.9999999999986
+          ],
+          "candidate_source": "printed_depth",
+          "page": 11,
+          "probability": 0.9921918903658318,
+          "provenance": [
+            {
+              "competing_views": 1,
+              "method": "multiview_numeric_ocr",
+              "source_texts": [
+                "0.00"
+              ],
+              "view_support": 15
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 0.0,
+          "used_continuous_geometry": false,
+          "value_m": 0.0
+        },
+        {
+          "bbox": [
+            1628.0,
+            891.0,
+            1747.0,
+            916.0
+          ],
+          "candidate_source": "metadata_final_depth",
+          "page": 11,
+          "probability": 0.5177098816825599,
+          "provenance": [
+            {
+              "label_bbox": [
+                1199.0,
+                880.0,
+                1294.0,
+                905.0
+              ],
+              "label_text": "total",
+              "method": "header_label_geometry",
+              "source_texts": [
+                "13.55m"
+              ]
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 13.55,
+          "used_continuous_geometry": false,
+          "value_m": 13.55
+        }
+      ],
+      "fold": 0,
+      "parameters": {
+        "continuous_depth_decimal_places": 1,
+        "integer_snap_radius_m": 0.1,
+        "maximum_page_scale_rmse": 0.08
+      },
+      "predicted_boundaries_m": [
+        0.0,
+        13.55
+      ],
+      "record_id": "BGS_OFFSHORE_1944320"
+    },
+    {
+      "evidence": [
+        {
+          "bbox": [
+            1238.88296812749,
+            2937.8829681274897,
+            1287.8829681274901,
+            2955.409362549801
+          ],
+          "candidate_source": "printed_depth",
+          "page": 16,
+          "probability": 0.9907804907235188,
+          "provenance": [
+            {
+              "competing_views": 2,
+              "method": "multiview_numeric_ocr",
+              "source_texts": [
+                "0,00",
+                "0.00"
+              ],
+              "view_support": 14
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 0.0,
+          "used_continuous_geometry": false,
+          "value_m": 0.0
+        },
+        {
+          "bbox": [
+            1647.0,
+            735.0,
+            1750.0,
+            760.0
+          ],
+          "candidate_source": "metadata_final_depth",
+          "page": 16,
+          "probability": 0.6791380683646502,
+          "provenance": [
+            {
+              "label_bbox": [
+                1194.0,
+                727.0,
+                1294.0,
+                773.0
+              ],
+              "label_text": "total",
+              "method": "header_label_geometry",
+              "source_texts": [
+                "16.0m"
+              ]
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 16.0,
+          "used_continuous_geometry": false,
+          "value_m": 16.0
+        }
+      ],
+      "fold": 1,
+      "parameters": {
+        "continuous_depth_decimal_places": 2,
+        "integer_snap_radius_m": 0.1,
+        "maximum_page_scale_rmse": 0.08
+      },
+      "predicted_boundaries_m": [
+        0.0,
+        16.0
+      ],
+      "record_id": "BGS_OFFSHORE_1944322"
+    },
+    {
+      "evidence": [
+        {
+          "bbox": [
+            1242.0,
+            6265.5,
+            1295.9999999999998,
+            6290.5
+          ],
+          "candidate_source": "printed_depth",
+          "page": 4,
+          "probability": 0.7760608077007939,
+          "provenance": [
+            {
+              "competing_views": 0,
+              "method": "multiview_numeric_ocr",
+              "source_texts": [
+                "0"
+              ],
+              "view_support": 1
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 0.0,
+          "used_continuous_geometry": false,
+          "value_m": 0.0
+        }
+      ],
+      "fold": 0,
+      "parameters": {
+        "continuous_depth_decimal_places": 1,
+        "integer_snap_radius_m": 0.1,
+        "maximum_page_scale_rmse": 0.08
+      },
+      "predicted_boundaries_m": [
+        0.0
+      ],
+      "record_id": "BGS_OFFSHORE_1945465"
+    },
+    {
+      "evidence": [
+        {
+          "bbox": [
+            1263.8453895071543,
+            2694.307233704292,
+            1309.9999999999998,
+            2711.1546104928457
+          ],
+          "candidate_source": "printed_depth",
+          "page": 26,
+          "probability": 0.9732437716919032,
+          "provenance": [
+            {
+              "competing_views": 0,
+              "method": "multiview_numeric_ocr",
+              "source_texts": [
+                "0.00"
+              ],
+              "view_support": 16
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 0.0,
+          "used_continuous_geometry": false,
+          "value_m": 0.0
+        }
+      ],
+      "fold": 4,
+      "parameters": {
+        "continuous_depth_decimal_places": 2,
+        "integer_snap_radius_m": 0.1,
+        "maximum_page_scale_rmse": 0.08
+      },
+      "predicted_boundaries_m": [
+        0.0
+      ],
+      "record_id": "BGS_OFFSHORE_1949665"
+    },
+    {
+      "evidence": [
+        {
+          "bbox": [
+            843.0000000000001,
+            7614.500000000001,
+            870.5,
+            7651.5
+          ],
+          "candidate_source": "printed_depth",
+          "page": 16,
+          "probability": 0.634118332257153,
+          "provenance": [
+            {
+              "competing_views": 1,
+              "method": "multiview_numeric_ocr",
+              "source_texts": [
+                "oo"
+              ],
+              "view_support": 2
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 0.0,
+          "used_continuous_geometry": false,
+          "value_m": 0.0
+        }
+      ],
+      "fold": 2,
+      "parameters": {
+        "continuous_depth_decimal_places": 2,
+        "integer_snap_radius_m": 0.1,
+        "maximum_page_scale_rmse": 0.08
+      },
+      "predicted_boundaries_m": [
+        0.0
+      ],
+      "record_id": "BGS_OFFSHORE_1951404"
+    },
+    {
+      "evidence": [
+        {
+          "bbox": [
+            1244.0000000000005,
+            3785.000000000002,
+            1300.0000000000002,
+            3805.000000000001
+          ],
+          "candidate_source": "printed_depth",
+          "page": 15,
+          "probability": 0.99711361076803,
+          "provenance": [
+            {
+              "competing_views": 0,
+              "method": "multiview_numeric_ocr",
+              "source_texts": [
+                "0.00"
+              ],
+              "view_support": 13
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 0.0,
+          "used_continuous_geometry": false,
+          "value_m": 0.0
+        },
+        {
+          "bbox": [
+            1243.0,
+            3957.0,
+            1299.0000000000005,
+            3976.725363070539
+          ],
+          "candidate_source": "printed_depth",
+          "page": 15,
+          "probability": 0.7694882003741474,
+          "provenance": [
+            {
+              "competing_views": 0,
+              "method": "multiview_numeric_ocr",
+              "source_texts": [
+                "2,00",
+                "2.00"
+              ],
+              "view_support": 11
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 2.0,
+          "used_continuous_geometry": false,
+          "value_m": 2.0
+        },
+        {
+          "bbox": [
+            1232.0,
+            4645.920987654321,
+            1301.762962962963,
+            4666.090329218108
+          ],
+          "candidate_source": "printed_depth",
+          "page": 15,
+          "probability": 0.7100141629965135,
+          "provenance": [
+            {
+              "competing_views": 1,
+              "method": "multiview_numeric_ocr",
+              "source_texts": [
+                "10.00"
+              ],
+              "view_support": 16
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 10.0,
+          "used_continuous_geometry": false,
+          "value_m": 10.0
+        },
+        {
+          "bbox": [
+            1231.4086956521737,
+            4902.999999999997,
+            1301.726570048309,
+            4922.999999999998
+          ],
+          "candidate_source": "printed_depth",
+          "page": 15,
+          "probability": 0.7790837395363021,
+          "provenance": [
+            {
+              "competing_views": 0,
+              "method": "multiview_numeric_ocr",
+              "source_texts": [
+                "13.00"
+              ],
+              "view_support": 13
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 13.0,
+          "used_continuous_geometry": false,
+          "value_m": 13.0
+        },
+        {
+          "bbox": [
+            1230.0000000000005,
+            5220.000000000002,
+            1300.0000000000005,
+            5239.620224719101
+          ],
+          "candidate_source": "printed_depth",
+          "page": 15,
+          "probability": 0.5289416562952826,
+          "provenance": [
+            {
+              "competing_views": 0,
+              "method": "multiview_numeric_ocr",
+              "source_texts": [
+                "16.67"
+              ],
+              "view_support": 13
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 16.67,
+          "used_continuous_geometry": false,
+          "value_m": 16.67
+        },
+        {
+          "bbox": [
+            1074.0,
+            5551.0,
+            1181.0,
+            5555.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 15,
+          "probability": 0.5788225844472491,
+          "provenance": [
+            {
+              "calibration_inliers": 14,
+              "calibration_rmse_m": 0.020090749542926938,
+              "column_rank": 0,
+              "graphic_column_bbox": [
+                1074,
+                3415,
+                1181,
+                6566
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 20.44084356532163,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 20.44084356532163,
+          "snapped_value_m": 20.0,
+          "used_continuous_geometry": true,
+          "value_m": 20.4
+        },
+        {
+          "bbox": [
+            1074.0,
+            5578.0,
+            1181.0,
+            5582.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 15,
+          "probability": 0.5961204318844289,
+          "provenance": [
+            {
+              "calibration_inliers": 14,
+              "calibration_rmse_m": 0.020090749542926938,
+              "column_rank": 0,
+              "graphic_column_bbox": [
+                1074,
+                3415,
+                1181,
+                6566
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 20.754838225824003,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 20.754838225824003,
+          "snapped_value_m": 21.0,
+          "used_continuous_geometry": true,
+          "value_m": 20.8
+        },
+        {
+          "bbox": [
+            1226.25,
+            5747.0,
+            1358.0,
+            5776.0
+          ],
+          "candidate_source": "printed_depth",
+          "page": 15,
+          "probability": 0.3864816163810214,
+          "provenance": [
+            {
+              "competing_views": 0,
+              "method": "multiview_numeric_ocr",
+              "source_texts": [
+                "22.903"
+              ],
+              "view_support": 6
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 22.903,
+          "used_continuous_geometry": false,
+          "value_m": 22.903
+        }
+      ],
+      "fold": 0,
+      "parameters": {
+        "continuous_depth_decimal_places": 1,
+        "integer_snap_radius_m": 0.1,
+        "maximum_page_scale_rmse": 0.08
+      },
+      "predicted_boundaries_m": [
+        0.0,
+        2.0,
+        10.0,
+        13.0,
+        16.67,
+        20.4,
+        20.8,
+        22.903
+      ],
+      "record_id": "BGS_OFFSHORE_1957995"
+    },
+    {
+      "evidence": [
+        {
+          "bbox": [
+            1255.3104732690626,
+            3171.999999999999,
+            1302.7528483786148,
+            3190.0
+          ],
+          "candidate_source": "printed_depth",
+          "page": 9,
+          "probability": 0.9958841010632845,
+          "provenance": [
+            {
+              "competing_views": 1,
+              "method": "multiview_numeric_ocr",
+              "source_texts": [
+                "0.00"
+              ],
+              "view_support": 15
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 0.0,
+          "used_continuous_geometry": false,
+          "value_m": 0.0
+        },
+        {
+          "bbox": [
+            1013.0,
+            3682.0,
+            1112.0,
+            3686.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 9,
+          "probability": 0.7207914824166034,
+          "provenance": [
+            {
+              "calibration_inliers": 10,
+              "calibration_rmse_m": 0.052284306656411504,
+              "column_rank": 0,
+              "graphic_column_bbox": [
+                1013,
+                2854,
+                1112,
+                5911
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 6.94275412067843,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 6.94275412067843,
+          "snapped_value_m": 7.0,
+          "used_continuous_geometry": true,
+          "value_m": 7.0
+        },
+        {
+          "bbox": [
+            1013.0,
+            3762.0,
+            1112.0,
+            3766.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 9,
+          "probability": 0.7136607418151186,
+          "provenance": [
+            {
+              "calibration_inliers": 10,
+              "calibration_rmse_m": 0.052284306656411504,
+              "column_rank": 0,
+              "graphic_column_bbox": [
+                1013,
+                2854,
+                1112,
+                5911
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 8.048111174544104,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 8.048111174544104,
+          "snapped_value_m": 8.0,
+          "used_continuous_geometry": true,
+          "value_m": 8.0
+        },
+        {
+          "bbox": [
+            1013.0,
+            4048.0,
+            1112.0,
+            4052.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 9,
+          "probability": 0.6796664079982935,
+          "provenance": [
+            {
+              "calibration_inliers": 10,
+              "calibration_rmse_m": 0.052284306656411504,
+              "column_rank": 0,
+              "graphic_column_bbox": [
+                1013,
+                2854,
+                1112,
+                5911
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 11.999762642113915,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 11.999762642113915,
+          "snapped_value_m": 12.0,
+          "used_continuous_geometry": true,
+          "value_m": 12.0
+        },
+        {
+          "bbox": [
+            1013.0,
+            4086.0,
+            1112.0,
+            4090.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 9,
+          "probability": 0.57993073156946,
+          "provenance": [
+            {
+              "calibration_inliers": 10,
+              "calibration_rmse_m": 0.052284306656411504,
+              "column_rank": 0,
+              "graphic_column_bbox": [
+                1013,
+                2854,
+                1112,
+                5911
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 12.524807242700113,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 12.524807242700113,
+          "snapped_value_m": 13.0,
+          "used_continuous_geometry": true,
+          "value_m": 12.52
+        },
+        {
+          "bbox": [
+            1243.3182036503363,
+            4404.318203650336,
+            1302.5437079731028,
+            4422.999999999999
+          ],
+          "candidate_source": "printed_depth",
+          "page": 9,
+          "probability": 0.7707926935364622,
+          "provenance": [
+            {
+              "competing_views": 0,
+              "method": "multiview_numeric_ocr",
+              "source_texts": [
+                "17.00"
+              ],
+              "view_support": 12
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 17.0,
+          "used_continuous_geometry": false,
+          "value_m": 17.0
+        },
+        {
+          "bbox": [
+            1013.0,
+            4456.0,
+            1112.0,
+            4460.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 9,
+          "probability": 0.6627954232779568,
+          "provenance": [
+            {
+              "calibration_inliers": 10,
+              "calibration_rmse_m": 0.052284306656411504,
+              "column_rank": 0,
+              "graphic_column_bbox": [
+                1013,
+                2854,
+                1112,
+                5911
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 17.637083616828882,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 17.637083616828882,
+          "snapped_value_m": 18.0,
+          "used_continuous_geometry": true,
+          "value_m": 17.64
+        },
+        {
+          "bbox": [
+            1112.0,
+            4557.0,
+            1200.0,
+            4561.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 9,
+          "probability": 0.6632640362485465,
+          "provenance": [
+            {
+              "calibration_inliers": 10,
+              "calibration_rmse_m": 0.052284306656411504,
+              "column_rank": 1,
+              "graphic_column_bbox": [
+                1112,
+                2854,
+                1200,
+                5911
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 19.032596897334308,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 19.032596897334308,
+          "snapped_value_m": 19.0,
+          "used_continuous_geometry": true,
+          "value_m": 19.0
+        },
+        {
+          "bbox": [
+            1112.0,
+            4596.0,
+            1200.0,
+            4600.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 9,
+          "probability": 0.4489026282647458,
+          "provenance": [
+            {
+              "calibration_inliers": 10,
+              "calibration_rmse_m": 0.052284306656411504,
+              "column_rank": 1,
+              "graphic_column_bbox": [
+                1112,
+                2854,
+                1200,
+                5911
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 19.571458461093826,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 19.571458461093826,
+          "snapped_value_m": 20.0,
+          "used_continuous_geometry": true,
+          "value_m": 19.57
+        },
+        {
+          "bbox": [
+            1013.0,
+            4706.0,
+            1112.0,
+            4710.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 9,
+          "probability": 0.6315520972716582,
+          "provenance": [
+            {
+              "calibration_inliers": 10,
+              "calibration_rmse_m": 0.052284306656411504,
+              "column_rank": 0,
+              "graphic_column_bbox": [
+                1013,
+                2854,
+                1112,
+                5911
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 21.09132441015914,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 21.09132441015914,
+          "snapped_value_m": 21.0,
+          "used_continuous_geometry": true,
+          "value_m": 21.0
+        },
+        {
+          "bbox": [
+            1235.0367398648648,
+            5341.997043918919,
+            1298.4155405405406,
+            5367.756756756758
+          ],
+          "candidate_source": "printed_depth",
+          "page": 9,
+          "probability": 0.7769727475778555,
+          "provenance": [
+            {
+              "competing_views": 2,
+              "method": "multiview_numeric_ocr",
+              "source_texts": [
+                "30.00"
+              ],
+              "view_support": 12
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 30.0,
+          "used_continuous_geometry": false,
+          "value_m": 30.0
+        }
+      ],
+      "fold": 3,
+      "parameters": {
+        "continuous_depth_decimal_places": 2,
+        "integer_snap_radius_m": 0.1,
+        "maximum_page_scale_rmse": 0.08
+      },
+      "predicted_boundaries_m": [
+        0.0,
+        7.0,
+        8.0,
+        12.0,
+        12.52,
+        17.0,
+        17.64,
+        19.0,
+        19.57,
+        21.0,
+        30.0
+      ],
+      "record_id": "BGS_OFFSHORE_1960100"
+    },
+    {
+      "evidence": [
+        {
+          "bbox": [
+            907.0,
+            771.0,
+            974.0,
+            775.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 4,
+          "probability": 0.97034881825152,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.07925902236511533,
+              "column_rank": 6,
+              "graphic_column_bbox": [
+                907,
+                662,
+                974,
+                3633
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 0.026242231973526486,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 0.026242231973526486,
+          "snapped_value_m": 0.0,
+          "used_continuous_geometry": true,
+          "value_m": 0.0
+        },
+        {
+          "bbox": [
+            834.0,
+            1034.0,
+            907.0,
+            1038.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 4,
+          "probability": 0.5756958616692611,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.07925902236511533,
+              "column_rank": 5,
+              "graphic_column_bbox": [
+                834,
+                662,
+                907,
+                3633
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 5.504767302865385,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 5.504767302865385,
+          "snapped_value_m": 5.0,
+          "used_continuous_geometry": true,
+          "value_m": 5.5
+        },
+        {
+          "bbox": [
+            907.0,
+            1273.0,
+            974.0,
+            1277.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 4,
+          "probability": 0.5665457972533888,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.07925902236511533,
+              "column_rank": 6,
+              "graphic_column_bbox": [
+                907,
+                662,
+                974,
+                3633
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 10.483350922421103,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 10.483350922421103,
+          "snapped_value_m": 11.0,
+          "used_continuous_geometry": true,
+          "value_m": 10.48
+        },
+        {
+          "bbox": [
+            907.0,
+            1695.0,
+            974.0,
+            1699.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 4,
+          "probability": 0.5718139603284959,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.07925902236511533,
+              "column_rank": 6,
+              "graphic_column_bbox": [
+                907,
+                662,
+                974,
+                3633
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 19.273988108414883,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 19.273988108414883,
+          "snapped_value_m": 19.0,
+          "used_continuous_geometry": true,
+          "value_m": 19.27
+        },
+        {
+          "bbox": [
+            907.0,
+            1889.0,
+            974.0,
+            1893.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 4,
+          "probability": 0.49871591669497467,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.07925902236511533,
+              "column_rank": 6,
+              "graphic_column_bbox": [
+                907,
+                662,
+                974,
+                3633
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 23.31518150671534,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 23.31518150671534,
+          "snapped_value_m": 23.0,
+          "used_continuous_geometry": true,
+          "value_m": 23.32
+        },
+        {
+          "bbox": [
+            834.0,
+            1926.0,
+            907.0,
+            1930.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 4,
+          "probability": 0.46394118369896076,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.07925902236511533,
+              "column_rank": 5,
+              "graphic_column_bbox": [
+                834,
+                662,
+                907,
+                3633
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 24.085924577525226,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 24.085924577525226,
+          "snapped_value_m": 24.0,
+          "used_continuous_geometry": true,
+          "value_m": 24.0
+        },
+        {
+          "bbox": [
+            907.0,
+            2018.0,
+            974.0,
+            2022.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 4,
+          "probability": 0.4537512888211024,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.07925902236511533,
+              "column_rank": 6,
+              "graphic_column_bbox": [
+                907,
+                662,
+                974,
+                3633
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 26.002366807647093,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 26.002366807647093,
+          "snapped_value_m": 26.0,
+          "used_continuous_geometry": true,
+          "value_m": 26.0
+        },
+        {
+          "bbox": [
+            907.0,
+            3231.0,
+            974.0,
+            3235.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 4,
+          "probability": 0.4667698125163523,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.07925902236511533,
+              "column_rank": 6,
+              "graphic_column_bbox": [
+                907,
+                662,
+                974,
+                3633
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 51.270240993927786,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 51.270240993927786,
+          "snapped_value_m": 51.0,
+          "used_continuous_geometry": true,
+          "value_m": 51.27
+        }
+      ],
+      "fold": 2,
+      "parameters": {
+        "continuous_depth_decimal_places": 2,
+        "integer_snap_radius_m": 0.1,
+        "maximum_page_scale_rmse": 0.08
+      },
+      "predicted_boundaries_m": [
+        0.0,
+        5.5,
+        10.48,
+        19.27,
+        23.32,
+        24.0,
+        26.0,
+        51.27
+      ],
+      "record_id": "BGS_OFFSHORE_1960609"
+    },
+    {
+      "evidence": [
+        {
+          "bbox": [
+            878.0,
+            1090.0,
+            944.0,
+            1094.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 7,
+          "probability": 0.9816933722687748,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.09802605137230434,
+              "column_rank": 6,
+              "graphic_column_bbox": [
+                878,
+                974,
+                944,
+                4213
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 0.020315097824703088,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 0.020315097824703088,
+          "snapped_value_m": 0.0,
+          "used_continuous_geometry": false,
+          "value_m": 0.0
+        },
+        {
+          "bbox": [
+            878.0,
+            1229.0,
+            944.0,
+            1233.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 7,
+          "probability": 0.4280228687535176,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.09802605137230434,
+              "column_rank": 6,
+              "graphic_column_bbox": [
+                878,
+                974,
+                944,
+                4213
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 3.0003719581749486,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 3.0003719581749486,
+          "snapped_value_m": 3.0,
+          "used_continuous_geometry": false,
+          "value_m": 3.0
+        },
+        {
+          "bbox": [
+            878.0,
+            1325.0,
+            944.0,
+            1329.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 7,
+          "probability": 0.42802362834630625,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.09802605137230434,
+              "column_rank": 6,
+              "graphic_column_bbox": [
+                878,
+                974,
+                944,
+                4213
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 5.058540725035552,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 5.058540725035552,
+          "snapped_value_m": 5.0,
+          "used_continuous_geometry": false,
+          "value_m": 5.0
+        },
+        {
+          "bbox": [
+            878.0,
+            1469.0,
+            944.0,
+            1473.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 7,
+          "probability": 0.4054913145832017,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.09802605137230434,
+              "column_rank": 6,
+              "graphic_column_bbox": [
+                878,
+                974,
+                944,
+                4213
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 8.145793875326454,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 8.145793875326454,
+          "snapped_value_m": 8.0,
+          "used_continuous_geometry": false,
+          "value_m": 8.0
+        },
+        {
+          "bbox": [
+            878.0,
+            1556.0,
+            944.0,
+            1560.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 7,
+          "probability": 0.3970722109832183,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.09802605137230434,
+              "column_rank": 6,
+              "graphic_column_bbox": [
+                878,
+                974,
+                944,
+                4213
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 10.011009320293873,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 10.011009320293873,
+          "snapped_value_m": 10.0,
+          "used_continuous_geometry": false,
+          "value_m": 10.0
+        },
+        {
+          "bbox": [
+            878.0,
+            1652.0,
+            944.0,
+            1656.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 7,
+          "probability": 0.3891795047442717,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.09802605137230434,
+              "column_rank": 6,
+              "graphic_column_bbox": [
+                878,
+                974,
+                944,
+                4213
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 12.069178087154476,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 12.069178087154476,
+          "snapped_value_m": 12.0,
+          "used_continuous_geometry": false,
+          "value_m": 12.0
+        },
+        {
+          "bbox": [
+            878.0,
+            1792.0,
+            944.0,
+            1796.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 7,
+          "probability": 0.39699059433974093,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.09802605137230434,
+              "column_rank": 6,
+              "graphic_column_bbox": [
+                878,
+                974,
+                944,
+                4213
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 15.070674205492857,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 15.070674205492857,
+          "snapped_value_m": 15.0,
+          "used_continuous_geometry": false,
+          "value_m": 15.0
+        },
+        {
+          "bbox": [
+            878.0,
+            1932.0,
+            944.0,
+            1936.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 7,
+          "probability": 0.36756472485793795,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.09802605137230434,
+              "column_rank": 6,
+              "graphic_column_bbox": [
+                878,
+                974,
+                944,
+                4213
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 18.07217032383123,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 18.07217032383123,
+          "snapped_value_m": 18.0,
+          "used_continuous_geometry": false,
+          "value_m": 18.0
+        },
+        {
+          "bbox": [
+            878.0,
+            2074.0,
+            944.0,
+            2078.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 7,
+          "probability": 0.38251702413321914,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.09802605137230434,
+              "column_rank": 6,
+              "graphic_column_bbox": [
+                878,
+                974,
+                944,
+                4213
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 21.116544958145873,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 21.116544958145873,
+          "snapped_value_m": 21.0,
+          "used_continuous_geometry": false,
+          "value_m": 21.0
+        },
+        {
+          "bbox": [
+            878.0,
+            2215.0,
+            944.0,
+            2219.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 7,
+          "probability": 0.38212804080249757,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.09802605137230434,
+              "column_rank": 6,
+              "graphic_column_bbox": [
+                878,
+                974,
+                944,
+                4213
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 24.13948033447238,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 24.13948033447238,
+          "snapped_value_m": 24.0,
+          "used_continuous_geometry": false,
+          "value_m": 24.0
+        },
+        {
+          "bbox": [
+            878.0,
+            2312.0,
+            944.0,
+            2316.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 7,
+          "probability": 0.36142782595986567,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.09802605137230434,
+              "column_rank": 6,
+              "graphic_column_bbox": [
+                878,
+                974,
+                944,
+                4213
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 26.219088359321113,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 26.219088359321113,
+          "snapped_value_m": 26.0,
+          "used_continuous_geometry": false,
+          "value_m": 26.0
+        },
+        {
+          "bbox": [
+            878.0,
+            2357.0,
+            944.0,
+            2361.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 7,
+          "probability": 0.35687255678028146,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.09802605137230434,
+              "column_rank": 6,
+              "graphic_column_bbox": [
+                878,
+                974,
+                944,
+                4213
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 27.183854968787024,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 27.183854968787024,
+          "snapped_value_m": 27.0,
+          "used_continuous_geometry": false,
+          "value_m": 27.0
+        },
+        {
+          "bbox": [
+            878.0,
+            2683.0,
+            944.0,
+            2687.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 7,
+          "probability": 0.3550158917452192,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.09802605137230434,
+              "column_rank": 6,
+              "graphic_column_bbox": [
+                878,
+                974,
+                944,
+                4213
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 34.17305307291782,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 34.17305307291782,
+          "snapped_value_m": 34.0,
+          "used_continuous_geometry": false,
+          "value_m": 34.0
+        },
+        {
+          "bbox": [
+            878.0,
+            2862.0,
+            944.0,
+            2866.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 7,
+          "probability": 0.3271195556894077,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.09802605137230434,
+              "column_rank": 6,
+              "graphic_column_bbox": [
+                878,
+                974,
+                944,
+                4213
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 38.010680252793314,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 38.010680252793314,
+          "snapped_value_m": 38.0,
+          "used_continuous_geometry": false,
+          "value_m": 38.0
+        },
+        {
+          "bbox": [
+            878.0,
+            3006.0,
+            944.0,
+            3010.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 7,
+          "probability": 0.32533783087362156,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.09802605137230434,
+              "column_rank": 6,
+              "graphic_column_bbox": [
+                878,
+                974,
+                944,
+                4213
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 41.09793340308421,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 41.09793340308421,
+          "snapped_value_m": 41.0,
+          "used_continuous_geometry": false,
+          "value_m": 41.0
+        }
+      ],
+      "fold": 4,
+      "parameters": {
+        "continuous_depth_decimal_places": 2,
+        "integer_snap_radius_m": 0.1,
+        "maximum_page_scale_rmse": 0.08
+      },
+      "predicted_boundaries_m": [
+        0.0,
+        3.0,
+        5.0,
+        8.0,
+        10.0,
+        12.0,
+        15.0,
+        18.0,
+        21.0,
+        24.0,
+        26.0,
+        27.0,
+        34.0,
+        38.0,
+        41.0
+      ],
+      "record_id": "BGS_OFFSHORE_1960630"
+    },
+    {
+      "evidence": [
+        {
+          "bbox": [
+            850.0,
+            823.0,
+            909.0,
+            827.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 6,
+          "probability": 0.9806581494133909,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.04514891942091316,
+              "column_rank": 6,
+              "graphic_column_bbox": [
+                850,
+                712,
+                909,
+                3635
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 0.033841368278711315,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 0.033841368278711315,
+          "snapped_value_m": 0.0,
+          "used_continuous_geometry": true,
+          "value_m": 0.0
+        },
+        {
+          "bbox": [
+            631.0,
+            2131.0,
+            774.0,
+            2135.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 6,
+          "probability": 0.35367956446715776,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.04514891942091316,
+              "column_rank": 4,
+              "graphic_column_bbox": [
+                631,
+                712,
+                774,
+                3635
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 27.449198079680738,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 27.449198079680738,
+          "snapped_value_m": 27.0,
+          "used_continuous_geometry": true,
+          "value_m": 27.45
+        }
+      ],
+      "fold": 3,
+      "parameters": {
+        "continuous_depth_decimal_places": 2,
+        "integer_snap_radius_m": 0.1,
+        "maximum_page_scale_rmse": 0.08
+      },
+      "predicted_boundaries_m": [
+        0.0,
+        27.45
+      ],
+      "record_id": "BGS_OFFSHORE_1963694"
+    },
+    {
+      "evidence": [
+        {
+          "bbox": [
+            835.0,
+            696.0,
+            853.0000000000001,
+            713.0
+          ],
+          "candidate_source": "printed_depth",
+          "page": 6,
+          "probability": 0.8794086757332268,
+          "provenance": [
+            {
+              "competing_views": 1,
+              "method": "multiview_numeric_ocr",
+              "source_texts": [
+                "o"
+              ],
+              "view_support": 1
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 0.0,
+          "used_continuous_geometry": false,
+          "value_m": 0.0
+        },
+        {
+          "bbox": [
+            2117.0,
+            602.0,
+            2183.0,
+            643.0
+          ],
+          "candidate_source": "metadata_final_depth",
+          "page": 6,
+          "probability": 0.642764005670938,
+          "provenance": [
+            {
+              "label_bbox": [
+                1672.0,
+                607.0,
+                1745.0,
+                634.0
+              ],
+              "label_text": "final",
+              "method": "header_label_geometry",
+              "source_texts": [
+                "8m"
+              ]
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 8.0,
+          "used_continuous_geometry": false,
+          "value_m": 8.0
+        }
+      ],
+      "fold": 1,
+      "parameters": {
+        "continuous_depth_decimal_places": 2,
+        "integer_snap_radius_m": 0.1,
+        "maximum_page_scale_rmse": 0.08
+      },
+      "predicted_boundaries_m": [
+        0.0,
+        8.0
+      ],
+      "record_id": "BGS_OFFSHORE_1969862"
+    },
+    {
+      "evidence": [
+        {
+          "bbox": [
+            812.0119760479042,
+            1791.0000000000002,
+            834.2155688622755,
+            1814.2170658682635
+          ],
+          "candidate_source": "printed_depth",
+          "page": 67,
+          "probability": 0.8355366773727813,
+          "provenance": [
+            {
+              "competing_views": 0,
+              "method": "multiview_numeric_ocr",
+              "source_texts": [
+                "0"
+              ],
+              "view_support": 5
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 0.0,
+          "used_continuous_geometry": false,
+          "value_m": 0.0
+        },
+        {
+          "bbox": [
+            1016.0,
+            310.0,
+            1134.0,
+            335.0
+          ],
+          "candidate_source": "metadata_final_depth",
+          "page": 68,
+          "probability": 0.4975001395187392,
+          "provenance": [
+            {
+              "label_bbox": [
+                754.0,
+                289.0,
+                846.0,
+                312.0
+              ],
+              "label_text": "total",
+              "method": "header_label_geometry",
+              "source_texts": [
+                "76.85m"
+              ]
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 76.85,
+          "used_continuous_geometry": false,
+          "value_m": 76.85
+        }
+      ],
+      "fold": 4,
+      "parameters": {
+        "continuous_depth_decimal_places": 2,
+        "integer_snap_radius_m": 0.1,
+        "maximum_page_scale_rmse": 0.08
+      },
+      "predicted_boundaries_m": [
+        0.0,
+        76.85
+      ],
+      "record_id": "BGS_OFFSHORE_1980976"
+    },
+    {
+      "evidence": [
+        {
+          "bbox": [
+            689.75,
+            1510.9999999999998,
+            705.0,
+            1589.25
+          ],
+          "candidate_source": "printed_depth",
+          "page": 20,
+          "probability": 0.8492824057189063,
+          "provenance": [
+            {
+              "competing_views": 0,
+              "method": "multiview_numeric_ocr",
+              "source_texts": [
+                "0"
+              ],
+              "view_support": 1
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 0.0,
+          "used_continuous_geometry": false,
+          "value_m": 0.0
+        }
+      ],
+      "fold": 3,
+      "parameters": {
+        "continuous_depth_decimal_places": 2,
+        "integer_snap_radius_m": 0.1,
+        "maximum_page_scale_rmse": 0.08
+      },
+      "predicted_boundaries_m": [
+        0.0
+      ],
+      "record_id": "BGS_OFFSHORE_1984462"
+    },
+    {
+      "evidence": [],
+      "fold": 0,
+      "parameters": {
+        "continuous_depth_decimal_places": 1,
+        "integer_snap_radius_m": 0.1,
+        "maximum_page_scale_rmse": 0.08
+      },
+      "predicted_boundaries_m": [],
+      "record_id": "BGS_OFFSHORE_1987224"
+    },
+    {
+      "evidence": [
+        {
+          "bbox": [
+            1172.2724508886809,
+            2866.7275491113182,
+            1220.0000000000002,
+            2883.999999999999
+          ],
+          "candidate_source": "printed_depth",
+          "page": 2,
+          "probability": 0.9478085824636515,
+          "provenance": [
+            {
+              "competing_views": 0,
+              "method": "multiview_numeric_ocr",
+              "source_texts": [
+                "0.00"
+              ],
+              "view_support": 14
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 0.0,
+          "used_continuous_geometry": false,
+          "value_m": 0.0
+        },
+        {
+          "bbox": [
+            1592.0,
+            779.0,
+            1714.0,
+            806.0
+          ],
+          "candidate_source": "metadata_final_depth",
+          "page": 2,
+          "probability": 0.6248885085534245,
+          "provenance": [
+            {
+              "label_bbox": [
+                1165.0,
+                765.0,
+                1261.0,
+                792.0
+              ],
+              "label_text": "total",
+              "method": "header_label_geometry",
+              "source_texts": [
+                "33.35m"
+              ]
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 33.35,
+          "used_continuous_geometry": false,
+          "value_m": 33.35
+        }
+      ],
+      "fold": 1,
+      "parameters": {
+        "continuous_depth_decimal_places": 2,
+        "integer_snap_radius_m": 0.1,
+        "maximum_page_scale_rmse": 0.08
+      },
+      "predicted_boundaries_m": [
+        0.0,
+        33.35
+      ],
+      "record_id": "BGS_OFFSHORE_1989175"
+    },
+    {
+      "evidence": [
+        {
+          "bbox": [
+            1051.853448275862,
+            4983.206896551724,
+            1084.8448275862067,
+            5014.616379310345
+          ],
+          "candidate_source": "printed_depth",
+          "page": 10,
+          "probability": 0.8418411873319178,
+          "provenance": [
+            {
+              "competing_views": 0,
+              "method": "multiview_numeric_ocr",
+              "source_texts": [
+                "0"
+              ],
+              "view_support": 2
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 0.0,
+          "used_continuous_geometry": false,
+          "value_m": 0.0
+        },
+        {
+          "bbox": [
+            747.9999999999999,
+            981.0,
+            823.0000000000001,
+            1001.0
+          ],
+          "candidate_source": "metadata_final_depth",
+          "page": 10,
+          "probability": 0.6196775815691465,
+          "provenance": [
+            {
+              "label_bbox": [
+                410.0,
+                962.0,
+                501.0,
+                1015.0
+              ],
+              "label_text": "total",
+              "method": "header_label_geometry",
+              "source_texts": [
+                "28.4m"
+              ]
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 28.4,
+          "used_continuous_geometry": false,
+          "value_m": 28.4
+        }
+      ],
+      "fold": 3,
+      "parameters": {
+        "continuous_depth_decimal_places": 2,
+        "integer_snap_radius_m": 0.1,
+        "maximum_page_scale_rmse": 0.08
+      },
+      "predicted_boundaries_m": [
+        0.0,
+        28.4
+      ],
+      "record_id": "BGS_OFFSHORE_1993525"
+    },
+    {
+      "evidence": [
+        {
+          "bbox": [
+            836.0,
+            4765.0,
+            883.0,
+            4769.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 9,
+          "probability": 0.922692652959255,
+          "provenance": [
+            {
+              "calibration_inliers": 3,
+              "calibration_rmse_m": 0.14028210984245726,
+              "column_rank": 5,
+              "graphic_column_bbox": [
+                836,
+                4124,
+                883,
+                6413
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 0.45676970527499927,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 0.45676970527499927,
+          "snapped_value_m": 0.0,
+          "used_continuous_geometry": false,
+          "value_m": 0.0
+        }
+      ],
+      "fold": 2,
+      "parameters": {
+        "continuous_depth_decimal_places": 2,
+        "integer_snap_radius_m": 0.1,
+        "maximum_page_scale_rmse": 0.08
+      },
+      "predicted_boundaries_m": [
+        0.0
+      ],
+      "record_id": "BGS_OFFSHORE_2007749"
+    },
+    {
+      "evidence": [
+        {
+          "bbox": [
+            1111.5,
+            6238.5,
+            1140.0,
+            6243.75
+          ],
+          "candidate_source": "printed_depth",
+          "page": 7,
+          "probability": 0.97823860316507,
+          "provenance": [
+            {
+              "competing_views": 0,
+              "method": "multiview_numeric_ocr",
+              "source_texts": [
+                "0"
+              ],
+              "view_support": 1
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 0.0,
+          "used_continuous_geometry": false,
+          "value_m": 0.0
+        }
+      ],
+      "fold": 0,
+      "parameters": {
+        "continuous_depth_decimal_places": 1,
+        "integer_snap_radius_m": 0.1,
+        "maximum_page_scale_rmse": 0.08
+      },
+      "predicted_boundaries_m": [
+        0.0
+      ],
+      "record_id": "BGS_OFFSHORE_2009141"
+    },
+    {
+      "evidence": [
+        {
+          "bbox": [
+            1237.4648408586236,
+            3265.34363434493,
+            1280.6437823834196,
+            3283.571428571429
+          ],
+          "candidate_source": "printed_depth",
+          "page": 10,
+          "probability": 0.9660149174959729,
+          "provenance": [
+            {
+              "competing_views": 0,
+              "method": "multiview_numeric_ocr",
+              "source_texts": [
+                "0.00"
+              ],
+              "view_support": 17
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 0.0,
+          "used_continuous_geometry": false,
+          "value_m": 0.0
+        },
+        {
+          "bbox": [
+            1579.0,
+            1354.0000000000002,
+            1690.0,
+            1377.0
+          ],
+          "candidate_source": "metadata_final_depth",
+          "page": 10,
+          "probability": 0.741784912445267,
+          "provenance": [
+            {
+              "label_bbox": [
+                1189.0,
+                1350.0,
+                1276.0,
+                1372.0
+              ],
+              "label_text": "total",
+              "method": "header_label_geometry",
+              "source_texts": [
+                "33.60m"
+              ]
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 33.6,
+          "used_continuous_geometry": false,
+          "value_m": 33.6
+        }
+      ],
+      "fold": 4,
+      "parameters": {
+        "continuous_depth_decimal_places": 2,
+        "integer_snap_radius_m": 0.1,
+        "maximum_page_scale_rmse": 0.08
+      },
+      "predicted_boundaries_m": [
+        0.0,
+        33.6
+      ],
+      "record_id": "BGS_OFFSHORE_2016306"
+    },
+    {
+      "evidence": [
+        {
+          "bbox": [
+            910.0,
+            789.0,
+            977.0,
+            793.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 8,
+          "probability": 0.8842399192534122,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.12301333708788197,
+              "column_rank": 6,
+              "graphic_column_bbox": [
+                910,
+                663,
+                977,
+                3655
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 0.27478389706542217,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 0.27478389706542217,
+          "snapped_value_m": 0.0,
+          "used_continuous_geometry": false,
+          "value_m": 0.0
+        },
+        {
+          "bbox": [
+            910.0,
+            1012.0,
+            977.0,
+            1016.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 8,
+          "probability": 0.3906294984410263,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.12301333708788197,
+              "column_rank": 6,
+              "graphic_column_bbox": [
+                910,
+                663,
+                977,
+                3655
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 4.944342158544821,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 4.944342158544821,
+          "snapped_value_m": 5.0,
+          "used_continuous_geometry": false,
+          "value_m": 5.0
+        },
+        {
+          "bbox": [
+            910.0,
+            1634.0,
+            977.0,
+            1638.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 8,
+          "probability": 0.33841392408940296,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.12301333708788197,
+              "column_rank": 6,
+              "graphic_column_bbox": [
+                910,
+                663,
+                977,
+                3655
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 17.96884995513758,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 17.96884995513758,
+          "snapped_value_m": 18.0,
+          "used_continuous_geometry": false,
+          "value_m": 18.0
+        },
+        {
+          "bbox": [
+            910.0,
+            1687.0,
+            977.0,
+            1691.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 8,
+          "probability": 0.46033093170372497,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.12301333708788197,
+              "column_rank": 6,
+              "graphic_column_bbox": [
+                910,
+                663,
+                977,
+                3655
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 19.078655281856896,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 19.078655281856896,
+          "snapped_value_m": 19.0,
+          "used_continuous_geometry": false,
+          "value_m": 19.0
+        },
+        {
+          "bbox": [
+            910.0,
+            1781.0,
+            977.0,
+            1785.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 8,
+          "probability": 0.41468543009522846,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.12301333708788197,
+              "column_rank": 6,
+              "graphic_column_bbox": [
+                910,
+                663,
+                977,
+                3655
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 21.046989257547764,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 21.046989257547764,
+          "snapped_value_m": 21.0,
+          "used_continuous_geometry": false,
+          "value_m": 21.0
+        },
+        {
+          "bbox": [
+            843.0,
+            1879.0,
+            910.0,
+            1883.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 8,
+          "probability": 0.3322640300675297,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.12301333708788197,
+              "column_rank": 5,
+              "graphic_column_bbox": [
+                843,
+                663,
+                910,
+                3655
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 23.09908212582122,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 23.09908212582122,
+          "snapped_value_m": 23.0,
+          "used_continuous_geometry": false,
+          "value_m": 23.0
+        },
+        {
+          "bbox": [
+            843.0,
+            2381.0,
+            910.0,
+            2385.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 8,
+          "probability": 0.378789119201757,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.12301333708788197,
+              "column_rank": 5,
+              "graphic_column_bbox": [
+                843,
+                663,
+                910,
+                3655
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 33.610823144936276,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 33.610823144936276,
+          "snapped_value_m": 34.0,
+          "used_continuous_geometry": false,
+          "value_m": 34.0
+        },
+        {
+          "bbox": [
+            843.0,
+            2981.0,
+            910.0,
+            2985.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 8,
+          "probability": 0.392837617071423,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.12301333708788197,
+              "column_rank": 5,
+              "graphic_column_bbox": [
+                843,
+                663,
+                910,
+                3655
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 46.17465703232478,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 46.17465703232478,
+          "snapped_value_m": 46.0,
+          "used_continuous_geometry": false,
+          "value_m": 46.0
+        },
+        {
+          "bbox": [
+            902.0,
+            277.0,
+            961.0,
+            281.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 9,
+          "probability": 0.43761433812947953,
+          "provenance": [
+            {
+              "calibration_inliers": 6,
+              "calibration_rmse_m": 0.03402688271317116,
+              "column_rank": 1,
+              "graphic_column_bbox": [
+                902,
+                227,
+                961,
+                3655
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 47.28557664649888,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 47.28557664649888,
+          "snapped_value_m": 47.0,
+          "used_continuous_geometry": true,
+          "value_m": 47.29
+        },
+        {
+          "bbox": [
+            902.0,
+            334.0,
+            961.0,
+            338.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 9,
+          "probability": 0.528396649293744,
+          "provenance": [
+            {
+              "calibration_inliers": 6,
+              "calibration_rmse_m": 0.03402688271317116,
+              "column_rank": 1,
+              "graphic_column_bbox": [
+                902,
+                227,
+                961,
+                3655
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 48.47296458533175,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 48.47296458533175,
+          "snapped_value_m": 49.0,
+          "used_continuous_geometry": true,
+          "value_m": 48.47
+        },
+        {
+          "bbox": [
+            902.0,
+            1201.0,
+            961.0,
+            1205.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 9,
+          "probability": 0.632676599865292,
+          "provenance": [
+            {
+              "calibration_inliers": 6,
+              "calibration_rmse_m": 0.03402688271317116,
+              "column_rank": 1,
+              "graphic_column_bbox": [
+                902,
+                227,
+                961,
+                3655
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 66.53376007600014,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 66.53376007600014,
+          "snapped_value_m": 66.0,
+          "used_continuous_geometry": true,
+          "value_m": 66.53
+        },
+        {
+          "bbox": [
+            2042.0,
+            584.0,
+            2107.0,
+            619.0000000000001
+          ],
+          "candidate_source": "metadata_final_depth",
+          "page": 8,
+          "probability": 0.8974974015422112,
+          "provenance": [
+            {
+              "label_bbox": [
+                1703.0,
+                587.0,
+                1776.0,
+                615.0
+              ],
+              "label_text": "final",
+              "method": "header_label_geometry",
+              "source_texts": [
+                "77"
+              ]
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 77.0,
+          "used_continuous_geometry": false,
+          "value_m": 77.0
+        }
+      ],
+      "fold": 2,
+      "parameters": {
+        "continuous_depth_decimal_places": 2,
+        "integer_snap_radius_m": 0.1,
+        "maximum_page_scale_rmse": 0.08
+      },
+      "predicted_boundaries_m": [
+        0.0,
+        5.0,
+        18.0,
+        19.0,
+        21.0,
+        23.0,
+        34.0,
+        46.0,
+        47.29,
+        48.47,
+        66.53,
+        77.0
+      ],
+      "record_id": "BGS_OFFSHORE_2023411"
+    },
+    {
+      "evidence": [
+        {
+          "bbox": [
+            559.0,
+            833.0,
+            691.0,
+            837.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 21,
+          "probability": 0.9835209078948153,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.053528402782003354,
+              "column_rank": 2,
+              "graphic_column_bbox": [
+                559,
+                726,
+                691,
+                3603
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 0.05252177593142093,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 0.05252177593142093,
+          "snapped_value_m": 0.0,
+          "used_continuous_geometry": true,
+          "value_m": 0.0
+        },
+        {
+          "bbox": [
+            697.0,
+            2031.0,
+            830.0,
+            2035.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 21,
+          "probability": 0.46589841755071637,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.053528402782003354,
+              "column_rank": 3,
+              "graphic_column_bbox": [
+                697,
+                726,
+                830,
+                3603
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 25.028173736229157,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 25.028173736229157,
+          "snapped_value_m": 25.0,
+          "used_continuous_geometry": true,
+          "value_m": 25.0
+        },
+        {
+          "bbox": [
+            690.0,
+            386.0,
+            818.0,
+            390.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 22,
+          "probability": 0.46373526372420426,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.14941849527317075,
+              "column_rank": 2,
+              "graphic_column_bbox": [
+                690,
+                290,
+                818,
+                3637
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 48.3987806441026,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 48.3987806441026,
+          "snapped_value_m": 48.0,
+          "used_continuous_geometry": false,
+          "value_m": 48.0
+        },
+        {
+          "bbox": [
+            731.0,
+            306.0,
+            848.0,
+            310.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 23,
+          "probability": 0.4963114161806214,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.015814297490171436,
+              "column_rank": 3,
+              "graphic_column_bbox": [
+                731,
+                283,
+                848,
+                3683
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 96.91473099405829,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 96.91473099405829,
+          "snapped_value_m": 97.0,
+          "used_continuous_geometry": true,
+          "value_m": 97.0
+        },
+        {
+          "bbox": [
+            731.0,
+            384.0,
+            848.0,
+            388.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 23,
+          "probability": 0.6373198526552869,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.015814297490171436,
+              "column_rank": 3,
+              "graphic_column_bbox": [
+                731,
+                283,
+                848,
+                3683
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 98.51306261633069,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 98.51306261633069,
+          "snapped_value_m": 99.0,
+          "used_continuous_geometry": true,
+          "value_m": 98.5
+        },
+        {
+          "bbox": [
+            731.0,
+            480.0,
+            848.0,
+            484.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 23,
+          "probability": 0.43794611766929964,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.015814297490171436,
+              "column_rank": 3,
+              "graphic_column_bbox": [
+                731,
+                283,
+                848,
+                3683
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 100.480239997589,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 100.480239997589,
+          "snapped_value_m": 100.0,
+          "used_continuous_geometry": true,
+          "value_m": 100.5
+        },
+        {
+          "bbox": [
+            731.0,
+            644.0,
+            848.0,
+            648.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 23,
+          "probability": 0.41409370321254163,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.015814297490171436,
+              "column_rank": 3,
+              "graphic_column_bbox": [
+                731,
+                283,
+                848,
+                3683
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 103.84083469057197,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 103.84083469057197,
+          "snapped_value_m": 104.0,
+          "used_continuous_geometry": true,
+          "value_m": 103.8
+        },
+        {
+          "bbox": [
+            731.0,
+            743.0,
+            848.0,
+            747.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 23,
+          "probability": 0.3955555569338069,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.015814297490171436,
+              "column_rank": 3,
+              "graphic_column_bbox": [
+                731,
+                283,
+                848,
+                3683
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 105.86948636499461,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 105.86948636499461,
+          "snapped_value_m": 106.0,
+          "used_continuous_geometry": true,
+          "value_m": 105.9
+        },
+        {
+          "bbox": [
+            731.0,
+            1143.0,
+            848.0,
+            1147.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 23,
+          "probability": 0.33843641273639824,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.015814297490171436,
+              "column_rank": 3,
+              "graphic_column_bbox": [
+                731,
+                283,
+                848,
+                3683
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 114.06605878690429,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 114.06605878690429,
+          "snapped_value_m": 114.0,
+          "used_continuous_geometry": true,
+          "value_m": 114.0
+        },
+        {
+          "bbox": [
+            731.0,
+            1280.0,
+            848.0,
+            1284.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 23,
+          "probability": 0.33300195004225475,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.015814297490171436,
+              "column_rank": 3,
+              "graphic_column_bbox": [
+                731,
+                283,
+                848,
+                3683
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 116.87338484140835,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 116.87338484140835,
+          "snapped_value_m": 117.0,
+          "used_continuous_geometry": true,
+          "value_m": 116.9
+        },
+        {
+          "bbox": [
+            731.0,
+            1426.0,
+            848.0,
+            1430.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 23,
+          "probability": 0.3320921311044654,
+          "provenance": [
+            {
+              "calibration_inliers": 5,
+              "calibration_rmse_m": 0.015814297490171436,
+              "column_rank": 3,
+              "graphic_column_bbox": [
+                731,
+                283,
+                848,
+                3683
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 119.86513377540538,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 119.86513377540538,
+          "snapped_value_m": 120.0,
+          "used_continuous_geometry": true,
+          "value_m": 119.9
+        },
+        {
+          "bbox": [
+            569.0,
+            397.0,
+            713.0,
+            401.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 24,
+          "probability": 0.4524965210541271,
+          "provenance": [
+            {
+              "calibration_inliers": 4,
+              "calibration_rmse_m": 0.03028424632084033,
+              "column_rank": 2,
+              "graphic_column_bbox": [
+                569,
+                307,
+                713,
+                3681
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 148.50179680673347,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 148.50179680673347,
+          "snapped_value_m": 149.0,
+          "used_continuous_geometry": true,
+          "value_m": 148.5
+        },
+        {
+          "bbox": [
+            2018.0,
+            647.0000000000001,
+            2268.0,
+            685.0
+          ],
+          "candidate_source": "metadata_final_depth",
+          "page": 21,
+          "probability": 0.7006117462788191,
+          "provenance": [
+            {
+              "label_bbox": [
+                1708.0,
+                650.0,
+                1782.0,
+                678.0
+              ],
+              "label_text": "final",
+              "method": "header_label_geometry",
+              "source_texts": [
+                "200.25"
+              ]
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 200.25,
+          "used_continuous_geometry": false,
+          "value_m": 200.25
+        }
+      ],
+      "fold": 0,
+      "parameters": {
+        "continuous_depth_decimal_places": 1,
+        "integer_snap_radius_m": 0.1,
+        "maximum_page_scale_rmse": 0.08
+      },
+      "predicted_boundaries_m": [
+        0.0,
+        25.0,
+        48.0,
+        97.0,
+        98.5,
+        100.5,
+        103.8,
+        105.9,
+        114.0,
+        116.9,
+        119.9,
+        148.5,
+        200.25
+      ],
+      "record_id": "BGS_OFFSHORE_2024185"
+    },
+    {
+      "evidence": [
+        {
+          "bbox": [
+            647.0,
+            520.0,
+            785.0,
+            524.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 11,
+          "probability": 0.972104379332121,
+          "provenance": [
+            {
+              "calibration_inliers": 6,
+              "calibration_rmse_m": 0.1789491930402607,
+              "column_rank": 3,
+              "graphic_column_bbox": [
+                647,
+                431,
+                785,
+                3346
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 0.5467117132387234,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 0.5467117132387234,
+          "snapped_value_m": 0.0,
+          "used_continuous_geometry": false,
+          "value_m": 0.0
+        },
+        {
+          "bbox": [
+            785.0,
+            564.0,
+            921.0,
+            568.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 11,
+          "probability": 0.4731893638349417,
+          "provenance": [
+            {
+              "calibration_inliers": 6,
+              "calibration_rmse_m": 0.1789491930402607,
+              "column_rank": 4,
+              "graphic_column_bbox": [
+                785,
+                431,
+                921,
+                3346
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 1.526349641169169,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 1.526349641169169,
+          "snapped_value_m": 2.0,
+          "used_continuous_geometry": false,
+          "value_m": 2.0
+        },
+        {
+          "bbox": [
+            785.0,
+            652.0,
+            921.0,
+            656.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 11,
+          "probability": 0.3634620675511818,
+          "provenance": [
+            {
+              "calibration_inliers": 6,
+              "calibration_rmse_m": 0.1789491930402607,
+              "column_rank": 4,
+              "graphic_column_bbox": [
+                785,
+                431,
+                921,
+                3346
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 3.485625497030064,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 3.485625497030064,
+          "snapped_value_m": 3.0,
+          "used_continuous_geometry": false,
+          "value_m": 3.0
+        },
+        {
+          "bbox": [
+            785.0,
+            666.0,
+            921.0,
+            670.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 11,
+          "probability": 0.44151431959790005,
+          "provenance": [
+            {
+              "calibration_inliers": 6,
+              "calibration_rmse_m": 0.1789491930402607,
+              "column_rank": 4,
+              "graphic_column_bbox": [
+                785,
+                431,
+                921,
+                3346
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 3.797328474098842,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 3.797328474098842,
+          "snapped_value_m": 4.0,
+          "used_continuous_geometry": false,
+          "value_m": 4.0
+        },
+        {
+          "bbox": [
+            785.0,
+            700.0,
+            921.0,
+            704.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 11,
+          "probability": 0.37781287030392796,
+          "provenance": [
+            {
+              "calibration_inliers": 6,
+              "calibration_rmse_m": 0.1789491930402607,
+              "column_rank": 4,
+              "graphic_column_bbox": [
+                785,
+                431,
+                921,
+                3346
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 4.554321418408733,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 4.554321418408733,
+          "snapped_value_m": 5.0,
+          "used_continuous_geometry": false,
+          "value_m": 5.0
+        },
+        {
+          "bbox": [
+            785.0,
+            840.0,
+            921.0,
+            844.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 11,
+          "probability": 0.5088959955301414,
+          "provenance": [
+            {
+              "calibration_inliers": 6,
+              "calibration_rmse_m": 0.1789491930402607,
+              "column_rank": 4,
+              "graphic_column_bbox": [
+                785,
+                431,
+                921,
+                3346
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 7.671351189096519,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 7.671351189096519,
+          "snapped_value_m": 8.0,
+          "used_continuous_geometry": false,
+          "value_m": 8.0
+        },
+        {
+          "bbox": [
+            785.0,
+            896.0,
+            921.0,
+            900.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 11,
+          "probability": 0.46232311227801137,
+          "provenance": [
+            {
+              "calibration_inliers": 6,
+              "calibration_rmse_m": 0.1789491930402607,
+              "column_rank": 4,
+              "graphic_column_bbox": [
+                785,
+                431,
+                921,
+                3346
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 8.918163097371632,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 8.918163097371632,
+          "snapped_value_m": 9.0,
+          "used_continuous_geometry": false,
+          "value_m": 9.0
+        },
+        {
+          "bbox": [
+            785.0,
+            950.0,
+            921.0,
+            954.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 11,
+          "probability": 0.47235602257574894,
+          "provenance": [
+            {
+              "calibration_inliers": 6,
+              "calibration_rmse_m": 0.1789491930402607,
+              "column_rank": 4,
+              "graphic_column_bbox": [
+                785,
+                431,
+                921,
+                3346
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 10.120446008922634,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 10.120446008922634,
+          "snapped_value_m": 10.0,
+          "used_continuous_geometry": false,
+          "value_m": 10.0
+        },
+        {
+          "bbox": [
+            785.0,
+            973.0,
+            921.0,
+            977.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 11,
+          "probability": 0.4940412608605565,
+          "provenance": [
+            {
+              "calibration_inliers": 6,
+              "calibration_rmse_m": 0.1789491930402607,
+              "column_rank": 4,
+              "graphic_column_bbox": [
+                785,
+                431,
+                921,
+                3346
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 10.632529471249914,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 10.632529471249914,
+          "snapped_value_m": 11.0,
+          "used_continuous_geometry": false,
+          "value_m": 11.0
+        },
+        {
+          "bbox": [
+            785.0,
+            1052.0,
+            921.0,
+            1056.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 11,
+          "probability": 0.5330351057732517,
+          "provenance": [
+            {
+              "calibration_inliers": 6,
+              "calibration_rmse_m": 0.1789491930402607,
+              "column_rank": 4,
+              "graphic_column_bbox": [
+                785,
+                431,
+                921,
+                3346
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 12.391424841852306,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 12.391424841852306,
+          "snapped_value_m": 12.0,
+          "used_continuous_geometry": false,
+          "value_m": 12.0
+        },
+        {
+          "bbox": [
+            785.0,
+            1074.0,
+            921.0,
+            1078.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 11,
+          "probability": 0.4772732886769587,
+          "provenance": [
+            {
+              "calibration_inliers": 6,
+              "calibration_rmse_m": 0.1789491930402607,
+              "column_rank": 4,
+              "graphic_column_bbox": [
+                785,
+                431,
+                921,
+                3346
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 12.88124380581753,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 12.88124380581753,
+          "snapped_value_m": 13.0,
+          "used_continuous_geometry": false,
+          "value_m": 13.0
+        },
+        {
+          "bbox": [
+            785.0,
+            1141.0,
+            921.0,
+            1145.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 11,
+          "probability": 0.5331245441359909,
+          "provenance": [
+            {
+              "calibration_inliers": 6,
+              "calibration_rmse_m": 0.1789491930402607,
+              "column_rank": 4,
+              "graphic_column_bbox": [
+                785,
+                431,
+                921,
+                3346
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 14.372965196075256,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 14.372965196075256,
+          "snapped_value_m": 14.0,
+          "used_continuous_geometry": false,
+          "value_m": 14.0
+        },
+        {
+          "bbox": [
+            785.0,
+            1174.0,
+            921.0,
+            1178.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 11,
+          "probability": 0.44387929683178057,
+          "provenance": [
+            {
+              "calibration_inliers": 6,
+              "calibration_rmse_m": 0.1789491930402607,
+              "column_rank": 4,
+              "graphic_column_bbox": [
+                785,
+                431,
+                921,
+                3346
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 15.10769364202309,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 15.10769364202309,
+          "snapped_value_m": 15.0,
+          "used_continuous_geometry": false,
+          "value_m": 15.0
+        },
+        {
+          "bbox": [
+            785.0,
+            1224.0,
+            921.0,
+            1228.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 11,
+          "probability": 0.41938298651658606,
+          "provenance": [
+            {
+              "calibration_inliers": 6,
+              "calibration_rmse_m": 0.1789491930402607,
+              "column_rank": 4,
+              "graphic_column_bbox": [
+                785,
+                431,
+                921,
+                3346
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 16.22091856012587,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 16.22091856012587,
+          "snapped_value_m": 16.0,
+          "used_continuous_geometry": false,
+          "value_m": 16.0
+        },
+        {
+          "bbox": [
+            785.0,
+            1267.0,
+            921.0,
+            1271.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 11,
+          "probability": 0.3913282331569255,
+          "provenance": [
+            {
+              "calibration_inliers": 6,
+              "calibration_rmse_m": 0.1789491930402607,
+              "column_rank": 4,
+              "graphic_column_bbox": [
+                785,
+                431,
+                921,
+                3346
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 17.178291989694262,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 17.178291989694262,
+          "snapped_value_m": 17.0,
+          "used_continuous_geometry": false,
+          "value_m": 17.0
+        },
+        {
+          "bbox": [
+            785.0,
+            1288.0,
+            921.0,
+            1292.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 11,
+          "probability": 0.42646732652630265,
+          "provenance": [
+            {
+              "calibration_inliers": 6,
+              "calibration_rmse_m": 0.1789491930402607,
+              "column_rank": 4,
+              "graphic_column_bbox": [
+                785,
+                431,
+                921,
+                3346
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 17.64584645529743,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 17.64584645529743,
+          "snapped_value_m": 18.0,
+          "used_continuous_geometry": false,
+          "value_m": 18.0
+        },
+        {
+          "bbox": [
+            785.0,
+            1333.0,
+            921.0,
+            1337.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 11,
+          "probability": 0.4728754675294663,
+          "provenance": [
+            {
+              "calibration_inliers": 6,
+              "calibration_rmse_m": 0.1789491930402607,
+              "column_rank": 4,
+              "graphic_column_bbox": [
+                785,
+                431,
+                921,
+                3346
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 18.647748881589933,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 18.647748881589933,
+          "snapped_value_m": 19.0,
+          "used_continuous_geometry": false,
+          "value_m": 19.0
+        },
+        {
+          "bbox": [
+            921.0,
+            1378.0,
+            1000.0,
+            1382.0
+          ],
+          "candidate_source": "graphic_scale_transition",
+          "page": 11,
+          "probability": 0.480778834583534,
+          "provenance": [
+            {
+              "calibration_inliers": 6,
+              "calibration_rmse_m": 0.1789491930402607,
+              "column_rank": 5,
+              "graphic_column_bbox": [
+                921,
+                431,
+                1000,
+                3346
+              ],
+              "method": "multicolumn_graphic_scale_transition",
+              "raw_depth_m": 19.649651307882436,
+              "snap_step_m": 1.0
+            }
+          ],
+          "raw_calibrated_depth_m": 19.649651307882436,
+          "snapped_value_m": 20.0,
+          "used_continuous_geometry": false,
+          "value_m": 20.0
+        }
+      ],
+      "fold": 2,
+      "parameters": {
+        "continuous_depth_decimal_places": 2,
+        "integer_snap_radius_m": 0.1,
+        "maximum_page_scale_rmse": 0.08
+      },
+      "predicted_boundaries_m": [
+        0.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0,
+        8.0,
+        9.0,
+        10.0,
+        11.0,
+        12.0,
+        13.0,
+        14.0,
+        15.0,
+        16.0,
+        17.0,
+        18.0,
+        19.0,
+        20.0
+      ],
+      "record_id": "BGS_OFFSHORE_2030012"
+    },
+    {
+      "evidence": [
+        {
+          "bbox": [
+            1280.9999999999998,
+            3264.999999999999,
+            1323.9999999999995,
+            3280.9999999999986
+          ],
+          "candidate_source": "printed_depth",
+          "page": 7,
+          "probability": 0.9937160021159257,
+          "provenance": [
+            {
+              "competing_views": 0,
+              "method": "multiview_numeric_ocr",
+              "source_texts": [
+                "0.00"
+              ],
+              "view_support": 16
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 0.0,
+          "used_continuous_geometry": false,
+          "value_m": 0.0
+        },
+        {
+          "bbox": [
+            1350.0000000000002,
+            3292.0,
+            1405.3021108179419,
+            3307.6602902374684
+          ],
+          "candidate_source": "printed_depth",
+          "page": 7,
+          "probability": 0.9022683947247759,
+          "provenance": [
+            {
+              "competing_views": 1,
+              "method": "multiview_numeric_ocr",
+              "source_texts": [
+                "0.05",
+                "0.05m"
+              ],
+              "view_support": 16
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 0.05,
+          "used_continuous_geometry": false,
+          "value_m": 0.05
+        },
+        {
+          "bbox": [
+            1268.8785211267605,
+            4752.413028169014,
+            1323.9999999999998,
+            4767.999999999999
+          ],
+          "candidate_source": "printed_depth",
+          "page": 7,
+          "probability": 0.5718794761427595,
+          "provenance": [
+            {
+              "competing_views": 0,
+              "method": "multiview_numeric_ocr",
+              "source_texts": [
+                "22.50"
+              ],
+              "view_support": 18
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 22.5,
+          "used_continuous_geometry": false,
+          "value_m": 22.5
+        },
+        {
+          "bbox": [
+            1267.2917391304345,
+            5049.2917391304345,
+            1323.6039130434779,
+            5065.708260869566
+          ],
+          "candidate_source": "printed_depth",
+          "page": 7,
+          "probability": 0.5874290828816692,
+          "provenance": [
+            {
+              "competing_views": 0,
+              "method": "multiview_numeric_ocr",
+              "source_texts": [
+                "27.00"
+              ],
+              "view_support": 12
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 27.0,
+          "used_continuous_geometry": false,
+          "value_m": 27.0
+        },
+        {
+          "bbox": [
+            1267.421361502347,
+            5182.0,
+            1323.0,
+            5197.733735747818
+          ],
+          "candidate_source": "printed_depth",
+          "page": 7,
+          "probability": 0.40153275791757886,
+          "provenance": [
+            {
+              "competing_views": 0,
+              "method": "multiview_numeric_ocr",
+              "source_texts": [
+                "29.00"
+              ],
+              "view_support": 20
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 29.0,
+          "used_continuous_geometry": false,
+          "value_m": 29.0
+        },
+        {
+          "bbox": [
+            1640.9999999999998,
+            1359.0,
+            1752.0000000000002,
+            1381.0
+          ],
+          "candidate_source": "metadata_final_depth",
+          "page": 7,
+          "probability": 0.7756221326544469,
+          "provenance": [
+            {
+              "label_bbox": [
+                1251.0,
+                1350.0,
+                1338.0,
+                1373.0
+              ],
+              "label_text": "total",
+              "method": "header_label_geometry",
+              "source_texts": [
+                "29.80m"
+              ]
+            }
+          ],
+          "raw_calibrated_depth_m": null,
+          "snapped_value_m": 29.8,
+          "used_continuous_geometry": false,
+          "value_m": 29.8
+        }
+      ],
+      "fold": 4,
+      "parameters": {
+        "continuous_depth_decimal_places": 2,
+        "integer_snap_radius_m": 0.1,
+        "maximum_page_scale_rmse": 0.08
+      },
+      "predicted_boundaries_m": [
+        0.0,
+        0.05,
+        22.5,
+        27.0,
+        29.0,
+        29.8
+      ],
+      "record_id": "BGS_OFFSHORE_2041581"
+    }
+  ],
+  "provenance": {
+    "complete_boundary_count": 118,
+    "complete_rate": 1.0,
+    "total_boundary_count": 118
+  },
+  "reference_blinding": "outer source-fold labels are used only for scoring; geometry parameters use other source folds",
+  "reference_boundary_count": 367,
+  "selective_operating_point": {
+    "accepted_boundary_count": 46,
+    "boundary": {
+      "critical_numerical_error_rate": 0.043478260869565216,
+      "f1": 0.21307506053268763,
+      "false_negative": 323,
+      "false_positive": 2,
+      "matched_boundary_mae_m": 0.0015909090909090975,
+      "precision": 0.9565217391304348,
+      "recall": 0.11989100817438691,
+      "true_positive": 44
+    },
+    "coverage_against_reference": 0.12534059945504086,
+    "interval": {
+      "f1": 0.05524861878453039,
+      "false_negative": 331,
+      "false_positive": 11,
+      "precision": 0.47619047619047616,
+      "recall": 0.02932551319648094,
+      "true_positive": 10
+    },
+    "threshold": 0.6
+  },
+  "source_analysis": "experiments/paper2/analysis/bgs_layout_method_development_v021.json",
+  "source_analysis_sha256": "cae1787d8803f6e9d2052407fa69dae5fdfd51da81e0fad758cc30278cbd70a4",
+  "wall_time_seconds": 4.147233122996113
+}

@@ -1,0 +1,187 @@
+{
+  "base_candidate_model": "experiments/paper2/models/bgs_layout_field_aware_moe_v021.json",
+  "base_candidate_model_sha256": "b8839f1c44cddfc52a67c09762feb6600adbba0552f4f2f568050212affbf3ff",
+  "column_gate": {
+    "column_score_power": 0.0,
+    "model": {
+      "bias": 2.3449700076729414,
+      "features": [
+        "center_x",
+        "width",
+        "activity",
+        "rank_score",
+        "distance_to_depth",
+        "candidate_count_log",
+        "mean_line",
+        "maximum_line",
+        "mean_change",
+        "maximum_change",
+        "mean_cross_column",
+        "maximum_cross_column",
+        "mean_scale_quality"
+      ],
+      "mean": [
+        0.2908080974325214,
+        0.041211323238972974,
+        0.26882696266786177,
+        0.4660592808551994,
+        0.0836116825762563,
+        0.7747424463165261,
+        0.24544185574391303,
+        0.9868748273003594,
+        0.17930992199676923,
+        0.44319479742174317,
+        0.7991371255096404,
+        0.9251700680272109,
+        0.5477955240085889
+      ],
+      "scale": [
+        0.10492703176846771,
+        0.014310773043940891,
+        0.12749210849867104,
+        0.31748768510598535,
+        0.04657723862672492,
+        0.1484957049152497,
+        0.14806143958533802,
+        0.10223184964179727,
+        0.07600790987085286,
+        0.1412068023354338,
+        0.19650140423632328,
+        0.16856478494372618,
+        0.14701978097740562
+      ],
+      "weights": [
+        0.1747803185528692,
+        0.07434411919309244,
+        -0.026910588083012797,
+        -0.2518215469964348,
+        -0.3849897398091677,
+        1.247823674203788,
+        0.2206956020598414,
+        -0.24652482190855715,
+        -0.4609836274993745,
+        0.2233993644822305,
+        0.04515418558220382,
+        0.016493498419395708,
+        0.6124986378935598
+      ]
+    },
+    "top_k_columns_per_page": 6
+  },
+  "development_manifest": "datasets/manifests/bgs_offshore_gold_v001.jsonl",
+  "development_manifest_sha256": "d85f6c862b81d80c793887f73ca8b70658d42de358f25230dc4a15104520c99c",
+  "development_metrics": {
+    "metrics_by_tolerance_m": {
+      "0.01": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.3474576271186441,
+          "f1": 0.31752577319587627,
+          "false_negative": 290,
+          "false_positive": 41,
+          "matched_boundary_mae_m": 3.896103896104044e-05,
+          "precision": 0.652542372881356,
+          "recall": 0.2098092643051771,
+          "true_positive": 77
+        },
+        "interval": {
+          "f1": 0.152073732718894,
+          "false_negative": 308,
+          "false_positive": 60,
+          "precision": 0.3548387096774194,
+          "recall": 0.0967741935483871,
+          "true_positive": 33
+        }
+      },
+      "0.05": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.3050847457627119,
+          "f1": 0.3381443298969072,
+          "false_negative": 285,
+          "false_positive": 36,
+          "matched_boundary_mae_m": 0.0017439024390243985,
+          "precision": 0.6949152542372882,
+          "recall": 0.22343324250681199,
+          "true_positive": 82
+        },
+        "interval": {
+          "f1": 0.17972350230414746,
+          "false_negative": 302,
+          "false_positive": 54,
+          "precision": 0.41935483870967744,
+          "recall": 0.11436950146627566,
+          "true_positive": 39
+        }
+      },
+      "0.10": {
+        "boundary": {
+          "critical_numerical_error_rate": 0.2796610169491525,
+          "f1": 0.3505154639175258,
+          "false_negative": 282,
+          "false_positive": 33,
+          "matched_boundary_mae_m": 0.00403529411764708,
+          "precision": 0.7203389830508474,
+          "recall": 0.23160762942779292,
+          "true_positive": 85
+        },
+        "interval": {
+          "f1": 0.17972350230414746,
+          "false_negative": 302,
+          "false_positive": 54,
+          "precision": 0.41935483870967744,
+          "recall": 0.11436950146627566,
+          "true_positive": 39
+        }
+      }
+    },
+    "provenance": {
+      "complete_boundary_count": 118,
+      "complete_rate": 1.0,
+      "total_boundary_count": 118
+    },
+    "selective_operating_point": {
+      "accepted_boundary_count": 46,
+      "boundary": {
+        "critical_numerical_error_rate": 0.043478260869565216,
+        "f1": 0.21307506053268763,
+        "false_negative": 323,
+        "false_positive": 2,
+        "matched_boundary_mae_m": 0.0015909090909090975,
+        "precision": 0.9565217391304348,
+        "recall": 0.11989100817438691,
+        "true_positive": 44
+      },
+      "coverage_against_reference": 0.12534059945504086,
+      "interval": {
+        "f1": 0.05524861878453039,
+        "false_negative": 331,
+        "false_positive": 11,
+        "precision": 0.47619047619047616,
+        "recall": 0.02932551319648094,
+        "true_positive": 10
+      },
+      "threshold": 0.6
+    }
+  },
+  "development_scope": "all BGS offshore Gold v001 source groups",
+  "external_protocol": {
+    "dataset": "bgs_offshore_gold_v002",
+    "evaluation_count": 1,
+    "post_evaluation_tuning_forbidden": true,
+    "threshold_changes_forbidden": true
+  },
+  "geometry_analysis": "experiments/paper2/analysis/bgs_geometry_refinement_development_v001.json",
+  "geometry_analysis_sha256": "81a962a8211d2b1a4de60d0b420d8100d8dbe07039f3e05693428d78a57f5e11",
+  "geometry_refinement": {
+    "continuous_depth_decimal_places": 2,
+    "integer_snap_radius_m": 0.1,
+    "maximum_page_scale_rmse": 0.08
+  },
+  "model_id": "bgs_layout_column_geometry_v023",
+  "sequence_decoder": {
+    "full_sequence_threshold": 0.32,
+    "selective_threshold": 0.6
+  },
+  "source_analysis": "experiments/paper2/analysis/bgs_layout_method_development_v021.json",
+  "source_analysis_sha256": "cae1787d8803f6e9d2052407fa69dae5fdfd51da81e0fad758cc30278cbd70a4",
+  "status": "frozen_before_external_evaluation"
+}
