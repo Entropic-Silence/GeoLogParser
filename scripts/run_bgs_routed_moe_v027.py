@@ -32,6 +32,13 @@ def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def source_run_hash(source_run: Path) -> str:
+    candidate = source_run / "predictions.jsonl"
+    if not candidate.exists():
+        candidate = source_run / "source_run_manifest.json"
+    return sha256(candidate)
+
+
 def load_jsonl(path: Path) -> list[dict]:
     return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
 
@@ -202,7 +209,7 @@ def main() -> None:
         "manifest": str(args.manifest),
         "manifest_sha256": sha256(args.manifest),
         "source_run": str(args.source_run),
-        "source_regions_sha256": sha256(args.source_run / "predictions.jsonl"),
+        "source_regions_sha256": source_run_hash(args.source_run),
         "v024_report": str(args.v024_report),
         "v024_report_sha256": sha256(args.v024_report),
         "role_report": str(args.role_report),

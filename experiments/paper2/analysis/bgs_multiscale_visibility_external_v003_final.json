@@ -1,0 +1,1323 @@
+{
+  "analysis_scope": "development-only multiscale tiled OCR boundary-visibility experiment",
+  "combined_absolute_gain": 0,
+  "combined_relative_recall_gain": 0.0,
+  "combined_visibility": {
+    "denominator": 8,
+    "numerator": 7,
+    "value": 0.875
+  },
+  "document_count": 1,
+  "documents": [
+    {
+      "baseline_visible": [
+        0.0,
+        2.1,
+        2.9,
+        4.7,
+        13.9,
+        17.6,
+        21.0
+      ],
+      "combined_visible": [
+        0.0,
+        2.1,
+        2.9,
+        4.7,
+        13.9,
+        17.6,
+        21.0
+      ],
+      "page_layout": [
+        {
+          "baseline": [
+            {
+              "bbox": [
+                1863.0,
+                1026.0,
+                1880.0,
+                1041.0
+              ],
+              "confidence": 0.59,
+              "psm": null,
+              "text": "4",
+              "value": 4.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1754.0,
+                1214.0,
+                1837.0,
+                1218.0
+              ],
+              "confidence": 0.0,
+              "psm": null,
+              "text": "oo",
+              "value": 0.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1774.0,
+                1336.0,
+                1816.0,
+                1378.0
+              ],
+              "confidence": 0.0,
+              "psm": null,
+              "text": "90",
+              "value": 90.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                843.0,
+                1447.0,
+                855.0,
+                1451.0
+              ],
+              "confidence": 0.24,
+              "psm": null,
+              "text": "9",
+              "value": 9.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1471.0,
+                1416.0,
+                1629.0,
+                1457.0
+              ],
+              "confidence": 0.45,
+              "psm": null,
+              "text": "80",
+              "value": 80.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1731.0,
+                1417.0,
+                1813.0,
+                1459.0
+              ],
+              "confidence": 0.35,
+              "psm": null,
+              "text": "4.70",
+              "value": 4.7,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1487.0,
+                1796.0,
+                1681.0,
+                1864.0
+              ],
+              "confidence": 0.51,
+              "psm": null,
+              "text": "340",
+              "value": 340.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1693.0,
+                1779.0,
+                1806.0,
+                1879.0
+              ],
+              "confidence": 0.66,
+              "psm": null,
+              "text": "21.00",
+              "value": 21.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1811.0,
+                1836.0,
+                1852.0,
+                1865.0
+              ],
+              "confidence": 0.78,
+              "psm": null,
+              "text": "4",
+              "value": 4.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                951.0,
+                1904.0,
+                1142.0,
+                1941.0
+              ],
+              "confidence": 0.3,
+              "psm": null,
+              "text": "0",
+              "value": 0.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1473.0,
+                1907.0,
+                1573.0,
+                1944.0
+              ],
+              "confidence": 0.52,
+              "psm": null,
+              "text": "283",
+              "value": 283.0,
+              "variant": null
+            }
+          ],
+          "layout_detected": false,
+          "page": 2,
+          "reread": [],
+          "tile_count": 0
+        },
+        {
+          "baseline": [
+            {
+              "bbox": [
+                1616.0,
+                42.0,
+                1651.0,
+                59.0
+              ],
+              "confidence": 0.91,
+              "psm": null,
+              "text": "3M",
+              "value": 3.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1209.0,
+                257.0,
+                1272.0,
+                262.0
+              ],
+              "confidence": 0.11,
+              "psm": null,
+              "text": "oo",
+              "value": 0.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                789.0,
+                378.0,
+                891.0,
+                409.0
+              ],
+              "confidence": 0.81,
+              "psm": null,
+              "text": "04.04",
+              "value": 4.04,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1148.0,
+                378.0,
+                1250.0,
+                410.0
+              ],
+              "confidence": 0.95,
+              "psm": null,
+              "text": "44.13",
+              "value": 44.13,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1547.0,
+                380.0,
+                1651.0,
+                412.0
+              ],
+              "confidence": 0.96,
+              "psm": null,
+              "text": "78.50",
+              "value": 78.5,
+              "variant": null
+            },
+            {
+              "bbox": [
+                707.0,
+                1210.0,
+                767.0,
+                1243.0
+              ],
+              "confidence": 0.92,
+              "psm": null,
+              "text": "1.0",
+              "value": 1.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1592.0,
+                1276.0,
+                1609.0,
+                1301.0
+              ],
+              "confidence": 0.96,
+              "psm": null,
+              "text": "2",
+              "value": 2.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1637.0,
+                1255.0,
+                1691.0,
+                1319.0
+              ],
+              "confidence": 0.32,
+              "psm": null,
+              "text": "10",
+              "value": 10.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1867.0,
+                1275.0,
+                1967.0,
+                1302.0
+              ],
+              "confidence": 0.29,
+              "psm": null,
+              "text": "2110",
+              "value": 2110.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1739.0,
+                1580.0,
+                1749.0,
+                1610.0
+              ],
+              "confidence": 0.41,
+              "psm": null,
+              "text": "4",
+              "value": 4.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1739.0,
+                1707.0,
+                1750.0,
+                1770.0
+              ],
+              "confidence": 0.12,
+              "psm": null,
+              "text": "4",
+              "value": 4.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                181.0,
+                1973.0,
+                261.0,
+                2002.0
+              ],
+              "confidence": 0.92,
+              "psm": null,
+              "text": "0.60",
+              "value": 0.6,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1591.0,
+                1977.0,
+                1609.0,
+                2003.0
+              ],
+              "confidence": 0.63,
+              "psm": null,
+              "text": "0",
+              "value": 0.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1656.0,
+                1978.0,
+                1691.0,
+                2004.0
+              ],
+              "confidence": 0.9,
+              "psm": null,
+              "text": "80",
+              "value": 80.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1740.0,
+                1983.0,
+                1750.0,
+                2026.0
+              ],
+              "confidence": 0.11,
+              "psm": null,
+              "text": "4",
+              "value": 4.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1868.0,
+                1978.0,
+                1968.0,
+                2009.0
+              ],
+              "confidence": 0.61,
+              "psm": null,
+              "text": "2.90",
+              "value": 2.9,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1484.0,
+                2223.0,
+                1493.0,
+                2251.0
+              ],
+              "confidence": 0.15,
+              "psm": null,
+              "text": "5",
+              "value": 5.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                183.0,
+                2339.0,
+                220.0,
+                2370.0
+              ],
+              "confidence": 0.95,
+              "psm": null,
+              "text": "30",
+              "value": 30.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                246.0,
+                2348.0,
+                285.0,
+                2366.0
+              ],
+              "confidence": 0.94,
+              "psm": null,
+              "text": "om",
+              "value": 0.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1593.0,
+                2341.0,
+                1609.0,
+                2367.0
+              ],
+              "confidence": 0.88,
+              "psm": null,
+              "text": "1",
+              "value": 1.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1656.0,
+                2340.0,
+                1695.0,
+                2367.0
+              ],
+              "confidence": 0.92,
+              "psm": null,
+              "text": "80",
+              "value": 80.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1867.0,
+                2340.0,
+                1885.0,
+                2371.0
+              ],
+              "confidence": 0.96,
+              "psm": null,
+              "text": "4",
+              "value": 4.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1929.0,
+                2341.0,
+                1968.0,
+                2373.0
+              ],
+              "confidence": 0.69,
+              "psm": null,
+              "text": "70",
+              "value": 70.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                666.0,
+                2616.0,
+                747.0,
+                2644.0
+              ],
+              "confidence": 0.92,
+              "psm": null,
+              "text": "0.20",
+              "value": 0.2,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1593.0,
+                2659.0,
+                1696.0,
+                2718.0
+              ],
+              "confidence": 0.6,
+              "psm": null,
+              "text": "9120",
+              "value": 9120.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1847.0,
+                2683.0,
+                1885.0,
+                2714.0
+              ],
+              "confidence": 0.95,
+              "psm": null,
+              "text": "13",
+              "value": 13.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1931.0,
+                2682.0,
+                1969.0,
+                2714.0
+              ],
+              "confidence": 0.95,
+              "psm": null,
+              "text": "90",
+              "value": 90.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1740.0,
+                2724.0,
+                1750.0,
+                2747.0
+              ],
+              "confidence": 0.13,
+              "psm": null,
+              "text": "3",
+              "value": 3.0,
+              "variant": null
+            }
+          ],
+          "layout_detected": false,
+          "page": 3,
+          "reread": [],
+          "tile_count": 0
+        },
+        {
+          "baseline": [
+            {
+              "bbox": [
+                1696.0,
+                273.0,
+                1742.0,
+                292.0
+              ],
+              "confidence": 0.94,
+              "psm": null,
+              "text": "om",
+              "value": 0.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                426.0,
+                762.0,
+                507.0,
+                798.0
+              ],
+              "confidence": 0.95,
+              "psm": null,
+              "text": "16.5",
+              "value": 16.5,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1531.0,
+                1011.0,
+                1534.0,
+                1082.0
+              ],
+              "confidence": 0.36,
+              "psm": null,
+              "text": "3",
+              "value": 3.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1777.0,
+                1155.0,
+                1794.0,
+                1212.0
+              ],
+              "confidence": 0.56,
+              "psm": null,
+              "text": "4",
+              "value": 4.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                88.0,
+                1237.0,
+                125.0,
+                1268.0
+              ],
+              "confidence": 0.96,
+              "psm": null,
+              "text": "17",
+              "value": 17.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                216.0,
+                1236.0,
+                254.0,
+                1263.0
+              ],
+              "confidence": 0.9,
+              "psm": null,
+              "text": "20",
+              "value": 20.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1826.0,
+                1229.0,
+                1863.0,
+                1259.0
+              ],
+              "confidence": 0.49,
+              "psm": null,
+              "text": "60",
+              "value": 60.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                449.0,
+                1471.0,
+                530.0,
+                1505.0
+              ],
+              "confidence": 0.83,
+              "psm": null,
+              "text": "0.70",
+              "value": 0.7,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1534.0,
+                1451.0,
+                1587.0,
+                1519.0
+              ],
+              "confidence": 0.33,
+              "psm": null,
+              "text": "40",
+              "value": 40.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1825.0,
+                1469.0,
+                1864.0,
+                1494.0
+              ],
+              "confidence": 0.63,
+              "psm": null,
+              "text": "00",
+              "value": 0.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                91.0,
+                1729.0,
+                152.0,
+                1756.0
+              ],
+              "confidence": 0.95,
+              "psm": null,
+              "text": "20M",
+              "value": 20.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1537.0,
+                1701.0,
+                1587.0,
+                1757.0
+              ],
+              "confidence": 0.78,
+              "psm": null,
+              "text": "83",
+              "value": 83.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1826.0,
+                1726.0,
+                1865.0,
+                1757.0
+              ],
+              "confidence": 0.96,
+              "psm": null,
+              "text": "83",
+              "value": 83.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                538.0,
+                2604.0,
+                596.0,
+                2630.0
+              ],
+              "confidence": 0.92,
+              "psm": null,
+              "text": "2.1",
+              "value": 2.1,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1173.0,
+                2604.0,
+                1211.0,
+                2630.0
+              ],
+              "confidence": 0.96,
+              "psm": null,
+              "text": "18",
+              "value": 18.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                453.0,
+                2647.0,
+                512.0,
+                2673.0
+              ],
+              "confidence": 0.24,
+              "psm": null,
+              "text": "2.1",
+              "value": 2.1,
+              "variant": null
+            },
+            {
+              "bbox": [
+                580.0,
+                2646.0,
+                638.0,
+                2678.0
+              ],
+              "confidence": 0.96,
+              "psm": null,
+              "text": "2.9",
+              "value": 2.9,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1194.0,
+                2647.0,
+                1211.0,
+                2673.0
+              ],
+              "confidence": 0.96,
+              "psm": null,
+              "text": "8",
+              "value": 8.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                453.0,
+                2688.0,
+                512.0,
+                2719.0
+              ],
+              "confidence": 0.73,
+              "psm": null,
+              "text": "2.9",
+              "value": 2.9,
+              "variant": null
+            },
+            {
+              "bbox": [
+                578.0,
+                2688.0,
+                637.0,
+                2721.0
+              ],
+              "confidence": 0.92,
+              "psm": null,
+              "text": "4.7",
+              "value": 4.7,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1173.0,
+                2689.0,
+                1211.0,
+                2720.0
+              ],
+              "confidence": 0.96,
+              "psm": null,
+              "text": "13",
+              "value": 13.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                451.0,
+                2730.0,
+                511.0,
+                2763.0
+              ],
+              "confidence": 0.89,
+              "psm": null,
+              "text": "4.7",
+              "value": 4.7,
+              "variant": null
+            },
+            {
+              "bbox": [
+                580.0,
+                2728.0,
+                638.0,
+                2764.0
+              ],
+              "confidence": 0.92,
+              "psm": null,
+              "text": "5.7",
+              "value": 5.7,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1173.0,
+                2773.0,
+                1212.0,
+                2804.0
+              ],
+              "confidence": 0.95,
+              "psm": null,
+              "text": "14",
+              "value": 14.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                453.0,
+                2815.0,
+                512.0,
+                2848.0
+              ],
+              "confidence": 0.86,
+              "psm": null,
+              "text": "9.1",
+              "value": 9.1,
+              "variant": null
+            },
+            {
+              "bbox": [
+                580.0,
+                2816.0,
+                660.0,
+                2849.0
+              ],
+              "confidence": 0.94,
+              "psm": null,
+              "text": "10.3",
+              "value": 10.3,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1173.0,
+                2818.0,
+                1212.0,
+                2844.0
+              ],
+              "confidence": 0.94,
+              "psm": null,
+              "text": "12",
+              "value": 12.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                432.0,
+                2859.0,
+                512.0,
+                2891.0
+              ],
+              "confidence": 0.88,
+              "psm": null,
+              "text": "10.3",
+              "value": 10.3,
+              "variant": null
+            },
+            {
+              "bbox": [
+                580.0,
+                2860.0,
+                660.0,
+                2891.0
+              ],
+              "confidence": 0.94,
+              "psm": null,
+              "text": "13.9",
+              "value": 13.9,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1174.0,
+                2860.0,
+                1211.0,
+                2893.0
+              ],
+              "confidence": 0.94,
+              "psm": null,
+              "text": "15",
+              "value": 15.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                432.0,
+                2902.0,
+                512.0,
+                2934.0
+              ],
+              "confidence": 0.92,
+              "psm": null,
+              "text": "13.9",
+              "value": 13.9,
+              "variant": null
+            },
+            {
+              "bbox": [
+                580.0,
+                2899.0,
+                661.0,
+                2935.0
+              ],
+              "confidence": 0.95,
+              "psm": null,
+              "text": "17.6",
+              "value": 17.6,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1174.0,
+                2904.0,
+                1213.0,
+                2934.0
+              ],
+              "confidence": 0.94,
+              "psm": null,
+              "text": "23",
+              "value": 23.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                432.0,
+                2941.0,
+                513.0,
+                2977.0
+              ],
+              "confidence": 0.92,
+              "psm": null,
+              "text": "17.6",
+              "value": 17.6,
+              "variant": null
+            },
+            {
+              "bbox": [
+                580.0,
+                2945.0,
+                618.0,
+                2972.0
+              ],
+              "confidence": 0.96,
+              "psm": null,
+              "text": "20",
+              "value": 20.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1175.0,
+                2944.0,
+                1213.0,
+                2977.0
+              ],
+              "confidence": 0.94,
+              "psm": null,
+              "text": "34",
+              "value": 34.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1382.0,
+                3221.0,
+                1393.0,
+                3247.0
+              ],
+              "confidence": 0.35,
+              "psm": null,
+              "text": "4",
+              "value": 4.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1382.0,
+                3252.0,
+                1392.0,
+                3277.0
+              ],
+              "confidence": 0.32,
+              "psm": null,
+              "text": "4",
+              "value": 4.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1152.0,
+                2261.0,
+                1210.0,
+                2292.0
+              ],
+              "confidence": 0.72,
+              "psm": null,
+              "text": "2.9",
+              "value": 2.9,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1150.0,
+                2303.0,
+                1209.0,
+                2337.0
+              ],
+              "confidence": 0.92,
+              "psm": null,
+              "text": "4.7",
+              "value": 4.7,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1152.0,
+                2347.0,
+                1256.0,
+                2378.0
+              ],
+              "confidence": 0.85,
+              "psm": null,
+              "text": "13.9M",
+              "value": 13.9,
+              "variant": null
+            }
+          ],
+          "layout_detected": false,
+          "page": 4,
+          "reread": [],
+          "tile_count": 0
+        },
+        {
+          "baseline": [
+            {
+              "bbox": [
+                1601.0,
+                950.0,
+                1645.0,
+                993.0
+              ],
+              "confidence": 0.62,
+              "psm": null,
+              "text": "10",
+              "value": 10.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1006.0,
+                1062.0,
+                1040.0,
+                1093.0
+              ],
+              "confidence": 0.19,
+              "psm": null,
+              "text": "3",
+              "value": 3.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                293.0,
+                1085.0,
+                356.0,
+                1106.0
+              ],
+              "confidence": 0.75,
+              "psm": null,
+              "text": "OM",
+              "value": 0.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1014.0,
+                1054.0,
+                1064.0,
+                1106.0
+              ],
+              "confidence": 0.47,
+              "psm": null,
+              "text": "64",
+              "value": 64.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                822.0,
+                1298.0,
+                850.0,
+                1318.0
+              ],
+              "confidence": 0.32,
+              "psm": null,
+              "text": "0",
+              "value": 0.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                661.0,
+                1433.0,
+                758.0,
+                1483.0
+              ],
+              "confidence": 0.65,
+              "psm": null,
+              "text": "60m",
+              "value": 60.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1591.0,
+                1448.0,
+                1637.0,
+                1482.0
+              ],
+              "confidence": 0.08,
+              "psm": null,
+              "text": "8",
+              "value": 8.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1559.0,
+                1611.0,
+                1642.0,
+                1648.0
+              ],
+              "confidence": 0.1,
+              "psm": null,
+              "text": "6",
+              "value": 6.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                664.0,
+                2833.0,
+                714.0,
+                2879.0
+              ],
+              "confidence": 0.55,
+              "psm": null,
+              "text": "17",
+              "value": 17.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                558.0,
+                2992.0,
+                589.0,
+                3049.0
+              ],
+              "confidence": 0.26,
+              "psm": null,
+              "text": "6",
+              "value": 6.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                1735.0,
+                3065.0,
+                1779.0,
+                3106.0
+              ],
+              "confidence": 0.45,
+              "psm": null,
+              "text": "20",
+              "value": 20.0,
+              "variant": null
+            }
+          ],
+          "layout_detected": false,
+          "page": 5,
+          "reread": [],
+          "tile_count": 0
+        },
+        {
+          "baseline": [
+            {
+              "bbox": [
+                854.0,
+                2937.0,
+                944.0,
+                3036.0
+              ],
+              "confidence": 0.49,
+              "psm": null,
+              "text": "219",
+              "value": 219.0,
+              "variant": null
+            },
+            {
+              "bbox": [
+                843.0,
+                3044.0,
+                981.0,
+                3093.0
+              ],
+              "confidence": 0.42,
+              "psm": null,
+              "text": "47M",
+              "value": 47.0,
+              "variant": null
+            }
+          ],
+          "layout_detected": false,
+          "page": 6,
+          "reread": [],
+          "tile_count": 0
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1951578",
+      "reference_boundary_count": 8,
+      "reread_numeric_candidate_count": 0,
+      "reread_visible": []
+    }
+  ],
+  "full_page_visibility": {
+    "denominator": 8,
+    "numerator": 7,
+    "value": 0.875
+  },
+  "limitations": [
+    "Visibility is necessary but not sufficient for correct column assignment or interval recovery.",
+    "BGS v001 is development evidence and is excluded from the subsequent v002 external test."
+  ],
+  "manifest_path": "datasets/manifests/bgs_offshore_gold_v003.jsonl",
+  "manifest_sha256": "12f683ca0312740dbeb68ee3bebcd92b0a0644dce22de92115c46c8faf2236d4",
+  "page_count": 5,
+  "reference_blinding": "tiles and OCR frozen before reference visibility scoring",
+  "reference_boundary_count": 8,
+  "reread_config": {
+    "overlap_px": 180,
+    "psm": [
+      6,
+      11
+    ],
+    "semantic_panel_inference": "long_page_layout_v001",
+    "tile_height_px": 1800,
+    "upscale": 2.0,
+    "variants": [
+      "gray",
+      "otsu"
+    ]
+  },
+  "source_run_path": "/data/GeoLogParser/runs/P2_BGS_V003_FINAL_FROZEN_OCR_002",
+  "tile_count": 0,
+  "tiled_reread_visibility": {
+    "denominator": 8,
+    "numerator": 0,
+    "value": 0.0
+  }
+}

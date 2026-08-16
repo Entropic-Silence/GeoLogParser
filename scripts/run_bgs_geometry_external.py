@@ -30,6 +30,13 @@ def file_sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def source_run_hash(source_run: Path) -> str:
+    candidate = source_run / "predictions.jsonl"
+    if not candidate.exists():
+        candidate = source_run / "source_run_manifest.json"
+    return file_sha256(candidate)
+
+
 def load_jsonl(path: Path) -> list[dict]:
     return [json.loads(line) for line in path.read_text().splitlines() if line.strip()]
 
@@ -195,7 +202,7 @@ def main() -> None:
         "frozen_model": str(args.frozen_model),
         "frozen_model_sha256": file_sha256(args.frozen_model),
         "source_run": str(args.source_run),
-        "source_regions_sha256": file_sha256(args.source_run / "predictions.jsonl"),
+        "source_regions_sha256": source_run_hash(args.source_run),
         "multiscale_analysis": str(args.multiscale_analysis),
         "multiscale_analysis_sha256": file_sha256(args.multiscale_analysis),
         "field_roi_analysis": str(args.field_roi_analysis),

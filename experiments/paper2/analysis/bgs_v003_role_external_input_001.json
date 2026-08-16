@@ -1,0 +1,22 @@
+{
+  "experiment_id": "P2_BGS_V003_FROZEN_ROLE_EXTERNAL_INPUT_001",
+  "limitations": [
+    "The external page did not expose eligible semantic-role candidates to the frozen role parser.",
+    "The routed method therefore falls back or abstains according to the frozen policy."
+  ],
+  "manifest": "datasets/manifests/bgs_offshore_gold_v003.jsonl",
+  "method_version": "bgs_layout_field_aware_moe_v025_role_multi_frozen",
+  "multiscale_analysis": "experiments/paper2/analysis/bgs_multiscale_visibility_external_v003_final.json",
+  "predictions": [
+    {
+      "candidate_count": 0,
+      "ranked_candidates": [],
+      "record_id": "BGS_OFFSHORE_1951578",
+      "reference_blind": true,
+      "role_expert_status": "no_eligible_role_evidence",
+      "sequence_selected": []
+    }
+  ],
+  "reference_blinding": "no interval references loaded; no model fitting or threshold selection",
+  "status": "completed_reference_blind_external_input"
+}

@@ -1,0 +1,231 @@
+{
+  "baseline_report": "experiments/paper2/analysis/bgs_v028_external_v003_final.json",
+  "baseline_report_sha256": "ad586694437e063e34dcb9bd3fb27d4b47f8ce0742573600aa88a56e9446246d",
+  "candidate_report": "experiments/paper2/analysis/bgs_v003_role_external_input_001.json",
+  "candidate_report_sha256": "ceeeea7734820517b52c7d89bed97a7be8df76dee2286b04cda1602670baea31",
+  "document_count": 1,
+  "evaluation_role": "external",
+  "experiment_id": "P2_BGS_V024_EXTERNAL_V003_FINAL",
+  "latency_seconds_per_page": 6.585331319199758,
+  "limitations": [
+    "Explicit range extraction is currently conservative and may abstain on degraded later rows.",
+    "Graphical contact and scaled composite pages still use v023 geometry only when structural-risk gates pass.",
+    "This artifact is validation evidence for consumed BGS v002r2; it is not external confirmation."
+  ],
+  "manifest": "datasets/manifests/bgs_offshore_gold_v003.jsonl",
+  "manifest_sha256": "12f683ca0312740dbeb68ee3bebcd92b0a0644dce22de92115c46c8faf2236d4",
+  "method_version": "bgs_page_family_structural_risk_v024",
+  "metrics_by_tolerance_m": {
+    "0.01": {
+      "boundary": {
+        "critical_numerical_error_rate": null,
+        "f1": 0.0,
+        "false_negative": 8,
+        "false_positive": 0,
+        "matched_boundary_mae_m": null,
+        "precision": 0.0,
+        "recall": 0.0,
+        "true_positive": 0
+      },
+      "interval": {
+        "f1": 0.0,
+        "false_negative": 7,
+        "false_positive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "true_positive": 0
+      }
+    },
+    "0.05": {
+      "boundary": {
+        "critical_numerical_error_rate": null,
+        "f1": 0.0,
+        "false_negative": 8,
+        "false_positive": 0,
+        "matched_boundary_mae_m": null,
+        "precision": 0.0,
+        "recall": 0.0,
+        "true_positive": 0
+      },
+      "interval": {
+        "f1": 0.0,
+        "false_negative": 7,
+        "false_positive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "true_positive": 0
+      }
+    },
+    "0.10": {
+      "boundary": {
+        "critical_numerical_error_rate": null,
+        "f1": 0.0,
+        "false_negative": 8,
+        "false_positive": 0,
+        "matched_boundary_mae_m": null,
+        "precision": 0.0,
+        "recall": 0.0,
+        "true_positive": 0
+      },
+      "interval": {
+        "f1": 0.0,
+        "false_negative": 7,
+        "false_positive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "true_positive": 0
+      }
+    }
+  },
+  "page_count": 5,
+  "peak_process_rss_kib": 269996,
+  "predictions": [
+    {
+      "baseline_boundary_count": 0,
+      "candidate_count": 0,
+      "candidate_count_per_page": 0.0,
+      "page_count": 5,
+      "page_families": [
+        "explicit_depth_range_table",
+        "explicit_depth_range_table",
+        "explicit_depth_range_table",
+        "unsupported",
+        "explicit_depth_range_table"
+      ],
+      "page_rows": [
+        {
+          "assessment": [
+            "header:thickness",
+            "header:depth_from_surface"
+          ],
+          "family": "explicit_depth_range_table",
+          "page": 2,
+          "range_count": 0,
+          "range_diagnostic": {
+            "candidate_count": 3,
+            "continuity": 0.0,
+            "ocr_line_count": 577,
+            "reason": "insufficient_contiguous_range_evidence",
+            "roi": [
+              1620,
+              959,
+              2066,
+              3403
+            ],
+            "selected_count": 1,
+            "status": "abstained"
+          }
+        },
+        {
+          "assessment": [
+            "header:thickness",
+            "header:depth_from_surface",
+            "header:recovered"
+          ],
+          "family": "explicit_depth_range_table",
+          "page": 3,
+          "range_count": 0,
+          "range_diagnostic": {
+            "reason": "depth_from_surface_header_not_localized",
+            "status": "abstained"
+          }
+        },
+        {
+          "assessment": [
+            "header:thickness",
+            "header:depth_from_surface",
+            "header:recovered"
+          ],
+          "family": "explicit_depth_range_table",
+          "page": 4,
+          "range_count": 0,
+          "range_diagnostic": {
+            "candidate_count": 1,
+            "continuity": 0.0,
+            "ocr_line_count": 449,
+            "reason": "insufficient_contiguous_range_evidence",
+            "roi": [
+              1548,
+              361,
+              2024,
+              3312
+            ],
+            "selected_count": 1,
+            "status": "abstained"
+          }
+        },
+        {
+          "assessment": [
+            "header:thickness"
+          ],
+          "family": "unsupported",
+          "page": 5
+        },
+        {
+          "assessment": [
+            "header:thickness",
+            "header:depth_from_surface"
+          ],
+          "family": "explicit_depth_range_table",
+          "page": 6,
+          "range_count": 0,
+          "range_diagnostic": {
+            "ocr_line_count": 6,
+            "reason": "no_range_candidates",
+            "roi": [
+              1549,
+              566,
+              2024,
+              3488
+            ],
+            "status": "abstained"
+          }
+        }
+      ],
+      "predicted_boundaries_m": [],
+      "provenance_count": 0,
+      "record_id": "BGS_OFFSHORE_1951578",
+      "risk_codes": [
+        "explicit_range_abstention",
+        "unsupported_page_family"
+      ],
+      "route": "abstain_unsupported_page_family"
+    }
+  ],
+  "reference_blinding": "baseline and candidate routing are fixed before validation references are used for scoring",
+  "reference_boundary_count": 8,
+  "reference_interval_count": 7,
+  "risk_policy": {
+    "candidate_explosion_output_count_minimum": 40,
+    "candidate_explosion_output_fraction_minimum": 0.03,
+    "candidate_explosion_per_page": 1000,
+    "unsupported_page_family": "document_abstention",
+    "zero_structural_evidence": "document_abstention"
+  },
+  "selective_operating_point": {
+    "accepted_boundary_count": 0,
+    "boundary": {
+      "critical_numerical_error_rate": null,
+      "f1": 0.0,
+      "false_negative": 8,
+      "false_positive": 0,
+      "matched_boundary_mae_m": null,
+      "precision": 0.0,
+      "recall": 0.0,
+      "true_positive": 0
+    },
+    "coverage_against_reference": 0.0,
+    "interval": {
+      "f1": 0.0,
+      "false_negative": 7,
+      "false_positive": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "true_positive": 0
+    }
+  },
+  "source_regions_sha256": "af145a73bd1d574b48c1f931d49d49599ad149e6470e672a2442bc1361de1d6f",
+  "source_run": "/data/GeoLogParser/runs/P2_BGS_V003_FINAL_FROZEN_OCR_002",
+  "status": "completed_external_evaluation",
+  "wall_time_seconds": 32.92665530600061
+}

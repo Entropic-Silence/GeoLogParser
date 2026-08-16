@@ -1,0 +1,130 @@
+{
+  "document_count": 1,
+  "evaluation_role": "external",
+  "experiment_id": "P2_BGS_V028_EXTERNAL_V003_FINAL",
+  "field_roi_analysis": "experiments/paper2/analysis/bgs_field_roi_visibility_external_v003_final.json",
+  "field_roi_analysis_sha256": "9ca8ec4e4110e2286279758373f445568effe2a1878b4716b1d1a615be85cee1",
+  "frozen_model": "experiments/paper2/models/bgs_layout_column_geometry_v023.json",
+  "frozen_model_sha256": "1aa0389ae520c62115e6c6e737727d694937b6e9c0cdb36971137b95af169db4",
+  "git_commit_before_external": "9ce6fd6",
+  "latency_seconds_per_page": 0.061107432999415325,
+  "manifest": "datasets/manifests/bgs_offshore_gold_v003.jsonl",
+  "manifest_sha256": "12f683ca0312740dbeb68ee3bebcd92b0a0644dce22de92115c46c8faf2236d4",
+  "method_version": "bgs_layout_column_geometry_v023",
+  "metrics_by_tolerance_m": {
+    "0.01": {
+      "boundary": {
+        "critical_numerical_error_rate": null,
+        "f1": 0.0,
+        "false_negative": 8,
+        "false_positive": 0,
+        "matched_boundary_mae_m": null,
+        "precision": 0.0,
+        "recall": 0.0,
+        "true_positive": 0
+      },
+      "interval": {
+        "f1": 0.0,
+        "false_negative": 7,
+        "false_positive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "true_positive": 0
+      }
+    },
+    "0.05": {
+      "boundary": {
+        "critical_numerical_error_rate": null,
+        "f1": 0.0,
+        "false_negative": 8,
+        "false_positive": 0,
+        "matched_boundary_mae_m": null,
+        "precision": 0.0,
+        "recall": 0.0,
+        "true_positive": 0
+      },
+      "interval": {
+        "f1": 0.0,
+        "false_negative": 7,
+        "false_positive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "true_positive": 0
+      }
+    },
+    "0.10": {
+      "boundary": {
+        "critical_numerical_error_rate": null,
+        "f1": 0.0,
+        "false_negative": 8,
+        "false_positive": 0,
+        "matched_boundary_mae_m": null,
+        "precision": 0.0,
+        "recall": 0.0,
+        "true_positive": 0
+      },
+      "interval": {
+        "f1": 0.0,
+        "false_negative": 7,
+        "false_positive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "true_positive": 0
+      }
+    }
+  },
+  "multiscale_analysis": "experiments/paper2/analysis/bgs_multiscale_visibility_external_v003_final.json",
+  "multiscale_analysis_sha256": "d2b7d9ab87093c5cafcaff34b3fadfb0c934408451af26fe252f19059093dbba",
+  "page_count": 5,
+  "peak_process_rss_kib": 147484,
+  "post_external_policy": "no tuning; any method change demotes the set to validation",
+  "predictions": [
+    {
+      "candidate_count": 0,
+      "evidence": [],
+      "gated_candidate_count": 0,
+      "graphic_column_count": 0,
+      "layout_detected_pages": 0,
+      "page_count": 5,
+      "predicted_boundaries_m": [],
+      "record_id": "BGS_OFFSHORE_1951578",
+      "selective_boundaries_m": [],
+      "selective_evidence": []
+    }
+  ],
+  "provenance": {
+    "complete_boundary_count": 0,
+    "complete_rate": 0.0,
+    "total_boundary_count": 0
+  },
+  "reference_blinding": "all predictions fixed before external interval references were accessed for scoring",
+  "reference_boundary_count": 8,
+  "reference_interval_count": 7,
+  "selective_operating_point": {
+    "accepted_boundary_count": 0,
+    "boundary": {
+      "critical_numerical_error_rate": null,
+      "f1": 0.0,
+      "false_negative": 8,
+      "false_positive": 0,
+      "matched_boundary_mae_m": null,
+      "precision": 0.0,
+      "recall": 0.0,
+      "true_positive": 0
+    },
+    "coverage_against_reference": 0.0,
+    "interval": {
+      "f1": 0.0,
+      "false_negative": 7,
+      "false_positive": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "true_positive": 0
+    },
+    "threshold": 0.6
+  },
+  "source_regions_sha256": "af145a73bd1d574b48c1f931d49d49599ad149e6470e672a2442bc1361de1d6f",
+  "source_run": "/data/GeoLogParser/runs/P2_BGS_V003_FINAL_FROZEN_OCR_002",
+  "status": "completed_external_evaluation",
+  "wall_time_seconds": 0.30553669200162403
+}

@@ -28,6 +28,13 @@ def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def source_run_hash(source_run: Path) -> str:
+    candidate = source_run / "predictions.jsonl"
+    if not candidate.exists():
+        candidate = source_run / "source_run_manifest.json"
+    return sha256(candidate)
+
+
 def load_jsonl(path: Path) -> list[dict]:
     return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
 
@@ -59,7 +66,7 @@ def main() -> None:
     parser.add_argument("--candidate-report", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--experiment-id", required=True)
-    parser.add_argument("--evaluation-role", choices=("development", "validation"), default="development")
+    parser.add_argument("--evaluation-role", choices=("development", "validation", "external"), default="development")
     parser.add_argument("--candidate-explosion-per-page", type=int, default=1000)
     args = parser.parse_args()
     if args.output.exists():
@@ -203,7 +210,7 @@ def main() -> None:
         "candidate_report": str(args.candidate_report),
         "candidate_report_sha256": sha256(args.candidate_report),
         "source_run": str(args.source_run),
-        "source_regions_sha256": sha256(args.source_run / "predictions.jsonl"),
+        "source_regions_sha256": source_run_hash(args.source_run),
         "document_count": len(sources),
         "page_count": sum(len(row["evaluation_pages"]) for row in sources),
         "reference_interval_count": sum(len(row["intervals"]) for row in sources),

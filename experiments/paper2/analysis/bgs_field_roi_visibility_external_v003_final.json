@@ -1,0 +1,86 @@
+{
+  "analysis_scope": "development-only field-specific narrow-ROI depth rereading",
+  "candidate_count": 0,
+  "config": {
+    "character_whitelist": "0123456789.,m",
+    "field_role": "boundary_depth",
+    "overlap_px": 120,
+    "psm": [
+      6,
+      11,
+      12
+    ],
+    "tile_height_px": 1200,
+    "upscale": 4,
+    "variants": [
+      "gray4x",
+      "clahe4x",
+      "otsu4x",
+      "line_removed4x"
+    ],
+    "x_half_width_normalized": 0.035
+  },
+  "document_count": 1,
+  "documents": [
+    {
+      "candidate_count": 0,
+      "pages": [
+        {
+          "layout_detected": false,
+          "page": 2,
+          "rows": [],
+          "targets": [],
+          "tile_count": 0
+        },
+        {
+          "layout_detected": false,
+          "page": 3,
+          "rows": [],
+          "targets": [],
+          "tile_count": 0
+        },
+        {
+          "layout_detected": false,
+          "page": 4,
+          "rows": [],
+          "targets": [],
+          "tile_count": 0
+        },
+        {
+          "layout_detected": false,
+          "page": 5,
+          "rows": [],
+          "targets": [],
+          "tile_count": 0
+        },
+        {
+          "layout_detected": false,
+          "page": 6,
+          "rows": [],
+          "targets": [],
+          "tile_count": 0
+        }
+      ],
+      "record_id": "BGS_OFFSHORE_1951578",
+      "reference_boundary_count": 8,
+      "visible_boundaries": []
+    }
+  ],
+  "field_roi_visibility": {
+    "denominator": 8,
+    "numerator": 0,
+    "value": 0.0
+  },
+  "limitations": [
+    "Exact numeric visibility is not interval accuracy or correct column assignment.",
+    "BGS v001 is a development source and cannot confirm unseen-source generalization."
+  ],
+  "manifest_path": "datasets/manifests/bgs_offshore_gold_v003.jsonl",
+  "manifest_sha256": "12f683ca0312740dbeb68ee3bebcd92b0a0644dce22de92115c46c8faf2236d4",
+  "page_count": 5,
+  "reference_blinding": "semantic field crops and OCR were completed before exact reference visibility scoring",
+  "reference_boundary_count": 8,
+  "source_run": "/data/GeoLogParser/runs/P2_BGS_V003_FINAL_FROZEN_OCR_002",
+  "tile_count": 0,
+  "wall_time_seconds": 0.013241291002486832
+}
