@@ -2494,3 +2494,12 @@
   `d6a2160ea74a65c70b3a0df3d8ad2da10629e88bf12ddea46e6dceaa805be56e`.
 - v003 is frozen and unopened. Its single-source size is a severe limitation;
   it is a replacement confirmation check, not sufficient generalization proof.
+
+## 2026-08-16 — BGS v002 validation-role transition
+
+- Preserved the v023 v002 result as its formal failed external confirmation.
+- After v003 was frozen, explicitly demoted v002 to validation for subsequent
+  failure attribution and method development. No later v002 score may be called
+  external evidence.
+- v003 remains unopened. A future method must be frozen before its one allowed
+  evaluation, and the one-source denominator must remain explicit.
