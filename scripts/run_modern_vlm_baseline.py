@@ -193,7 +193,11 @@ def main() -> None:
         },
         "started_utc": datetime.now(timezone.utc).isoformat(),
     })
+    # Persist after every page. A request can take minutes on a loaded local
+    # server, so a finished page must survive a process or host interruption.
+    checkpoint_path = run / "page_predictions.partial.jsonl"
     page_rows: list[dict[str, Any]] = []
+    _write_jsonl(checkpoint_path, page_rows)
     errors: list[dict[str, Any]] = []
     for ordinal, page in enumerate(pages, 1):
         image_path = Path(str(page["image_path"]))
@@ -202,6 +206,7 @@ def main() -> None:
             row = resumed[page_key]
             row["resumed"] = True
             page_rows.append(row)
+            _write_jsonl(checkpoint_path, page_rows)
             continue
         row: dict[str, Any] = {
             "page_key": page_key,
@@ -235,6 +240,7 @@ def main() -> None:
             row["error"] = f"{type(exc).__name__}: {exc}"
             errors.append({"page_key": page_key, "record_id": row["record_id"], "error_type": "modern_vlm_page_failure", "message": row["error"]})
         page_rows.append(row)
+        _write_jsonl(checkpoint_path, page_rows)
         print(json.dumps({"progress": f"{ordinal}/{len(pages)}", "page_key": page_key, "status": row["parse_status"]}, ensure_ascii=False), flush=True)
     per_record: dict[str, list[dict[str, Any]]] = {record_id: [] for record_id in source_by_id}
     for row in page_rows:
@@ -294,6 +300,7 @@ def main() -> None:
         ],
     }
     _write_jsonl(run / "page_predictions.jsonl", page_rows)
+    checkpoint_path.unlink(missing_ok=True)
     _write_jsonl(run / "predictions.jsonl", document_rows)
     _write_jsonl(run / "errors.jsonl", errors)
     (run / "metrics.json").write_text(json.dumps(metrics, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
