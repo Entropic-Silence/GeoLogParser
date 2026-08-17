@@ -80,7 +80,7 @@ def audit(config_path: Path, root: Path) -> dict:
                 )
     return {
         "audit_version": config["audit_version"],
-        "config": str(config_path.relative_to(root)),
+        "config": config_path.relative_to(root).as_posix(),
         "observation_count": len(observations),
         "passed": not errors,
         "errors": errors,

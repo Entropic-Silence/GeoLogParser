@@ -13,6 +13,10 @@ from geologparser.paper_package import audit_manuscript, evidence_markdown, revi
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def write_text_lf(path: Path, contents: str) -> None:
+    path.write_bytes(contents.encode("utf-8"))
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--paper-root", type=Path, default=ROOT / "papers")
@@ -43,15 +47,15 @@ def main() -> None:
         for stale_bundle in output_root.glob("manuscript_*.md"):
             if stale_bundle != bundle_path:
                 stale_bundle.unlink()
-        audit_path.write_text(json.dumps(audit, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-        audit_md_path.write_text(evidence_markdown(audit), encoding="utf-8")
+        write_text_lf(audit_path, json.dumps(audit, indent=2, sort_keys=True) + "\n")
+        write_text_lf(audit_md_path, evidence_markdown(audit))
         manuscript_text = manuscript.read_text(encoding="utf-8")
         if supplement.is_file():
             manuscript_text += "\n\n# Linked Supplementary Material\n\n" + supplement.read_text(encoding="utf-8")
         generated_text = major_revision_tables.read_text(encoding="utf-8")
         generated_text += "\n\n# Full Indexed Result Catalogue\n\n"
         generated_text += generated_results.read_text(encoding="utf-8")
-        bundle_path.write_text(review_bundle(manuscript_text, generated_text, audit), encoding="utf-8")
+        write_text_lf(bundle_path, review_bundle(manuscript_text, generated_text, audit))
         package_rows.append({
             "paper": paper, "package_label": audit["package_label"],
             "scientific_content_ready": audit["scientific_content_ready"],
@@ -82,7 +86,7 @@ def main() -> None:
         "all_submission_ready": all(row["submission_ready"] for row in package_rows),
     }
     destination = arguments.paper_root / "package_manifest.json"
-    destination.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    write_text_lf(destination, json.dumps(manifest, indent=2, sort_keys=True) + "\n")
     print(destination)
 
 

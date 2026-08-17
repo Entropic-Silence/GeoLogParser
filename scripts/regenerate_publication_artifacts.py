@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Regenerate manuscript-facing tables, figures, and numeric claim audit."""
+"""Regenerate manuscript-facing tables, optional figures, and numeric claim audit."""
 from __future__ import annotations
 
 import argparse
@@ -31,6 +31,10 @@ def digest(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def write_text_lf(path: Path, contents: str) -> None:
+    path.write_bytes(contents.encode("utf-8"))
+
+
 def update_figure_manifest(sources: dict[str, Path], outputs: list[Path]) -> None:
     destination = ROOT / "papers/figure_manifest.json"
     manifest = json.loads(destination.read_text(encoding="utf-8")) if destination.is_file() else {
@@ -52,7 +56,7 @@ def update_figure_manifest(sources: dict[str, Path], outputs: list[Path]) -> Non
             "path": path.relative_to(ROOT).as_posix(),
             "sha256": digest(path),
         }
-    destination.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    write_text_lf(destination, json.dumps(manifest, indent=2, sort_keys=True) + "\n")
     print(destination)
 
 
@@ -70,11 +74,15 @@ def load_index(paper: str, publication_core: bool) -> list[dict]:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--publication-core", action="store_true")
+    parser.add_argument(
+        "--skip-figures", action="store_true",
+        help="regenerate exact text/JSON artifacts without platform-dependent PNG rasterization",
+    )
     arguments = parser.parse_args()
     for paper, generator in (("paper1", paper1_table), ("paper2", paper2_table), ("paper3", paper3_table)):
         destination = ROOT / "papers" / paper / "generated/current_results.md"
         destination.parent.mkdir(parents=True, exist_ok=True)
-        destination.write_text(generator(load_index(paper, arguments.publication_core), ROOT), encoding="utf-8")
+        write_text_lf(destination, generator(load_index(paper, arguments.publication_core), ROOT))
         print(destination)
 
     california = ROOT / "experiments/paper1/analysis/california_replication_statistics_v001.json"
@@ -89,32 +97,33 @@ def main() -> None:
         ROOT / "papers/paper3/generated/major_revision_tables.md": paper3_major_revision_tables(spatial),
     }
     for destination, contents in major_revision_outputs.items():
-        destination.write_text(contents, encoding="utf-8")
+        write_text_lf(destination, contents)
         print(destination)
-    figure_outputs = [
-        ROOT / "papers/paper1/generated/figures/california_cohort_forest.png",
-        ROOT / "papers/paper1/generated/figures/california_selection_flow.png",
-        ROOT / "papers/paper2/generated/figures/sequence_risk_frontier.png",
-        ROOT / "papers/paper2/generated/figures/risk_threshold_curve.png",
-        ROOT / "papers/paper3/generated/figures/spatial_support_sensitivity.png",
-    ]
-    save_california_cohort_forest(california, figure_outputs[0])
-    save_california_selection_flow(california_selection, figure_outputs[1])
-    save_paper2_sequence_risk(ablation, risk, figure_outputs[2])
-    save_paper2_threshold_curve(threshold_curve, figure_outputs[3])
-    save_paper3_spatial_support(spatial, figure_outputs[4])
-    update_figure_manifest({
-        "california_replication": california,
-        "california_selection": california_selection,
-        "paper2_candidate_pool_ablation": ablation,
-        "paper2_document_risk": risk,
-        "paper2_threshold_curve": threshold_curve,
-        "paper3_spatial_sensitivity": spatial,
-    }, figure_outputs)
+    if not arguments.skip_figures:
+        figure_outputs = [
+            ROOT / "papers/paper1/generated/figures/california_cohort_forest.png",
+            ROOT / "papers/paper1/generated/figures/california_selection_flow.png",
+            ROOT / "papers/paper2/generated/figures/sequence_risk_frontier.png",
+            ROOT / "papers/paper2/generated/figures/risk_threshold_curve.png",
+            ROOT / "papers/paper3/generated/figures/spatial_support_sensitivity.png",
+        ]
+        save_california_cohort_forest(california, figure_outputs[0])
+        save_california_selection_flow(california_selection, figure_outputs[1])
+        save_paper2_sequence_risk(ablation, risk, figure_outputs[2])
+        save_paper2_threshold_curve(threshold_curve, figure_outputs[3])
+        save_paper3_spatial_support(spatial, figure_outputs[4])
+        update_figure_manifest({
+            "california_replication": california,
+            "california_selection": california_selection,
+            "paper2_candidate_pool_ablation": ablation,
+            "paper2_document_risk": risk,
+            "paper2_threshold_curve": threshold_curve,
+            "paper3_spatial_sensitivity": spatial,
+        }, figure_outputs)
 
     report = audit(ROOT / "papers/manuscript_metric_bindings.json", ROOT)
     audit_path = ROOT / "docs/generated/manuscript_metric_audit.json"
-    audit_path.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    write_text_lf(audit_path, json.dumps(report, indent=2, sort_keys=True) + "\n")
     if not report["passed"]:
         raise SystemExit("\n".join(report["errors"]))
     print(audit_path)

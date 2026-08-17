@@ -45,7 +45,7 @@ jobs:
       - name: Manuscript numeric bindings
         run: python scripts/audit_manuscript_metrics.py
       - name: Rebuild publication-facing artifacts
-        run: python scripts/regenerate_publication_artifacts.py --publication-core
+        run: python scripts/regenerate_publication_artifacts.py --publication-core --skip-figures
       - name: Rebuild manuscript review packages
         run: python scripts/build_paper_packages.py
       - name: Generated artifacts are committed

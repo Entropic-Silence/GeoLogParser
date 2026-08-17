@@ -16,6 +16,11 @@ from geologparser.manuscript_metrics import audit
 
 ROOT = Path(__file__).resolve().parents[1]
 
+
+def write_text_lf(path: Path, contents: str) -> None:
+    path.write_bytes(contents.encode("utf-8"))
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -29,7 +34,7 @@ def main() -> None:
     arguments = parser.parse_args()
     report = audit(arguments.config.resolve(), ROOT)
     arguments.output.parent.mkdir(parents=True, exist_ok=True)
-    arguments.output.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    write_text_lf(arguments.output, json.dumps(report, indent=2, sort_keys=True) + "\n")
     if report["errors"]:
         raise SystemExit("\n".join(report["errors"]))
     print(arguments.output)
