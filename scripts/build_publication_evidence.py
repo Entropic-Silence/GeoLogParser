@@ -52,6 +52,12 @@ def copy_exact(source: Path, destination: Path) -> None:
     shutil.copyfile(source, destination)
 
 
+def replace_tree(staging: Path, destination: Path) -> None:
+    if destination.is_dir():
+        shutil.rmtree(destination)
+    staging.rename(destination)
+
+
 def public_record_key(record_id: str) -> str:
     return hashlib.sha256(
         f"geologparser-publication-v001:{record_id}".encode()
@@ -180,7 +186,9 @@ def main() -> None:
     bundle = root / "publication_evidence"
     core_root = bundle / "result_core"
     external_root = bundle / "external"
-    for generated_root in (core_root, external_root):
+    core_staging = bundle / ".result_core.staging"
+    external_staging = bundle / ".external.staging"
+    for generated_root in (core_staging, external_staging):
         if generated_root.is_dir():
             shutil.rmtree(generated_root)
     registry_path = root / "papers" / "claim_registry.json"
@@ -195,16 +203,19 @@ def main() -> None:
             entry = json.loads(line)
             result_path = Path(entry["result_path"])
             source_root = root / result_path
-            target_root = core_root / result_path
+            target_root = core_staging / result_path
             for filename, hash_key in (("run.json", "run_sha256"), ("metrics.json", "metrics_sha256")):
                 source = source_root / filename
+                if not source.is_file():
+                    source = core_root / result_path / filename
                 if not source.is_file():
                     raise FileNotFoundError(source)
                 if sha256(source) != entry[hash_key]:
                     raise ValueError(f"index hash mismatch before publication copy: {source}")
                 destination = target_root / filename
                 copy_exact(source, destination)
-                copied_core[str(destination.relative_to(root))] = {
+                final_destination = core_root / result_path / filename
+                copied_core[str(final_destination.relative_to(root))] = {
                     "sha256": sha256(destination),
                     "experiment_id": entry["experiment_id"],
                     "paper": paper,
@@ -216,13 +227,19 @@ def main() -> None:
         origin = Path(origin_text)
         if not origin.is_absolute() or not str(origin).startswith("/data/GeoLogParser/"):
             continue
-        if not origin.is_file():
-            raise FileNotFoundError(origin)
         claim.setdefault("origin_source_path", str(origin))
-        claim.setdefault("origin_source_sha256", sha256(origin))
         relative = Path("publication_evidence/external") / claim_id / "claim_snapshot.json"
-        destination = root / relative
-        build_assertion_snapshot(claim_id, claim, origin, destination)
+        destination = external_staging / claim_id / "claim_snapshot.json"
+        if origin.is_file():
+            claim.setdefault("origin_source_sha256", sha256(origin))
+            build_assertion_snapshot(claim_id, claim, origin, destination)
+        else:
+            committed = root / claim["source_path"]
+            if not committed.is_file():
+                raise FileNotFoundError(origin)
+            if sha256(committed) != claim["source_sha256"]:
+                raise ValueError(f"committed external projection hash mismatch: {claim_id}")
+            copy_exact(committed, destination)
         claim["source_path"] = str(relative)
         claim["source_sha256"] = sha256(destination)
         claim["publication_evidence_mode"] = "assertion_projection"
@@ -239,13 +256,15 @@ def main() -> None:
         claim.setdefault("origin_source_path", origin_text)
         claim.setdefault("origin_source_sha256", claim["source_sha256"])
         relative = Path("publication_evidence/result_core") / origin_text
-        destination = root / relative
+        destination = core_staging / origin_text
         if not destination.is_file():
             source = root / origin_text
             if not source.is_file():
+                source = core_root / origin_text
+            if not source.is_file():
                 raise FileNotFoundError(source)
             copy_exact(source, destination)
-            copied_core[str(destination.relative_to(root))] = {
+            copied_core[str(relative)] = {
                 "sha256": sha256(destination),
                 "experiment_id": claim.get("experiment_id", "claim-only"),
                 "paper": claim["paper"],
@@ -259,26 +278,35 @@ def main() -> None:
         claim["publication_evidence_mode"] = "exact_metrics_copy"
 
     document_root = bundle / "document_outputs"
-    if document_root.is_dir():
-        shutil.rmtree(document_root)
+    document_staging = bundle / ".document_outputs.staging"
+    if document_staging.is_dir():
+        shutil.rmtree(document_staging)
     document_outputs: dict[str, dict[str, object]] = {}
     for result_path_text in DOCUMENT_OUTPUT_RUNS:
         result_path = Path(result_path_text)
         source_root = root / result_path
-        if not source_root.is_dir():
-            raise FileNotFoundError(source_root)
         for filename in ("predictions.jsonl", "errors.jsonl"):
             source = source_root / filename
-            if not source.is_file():
-                continue
-            destination = document_root / result_path / filename
-            row_count = sanitize_jsonl(source, destination)
-            relative = str(destination.relative_to(root))
+            destination = document_staging / result_path / filename
+            if source.is_file():
+                row_count = sanitize_jsonl(source, destination)
+            else:
+                committed = document_root / result_path / filename
+                if not committed.is_file():
+                    continue
+                copy_exact(committed, destination)
+                row_count = sum(1 for line in destination.read_text(encoding="utf-8").splitlines() if line.strip())
+            relative_path = Path("publication_evidence/document_outputs") / result_path / filename
+            relative = str(relative_path)
             document_outputs[relative] = {
                 "sha256": sha256(destination),
                 "row_count": row_count,
                 "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
             }
+
+    replace_tree(core_staging, core_root)
+    replace_tree(external_staging, external_root)
+    replace_tree(document_staging, document_root)
 
     registry_path.write_text(
         json.dumps(registry, ensure_ascii=False, indent=2) + "\n",
