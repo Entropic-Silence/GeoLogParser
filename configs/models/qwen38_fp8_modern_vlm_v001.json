@@ -1,0 +1,15 @@
+{
+  "base_url": "http://127.0.0.1:18000",
+  "model_id": "qwen38-fp8-tp4-mtp4-long",
+  "model_revision": "local_Qwen3.8-27B-FP8_qwen3_5_architecture_fp8_e4m3",
+  "api_key_env": "VLLM_API_KEY",
+  "max_tokens": 1024,
+  "temperature": 0.0,
+  "hardware": "local_vllm_tensor_parallel_4x_RTX_2080_Ti",
+  "gpu_used": true,
+  "request_options": {
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    }
+  }
+}
