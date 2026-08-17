@@ -13,7 +13,7 @@ reliability properties remain unique to an evidence-aware routed parser?
 ## Frozen Common Protocol
 
 Every model receives the same 200-DPI rendered page, the same
-`vlm_interval_source_units_v002` prompt, greedy decoding and a 1,024-token
+`vlm_interval_source_units_v002` prompt, greedy decoding and a 4,096-token
 limit. It returns source-unit interval JSON. A shared deterministic decoder
 only converts feet to metres and discards invalid ranges; it does not complete,
 repair or deduplicate intervals. Page outputs are concatenated in document
@@ -34,6 +34,17 @@ official, versioned endpoint with documented image input. It must remain
 `NOT RUN` until a valid direct credential and exact endpoint model ID are
 available; ChatGPT/Codex session identity and opaque model proxies are not
 valid experimental backends.
+
+## Protocol History
+
+`paper1_modern_vlm_v001` was a resource-feasibility preflight. It used a
+1,024-token completion ceiling and revealed that long, otherwise valid direct
+JSON sequences can be cut off before the closing brace. It is retained as a
+negative deployment observation and is not a formal accuracy result. Revision
+`v002` changes only the common maximum completion budget to 4,096 tokens. The
+prompt, models, rendered pages, normalizer, matcher and evaluation cohorts are
+unchanged. This post-hoc transport correction is recorded explicitly and uses
+no Gold label or model-error-driven logic.
 
 ## Metrics
 

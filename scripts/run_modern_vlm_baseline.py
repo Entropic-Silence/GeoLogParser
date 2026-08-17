@@ -92,6 +92,7 @@ def main() -> None:
     parser.add_argument("--source-manifest", type=Path, required=True)
     parser.add_argument("--page-manifest", type=Path, required=True)
     parser.add_argument("--provider-config", type=Path, required=True)
+    parser.add_argument("--protocol-config", type=Path)
     parser.add_argument("--prompt", type=Path, required=True)
     parser.add_argument("--results-root", type=Path, default=ROOT / "results")
     parser.add_argument("--resume-page-predictions", type=Path)
@@ -151,6 +152,7 @@ def main() -> None:
             "source_manifest_sha256": file_sha256(arguments.source_manifest),
             "page_manifest_sha256": file_sha256(arguments.page_manifest),
             "provider_config_sha256": file_sha256(arguments.provider_config),
+            "protocol_config_sha256": file_sha256(arguments.protocol_config) if arguments.protocol_config else None,
             "prompt_sha256": _hash_text(prompt),
             "source_unit": "ft",
             "metres_per_source_unit": arguments.scale_to_m,
