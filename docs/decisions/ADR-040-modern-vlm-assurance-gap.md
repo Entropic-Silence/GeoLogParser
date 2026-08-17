@@ -44,8 +44,8 @@ and operating policy are registered. BGS v003 remains permanently excluded.
 The extension is eligible for a held-out California evaluation only when a
 synthetic-plus-v001 development study demonstrates all of the following:
 
-- source-field evidence coverage of at least 0.70 among proposed critical
-  depth fields;
+- same-page positioned numeric-anchor coverage of at least 0.70 among proposed
+  critical depth fields, reported separately from semantic ownership coverage;
 - no increase in deterministic critical-numeric invalidity after acceptance;
 - a predeclared, non-zero coverage operating point with higher selective
   precision than the unfiltered VLM proposal; and
