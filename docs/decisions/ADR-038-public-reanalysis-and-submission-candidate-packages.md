@@ -14,7 +14,7 @@ The Paper III public-coordinate transform also exposed numerical origin dependen
 
 ## Decision
 
-- Release a deidentified Paper II candidate pool containing normalized geometry, sequence scores, reference intervals, and stable salted keys, but no OCR text, raw bbox, source ID, or path.
+- Release a pseudonymized Paper II candidate pool containing normalized geometry, sequence scores, reference intervals, and stable salted keys, but no OCR text, raw bbox, source ID, or path. Exact depth sequences remain linkable to public tables, so anonymity is not claimed.
 - Release a Paper III input obtained by centroid subtraction, rigid rotation, and vertical-origin subtraction, with no source ID or absolute origin.
 - Evaluate polygon area and hull-clipped grids in a local coordinate frame, use scale-aware edge tolerance, and treat sub-micrometre coordinate differences as identical IDW support.
 - Regenerate Paper III sensitivity values from the stabilized implementation. The reanalysis, rather than the earlier origin-sensitive point estimate, supplies the manuscript headline.

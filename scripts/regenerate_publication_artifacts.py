@@ -19,6 +19,8 @@ from geologparser.paper_figures import (
     save_paper2_sequence_risk,
     save_paper2_threshold_curve,
     save_paper3_spatial_support,
+    save_method_schematic,
+    save_controlled_error_class_propagation,
 )
 
 from geologparser.manuscript_metrics import audit
@@ -90,10 +92,11 @@ def main() -> None:
     ablation = ROOT / "experiments/paper2/analysis/california_candidate_pool_ablation_v001.json"
     risk = ROOT / "experiments/paper2/analysis/california_document_risk_v001.json"
     threshold_curve = ROOT / "experiments/paper2/analysis/california_risk_threshold_curve_v001.json"
+    depth_sensitivity = ROOT / "experiments/paper2/analysis/california_depth_start_sensitivity_v001.json"
     spatial = ROOT / "experiments/paper3/analysis/swissgeol_spatial_sensitivity_v001.json"
     major_revision_outputs = {
         ROOT / "papers/paper1/generated/major_revision_tables.md": paper1_major_revision_table(california),
-        ROOT / "papers/paper2/generated/major_revision_tables.md": paper2_major_revision_tables(ablation, risk),
+        ROOT / "papers/paper2/generated/major_revision_tables.md": paper2_major_revision_tables(ablation, risk, depth_sensitivity),
         ROOT / "papers/paper3/generated/major_revision_tables.md": paper3_major_revision_tables(spatial),
     }
     for destination, contents in major_revision_outputs.items():
@@ -106,18 +109,25 @@ def main() -> None:
             ROOT / "papers/paper2/generated/figures/sequence_risk_frontier.png",
             ROOT / "papers/paper2/generated/figures/risk_threshold_curve.png",
             ROOT / "papers/paper3/generated/figures/spatial_support_sensitivity.png",
+            ROOT / "papers/paper2/generated/figures/method_schematic.png",
+            ROOT / "papers/paper3/generated/figures/controlled_error_classes.png",
         ]
         save_california_cohort_forest(california, figure_outputs[0])
         save_california_selection_flow(california_selection, figure_outputs[1])
         save_paper2_sequence_risk(ablation, risk, figure_outputs[2])
         save_paper2_threshold_curve(threshold_curve, figure_outputs[3])
         save_paper3_spatial_support(spatial, figure_outputs[4])
+        save_method_schematic(figure_outputs[5])
+        save_controlled_error_class_propagation(
+            load_index("paper3", arguments.publication_core), ROOT, figure_outputs[6]
+        )
         update_figure_manifest({
             "california_replication": california,
             "california_selection": california_selection,
             "paper2_candidate_pool_ablation": ablation,
             "paper2_document_risk": risk,
             "paper2_threshold_curve": threshold_curve,
+            "paper2_depth_start_sensitivity": depth_sensitivity,
             "paper3_spatial_sensitivity": spatial,
         }, figure_outputs)
 

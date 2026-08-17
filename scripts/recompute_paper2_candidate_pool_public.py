@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Recompute Paper II sequence variants from the deidentified public pool."""
+"""Recompute Paper II sequence variants from the pseudonymized public pool."""
 from __future__ import annotations
 
 import argparse

@@ -26,7 +26,11 @@ Aligning candidates to description-row edges was weakly discriminative (rank AUC
 
 Alias-only routing produced high precision at low coverage. Broadening the alias set raised family recognition but lowered accepted precision and increased CNER, so that expansion was rejected. A secondary calibration lookup and an exact cross-reader agreement rule produced useful selective subsets, but both were specified after the primary held-out method result and remain exploratory.
 
-## S6. Synthetic and no-reference engineering checks
+## S6. Shallow-start prior sensitivity
+
+The path-start penalty was varied on the unchanged public v004/v005 candidate pools. Coefficients of 0, 0.0005, 0.001, 0.0025, and 0.005 per foot all produced v004 F1 0.5662. Corresponding v005 F1 values were 0.5310, 0.5304, 0.5297, 0.5297, and 0.5297. Candidate counts, matcher, and references were fixed. This post-hoc sensitivity shows that the reported sequence effect is not driven by the selected 0.0005 coefficient; it is not a threshold search or a new confirmatory experiment. The exact values are generated from `california_depth_start_sensitivity_v001.json`.
+
+## S7. Synthetic and no-reference engineering checks
 
 The executed 127-case synthetic experiment verifies that the actual constraint evaluator, rereading ranker, and calibration path are wired correctly. It does not estimate real-document effect. A two-ROI Padova audit produced schema-valid numeric candidates but both decisions remained NEEDS_REVIEW; no accuracy or FCR is defined because the annotations are not independent reference labels.
 

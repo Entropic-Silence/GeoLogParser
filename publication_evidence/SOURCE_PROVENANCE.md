@@ -10,6 +10,14 @@ author must verify the exact item-level licence, attribution, redistribution,
 privacy, and sensitive-location scope recorded in
 `datasets/source_verification_ledger.yaml` and `docs/submission_blockers.md`.
 
+The document-level and reanalysis projections are pseudonymized or transformed,
+not anonymous. Exact depth-sequence lookup links 198/200 Paper II records
+uniquely within the released cohort manifests, and rigid distance fingerprints
+link all 35 Paper III points to the matching original point set. Aggregate
+diagnostics are recorded in `analysis_inputs/linkage/`; no record mapping is
+released. Rights and sensitive-location review must explicitly account for
+this linkability.
+
 Included summary families:
 
 - BGS metadata robustness inventory.

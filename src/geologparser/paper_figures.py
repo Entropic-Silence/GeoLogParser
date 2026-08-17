@@ -253,25 +253,28 @@ def save_california_cohort_forest(analysis_path: Path, destination: Path) -> Non
         metric = source["rapidocr_document_cluster_metrics"]
         rows.append((label, metric["f1"], metric["bootstrap_percentile_95_ci"]["f1"]))
     plt = _plt()
-    fig, axis = plt.subplots(figsize=(8.2, 4.8))
+    fig, axis = plt.subplots(figsize=(8.5, 5.4))
     y = list(reversed(range(len(rows))))
     values = [row[1] for row in rows]
     lower = [value - row[2][0] for value, row in zip(values, rows)]
     upper = [row[2][1] - value for value, row in zip(values, rows)]
     colors = ["#2f6f8f"] * 5 + ["#777777"]
-    for position, value, low, high, color in zip(y, values, lower, upper, colors):
-        axis.errorbar(value, position, xerr=[[low], [high]], fmt="o", capsize=4, color=color)
+    for index, (position, value, low, high, color) in enumerate(zip(y, values, lower, upper, colors)):
+        marker = "s" if index == len(rows) - 1 else "o"
+        axis.errorbar(value, position, xerr=[[low], [high]], fmt=marker, capsize=4, color=color)
+        axis.text(value + high + .008, position, f"{value:.3f}", va="center", fontsize=8)
     axis.set_yticks(y, [row[0] for row in rows])
-    axis.set_xlim(0.2, 0.58)
+    axis.set_xlim(0.2, 0.61)
     axis.set_xlabel("Interval F1 (document-cluster percentile 95% interval)")
     axis.set_title("California multi-cohort extraction stability")
     axis.grid(axis="x", alpha=.2)
-    axis.text(
-        .99, .03,
+    axis.axhline(.5, color="#bbbbbb", linewidth=.8)
+    fig.text(
+        .5, .025,
         "*Pooled estimate is descriptive; cohorts have no population sampling weights.",
-        transform=axis.transAxes, ha="right", fontsize=8,
+        ha="center", fontsize=8,
     )
-    fig.tight_layout()
+    fig.tight_layout(rect=(0, .07, 1, 1))
     destination.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(destination, dpi=180, bbox_inches="tight")
     plt.close(fig)
@@ -282,17 +285,21 @@ def save_california_selection_flow(analysis_path: Path, destination: Path) -> No
     analysis = json.loads(analysis_path.read_text(encoding="utf-8"))
     stages = analysis["stages"]
     plt = _plt()
-    fig, axis = plt.subplots(figsize=(10.5, 6.2))
+    fig, axis = plt.subplots(figsize=(10.5, 7.2))
     axis.axis("off")
-    y_positions = list(reversed([0.1 + index * 0.16 for index in range(len(stages))]))
+    y_positions = [0.88 - index * (0.72 / max(1, len(stages) - 1)) for index in range(len(stages))]
     for index, (stage, y) in enumerate(zip(stages, y_positions)):
         label = f"{stage['label']}\n{stage['document_count']:,} documents / {stage['interval_count']:,} intervals"
-        axis.text(0.5, y, label, ha="center", va="center", fontsize=9, bbox={"boxstyle": "round,pad=0.5", "facecolor": "#eef4f7", "edgecolor": "#2f6f8f"})
+        axis.text(0.58, y, label, ha="center", va="center", fontsize=9, bbox={"boxstyle": "round,pad=0.5", "facecolor": "#eef4f7", "edgecolor": "#2f6f8f"})
         if index:
             previous_y = y_positions[index - 1]
             removed = stage.get("documents_removed_from_previous", 0)
-            annotation = f"−{removed:,} documents" if removed >= 0 else "fixed acquisition budget"
-            axis.annotate(annotation, xy=(0.5, y + 0.045), xytext=(0.5, previous_y - 0.045), ha="center", va="center", fontsize=8, arrowprops={"arrowstyle": "->", "color": "#555555"})
+            annotation = f"-{removed:,} documents" if removed >= 0 else "fixed acquisition budget"
+            axis.annotate(
+                "", xy=(0.58, y + .048), xytext=(0.58, previous_y - .048),
+                arrowprops={"arrowstyle": "->", "color": "#555555"},
+            )
+            axis.text(0.20, (previous_y + y) / 2, annotation, ha="left", va="center", fontsize=8, color="#444444")
     axis.set_xlim(0, 1)
     axis.set_ylim(0, 1)
     axis.set_title("California eligibility, acquisition, and formal-evaluation flow", fontsize=12)
@@ -313,6 +320,20 @@ def save_paper2_sequence_risk(
         "continuity_sequence": "+ continuity",
         "complete_sequence": "Complete",
     }
+    offsets = {
+        "v004": {
+            "candidate_pool_without_sequence": (6, -12),
+            "monotonic_sequence": (6, 5),
+            "continuity_sequence": (6, -14),
+            "complete_sequence": (6, 6),
+        },
+        "v005": {
+            "candidate_pool_without_sequence": (6, -12),
+            "monotonic_sequence": (6, 5),
+            "continuity_sequence": (6, -15),
+            "complete_sequence": (6, 7),
+        },
+    }
     plt = _plt()
     fig, axes = plt.subplots(1, 2, figsize=(11, 4.8), sharey=True)
     for axis, freeze in zip(axes, ("v004", "v005")):
@@ -321,13 +342,15 @@ def save_paper2_sequence_risk(
             f1 = data["metrics"][variant]["interval_f1"]["value"]
             fcr = data["correction_safety"][variant]["false_correction_rate"]
             axis.scatter(fcr, f1, s=55)
-            axis.annotate(label, (fcr, f1), xytext=(4, 4), textcoords="offset points", fontsize=8)
+            axis.annotate(label, (fcr, f1), xytext=offsets[freeze][variant], textcoords="offset points", fontsize=8)
         risk_f1 = risk["freezes"][freeze]["addition_only_risk"]["f1"]
         axis.scatter(0, risk_f1, marker="*", s=130, color="#2ca02c", label="Addition-only")
+        axis.annotate("Addition-only", (0, risk_f1), xytext=(8, -3), textcoords="offset points", fontsize=8, color="#206d20")
         axis.set_title(freeze)
         axis.set_xlabel("False-correction rate")
         axis.grid(alpha=.2)
-        axis.set_xlim(-.015, .36)
+        axis.set_xlim(-.025, .38)
+        axis.set_ylim(.39, .60)
     axes[0].set_ylabel("Interval F1")
     axes[0].legend(loc="lower right", fontsize=8)
     fig.suptitle("Sequence recovery versus correction harm (fixed candidate pool)")
@@ -378,8 +401,12 @@ def save_paper3_spatial_support(analysis_path: Path, destination: Path) -> None:
     plt = _plt()
     fig, axes = plt.subplots(1, 3, figsize=(13, 4.5))
     x = list(range(3))
-    axes[0].bar(x, [full[v]["aggregate"]["relative_absolute_volume_error"] for v in variants], color=colors)
-    axes[0].set_title("Full-support volume diagnostic")
+    full_values = [full[v]["aggregate"]["relative_absolute_volume_error"] for v in variants]
+    jackknife = analysis["volume_jackknife"]["full_support"]["variants"]
+    lower = [value - jackknife[variant]["relative_absolute_volume_error"]["minimum"] for variant, value in zip(variants, full_values)]
+    upper = [jackknife[variant]["relative_absolute_volume_error"]["maximum"] - value for variant, value in zip(variants, full_values)]
+    axes[0].bar(x, full_values, yerr=[lower, upper], capsize=5, color=colors)
+    axes[0].set_title("Full-support volume diagnostic\n(error bars: borehole jackknife range)")
     axes[0].set_ylabel("Relative absolute volume error")
     axes[1].bar(x, [matched[v]["aggregate"]["relative_absolute_volume_error"] for v in variants], color=colors)
     axes[1].set_title("Matched 15-document subset")
@@ -582,39 +609,66 @@ def save_controlled_error_class_propagation(
     grouped: dict[str, list[dict[str, Any]]] = {}
     for condition in metrics["conditions"]:
         grouped.setdefault(condition["error_type"], []).append(condition)
-    labels = list(grouped)
-    colors = ["#4e79a7", "#f28e2b", "#e15759", "#76b7b2", "#59a14f", "#af7aa1"]
+    labels = [
+        "boundary_shift", "coordinate_shift", "missing_boundary",
+        "merged_layer", "split_layer", "duplicate_boundary",
+    ]
+    titles = {
+        "boundary_shift": "Boundary displacement",
+        "coordinate_shift": "Coordinate displacement",
+        "missing_boundary": "Missing boundary",
+        "merged_layer": "Merged layer",
+        "split_layer": "Split layer",
+        "duplicate_boundary": "Duplicate boundary",
+    }
+    x_labels = {
+        "boundary_shift": "Displacement (m)",
+        "coordinate_shift": "Displacement (m)",
+        "missing_boundary": "Affected documents",
+        "merged_layer": "Affected documents",
+        "split_layer": "Affected documents",
+        "duplicate_boundary": "Affected documents",
+    }
     plt = _plt()
-    fig, axes = plt.subplots(2, 1, figsize=(9, 8), sharex=True)
-    for label, color in zip(labels, colors):
+    from matplotlib.lines import Line2D
+    fig, axes = plt.subplots(2, 3, figsize=(14, 8))
+    for axis, label in zip(axes.flat, labels):
         rows = sorted(grouped[label], key=lambda row: row["severity_index"])
-        axes[0].plot(
-            [row["severity_index"] for row in rows],
+        x = [float(row["parameter"]) for row in rows]
+        if rows[0]["parameter_unit"] == "affected_document_fraction":
+            x = [value * 100 for value in x]
+        axis.plot(
+            x,
             [row["surface_error"]["mae_m"]["mean"] for row in rows],
-            marker="o", label=label.replace("_", " "), color=color,
+            marker="o", color="#4e79a7", label="Surface MAE",
         )
-        axes[1].plot(
-            [row["severity_index"] for row in rows],
+        rate_axis = axis.twinx()
+        rate_axis.plot(
+            x,
             [1 - row["spatial_support_coverage"]["mean"] for row in rows],
-            marker="o", linestyle="--", color=color,
+            marker="o", linestyle="--", color="#e15759", label="Support loss",
         )
-        axes[1].plot(
-            [row["severity_index"] for row in rows],
+        rate_axis.plot(
+            x,
             [row["topological_mismatch_document_rate"]["mean"] for row in rows],
-            marker="s", linestyle="-", color=color,
+            marker="s", linestyle=":", color="#59a14f", label="Topology mismatch",
         )
-    axes[0].set_ylabel("Surface MAE (m)")
-    axes[0].set_title("Controlled error-class propagation on authoritative records")
-    axes[0].grid(alpha=.2)
-    axes[0].legend(ncol=2, fontsize=8)
-    axes[1].set_xlabel("Within-class severity level (class-specific parameter)")
-    axes[1].set_ylabel("Rate")
-    axes[1].set_xticks([1, 2, 3])
-    axes[1].set_ylim(-.02, .6)
-    axes[1].grid(alpha=.2)
-    axes[1].text(.01, .95, "solid squares: topology mismatch; dashed circles: support loss", transform=axes[1].transAxes, va="top", fontsize=8)
-    axes[1].text(.99, .04, entry["experiment_id"], transform=axes[1].transAxes, ha="right", fontsize=7)
-    fig.tight_layout()
+        axis.set_title(titles[label])
+        axis.set_xlabel(x_labels[label] + (" (%)" if rows[0]["parameter_unit"] == "affected_document_fraction" else ""))
+        axis.set_ylabel("Surface MAE (m)")
+        rate_axis.set_ylabel("Rate")
+        rate_axis.set_ylim(-.03, 1.03)
+        axis.set_xticks(x)
+        axis.grid(alpha=.2)
+    handles = [
+        Line2D([], [], color="#4e79a7", marker="o", label="Surface MAE"),
+        Line2D([], [], color="#e15759", marker="o", linestyle="--", label="Support loss"),
+        Line2D([], [], color="#59a14f", marker="s", linestyle=":", label="Topology mismatch"),
+    ]
+    fig.suptitle("Within-class dose-response on authoritative records; x-axes are not comparable", y=.995)
+    fig.legend(handles=handles, loc="upper center", bbox_to_anchor=(.5, .955), ncol=3, frameon=False)
+    fig.text(.99, .01, entry["experiment_id"], ha="right", fontsize=7)
+    fig.tight_layout(rect=(0, .03, 1, .88))
     destination.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(destination, dpi=180)
     plt.close(fig)
@@ -661,23 +715,37 @@ def save_page_spatial_surface(
 
 def save_method_schematic(destination: Path) -> None:
     plt = _plt()
-    fig, axis = plt.subplots(figsize=(12, 4))
+    fig, axis = plt.subplots(figsize=(12, 5.2))
     axis.axis("off")
-    boxes = [
-        ("OCR + layout\n+ VLM", .03), ("Initial\nrecord", .21),
-        ("C1–C10\nconstraints", .39), ("ROI reread\n+ candidates", .57),
-        ("Ranking +\ncalibration", .75), ("Accept or\nreview", .91),
-    ]
-    for index, (label, x) in enumerate(boxes):
-        axis.text(x, .55, label, ha="center", va="center", transform=axis.transAxes,
+    boxes = {
+        "raw": (.08, .68, "First pass R"),
+        "candidates": (.08, .34, "Positioned candidates C\n(field + geometry evidence)"),
+        "graph": (.36, .51, "Candidate graph\nnode + admissible-edge scores"),
+        "sequence": (.62, .51, "Dynamic programming\nsequence S"),
+        "unselective": (.88, .70, "Unselective output\nS"),
+        "risk": (.88, .31, "Addition-only policy\nR + accepted A / abstain"),
+    }
+    for _, (x, y, label) in boxes.items():
+        axis.text(x, y, label, ha="center", va="center", transform=axis.transAxes,
                   bbox={"boxstyle": "round,pad=.5", "facecolor": "#e7f0f5", "edgecolor": "#285f78"})
-        if index < len(boxes) - 1:
-            axis.annotate("", xy=(boxes[index + 1][1] - .07, .55), xytext=(x + .07, .55),
-                          xycoords=axis.transAxes, textcoords=axis.transAxes,
-                          arrowprops={"arrowstyle": "->", "color": "#333"})
-    axis.text(.5, .12, "Constraints diagnose and trigger evidence re-reading; they never overwrite values without evidence.",
-              transform=axis.transAxes, ha="center", fontsize=10)
-    axis.set_title("GeoLogParser proposed method schematic (design, not an empirical result)")
+
+    def arrow(source: str, target: str) -> None:
+        left = boxes[source]
+        right = boxes[target]
+        axis.annotate(
+            "", xy=(right[0] - .09, right[1]), xytext=(left[0] + .09, left[1]),
+            xycoords=axis.transAxes, textcoords=axis.transAxes,
+            arrowprops={"arrowstyle": "->", "color": "#333"},
+        )
+
+    arrow("raw", "graph")
+    arrow("candidates", "graph")
+    arrow("graph", "sequence")
+    arrow("sequence", "unselective")
+    arrow("sequence", "risk")
+    axis.text(.5, .10, "Deterministic geometry reconstructs depths; the risk branch preserves R and accepts only non-overlapping high-score additions.",
+              transform=axis.transAxes, ha="center", fontsize=9)
+    axis.set_title("Risk-aware sequence reconstruction (method schematic, not an empirical result)")
     fig.tight_layout()
     destination.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(destination, dpi=180)

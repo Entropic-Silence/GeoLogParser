@@ -2,7 +2,7 @@
   "audit_version": "manuscript_metric_bindings_v002",
   "config": "papers/manuscript_metric_bindings.json",
   "errors": [],
-  "observation_count": 31,
+  "observation_count": 45,
   "observations": [
     {
       "check_id": "paper1_california_v005_headline",
@@ -398,6 +398,186 @@
         "/freezes/v005_external/rapidocr_document_cluster_metrics/f1"
       ],
       "source": "experiments/paper1/analysis/california_replication_statistics_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper1_conclusion_f1_range",
+      "display_decimals": 3,
+      "expected": 0.38261610566680876,
+      "group": "minimum",
+      "manuscript": "papers/paper1/manuscript.md",
+      "observed": 0.383,
+      "passed": true,
+      "pointer": [
+        "/freezes/v001/rapidocr_document_cluster_metrics/f1",
+        "/freezes/v002_external/rapidocr_document_cluster_metrics/f1",
+        "/freezes/v003_prospective/rapidocr_document_cluster_metrics/f1",
+        "/freezes/v004_prospective/rapidocr_document_cluster_metrics/f1",
+        "/freezes/v005_external/rapidocr_document_cluster_metrics/f1"
+      ],
+      "source": "experiments/paper1/analysis/california_replication_statistics_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper1_conclusion_f1_range",
+      "display_decimals": 3,
+      "expected": 0.4502660663119116,
+      "group": "maximum",
+      "manuscript": "papers/paper1/manuscript.md",
+      "observed": 0.45,
+      "passed": true,
+      "pointer": [
+        "/freezes/v001/rapidocr_document_cluster_metrics/f1",
+        "/freezes/v002_external/rapidocr_document_cluster_metrics/f1",
+        "/freezes/v003_prospective/rapidocr_document_cluster_metrics/f1",
+        "/freezes/v004_prospective/rapidocr_document_cluster_metrics/f1",
+        "/freezes/v005_external/rapidocr_document_cluster_metrics/f1"
+      ],
+      "source": "experiments/paper1/analysis/california_replication_statistics_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper2_depth_start_sensitivity",
+      "display_decimals": 4,
+      "expected": 0.5661605206073752,
+      "group": "v004",
+      "manuscript": "papers/paper2/manuscript.md",
+      "observed": 0.5662,
+      "passed": true,
+      "pointer": "/freezes/v004/conditions/1/metrics/interval_f1/value",
+      "source": "experiments/paper2/analysis/california_depth_start_sensitivity_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper2_depth_start_sensitivity",
+      "display_decimals": 4,
+      "expected": 0.5310463121783876,
+      "group": "v005_zero",
+      "manuscript": "papers/paper2/manuscript.md",
+      "observed": 0.531,
+      "passed": true,
+      "pointer": "/freezes/v005/conditions/0/metrics/interval_f1/value",
+      "source": "experiments/paper2/analysis/california_depth_start_sensitivity_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper2_depth_start_sensitivity",
+      "display_decimals": 4,
+      "expected": 0.5296740994854202,
+      "group": "v005_high",
+      "manuscript": "papers/paper2/manuscript.md",
+      "observed": 0.5297,
+      "passed": true,
+      "pointer": "/freezes/v005/conditions/4/metrics/interval_f1/value",
+      "source": "experiments/paper2/analysis/california_depth_start_sensitivity_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper3_volume_jackknife_ranges",
+      "display_decimals": 4,
+      "expected": 0.1347514692383712,
+      "group": "raw_mean",
+      "manuscript": "papers/paper3/manuscript.md",
+      "observed": 0.1348,
+      "passed": true,
+      "pointer": "/volume_jackknife/full_support/variants/raw/relative_absolute_volume_error/mean",
+      "source": "experiments/paper3/analysis/swissgeol_spatial_sensitivity_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper3_volume_jackknife_ranges",
+      "display_decimals": 4,
+      "expected": 0.08843371808698323,
+      "group": "raw_min",
+      "manuscript": "papers/paper3/manuscript.md",
+      "observed": 0.0884,
+      "passed": true,
+      "pointer": "/volume_jackknife/full_support/variants/raw/relative_absolute_volume_error/minimum",
+      "source": "experiments/paper3/analysis/swissgeol_spatial_sensitivity_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper3_volume_jackknife_ranges",
+      "display_decimals": 4,
+      "expected": 0.16585826521525432,
+      "group": "raw_max",
+      "manuscript": "papers/paper3/manuscript.md",
+      "observed": 0.1659,
+      "passed": true,
+      "pointer": "/volume_jackknife/full_support/variants/raw/relative_absolute_volume_error/maximum",
+      "source": "experiments/paper3/analysis/swissgeol_spatial_sensitivity_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper3_volume_jackknife_ranges",
+      "display_decimals": 4,
+      "expected": 0.11771566462430054,
+      "group": "reread_mean",
+      "manuscript": "papers/paper3/manuscript.md",
+      "observed": 0.1177,
+      "passed": true,
+      "pointer": "/volume_jackknife/full_support/variants/reread/relative_absolute_volume_error/mean",
+      "source": "experiments/paper3/analysis/swissgeol_spatial_sensitivity_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper3_volume_jackknife_ranges",
+      "display_decimals": 4,
+      "expected": 0.048901577043475336,
+      "group": "reread_min",
+      "manuscript": "papers/paper3/manuscript.md",
+      "observed": 0.0489,
+      "passed": true,
+      "pointer": "/volume_jackknife/full_support/variants/reread/relative_absolute_volume_error/minimum",
+      "source": "experiments/paper3/analysis/swissgeol_spatial_sensitivity_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper3_volume_jackknife_ranges",
+      "display_decimals": 4,
+      "expected": 0.16987886253261844,
+      "group": "reread_max",
+      "manuscript": "papers/paper3/manuscript.md",
+      "observed": 0.1699,
+      "passed": true,
+      "pointer": "/volume_jackknife/full_support/variants/reread/relative_absolute_volume_error/maximum",
+      "source": "experiments/paper3/analysis/swissgeol_spatial_sensitivity_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper3_volume_jackknife_ranges",
+      "display_decimals": 4,
+      "expected": 0.08491308830610042,
+      "group": "risk_mean",
+      "manuscript": "papers/paper3/manuscript.md",
+      "observed": 0.0849,
+      "passed": true,
+      "pointer": "/volume_jackknife/full_support/variants/risk/relative_absolute_volume_error/mean",
+      "source": "experiments/paper3/analysis/swissgeol_spatial_sensitivity_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper3_volume_jackknife_ranges",
+      "display_decimals": 4,
+      "expected": 0.027372405399703065,
+      "group": "risk_min",
+      "manuscript": "papers/paper3/manuscript.md",
+      "observed": 0.0274,
+      "passed": true,
+      "pointer": "/volume_jackknife/full_support/variants/risk/relative_absolute_volume_error/minimum",
+      "source": "experiments/paper3/analysis/swissgeol_spatial_sensitivity_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper3_volume_jackknife_ranges",
+      "display_decimals": 4,
+      "expected": 0.13653838594647144,
+      "group": "risk_max",
+      "manuscript": "papers/paper3/manuscript.md",
+      "observed": 0.1365,
+      "passed": true,
+      "pointer": "/volume_jackknife/full_support/variants/risk/relative_absolute_volume_error/maximum",
+      "source": "experiments/paper3/analysis/swissgeol_spatial_sensitivity_v001.json",
       "transform": null
     }
   ],

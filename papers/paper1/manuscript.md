@@ -70,7 +70,7 @@ The five freezes are mutually record-disjoint. v001 contributes 50 test reports,
 | California v001–v005 | Published manual transcription Gold | 450 | 8,268 | Primary multi-cohort accuracy |
 | Swissgeol Thurgau held-out | Source-agreement reference | 35 | 80 | Selected explicit-table transfer |
 | BGS Offshore GeoIndex | Source-agreement reference | 26 | 341 | Historical long-page stress test |
-| Raft River well reports | Source-explicit table reference | 2 | 62 | Independent tabular/column-semantic test |
+| Raft River well reports | Source-agreement reference (source-explicit table subtype) | 2 | 62 | Independent tabular/column-semantic test |
 
 The Swissgeol set was split by salted PDF-content group into 37 development documents/85 intervals and 35 held-out documents/80 intervals, with no record or PDF-hash overlap. Only explicit top, bottom, and thickness tables are scored. The selection process favours pages whose tables agree with the database, so it is a source-agreement panel rather than representative national Gold. <!-- evidence:p1.swissgeol_authoritative_interval -->
 
@@ -82,7 +82,9 @@ Candidate acquisitions, Chinese CAD conversion, no-GT coverage runs, metadata-on
 
 ### 4.3 Baselines
 
-The baselines are representative and reproducible, not a state-of-the-art leaderboard. Tesseract 4.1.1 is retained as a stable CPU OCR reference. RapidOCR supplies positioned text and confidence. A local end-to-end VLM tests whether schema-valid page generation recovers intervals without a modular parser. California pages are rendered at 300 DPI; engine and parser choices are frozen on v001 development only. Swissgeol and Raft River use their separately frozen explicit-table parsers. Every output retains its engine, configuration, page geometry, and source evidence.
+The baselines are representative and reproducible, not a state-of-the-art leaderboard. Tesseract 4.1.1 with English language data and page-segmentation mode 11 is retained as a stable CPU OCR reference. RapidOCR-ONNXRuntime 1.4.4 (ONNX Runtime 1.23.2) uses the frozen `ch_PP-OCRv4_det_infer`, `ch_PP-OCRv4_rec_infer`, and `ch_ppocr_mobile_v2.0_cls_infer` models on CPU with four intra-op threads and a deterministic positioned-row parser. The parser detects log headings, constructs same-row From--To hypotheses, selects a stable normalized column pair and vertical run, and requires alphabetic description evidence; it contains no reference-conditioned rule. California pages are rendered at 300 DPI.
+
+The local VLM reference is Qwen3-VL-4B-Instruct revision `ebb281ec...`, run in BF16 with SDPA on rendered page images constrained to 200,704--1,003,520 input pixels. Prompt `vlm_extract_california_compact_v001` requests visible intervals only in a fixed JSON schema; decoding is greedy (`do_sample=false`, 512 new-token limit). Schema-valid page intervals are concatenated by report and page order without repair or deduplication. This frozen zero-shot reference tests direct page-to-record generation; it is not presented as the current upper bound of document VLMs. Engine and parser choices were frozen on v001 development only. Swissgeol and Raft River use separately frozen explicit-table parsers. Every output retains its engine, configuration, page geometry, and source evidence.
 
 ## 5. Evaluation
 
@@ -128,11 +130,11 @@ Important threats are California selection filters, source-agreement selection i
 
 ## 8. Reproducibility and Rights
 
-Every indexed run records experiment ID, Git commit, dataset and split versions, model and prompt versions, seed, hardware/software, metrics, predictions, errors, and logs. The public evidence bundle includes all indexed run/metrics files, deidentified per-document outputs, record hashes, and scripts that regenerate tables and figures. Source PDFs remain local where redistribution or privacy review is incomplete. The California reference is credited as published USGS manual transcription and is not represented as a new project annotation.
+Every indexed run records experiment ID, Git commit, dataset and split versions, model and prompt versions, seed, hardware/software, metrics, predictions, errors, and logs. The public evidence bundle includes all indexed run/metrics files, pseudonymized per-document outputs, record hashes, and scripts that regenerate tables and figures. These projections remove direct identifiers but retain distinctive depth sequences and may be linkable to public source tables; they are not claimed to be anonymous. Source PDFs remain local where redistribution or privacy review is incomplete. The California reference is credited as published USGS manual transcription and is not represented as a new project annotation.
 
 ## 9. Conclusion
 
-Five record-disjoint California cohorts totaling 450 reports and 8,268 published manually transcribed intervals yielded RapidOCR F1 values of 0.390–0.450, zero-output rates of 8%–23%, and boundary-exact rates of 3%–6%. Swissgeol, BGS, and Raft River then exposed source selection, total omission, and semantic-column failure under separately declared evidence tiers. The consistent conclusion is narrower than a universal benchmark claim and more useful for deployment: conditional precision and numerical MAE materially overstate reliability unless complete-record omission, semantic ownership, document dependence, and provenance are measured. <!-- evidence:p1.california_replication_statistics --> <!-- evidence:p1.bgs_offshore_error_analysis --> <!-- evidence:p1.raft_river_error_analysis -->
+Five record-disjoint California cohorts totaling 450 reports and 8,268 published manually transcribed intervals yielded RapidOCR F1 values of 0.383–0.450, zero-output rates of 8%–23%, and boundary-exact rates of 3%–6%. Swissgeol, BGS, and Raft River then exposed source selection, total omission, and semantic-column failure under separately declared evidence tiers. The consistent conclusion is narrower than a universal benchmark claim and more useful for deployment: conditional precision and numerical MAE materially overstate reliability unless complete-record omission, semantic ownership, document dependence, and provenance are measured. <!-- evidence:p1.california_replication_statistics --> <!-- evidence:p1.bgs_offshore_error_analysis --> <!-- evidence:p1.raft_river_error_analysis -->
 
 ## References
 

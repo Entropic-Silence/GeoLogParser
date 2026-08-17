@@ -128,7 +128,7 @@ def idw(points: list[tuple[float, float, float]], query: tuple[float, float], po
         distance = math.hypot(x - query[0], y - query[1])
         # Treat sub-micrometre coordinate differences as the same support
         # location.  This keeps the diagnostic invariant to the documented
-        # rigid de-identification transform and avoids a near-zero IDW weight
+        # rigid coordinate transform and avoids a near-zero IDW weight
         # singularity after decimal serialization.
         if distance <= 1e-6:
             return value
@@ -384,7 +384,7 @@ def stripped_intervals(rows: list[dict]) -> list[dict]:
 
 
 def write_public_spatial_input(records: list[dict], destination: Path) -> dict:
-    """Remove absolute spatial origins while preserving all analysis distances."""
+    """Transform absolute origins while preserving analysis distances."""
     center_x = sum(record["x"] for record in records) / len(records)
     center_y = sum(record["y"] for record in records) / len(records)
     collar_origin = sum(record["collar"] for record in records) / len(records)
@@ -413,6 +413,8 @@ def write_public_spatial_input(records: list[dict], destination: Path) -> dict:
         "record_count": len(public_rows),
         "transform": "subtract horizontal centroid; rotate 17 degrees; subtract mean collar elevation",
         "invariance": "pairwise horizontal distances, relative elevations, interval depths, risk decisions, and IDW diagnostics are preserved up to decimal rounding",
+        "privacy_classification": "transformed_pseudonymized_not_anonymous",
+        "linkage_warning": "The rigid transform preserves pairwise-distance fingerprints and may be linked to a matching public point set.",
         "excluded": ["source record ID", "absolute easting/northing", "absolute vertical datum origin", "source paths", "document text"],
         "evidence_tier": "SOURCE_AGREEMENT_REFERENCE_WITH_AUTHORITATIVE_SPATIAL_METADATA",
         "rights_review": "PENDING_MANUAL_PRE_SUBMISSION_REVIEW",

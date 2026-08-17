@@ -21,7 +21,7 @@
     "zhong2019publaynet"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "4468e93d55f60f55dbe34b2d508ecd036193894d3ca1b63a61609c86c633e443",
+  "claim_registry_sha256": "4e7a3d37d0ec845326edb35feee5598b5afeefff1bbdac6bf4398c2ae6c00400",
   "claim_source_errors": [],
   "evidence_tags": [
     "p1.bgs_offshore_error_analysis",
@@ -69,7 +69,7 @@
     {
       "exists": true,
       "resolved_path": "papers/paper1/generated/figures/california_selection_flow.png",
-      "sha256": "0e9039be160479790a404316d3aeb17cf38da12634d3d678c760a70acfa5faff",
+      "sha256": "6a44f50f55c1c45c329a3ffa21a09ec188abd7ce8de38553c7da240005ef030f",
       "target": "generated/figures/california_selection_flow.png"
     },
     {
@@ -87,7 +87,7 @@
     {
       "exists": true,
       "resolved_path": "papers/paper1/generated/figures/california_cohort_forest.png",
-      "sha256": "62365e87aaf38b50b615b0491c145e3b7b9247342399bd1deabef3c08d7b7478",
+      "sha256": "fd5b23e61a8cf975183712f5b3743bf6c3e4d9d532faa6d68de9d53a58159991",
       "target": "generated/figures/california_cohort_forest.png"
     },
     {
@@ -104,7 +104,7 @@
     }
   ],
   "manuscript_path": "papers/paper1/manuscript.md",
-  "manuscript_sha256": "2c306d2037c091b16ae01fb0b8010ea3fc9f79a1a6564c25a46392a46d57091f",
+  "manuscript_sha256": "502f359473dae7ceabe728a3403ac0cc529d8d3c17d41e9aba29b860d0282a97",
   "missing_bibliography_keys": [],
   "missing_claim_registrations": [],
   "missing_literature_evidence_keys": [],
@@ -228,5 +228,5 @@
     "p1.usgs_idaho_cross_engine",
     "p1.usgs_idaho_error_analysis"
   ],
-  "word_count": 2792
+  "word_count": 2940
 }

@@ -1,0 +1,27 @@
+{
+  "analysis_version": "publication_linkage_risk_v001",
+  "classification": "pseudonymized_or_transformed_not_anonymous",
+  "limitations": [
+    "The Paper II attack searches the two released cohort manifests, not every possible external table.",
+    "The Paper III attack assumes access to the same complete public point set.",
+    "Successful aggregate linkage demonstrates risk; failed linkage would not prove anonymity."
+  ],
+  "paper2_candidate_pool": {
+    "attack": "exact ordered reference-depth sequence lookup against the local official-transcription manifests",
+    "mapping_released": false,
+    "public_record_count": 200,
+    "records_with_at_least_one_exact_source_match": 200,
+    "records_with_signature_unique_within_public_bundle": 198,
+    "records_with_unique_exact_source_match": 198,
+    "source_candidate_count": 200
+  },
+  "paper3_spatial_input": {
+    "attack": "rigid-transform-invariant pairwise-distance fingerprint lookup against the original point set",
+    "distance_rounding_decimals": 5,
+    "mapping_released": false,
+    "public_record_count": 35,
+    "records_with_at_least_one_exact_distance_fingerprint_match": 35,
+    "records_with_unique_exact_distance_fingerprint_match": 35,
+    "source_candidate_count": 35
+  }
+}

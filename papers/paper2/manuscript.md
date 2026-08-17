@@ -2,7 +2,7 @@
 
 ## Abstract
 
-We study borehole-log extraction as risk-aware reconstruction of an ordered interval sequence rather than unconstrained text generation. Positioned OCR hypotheses are filtered by field semantics, linked by document order and depth geometry, and decoded by dynamic programming; a separate addition-only policy may accept supported candidates or retain the first pass. Across five record-disjoint California cohorts, unselective sequence ranking increased interval F1 from 0.383–0.450 to 0.470–0.566, but action-level false-correction rate was 0.084–0.210. On identical archived candidate pools from two confirmatory cohorts, monotonic decoding maximized F1 at 0.579 and 0.550, whereas the complete continuity/column/semantic score increased precision to 0.953 and 0.914 at lower F1. The frozen addition-only policy accepted 82 candidates in 19 documents with no observed incorrect action or worsened document, but the primary document-level one-sided 95% upper risk bound remained 0.1459. It added 41 correct intervals per 100 evaluated documents, versus 230.5 for unselective reconstruction. A one-time unseen BGS source-family evaluation abstained on every visible page, preventing false positives but providing zero utility. The evidence supports auditable sequence reconstruction and bounded correction risk, not universal source transport or safety certification. <!-- evidence:p2.california_constraint_sequence --> <!-- evidence:p2.california_v004_candidate_risk --> <!-- evidence:p2.california_v005_candidate_risk --> <!-- evidence:p2.california_candidate_risk_certificate --> <!-- evidence:p2.california_candidate_pool_ablation --> <!-- evidence:p2.california_document_risk --> <!-- evidence:p2.bgs_v003_v028_external_failure -->
+We study borehole-log extraction as risk-aware reconstruction of an ordered interval sequence rather than unconstrained text generation. Positioned OCR hypotheses are filtered by field semantics, linked by document order and depth geometry, and decoded by dynamic programming; a separate addition-only policy may accept supported candidates or retain the first pass. Across five record-disjoint California cohorts, unselective sequence ranking increased interval F1 from 0.383–0.450 to 0.470–0.566, but action-level false-correction rate was 0.084–0.210. On identical archived candidate pools from two confirmatory cohorts, monotonic decoding maximized F1 at 0.579 and 0.550, whereas the complete continuity/column/semantic score increased precision to 0.953 and 0.914 at lower F1. The frozen addition-only policy accepted 82 candidates in 19 documents with no observed incorrect action or worsened document, but the primary document-level one-sided 95% upper risk bound remained 0.1459. It yielded a net gain of 41 matched intervals per 100 documents, compared with 230.5 under unselective reconstruction. A one-time unseen BGS source-family evaluation abstained on every visible page, preventing false positives but providing zero utility. The evidence supports auditable sequence reconstruction and bounded correction risk, not universal source transport or safety certification. <!-- evidence:p2.california_constraint_sequence --> <!-- evidence:p2.california_v004_candidate_risk --> <!-- evidence:p2.california_v005_candidate_risk --> <!-- evidence:p2.california_candidate_risk_certificate --> <!-- evidence:p2.california_candidate_pool_ablation --> <!-- evidence:p2.california_document_risk --> <!-- evidence:p2.bgs_v003_v028_external_failure -->
 
 ## 1. Introduction
 
@@ -62,7 +62,7 @@ Candidate
 c_i=(t_i,b_i,p_i,y_i,x_i^t,x_i^b,e_i,q_i)
 \]
 
-contains top and bottom depth, page, vertical order, normalized column positions, evidence, and OCR confidence. Construction requires \(0\le t_i<b_i\le5000\) ft and a geological description. Its frozen raw score is
+contains top and bottom depth, page, vertical order, normalized column positions, evidence, and OCR confidence. Construction requires \(0\le t_i<b_i\le5000\) ft and a geological description. OCR confidence is normalized so that \(q_i\in[0,1]\). Its frozen raw score is
 
 \[
 r_i=1+q_i+\mathbf{1}[\text{geological term in }e_i].
@@ -90,7 +90,7 @@ Dynamic programming computes
 F(j)=\max\left(I_j,\max_{i<j:i\rightarrow j}\{F(i)+r_j+e_{ij}\}\right)
 \]
 
-and backtracks the highest-scoring path, breaking score ties by path length. Depth conversion and thickness are deterministic after selection. A centralized implementation supplies both experiment scripts and a deterministic candidate-graph test that checks the returned path against the equations.
+and backtracks the highest-scoring path, breaking score ties by path length. Every earlier candidate is considered; the published decoder has no predecessor-window truncation. Depth conversion and thickness are deterministic after selection. A centralized implementation supplies both experiment scripts and a deterministic candidate-graph test that checks the returned path against the equations.
 
 ### 4.3 Addition-only risk policy
 
@@ -100,9 +100,11 @@ The unselective output is the complete path and is never treated as intrinsicall
 r_c\ge2.999
 \]
 
-and its open depth interval has no positive overlap with any member of \(R\) or previously accepted \(A\). The output is \(R\cup A\); otherwise it remains \(R\). The threshold applies to raw score \(r_i\), not the start score \(I_i\).
+and its open depth interval has no positive overlap with any member of \(R\) or previously accepted \(A\). The output is \(R\cup A\); otherwise it remains \(R\). The threshold applies to raw score \(r_i\), not the start score \(I_i\). Since \(q_i\in[0,1]\), \(r_i\ge2.999\) requires the geological-term indicator and OCR confidence of at least 0.999.
 
-Threshold 2.999 was selected using only v001/v002 development outcomes. The development curve at that threshold covered 17/150 documents and accepted 36/36 correct actions with no observed worsened document. v003–v005 were excluded from threshold selection. The curve is regenerated in [risk-threshold analysis](generated/figures/risk_threshold_curve.png).
+Threshold 2.999 was selected using only v001/v002 outcomes after those cohorts had served as initial-parser evaluation and external replication data; they therefore became risk-policy development evidence and are not confirmation of that policy. The development curve at that threshold covered 17/150 documents and accepted 36/36 correct actions with no observed worsened document. v003–v005 were excluded from threshold selection. The curve is regenerated in [risk-threshold analysis](generated/figures/risk_threshold_curve.png).
+
+The coefficient 0.0005/ft is a weak deterministic preference for paths beginning near the page origin, introduced to resolve otherwise plausible deep-start sequences rather than fitted as a physical geological parameter. A post-hoc same-pool sensitivity over 0, 0.0005, 0.001, 0.0025, and 0.005/ft left v004 F1 unchanged at 0.5662 and moved v005 only from 0.5310 to 0.5297. The archived value is retained; the sensitivity analysis does not redefine the policy or confirmation set.
 
 ### 4.4 Risk definitions
 
@@ -122,7 +124,7 @@ For numeric constraint violations, provenance localizes a region, registered rea
 
 ## 5. Experimental Design
 
-California cohort roles were fixed in advance. v001 is initial held-out evidence; v002 is external replication; v003 prospectively tests and falsifies an earlier document-selective rule; v004 and v005 are the confirmatory cohorts for the addition-only policy. The same-pool ablation uses the archived v004/v005 positioned candidates, identical documents, one matcher, and no OCR rerun.
+California roles depend on the claim being evaluated. v001 was the initial held-out evaluation of the parser and v002 was its external replication, but both were subsequently used to develop the 2.999 risk threshold and are development evidence for that policy. v003 prospectively tested and falsified an earlier document-selective rule. Only v004 and v005 confirm the unchanged addition-only policy. The same-pool ablation is a post-hoc explanatory analysis of archived v004/v005 positioned candidates; it uses identical documents, one matcher, and no OCR rerun, and is not represented as preregistered.
 
 The variants are:
 
@@ -133,7 +135,7 @@ The variants are:
 5. continuity plus column stability without the geological-term bonus; and
 6. the complete score.
 
-Semantic eligibility and multi-reader agreement are embedded before the archived pool and cannot be isolated; no independent effect is claimed for them. The public evidence bundle contains 200 deidentified documents and 2,225 candidates with normalized geometry and component scores, plus a deterministic recomputation script.
+Semantic eligibility and multi-reader agreement are embedded before the archived pool and cannot be isolated; no independent effect is claimed for them. The public evidence bundle contains 200 pseudonymized documents and 2,225 candidates with normalized geometry and component scores, plus a deterministic recomputation script. Distinctive reference depth sequences remain linkable to public USGS tables, so the pool is not claimed to be anonymous and release remains subject to rights and disclosure review.
 
 Swissgeol evaluates an independently frozen rereading policy on 35 held-out source-agreement documents and a separate 20-document replication panel. BGS development source groups were used for page-family design; the final external v003 source family remained unopened until its preregistered gate passed. No BGS v003 result was used to change routing, thresholds, aliases, prompts, or models.
 
@@ -159,7 +161,7 @@ On v005, the unchanged policy accepted 39 additions; it matched 585/780 predicti
 
 Across the confirmatory cohorts, 82 actions occurred in 19 documents. Zero worsened documents gives a primary one-sided 95% upper bound of 0.1459. The secondary iid-action bound is 0.0359. Accepted documents span 14 counties; treating counties as independent zero-event groups gives a sensitivity upper bound of 0.1926, but all documents still come from one California publication program. The number of actions per accepted document ranges from 1 to 18, making the action-independence assumption particularly weak. <!-- evidence:p2.california_candidate_risk_certificate --> <!-- evidence:p2.california_document_risk -->
 
-The utility cost is large. The risk policy added 41 correct intervals per 100 evaluated reports, compared with 230.5 for unselective reconstruction. Among 164 reports whose complete sequence differed from raw, only 19 were automatically changed and 145 were retained for review or abstention. Unselective reconstruction lowered document F1 on 6 v004 and 10 v005 reports; the risk policy lowered it on none. The [risk frontier](generated/figures/sequence_risk_frontier.png) therefore represents a safety–recovery trade-off, not a dominant policy. <!-- evidence:p2.california_document_risk -->
+The utility cost is large. The risk policy yielded a net gain of 41 matched intervals per 100 documents, compared with 230.5 under unselective reconstruction. Among 164 reports whose complete sequence differed from raw, only 19 were automatically changed and 145 were retained for review or abstention. Unselective reconstruction lowered document F1 on 6 v004 and 10 v005 reports; the risk policy lowered it on none. The [risk frontier](generated/figures/sequence_risk_frontier.png) therefore represents a safety–recovery trade-off, not a dominant policy. <!-- evidence:p2.california_document_risk -->
 
 ### 6.4 Swissgeol validation
 
@@ -189,11 +191,11 @@ The principal limitations are one publication program for confirmatory correctio
 
 ## 9. Reproducibility and Safety
 
-The core objective is centralized in one module used by experiment and public-recomputation scripts. Tests verify equation/path equivalence, threshold semantics, deidentified candidate-pool schema, and fixed-pool reconstruction. Every accepted or rejected action retains source geometry, scores, before/after intervals, and warnings. The publication bundle releases frozen metrics, deidentified document outputs, and the normalized candidate pool required to recompute the ablation without source PDFs.
+The core objective is centralized in one module used by experiment and public-recomputation scripts. Tests verify equation/path equivalence, threshold semantics, pseudonymized candidate-pool schema, and fixed-pool reconstruction. Every accepted or rejected action retains source geometry, scores, before/after intervals, and warnings. The publication bundle releases frozen metrics, pseudonymized document outputs, and the normalized candidate pool required to recompute the ablation without source PDFs. Direct identifiers are removed, but sequence uniqueness makes linkage possible; field removal is not treated as proof of anonymity.
 
 ## 10. Conclusion
 
-Sequence reconstruction and safe correction are distinct objectives. Across five California cohorts, unselective reconstruction consistently recovered intervals but produced action-level FCR of 0.084–0.210. On identical confirmatory candidate pools, monotonic decoding gave the highest F1, while the complete score traded recall for precision. The addition-only policy accepted 82 correct additions in 19 documents with no observed worsened report, but added only 41 correct intervals per 100 documents and retained a 0.1459 document-level upper risk bound. Swissgeol showed both positive and null within-family effects. The one-time BGS evaluation abstained everywhere. The defensible contribution is therefore an auditable risk–coverage framework for sequence reconstruction, together with direct evidence that unseen-family transport remains unsolved. <!-- evidence:p2.california_candidate_pool_ablation --> <!-- evidence:p2.california_document_risk --> <!-- evidence:p2.california_candidate_risk_certificate --> <!-- evidence:p2.bgs_v003_v028_external_failure -->
+Sequence reconstruction and safe correction are distinct objectives. Across five California cohorts, unselective reconstruction consistently recovered intervals but produced action-level FCR of 0.084–0.210. On identical confirmatory candidate pools, monotonic decoding gave the highest F1, while the complete score traded recall for precision. The addition-only policy accepted 82 additions in 19 documents, all matched under the frozen reference and matcher, with no observed worsened report; its net gain was only 41 matched intervals per 100 documents and its document-level upper risk bound remained 0.1459. Swissgeol showed both positive and null within-family effects. The one-time BGS evaluation abstained everywhere. The defensible contribution is therefore an auditable risk–coverage framework for sequence reconstruction, together with direct evidence that unseen-family transport remains unsolved. <!-- evidence:p2.california_candidate_pool_ablation --> <!-- evidence:p2.california_document_risk --> <!-- evidence:p2.california_candidate_risk_certificate --> <!-- evidence:p2.bgs_v003_v028_external_failure -->
 
 ## References
 

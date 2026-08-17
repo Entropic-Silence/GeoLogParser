@@ -33,3 +33,11 @@ def test_frozen_decoder_matches_exhaustive_path_objective() -> None:
     assert [item["name"] for item in selected] == [item["name"] for item in expected]
     assert start_path_score(candidates[2]) == 2.1 - 0.0005 * 20.0
     assert path_score(selected, _edge) == path_score(list(expected), _edge)
+
+
+def test_decoder_considers_more_than_400_predecessors_by_default() -> None:
+    candidates = [_candidate(f"distractor-{index}", index + 1, index + 1.5, -10.0) for index in range(401)]
+    start = _candidate("start", 0.0, 1.0, 10.0)
+    end = _candidate("end", 500.0, 501.0, 10.0)
+    selected = select_sequence([start, *candidates, end], _edge)
+    assert [item["name"] for item in selected] == ["start", "end"]

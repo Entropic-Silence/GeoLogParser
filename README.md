@@ -28,9 +28,10 @@ The closure evidence trail is summarized in
 [docs/manuscript_closure_audit.md](docs/manuscript_closure_audit.md).
 The compact, clone-verifiable evidence subset is documented in
 [publication_evidence/README.md](publication_evidence/README.md). It contains
-exact run metadata, aggregate metrics, and selected deidentified document-level
+exact run metadata, aggregate metrics, and selected pseudonymized document-level
 predictions/errors, but not restricted source pages, raw OCR regions, or model
-weights.
+weights. Distinctive depth sequences and rigidly transformed coordinates remain
+linkable to public records; the bundle does not claim anonymity.
 
 ## First-round capabilities
 

@@ -75,7 +75,11 @@ def _ablation_metric(cohort: Mapping[str, Any], variant: str, name: str) -> floa
     return float(cohort["metrics"][variant][name]["value"])
 
 
-def paper2_major_revision_tables(ablation_path: Path, risk_path: Path) -> str:
+def paper2_major_revision_tables(
+    ablation_path: Path,
+    risk_path: Path,
+    depth_sensitivity_path: Path | None = None,
+) -> str:
     ablation = _load(ablation_path)
     risk = _load(risk_path)
     variants = [
@@ -144,6 +148,25 @@ def paper2_major_revision_tables(ablation_path: Path, risk_path: Path) -> str:
         f"the secondary iid-action bound is {combined['action_level_one_sided_95_upper_bound_iid_assumption']:.4f}.",
         "",
     ])
+    if depth_sensitivity_path is not None:
+        sensitivity = _load(depth_sensitivity_path)
+        lines.extend([
+            "## Post-hoc shallow-start prior sensitivity",
+            "",
+            "Evidence tier: **Published manual transcription Gold**. The candidate pool, references, matcher, and tolerance are fixed; this is explanatory sensitivity, not threshold selection.",
+            "",
+            "| Start penalty per foot | v004 predicted / F1 | v005 predicted / F1 |",
+            "|---:|---:|---:|",
+        ])
+        v004 = sensitivity["freezes"]["v004"]["conditions"]
+        v005 = sensitivity["freezes"]["v005"]["conditions"]
+        for left, right in zip(v004, v005):
+            lines.append(
+                f"| {left['coefficient_per_foot']:.4f} | {left['predicted_intervals']} / "
+                f"{left['metrics']['interval_f1']['value']:.4f} | {right['predicted_intervals']} / "
+                f"{right['metrics']['interval_f1']['value']:.4f} |"
+            )
+        lines.append("")
     return "\n".join(lines)
 
 

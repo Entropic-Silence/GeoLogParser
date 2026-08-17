@@ -5,7 +5,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def test_public_candidate_pool_is_deidentified_and_recomputable() -> None:
+def test_public_candidate_pool_is_pseudonymized_and_recomputable() -> None:
     source = ROOT / "experiments/paper2/public/candidate_pool_v001.jsonl"
     recomputed = ROOT / "experiments/paper2/public/candidate_pool_recomputed_v001.jsonl"
     rows = [json.loads(line) for line in source.read_text(encoding="utf-8").splitlines() if line]

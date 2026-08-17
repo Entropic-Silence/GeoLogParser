@@ -26,3 +26,15 @@ Evidence tier: **Published manual transcription Gold**. The primary safety unit 
 | v005 | Addition-only risk policy | 39.0 | 0 | 0 | 11 | 74 |
 
 Across 200 documents, the addition-only policy accepted 82 actions in 19 documents, observed 0 worsened documents, and retained 145 changed-sequence documents for review or abstention. The one-sided 95% zero-event upper bound is 0.1459 per accepted document; the secondary iid-action bound is 0.0359.
+
+## Post-hoc shallow-start prior sensitivity
+
+Evidence tier: **Published manual transcription Gold**. The candidate pool, references, matcher, and tolerance are fixed; this is explanatory sensitivity, not threshold selection.
+
+| Start penalty per foot | v004 predicted / F1 | v005 predicted / F1 |
+|---:|---:|---:|
+| 0.0000 | 822 / 0.5662 | 846 / 0.5310 |
+| 0.0005 | 822 / 0.5662 | 846 / 0.5304 |
+| 0.0010 | 822 / 0.5662 | 846 / 0.5297 |
+| 0.0025 | 822 / 0.5662 | 846 / 0.5297 |
+| 0.0050 | 822 / 0.5662 | 846 / 0.5297 |

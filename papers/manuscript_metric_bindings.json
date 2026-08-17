@@ -131,6 +131,66 @@
           "decimals": 3
         }
       ]
+    },
+    {
+      "id": "paper1_conclusion_f1_range",
+      "manuscript": "papers/paper1/manuscript.md",
+      "source": "experiments/paper1/analysis/california_replication_statistics_v001.json",
+      "pattern": "Conclusion[\\s\\S]*?RapidOCR F1 values of (?P<minimum>\\d+\\.\\d+)–(?P<maximum>\\d+\\.\\d+)",
+      "bindings": [
+        {
+          "group": "minimum",
+          "pointers": [
+            "/freezes/v001/rapidocr_document_cluster_metrics/f1",
+            "/freezes/v002_external/rapidocr_document_cluster_metrics/f1",
+            "/freezes/v003_prospective/rapidocr_document_cluster_metrics/f1",
+            "/freezes/v004_prospective/rapidocr_document_cluster_metrics/f1",
+            "/freezes/v005_external/rapidocr_document_cluster_metrics/f1"
+          ],
+          "aggregate": "min",
+          "decimals": 3
+        },
+        {
+          "group": "maximum",
+          "pointers": [
+            "/freezes/v001/rapidocr_document_cluster_metrics/f1",
+            "/freezes/v002_external/rapidocr_document_cluster_metrics/f1",
+            "/freezes/v003_prospective/rapidocr_document_cluster_metrics/f1",
+            "/freezes/v004_prospective/rapidocr_document_cluster_metrics/f1",
+            "/freezes/v005_external/rapidocr_document_cluster_metrics/f1"
+          ],
+          "aggregate": "max",
+          "decimals": 3
+        }
+      ]
+    },
+    {
+      "id": "paper2_depth_start_sensitivity",
+      "manuscript": "papers/paper2/manuscript.md",
+      "source": "experiments/paper2/analysis/california_depth_start_sensitivity_v001.json",
+      "pattern": "left v004 F1 unchanged at (?P<v004>\\d+\\.\\d+) and moved v005 only from (?P<v005_zero>\\d+\\.\\d+) to (?P<v005_high>\\d+\\.\\d+)",
+      "bindings": [
+        {"group": "v004", "pointer": "/freezes/v004/conditions/1/metrics/interval_f1/value", "decimals": 4},
+        {"group": "v005_zero", "pointer": "/freezes/v005/conditions/0/metrics/interval_f1/value", "decimals": 4},
+        {"group": "v005_high", "pointer": "/freezes/v005/conditions/4/metrics/interval_f1/value", "decimals": 4}
+      ]
+    },
+    {
+      "id": "paper3_volume_jackknife_ranges",
+      "manuscript": "papers/paper3/manuscript.md",
+      "source": "experiments/paper3/analysis/swissgeol_spatial_sensitivity_v001.json",
+      "pattern": "relative absolute volume error was (?P<raw_mean>\\d+\\.\\d+) \\[(?P<raw_min>\\d+\\.\\d+), (?P<raw_max>\\d+\\.\\d+)\\] for raw, (?P<reread_mean>\\d+\\.\\d+) \\[(?P<reread_min>\\d+\\.\\d+), (?P<reread_max>\\d+\\.\\d+)\\] for reread, and (?P<risk_mean>\\d+\\.\\d+) \\[(?P<risk_min>\\d+\\.\\d+), (?P<risk_max>\\d+\\.\\d+)\\] for risk-aware input",
+      "bindings": [
+        {"group": "raw_mean", "pointer": "/volume_jackknife/full_support/variants/raw/relative_absolute_volume_error/mean", "decimals": 4},
+        {"group": "raw_min", "pointer": "/volume_jackknife/full_support/variants/raw/relative_absolute_volume_error/minimum", "decimals": 4},
+        {"group": "raw_max", "pointer": "/volume_jackknife/full_support/variants/raw/relative_absolute_volume_error/maximum", "decimals": 4},
+        {"group": "reread_mean", "pointer": "/volume_jackknife/full_support/variants/reread/relative_absolute_volume_error/mean", "decimals": 4},
+        {"group": "reread_min", "pointer": "/volume_jackknife/full_support/variants/reread/relative_absolute_volume_error/minimum", "decimals": 4},
+        {"group": "reread_max", "pointer": "/volume_jackknife/full_support/variants/reread/relative_absolute_volume_error/maximum", "decimals": 4},
+        {"group": "risk_mean", "pointer": "/volume_jackknife/full_support/variants/risk/relative_absolute_volume_error/mean", "decimals": 4},
+        {"group": "risk_min", "pointer": "/volume_jackknife/full_support/variants/risk/relative_absolute_volume_error/minimum", "decimals": 4},
+        {"group": "risk_max", "pointer": "/volume_jackknife/full_support/variants/risk/relative_absolute_volume_error/maximum", "decimals": 4}
+      ]
     }
   ]
 }

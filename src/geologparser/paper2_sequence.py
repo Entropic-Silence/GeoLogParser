@@ -21,13 +21,17 @@ def raw_node_score(candidate: Candidate) -> float:
     return float(candidate["node_score"])
 
 
-def start_path_score(candidate: Candidate) -> float:
+def start_path_score(
+    candidate: Candidate,
+    *,
+    depth_penalty_per_foot: float = DEPTH_START_PENALTY_PER_FOOT,
+) -> float:
     """Score a singleton path starting at ``candidate``.
 
     This is intentionally the *only* location at which the shallow-start
     preference enters the frozen California decoder.
     """
-    return raw_node_score(candidate) - DEPTH_START_PENALTY_PER_FOOT * float(candidate["top"])
+    return raw_node_score(candidate) - depth_penalty_per_foot * float(candidate["top"])
 
 
 def path_score(path: list[Candidate], transition_score: Transition) -> float:
@@ -47,17 +51,30 @@ def select_sequence(
     candidates: list[Candidate],
     transition_score: Transition,
     *,
-    maximum_predecessors: int = 400,
+    maximum_predecessors: int | None = None,
+    depth_penalty_per_foot: float = DEPTH_START_PENALTY_PER_FOOT,
 ) -> list[Candidate]:
-    """Return the frozen dynamic-programming path with length tie-breaking."""
+    """Return the dynamic-programming path with length tie-breaking.
+
+    The published objective considers every earlier candidate.  An explicit
+    ``maximum_predecessors`` may be supplied for engineering profiling, but no
+    truncation is applied by default.
+    """
     ordered = sorted(candidates, key=lambda item: (item["page"], item["y"], item["top"], item["bottom"]))
     if not ordered:
         return []
-    scores = [start_path_score(item) for item in ordered]
+    scores = [
+        start_path_score(item, depth_penalty_per_foot=depth_penalty_per_foot)
+        for item in ordered
+    ]
     parents: list[int | None] = [None] * len(ordered)
     lengths = [1] * len(ordered)
     for right_index, right in enumerate(ordered):
-        for left_index in range(max(0, right_index - maximum_predecessors), right_index):
+        first_predecessor = (
+            0 if maximum_predecessors is None
+            else max(0, right_index - maximum_predecessors)
+        )
+        for left_index in range(first_predecessor, right_index):
             edge = transition_score(ordered[left_index], right)
             if edge is None:
                 continue

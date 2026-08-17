@@ -8,6 +8,8 @@
     "document text"
   ],
   "invariance": "pairwise horizontal distances, relative elevations, interval depths, risk decisions, and IDW diagnostics are preserved up to decimal rounding",
+  "linkage_warning": "The rigid transform preserves pairwise-distance fingerprints and may be linked to a matching public point set.",
+  "privacy_classification": "transformed_pseudonymized_not_anonymous",
   "record_count": 35,
   "rights_review": "PENDING_MANUAL_PRE_SUBMISSION_REVIEW",
   "schema_version": "paper3_spatial_input_public_v001",

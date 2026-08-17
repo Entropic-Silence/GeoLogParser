@@ -5,7 +5,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def test_transformed_spatial_input_is_deidentified_and_recomputes_headlines() -> None:
+def test_transformed_spatial_input_is_pseudonymized_and_recomputes_headlines() -> None:
     source_path = ROOT / "experiments/paper3/public/spatial_input_v001.jsonl"
     public = json.loads((ROOT / "experiments/paper3/public/spatial_recomputed_v001.json").read_text(encoding="utf-8"))
     private = json.loads((ROOT / "experiments/paper3/analysis/swissgeol_spatial_sensitivity_v001.json").read_text(encoding="utf-8"))

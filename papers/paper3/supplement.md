@@ -10,7 +10,7 @@ The Padova coordinate inventory contains 11 source-provided EPSG:4326 points but
 
 A four-borehole fixture applies the production constraint/rereading ranker before IDW. Errors of 0.01 and 0.05 m fall within the configured tolerance and cause abstention; larger controlled inconsistencies trigger rereading and are corrected when both candidate channels contain the known source value. This verifies the implemented threshold and data path, not real-site effectiveness.
 
-The single-channel 602-record scalar protocol perturbs the source-reported roof-depth field and measures the deterministic IDW response. It does not establish extraction accuracy, the semantics of a coal-seam elevation, privacy clearance, or site geology. The main paper uses the paired-channel experiment because it directly tests support deletion versus support-preserving fusion.
+The single-channel 602-record scalar protocol perturbs the source-reported roof-depth field and measures the deterministic IDW response. It does not establish extraction accuracy, the semantics of a coal-seam elevation, privacy clearance, or site geology. The main paper uses two independently and synthetically perturbed channels on the same real structured records because that controlled design isolates support deletion versus support-preserving fusion; the channels are not observed OCR or human readers.
 
 ## S3. Page-coordinate coverage
 
@@ -24,7 +24,7 @@ PyVista meshes, PNGs, Padova location plots, and structured-source proxy figures
 
 ## S5. Monte Carlo repeatability
 
-For the 602-record paired-channel experiment, support-preserving fusion improved over the raw channel in 26–29 of 30 repetitions at each magnitude. Two-sided exact sign-test p values range from 5.77×10⁻⁸ to 5.95×10⁻⁵. These values describe repeatability across perturbation seeds for one dataset and protocol; they are not inference over 30 independent sites.
+For the 602-record synthetic dual-channel experiment, support-preserving fusion improved over the first perturbed channel in 26–29 of 30 repetitions at each magnitude. Two-sided exact sign-test p values range from 5.77×10⁻⁸ to 5.95×10⁻⁵. These values describe repeatability across perturbation seeds for one dataset and protocol; they are not inference over 30 independent sites or independent real readers.
 
 ## S6. Reanalysis boundary
 

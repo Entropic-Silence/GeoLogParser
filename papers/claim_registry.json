@@ -5758,7 +5758,7 @@
       "paper": "paper3",
       "scope": "matched-subset, spatial-support, IDW parameter, and leave-one-borehole-out reanalysis of frozen Swissgeol outputs",
       "source_path": "experiments/paper3/analysis/swissgeol_spatial_sensitivity_v001.json",
-      "source_sha256": "d0d260b2711f10c0008c9a13e5d262ef12ee03a3c10788771eddc5a9205b1c06",
+      "source_sha256": "32440b01b2a5f7255d07b896f1dcc77b721e5f8a08a045b0b80433970c46a690",
       "assertions": [
         {
           "type": "json_pointer_equals",

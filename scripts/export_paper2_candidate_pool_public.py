@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Export a deidentified, PDF-free input for the Paper II candidate ablation."""
+"""Export a pseudonymized, PDF-free input for the Paper II candidate ablation."""
 from __future__ import annotations
 
 import argparse
@@ -129,7 +129,8 @@ def main() -> None:
         "source_status": "derived_from_frozen_v004_v005_candidate_pools",
         "record_count": len(rows),
         "candidate_count": sum(len(row["candidate_pool"]) for row in rows),
-        "deidentification": ["stable salted record_key", "no source record ID", "no OCR text", "no absolute bbox", "no absolute path", "normalized page geometry"],
+        "pseudonymization": ["stable salted record_key", "no source record ID", "no OCR text", "no absolute bbox", "no absolute path", "normalized page geometry"],
+        "linkage_warning": "Ordered reference depth sequences may be unique and linkable to the public USGS transcription tables; this release is not anonymous.",
         "recomputation_scope": "candidate sequence ablation and boundary matching; no PDF or OCR rerun",
         "rights_review": "PENDING_MANUAL_PRE_SUBMISSION_REVIEW",
     }

@@ -2994,3 +2994,28 @@
 - Next step: inspect the complete diff, commit in focused units, push the
   existing review branch, verify GitHub CI, and perform a fresh-clone
   regeneration check.
+
+## 2026-08-17 — Final adviser-response precision and linkage audit
+
+- Corrected the Paper I conclusion F1 range to `0.383–0.450` and added a
+  dedicated prose-to-result binding. Expanded the frozen RapidOCR and
+  Qwen3-VL-4B reference configurations without changing baseline claims.
+- Reclassified California v001/v002 as risk-policy development evidence after
+  their initial parser evaluations; v004/v005 remain the policy confirmation
+  cohorts. The v004/v005 candidate-pool ablation is explicitly post-hoc and
+  explanatory.
+- Removed the sequence decoder's default 400-predecessor truncation and
+  recomputed the shallow-start sensitivity from the public candidate pool.
+  v004 F1 remained `0.5662` for coefficients 0–0.005/ft; v005 ranged only from
+  `0.5310` to `0.5297`.
+- Rewrote the Paper III 602-record track as two synthetically perturbed reader
+  channels on real structured-source records. Added full-support volume
+  jackknife ranges and clarified that risk LOO uses accepted support to predict
+  reference target locations rather than emitting rejected-document outputs.
+- Executed aggregate linkage attacks. Exact depth sequences linked 200/200
+  Paper II rows and uniquely linked 198/200; rigid pairwise-distance
+  fingerprints uniquely linked 35/35 Paper III points. Public projections are
+  now described as pseudonymized/transformed and linkable, never anonymous.
+- Redesigned the Paper I flow/forest plots, Paper II candidate-graph/risk
+  figures, and Paper III six-panel controlled-error and jackknife figures to
+  match the revised scientific claims.

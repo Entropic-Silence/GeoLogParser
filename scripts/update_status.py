@@ -119,6 +119,8 @@ def main() -> None:
         json.loads(publication_evidence_path.read_text(encoding="utf-8"))
         if publication_evidence_path.is_file() else {}
     )
+    linkage_path = ROOT / "docs/generated/publication_linkage_risk.json"
+    linkage = json.loads(linkage_path.read_text(encoding="utf-8")) if linkage_path.is_file() else {}
     paper1_revision = json.loads((ROOT / "experiments/paper1/analysis/california_replication_statistics_v001.json").read_text(encoding="utf-8"))
     paper2_ablation = json.loads((ROOT / "experiments/paper2/analysis/california_candidate_pool_ablation_v001.json").read_text(encoding="utf-8"))
     paper2_risk = json.loads((ROOT / "experiments/paper2/analysis/california_document_risk_v001.json").read_text(encoding="utf-8"))
@@ -201,9 +203,18 @@ def main() -> None:
     )
     document_output_count = len(publication_evidence.get("document_outputs", []))
     lines[publication_line] = (
-        f"- Deidentified document-level prediction/error files: {document_output_count}; "
+        f"- Pseudonymized document-level prediction/error files: {document_output_count}; "
         "source pages, model weights, raw OCR text/regions, and sensitive fields remain outside the repository."
     )
+    if linkage:
+        p2_linkage = linkage["paper2_candidate_pool"]
+        p3_linkage = linkage["paper3_spatial_input"]
+        lines.insert(
+            publication_line + 1,
+            f"- Linkage diagnostic: Paper II uniquely matched {p2_linkage['records_with_unique_exact_source_match']}/{p2_linkage['public_record_count']} depth signatures; "
+            f"Paper III uniquely matched {p3_linkage['records_with_unique_exact_distance_fingerprint_match']}/{p3_linkage['public_record_count']} distance fingerprints. "
+            "The inputs are linkable and are not claimed to be anonymous.",
+        )
     start = lines.index("## Paper status")
     end = lines.index("## Boundary")
     p1_f1 = [

@@ -39,8 +39,9 @@ Status basis: current version-controlled working tree; experiment-level commits 
 
 - Exact indexed run/metrics files: 195.
 - External aggregate/source-audit summaries: 14.
-- Public reanalysis input files: 6.
-- Deidentified document-level prediction/error files: 19; source pages, model weights, raw OCR text/regions, and sensitive fields remain outside the repository.
+- Public reanalysis input files: 8.
+- Pseudonymized document-level prediction/error files: 19; source pages, model weights, raw OCR text/regions, and sensitive fields remain outside the repository.
+- Linkage diagnostic: Paper II uniquely matched 198/200 depth signatures; Paper III uniquely matched 35/35 distance fingerprints. The inputs are linkable and are not claimed to be anonymous.
 - Fresh-clone paper audits verify the publication core; full immutable-run verification requires the controlled local evidence store.
 
 ## Paper status

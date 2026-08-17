@@ -19,7 +19,7 @@
     "zhang2020boreholeimages"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "4468e93d55f60f55dbe34b2d508ecd036193894d3ca1b63a61609c86c633e443",
+  "claim_registry_sha256": "4e7a3d37d0ec845326edb35feee5598b5afeefff1bbdac6bf4398c2ae6c00400",
   "claim_source_errors": [],
   "evidence_tags": [
     "p2.bgs_v003_v028_external_failure",
@@ -70,7 +70,7 @@
     {
       "exists": true,
       "resolved_path": "papers/paper2/generated/figures/sequence_risk_frontier.png",
-      "sha256": "42030d59ac2bb2e19550c79154f0bba53b4357c89e1321111eccf2558ab6131c",
+      "sha256": "39c3ecdb57440992326a4e154ab5bd63d876c600f729a37e0e0520f667941d25",
       "target": "generated/figures/sequence_risk_frontier.png"
     },
     {
@@ -87,7 +87,7 @@
     }
   ],
   "manuscript_path": "papers/paper2/manuscript.md",
-  "manuscript_sha256": "597a3ecfe8284249b3192126cd35a0614e1e346349f1d5103cb866c620d9dfd3",
+  "manuscript_sha256": "8ad4afc7f4106ba07acc1cb469496c100f6dce7ef6ca5af5940a753621bea754",
   "missing_bibliography_keys": [],
   "missing_claim_registrations": [],
   "missing_literature_evidence_keys": [],
@@ -159,5 +159,5 @@
     "p2.swissgeol_routed_moe_independent_coverage",
     "p2.swissgeol_v2_secondary_ablation"
   ],
-  "word_count": 3087
+  "word_count": 3333
 }

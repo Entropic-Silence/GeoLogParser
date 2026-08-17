@@ -1,6 +1,8 @@
 {
   "candidate_count": 2225,
-  "deidentification": [
+  "evidence_tier": "PUBLISHED_MANUAL_TRANSCRIPTION_GOLD",
+  "linkage_warning": "Ordered reference depth sequences may be unique and linkable to the public USGS transcription tables; this release is not anonymous.",
+  "pseudonymization": [
     "stable salted record_key",
     "no source record ID",
     "no OCR text",
@@ -8,7 +10,6 @@
     "no absolute path",
     "normalized page geometry"
   ],
-  "evidence_tier": "PUBLISHED_MANUAL_TRANSCRIPTION_GOLD",
   "recomputation_scope": "candidate sequence ablation and boundary matching; no PDF or OCR rerun",
   "record_count": 200,
   "rights_review": "PENDING_MANUAL_PRE_SUBMISSION_REVIEW",

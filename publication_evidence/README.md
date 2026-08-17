@@ -3,7 +3,7 @@
 This directory is the minimal evidence subset intended for repository review.
 It contains exact `run.json` and aggregate `metrics.json` bytes for every run in
 the three paper result indexes, privacy-minimized projections of source-audit
-assertions, and selected deidentified per-document outputs for the main
+assertions, and selected pseudonymized per-document outputs for the main
 California and Swissgeol reanalyses. It also contains the privacy-minimized
 inputs needed to recompute the Paper II same-candidate-pool ablation and the
 Paper III spatial-support diagnostics without access to the source PDFs.
@@ -19,6 +19,14 @@ match counts, decisions, and correction taxonomies are retained.
 Those materials remain in the controlled local evidence store because their
 redistribution, privacy, or source terms require a separate item-level review.
 Their immutable SHA-256 values remain in the result indexes and claim registry.
+
+These projections are not anonymous. Exact ordered-depth signatures uniquely
+link 198/200 Paper II records within the two released cohort manifests, and
+pairwise-distance fingerprints uniquely link all 35 transformed Paper III
+points to the matching original point set. Aggregate attack results, with no
+record mapping, are included under `analysis_inputs/linkage/`. Release review
+must therefore cover source rights, record linkage, and sensitive locations;
+removing direct identifiers is not a non-reidentifiability guarantee.
 
 The two public-input recomputations are separate from table regeneration from
 already frozen analysis JSON:

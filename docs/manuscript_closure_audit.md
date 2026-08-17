@@ -2,7 +2,7 @@
 
 Date: 2026-08-17  
 Repository: `GeoLogParser`  
-Latest pre-audit commit: `9ea1b30`
+Adviser-reviewed baseline commit: `0f4d2d5`
 
 ## Automated checks
 
@@ -16,7 +16,7 @@ scripts/build_paper_packages.py
 All three manuscripts passed structural section, bibliography, literature
 evidence, local-link, result-index, and claim-source checks. No manuscript
 contains an unresolved ``TBD`` or ``[CITATION TO VERIFY]`` marker. Generated
-review packages are labelled `SUBMISSION_READY` by the repository's evidence
+review packages are labelled `SUBMISSION_READY_CANDIDATE` by the repository's evidence
 auditor; this label means scientific-content/evidence closure and does not
 override the external rights and source-verification gate in
 `docs/submission_blockers.md`.

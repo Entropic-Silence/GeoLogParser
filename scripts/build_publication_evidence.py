@@ -2,7 +2,7 @@
 """Build the minimal redistributable evidence bundle for manuscript audit.
 
 The bundle contains exact run metadata and aggregate metrics for every indexed
-experiment plus a selected, deidentified document-level prediction/error core.
+experiment plus a selected, pseudonymized document-level prediction/error core.
 It deliberately excludes page images, OCR text rows, raw identifiers, logs,
 model weights, complete source databases, and sensitive source-inventory details.
 """
@@ -36,7 +36,7 @@ ANALYSIS_INPUT_FILES = (
     (
         "experiments/paper2/public/candidate_pool_v001.jsonl",
         "paper2/candidate_pool_v001.jsonl",
-        "deidentified positioned-candidate pool for same-pool ablation",
+        "pseudonymized positioned-candidate pool for same-pool ablation; exact depth sequences remain linkable",
     ),
     (
         "experiments/paper2/public/candidate_pool_v001.metadata.json",
@@ -62,6 +62,16 @@ ANALYSIS_INPUT_FILES = (
         "experiments/paper3/public/spatial_recomputed_v001.json",
         "paper3/spatial_recomputed_v001.json",
         "diagnostics recomputed from transformed public input",
+    ),
+    (
+        "docs/generated/publication_linkage_risk.json",
+        "linkage/publication_linkage_risk.json",
+        "aggregate exact-sequence and distance-fingerprint linkage diagnostics; no record mapping",
+    ),
+    (
+        "docs/publication_linkage_risk.md",
+        "linkage/publication_linkage_risk.md",
+        "release-risk interpretation for pseudonymized and transformed inputs",
     ),
 )
 SENSITIVE_KEYS = {
@@ -364,9 +374,10 @@ def main() -> None:
         encoding="utf-8",
     )
     manifest = {
-        "publication_evidence_schema_version": "publication_evidence_v002",
+        "publication_evidence_schema_version": "publication_evidence_v003",
         "frozen_date": BUNDLE_DATE,
-        "scope": "exact aggregate run/metrics evidence, selected deidentified document outputs, public reanalysis inputs, and privacy-minimized claim projections",
+        "scope": "exact aggregate run/metrics evidence, selected pseudonymized document outputs, public reanalysis inputs, linkage-risk diagnostics, and privacy-minimized claim projections",
+        "privacy_classification": "direct identifiers removed; released projections are pseudonymized or transformed and may remain linkable; anonymity is not claimed",
         "excluded": [
             "source page images and PDFs",
             "model weights and caches",
@@ -392,7 +403,7 @@ def main() -> None:
     print(manifest_path)
     print(f"result core files: {len(copied_core)}")
     print(f"external summaries: {len(copied_external)}")
-    print(f"deidentified document outputs: {len(document_outputs)}")
+    print(f"pseudonymized document outputs: {len(document_outputs)}")
     print(f"public reanalysis input files: {len(analysis_inputs)}")
 
 

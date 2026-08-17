@@ -1,6 +1,16 @@
 {
-  "analysis_input_file_count": 6,
+  "analysis_input_file_count": 8,
   "analysis_inputs": {
+    "publication_evidence/analysis_inputs/linkage/publication_linkage_risk.json": {
+      "origin": "docs/generated/publication_linkage_risk.json",
+      "scope": "aggregate exact-sequence and distance-fingerprint linkage diagnostics; no record mapping",
+      "sha256": "cb26b141a6aebf27ad21fe88c815c4c1ba340dce13afbe02af6383b863b04ac2"
+    },
+    "publication_evidence/analysis_inputs/linkage/publication_linkage_risk.md": {
+      "origin": "docs/publication_linkage_risk.md",
+      "scope": "release-risk interpretation for pseudonymized and transformed inputs",
+      "sha256": "d895adf92af1e78618ee292d6f99109f4a542dded6f68c1172d43c83b4fcd52e"
+    },
     "publication_evidence/analysis_inputs/paper2/candidate_pool_recomputed_v001.jsonl": {
       "origin": "experiments/paper2/public/candidate_pool_recomputed_v001.jsonl",
       "scope": "deterministically recomputed ablation sequences",
@@ -8,13 +18,13 @@
     },
     "publication_evidence/analysis_inputs/paper2/candidate_pool_v001.jsonl": {
       "origin": "experiments/paper2/public/candidate_pool_v001.jsonl",
-      "scope": "deidentified positioned-candidate pool for same-pool ablation",
+      "scope": "pseudonymized positioned-candidate pool for same-pool ablation; exact depth sequences remain linkable",
       "sha256": "e07cd765a023e5d64c75ee427389d20d0f49dcf349c123312ecd62aaa03c2fd5"
     },
     "publication_evidence/analysis_inputs/paper2/candidate_pool_v001.metadata.json": {
       "origin": "experiments/paper2/public/candidate_pool_v001.metadata.json",
       "scope": "candidate-pool schema and release limitations",
-      "sha256": "dfd60f0d488d0c2ceab018d770dce10ad93c14a5b254b7d1071a768afd236189"
+      "sha256": "b977db1f4742d9eb5c17862d0311bfe546e495b635fff5941ee2484f11ef6462"
     },
     "publication_evidence/analysis_inputs/paper3/spatial_input_v001.jsonl": {
       "origin": "experiments/paper3/public/spatial_input_v001.jsonl",
@@ -24,7 +34,7 @@
     "publication_evidence/analysis_inputs/paper3/spatial_input_v001.metadata.json": {
       "origin": "experiments/paper3/public/spatial_input_v001.metadata.json",
       "scope": "spatial transform and release limitations",
-      "sha256": "177e6cc632aede29e5b7c6aa9bdb34fd0df79c30ba88271d45dfb618bffa46e8"
+      "sha256": "6e41b1e7d53b0783afa1b8bf0ae934be7df76c48aded044749deae8b2dc14bc2"
     },
     "publication_evidence/analysis_inputs/paper3/spatial_recomputed_v001.json": {
       "origin": "experiments/paper3/public/spatial_recomputed_v001.json",
@@ -211,7 +221,8 @@
   },
   "external_summary_file_count": 14,
   "frozen_date": "2026-08-17",
-  "publication_evidence_schema_version": "publication_evidence_v002",
+  "privacy_classification": "direct identifiers removed; released projections are pseudonymized or transformed and may remain linkable; anonymity is not claimed",
+  "publication_evidence_schema_version": "publication_evidence_v003",
   "result_core": {
     "publication_evidence/result_core/results/2026-08-12/P1_B1_BGS_AUDIT_001/metrics.json": {
       "experiment_id": "P1_B1_BGS_AUDIT_001",
@@ -1190,5 +1201,5 @@
     }
   },
   "result_core_file_count": 195,
-  "scope": "exact aggregate run/metrics evidence, selected deidentified document outputs, public reanalysis inputs, and privacy-minimized claim projections"
+  "scope": "exact aggregate run/metrics evidence, selected pseudonymized document outputs, public reanalysis inputs, linkage-risk diagnostics, and privacy-minimized claim projections"
 }

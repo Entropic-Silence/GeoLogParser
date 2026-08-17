@@ -12,7 +12,7 @@
     "zhang2026boreholedensity"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "4468e93d55f60f55dbe34b2d508ecd036193894d3ca1b63a61609c86c633e443",
+  "claim_registry_sha256": "4e7a3d37d0ec845326edb35feee5598b5afeefff1bbdac6bf4398c2ae6c00400",
   "claim_source_errors": [],
   "evidence_tags": [
     "p3.coal602_consensus_qc",
@@ -48,7 +48,7 @@
     {
       "exists": true,
       "resolved_path": "papers/paper3/supplement.md",
-      "sha256": "52142d495844695f2df735df2756bfc4afd7c88e14c11aa09a3d116060f383ae",
+      "sha256": "e6d18f756c15e6f4b9b6f6143b4cac9212d1b1921cfba8793e1d123d7d295ab4",
       "target": "supplement.md"
     },
     {
@@ -65,7 +65,7 @@
     }
   ],
   "manuscript_path": "papers/paper3/manuscript.md",
-  "manuscript_sha256": "a51c4c9bac3d90905e2e5162cb408b6228ac43203b9d075d7eb86a6198750c34",
+  "manuscript_sha256": "96d053a8913cf94b8c6dedbbaec866f609ce66090ff451b5f77fc79440786221",
   "missing_bibliography_keys": [],
   "missing_claim_registrations": [],
   "missing_literature_evidence_keys": [],
@@ -114,5 +114,5 @@
     "p3.stratigraphic_layer_model",
     "p3.stratigraphic_layer_model_risk_aware"
   ],
-  "word_count": 2529
+  "word_count": 2771
 }
