@@ -28,10 +28,12 @@ decoder, threshold, model roster or selection decision. BGS v003 is excluded.
 
 The open group consists of the locally served Qwen3.8-27B-FP8 generalist VLM,
 MinerU2.5-Pro-2604-1.2B through its official two-step document parser, and
-PaddleOCR-VL-1.6 subject to an independent local smoke test. For MinerU, the
-common decoder reads only explicitly labelled top/bottom HTML table cells. The
-prior Qwen3-VL-4B result remains a historical reproducible reference, not an
-upper bound.
+PaddleOCR-VL-1.6 through its published table-recognition task. For MinerU and
+PaddleOCR-VL, the common decoder reads only explicitly labelled top/bottom HTML
+table cells. These document-specialist interfaces are reported separately from
+the common-prompt generalist comparison because their published task prompts
+are part of the models' intended operating mode. The prior Qwen3-VL-4B result
+remains a historical reproducible reference, not an upper bound.
 
 The initial open-model roster is frozen under `paper1_modern_vlm_v002`.
 After that protocol began, a user-directed closed-model extension was added as

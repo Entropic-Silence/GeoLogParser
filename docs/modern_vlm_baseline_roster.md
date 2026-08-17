@@ -7,8 +7,8 @@ results. A registered model is not a completed experiment.
 | --- | --- | --- | --- | --- |
 | Open | Qwen3.8-27B-FP8 | Local OpenAI-compatible server | `RUNNING` | `configs/models/qwen38_fp8_modern_vlm_v002.json` |
 | Open | MinerU2.5-Pro-2604-1.2B | Local official two-step parser | `RUNNING` | `configs/models/mineru25_pro_modern_vlm_v001.json` |
-| Open | PaddleOCR-VL-1.6 | Official-compatible local runtime pending | `NOT_RUN` | `docs/modern_vlm_baseline_protocol.md` |
-| Closed | GPT-5.6 Sol | OpenAI official Chat Completions API | `NOT_RUN_REQUIRES_VALID_OFFICIAL_API_CREDENTIAL` | [OpenAI Docs](https://developers.openai.com/api/docs/models/gpt-5.6-sol) |
+| Open | PaddleOCR-VL-1.6 | Local Transformers official table-recognition interface | `READY_FOR_SMOKE` | `configs/models/paddleocr_vl_1_6_modern_vlm_v001.json` |
+| Closed | GPT-5.6 Sol | OpenAI official Chat Completions API | `NOT_RUN_REQUIRES_VALID_OFFICIAL_API_CREDENTIAL` | [Preflight record](modern_vlm_closed_endpoint_preflight.md) |
 | Closed | Claude Opus 4.6 | Anthropic official Messages API | `NOT_RUN_REQUIRES_VALID_OFFICIAL_API_CREDENTIAL` | [Anthropic model overview](https://docs.anthropic.com/en/docs/about-claude/models/overview) |
 
 The closed group is registered in the post-hoc exploratory extension
