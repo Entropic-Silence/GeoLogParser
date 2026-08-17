@@ -3458,9 +3458,9 @@
     },
     "p1.california_replication_statistics": {
       "paper": "paper1",
-      "scope": "paired document-cluster bootstrap and fixed interval-count stratification across three mutually disjoint California freezes",
+      "scope": "document-cluster bootstrap, document diagnostics, and fixed interval-count stratification across five mutually disjoint California cohorts",
       "source_path": "experiments/paper1/analysis/california_replication_statistics_v001.json",
-      "source_sha256": "5768dc7a00521b86c783081628df916e20c8eb4887c0eb3f67e241a576e430c7",
+      "source_sha256": "040cb8aa1701f42fbc0bcc5d7410fbe89c0e8b91e391e090bd4538e83fc6e519",
       "assertions": [
         {
           "type": "json_pointer_equals",
@@ -3469,53 +3469,53 @@
         },
         {
           "type": "json_pointer_equals",
-          "pointer": "/freezes/v001/ocr_paired_bootstrap/delta_left_minus_right/f1/observed",
-          "expected": 0.06481952342060515
+          "pointer": "/freezes/v001/rapidocr_document_cluster_metrics/f1",
+          "expected": 0.390134529147982
         },
         {
           "type": "json_pointer_equals",
-          "pointer": "/freezes/v001/ocr_paired_bootstrap/delta_left_minus_right/f1/bootstrap_percentile_95_ci/0",
-          "expected": -0.03461631518800645
+          "pointer": "/freezes/v004_prospective/rapidocr_document_cluster_metrics/f1",
+          "expected": 0.42790335151987524
         },
         {
           "type": "json_pointer_equals",
-          "pointer": "/freezes/v001/ocr_paired_bootstrap/delta_left_minus_right/f1/bootstrap_percentile_95_ci/1",
-          "expected": 0.16842898606404277
+          "pointer": "/freezes/v005_external/rapidocr_document_cluster_metrics/matched",
+          "expected": 546
         },
         {
           "type": "json_pointer_equals",
-          "pointer": "/freezes/v002_external/ocr_paired_bootstrap/delta_left_minus_right/f1/observed",
-          "expected": 0.10443457094358338
+          "pointer": "/freezes/v005_external/rapidocr_document_cluster_metrics/f1",
+          "expected": 0.38861209964412813
         },
         {
           "type": "json_pointer_equals",
-          "pointer": "/freezes/v002_external/ocr_paired_bootstrap/delta_left_minus_right/f1/bootstrap_percentile_95_ci/0",
-          "expected": 0.016365378987387155
+          "pointer": "/freezes/v005_external/rapidocr_document_cluster_metrics/bootstrap_percentile_95_ci/f1/0",
+          "expected": 0.3075688863336785
         },
         {
           "type": "json_pointer_equals",
-          "pointer": "/freezes/v002_external/ocr_paired_bootstrap/delta_left_minus_right/f1/bootstrap_percentile_95_ci/1",
-          "expected": 0.19147235072747992
+          "pointer": "/freezes/v005_external/rapidocr_document_cluster_metrics/bootstrap_percentile_95_ci/f1/1",
+          "expected": 0.4724509810566098
         },
         {
           "type": "json_pointer_equals",
-          "pointer": "/freezes/v003_prospective/ocr_paired_bootstrap/delta_left_minus_right/f1/observed",
-          "expected": 0.05233288126593727
+          "pointer": "/freezes/v005_external/rapidocr_document_diagnostics/zero_output_document_count",
+          "expected": 15
         },
         {
           "type": "json_pointer_equals",
-          "pointer": "/freezes/v003_prospective/ocr_paired_bootstrap/delta_left_minus_right/f1/bootstrap_percentile_95_ci/0",
-          "expected": -0.012845894917065075
+          "pointer": "/freezes/v005_external/rapidocr_document_diagnostics/boundary_exact_document_count",
+          "expected": 4
         },
         {
           "type": "json_pointer_equals",
-          "pointer": "/freezes/v003_prospective/ocr_paired_bootstrap/delta_left_minus_right/f1/bootstrap_percentile_95_ci/1",
-          "expected": 0.11893024707345082
+          "pointer": "/freezes/v005_external/rapidocr_document_diagnostics/full_exact_document_count",
+          "expected": 1
         },
         {
           "type": "json_pointer_equals",
-          "pointer": "/combined_descriptive/ocr_paired_bootstrap/delta_left_minus_right/f1/observed",
-          "expected": 0.07691222657323915
+          "pointer": "/combined_descriptive/document_count",
+          "expected": 450
         }
       ]
     },
@@ -3859,9 +3859,9 @@
     },
     "p2.california_replication_statistics": {
       "paper": "paper2",
-      "scope": "paired document-cluster bootstrap of constraint recovery across three disjoint freezes and prospective selective correction on v003",
+      "scope": "paired document-cluster bootstrap of constraint recovery across five disjoint freezes, with prospective selective correction on v003 and descriptive five-cohort pooling",
       "source_path": "experiments/paper1/analysis/california_replication_statistics_v001.json",
-      "source_sha256": "5768dc7a00521b86c783081628df916e20c8eb4887c0eb3f67e241a576e430c7",
+      "source_sha256": "040cb8aa1701f42fbc0bcc5d7410fbe89c0e8b91e391e090bd4538e83fc6e519",
       "assertions": [
         {
           "type": "json_pointer_equals",
@@ -3886,12 +3886,12 @@
         {
           "type": "json_pointer_equals",
           "pointer": "/freezes/v002_external/constraint_paired_bootstrap/delta_left_minus_right/f1/bootstrap_percentile_95_ci/0",
-          "expected": 0.07617935232982545
+          "expected": 0.07614124866596624
         },
         {
           "type": "json_pointer_equals",
           "pointer": "/freezes/v002_external/constraint_paired_bootstrap/delta_left_minus_right/f1/bootstrap_percentile_95_ci/1",
-          "expected": 0.15346595888053077
+          "expected": 0.15375087089370665
         },
         {
           "type": "json_pointer_equals",
@@ -3901,12 +3901,12 @@
         {
           "type": "json_pointer_equals",
           "pointer": "/freezes/v003_prospective/constraint_paired_bootstrap/delta_left_minus_right/f1/bootstrap_percentile_95_ci/0",
-          "expected": 0.039226826554034436
+          "expected": 0.03905931193702685
         },
         {
           "type": "json_pointer_equals",
           "pointer": "/freezes/v003_prospective/constraint_paired_bootstrap/delta_left_minus_right/f1/bootstrap_percentile_95_ci/1",
-          "expected": 0.13918669810891524
+          "expected": 0.13950499320875803
         },
         {
           "type": "json_pointer_equals",
@@ -3921,7 +3921,7 @@
         {
           "type": "json_pointer_equals",
           "pointer": "/combined_descriptive/constraint_paired_bootstrap/delta_left_minus_right/f1/observed",
-          "expected": 0.10455025924263905
+          "expected": 0.1220767407993304
         }
       ]
     },
@@ -5687,6 +5687,105 @@
       "origin_source_path": "results/2026-08-16/2026-08-16/P3_SWISSGEOL_STRATIGRAPHIC_LAYER_MODEL_RISK_AWARE_002/metrics.json",
       "origin_source_sha256": "6c88f4fadf7906c1516ec0be872a52d234888650132cdb3d2450c80a6e7eadf1",
       "publication_evidence_mode": "exact_metrics_copy"
+    },
+    "p2.california_candidate_pool_ablation": {
+      "paper": "paper2",
+      "scope": "same-positioned-candidate-pool sequence ablation on California v004 and v005 published manual transcription Gold",
+      "source_path": "experiments/paper2/analysis/california_candidate_pool_ablation_v001.json",
+      "source_sha256": "defbdef70c75ba70998e2e74e384a96a1fdb5014bc22a7b443d4d1162efd1cfe",
+      "assertions": [
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/freezes/v004/metrics/monotonic_sequence/interval_f1/value",
+          "expected": 0.5787598004276551
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/freezes/v005/metrics/monotonic_sequence/interval_f1/value",
+          "expected": 0.5499325236167342
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/freezes/v004/correction_safety/complete_sequence/false_correction_rate",
+          "expected": 0.12146892655367232
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/freezes/v005/correction_safety/complete_sequence/false_correction_rate",
+          "expected": 0.08393285371702638
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/reproduction_gate",
+          "expected": "complete_sequence boundary sets exactly reproduce every archived constrained prediction"
+        }
+      ]
+    },
+    "p2.california_document_risk": {
+      "paper": "paper2",
+      "scope": "document-level risk, review coverage, and net utility for the frozen addition-only policy on California v004/v005",
+      "source_path": "experiments/paper2/analysis/california_document_risk_v001.json",
+      "source_sha256": "f3b713e35ffa0988e39411aa0f58b7b99767d3db953b3b2613159b9ea8a5f7dc",
+      "assertions": [
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/combined_confirmatory/accepted_action_count",
+          "expected": 82
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/combined_confirmatory/accepted_document_count",
+          "expected": 19
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/combined_confirmatory/document_level_one_sided_95_upper_bound",
+          "expected": 0.14586850331224344
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/combined_confirmatory/correct_intervals_added_per_100_documents",
+          "expected": 41.0
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/combined_confirmatory/review_or_abstain_document_count",
+          "expected": 145
+        }
+      ]
+    },
+    "p3.spatial_sensitivity": {
+      "paper": "paper3",
+      "scope": "matched-subset, spatial-support, IDW parameter, and leave-one-borehole-out reanalysis of frozen Swissgeol outputs",
+      "source_path": "experiments/paper3/analysis/swissgeol_spatial_sensitivity_v001.json",
+      "source_sha256": "95bcb90ac28ddfa17203bde3bfd8c453783c22d73bb96f7038754753eb3b5370",
+      "assertions": [
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/risk_accepted_document_count",
+          "expected": 15
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/matched_subset_comparison/raw/aggregate/relative_absolute_volume_error",
+          "expected": 0.03261886879468774
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/matched_subset_comparison/risk/aggregate/relative_absolute_volume_error",
+          "expected": 0.07541086169283998
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/spatial_support/2/convex_hull_area_ratio",
+          "expected": 0.6359897224702509
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/matched_subset_interpretation",
+          "expected": "Risk and reread values are identical on accepted records; any full-support difference between them is therefore attributable to selection/support, not an additional correction."
+        }
+      ]
     },
     "p1.california_vlm_gold": {
       "paper": "paper1",

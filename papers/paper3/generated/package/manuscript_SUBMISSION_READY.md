@@ -2,27 +2,45 @@
 > Package status: **SUBMISSION_READY**
 > This bundle combines the versioned manuscript and generated results for review.
 
-# From Legacy Borehole Logs to Structured Geological Models: An Automated Extraction and Error-Propagation Workflow
+# Propagation of Borehole-Log Extraction Errors into Stratigraphic Surface and Volume Diagnostics
 
 ## Abstract
 
-This paper studies the downstream consequences of automatically structured legacy borehole logs. The workflow exports provenance-bearing extraction into SQLite and GeoJSON, performs quality control, correlates stratigraphic boundaries, and evaluates controlled errors on geological surfaces and layer volumes. A traceable database exporter, transparent IDW error-propagation baseline, and PyVista/VTP surface adapter are implemented. On 602 real structured-source records, strict consensus deletion retained approximately 81.5% of points but increased surface MAE to approximately 0.73–0.74 m, whereas support-preserving mean fusion reduced MAE by 18.3%–22.0% relative to a single channel. On 35 held-out authoritative records, 540 seeded injections across six error classes separated numeric, coordinate, support, and topology failures. An external 88-document spatial-field evaluation extracted unambiguous page coordinates for 53 documents; 51 agreed exactly with the database, while no explicit collar elevation was safely extracted. In a real three-layer downstream diagnostic on 35 held-out documents, raw, constraint-reread, and risk-aware variants had relative absolute volume errors of 0.1389, 0.1216, and 0.0824, respectively; the risk-aware route reduced mean layer-thickness MAE from 45.952 m to 34.808 m and eliminated negative-thickness layers, while retaining only 15/35 documents. This is a quantified reliability–coverage result, not a claim of validated geological interpretation. Human time savings and page-derived collar accuracy are not evaluated.
+This paper quantifies how borehole-log extraction errors and spatial-support loss propagate into stratigraphic surface proxies and layer-volume diagnostics. The analysis separates boundary-value error, coordinate displacement, missing support, and ordered-sequence topology under a transparent inverse-distance weighting (IDW) model. On 602 structured-source records, strict consensus deletion retained about 81.5% of points yet increased surface MAE to 0.73–0.74 m; support-preserving fusion reduced MAE by 18.3%–22.0%. On 35 source-agreement documents, 540 controlled perturbations showed distinct within-class dose responses for boundary, coordinate, support, merge, split, and duplicate errors. In the default full-support comparison, raw volume error 0.1389 and mean thickness MAE 45.952 m changed to risk-aware volume error 0.0824, mean thickness MAE 34.808 m, and document coverage 15/35. A strict matched-subset analysis reversed the apparent volume advantage: on the same 15 accepted documents, raw volume error was 0.0326, while reread and risk-aware error were both 0.0754. The risk-aware result therefore arose primarily from selection and changed spatial support, not an additional correction on accepted records. Across IDW power, neighbour, grid, and domain choices, method differences were comparable to spatial-model variability; leave-one-borehole-out reference interpolation error was about 47 m. The study is a sensitivity diagnostic, not validation of a geological interpretation or production 3D model. <!-- evidence:p3.coal602_consensus_qc --> <!-- evidence:p3.controlled_error_classes --> <!-- evidence:p3.stratigraphic_layer_model --> <!-- evidence:p3.stratigraphic_layer_model_risk_aware --> <!-- evidence:p3.spatial_sensitivity -->
 
 ## 1. Introduction
 
-A four-boundary extension reduced aggregate positional MAE from 11.171 m to 2.789 m but surface MAE only from 21.397 m to 20.615 m, revealing that missing spatial support can dominate otherwise correct available boundaries.
+Document extraction is useful only if its output supports defensible downstream analysis. A small boundary error and a missing borehole have different propagation mechanisms; rejecting uncertain records can lower pointwise error while degrading the geometry of spatial support. We ask: (RQ1) how boundary, coordinate, omission, and topology errors alter surface and volume diagnostics; (RQ2) whether a lower-error extraction remains better on an identical borehole subset; (RQ3) how abstention changes convex-hull coverage and observation spacing; and (RQ4) whether conclusions persist across transparent IDW choices and leave-one-borehole-out validation.
 
-Document extraction is useful only if its output supports defensible engineering workflows. A small boundary error may be negligible in one setting and distort a thin layer in another; a wrong coordinate may be catastrophic. We ask: (RQ1) how extraction-depth errors affect model surfaces; (RQ2) whether constraint QC stabilizes downstream models; (RQ3) how risk-aware abstention changes reliability and spatial support; and (RQ4) which error classes dominate downstream impact.
-
-This contribution boundary is workflow and error propagation. It reuses extraction/data definitions with disclosure but does not repeat Paper I benchmark or Paper II method contributions.
+This paper owns downstream error propagation and spatial-support sensitivity. It reuses the task definition from Paper I and frozen raw/risk outputs from Paper II, but does not claim their evaluation or extraction methods as contributions.
 
 ## 2. Related Work
 
-Shepard's irregular-data interpolation provides the provenance for the transparent inverse-distance baseline used in our controlled propagation protocol [@shepard1968interpolation]. It is intentionally not treated as a universal geological model. GemPy demonstrates an open-source route to stochastic geological modelling and inversion [@delavarga2019gempy], which motivates a later interoperable model adapter rather than making GemPy a prerequisite for document extraction. The 2024 borehole OCR/database study by Han and Suh connects document recognition to structured borehole data in an applied setting, but does not evaluate extraction-error propagation into a geological surface [@han2024boreholeocr].
+Shepard's irregular-data interpolation provides the transparent IDW baseline used here [@shepard1968interpolation]. It is not treated as a universal geological model. GemPy demonstrates stochastic geological modelling and inversion [@delavarga2019gempy], while Wellmann and Caumon distinguish structural-model concepts, interpolation choices, and uncertainty sources [@wellmann2018uncertainty]. These works motivate sensitivity analysis across interpolation settings rather than presenting one surface as geological truth. Han and Suh connect recognition to a borehole database but do not quantify downstream propagation [@han2024boreholeocr].
 
-Downstream uncertainty begins before interpolation. In a designed cross-section experiment, Lark et al. compared geologists' interpreted contact elevations with withheld boreholes and quantified modeller/site variation, showing why interpretation uncertainty must be separated from document-extraction error [@lark2014crosssection]. Pakyuz-Charrier et al. explicitly propagated drillhole path and log uncertainty through alternative 3D model realizations with Monte Carlo perturbations [@pakyuzcharrier2018drillhole]. Paper III isolates an earlier error source—automated structuring of legacy logs—and holds the downstream correlation/interpolation configuration fixed when comparing raw automated extraction, constraint-validated extraction, and reference records. Interactive-machine-learning literature further argues that users and learning systems must be studied together [@amershi2014interactive]; it motivates a timed, event-logged human study here but supplies no transferable GeoLogParser time-saving estimate.
+Downstream uncertainty begins before interpolation. Lark et al. used withheld boreholes to quantify variation in interpreted contact elevations [@lark2014crosssection]. Pakyuz-Charrier et al. propagated drillhole path and log uncertainty through alternative 3D realizations [@pakyuzcharrier2018drillhole]. Recent studies separately quantify how borehole density changes hydrogeological statistics and 3D reconstruction fidelity [@tran2025boreholedensity; @zhang2026boreholedensity]. Our study isolates an earlier input channel—automated structuring of legacy logs—and separates value error from loss of spatial support and from the baseline interpolation error measured by leave-one-borehole-out prediction.
+
+| Closest work | Uncertainty source | Difference in this study |
+|---|---|---|
+| Geological-model uncertainty reviews [@wellmann2018uncertainty] | Structural concepts, interpolation, and interpretation | Frozen document-extraction errors and spatial-support diagnostics |
+| Withheld-borehole interpretation [@lark2014crosssection] | Human correlation/model variation | Automated boundary/value/support errors before interpretation |
+| Drillhole Monte Carlo propagation [@pakyuzcharrier2018drillhole] | Survey path and logged observations | Raw versus reread versus risk-selected document outputs plus matched-subset analysis |
+| Borehole-density sensitivity [@tran2025boreholedensity; @zhang2026boreholedensity] | Sampling density and spatial layout | Extraction-driven abstention and boundary omission measured through hull, spacing, and matched-support diagnostics |
+| IDW interpolation [@shepard1968interpolation] | Deterministic spatial approximation | Power/neighbour/grid/domain sensitivity and LOOCV baseline |
 
 ## 3. Workflow
+
+### 3.0 Evidence tiers and terminology
+
+| Evidence type | Meaning | Supported claim |
+|---|---|---|
+| Published manual transcription Gold | External image transcription with publisher QC | Upstream extraction accuracy, when reused from Paper I/II |
+| Source-agreement reference | Explicit PDF intervals aligned to authoritative records | Downstream consistency and sensitivity for that selected source |
+| Authoritative metadata | Official coordinates/collars | Spatial coverage and page/database agreement |
+| Machine Silver | Machine-derived reference | Agreement diagnostics only |
+| Audit / no GT | No independent target reference | Coverage, runtime, and failure mechanisms only |
+
+Throughout, *surface proxy*, *stratigraphic surface diagnostic*, *volume diagnostic*, and *downstream consistency* are used deliberately. The results do not establish geological interpretation accuracy, a validated 3D model, or an engineering-ready product.
 
 Legacy PDF/JPG/PNG enters GeoLogParser and produces validated records with provenance. SQLite separates boreholes, intervals, and field provenance. GeoJSON exports coordinates without implicit CRS transformation. CSV, JSON, XLSX, and Parquet are supported with separate borehole, interval, and provenance tables. GeoParquet and GeoPackage point exports carry an explicit EPSG CRS for QGIS-compatible consumption and reject unknown or mixed CRSs rather than combining them. A Padova source-coordinate snapshot now exports 11 EPSG:4326 points to SQLite/GeoJSON/GeoParquet/GeoPackage, but all coordinate fields remain `needs_review`, the snapshot contains zero intervals, and it is not a geological model. <!-- evidence:p3.padova_spatial_catalog --> A separate gate requires at least three eligible points and human-verified collar elevations/target boundaries before surface modelling. A neutral regular-surface adapter exports IDW surfaces to PyVista VTP and off-screen PNG. This paper uses the transparent IDW implementation for controlled propagation and does not claim GemPy integration or production geological-model interoperability.
 
@@ -42,23 +60,39 @@ A second controlled experiment separates six downstream error classes on the 35-
 
 The partial page-spatial experiment combines frozen direct-text coordinates with frozen raster boundary predictions before loading references. It compares: page coordinates plus reference boundary depth, page coordinates plus raw boundary depth, page coordinates plus reread boundary depth, and authoritative coordinates plus reread boundary depth. All variants are scored on the same authoritative 35-point convex-hull query domain. Because the frozen page parser extracts no collar elevations, every variant still receives authoritative collar elevation; the experiment therefore isolates progress and remaining coverage failure rather than claiming a complete end-to-end surface workflow.
 
-## 5. Database and Interoperability
+The principal reanalysis has two estimands. The *full-support comparison* lets raw, reread, and risk-aware variants operate with their own available points over the reference convex hull; it measures deployed input packages, including selection. The *matched-subset comparison* restricts all three variants and the reference domain to the same 15 risk-accepted documents; it isolates value/sequence changes from document selection. Because risk-aware intervals equal reread intervals on accepted records, those two variants must be identical in the matched subset.
 
-The database preserves source hash, raw/normalized values, page/bbox/text, method, confidence, validation, warnings, and units. Upserts replace a document's interval projection transactionally. GeoJSON skips missing coordinates and reports encountered CRS labels; it never guesses or transforms an unknown CRS. GeoParquet writes WKB point geometry only when all located records share one explicit `EPSG:<code>` identifier. A quarantine-only internal run built four auto boreholes, 12 intervals, and 224 provenance rows; because data are not human-validated or release-cleared, this is connectivity evidence only. <!-- evidence:p3.sanming_database_connectivity -->
+Spatial support is quantified for every ordered boundary by effective point count, point coverage, accepted/reference convex-hull area ratio, nearest-neighbour distance distribution, a diagnostic Clark–Evans ratio, and grid-to-nearest-observation distance. IDW sensitivity crosses powers 1, 2, and 3; all points versus four or eight nearest neighbours; 15, 25, and 41 grid nodes per axis; and the full reference versus matched accepted hull. The goal is not to select the most favourable IDW setting, but to compare method differences with spatial-model variability.
+
+Leave-one-borehole-out (LOO) prediction removes each target borehole, interpolates each ordered boundary from the remaining records, and scores against the target reference elevation. A reference-input LOO baseline estimates interpolation error even with perfect structured inputs. Raw, reread, and risk-input LOO then show whether extraction effects are large relative to this baseline. Uncertainty sources are kept separate: borehole/document bootstrap for matched-subset boundary error, perturbation-seed variability for controlled injections, and range across IDW settings for model-choice sensitivity. Thirty perturbation seeds are repetitions of one site, not 30 independent sites.
+
+## 5. Database Boundary and Interoperability
+
+The database preserves source hash, raw/normalized values, page/bbox/text, method, confidence, validation, warnings, and units. GeoJSON and GeoParquet exports refuse unknown or mixed coordinate systems rather than guessing transformations. Database connectivity and visualization smoke tests are software-supplement evidence, not part of the downstream geological estimand. <!-- evidence:p3.sanming_database_connectivity --> Details are moved to [Supplementary Material](supplement.md).
 
 ## 6. Results
+
+The main full-support, matched-subset, spatial-support, IDW-sensitivity, and leave-one-borehole-out tables are generated directly from the frozen analysis in [major-revision tables](generated/major_revision_tables.md). The full indexed catalogue is retained in [current results](generated/current_results.md).
 
 A controlled experiment on all 602 structured-source records used 30 paired-channel repetitions at each 0.01, 0.05, 0.10, 0.50, and 1.00 m error magnitude. Mean retained point coverage after exact consensus was 0.813–0.817. Raw surface MAE rose from 0.000575 ± 0.000147 m at 0.01 m injection to 0.054885 ± 0.010986 m at 1.00 m. Consensus-deletion MAE remained approximately 0.729–0.743 m because deleting disagreeing records changed interpolation support; 73–93 same-error acceptances also occurred across 30 repetitions per condition. Support-preserving mean fusion instead reduced MAE by 18.3%–22.0% relative to raw, improved 26–29 of 30 paired repetitions per magnitude, and had two-sided exact sign-test p values from `5.77×10⁻⁸` to `5.95×10⁻⁵`. The experiment therefore distinguishes unsafe downstream deletion from beneficial support-preserving multi-reader fusion. <!-- evidence:p3.coal602_consensus_qc -->
 
 An executed controlled comparison now applies the production constraint/rereading ranker before the same IDW surface model. Across 30 seeds and four boreholes, raw surface MAE increased from 0.006741 m at a 0.01 m injected boundary error to 0.665164 m at 1.00 m. At 0.01 and 0.05 m the configured tolerance produced 120/120 abstentions per condition, so constrained and raw surfaces were identical. At 0.10, 0.50, and 1.00 m the violated thickness/final-depth relations triggered rereading; two candidate channels agreed on the known source value, all 120 boundaries per condition were accepted, and constrained surface MAE was 0 in this controlled fixture. This demonstrates the implemented threshold and propagation mechanics only; it is not a real-site effectiveness estimate. <!-- evidence:p3.executed_synthetic_comparison -->
 
-See [generated/current_results.md](generated/current_results.md). A 30-seed synthetic extension exercises mean/std and explicitly named normal-approximation confidence intervals for perturbations 0.01–1.00 m. At 1.00 m, synthetic surface MAE was 0.662470 ± 0.110565 m across seeds. <!-- evidence:p3.idw_multiseed --> A separate indexed PyVista interoperability run wrote 121 points and 200 triangle cells, with VTP and PNG hashes reported in the generated table. <!-- evidence:p3.pyvista_interop --> These four-artificial-borehole artifacts are neither a real geological sensitivity estimate nor a real 3D model.
+The 30-seed synthetic protocol and PyVista export smoke test are reported only in the software supplement. They verify perturbation and export mechanics, not real-site geological accuracy. <!-- evidence:p3.idw_multiseed --> <!-- evidence:p3.pyvista_interop -->
 
 The separate single-channel 602-record source protocol used 30 seeds per magnitude and 80 convex-hull grid points. Under independent signed 1.00 m perturbations of the source-reported roof-depth scalar at every point, proxy-surface MAE was 0.260428 ± 0.018737 m; the output persisted neither absolute coordinate origin nor source identifiers. <!-- evidence:p3.coal602_source_proxy --> This is a deterministic response of one source-field/IDW protocol, not extraction accuracy, a true coal-seam surface, or a privacy clearance. The image-boundary diagnostic is reported in [generated/current_results.md](generated/current_results.md): on 35 held-out documents and 423 fixed convex-hull queries, raw versus reread surface MAE was 3.402 versus 3.050 m, with four accepted rereads and five review decisions. <!-- evidence:p3.image_boundary_surface -->
 
 The multi-boundary extension propagates all four ordered boundary positions without reference-guided interval repair. Across 80 reference boundary observations, raw and reread output supplied 70 and 71 positional predictions. Aggregate boundary MAE decreased from 11.171 m to 2.789 m, while aggregate surface MAE decreased more modestly from 21.397 m to 20.615 m over 1,265 per-boundary grid queries. For boundary 2, rereading reduced positional MAE from 24.400 m to 5.355 m and surface MAE from 19.960 m to 17.974 m. Boundaries 3 and 4 had zero depth error among available predictions but only 4/7 and 2/3 spatial support; their surface MAE remained 50.651 m and 19.594 m. Thus correct available values do not guarantee a correct surface when omissions remove spatial support. <!-- evidence:p3.image_multiboundary_surface -->
 
 To move beyond isolated contact surfaces, a real three-layer stratigraphic volume diagnostic converted the same ordered boundaries into adjacent layer-thickness surfaces and IDW volume estimates on common reference-domain grids. Across the three available layers, the raw channel had mean layer-thickness MAE 45.952 m and relative absolute volume error 0.1389; the constraint-reread channel reduced these to 45.679 m and 0.1216. We then propagated the held-out risk router into the same downstream decoder: it accepted 15/35 documents (coverage 0.4286), reduced mean layer-thickness MAE to 34.808 m and relative absolute volume error to 0.0824, and eliminated negative-thickness layers (1 in raw and reread, 0 in risk-aware). The gain is accompanied by reduced mean top/bottom support (0.387/0.378), and the deepest layers are supported by only seven and three reference records. The result is a reproducible real stratigraphic layer-model diagnostic, not a validated geological interpretation: collars and coordinates are authoritative, and ordered-index alignment can propagate upstream omissions. <!-- evidence:p3.stratigraphic_layer_model --> <!-- evidence:p3.stratigraphic_layer_model_risk_aware -->
+
+The strict matched-subset comparison changes the interpretation. On the same 15 accepted documents, raw, reread, and risk-aware mean thickness MAE were 35.128, 34.670, and 34.670 m, but relative absolute volume error was 0.0326, 0.0754, and 0.0754. All 30 raw and all 31 reread/risk ordered boundaries available on this subset matched the reference exactly, so the remaining thickness and volume discrepancies arise from missing ordered positions and spatial interpolation support rather than pointwise depth error. Because reread and risk-aware inputs are identical after conditioning on acceptance, the lower full-support risk-aware error cannot be attributed to a further correction; it is a selection/support effect. <!-- evidence:p3.spatial_sensitivity -->
+
+Spatial diagnostics quantify the support cost. For the first boundary, raw/reread used 34/35 points and retained the full reference convex-hull area; risk-aware used 14/35 points, retained 0.636 of that area, increased mean nearest-neighbour spacing from 1.39 km to 3.48 km, and increased mean grid-to-nearest-observation distance from 2.75 km to 4.62 km. Deeper boundaries had fewer eligible records and still lower effective support. These quantities explain why exact available depths can coexist with large surface error. <!-- evidence:p3.spatial_sensitivity -->
+
+The 54-setting IDW sweep did not preserve a universal ordering. On the full reference hull, relative volume error ranged from 0.122–0.154 for raw, 0.093–0.132 for reread, and 0.033–0.125 for risk-aware. On the matched accepted hull, raw ranged from 0.021–0.065, whereas reread/risk ranged from 0.061–0.098. The default full-support result is therefore one point on an error–coverage–model-choice surface, not a general proof that abstention improves volume diagnostics. <!-- evidence:p3.spatial_sensitivity -->
+
+At default IDW power 2 with all neighbours, leave-one-borehole-out mean absolute error using perfect reference inputs was 47.06 m across 80 ordered boundaries. Raw, reread, and risk-input LOO errors were 49.84, 46.62, and 47.05 m. On the matched accepted targets, the reference baseline was 52.99 m and reread/risk were 48.76 m. These differences are smaller than the baseline interpolation error itself, showing that spatial sampling and model choice dominate the extraction-policy differences in this source family. LOO evaluates a transparent surface proxy, not geological correlation accuracy. <!-- evidence:p3.spatial_sensitivity -->
 
 The controlled error-class experiment executed 18 conditions and 540 seeded repetitions on the same 35 authoritative records, 80 ordered boundary observations, and 1,265 fixed queries. When 25% of boundary observations were displaced, surface MAE increased from 0.0158 m at a 0.10 m displacement to 0.1684 m at 1.00 m while support and topology remained unchanged. Moving 25% of borehole coordinates produced 0.0715, 0.2804, and 1.5641 m surface MAE at 25, 100, and 500 m displacement, respectively, with zero boundary-value error. Missing one boundary in 10%, 25%, and 50% of records reduced aggregate support to 0.950, 0.888, and 0.775 and produced 2.474, 4.284, and 8.621 m surface MAE despite zero boundary MAE among retained values. At 50% affected-record prevalence, deletion-based layer merging, midpoint layer splitting, and boundary duplication produced surface MAE of 40.957, 30.747, and 20.663 m, respectively, because ordered positions were shifted. Parameters are class-specific, so these values establish mechanisms and within-class severity trends rather than a universal ranking of real-world frequencies. <!-- evidence:p3.controlled_error_classes -->
 
@@ -94,11 +128,13 @@ coordinate reread variant and explicitly retains the authoritative-collar limit.
 
 ## 7. Human-in-the-Loop Boundary
 
-The software records review start/completion events and corrected-field counts, but no controlled timing study was executed. Consequently this paper makes no claim about manual-entry time, extraction-plus-correction time, fields corrected per minute, or labor savings. The measured operational quantity is selective data coverage: the risk-aware three-layer route retained 15/35 documents (42.9%) while reducing the reported layer-volume and thickness errors. This is a model-input reliability–support result, not a human-efficiency result.
+The software records review start/completion events and corrected-field counts, but no controlled timing study was executed. Consequently this paper makes no claim about manual-entry time, extraction-plus-correction time, fields corrected per minute, or labour savings. The measured operational quantity is selective coverage: the risk-aware route retained 15/35 documents. Because the matched-subset volume result did not improve, this is primarily a support-selection result rather than evidence of downstream correction efficacy.
 
 ## 8. Discussion and Threats to Validity
 
-The synthetic smoke shows that the code responds to controlled perturbations, not that real geology has the same response. The structured-source comparison improves scale and spatial-pattern realism and directly demonstrates that field-level abstention can degrade a surface when deletion changes support geometry. The real three-layer risk-aware diagnostic provides the complementary result: rejecting uncertain documents reduced relative volume error by approximately 40.7% relative to the raw parser and removed negative-thickness cells, but reduced spatial support to 15/35 documents. This is a measurable reliability–coverage trade-off, not a universal improvement guarantee. The image-boundary diagnostics provide real extraction-to-surface evidence for up to four ordered boundaries. The partial page-spatial run replaces authoritative coordinates for 17/35 documents but still uses authoritative collars and one source family. The controlled error-class experiment isolates mechanisms but imposes class-specific prevalence and magnitude settings; between-class values are therefore not estimates of natural error frequency or universal geological sensitivity. The workflow still lacks page-derived collar coverage, human GT, explicit page CRS, trajectory reconstruction, validated geological interpretation, wrong-lithology correlation experiments, and field-reference verification. IDW is a transparent baseline rather than a universal geological model. Correlation errors, anisotropy, structural geology, spatial sampling, and model choice may dominate boundary noise. Rights-cleared spatial coherence remains a major data risk.
+The structured-source comparison demonstrates that deletion can degrade a surface when lost support outweighs value error. The full-support three-layer result initially suggested a 40.7% risk-aware reduction in relative volume error, but matched-subset analysis showed no value advantage over rereading and a worse volume diagnostic than raw on the same accepted documents. This is not a contradiction: the estimands differ. Full-support scoring measures the selected package; matched-subset scoring isolates the accepted records. Spatial-support and IDW sweeps show that selection geometry and interpolation choice can dominate extraction differences.
+
+Controlled error classes are interpreted only within class. A 0.1 m boundary shift, 100 m coordinate shift, 50% missing-support condition, and merge/split event do not share a severity scale, so the paper reports dose–response mechanisms rather than a universal ranking. The 30 perturbation seeds quantify algorithmic variability at one site and are not independent fields. Authoritative collars, source-agreement rather than manual image GT, one source family, shallow support for deep boundaries, ordered-index alignment, and the absence of lithology correlation remain major limits. IDW is a transparent surface proxy; faults, anisotropy, geological correlation, and alternative spatial models may dominate.
 
 ## 9. Reproducibility and Ethics
 
@@ -106,7 +142,7 @@ Database and surface artifacts will be linked to extraction experiment IDs and h
 
 ## 10. Conclusion
 
-We define and execute a traceable path from legacy logs to geological surfaces and three-layer volumes. On a 602-record real structured source, strict dual-reader deletion worsened the interpolated surface because the loss of spatial support outweighed the small injected errors, whereas support-preserving mean fusion consistently improved it. On a separate 35-document held-out image-boundary diagnostic, reference-blinded rereading reduced aggregate error over four ordered boundaries, but deeper-boundary surfaces remained dominated by missing spatial support and positional alignment. In the real three-layer diagnostic, risk-aware abstention reduced relative absolute volume error from 0.1389 (raw) to 0.0824 and mean thickness MAE from 45.952 m to 34.808 m, while reducing accepted spatial support to 15/35 and eliminating negative-thickness layers. Controlled injections showed that numeric boundary shifts, coordinate displacement, support loss, and ordered-sequence errors generate measurably different downstream signatures. External spatial-field evaluation and partial page-coordinate propagation then demonstrated that spatial coverage, not only depth accuracy, remains an end-to-end bottleneck. Authoritative collars, one source family, class-specific injection assumptions, shallow support for the deepest layers, and the absence of a timed human study limit the claim. The complete workflow is therefore a reproducible downstream diagnostic with a quantified safety–coverage trade-off, not a validated production geological interpretation system.
+This study reframes downstream evaluation around two coupled quantities: value error and spatial support. On 602 structured records, support-preserving fusion outperformed deletion. On 35 source-agreement documents, controlled boundary, coordinate, omission, and topology errors produced different within-class propagation signatures. The default full-support comparison favoured risk-aware selection, but the matched 15-document comparison did not: reread/risk volume error was 0.0754 versus 0.0326 for raw, and risk equalled reread because acceptance introduced no additional correction. First-boundary risk selection retained only 0.636 of the reference convex-hull area, while the IDW sweep and roughly 47 m reference-input LOO error showed that spatial sampling and model choice were at least as consequential as extraction differences. The defensible conclusion is therefore diagnostic: reliable geological-document systems must preserve provenance, quantify support geometry, and evaluate selection on matched subsets before claiming downstream benefit. No validated geological interpretation or production 3D model is claimed.
 
 The repository's auto-generated [publication-readiness audit](../../docs/generated/publication_readiness.md)
 tracks the real structured-source comparison, image-derived boundary diagnostics,
@@ -117,7 +153,66 @@ It does not convert the IDW diagnostics into a validated site interpretation.
 
 Shared bibliography: [../references.bib](../references.bib). Citation metadata and permitted claim scope are logged in [../../docs/literature_evidence.yaml](../../docs/literature_evidence.yaml).
 
+
+# Linked Supplementary Material
+
+# Supplementary Material for Paper III
+
+## S1. Software and interoperability
+
+The SQLite, CSV/JSON/XLSX/Parquet, GeoJSON/GeoParquet/GeoPackage, VTP, off-screen PNG, Padova location inventory, and quarantined Sanming connectivity runs demonstrate software paths only. They do not validate geological interpretation, spatial metadata, or a production 3D model.
+
+## S2. Controlled protocol checks
+
+Synthetic four-borehole perturbation, 30-seed IDW, structured-source scalar-proxy, and visualization outputs verify deterministic propagation mechanics. The main manuscript instead centers the 602-point support deletion/fusion analysis, the 35-document real boundary propagation, matched-subset comparison, spatial-support diagnostics, IDW sensitivity, leave-one-borehole-out error, and six within-class controlled mechanisms.
+
+## S3. Interpretation boundary
+
+Padova, PyVista, Sanming, and generic export artifacts are not included in the main downstream-effect claim. Exact metrics and hashes remain in [current results](generated/current_results.md), the result index, claim registry, and publication-evidence bundle.
+
 # Appendix: Machine-Generated Current Results
+
+<!-- AUTO-GENERATED. DO NOT EDIT. -->
+# Paper III major-revision tables
+
+## Full-support and strict matched-subset diagnostics
+
+Evidence tier: **Source-agreement reference**. These are surface and volume diagnostics, not validated geological models.
+
+| Estimand | Variant | Documents | Mean thickness MAE (m) | Relative absolute volume error | Mean top support | Mean bottom support | Negative-thickness layers |
+|---|---|---:|---:|---:|---:|---:|---:|
+| Full support | raw | 35 | 45.952 | 0.1389 | 0.784 | 0.698 | 1 |
+| Full support | reread | 35 | 45.679 | 0.1216 | 0.784 | 0.708 | 1 |
+| Full support | risk | 35 | 34.808 | 0.0824 | 0.387 | 0.378 | 0 |
+| Matched accepted subset | raw | 15 | 35.128 | 0.0326 | 0.894 | 0.850 | 0 |
+| Matched accepted subset | reread | 15 | 34.670 | 0.0754 | 0.894 | 0.872 | 0 |
+| Matched accepted subset | risk | 15 | 34.670 | 0.0754 | 0.894 | 0.872 | 0 |
+
+## First-boundary spatial support
+
+| Variant | Effective points | Point coverage | Hull-area ratio | Mean nearest-neighbour distance (m) | Mean grid-to-observation distance (m) |
+|---|---:|---:|---:|---:|---:|
+| raw | 34/35 | 0.971 | 1.000 | 1387.5 | 2745.0 |
+| reread | 34/35 | 0.971 | 1.000 | 1387.5 | 2745.0 |
+| risk | 14/35 | 0.400 | 0.636 | 3479.5 | 4618.6 |
+
+## IDW and leave-one-borehole-out sensitivity
+
+| Domain | Variant | Relative volume-error range across IDW settings | Default LOO MAE (m) |
+|---|---|---:|---:|
+| Full reference | reference | -- | 47.06 |
+| Full reference | raw | 0.122–0.154 | 49.84 |
+| Full reference | reread | 0.093–0.132 | 46.62 |
+| Full reference | risk | 0.033–0.125 | 47.05 |
+| Matched accepted | reference | -- | 52.99 |
+| Matched accepted | raw | 0.021–0.065 | 48.85 |
+| Matched accepted | reread | 0.061–0.098 | 48.76 |
+| Matched accepted | risk | 0.061–0.098 | 48.76 |
+
+The full-support and matched-subset estimands answer different questions. The matched subset shows that risk-aware and reread inputs are identical after acceptance; the apparent full-support risk advantage is therefore a selection/support effect.
+
+
+# Full Indexed Result Catalogue
 
 <!-- AUTO-GENERATED. DO NOT EDIT. -->
 ### Synthetic error-propagation protocol

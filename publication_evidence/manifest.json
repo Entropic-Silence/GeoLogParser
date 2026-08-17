@@ -1,8 +1,106 @@
 {
+  "document_outputs": {
+    "publication_evidence/document_outputs/results/2026-08-14/P1_CALIFORNIA_WCR_RAPIDOCR_TEST_FORMAL_001/errors.jsonl": {
+      "row_count": 643,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "6dcf44d3cd2d756149b8f42730a2989c6b5c1f69e7d3317b5cde6e3f1f6dc1e4"
+    },
+    "publication_evidence/document_outputs/results/2026-08-14/P1_CALIFORNIA_WCR_RAPIDOCR_TEST_FORMAL_001/predictions.jsonl": {
+      "row_count": 50,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "bb58fad39edeec8382b87a467dfa9194c8c96b5287ecf5f3730a955b0a76a38d"
+    },
+    "publication_evidence/document_outputs/results/2026-08-14/P1_CALIFORNIA_WCR_V002_RAPIDOCR_EXTERNAL_FORMAL_002/errors.jsonl": {
+      "row_count": 1609,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "beacb2ef92bbd61913a9408b1330bd7c07bc6694bb9af12a5602c24e1cb58306"
+    },
+    "publication_evidence/document_outputs/results/2026-08-14/P1_CALIFORNIA_WCR_V002_RAPIDOCR_EXTERNAL_FORMAL_002/predictions.jsonl": {
+      "row_count": 100,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "d928230d09fc034bb72b5ae6439bb5ad061bd302af5b06acdaaf3f9eee3fcbd8"
+    },
+    "publication_evidence/document_outputs/results/2026-08-14/P1_CALIFORNIA_WCR_V003_RAPIDOCR_PROSPECTIVE_FORMAL_001/errors.jsonl": {
+      "row_count": 1654,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "0859034e4b666ace732eb2030b11d4d5ca0f68a85fe58548848f088afc277cbf"
+    },
+    "publication_evidence/document_outputs/results/2026-08-14/P1_CALIFORNIA_WCR_V003_RAPIDOCR_PROSPECTIVE_FORMAL_001/predictions.jsonl": {
+      "row_count": 100,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "501e52f3bf3bd155cc1ae2f95547d35055df3d0a538f3c3424432344b65b0e57"
+    },
+    "publication_evidence/document_outputs/results/2026-08-15/P1_CALIFORNIA_WCR_V004_RAPIDOCR_PROSPECTIVE_FORMAL_001/errors.jsonl": {
+      "row_count": 1773,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "bed9ac6ba5eade5dea7e5380fdad8bf32a48e991941b5b5f46ca33dbaee136a4"
+    },
+    "publication_evidence/document_outputs/results/2026-08-15/P1_CALIFORNIA_WCR_V004_RAPIDOCR_PROSPECTIVE_FORMAL_001/predictions.jsonl": {
+      "row_count": 100,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "ccb5ca610630ab50761856e588deda0cdeb3946ea87632eabbb734f850d6ee7b"
+    },
+    "publication_evidence/document_outputs/results/2026-08-15/P1_CALIFORNIA_WCR_V005_RAPIDOCR_EXTERNAL_FORMAL_001/errors.jsonl": {
+      "row_count": 1967,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "3055b05c7af4e93ef8b7487da069df990e0c4d59a8a7f27db6b88ff0b644e962"
+    },
+    "publication_evidence/document_outputs/results/2026-08-15/P1_CALIFORNIA_WCR_V005_RAPIDOCR_EXTERNAL_FORMAL_001/predictions.jsonl": {
+      "row_count": 100,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "b8c8fd1fb720208ea76c39589b1b916572663e0a4c3a574ce9b4a79f5273d48f"
+    },
+    "publication_evidence/document_outputs/results/2026-08-15/P2_CALIFORNIA_WCR_V004_CANDIDATE_RISK_PROSPECTIVE_FORMAL_001/errors.jsonl": {
+      "row_count": 1425,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "132252319d7e398f08ebcf8bfa0a01afe8c390f908a716de6cf52c31e9ebc926"
+    },
+    "publication_evidence/document_outputs/results/2026-08-15/P2_CALIFORNIA_WCR_V004_CANDIDATE_RISK_PROSPECTIVE_FORMAL_001/predictions.jsonl": {
+      "row_count": 100,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "4ad85dc848da7ba3342ecc8eb570bf7eb70403c124b562b30bbab5636cd61d26"
+    },
+    "publication_evidence/document_outputs/results/2026-08-15/P2_CALIFORNIA_WCR_V004_CONSTRAINT_PROSPECTIVE_FORMAL_001/errors.jsonl": {
+      "row_count": 1200,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "c760523f0cf7d987ffcf3aa7ad43f99b18b6ca96c11fea3d9dfd7888318bfdfe"
+    },
+    "publication_evidence/document_outputs/results/2026-08-15/P2_CALIFORNIA_WCR_V004_CONSTRAINT_PROSPECTIVE_FORMAL_001/predictions.jsonl": {
+      "row_count": 100,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "57a187d52249a5ed0221081e3ce7b8ed2fca11bf69564d3b8b97b473f372ccee"
+    },
+    "publication_evidence/document_outputs/results/2026-08-15/P2_CALIFORNIA_WCR_V005_CANDIDATE_RISK_EXTERNAL_FORMAL_001/errors.jsonl": {
+      "row_count": 1679,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "8d238c1cb76cc3702be2db81d61d2e45b7d2d39411814e900510a361212dadce"
+    },
+    "publication_evidence/document_outputs/results/2026-08-15/P2_CALIFORNIA_WCR_V005_CANDIDATE_RISK_EXTERNAL_FORMAL_001/predictions.jsonl": {
+      "row_count": 100,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "2a3ef05cd7e4b2c6df7316e829c5eefa21bb0869efe9acfd9b607e6731fc47e3"
+    },
+    "publication_evidence/document_outputs/results/2026-08-15/P2_CALIFORNIA_WCR_V005_CONSTRAINT_EXTERNAL_FORMAL_001/errors.jsonl": {
+      "row_count": 1369,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "53cca7d8139989c20bfbbd37956e19d643d6df57b7c5d50e177993d5402c57c4"
+    },
+    "publication_evidence/document_outputs/results/2026-08-15/P2_CALIFORNIA_WCR_V005_CONSTRAINT_EXTERNAL_FORMAL_001/predictions.jsonl": {
+      "row_count": 100,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "81db2538647444617e4574ecb52ebfa3cf80476156ccca5c4e2cc02721668d71"
+    },
+    "publication_evidence/document_outputs/results/2026-08-16/P3_SWISSGEOL_RISK_AWARE_DOWNSTREAM_INPUT_001/predictions.jsonl": {
+      "row_count": 35,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "b0fa3074a4f6f725b20b022c5b745986bddae671256c1a2c3ca559f25374e7da"
+    }
+  },
   "excluded": [
     "source page images and PDFs",
     "model weights and caches",
-    "predictions.jsonl and errors.jsonl",
+    "unselected development and audit prediction rows",
+    "source text and bounding boxes from released prediction rows",
     "run.log and recursive ROI artifacts",
     "complete source databases"
   ],
@@ -1059,5 +1157,5 @@
     }
   },
   "result_core_file_count": 195,
-  "scope": "exact aggregate run/metrics evidence plus privacy-minimized claim projections"
+  "scope": "exact aggregate run/metrics evidence, selected deidentified document outputs, and privacy-minimized claim projections"
 }

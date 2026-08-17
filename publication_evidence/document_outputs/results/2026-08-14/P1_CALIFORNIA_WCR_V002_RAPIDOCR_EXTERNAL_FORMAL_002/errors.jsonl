@@ -1,0 +1,1609 @@
+{"error_type": "missing_interval", "record_key": "14eb30c65c6aaa35cbe9", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "14eb30c65c6aaa35cbe9", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "14eb30c65c6aaa35cbe9", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "14eb30c65c6aaa35cbe9", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "14eb30c65c6aaa35cbe9", "reference_index": 12}
+{"error_type": "lithology_semantic_error", "prediction_index": 4, "record_key": "14eb30c65c6aaa35cbe9", "reference_index": 5}
+{"error_type": "lithology_semantic_error", "prediction_index": 5, "record_key": "14eb30c65c6aaa35cbe9", "reference_index": 7}
+{"error_type": "lithology_semantic_error", "prediction_index": 7, "record_key": "14eb30c65c6aaa35cbe9", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "d9a8ca88abcc71c73550", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "d9a8ca88abcc71c73550", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "d9a8ca88abcc71c73550", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "d9a8ca88abcc71c73550", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "d9a8ca88abcc71c73550", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "d9a8ca88abcc71c73550", "reference_index": 16}
+{"error_type": "missing_interval", "record_key": "d9a8ca88abcc71c73550", "reference_index": 17}
+{"error_type": "missing_interval", "record_key": "d9a8ca88abcc71c73550", "reference_index": 18}
+{"error_type": "missing_interval", "record_key": "d9a8ca88abcc71c73550", "reference_index": 19}
+{"error_type": "missing_interval", "record_key": "d9a8ca88abcc71c73550", "reference_index": 20}
+{"error_type": "lithology_semantic_error", "prediction_index": 0, "record_key": "d9a8ca88abcc71c73550", "reference_index": 0}
+{"error_type": "lithology_semantic_error", "prediction_index": 7, "record_key": "d9a8ca88abcc71c73550", "reference_index": 7}
+{"error_type": "lithology_semantic_error", "prediction_index": 8, "record_key": "d9a8ca88abcc71c73550", "reference_index": 8}
+{"error_type": "lithology_semantic_error", "prediction_index": 9, "record_key": "d9a8ca88abcc71c73550", "reference_index": 9}
+{"error_type": "lithology_semantic_error", "prediction_index": 10, "record_key": "d9a8ca88abcc71c73550", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "9739854b85b8828fa4bc", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "9739854b85b8828fa4bc", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "9739854b85b8828fa4bc", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "9739854b85b8828fa4bc", "reference_index": 9}
+{"error_type": "spurious_interval", "prediction_index": 0, "record_key": "9739854b85b8828fa4bc"}
+{"error_type": "lithology_semantic_error", "prediction_index": 3, "record_key": "9739854b85b8828fa4bc", "reference_index": 3}
+{"error_type": "lithology_semantic_error", "prediction_index": 4, "record_key": "9739854b85b8828fa4bc", "reference_index": 5}
+{"error_type": "lithology_semantic_error", "prediction_index": 6, "record_key": "9739854b85b8828fa4bc", "reference_index": 8}
+{"error_type": "lithology_semantic_error", "prediction_index": 8, "record_key": "9739854b85b8828fa4bc", "reference_index": 11}
+{"error_type": "lithology_semantic_error", "prediction_index": 9, "record_key": "9739854b85b8828fa4bc", "reference_index": 12}
+{"error_type": "lithology_semantic_error", "prediction_index": 10, "record_key": "9739854b85b8828fa4bc", "reference_index": 13}
+{"error_type": "lithology_semantic_error", "prediction_index": 12, "record_key": "9739854b85b8828fa4bc", "reference_index": 15}
+{"error_type": "lithology_semantic_error", "prediction_index": 14, "record_key": "9739854b85b8828fa4bc", "reference_index": 17}
+{"error_type": "missing_interval", "record_key": "d4b947d84c41cc43d362", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "d4b947d84c41cc43d362", "reference_index": 4}
+{"error_type": "lithology_semantic_error", "prediction_index": 1, "record_key": "d4b947d84c41cc43d362", "reference_index": 2}
+{"error_type": "lithology_semantic_error", "prediction_index": 2, "record_key": "d4b947d84c41cc43d362", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "74af794efeaf116b130d", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "74af794efeaf116b130d", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "74af794efeaf116b130d", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "74af794efeaf116b130d", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "74af794efeaf116b130d", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "74af794efeaf116b130d", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "74af794efeaf116b130d", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "74af794efeaf116b130d", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "74af794efeaf116b130d", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "74af794efeaf116b130d", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "74af794efeaf116b130d", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "74af794efeaf116b130d", "reference_index": 17}
+{"error_type": "missing_interval", "record_key": "74af794efeaf116b130d", "reference_index": 18}
+{"error_type": "missing_interval", "record_key": "74af794efeaf116b130d", "reference_index": 19}
+{"error_type": "missing_interval", "record_key": "74af794efeaf116b130d", "reference_index": 20}
+{"error_type": "spurious_interval", "prediction_index": 0, "record_key": "74af794efeaf116b130d"}
+{"error_type": "spurious_interval", "prediction_index": 1, "record_key": "74af794efeaf116b130d"}
+{"error_type": "spurious_interval", "prediction_index": 2, "record_key": "74af794efeaf116b130d"}
+{"error_type": "lithology_semantic_error", "prediction_index": 3, "record_key": "74af794efeaf116b130d", "reference_index": 3}
+{"error_type": "lithology_semantic_error", "prediction_index": 4, "record_key": "74af794efeaf116b130d", "reference_index": 5}
+{"error_type": "lithology_semantic_error", "prediction_index": 5, "record_key": "74af794efeaf116b130d", "reference_index": 10}
+{"error_type": "lithology_semantic_error", "prediction_index": 6, "record_key": "74af794efeaf116b130d", "reference_index": 13}
+{"error_type": "lithology_semantic_error", "prediction_index": 7, "record_key": "74af794efeaf116b130d", "reference_index": 14}
+{"error_type": "lithology_semantic_error", "prediction_index": 8, "record_key": "74af794efeaf116b130d", "reference_index": 16}
+{"error_type": "missing_interval", "record_key": "6052ed5be2fe1273c5a8", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "6052ed5be2fe1273c5a8", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "6052ed5be2fe1273c5a8", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "6052ed5be2fe1273c5a8", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "6052ed5be2fe1273c5a8", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "6052ed5be2fe1273c5a8", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "6052ed5be2fe1273c5a8", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "6052ed5be2fe1273c5a8", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "6052ed5be2fe1273c5a8", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "6052ed5be2fe1273c5a8", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "6052ed5be2fe1273c5a8", "reference_index": 16}
+{"error_type": "missing_interval", "record_key": "6052ed5be2fe1273c5a8", "reference_index": 17}
+{"error_type": "missing_interval", "record_key": "6052ed5be2fe1273c5a8", "reference_index": 18}
+{"error_type": "missing_interval", "record_key": "6052ed5be2fe1273c5a8", "reference_index": 19}
+{"error_type": "spurious_interval", "prediction_index": 6, "record_key": "6052ed5be2fe1273c5a8"}
+{"error_type": "lithology_semantic_error", "prediction_index": 0, "record_key": "6052ed5be2fe1273c5a8", "reference_index": 0}
+{"error_type": "lithology_semantic_error", "prediction_index": 1, "record_key": "6052ed5be2fe1273c5a8", "reference_index": 1}
+{"error_type": "lithology_semantic_error", "prediction_index": 2, "record_key": "6052ed5be2fe1273c5a8", "reference_index": 4}
+{"error_type": "lithology_semantic_error", "prediction_index": 3, "record_key": "6052ed5be2fe1273c5a8", "reference_index": 5}
+{"error_type": "lithology_semantic_error", "prediction_index": 4, "record_key": "6052ed5be2fe1273c5a8", "reference_index": 7}
+{"error_type": "lithology_semantic_error", "prediction_index": 5, "record_key": "6052ed5be2fe1273c5a8", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "e8fffddcbeb7e0891682", "reference_index": 1}
+{"error_type": "lithology_semantic_error", "prediction_index": 0, "record_key": "e8fffddcbeb7e0891682", "reference_index": 0}
+{"error_type": "lithology_semantic_error", "prediction_index": 1, "record_key": "e8fffddcbeb7e0891682", "reference_index": 2}
+{"error_type": "lithology_semantic_error", "prediction_index": 2, "record_key": "e8fffddcbeb7e0891682", "reference_index": 3}
+{"error_type": "lithology_semantic_error", "prediction_index": 3, "record_key": "e8fffddcbeb7e0891682", "reference_index": 4}
+{"error_type": "lithology_semantic_error", "prediction_index": 4, "record_key": "e8fffddcbeb7e0891682", "reference_index": 5}
+{"error_type": "lithology_semantic_error", "prediction_index": 5, "record_key": "e8fffddcbeb7e0891682", "reference_index": 6}
+{"error_type": "lithology_semantic_error", "prediction_index": 6, "record_key": "e8fffddcbeb7e0891682", "reference_index": 7}
+{"error_type": "lithology_semantic_error", "prediction_index": 8, "record_key": "e8fffddcbeb7e0891682", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "343572f2ee8d8b0f957f", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "343572f2ee8d8b0f957f", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "343572f2ee8d8b0f957f", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "343572f2ee8d8b0f957f", "reference_index": 17}
+{"error_type": "lithology_semantic_error", "prediction_index": 1, "record_key": "343572f2ee8d8b0f957f", "reference_index": 3}
+{"error_type": "lithology_semantic_error", "prediction_index": 13, "record_key": "343572f2ee8d8b0f957f", "reference_index": 16}
+{"error_type": "missing_interval", "record_key": "518a4ef3ef417a56fe5e", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "518a4ef3ef417a56fe5e", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "518a4ef3ef417a56fe5e", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "518a4ef3ef417a56fe5e", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "518a4ef3ef417a56fe5e", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "518a4ef3ef417a56fe5e", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "518a4ef3ef417a56fe5e", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "518a4ef3ef417a56fe5e", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "518a4ef3ef417a56fe5e", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "518a4ef3ef417a56fe5e", "reference_index": 19}
+{"error_type": "missing_interval", "record_key": "518a4ef3ef417a56fe5e", "reference_index": 20}
+{"error_type": "missing_interval", "record_key": "518a4ef3ef417a56fe5e", "reference_index": 22}
+{"error_type": "lithology_semantic_error", "prediction_index": 1, "record_key": "518a4ef3ef417a56fe5e", "reference_index": 6}
+{"error_type": "lithology_semantic_error", "prediction_index": 2, "record_key": "518a4ef3ef417a56fe5e", "reference_index": 7}
+{"error_type": "lithology_semantic_error", "prediction_index": 4, "record_key": "518a4ef3ef417a56fe5e", "reference_index": 12}
+{"error_type": "lithology_semantic_error", "prediction_index": 7, "record_key": "518a4ef3ef417a56fe5e", "reference_index": 16}
+{"error_type": "lithology_semantic_error", "prediction_index": 10, "record_key": "518a4ef3ef417a56fe5e", "reference_index": 21}
+{"error_type": "lithology_semantic_error", "prediction_index": 0, "record_key": "16ef778e0c148ad37288", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "c139be91b67eff56a4d6", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "c139be91b67eff56a4d6", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "c139be91b67eff56a4d6", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "c139be91b67eff56a4d6", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "c139be91b67eff56a4d6", "reference_index": 4}
+{"error_type": "spurious_interval", "prediction_index": 0, "record_key": "c139be91b67eff56a4d6"}
+{"error_type": "missing_interval", "record_key": "9095377ddc810496f7e3", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "9095377ddc810496f7e3", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "9095377ddc810496f7e3", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "9095377ddc810496f7e3", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "9095377ddc810496f7e3", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "9095377ddc810496f7e3", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "9095377ddc810496f7e3", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "9095377ddc810496f7e3", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "9095377ddc810496f7e3", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "9095377ddc810496f7e3", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "9095377ddc810496f7e3", "reference_index": 11}
+{"error_type": "lithology_semantic_error", "prediction_index": 0, "record_key": "9095377ddc810496f7e3", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "977982e047aaf99554a2", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "977982e047aaf99554a2", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "977982e047aaf99554a2", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "977982e047aaf99554a2", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "977982e047aaf99554a2", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "977982e047aaf99554a2", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "977982e047aaf99554a2", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "977982e047aaf99554a2", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "977982e047aaf99554a2", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "977982e047aaf99554a2", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "977982e047aaf99554a2", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "977982e047aaf99554a2", "reference_index": 14}
+{"error_type": "lithology_semantic_error", "prediction_index": 0, "record_key": "977982e047aaf99554a2", "reference_index": 8}
+{"error_type": "lithology_semantic_error", "prediction_index": 2, "record_key": "977982e047aaf99554a2", "reference_index": 12}
+{"error_type": "lithology_semantic_error", "prediction_index": 3, "record_key": "977982e047aaf99554a2", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "f47aa878dc0e9a334209", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "f47aa878dc0e9a334209", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "f47aa878dc0e9a334209", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "f47aa878dc0e9a334209", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "f47aa878dc0e9a334209", "reference_index": 5}
+{"error_type": "lithology_semantic_error", "prediction_index": 0, "record_key": "f47aa878dc0e9a334209", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "d7c892410a79f323b8d6", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "d7c892410a79f323b8d6", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "d7c892410a79f323b8d6", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "d7c892410a79f323b8d6", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "d7c892410a79f323b8d6", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "d7c892410a79f323b8d6", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "d7c892410a79f323b8d6", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "d7c892410a79f323b8d6", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "270f2bcd59b1f43a7627", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "270f2bcd59b1f43a7627", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "270f2bcd59b1f43a7627", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "270f2bcd59b1f43a7627", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "270f2bcd59b1f43a7627", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "270f2bcd59b1f43a7627", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "270f2bcd59b1f43a7627", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "270f2bcd59b1f43a7627", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "270f2bcd59b1f43a7627", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "270f2bcd59b1f43a7627", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "270f2bcd59b1f43a7627", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "270f2bcd59b1f43a7627", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "270f2bcd59b1f43a7627", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "270f2bcd59b1f43a7627", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "270f2bcd59b1f43a7627", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "270f2bcd59b1f43a7627", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "270f2bcd59b1f43a7627", "reference_index": 16}
+{"error_type": "missing_interval", "record_key": "270f2bcd59b1f43a7627", "reference_index": 17}
+{"error_type": "missing_interval", "record_key": "270f2bcd59b1f43a7627", "reference_index": 18}
+{"error_type": "missing_interval", "record_key": "270f2bcd59b1f43a7627", "reference_index": 19}
+{"error_type": "missing_interval", "record_key": "270f2bcd59b1f43a7627", "reference_index": 20}
+{"error_type": "missing_interval", "record_key": "270f2bcd59b1f43a7627", "reference_index": 21}
+{"error_type": "spurious_interval", "prediction_index": 0, "record_key": "270f2bcd59b1f43a7627"}
+{"error_type": "missing_interval", "record_key": "a8141a8d7e2b0b27a0a4", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "a8141a8d7e2b0b27a0a4", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "a8141a8d7e2b0b27a0a4", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "a8141a8d7e2b0b27a0a4", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "a8141a8d7e2b0b27a0a4", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "a8141a8d7e2b0b27a0a4", "reference_index": 13}
+{"error_type": "spurious_interval", "prediction_index": 7, "record_key": "a8141a8d7e2b0b27a0a4"}
+{"error_type": "lithology_semantic_error", "prediction_index": 0, "record_key": "a8141a8d7e2b0b27a0a4", "reference_index": 0}
+{"error_type": "lithology_semantic_error", "prediction_index": 3, "record_key": "a8141a8d7e2b0b27a0a4", "reference_index": 5}
+{"error_type": "lithology_semantic_error", "prediction_index": 4, "record_key": "a8141a8d7e2b0b27a0a4", "reference_index": 6}
+{"error_type": "lithology_semantic_error", "prediction_index": 5, "record_key": "a8141a8d7e2b0b27a0a4", "reference_index": 7}
+{"error_type": "lithology_semantic_error", "prediction_index": 6, "record_key": "a8141a8d7e2b0b27a0a4", "reference_index": 8}
+{"error_type": "lithology_semantic_error", "prediction_index": 8, "record_key": "a8141a8d7e2b0b27a0a4", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "7fa947d8e4c3d82440a9", "reference_index": 4}
+{"error_type": "spurious_interval", "prediction_index": 2, "record_key": "7fa947d8e4c3d82440a9"}
+{"error_type": "lithology_semantic_error", "prediction_index": 1, "record_key": "7fa947d8e4c3d82440a9", "reference_index": 1}
+{"error_type": "lithology_semantic_error", "prediction_index": 3, "record_key": "7fa947d8e4c3d82440a9", "reference_index": 2}
+{"error_type": "lithology_semantic_error", "prediction_index": 4, "record_key": "7fa947d8e4c3d82440a9", "reference_index": 3}
+{"error_type": "lithology_semantic_error", "prediction_index": 7, "record_key": "7fa947d8e4c3d82440a9", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "633f01de6e98867cddde", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "633f01de6e98867cddde", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "633f01de6e98867cddde", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "633f01de6e98867cddde", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "633f01de6e98867cddde", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "633f01de6e98867cddde", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "633f01de6e98867cddde", "reference_index": 16}
+{"error_type": "missing_interval", "record_key": "633f01de6e98867cddde", "reference_index": 17}
+{"error_type": "missing_interval", "record_key": "633f01de6e98867cddde", "reference_index": 18}
+{"error_type": "missing_interval", "record_key": "633f01de6e98867cddde", "reference_index": 19}
+{"error_type": "spurious_interval", "prediction_index": 2, "record_key": "633f01de6e98867cddde"}
+{"error_type": "lithology_semantic_error", "prediction_index": 7, "record_key": "633f01de6e98867cddde", "reference_index": 6}
+{"error_type": "lithology_semantic_error", "prediction_index": 10, "record_key": "633f01de6e98867cddde", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "76308f2999956ecd4a04", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "76308f2999956ecd4a04", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "76308f2999956ecd4a04", "reference_index": 9}
+{"error_type": "spurious_interval", "prediction_index": 0, "record_key": "76308f2999956ecd4a04"}
+{"error_type": "lithology_semantic_error", "prediction_index": 1, "record_key": "76308f2999956ecd4a04", "reference_index": 1}
+{"error_type": "lithology_semantic_error", "prediction_index": 5, "record_key": "76308f2999956ecd4a04", "reference_index": 6}
+{"error_type": "lithology_semantic_error", "prediction_index": 7, "record_key": "76308f2999956ecd4a04", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "fee1d29c84ea0d99d4f3", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "fee1d29c84ea0d99d4f3", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "fee1d29c84ea0d99d4f3", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "fee1d29c84ea0d99d4f3", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "fee1d29c84ea0d99d4f3", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "fee1d29c84ea0d99d4f3", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "fee1d29c84ea0d99d4f3", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "fee1d29c84ea0d99d4f3", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "fee1d29c84ea0d99d4f3", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "fee1d29c84ea0d99d4f3", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "fee1d29c84ea0d99d4f3", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "fee1d29c84ea0d99d4f3", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "fee1d29c84ea0d99d4f3", "reference_index": 12}
+{"error_type": "spurious_interval", "prediction_index": 0, "record_key": "fee1d29c84ea0d99d4f3"}
+{"error_type": "missing_interval", "record_key": "3b7d2819d7fdff8ccf73", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "3b7d2819d7fdff8ccf73", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "3b7d2819d7fdff8ccf73", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "3b7d2819d7fdff8ccf73", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "3b7d2819d7fdff8ccf73", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "3b7d2819d7fdff8ccf73", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "3b7d2819d7fdff8ccf73", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "3b7d2819d7fdff8ccf73", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "3b7d2819d7fdff8ccf73", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "3b7d2819d7fdff8ccf73", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "3b7d2819d7fdff8ccf73", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "3b7d2819d7fdff8ccf73", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "3b7d2819d7fdff8ccf73", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "3b7d2819d7fdff8ccf73", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "3b7d2819d7fdff8ccf73", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "3b7d2819d7fdff8ccf73", "reference_index": 15}
+{"error_type": "spurious_interval", "prediction_index": 0, "record_key": "3b7d2819d7fdff8ccf73"}
+{"error_type": "spurious_interval", "prediction_index": 1, "record_key": "3b7d2819d7fdff8ccf73"}
+{"error_type": "spurious_interval", "prediction_index": 2, "record_key": "3b7d2819d7fdff8ccf73"}
+{"error_type": "spurious_interval", "prediction_index": 3, "record_key": "3b7d2819d7fdff8ccf73"}
+{"error_type": "spurious_interval", "prediction_index": 4, "record_key": "3b7d2819d7fdff8ccf73"}
+{"error_type": "missing_interval", "record_key": "2a5383492d7a1707bc27", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "2a5383492d7a1707bc27", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "2a5383492d7a1707bc27", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "2a5383492d7a1707bc27", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "2a5383492d7a1707bc27", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "2a5383492d7a1707bc27", "reference_index": 12}
+{"error_type": "lithology_semantic_error", "prediction_index": 4, "record_key": "2a5383492d7a1707bc27", "reference_index": 4}
+{"error_type": "lithology_semantic_error", "prediction_index": 6, "record_key": "2a5383492d7a1707bc27", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "17005200ab6d5f440a64", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "17005200ab6d5f440a64", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "17005200ab6d5f440a64", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "17005200ab6d5f440a64", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "17005200ab6d5f440a64", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "17005200ab6d5f440a64", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "17005200ab6d5f440a64", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "17005200ab6d5f440a64", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "17005200ab6d5f440a64", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "17005200ab6d5f440a64", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "17005200ab6d5f440a64", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "17005200ab6d5f440a64", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "17005200ab6d5f440a64", "reference_index": 12}
+{"error_type": "spurious_interval", "prediction_index": 0, "record_key": "17005200ab6d5f440a64"}
+{"error_type": "missing_interval", "record_key": "3135c8389c0546c167ca", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "3135c8389c0546c167ca", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "3135c8389c0546c167ca", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "3135c8389c0546c167ca", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "3135c8389c0546c167ca", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "3135c8389c0546c167ca", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "3135c8389c0546c167ca", "reference_index": 20}
+{"error_type": "missing_interval", "record_key": "3135c8389c0546c167ca", "reference_index": 22}
+{"error_type": "missing_interval", "record_key": "3135c8389c0546c167ca", "reference_index": 23}
+{"error_type": "missing_interval", "record_key": "3135c8389c0546c167ca", "reference_index": 25}
+{"error_type": "missing_interval", "record_key": "3135c8389c0546c167ca", "reference_index": 26}
+{"error_type": "missing_interval", "record_key": "3135c8389c0546c167ca", "reference_index": 27}
+{"error_type": "missing_interval", "record_key": "3135c8389c0546c167ca", "reference_index": 28}
+{"error_type": "missing_interval", "record_key": "3135c8389c0546c167ca", "reference_index": 29}
+{"error_type": "missing_interval", "record_key": "3135c8389c0546c167ca", "reference_index": 30}
+{"error_type": "missing_interval", "record_key": "3135c8389c0546c167ca", "reference_index": 31}
+{"error_type": "missing_interval", "record_key": "3135c8389c0546c167ca", "reference_index": 32}
+{"error_type": "missing_interval", "record_key": "3135c8389c0546c167ca", "reference_index": 33}
+{"error_type": "missing_interval", "record_key": "3135c8389c0546c167ca", "reference_index": 34}
+{"error_type": "missing_interval", "record_key": "3135c8389c0546c167ca", "reference_index": 35}
+{"error_type": "spurious_interval", "prediction_index": 2, "record_key": "3135c8389c0546c167ca"}
+{"error_type": "lithology_semantic_error", "prediction_index": 0, "record_key": "3135c8389c0546c167ca", "reference_index": 0}
+{"error_type": "lithology_semantic_error", "prediction_index": 1, "record_key": "3135c8389c0546c167ca", "reference_index": 2}
+{"error_type": "lithology_semantic_error", "prediction_index": 3, "record_key": "3135c8389c0546c167ca", "reference_index": 4}
+{"error_type": "lithology_semantic_error", "prediction_index": 4, "record_key": "3135c8389c0546c167ca", "reference_index": 7}
+{"error_type": "lithology_semantic_error", "prediction_index": 5, "record_key": "3135c8389c0546c167ca", "reference_index": 9}
+{"error_type": "lithology_semantic_error", "prediction_index": 6, "record_key": "3135c8389c0546c167ca", "reference_index": 10}
+{"error_type": "lithology_semantic_error", "prediction_index": 7, "record_key": "3135c8389c0546c167ca", "reference_index": 11}
+{"error_type": "lithology_semantic_error", "prediction_index": 8, "record_key": "3135c8389c0546c167ca", "reference_index": 12}
+{"error_type": "lithology_semantic_error", "prediction_index": 9, "record_key": "3135c8389c0546c167ca", "reference_index": 14}
+{"error_type": "lithology_semantic_error", "prediction_index": 10, "record_key": "3135c8389c0546c167ca", "reference_index": 15}
+{"error_type": "lithology_semantic_error", "prediction_index": 11, "record_key": "3135c8389c0546c167ca", "reference_index": 16}
+{"error_type": "lithology_semantic_error", "prediction_index": 12, "record_key": "3135c8389c0546c167ca", "reference_index": 17}
+{"error_type": "lithology_semantic_error", "prediction_index": 13, "record_key": "3135c8389c0546c167ca", "reference_index": 18}
+{"error_type": "lithology_semantic_error", "prediction_index": 14, "record_key": "3135c8389c0546c167ca", "reference_index": 19}
+{"error_type": "lithology_semantic_error", "prediction_index": 15, "record_key": "3135c8389c0546c167ca", "reference_index": 21}
+{"error_type": "lithology_semantic_error", "prediction_index": 16, "record_key": "3135c8389c0546c167ca", "reference_index": 24}
+{"error_type": "missing_interval", "record_key": "44405d53fe357c7713cc", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "44405d53fe357c7713cc", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "44405d53fe357c7713cc", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "44405d53fe357c7713cc", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "44405d53fe357c7713cc", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "44405d53fe357c7713cc", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "44405d53fe357c7713cc", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "44405d53fe357c7713cc", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "44405d53fe357c7713cc", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "44405d53fe357c7713cc", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "44405d53fe357c7713cc", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "44405d53fe357c7713cc", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "44405d53fe357c7713cc", "reference_index": 12}
+{"error_type": "spurious_interval", "prediction_index": 0, "record_key": "44405d53fe357c7713cc"}
+{"error_type": "missing_interval", "record_key": "2d13d4673d4252a00283", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "2d13d4673d4252a00283", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "2d13d4673d4252a00283", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "2d13d4673d4252a00283", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "2d13d4673d4252a00283", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "c1d300d7778cb19d8f9f", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "c1d300d7778cb19d8f9f", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "c1d300d7778cb19d8f9f", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "c1d300d7778cb19d8f9f", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "c1d300d7778cb19d8f9f", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "c1d300d7778cb19d8f9f", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "c1d300d7778cb19d8f9f", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "c1d300d7778cb19d8f9f", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "c1d300d7778cb19d8f9f", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "c1d300d7778cb19d8f9f", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "c1d300d7778cb19d8f9f", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "c1d300d7778cb19d8f9f", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "c1d300d7778cb19d8f9f", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "c1d300d7778cb19d8f9f", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "c1d300d7778cb19d8f9f", "reference_index": 16}
+{"error_type": "missing_interval", "record_key": "c1d300d7778cb19d8f9f", "reference_index": 17}
+{"error_type": "missing_interval", "record_key": "c1d300d7778cb19d8f9f", "reference_index": 18}
+{"error_type": "missing_interval", "record_key": "c1d300d7778cb19d8f9f", "reference_index": 19}
+{"error_type": "missing_interval", "record_key": "c1d300d7778cb19d8f9f", "reference_index": 20}
+{"error_type": "missing_interval", "record_key": "c1d300d7778cb19d8f9f", "reference_index": 21}
+{"error_type": "missing_interval", "record_key": "c1d300d7778cb19d8f9f", "reference_index": 22}
+{"error_type": "missing_interval", "record_key": "c1d300d7778cb19d8f9f", "reference_index": 23}
+{"error_type": "missing_interval", "record_key": "c1d300d7778cb19d8f9f", "reference_index": 24}
+{"error_type": "missing_interval", "record_key": "c1d300d7778cb19d8f9f", "reference_index": 25}
+{"error_type": "missing_interval", "record_key": "c1d300d7778cb19d8f9f", "reference_index": 26}
+{"error_type": "missing_interval", "record_key": "c1d300d7778cb19d8f9f", "reference_index": 27}
+{"error_type": "missing_interval", "record_key": "c1d300d7778cb19d8f9f", "reference_index": 28}
+{"error_type": "missing_interval", "record_key": "c1d300d7778cb19d8f9f", "reference_index": 29}
+{"error_type": "missing_interval", "record_key": "c1d300d7778cb19d8f9f", "reference_index": 30}
+{"error_type": "missing_interval", "record_key": "c1d300d7778cb19d8f9f", "reference_index": 31}
+{"error_type": "missing_interval", "record_key": "c1d300d7778cb19d8f9f", "reference_index": 32}
+{"error_type": "missing_interval", "record_key": "c1d300d7778cb19d8f9f", "reference_index": 33}
+{"error_type": "missing_interval", "record_key": "c1d300d7778cb19d8f9f", "reference_index": 34}
+{"error_type": "missing_interval", "record_key": "c1d300d7778cb19d8f9f", "reference_index": 35}
+{"error_type": "spurious_interval", "prediction_index": 2, "record_key": "c1d300d7778cb19d8f9f"}
+{"error_type": "lithology_semantic_error", "prediction_index": 0, "record_key": "c1d300d7778cb19d8f9f", "reference_index": 4}
+{"error_type": "lithology_semantic_error", "prediction_index": 1, "record_key": "c1d300d7778cb19d8f9f", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "c75e25e6832581974da5", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "c75e25e6832581974da5", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "c75e25e6832581974da5", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "c75e25e6832581974da5", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "c75e25e6832581974da5", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "c75e25e6832581974da5", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "c75e25e6832581974da5", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "c75e25e6832581974da5", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "c75e25e6832581974da5", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "c75e25e6832581974da5", "reference_index": 16}
+{"error_type": "missing_interval", "record_key": "c75e25e6832581974da5", "reference_index": 17}
+{"error_type": "missing_interval", "record_key": "c75e25e6832581974da5", "reference_index": 18}
+{"error_type": "missing_interval", "record_key": "c75e25e6832581974da5", "reference_index": 19}
+{"error_type": "missing_interval", "record_key": "c75e25e6832581974da5", "reference_index": 20}
+{"error_type": "missing_interval", "record_key": "c75e25e6832581974da5", "reference_index": 21}
+{"error_type": "lithology_semantic_error", "prediction_index": 2, "record_key": "c75e25e6832581974da5", "reference_index": 2}
+{"error_type": "lithology_semantic_error", "prediction_index": 5, "record_key": "c75e25e6832581974da5", "reference_index": 5}
+{"error_type": "lithology_semantic_error", "prediction_index": 6, "record_key": "c75e25e6832581974da5", "reference_index": 6}
+{"error_type": "lithology_semantic_error", "prediction_index": 0, "record_key": "14be60c534236ac569a6", "reference_index": 0}
+{"error_type": "lithology_semantic_error", "prediction_index": 4, "record_key": "14be60c534236ac569a6", "reference_index": 4}
+{"error_type": "lithology_semantic_error", "prediction_index": 11, "record_key": "14be60c534236ac569a6", "reference_index": 11}
+{"error_type": "lithology_semantic_error", "prediction_index": 18, "record_key": "14be60c534236ac569a6", "reference_index": 18}
+{"error_type": "lithology_semantic_error", "prediction_index": 21, "record_key": "14be60c534236ac569a6", "reference_index": 21}
+{"error_type": "lithology_semantic_error", "prediction_index": 26, "record_key": "14be60c534236ac569a6", "reference_index": 26}
+{"error_type": "missing_interval", "record_key": "910a9e45cd2b1c0022b8", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "910a9e45cd2b1c0022b8", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "910a9e45cd2b1c0022b8", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "910a9e45cd2b1c0022b8", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "910a9e45cd2b1c0022b8", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "910a9e45cd2b1c0022b8", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "910a9e45cd2b1c0022b8", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "910a9e45cd2b1c0022b8", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "910a9e45cd2b1c0022b8", "reference_index": 8}
+{"error_type": "spurious_interval", "prediction_index": 0, "record_key": "910a9e45cd2b1c0022b8"}
+{"error_type": "missing_interval", "record_key": "4fa9e3d41c4997ca2f01", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "4fa9e3d41c4997ca2f01", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "4fa9e3d41c4997ca2f01", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "4fa9e3d41c4997ca2f01", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "4fa9e3d41c4997ca2f01", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "4fa9e3d41c4997ca2f01", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "4fa9e3d41c4997ca2f01", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "4fa9e3d41c4997ca2f01", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "4fa9e3d41c4997ca2f01", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "4fa9e3d41c4997ca2f01", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "4fa9e3d41c4997ca2f01", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "4fa9e3d41c4997ca2f01", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "4fa9e3d41c4997ca2f01", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "4fa9e3d41c4997ca2f01", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "4fa9e3d41c4997ca2f01", "reference_index": 14}
+{"error_type": "spurious_interval", "prediction_index": 0, "record_key": "4fa9e3d41c4997ca2f01"}
+{"error_type": "spurious_interval", "prediction_index": 1, "record_key": "4fa9e3d41c4997ca2f01"}
+{"error_type": "spurious_interval", "prediction_index": 2, "record_key": "4fa9e3d41c4997ca2f01"}
+{"error_type": "spurious_interval", "prediction_index": 3, "record_key": "4fa9e3d41c4997ca2f01"}
+{"error_type": "spurious_interval", "prediction_index": 4, "record_key": "4fa9e3d41c4997ca2f01"}
+{"error_type": "spurious_interval", "prediction_index": 5, "record_key": "4fa9e3d41c4997ca2f01"}
+{"error_type": "spurious_interval", "prediction_index": 6, "record_key": "4fa9e3d41c4997ca2f01"}
+{"error_type": "missing_interval", "record_key": "5f14566e948b4c75ebac", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "5f14566e948b4c75ebac", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "5f14566e948b4c75ebac", "reference_index": 4}
+{"error_type": "lithology_semantic_error", "prediction_index": 1, "record_key": "5f14566e948b4c75ebac", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "c2fb4f7cbd75840d2b46", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "c2fb4f7cbd75840d2b46", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "c2fb4f7cbd75840d2b46", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "c2fb4f7cbd75840d2b46", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "c2fb4f7cbd75840d2b46", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "c2fb4f7cbd75840d2b46", "reference_index": 7}
+{"error_type": "lithology_semantic_error", "prediction_index": 1, "record_key": "c2fb4f7cbd75840d2b46", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "d946f9a88fe0a1a25ba8", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "d946f9a88fe0a1a25ba8", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "d946f9a88fe0a1a25ba8", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "d946f9a88fe0a1a25ba8", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "d946f9a88fe0a1a25ba8", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "d946f9a88fe0a1a25ba8", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "d946f9a88fe0a1a25ba8", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "d946f9a88fe0a1a25ba8", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "d946f9a88fe0a1a25ba8", "reference_index": 8}
+{"error_type": "spurious_interval", "prediction_index": 0, "record_key": "d946f9a88fe0a1a25ba8"}
+{"error_type": "spurious_interval", "prediction_index": 1, "record_key": "d946f9a88fe0a1a25ba8"}
+{"error_type": "spurious_interval", "prediction_index": 2, "record_key": "d946f9a88fe0a1a25ba8"}
+{"error_type": "spurious_interval", "prediction_index": 3, "record_key": "d946f9a88fe0a1a25ba8"}
+{"error_type": "spurious_interval", "prediction_index": 4, "record_key": "d946f9a88fe0a1a25ba8"}
+{"error_type": "spurious_interval", "prediction_index": 5, "record_key": "d946f9a88fe0a1a25ba8"}
+{"error_type": "spurious_interval", "prediction_index": 6, "record_key": "d946f9a88fe0a1a25ba8"}
+{"error_type": "spurious_interval", "prediction_index": 7, "record_key": "d946f9a88fe0a1a25ba8"}
+{"error_type": "missing_interval", "record_key": "2a991cc450f9bed30557", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "2a991cc450f9bed30557", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "2a991cc450f9bed30557", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "2a991cc450f9bed30557", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "2a991cc450f9bed30557", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "2a991cc450f9bed30557", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "2a991cc450f9bed30557", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "2a991cc450f9bed30557", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "2a991cc450f9bed30557", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "2a991cc450f9bed30557", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "2a991cc450f9bed30557", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "2a991cc450f9bed30557", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "2a991cc450f9bed30557", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "2a991cc450f9bed30557", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "2a991cc450f9bed30557", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "2a991cc450f9bed30557", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "2a991cc450f9bed30557", "reference_index": 16}
+{"error_type": "missing_interval", "record_key": "2a991cc450f9bed30557", "reference_index": 17}
+{"error_type": "missing_interval", "record_key": "2a991cc450f9bed30557", "reference_index": 18}
+{"error_type": "missing_interval", "record_key": "2a991cc450f9bed30557", "reference_index": 19}
+{"error_type": "missing_interval", "record_key": "2a991cc450f9bed30557", "reference_index": 20}
+{"error_type": "missing_interval", "record_key": "2a991cc450f9bed30557", "reference_index": 21}
+{"error_type": "missing_interval", "record_key": "2a991cc450f9bed30557", "reference_index": 22}
+{"error_type": "spurious_interval", "prediction_index": 0, "record_key": "2a991cc450f9bed30557"}
+{"error_type": "missing_interval", "record_key": "99f7e9ccb3333edd3b2d", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "99f7e9ccb3333edd3b2d", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "99f7e9ccb3333edd3b2d", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "99f7e9ccb3333edd3b2d", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "99f7e9ccb3333edd3b2d", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "99f7e9ccb3333edd3b2d", "reference_index": 7}
+{"error_type": "lithology_semantic_error", "prediction_index": 1, "record_key": "99f7e9ccb3333edd3b2d", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "b8a3c8db9b8edf7aab39", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "b8a3c8db9b8edf7aab39", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "b8a3c8db9b8edf7aab39", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "b8a3c8db9b8edf7aab39", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "b8a3c8db9b8edf7aab39", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "b8a3c8db9b8edf7aab39", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "b8a3c8db9b8edf7aab39", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "b8a3c8db9b8edf7aab39", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "b8a3c8db9b8edf7aab39", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "b8a3c8db9b8edf7aab39", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "b8a3c8db9b8edf7aab39", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "b8a3c8db9b8edf7aab39", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "b8a3c8db9b8edf7aab39", "reference_index": 16}
+{"error_type": "missing_interval", "record_key": "b8a3c8db9b8edf7aab39", "reference_index": 17}
+{"error_type": "spurious_interval", "prediction_index": 2, "record_key": "b8a3c8db9b8edf7aab39"}
+{"error_type": "lithology_semantic_error", "prediction_index": 0, "record_key": "b8a3c8db9b8edf7aab39", "reference_index": 8}
+{"error_type": "lithology_semantic_error", "prediction_index": 1, "record_key": "b8a3c8db9b8edf7aab39", "reference_index": 9}
+{"error_type": "lithology_semantic_error", "prediction_index": 3, "record_key": "b8a3c8db9b8edf7aab39", "reference_index": 13}
+{"error_type": "lithology_semantic_error", "prediction_index": 4, "record_key": "b8a3c8db9b8edf7aab39", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "5e0051d147cc0d8b37f5", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "5e0051d147cc0d8b37f5", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "5e0051d147cc0d8b37f5", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "5e0051d147cc0d8b37f5", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "5e0051d147cc0d8b37f5", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "5e0051d147cc0d8b37f5", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "5e0051d147cc0d8b37f5", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "5e0051d147cc0d8b37f5", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "5e0051d147cc0d8b37f5", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "5e0051d147cc0d8b37f5", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "5e0051d147cc0d8b37f5", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "5e0051d147cc0d8b37f5", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "5e0051d147cc0d8b37f5", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "5e0051d147cc0d8b37f5", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "5e0051d147cc0d8b37f5", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "5e0051d147cc0d8b37f5", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "5e0051d147cc0d8b37f5", "reference_index": 16}
+{"error_type": "spurious_interval", "prediction_index": 0, "record_key": "5e0051d147cc0d8b37f5"}
+{"error_type": "spurious_interval", "prediction_index": 1, "record_key": "5e0051d147cc0d8b37f5"}
+{"error_type": "spurious_interval", "prediction_index": 2, "record_key": "5e0051d147cc0d8b37f5"}
+{"error_type": "spurious_interval", "prediction_index": 3, "record_key": "5e0051d147cc0d8b37f5"}
+{"error_type": "spurious_interval", "prediction_index": 4, "record_key": "5e0051d147cc0d8b37f5"}
+{"error_type": "spurious_interval", "prediction_index": 5, "record_key": "5e0051d147cc0d8b37f5"}
+{"error_type": "spurious_interval", "prediction_index": 6, "record_key": "5e0051d147cc0d8b37f5"}
+{"error_type": "spurious_interval", "prediction_index": 7, "record_key": "5e0051d147cc0d8b37f5"}
+{"error_type": "missing_interval", "record_key": "44db179b75e193b456cd", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "44db179b75e193b456cd", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "44db179b75e193b456cd", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "44db179b75e193b456cd", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "44db179b75e193b456cd", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "44db179b75e193b456cd", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "44db179b75e193b456cd", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "44db179b75e193b456cd", "reference_index": 9}
+{"error_type": "lithology_semantic_error", "prediction_index": 0, "record_key": "44db179b75e193b456cd", "reference_index": 1}
+{"error_type": "lithology_semantic_error", "prediction_index": 1, "record_key": "44db179b75e193b456cd", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "76f461ddceb4bd36b3f5", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "76f461ddceb4bd36b3f5", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "76f461ddceb4bd36b3f5", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "76f461ddceb4bd36b3f5", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "76f461ddceb4bd36b3f5", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "76f461ddceb4bd36b3f5", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "76f461ddceb4bd36b3f5", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "76f461ddceb4bd36b3f5", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "76f461ddceb4bd36b3f5", "reference_index": 13}
+{"error_type": "spurious_interval", "prediction_index": 0, "record_key": "76f461ddceb4bd36b3f5"}
+{"error_type": "spurious_interval", "prediction_index": 5, "record_key": "76f461ddceb4bd36b3f5"}
+{"error_type": "lithology_semantic_error", "prediction_index": 1, "record_key": "76f461ddceb4bd36b3f5", "reference_index": 3}
+{"error_type": "lithology_semantic_error", "prediction_index": 2, "record_key": "76f461ddceb4bd36b3f5", "reference_index": 5}
+{"error_type": "lithology_semantic_error", "prediction_index": 3, "record_key": "76f461ddceb4bd36b3f5", "reference_index": 8}
+{"error_type": "lithology_semantic_error", "prediction_index": 4, "record_key": "76f461ddceb4bd36b3f5", "reference_index": 9}
+{"error_type": "lithology_semantic_error", "prediction_index": 6, "record_key": "76f461ddceb4bd36b3f5", "reference_index": 12}
+{"error_type": "lithology_semantic_error", "prediction_index": 7, "record_key": "76f461ddceb4bd36b3f5", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "721262c9218d7c4e7cde", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "721262c9218d7c4e7cde", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "721262c9218d7c4e7cde", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "721262c9218d7c4e7cde", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "721262c9218d7c4e7cde", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "721262c9218d7c4e7cde", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "721262c9218d7c4e7cde", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "721262c9218d7c4e7cde", "reference_index": 8}
+{"error_type": "lithology_semantic_error", "prediction_index": 0, "record_key": "721262c9218d7c4e7cde", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "17f3d47b33f15e60a5f7", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "17f3d47b33f15e60a5f7", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "17f3d47b33f15e60a5f7", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "17f3d47b33f15e60a5f7", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "17f3d47b33f15e60a5f7", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "17f3d47b33f15e60a5f7", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "17f3d47b33f15e60a5f7", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "17f3d47b33f15e60a5f7", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "17f3d47b33f15e60a5f7", "reference_index": 9}
+{"error_type": "lithology_semantic_error", "prediction_index": 0, "record_key": "17f3d47b33f15e60a5f7", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "5f4d97d98adbb966ee60", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "5f4d97d98adbb966ee60", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "5f4d97d98adbb966ee60", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "5f4d97d98adbb966ee60", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "5f4d97d98adbb966ee60", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "5f4d97d98adbb966ee60", "reference_index": 5}
+{"error_type": "spurious_interval", "prediction_index": 9, "record_key": "bf77f6acf9234c1f4067"}
+{"error_type": "lithology_semantic_error", "prediction_index": 4, "record_key": "bf77f6acf9234c1f4067", "reference_index": 4}
+{"error_type": "lithology_semantic_error", "prediction_index": 6, "record_key": "bf77f6acf9234c1f4067", "reference_index": 6}
+{"error_type": "lithology_semantic_error", "prediction_index": 8, "record_key": "bf77f6acf9234c1f4067", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "0e736c6dd1b1c001ece4", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "0e736c6dd1b1c001ece4", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "0e736c6dd1b1c001ece4", "reference_index": 4}
+{"error_type": "lithology_semantic_error", "prediction_index": 0, "record_key": "0e736c6dd1b1c001ece4", "reference_index": 2}
+{"error_type": "lithology_semantic_error", "prediction_index": 1, "record_key": "0e736c6dd1b1c001ece4", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "677e7b5b0668581a01ed", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "677e7b5b0668581a01ed", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "677e7b5b0668581a01ed", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "677e7b5b0668581a01ed", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "677e7b5b0668581a01ed", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "677e7b5b0668581a01ed", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "677e7b5b0668581a01ed", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "677e7b5b0668581a01ed", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "677e7b5b0668581a01ed", "reference_index": 16}
+{"error_type": "missing_interval", "record_key": "677e7b5b0668581a01ed", "reference_index": 17}
+{"error_type": "missing_interval", "record_key": "677e7b5b0668581a01ed", "reference_index": 18}
+{"error_type": "missing_interval", "record_key": "677e7b5b0668581a01ed", "reference_index": 19}
+{"error_type": "missing_interval", "record_key": "677e7b5b0668581a01ed", "reference_index": 20}
+{"error_type": "missing_interval", "record_key": "677e7b5b0668581a01ed", "reference_index": 21}
+{"error_type": "missing_interval", "record_key": "677e7b5b0668581a01ed", "reference_index": 22}
+{"error_type": "missing_interval", "record_key": "677e7b5b0668581a01ed", "reference_index": 23}
+{"error_type": "missing_interval", "record_key": "677e7b5b0668581a01ed", "reference_index": 24}
+{"error_type": "missing_interval", "record_key": "677e7b5b0668581a01ed", "reference_index": 25}
+{"error_type": "missing_interval", "record_key": "677e7b5b0668581a01ed", "reference_index": 26}
+{"error_type": "missing_interval", "record_key": "677e7b5b0668581a01ed", "reference_index": 27}
+{"error_type": "missing_interval", "record_key": "677e7b5b0668581a01ed", "reference_index": 28}
+{"error_type": "missing_interval", "record_key": "677e7b5b0668581a01ed", "reference_index": 29}
+{"error_type": "missing_interval", "record_key": "677e7b5b0668581a01ed", "reference_index": 30}
+{"error_type": "missing_interval", "record_key": "677e7b5b0668581a01ed", "reference_index": 34}
+{"error_type": "lithology_semantic_error", "prediction_index": 0, "record_key": "677e7b5b0668581a01ed", "reference_index": 2}
+{"error_type": "lithology_semantic_error", "prediction_index": 2, "record_key": "677e7b5b0668581a01ed", "reference_index": 4}
+{"error_type": "lithology_semantic_error", "prediction_index": 3, "record_key": "677e7b5b0668581a01ed", "reference_index": 5}
+{"error_type": "lithology_semantic_error", "prediction_index": 4, "record_key": "677e7b5b0668581a01ed", "reference_index": 6}
+{"error_type": "lithology_semantic_error", "prediction_index": 5, "record_key": "677e7b5b0668581a01ed", "reference_index": 8}
+{"error_type": "lithology_semantic_error", "prediction_index": 6, "record_key": "677e7b5b0668581a01ed", "reference_index": 9}
+{"error_type": "lithology_semantic_error", "prediction_index": 7, "record_key": "677e7b5b0668581a01ed", "reference_index": 12}
+{"error_type": "lithology_semantic_error", "prediction_index": 10, "record_key": "677e7b5b0668581a01ed", "reference_index": 33}
+{"error_type": "lithology_semantic_error", "prediction_index": 11, "record_key": "677e7b5b0668581a01ed", "reference_index": 35}
+{"error_type": "missing_interval", "record_key": "92c3308f0347a0fb46af", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "92c3308f0347a0fb46af", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "92c3308f0347a0fb46af", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "92c3308f0347a0fb46af", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "92c3308f0347a0fb46af", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "92c3308f0347a0fb46af", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "92c3308f0347a0fb46af", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "92c3308f0347a0fb46af", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "92c3308f0347a0fb46af", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "92c3308f0347a0fb46af", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "92c3308f0347a0fb46af", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "92c3308f0347a0fb46af", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "fdfdb59a3c128ebf47ea", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "fdfdb59a3c128ebf47ea", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "fdfdb59a3c128ebf47ea", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "fdfdb59a3c128ebf47ea", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "fdfdb59a3c128ebf47ea", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "fdfdb59a3c128ebf47ea", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "fdfdb59a3c128ebf47ea", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "fdfdb59a3c128ebf47ea", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "fdfdb59a3c128ebf47ea", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "fdfdb59a3c128ebf47ea", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "fdfdb59a3c128ebf47ea", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "fdfdb59a3c128ebf47ea", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "fdfdb59a3c128ebf47ea", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "fdfdb59a3c128ebf47ea", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "fdfdb59a3c128ebf47ea", "reference_index": 16}
+{"error_type": "missing_interval", "record_key": "fdfdb59a3c128ebf47ea", "reference_index": 17}
+{"error_type": "missing_interval", "record_key": "fdfdb59a3c128ebf47ea", "reference_index": 18}
+{"error_type": "spurious_interval", "prediction_index": 1, "record_key": "fdfdb59a3c128ebf47ea"}
+{"error_type": "spurious_interval", "prediction_index": 3, "record_key": "fdfdb59a3c128ebf47ea"}
+{"error_type": "lithology_semantic_error", "prediction_index": 0, "record_key": "fdfdb59a3c128ebf47ea", "reference_index": 8}
+{"error_type": "lithology_semantic_error", "prediction_index": 2, "record_key": "fdfdb59a3c128ebf47ea", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "bb009ca516489a07bb22", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "bb009ca516489a07bb22", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "bb009ca516489a07bb22", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "bb009ca516489a07bb22", "reference_index": 7}
+{"error_type": "lithology_semantic_error", "prediction_index": 2, "record_key": "bb009ca516489a07bb22", "reference_index": 5}
+{"error_type": "lithology_semantic_error", "prediction_index": 3, "record_key": "bb009ca516489a07bb22", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "63808e7f3e8ef48094d0", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "63808e7f3e8ef48094d0", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "63808e7f3e8ef48094d0", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "63808e7f3e8ef48094d0", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "63808e7f3e8ef48094d0", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "f042a0a40f7446f26a74", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "f042a0a40f7446f26a74", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "f042a0a40f7446f26a74", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "f042a0a40f7446f26a74", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "f042a0a40f7446f26a74", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "f042a0a40f7446f26a74", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "f042a0a40f7446f26a74", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "f042a0a40f7446f26a74", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "f042a0a40f7446f26a74", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "f042a0a40f7446f26a74", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "f042a0a40f7446f26a74", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "f042a0a40f7446f26a74", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "f042a0a40f7446f26a74", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "f042a0a40f7446f26a74", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "f042a0a40f7446f26a74", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "f042a0a40f7446f26a74", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "f042a0a40f7446f26a74", "reference_index": 16}
+{"error_type": "missing_interval", "record_key": "f042a0a40f7446f26a74", "reference_index": 17}
+{"error_type": "missing_interval", "record_key": "32e51f3f8ef77470c3cd", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "32e51f3f8ef77470c3cd", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "32e51f3f8ef77470c3cd", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "32e51f3f8ef77470c3cd", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "32e51f3f8ef77470c3cd", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "32e51f3f8ef77470c3cd", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "32e51f3f8ef77470c3cd", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "32e51f3f8ef77470c3cd", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "32e51f3f8ef77470c3cd", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "32e51f3f8ef77470c3cd", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "32e51f3f8ef77470c3cd", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "32e51f3f8ef77470c3cd", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "32e51f3f8ef77470c3cd", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "32e51f3f8ef77470c3cd", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "32e51f3f8ef77470c3cd", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "32e51f3f8ef77470c3cd", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "32e51f3f8ef77470c3cd", "reference_index": 16}
+{"error_type": "missing_interval", "record_key": "32e51f3f8ef77470c3cd", "reference_index": 17}
+{"error_type": "missing_interval", "record_key": "32e51f3f8ef77470c3cd", "reference_index": 19}
+{"error_type": "missing_interval", "record_key": "32e51f3f8ef77470c3cd", "reference_index": 20}
+{"error_type": "lithology_semantic_error", "prediction_index": 0, "record_key": "32e51f3f8ef77470c3cd", "reference_index": 18}
+{"error_type": "missing_interval", "record_key": "b6c76d0c7cfc7996d69a", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "b6c76d0c7cfc7996d69a", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "b6c76d0c7cfc7996d69a", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "b6c76d0c7cfc7996d69a", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "b6c76d0c7cfc7996d69a", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "b6c76d0c7cfc7996d69a", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "b6c76d0c7cfc7996d69a", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "b6c76d0c7cfc7996d69a", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "b6c76d0c7cfc7996d69a", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "b6c76d0c7cfc7996d69a", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "b6c76d0c7cfc7996d69a", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "b6c76d0c7cfc7996d69a", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "b6c76d0c7cfc7996d69a", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "b6c76d0c7cfc7996d69a", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "b6c76d0c7cfc7996d69a", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "b6c76d0c7cfc7996d69a", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "b6c76d0c7cfc7996d69a", "reference_index": 16}
+{"error_type": "missing_interval", "record_key": "b6c76d0c7cfc7996d69a", "reference_index": 17}
+{"error_type": "spurious_interval", "prediction_index": 0, "record_key": "b6c76d0c7cfc7996d69a"}
+{"error_type": "missing_interval", "record_key": "cf941ea5deab36f14cf4", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "cf941ea5deab36f14cf4", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "cf941ea5deab36f14cf4", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "cf941ea5deab36f14cf4", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "cf941ea5deab36f14cf4", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "cf941ea5deab36f14cf4", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "cf941ea5deab36f14cf4", "reference_index": 17}
+{"error_type": "missing_interval", "record_key": "cf941ea5deab36f14cf4", "reference_index": 18}
+{"error_type": "spurious_interval", "prediction_index": 3, "record_key": "cf941ea5deab36f14cf4"}
+{"error_type": "lithology_semantic_error", "prediction_index": 1, "record_key": "cf941ea5deab36f14cf4", "reference_index": 1}
+{"error_type": "lithology_semantic_error", "prediction_index": 2, "record_key": "cf941ea5deab36f14cf4", "reference_index": 3}
+{"error_type": "lithology_semantic_error", "prediction_index": 4, "record_key": "cf941ea5deab36f14cf4", "reference_index": 4}
+{"error_type": "lithology_semantic_error", "prediction_index": 5, "record_key": "cf941ea5deab36f14cf4", "reference_index": 5}
+{"error_type": "lithology_semantic_error", "prediction_index": 6, "record_key": "cf941ea5deab36f14cf4", "reference_index": 7}
+{"error_type": "lithology_semantic_error", "prediction_index": 7, "record_key": "cf941ea5deab36f14cf4", "reference_index": 12}
+{"error_type": "lithology_semantic_error", "prediction_index": 8, "record_key": "cf941ea5deab36f14cf4", "reference_index": 13}
+{"error_type": "lithology_semantic_error", "prediction_index": 9, "record_key": "cf941ea5deab36f14cf4", "reference_index": 14}
+{"error_type": "lithology_semantic_error", "prediction_index": 10, "record_key": "cf941ea5deab36f14cf4", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "420148fbae86105d0a8c", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "420148fbae86105d0a8c", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "420148fbae86105d0a8c", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "420148fbae86105d0a8c", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "420148fbae86105d0a8c", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "420148fbae86105d0a8c", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "420148fbae86105d0a8c", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "420148fbae86105d0a8c", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "420148fbae86105d0a8c", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "420148fbae86105d0a8c", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "420148fbae86105d0a8c", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "420148fbae86105d0a8c", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "420148fbae86105d0a8c", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "420148fbae86105d0a8c", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "420148fbae86105d0a8c", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "420148fbae86105d0a8c", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "420148fbae86105d0a8c", "reference_index": 16}
+{"error_type": "missing_interval", "record_key": "420148fbae86105d0a8c", "reference_index": 17}
+{"error_type": "missing_interval", "record_key": "420148fbae86105d0a8c", "reference_index": 18}
+{"error_type": "missing_interval", "record_key": "420148fbae86105d0a8c", "reference_index": 19}
+{"error_type": "missing_interval", "record_key": "420148fbae86105d0a8c", "reference_index": 20}
+{"error_type": "missing_interval", "record_key": "420148fbae86105d0a8c", "reference_index": 21}
+{"error_type": "missing_interval", "record_key": "420148fbae86105d0a8c", "reference_index": 22}
+{"error_type": "missing_interval", "record_key": "420148fbae86105d0a8c", "reference_index": 23}
+{"error_type": "missing_interval", "record_key": "420148fbae86105d0a8c", "reference_index": 24}
+{"error_type": "missing_interval", "record_key": "420148fbae86105d0a8c", "reference_index": 25}
+{"error_type": "missing_interval", "record_key": "420148fbae86105d0a8c", "reference_index": 26}
+{"error_type": "missing_interval", "record_key": "420148fbae86105d0a8c", "reference_index": 27}
+{"error_type": "missing_interval", "record_key": "420148fbae86105d0a8c", "reference_index": 28}
+{"error_type": "missing_interval", "record_key": "420148fbae86105d0a8c", "reference_index": 29}
+{"error_type": "missing_interval", "record_key": "420148fbae86105d0a8c", "reference_index": 30}
+{"error_type": "missing_interval", "record_key": "420148fbae86105d0a8c", "reference_index": 31}
+{"error_type": "missing_interval", "record_key": "420148fbae86105d0a8c", "reference_index": 32}
+{"error_type": "spurious_interval", "prediction_index": 0, "record_key": "420148fbae86105d0a8c"}
+{"error_type": "missing_interval", "record_key": "0567ed8c6854a3151234", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "0567ed8c6854a3151234", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "0567ed8c6854a3151234", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "0567ed8c6854a3151234", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "0567ed8c6854a3151234", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "0567ed8c6854a3151234", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "0567ed8c6854a3151234", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "0567ed8c6854a3151234", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "0567ed8c6854a3151234", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "0567ed8c6854a3151234", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "0567ed8c6854a3151234", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "0567ed8c6854a3151234", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "0567ed8c6854a3151234", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "0567ed8c6854a3151234", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "0567ed8c6854a3151234", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "0567ed8c6854a3151234", "reference_index": 16}
+{"error_type": "spurious_interval", "prediction_index": 1, "record_key": "0567ed8c6854a3151234"}
+{"error_type": "lithology_semantic_error", "prediction_index": 0, "record_key": "0567ed8c6854a3151234", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "6b959f2cec924df1e5bc", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "6b959f2cec924df1e5bc", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "6b959f2cec924df1e5bc", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "6b959f2cec924df1e5bc", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "6b959f2cec924df1e5bc", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "6b959f2cec924df1e5bc", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "6b959f2cec924df1e5bc", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "6b959f2cec924df1e5bc", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "6b959f2cec924df1e5bc", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "6b959f2cec924df1e5bc", "reference_index": 16}
+{"error_type": "missing_interval", "record_key": "6b959f2cec924df1e5bc", "reference_index": 17}
+{"error_type": "missing_interval", "record_key": "6b959f2cec924df1e5bc", "reference_index": 18}
+{"error_type": "spurious_interval", "prediction_index": 5, "record_key": "6b959f2cec924df1e5bc"}
+{"error_type": "lithology_semantic_error", "prediction_index": 3, "record_key": "6b959f2cec924df1e5bc", "reference_index": 4}
+{"error_type": "lithology_semantic_error", "prediction_index": 4, "record_key": "6b959f2cec924df1e5bc", "reference_index": 6}
+{"error_type": "lithology_semantic_error", "prediction_index": 7, "record_key": "6b959f2cec924df1e5bc", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "419aedf236416514f929", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "419aedf236416514f929", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "419aedf236416514f929", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "419aedf236416514f929", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "419aedf236416514f929", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "419aedf236416514f929", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "419aedf236416514f929", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "419aedf236416514f929", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "419aedf236416514f929", "reference_index": 16}
+{"error_type": "missing_interval", "record_key": "419aedf236416514f929", "reference_index": 17}
+{"error_type": "missing_interval", "record_key": "419aedf236416514f929", "reference_index": 18}
+{"error_type": "missing_interval", "record_key": "419aedf236416514f929", "reference_index": 19}
+{"error_type": "missing_interval", "record_key": "419aedf236416514f929", "reference_index": 20}
+{"error_type": "missing_interval", "record_key": "419aedf236416514f929", "reference_index": 21}
+{"error_type": "missing_interval", "record_key": "419aedf236416514f929", "reference_index": 22}
+{"error_type": "missing_interval", "record_key": "419aedf236416514f929", "reference_index": 23}
+{"error_type": "missing_interval", "record_key": "419aedf236416514f929", "reference_index": 24}
+{"error_type": "missing_interval", "record_key": "419aedf236416514f929", "reference_index": 25}
+{"error_type": "missing_interval", "record_key": "419aedf236416514f929", "reference_index": 26}
+{"error_type": "missing_interval", "record_key": "419aedf236416514f929", "reference_index": 27}
+{"error_type": "missing_interval", "record_key": "419aedf236416514f929", "reference_index": 28}
+{"error_type": "missing_interval", "record_key": "419aedf236416514f929", "reference_index": 29}
+{"error_type": "missing_interval", "record_key": "419aedf236416514f929", "reference_index": 30}
+{"error_type": "missing_interval", "record_key": "419aedf236416514f929", "reference_index": 31}
+{"error_type": "spurious_interval", "prediction_index": 0, "record_key": "419aedf236416514f929"}
+{"error_type": "lithology_semantic_error", "prediction_index": 1, "record_key": "419aedf236416514f929", "reference_index": 2}
+{"error_type": "lithology_semantic_error", "prediction_index": 8, "record_key": "419aedf236416514f929", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "b55d1771f122897f6c8c", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "b55d1771f122897f6c8c", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "b55d1771f122897f6c8c", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "b55d1771f122897f6c8c", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "b55d1771f122897f6c8c", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "b55d1771f122897f6c8c", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "b55d1771f122897f6c8c", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "b55d1771f122897f6c8c", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "b55d1771f122897f6c8c", "reference_index": 16}
+{"error_type": "missing_interval", "record_key": "b55d1771f122897f6c8c", "reference_index": 17}
+{"error_type": "missing_interval", "record_key": "b55d1771f122897f6c8c", "reference_index": 18}
+{"error_type": "missing_interval", "record_key": "b55d1771f122897f6c8c", "reference_index": 19}
+{"error_type": "missing_interval", "record_key": "b55d1771f122897f6c8c", "reference_index": 20}
+{"error_type": "missing_interval", "record_key": "b55d1771f122897f6c8c", "reference_index": 21}
+{"error_type": "missing_interval", "record_key": "b55d1771f122897f6c8c", "reference_index": 22}
+{"error_type": "missing_interval", "record_key": "b55d1771f122897f6c8c", "reference_index": 23}
+{"error_type": "missing_interval", "record_key": "b55d1771f122897f6c8c", "reference_index": 24}
+{"error_type": "missing_interval", "record_key": "b55d1771f122897f6c8c", "reference_index": 25}
+{"error_type": "missing_interval", "record_key": "b55d1771f122897f6c8c", "reference_index": 26}
+{"error_type": "missing_interval", "record_key": "b55d1771f122897f6c8c", "reference_index": 27}
+{"error_type": "missing_interval", "record_key": "b55d1771f122897f6c8c", "reference_index": 28}
+{"error_type": "missing_interval", "record_key": "b55d1771f122897f6c8c", "reference_index": 29}
+{"error_type": "missing_interval", "record_key": "b55d1771f122897f6c8c", "reference_index": 30}
+{"error_type": "missing_interval", "record_key": "b55d1771f122897f6c8c", "reference_index": 31}
+{"error_type": "missing_interval", "record_key": "b55d1771f122897f6c8c", "reference_index": 32}
+{"error_type": "missing_interval", "record_key": "b55d1771f122897f6c8c", "reference_index": 33}
+{"error_type": "missing_interval", "record_key": "b55d1771f122897f6c8c", "reference_index": 34}
+{"error_type": "missing_interval", "record_key": "b55d1771f122897f6c8c", "reference_index": 35}
+{"error_type": "spurious_interval", "prediction_index": 0, "record_key": "b55d1771f122897f6c8c"}
+{"error_type": "spurious_interval", "prediction_index": 5, "record_key": "b55d1771f122897f6c8c"}
+{"error_type": "lithology_semantic_error", "prediction_index": 6, "record_key": "b55d1771f122897f6c8c", "reference_index": 8}
+{"error_type": "lithology_semantic_error", "prediction_index": 8, "record_key": "b55d1771f122897f6c8c", "reference_index": 10}
+{"error_type": "lithology_semantic_error", "prediction_index": 9, "record_key": "b55d1771f122897f6c8c", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 16}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 17}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 18}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 19}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 20}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 21}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 22}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 23}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 24}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 25}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 26}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 27}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 28}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 29}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 30}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 31}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 32}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 33}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 34}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 35}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 36}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 37}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 38}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 39}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 40}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 41}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 42}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 45}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 46}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 47}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 48}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 49}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 50}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 51}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 52}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 53}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 54}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 55}
+{"error_type": "missing_interval", "record_key": "36a157a97a60d6136332", "reference_index": 56}
+{"error_type": "lithology_semantic_error", "prediction_index": 0, "record_key": "36a157a97a60d6136332", "reference_index": 0}
+{"error_type": "lithology_semantic_error", "prediction_index": 10, "record_key": "36a157a97a60d6136332", "reference_index": 10}
+{"error_type": "lithology_semantic_error", "prediction_index": 11, "record_key": "36a157a97a60d6136332", "reference_index": 11}
+{"error_type": "lithology_semantic_error", "prediction_index": 12, "record_key": "36a157a97a60d6136332", "reference_index": 14}
+{"error_type": "lithology_semantic_error", "prediction_index": 14, "record_key": "36a157a97a60d6136332", "reference_index": 44}
+{"error_type": "missing_interval", "record_key": "4467e105752f13df468f", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "4467e105752f13df468f", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "4467e105752f13df468f", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "4467e105752f13df468f", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "4467e105752f13df468f", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "4467e105752f13df468f", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "0a98c31f20564537fdaf", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "0a98c31f20564537fdaf", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "0a98c31f20564537fdaf", "reference_index": 18}
+{"error_type": "missing_interval", "record_key": "0a98c31f20564537fdaf", "reference_index": 25}
+{"error_type": "missing_interval", "record_key": "0a98c31f20564537fdaf", "reference_index": 29}
+{"error_type": "missing_interval", "record_key": "0a98c31f20564537fdaf", "reference_index": 30}
+{"error_type": "missing_interval", "record_key": "0a98c31f20564537fdaf", "reference_index": 31}
+{"error_type": "missing_interval", "record_key": "0a98c31f20564537fdaf", "reference_index": 32}
+{"error_type": "missing_interval", "record_key": "0a98c31f20564537fdaf", "reference_index": 33}
+{"error_type": "missing_interval", "record_key": "0a98c31f20564537fdaf", "reference_index": 34}
+{"error_type": "missing_interval", "record_key": "0a98c31f20564537fdaf", "reference_index": 35}
+{"error_type": "missing_interval", "record_key": "0a98c31f20564537fdaf", "reference_index": 36}
+{"error_type": "missing_interval", "record_key": "0a98c31f20564537fdaf", "reference_index": 37}
+{"error_type": "missing_interval", "record_key": "0a98c31f20564537fdaf", "reference_index": 38}
+{"error_type": "missing_interval", "record_key": "0a98c31f20564537fdaf", "reference_index": 39}
+{"error_type": "missing_interval", "record_key": "0a98c31f20564537fdaf", "reference_index": 40}
+{"error_type": "missing_interval", "record_key": "0a98c31f20564537fdaf", "reference_index": 41}
+{"error_type": "missing_interval", "record_key": "0a98c31f20564537fdaf", "reference_index": 42}
+{"error_type": "spurious_interval", "prediction_index": 2, "record_key": "0a98c31f20564537fdaf"}
+{"error_type": "spurious_interval", "prediction_index": 12, "record_key": "0a98c31f20564537fdaf"}
+{"error_type": "spurious_interval", "prediction_index": 27, "record_key": "0a98c31f20564537fdaf"}
+{"error_type": "lithology_semantic_error", "prediction_index": 1, "record_key": "0a98c31f20564537fdaf", "reference_index": 2}
+{"error_type": "lithology_semantic_error", "prediction_index": 3, "record_key": "0a98c31f20564537fdaf", "reference_index": 3}
+{"error_type": "lithology_semantic_error", "prediction_index": 4, "record_key": "0a98c31f20564537fdaf", "reference_index": 4}
+{"error_type": "lithology_semantic_error", "prediction_index": 5, "record_key": "0a98c31f20564537fdaf", "reference_index": 5}
+{"error_type": "lithology_semantic_error", "prediction_index": 6, "record_key": "0a98c31f20564537fdaf", "reference_index": 6}
+{"error_type": "lithology_semantic_error", "prediction_index": 7, "record_key": "0a98c31f20564537fdaf", "reference_index": 7}
+{"error_type": "lithology_semantic_error", "prediction_index": 8, "record_key": "0a98c31f20564537fdaf", "reference_index": 8}
+{"error_type": "lithology_semantic_error", "prediction_index": 9, "record_key": "0a98c31f20564537fdaf", "reference_index": 9}
+{"error_type": "lithology_semantic_error", "prediction_index": 10, "record_key": "0a98c31f20564537fdaf", "reference_index": 10}
+{"error_type": "lithology_semantic_error", "prediction_index": 11, "record_key": "0a98c31f20564537fdaf", "reference_index": 11}
+{"error_type": "lithology_semantic_error", "prediction_index": 13, "record_key": "0a98c31f20564537fdaf", "reference_index": 13}
+{"error_type": "lithology_semantic_error", "prediction_index": 14, "record_key": "0a98c31f20564537fdaf", "reference_index": 14}
+{"error_type": "lithology_semantic_error", "prediction_index": 15, "record_key": "0a98c31f20564537fdaf", "reference_index": 15}
+{"error_type": "lithology_semantic_error", "prediction_index": 16, "record_key": "0a98c31f20564537fdaf", "reference_index": 16}
+{"error_type": "lithology_semantic_error", "prediction_index": 17, "record_key": "0a98c31f20564537fdaf", "reference_index": 17}
+{"error_type": "lithology_semantic_error", "prediction_index": 18, "record_key": "0a98c31f20564537fdaf", "reference_index": 19}
+{"error_type": "lithology_semantic_error", "prediction_index": 19, "record_key": "0a98c31f20564537fdaf", "reference_index": 20}
+{"error_type": "lithology_semantic_error", "prediction_index": 20, "record_key": "0a98c31f20564537fdaf", "reference_index": 21}
+{"error_type": "lithology_semantic_error", "prediction_index": 21, "record_key": "0a98c31f20564537fdaf", "reference_index": 22}
+{"error_type": "lithology_semantic_error", "prediction_index": 22, "record_key": "0a98c31f20564537fdaf", "reference_index": 23}
+{"error_type": "lithology_semantic_error", "prediction_index": 23, "record_key": "0a98c31f20564537fdaf", "reference_index": 24}
+{"error_type": "lithology_semantic_error", "prediction_index": 24, "record_key": "0a98c31f20564537fdaf", "reference_index": 26}
+{"error_type": "lithology_semantic_error", "prediction_index": 25, "record_key": "0a98c31f20564537fdaf", "reference_index": 27}
+{"error_type": "lithology_semantic_error", "prediction_index": 26, "record_key": "0a98c31f20564537fdaf", "reference_index": 28}
+{"error_type": "missing_interval", "record_key": "294b0a591b4089a4fbd8", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "294b0a591b4089a4fbd8", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "294b0a591b4089a4fbd8", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "294b0a591b4089a4fbd8", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "294b0a591b4089a4fbd8", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "294b0a591b4089a4fbd8", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "294b0a591b4089a4fbd8", "reference_index": 14}
+{"error_type": "spurious_interval", "prediction_index": 1, "record_key": "294b0a591b4089a4fbd8"}
+{"error_type": "spurious_interval", "prediction_index": 2, "record_key": "294b0a591b4089a4fbd8"}
+{"error_type": "spurious_interval", "prediction_index": 10, "record_key": "294b0a591b4089a4fbd8"}
+{"error_type": "spurious_interval", "prediction_index": 11, "record_key": "294b0a591b4089a4fbd8"}
+{"error_type": "lithology_semantic_error", "prediction_index": 3, "record_key": "294b0a591b4089a4fbd8", "reference_index": 3}
+{"error_type": "lithology_semantic_error", "prediction_index": 5, "record_key": "294b0a591b4089a4fbd8", "reference_index": 5}
+{"error_type": "lithology_semantic_error", "prediction_index": 6, "record_key": "294b0a591b4089a4fbd8", "reference_index": 6}
+{"error_type": "lithology_semantic_error", "prediction_index": 7, "record_key": "294b0a591b4089a4fbd8", "reference_index": 7}
+{"error_type": "lithology_semantic_error", "prediction_index": 8, "record_key": "294b0a591b4089a4fbd8", "reference_index": 8}
+{"error_type": "lithology_semantic_error", "prediction_index": 9, "record_key": "294b0a591b4089a4fbd8", "reference_index": 9}
+{"error_type": "lithology_semantic_error", "prediction_index": 12, "record_key": "294b0a591b4089a4fbd8", "reference_index": 15}
+{"error_type": "lithology_semantic_error", "prediction_index": 13, "record_key": "294b0a591b4089a4fbd8", "reference_index": 16}
+{"error_type": "lithology_semantic_error", "prediction_index": 15, "record_key": "294b0a591b4089a4fbd8", "reference_index": 18}
+{"error_type": "missing_interval", "record_key": "d6c5aacd8ff27cc92c1f", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "d6c5aacd8ff27cc92c1f", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "d6c5aacd8ff27cc92c1f", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "d6c5aacd8ff27cc92c1f", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "d6c5aacd8ff27cc92c1f", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "d6c5aacd8ff27cc92c1f", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "d6c5aacd8ff27cc92c1f", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "d6c5aacd8ff27cc92c1f", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "d6c5aacd8ff27cc92c1f", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "d6c5aacd8ff27cc92c1f", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "d6c5aacd8ff27cc92c1f", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "d6c5aacd8ff27cc92c1f", "reference_index": 16}
+{"error_type": "missing_interval", "record_key": "d6c5aacd8ff27cc92c1f", "reference_index": 17}
+{"error_type": "missing_interval", "record_key": "d6c5aacd8ff27cc92c1f", "reference_index": 18}
+{"error_type": "missing_interval", "record_key": "d6c5aacd8ff27cc92c1f", "reference_index": 19}
+{"error_type": "missing_interval", "record_key": "d6c5aacd8ff27cc92c1f", "reference_index": 20}
+{"error_type": "lithology_semantic_error", "prediction_index": 0, "record_key": "d6c5aacd8ff27cc92c1f", "reference_index": 1}
+{"error_type": "lithology_semantic_error", "prediction_index": 1, "record_key": "d6c5aacd8ff27cc92c1f", "reference_index": 3}
+{"error_type": "lithology_semantic_error", "prediction_index": 4, "record_key": "d6c5aacd8ff27cc92c1f", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "e7cf79d6e538995a6fe4", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "e7cf79d6e538995a6fe4", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "e7cf79d6e538995a6fe4", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "e7cf79d6e538995a6fe4", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "e7cf79d6e538995a6fe4", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "e7cf79d6e538995a6fe4", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "e7cf79d6e538995a6fe4", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "e7cf79d6e538995a6fe4", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "e7cf79d6e538995a6fe4", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "e7cf79d6e538995a6fe4", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "e7cf79d6e538995a6fe4", "reference_index": 10}
+{"error_type": "spurious_interval", "prediction_index": 0, "record_key": "e7cf79d6e538995a6fe4"}
+{"error_type": "spurious_interval", "prediction_index": 1, "record_key": "e7cf79d6e538995a6fe4"}
+{"error_type": "spurious_interval", "prediction_index": 2, "record_key": "e7cf79d6e538995a6fe4"}
+{"error_type": "missing_interval", "record_key": "5e6256d434ab117b982c", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "5e6256d434ab117b982c", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "5e6256d434ab117b982c", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "5e6256d434ab117b982c", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "5e6256d434ab117b982c", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "5e6256d434ab117b982c", "reference_index": 5}
+{"error_type": "spurious_interval", "prediction_index": 0, "record_key": "5e6256d434ab117b982c"}
+{"error_type": "missing_interval", "record_key": "a2f27aa139f1a1b59d29", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "a2f27aa139f1a1b59d29", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "a2f27aa139f1a1b59d29", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "a2f27aa139f1a1b59d29", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "a2f27aa139f1a1b59d29", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "a2f27aa139f1a1b59d29", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "a2f27aa139f1a1b59d29", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "a2f27aa139f1a1b59d29", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "a2f27aa139f1a1b59d29", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "a2f27aa139f1a1b59d29", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "a2f27aa139f1a1b59d29", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "a2f27aa139f1a1b59d29", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "a2f27aa139f1a1b59d29", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "a2f27aa139f1a1b59d29", "reference_index": 14}
+{"error_type": "spurious_interval", "prediction_index": 0, "record_key": "a2f27aa139f1a1b59d29"}
+{"error_type": "spurious_interval", "prediction_index": 1, "record_key": "a2f27aa139f1a1b59d29"}
+{"error_type": "spurious_interval", "prediction_index": 3, "record_key": "a2f27aa139f1a1b59d29"}
+{"error_type": "lithology_semantic_error", "prediction_index": 2, "record_key": "a2f27aa139f1a1b59d29", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "bd1a181e95e1205fda33", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "bd1a181e95e1205fda33", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "bd1a181e95e1205fda33", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "bd1a181e95e1205fda33", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "bd1a181e95e1205fda33", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "bd1a181e95e1205fda33", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "bd1a181e95e1205fda33", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "bd1a181e95e1205fda33", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "bd1a181e95e1205fda33", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "bd1a181e95e1205fda33", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "bd1a181e95e1205fda33", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "bd1a181e95e1205fda33", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "bd1a181e95e1205fda33", "reference_index": 12}
+{"error_type": "spurious_interval", "prediction_index": 0, "record_key": "bd1a181e95e1205fda33"}
+{"error_type": "spurious_interval", "prediction_index": 1, "record_key": "bd1a181e95e1205fda33"}
+{"error_type": "spurious_interval", "prediction_index": 2, "record_key": "bd1a181e95e1205fda33"}
+{"error_type": "spurious_interval", "prediction_index": 3, "record_key": "bd1a181e95e1205fda33"}
+{"error_type": "missing_interval", "record_key": "98e876c7889b512b4f8a", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "98e876c7889b512b4f8a", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "98e876c7889b512b4f8a", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "98e876c7889b512b4f8a", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "98e876c7889b512b4f8a", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "98e876c7889b512b4f8a", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "98e876c7889b512b4f8a", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "98e876c7889b512b4f8a", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "98e876c7889b512b4f8a", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "98e876c7889b512b4f8a", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "98e876c7889b512b4f8a", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "98e876c7889b512b4f8a", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "98e876c7889b512b4f8a", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "98e876c7889b512b4f8a", "reference_index": 16}
+{"error_type": "missing_interval", "record_key": "98e876c7889b512b4f8a", "reference_index": 17}
+{"error_type": "missing_interval", "record_key": "98e876c7889b512b4f8a", "reference_index": 18}
+{"error_type": "missing_interval", "record_key": "98e876c7889b512b4f8a", "reference_index": 19}
+{"error_type": "missing_interval", "record_key": "98e876c7889b512b4f8a", "reference_index": 20}
+{"error_type": "missing_interval", "record_key": "98e876c7889b512b4f8a", "reference_index": 21}
+{"error_type": "missing_interval", "record_key": "98e876c7889b512b4f8a", "reference_index": 22}
+{"error_type": "missing_interval", "record_key": "98e876c7889b512b4f8a", "reference_index": 23}
+{"error_type": "missing_interval", "record_key": "98e876c7889b512b4f8a", "reference_index": 24}
+{"error_type": "missing_interval", "record_key": "98e876c7889b512b4f8a", "reference_index": 25}
+{"error_type": "missing_interval", "record_key": "98e876c7889b512b4f8a", "reference_index": 26}
+{"error_type": "missing_interval", "record_key": "98e876c7889b512b4f8a", "reference_index": 27}
+{"error_type": "missing_interval", "record_key": "98e876c7889b512b4f8a", "reference_index": 28}
+{"error_type": "missing_interval", "record_key": "98e876c7889b512b4f8a", "reference_index": 29}
+{"error_type": "missing_interval", "record_key": "98e876c7889b512b4f8a", "reference_index": 30}
+{"error_type": "missing_interval", "record_key": "98e876c7889b512b4f8a", "reference_index": 31}
+{"error_type": "missing_interval", "record_key": "98e876c7889b512b4f8a", "reference_index": 32}
+{"error_type": "missing_interval", "record_key": "98e876c7889b512b4f8a", "reference_index": 33}
+{"error_type": "missing_interval", "record_key": "98e876c7889b512b4f8a", "reference_index": 34}
+{"error_type": "missing_interval", "record_key": "98e876c7889b512b4f8a", "reference_index": 35}
+{"error_type": "missing_interval", "record_key": "98e876c7889b512b4f8a", "reference_index": 36}
+{"error_type": "missing_interval", "record_key": "98e876c7889b512b4f8a", "reference_index": 37}
+{"error_type": "missing_interval", "record_key": "98e876c7889b512b4f8a", "reference_index": 38}
+{"error_type": "spurious_interval", "prediction_index": 3, "record_key": "98e876c7889b512b4f8a"}
+{"error_type": "lithology_semantic_error", "prediction_index": 0, "record_key": "98e876c7889b512b4f8a", "reference_index": 0}
+{"error_type": "lithology_semantic_error", "prediction_index": 1, "record_key": "98e876c7889b512b4f8a", "reference_index": 1}
+{"error_type": "lithology_semantic_error", "prediction_index": 2, "record_key": "98e876c7889b512b4f8a", "reference_index": 2}
+{"error_type": "lithology_semantic_error", "prediction_index": 0, "record_key": "ce0664eff6ed26b14636", "reference_index": 0}
+{"error_type": "lithology_semantic_error", "prediction_index": 1, "record_key": "ce0664eff6ed26b14636", "reference_index": 1}
+{"error_type": "lithology_semantic_error", "prediction_index": 3, "record_key": "ce0664eff6ed26b14636", "reference_index": 3}
+{"error_type": "lithology_semantic_error", "prediction_index": 5, "record_key": "ce0664eff6ed26b14636", "reference_index": 5}
+{"error_type": "lithology_semantic_error", "prediction_index": 9, "record_key": "ce0664eff6ed26b14636", "reference_index": 9}
+{"error_type": "lithology_semantic_error", "prediction_index": 15, "record_key": "ce0664eff6ed26b14636", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "8e17e378b9c98962fed6", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "8e17e378b9c98962fed6", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "8e17e378b9c98962fed6", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "8e17e378b9c98962fed6", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "8e17e378b9c98962fed6", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "8e17e378b9c98962fed6", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "8e17e378b9c98962fed6", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "8e17e378b9c98962fed6", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "8e17e378b9c98962fed6", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "8e17e378b9c98962fed6", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "8e17e378b9c98962fed6", "reference_index": 16}
+{"error_type": "missing_interval", "record_key": "8e17e378b9c98962fed6", "reference_index": 17}
+{"error_type": "missing_interval", "record_key": "8e17e378b9c98962fed6", "reference_index": 18}
+{"error_type": "missing_interval", "record_key": "8e17e378b9c98962fed6", "reference_index": 19}
+{"error_type": "missing_interval", "record_key": "8e17e378b9c98962fed6", "reference_index": 20}
+{"error_type": "missing_interval", "record_key": "8e17e378b9c98962fed6", "reference_index": 21}
+{"error_type": "lithology_semantic_error", "prediction_index": 0, "record_key": "8e17e378b9c98962fed6", "reference_index": 1}
+{"error_type": "lithology_semantic_error", "prediction_index": 1, "record_key": "8e17e378b9c98962fed6", "reference_index": 2}
+{"error_type": "lithology_semantic_error", "prediction_index": 2, "record_key": "8e17e378b9c98962fed6", "reference_index": 3}
+{"error_type": "lithology_semantic_error", "prediction_index": 3, "record_key": "8e17e378b9c98962fed6", "reference_index": 6}
+{"error_type": "lithology_semantic_error", "prediction_index": 4, "record_key": "8e17e378b9c98962fed6", "reference_index": 7}
+{"error_type": "lithology_semantic_error", "prediction_index": 5, "record_key": "8e17e378b9c98962fed6", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "4b154bc301894abef760", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "4b154bc301894abef760", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "4b154bc301894abef760", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "4b154bc301894abef760", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "4b154bc301894abef760", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "4b154bc301894abef760", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "4b154bc301894abef760", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "4b154bc301894abef760", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "4b154bc301894abef760", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "4b154bc301894abef760", "reference_index": 15}
+{"error_type": "lithology_semantic_error", "prediction_index": 5, "record_key": "4b154bc301894abef760", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "01e00dd0a61d8451ae80", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "01e00dd0a61d8451ae80", "reference_index": 6}
+{"error_type": "lithology_semantic_error", "prediction_index": 4, "record_key": "01e00dd0a61d8451ae80", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "cd30ca2b57dff5b953ec", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "cd30ca2b57dff5b953ec", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "cd30ca2b57dff5b953ec", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "cd30ca2b57dff5b953ec", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "cd30ca2b57dff5b953ec", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "cd30ca2b57dff5b953ec", "reference_index": 24}
+{"error_type": "spurious_interval", "prediction_index": 0, "record_key": "cd30ca2b57dff5b953ec"}
+{"error_type": "lithology_semantic_error", "prediction_index": 2, "record_key": "cd30ca2b57dff5b953ec", "reference_index": 4}
+{"error_type": "lithology_semantic_error", "prediction_index": 4, "record_key": "cd30ca2b57dff5b953ec", "reference_index": 6}
+{"error_type": "lithology_semantic_error", "prediction_index": 5, "record_key": "cd30ca2b57dff5b953ec", "reference_index": 9}
+{"error_type": "lithology_semantic_error", "prediction_index": 7, "record_key": "cd30ca2b57dff5b953ec", "reference_index": 11}
+{"error_type": "lithology_semantic_error", "prediction_index": 8, "record_key": "cd30ca2b57dff5b953ec", "reference_index": 12}
+{"error_type": "lithology_semantic_error", "prediction_index": 9, "record_key": "cd30ca2b57dff5b953ec", "reference_index": 13}
+{"error_type": "lithology_semantic_error", "prediction_index": 12, "record_key": "cd30ca2b57dff5b953ec", "reference_index": 16}
+{"error_type": "lithology_semantic_error", "prediction_index": 13, "record_key": "cd30ca2b57dff5b953ec", "reference_index": 17}
+{"error_type": "lithology_semantic_error", "prediction_index": 15, "record_key": "cd30ca2b57dff5b953ec", "reference_index": 19}
+{"error_type": "lithology_semantic_error", "prediction_index": 16, "record_key": "cd30ca2b57dff5b953ec", "reference_index": 20}
+{"error_type": "lithology_semantic_error", "prediction_index": 17, "record_key": "cd30ca2b57dff5b953ec", "reference_index": 21}
+{"error_type": "lithology_semantic_error", "prediction_index": 18, "record_key": "cd30ca2b57dff5b953ec", "reference_index": 22}
+{"error_type": "lithology_semantic_error", "prediction_index": 19, "record_key": "cd30ca2b57dff5b953ec", "reference_index": 23}
+{"error_type": "lithology_semantic_error", "prediction_index": 24, "record_key": "cd30ca2b57dff5b953ec", "reference_index": 29}
+{"error_type": "missing_interval", "record_key": "89146ef789e5874bf753", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "89146ef789e5874bf753", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "89146ef789e5874bf753", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "89146ef789e5874bf753", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "89146ef789e5874bf753", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "89146ef789e5874bf753", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "89146ef789e5874bf753", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "89146ef789e5874bf753", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "89146ef789e5874bf753", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "89146ef789e5874bf753", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "89146ef789e5874bf753", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "89146ef789e5874bf753", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "89146ef789e5874bf753", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "89146ef789e5874bf753", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "89146ef789e5874bf753", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "89146ef789e5874bf753", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "89146ef789e5874bf753", "reference_index": 16}
+{"error_type": "spurious_interval", "prediction_index": 0, "record_key": "89146ef789e5874bf753"}
+{"error_type": "spurious_interval", "prediction_index": 1, "record_key": "89146ef789e5874bf753"}
+{"error_type": "missing_interval", "record_key": "fb114f22c30a01aa5cdc", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "fb114f22c30a01aa5cdc", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "fb114f22c30a01aa5cdc", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "fb114f22c30a01aa5cdc", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "fb114f22c30a01aa5cdc", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "fb114f22c30a01aa5cdc", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "fb114f22c30a01aa5cdc", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "fb114f22c30a01aa5cdc", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "fb114f22c30a01aa5cdc", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "fb114f22c30a01aa5cdc", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "fb114f22c30a01aa5cdc", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "fb114f22c30a01aa5cdc", "reference_index": 16}
+{"error_type": "missing_interval", "record_key": "fb114f22c30a01aa5cdc", "reference_index": 17}
+{"error_type": "missing_interval", "record_key": "fb114f22c30a01aa5cdc", "reference_index": 18}
+{"error_type": "missing_interval", "record_key": "fb114f22c30a01aa5cdc", "reference_index": 19}
+{"error_type": "missing_interval", "record_key": "fb114f22c30a01aa5cdc", "reference_index": 20}
+{"error_type": "missing_interval", "record_key": "fb114f22c30a01aa5cdc", "reference_index": 21}
+{"error_type": "missing_interval", "record_key": "fb114f22c30a01aa5cdc", "reference_index": 22}
+{"error_type": "missing_interval", "record_key": "fb114f22c30a01aa5cdc", "reference_index": 23}
+{"error_type": "lithology_semantic_error", "prediction_index": 0, "record_key": "fb114f22c30a01aa5cdc", "reference_index": 1}
+{"error_type": "lithology_semantic_error", "prediction_index": 2, "record_key": "fb114f22c30a01aa5cdc", "reference_index": 3}
+{"error_type": "lithology_semantic_error", "prediction_index": 4, "record_key": "fb114f22c30a01aa5cdc", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 16}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 17}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 18}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 19}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 20}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 21}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 22}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 23}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 24}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 25}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 26}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 27}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 28}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 29}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 30}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 31}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 32}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 33}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 34}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 35}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 36}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 37}
+{"error_type": "missing_interval", "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 38}
+{"error_type": "spurious_interval", "prediction_index": 0, "record_key": "d2eb9fac9b9fce7bde11"}
+{"error_type": "spurious_interval", "prediction_index": 1, "record_key": "d2eb9fac9b9fce7bde11"}
+{"error_type": "spurious_interval", "prediction_index": 2, "record_key": "d2eb9fac9b9fce7bde11"}
+{"error_type": "spurious_interval", "prediction_index": 3, "record_key": "d2eb9fac9b9fce7bde11"}
+{"error_type": "spurious_interval", "prediction_index": 4, "record_key": "d2eb9fac9b9fce7bde11"}
+{"error_type": "spurious_interval", "prediction_index": 5, "record_key": "d2eb9fac9b9fce7bde11"}
+{"error_type": "spurious_interval", "prediction_index": 7, "record_key": "d2eb9fac9b9fce7bde11"}
+{"error_type": "spurious_interval", "prediction_index": 8, "record_key": "d2eb9fac9b9fce7bde11"}
+{"error_type": "spurious_interval", "prediction_index": 9, "record_key": "d2eb9fac9b9fce7bde11"}
+{"error_type": "spurious_interval", "prediction_index": 10, "record_key": "d2eb9fac9b9fce7bde11"}
+{"error_type": "spurious_interval", "prediction_index": 11, "record_key": "d2eb9fac9b9fce7bde11"}
+{"error_type": "spurious_interval", "prediction_index": 12, "record_key": "d2eb9fac9b9fce7bde11"}
+{"error_type": "spurious_interval", "prediction_index": 13, "record_key": "d2eb9fac9b9fce7bde11"}
+{"error_type": "spurious_interval", "prediction_index": 14, "record_key": "d2eb9fac9b9fce7bde11"}
+{"error_type": "spurious_interval", "prediction_index": 15, "record_key": "d2eb9fac9b9fce7bde11"}
+{"error_type": "spurious_interval", "prediction_index": 16, "record_key": "d2eb9fac9b9fce7bde11"}
+{"error_type": "spurious_interval", "prediction_index": 17, "record_key": "d2eb9fac9b9fce7bde11"}
+{"error_type": "spurious_interval", "prediction_index": 18, "record_key": "d2eb9fac9b9fce7bde11"}
+{"error_type": "spurious_interval", "prediction_index": 19, "record_key": "d2eb9fac9b9fce7bde11"}
+{"error_type": "spurious_interval", "prediction_index": 20, "record_key": "d2eb9fac9b9fce7bde11"}
+{"error_type": "spurious_interval", "prediction_index": 21, "record_key": "d2eb9fac9b9fce7bde11"}
+{"error_type": "spurious_interval", "prediction_index": 22, "record_key": "d2eb9fac9b9fce7bde11"}
+{"error_type": "spurious_interval", "prediction_index": 23, "record_key": "d2eb9fac9b9fce7bde11"}
+{"error_type": "spurious_interval", "prediction_index": 24, "record_key": "d2eb9fac9b9fce7bde11"}
+{"error_type": "spurious_interval", "prediction_index": 25, "record_key": "d2eb9fac9b9fce7bde11"}
+{"error_type": "lithology_semantic_error", "prediction_index": 6, "record_key": "d2eb9fac9b9fce7bde11", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "b92336548abf169bca79", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "b92336548abf169bca79", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "b92336548abf169bca79", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "b92336548abf169bca79", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "b92336548abf169bca79", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "b92336548abf169bca79", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "b92336548abf169bca79", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "b92336548abf169bca79", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "b92336548abf169bca79", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "b92336548abf169bca79", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "b92336548abf169bca79", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "b92336548abf169bca79", "reference_index": 16}
+{"error_type": "missing_interval", "record_key": "b92336548abf169bca79", "reference_index": 17}
+{"error_type": "missing_interval", "record_key": "b92336548abf169bca79", "reference_index": 18}
+{"error_type": "missing_interval", "record_key": "b92336548abf169bca79", "reference_index": 19}
+{"error_type": "missing_interval", "record_key": "b92336548abf169bca79", "reference_index": 20}
+{"error_type": "lithology_semantic_error", "prediction_index": 4, "record_key": "b92336548abf169bca79", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "94047da2e56a3c42f3d6", "reference_index": 0}
+{"error_type": "lithology_semantic_error", "prediction_index": 3, "record_key": "94047da2e56a3c42f3d6", "reference_index": 4}
+{"error_type": "lithology_semantic_error", "prediction_index": 7, "record_key": "94047da2e56a3c42f3d6", "reference_index": 8}
+{"error_type": "lithology_semantic_error", "prediction_index": 25, "record_key": "94047da2e56a3c42f3d6", "reference_index": 26}
+{"error_type": "lithology_semantic_error", "prediction_index": 28, "record_key": "94047da2e56a3c42f3d6", "reference_index": 29}
+{"error_type": "lithology_semantic_error", "prediction_index": 29, "record_key": "94047da2e56a3c42f3d6", "reference_index": 30}
+{"error_type": "lithology_semantic_error", "prediction_index": 35, "record_key": "94047da2e56a3c42f3d6", "reference_index": 36}
+{"error_type": "lithology_semantic_error", "prediction_index": 36, "record_key": "94047da2e56a3c42f3d6", "reference_index": 37}
+{"error_type": "lithology_semantic_error", "prediction_index": 37, "record_key": "94047da2e56a3c42f3d6", "reference_index": 38}
+{"error_type": "lithology_semantic_error", "prediction_index": 40, "record_key": "94047da2e56a3c42f3d6", "reference_index": 41}
+{"error_type": "missing_interval", "record_key": "5ac67801a410f7bb0984", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "5ac67801a410f7bb0984", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "5ac67801a410f7bb0984", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "5ac67801a410f7bb0984", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "5ac67801a410f7bb0984", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "5ac67801a410f7bb0984", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "5ac67801a410f7bb0984", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "5ac67801a410f7bb0984", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "5ac67801a410f7bb0984", "reference_index": 16}
+{"error_type": "missing_interval", "record_key": "5ac67801a410f7bb0984", "reference_index": 17}
+{"error_type": "missing_interval", "record_key": "5ac67801a410f7bb0984", "reference_index": 18}
+{"error_type": "missing_interval", "record_key": "5ac67801a410f7bb0984", "reference_index": 19}
+{"error_type": "lithology_semantic_error", "prediction_index": 0, "record_key": "5ac67801a410f7bb0984", "reference_index": 0}
+{"error_type": "lithology_semantic_error", "prediction_index": 6, "record_key": "5ac67801a410f7bb0984", "reference_index": 6}
+{"error_type": "lithology_semantic_error", "prediction_index": 7, "record_key": "5ac67801a410f7bb0984", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "383bdf61830f03a2a344", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "383bdf61830f03a2a344", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "383bdf61830f03a2a344", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "383bdf61830f03a2a344", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "383bdf61830f03a2a344", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "383bdf61830f03a2a344", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "383bdf61830f03a2a344", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "383bdf61830f03a2a344", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "383bdf61830f03a2a344", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "383bdf61830f03a2a344", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "383bdf61830f03a2a344", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "383bdf61830f03a2a344", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "383bdf61830f03a2a344", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "383bdf61830f03a2a344", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "383bdf61830f03a2a344", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "383bdf61830f03a2a344", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "23173a60e724adfca473", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "23173a60e724adfca473", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "23173a60e724adfca473", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "23173a60e724adfca473", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "23173a60e724adfca473", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "23173a60e724adfca473", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "23173a60e724adfca473", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "23173a60e724adfca473", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "23173a60e724adfca473", "reference_index": 9}
+{"error_type": "spurious_interval", "prediction_index": 1, "record_key": "23173a60e724adfca473"}
+{"error_type": "missing_interval", "record_key": "0ecbe8b5241404571e54", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "0ecbe8b5241404571e54", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "0ecbe8b5241404571e54", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "0ecbe8b5241404571e54", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "0ecbe8b5241404571e54", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "0ecbe8b5241404571e54", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "0ecbe8b5241404571e54", "reference_index": 19}
+{"error_type": "missing_interval", "record_key": "0ecbe8b5241404571e54", "reference_index": 20}
+{"error_type": "missing_interval", "record_key": "0ecbe8b5241404571e54", "reference_index": 21}
+{"error_type": "missing_interval", "record_key": "0ecbe8b5241404571e54", "reference_index": 22}
+{"error_type": "missing_interval", "record_key": "0ecbe8b5241404571e54", "reference_index": 23}
+{"error_type": "missing_interval", "record_key": "0ecbe8b5241404571e54", "reference_index": 24}
+{"error_type": "missing_interval", "record_key": "0ecbe8b5241404571e54", "reference_index": 25}
+{"error_type": "missing_interval", "record_key": "0ecbe8b5241404571e54", "reference_index": 26}
+{"error_type": "missing_interval", "record_key": "0ecbe8b5241404571e54", "reference_index": 27}
+{"error_type": "missing_interval", "record_key": "0ecbe8b5241404571e54", "reference_index": 28}
+{"error_type": "missing_interval", "record_key": "0ecbe8b5241404571e54", "reference_index": 29}
+{"error_type": "missing_interval", "record_key": "0ecbe8b5241404571e54", "reference_index": 30}
+{"error_type": "missing_interval", "record_key": "0ecbe8b5241404571e54", "reference_index": 31}
+{"error_type": "missing_interval", "record_key": "0ecbe8b5241404571e54", "reference_index": 32}
+{"error_type": "missing_interval", "record_key": "0ecbe8b5241404571e54", "reference_index": 33}
+{"error_type": "missing_interval", "record_key": "0ecbe8b5241404571e54", "reference_index": 34}
+{"error_type": "missing_interval", "record_key": "0ecbe8b5241404571e54", "reference_index": 35}
+{"error_type": "lithology_semantic_error", "prediction_index": 0, "record_key": "0ecbe8b5241404571e54", "reference_index": 6}
+{"error_type": "lithology_semantic_error", "prediction_index": 1, "record_key": "0ecbe8b5241404571e54", "reference_index": 7}
+{"error_type": "lithology_semantic_error", "prediction_index": 2, "record_key": "0ecbe8b5241404571e54", "reference_index": 8}
+{"error_type": "lithology_semantic_error", "prediction_index": 3, "record_key": "0ecbe8b5241404571e54", "reference_index": 9}
+{"error_type": "lithology_semantic_error", "prediction_index": 4, "record_key": "0ecbe8b5241404571e54", "reference_index": 10}
+{"error_type": "lithology_semantic_error", "prediction_index": 5, "record_key": "0ecbe8b5241404571e54", "reference_index": 11}
+{"error_type": "lithology_semantic_error", "prediction_index": 6, "record_key": "0ecbe8b5241404571e54", "reference_index": 12}
+{"error_type": "lithology_semantic_error", "prediction_index": 7, "record_key": "0ecbe8b5241404571e54", "reference_index": 13}
+{"error_type": "lithology_semantic_error", "prediction_index": 8, "record_key": "0ecbe8b5241404571e54", "reference_index": 14}
+{"error_type": "lithology_semantic_error", "prediction_index": 9, "record_key": "0ecbe8b5241404571e54", "reference_index": 15}
+{"error_type": "lithology_semantic_error", "prediction_index": 10, "record_key": "0ecbe8b5241404571e54", "reference_index": 16}
+{"error_type": "lithology_semantic_error", "prediction_index": 11, "record_key": "0ecbe8b5241404571e54", "reference_index": 17}
+{"error_type": "missing_interval", "record_key": "a6b0f005d92386f11515", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "a6b0f005d92386f11515", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "a6b0f005d92386f11515", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "a6b0f005d92386f11515", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "a6b0f005d92386f11515", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "a6b0f005d92386f11515", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "a6b0f005d92386f11515", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "a6b0f005d92386f11515", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "a6b0f005d92386f11515", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "a6b0f005d92386f11515", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "a6b0f005d92386f11515", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "43b12781088e09ea66f1", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "43b12781088e09ea66f1", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "43b12781088e09ea66f1", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "43b12781088e09ea66f1", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "43b12781088e09ea66f1", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "43b12781088e09ea66f1", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "43b12781088e09ea66f1", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "43b12781088e09ea66f1", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "43b12781088e09ea66f1", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "43b12781088e09ea66f1", "reference_index": 9}
+{"error_type": "spurious_interval", "prediction_index": 0, "record_key": "43b12781088e09ea66f1"}
+{"error_type": "missing_interval", "record_key": "1ab05bc4775b03941360", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "1ab05bc4775b03941360", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "1ab05bc4775b03941360", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "1ab05bc4775b03941360", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "1ab05bc4775b03941360", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "1ab05bc4775b03941360", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "76da3edab2db63bfc73e", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "76da3edab2db63bfc73e", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "76da3edab2db63bfc73e", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "76da3edab2db63bfc73e", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "76da3edab2db63bfc73e", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "76da3edab2db63bfc73e", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "76da3edab2db63bfc73e", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "76da3edab2db63bfc73e", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "76da3edab2db63bfc73e", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "76da3edab2db63bfc73e", "reference_index": 11}
+{"error_type": "lithology_semantic_error", "prediction_index": 1, "record_key": "76da3edab2db63bfc73e", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "7728fd9f5102f05c187d", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "7728fd9f5102f05c187d", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "7728fd9f5102f05c187d", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "7728fd9f5102f05c187d", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "7728fd9f5102f05c187d", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "7728fd9f5102f05c187d", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "7728fd9f5102f05c187d", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "7728fd9f5102f05c187d", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "7728fd9f5102f05c187d", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "7728fd9f5102f05c187d", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "7728fd9f5102f05c187d", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "7728fd9f5102f05c187d", "reference_index": 11}
+{"error_type": "spurious_interval", "prediction_index": 0, "record_key": "7728fd9f5102f05c187d"}
+{"error_type": "missing_interval", "record_key": "4e72938007b2f2214f84", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "4e72938007b2f2214f84", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "4e72938007b2f2214f84", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "4e72938007b2f2214f84", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "4e72938007b2f2214f84", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "4e72938007b2f2214f84", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "4e72938007b2f2214f84", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "4e72938007b2f2214f84", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "4e72938007b2f2214f84", "reference_index": 8}
+{"error_type": "spurious_interval", "prediction_index": 0, "record_key": "4e72938007b2f2214f84"}
+{"error_type": "spurious_interval", "prediction_index": 1, "record_key": "4e72938007b2f2214f84"}
+{"error_type": "missing_interval", "record_key": "2f254b91bd3127ab05e0", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "2f254b91bd3127ab05e0", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "2f254b91bd3127ab05e0", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "2f254b91bd3127ab05e0", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "2f254b91bd3127ab05e0", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "2f254b91bd3127ab05e0", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "2f254b91bd3127ab05e0", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "2f254b91bd3127ab05e0", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "2f254b91bd3127ab05e0", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "2f254b91bd3127ab05e0", "reference_index": 16}
+{"error_type": "missing_interval", "record_key": "2f254b91bd3127ab05e0", "reference_index": 17}
+{"error_type": "missing_interval", "record_key": "2f254b91bd3127ab05e0", "reference_index": 18}
+{"error_type": "missing_interval", "record_key": "2f254b91bd3127ab05e0", "reference_index": 19}
+{"error_type": "missing_interval", "record_key": "2f254b91bd3127ab05e0", "reference_index": 20}
+{"error_type": "missing_interval", "record_key": "2f254b91bd3127ab05e0", "reference_index": 21}
+{"error_type": "missing_interval", "record_key": "2f254b91bd3127ab05e0", "reference_index": 22}
+{"error_type": "missing_interval", "record_key": "2f254b91bd3127ab05e0", "reference_index": 23}
+{"error_type": "missing_interval", "record_key": "2f254b91bd3127ab05e0", "reference_index": 24}
+{"error_type": "missing_interval", "record_key": "2f254b91bd3127ab05e0", "reference_index": 25}
+{"error_type": "missing_interval", "record_key": "2f254b91bd3127ab05e0", "reference_index": 26}
+{"error_type": "missing_interval", "record_key": "2f254b91bd3127ab05e0", "reference_index": 27}
+{"error_type": "lithology_semantic_error", "prediction_index": 3, "record_key": "2f254b91bd3127ab05e0", "reference_index": 4}
+{"error_type": "lithology_semantic_error", "prediction_index": 6, "record_key": "2f254b91bd3127ab05e0", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "183382c89fe536711db0", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "183382c89fe536711db0", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "183382c89fe536711db0", "reference_index": 9}
+{"error_type": "lithology_semantic_error", "prediction_index": 2, "record_key": "183382c89fe536711db0", "reference_index": 2}
+{"error_type": "lithology_semantic_error", "prediction_index": 4, "record_key": "183382c89fe536711db0", "reference_index": 4}
+{"error_type": "lithology_semantic_error", "prediction_index": 6, "record_key": "183382c89fe536711db0", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "c9032d053fcf71d6c62e", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "c9032d053fcf71d6c62e", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "c9032d053fcf71d6c62e", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "c9032d053fcf71d6c62e", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "c9032d053fcf71d6c62e", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "c9032d053fcf71d6c62e", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "c9032d053fcf71d6c62e", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "c9032d053fcf71d6c62e", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "c9032d053fcf71d6c62e", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "c9032d053fcf71d6c62e", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "c9032d053fcf71d6c62e", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "c9032d053fcf71d6c62e", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "c9032d053fcf71d6c62e", "reference_index": 16}
+{"error_type": "missing_interval", "record_key": "c9032d053fcf71d6c62e", "reference_index": 17}
+{"error_type": "missing_interval", "record_key": "c9032d053fcf71d6c62e", "reference_index": 18}
+{"error_type": "missing_interval", "record_key": "c9032d053fcf71d6c62e", "reference_index": 19}
+{"error_type": "missing_interval", "record_key": "c9032d053fcf71d6c62e", "reference_index": 20}
+{"error_type": "missing_interval", "record_key": "c9032d053fcf71d6c62e", "reference_index": 21}
+{"error_type": "missing_interval", "record_key": "c9032d053fcf71d6c62e", "reference_index": 22}
+{"error_type": "missing_interval", "record_key": "c9032d053fcf71d6c62e", "reference_index": 23}
+{"error_type": "missing_interval", "record_key": "c9032d053fcf71d6c62e", "reference_index": 24}
+{"error_type": "missing_interval", "record_key": "c9032d053fcf71d6c62e", "reference_index": 25}
+{"error_type": "missing_interval", "record_key": "c9032d053fcf71d6c62e", "reference_index": 26}
+{"error_type": "missing_interval", "record_key": "c9032d053fcf71d6c62e", "reference_index": 27}
+{"error_type": "spurious_interval", "prediction_index": 0, "record_key": "c9032d053fcf71d6c62e"}
+{"error_type": "spurious_interval", "prediction_index": 5, "record_key": "c9032d053fcf71d6c62e"}
+{"error_type": "spurious_interval", "prediction_index": 6, "record_key": "c9032d053fcf71d6c62e"}
+{"error_type": "spurious_interval", "prediction_index": 7, "record_key": "c9032d053fcf71d6c62e"}
+{"error_type": "lithology_semantic_error", "prediction_index": 1, "record_key": "c9032d053fcf71d6c62e", "reference_index": 4}
+{"error_type": "lithology_semantic_error", "prediction_index": 2, "record_key": "c9032d053fcf71d6c62e", "reference_index": 7}
+{"error_type": "lithology_semantic_error", "prediction_index": 4, "record_key": "c9032d053fcf71d6c62e", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "560cfdb989e3e1dc877d", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "560cfdb989e3e1dc877d", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "560cfdb989e3e1dc877d", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "560cfdb989e3e1dc877d", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "560cfdb989e3e1dc877d", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "560cfdb989e3e1dc877d", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "560cfdb989e3e1dc877d", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "560cfdb989e3e1dc877d", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "560cfdb989e3e1dc877d", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "560cfdb989e3e1dc877d", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "560cfdb989e3e1dc877d", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "560cfdb989e3e1dc877d", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "560cfdb989e3e1dc877d", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "560cfdb989e3e1dc877d", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "560cfdb989e3e1dc877d", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "560cfdb989e3e1dc877d", "reference_index": 15}
+{"error_type": "spurious_interval", "prediction_index": 0, "record_key": "560cfdb989e3e1dc877d"}
+{"error_type": "missing_interval", "record_key": "7fed0499e6860c967ff6", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "7fed0499e6860c967ff6", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "7fed0499e6860c967ff6", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "7fed0499e6860c967ff6", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "7fed0499e6860c967ff6", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "7fed0499e6860c967ff6", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "7fed0499e6860c967ff6", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "7fed0499e6860c967ff6", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "7fed0499e6860c967ff6", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "7fed0499e6860c967ff6", "reference_index": 12}
+{"error_type": "lithology_semantic_error", "prediction_index": 0, "record_key": "7fed0499e6860c967ff6", "reference_index": 1}
+{"error_type": "lithology_semantic_error", "prediction_index": 1, "record_key": "7fed0499e6860c967ff6", "reference_index": 2}
+{"error_type": "lithology_semantic_error", "prediction_index": 2, "record_key": "7fed0499e6860c967ff6", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "fb51bd17c266647adadb", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "fb51bd17c266647adadb", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "fb51bd17c266647adadb", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "fb51bd17c266647adadb", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "fb51bd17c266647adadb", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "fb51bd17c266647adadb", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "fb51bd17c266647adadb", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "fb51bd17c266647adadb", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "fb51bd17c266647adadb", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "fb51bd17c266647adadb", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "fb51bd17c266647adadb", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "fb51bd17c266647adadb", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "fb51bd17c266647adadb", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "fb51bd17c266647adadb", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "fb51bd17c266647adadb", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "fb51bd17c266647adadb", "reference_index": 16}
+{"error_type": "missing_interval", "record_key": "fb51bd17c266647adadb", "reference_index": 17}
+{"error_type": "missing_interval", "record_key": "fb51bd17c266647adadb", "reference_index": 18}
+{"error_type": "missing_interval", "record_key": "fb51bd17c266647adadb", "reference_index": 19}
+{"error_type": "missing_interval", "record_key": "fb51bd17c266647adadb", "reference_index": 20}
+{"error_type": "missing_interval", "record_key": "fb51bd17c266647adadb", "reference_index": 21}
+{"error_type": "missing_interval", "record_key": "fb51bd17c266647adadb", "reference_index": 22}
+{"error_type": "missing_interval", "record_key": "fb51bd17c266647adadb", "reference_index": 23}
+{"error_type": "missing_interval", "record_key": "fb51bd17c266647adadb", "reference_index": 24}
+{"error_type": "missing_interval", "record_key": "fb51bd17c266647adadb", "reference_index": 25}
+{"error_type": "spurious_interval", "prediction_index": 0, "record_key": "fb51bd17c266647adadb"}
+{"error_type": "lithology_semantic_error", "prediction_index": 1, "record_key": "fb51bd17c266647adadb", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "1ce1c8f9a2211787e1cf", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "1ce1c8f9a2211787e1cf", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "1ce1c8f9a2211787e1cf", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "1ce1c8f9a2211787e1cf", "reference_index": 16}
+{"error_type": "missing_interval", "record_key": "1ce1c8f9a2211787e1cf", "reference_index": 17}
+{"error_type": "missing_interval", "record_key": "1ce1c8f9a2211787e1cf", "reference_index": 18}
+{"error_type": "missing_interval", "record_key": "1ce1c8f9a2211787e1cf", "reference_index": 19}
+{"error_type": "missing_interval", "record_key": "1ce1c8f9a2211787e1cf", "reference_index": 20}
+{"error_type": "missing_interval", "record_key": "1ce1c8f9a2211787e1cf", "reference_index": 21}
+{"error_type": "missing_interval", "record_key": "1ce1c8f9a2211787e1cf", "reference_index": 22}
+{"error_type": "missing_interval", "record_key": "1ce1c8f9a2211787e1cf", "reference_index": 23}
+{"error_type": "missing_interval", "record_key": "1ce1c8f9a2211787e1cf", "reference_index": 24}
+{"error_type": "missing_interval", "record_key": "1ce1c8f9a2211787e1cf", "reference_index": 25}
+{"error_type": "missing_interval", "record_key": "1ce1c8f9a2211787e1cf", "reference_index": 26}
+{"error_type": "missing_interval", "record_key": "1ce1c8f9a2211787e1cf", "reference_index": 27}
+{"error_type": "missing_interval", "record_key": "1ce1c8f9a2211787e1cf", "reference_index": 28}
+{"error_type": "spurious_interval", "prediction_index": 2, "record_key": "1ce1c8f9a2211787e1cf"}
+{"error_type": "spurious_interval", "prediction_index": 5, "record_key": "1ce1c8f9a2211787e1cf"}
+{"error_type": "spurious_interval", "prediction_index": 6, "record_key": "1ce1c8f9a2211787e1cf"}
+{"error_type": "lithology_semantic_error", "prediction_index": 14, "record_key": "1ce1c8f9a2211787e1cf", "reference_index": 12}
+{"error_type": "lithology_semantic_error", "prediction_index": 15, "record_key": "1ce1c8f9a2211787e1cf", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "4a40b2da2595467e319c", "reference_index": 0}
+{"error_type": "missing_interval", "record_key": "4a40b2da2595467e319c", "reference_index": 1}
+{"error_type": "missing_interval", "record_key": "4a40b2da2595467e319c", "reference_index": 2}
+{"error_type": "missing_interval", "record_key": "4a40b2da2595467e319c", "reference_index": 3}
+{"error_type": "missing_interval", "record_key": "4a40b2da2595467e319c", "reference_index": 4}
+{"error_type": "missing_interval", "record_key": "4a40b2da2595467e319c", "reference_index": 5}
+{"error_type": "missing_interval", "record_key": "4a40b2da2595467e319c", "reference_index": 6}
+{"error_type": "missing_interval", "record_key": "4a40b2da2595467e319c", "reference_index": 7}
+{"error_type": "missing_interval", "record_key": "4a40b2da2595467e319c", "reference_index": 8}
+{"error_type": "missing_interval", "record_key": "4a40b2da2595467e319c", "reference_index": 9}
+{"error_type": "missing_interval", "record_key": "4a40b2da2595467e319c", "reference_index": 10}
+{"error_type": "missing_interval", "record_key": "4a40b2da2595467e319c", "reference_index": 11}
+{"error_type": "missing_interval", "record_key": "4a40b2da2595467e319c", "reference_index": 12}
+{"error_type": "missing_interval", "record_key": "4a40b2da2595467e319c", "reference_index": 13}
+{"error_type": "missing_interval", "record_key": "4a40b2da2595467e319c", "reference_index": 14}
+{"error_type": "missing_interval", "record_key": "4a40b2da2595467e319c", "reference_index": 15}
+{"error_type": "missing_interval", "record_key": "4a40b2da2595467e319c", "reference_index": 16}
+{"error_type": "missing_interval", "record_key": "4a40b2da2595467e319c", "reference_index": 17}
+{"error_type": "missing_interval", "record_key": "4a40b2da2595467e319c", "reference_index": 18}
+{"error_type": "missing_interval", "record_key": "4a40b2da2595467e319c", "reference_index": 19}
+{"error_type": "missing_interval", "record_key": "4a40b2da2595467e319c", "reference_index": 20}
+{"error_type": "missing_interval", "record_key": "4a40b2da2595467e319c", "reference_index": 21}
+{"error_type": "missing_interval", "record_key": "4a40b2da2595467e319c", "reference_index": 22}
+{"error_type": "missing_interval", "record_key": "4a40b2da2595467e319c", "reference_index": 23}
+{"error_type": "spurious_interval", "prediction_index": 0, "record_key": "4a40b2da2595467e319c"}
+{"error_type": "spurious_interval", "prediction_index": 1, "record_key": "4a40b2da2595467e319c"}

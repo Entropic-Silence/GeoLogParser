@@ -5,19 +5,27 @@
       "sha256": "8e9e29bf465e6468e8fbdb8e63b395b82c9695f868346dadfdbfe05f082a6427"
     },
     {
-      "path": "paper1/generated/figures/degradation_inputs.png",
-      "sha256": "96ba230d3c91970c8cb2a874083fd045b2f3b933002d050012811ab43dabf149"
-    },
-    {
       "path": "paper1/generated/figures/authoritative_interval_pilot.png",
       "sha256": "1dc909717018ad132a2b7c50c8cbe8ca5207d86340149b1c15da26171de23034"
+    },
+    {
+      "path": "paper1/generated/figures/california_cohort_forest.png",
+      "sha256": "62365e87aaf38b50b615b0491c145e3b7b9247342399bd1deabef3c08d7b7478"
+    },
+    {
+      "path": "paper1/generated/figures/california_replication.png",
+      "sha256": "d04f249c8db34d7aaa71a5eb0cdd2d45ca0bcedc9e7f19570a82e3a2a62a221b"
+    },
+    {
+      "path": "paper1/generated/figures/degradation_inputs.png",
+      "sha256": "96ba230d3c91970c8cb2a874083fd045b2f3b933002d050012811ab43dabf149"
     },
     {
       "path": "paper1/generated/figures/source_disjoint_transfer.png",
       "sha256": "b9c6157f2effd77dd648f13bbece0bf12f6155fb04bd2caf8d93a9efc5add563"
     },
     {
-      "path": "paper1/generated/figures/california_replication.png",
+      "path": "paper2/generated/figures/california_replication.png",
       "sha256": "d04f249c8db34d7aaa71a5eb0cdd2d45ca0bcedc9e7f19570a82e3a2a62a221b"
     },
     {
@@ -25,20 +33,16 @@
       "sha256": "608d92634c9ea7787d57bdee184554a54e8aa745bf18d52bd32fc7b1b11a1457"
     },
     {
-      "path": "paper2/generated/figures/california_replication.png",
-      "sha256": "d04f249c8db34d7aaa71a5eb0cdd2d45ca0bcedc9e7f19570a82e3a2a62a221b"
-    },
-    {
-      "path": "paper3/generated/figures/padova_locations.png",
-      "sha256": "354c3ebb82ae7a1d735d2bfa158f8fddf8fa01969ac688d0fb3debbb6635fb3d"
-    },
-    {
-      "path": "paper3/generated/figures/synthetic_error_propagation.png",
-      "sha256": "664d69bc34b7f5d3aef919ca06e1ce9aee153aaadab48e1fa144c78406c13d8a"
+      "path": "paper2/generated/figures/sequence_risk_frontier.png",
+      "sha256": "42030d59ac2bb2e19550c79154f0bba53b4357c89e1321111eccf2558ab6131c"
     },
     {
       "path": "paper3/generated/figures/coal602_source_proxy.png",
       "sha256": "1677211e892782771aa99c52dca98fc154130eef04f5c14690fb71539791cc04"
+    },
+    {
+      "path": "paper3/generated/figures/controlled_error_classes.png",
+      "sha256": "2104768099fe26ac01e3ef9f8d872c5cf9f9a934d583e3666929797d3725e0bc"
     },
     {
       "path": "paper3/generated/figures/image_boundary_surface.png",
@@ -49,19 +53,27 @@
       "sha256": "1f480502d7e3a8c980f682562b4ac627e51232906c8f07cf3fa528c1f66981e3"
     },
     {
-      "path": "paper3/generated/figures/controlled_error_classes.png",
-      "sha256": "2104768099fe26ac01e3ef9f8d872c5cf9f9a934d583e3666929797d3725e0bc"
+      "path": "paper3/generated/figures/padova_locations.png",
+      "sha256": "354c3ebb82ae7a1d735d2bfa158f8fddf8fa01969ac688d0fb3debbb6635fb3d"
     },
     {
       "path": "paper3/generated/figures/page_spatial_surface.png",
       "sha256": "5718a4840613e99682e909abb23d33f64a5b0f029e44e4576a13a3fb057ac21a"
+    },
+    {
+      "path": "paper3/generated/figures/spatial_support_sensitivity.png",
+      "sha256": "912ba26541e32b7949f6959f8779bc8a7f5dafd376d067676abbc72f889411b2"
+    },
+    {
+      "path": "paper3/generated/figures/synthetic_error_propagation.png",
+      "sha256": "664d69bc34b7f5d3aef919ca06e1ce9aee153aaadab48e1fa144c78406c13d8a"
     }
   ],
   "scope": "auto-generated traceable figures; individual captions retain audit/protocol/design limits",
   "source_manifests": {
     "california_replication": {
-      "path": "/root/GeoLogParser/experiments/paper1/analysis/california_replication_statistics_v001.json",
-      "sha256": "5768dc7a00521b86c783081628df916e20c8eb4887c0eb3f67e241a576e430c7"
+      "path": "experiments/paper1/analysis/california_replication_statistics_v001.json",
+      "sha256": "040cb8aa1701f42fbc0bcc5d7410fbe89c0e8b91e391e090bd4538e83fc6e519"
     },
     "degradation": {
       "path": "/data/GeoLogParser/artifacts/robustness/unipd_degradation_v001/degradation_manifest.jsonl",
@@ -70,6 +82,18 @@
     "locations": {
       "path": "/data/GeoLogParser/datasets/public/unipd_levee_geotech_v001/metadata/location_v001/borehole_locations.jsonl",
       "sha256": "106e7daaf45a6692bbd2a57e2557114cc190a99f1c21897a289dc7c934eba137"
+    },
+    "paper2_candidate_pool_ablation": {
+      "path": "experiments/paper2/analysis/california_candidate_pool_ablation_v001.json",
+      "sha256": "defbdef70c75ba70998e2e74e384a96a1fdb5014bc22a7b443d4d1162efd1cfe"
+    },
+    "paper2_document_risk": {
+      "path": "experiments/paper2/analysis/california_document_risk_v001.json",
+      "sha256": "f3b713e35ffa0988e39411aa0f58b7b99767d3db953b3b2613159b9ea8a5f7dc"
+    },
+    "paper3_spatial_sensitivity": {
+      "path": "experiments/paper3/analysis/swissgeol_spatial_sensitivity_v001.json",
+      "sha256": "95bcb90ac28ddfa17203bde3bfd8c453783c22d73bb96f7038754753eb3b5370"
     }
   }
 }
