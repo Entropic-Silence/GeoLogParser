@@ -14,6 +14,10 @@ HASH_PATHS = {
     "errors_sha256": "errors.jsonl",
     "run_log_sha256": "run.log",
 }
+PUBLICATION_HASH_PATHS = {
+    "run_sha256": "run.json",
+    "metrics_sha256": "metrics.json",
+}
 ARTIFACT_MANIFEST = "artifact_manifest.json"
 FORMAL_ELIGIBILITY = {
     "formal_benchmark", "formal_external_benchmark",
@@ -478,6 +482,67 @@ def verify_index(index_path: Path, repository_root: Path) -> list[str]:
                 metrics = json.loads(metrics_path.read_text(encoding="utf-8"))
             except (json.JSONDecodeError, UnicodeDecodeError) as exc:
                 errors.append(f"{experiment_id}: invalid formal-evidence JSON: {exc}")
+            else:
+                errors.extend(
+                    f"{experiment_id}: {message}"
+                    for message in formal_evidence_errors(entry, run, metrics)
+                )
+    return errors
+
+
+def verify_publication_index(
+    index_path: Path,
+    repository_root: Path,
+    evidence_root: Path | None = None,
+) -> list[str]:
+    """Verify the redistributable core of indexed experiments.
+
+    Full immutable runs include predictions, error rows, logs, recursive
+    artifacts, and dataset manifests.  Those files can contain source text,
+    page coordinates, or material whose redistribution is not cleared.  The
+    publication bundle therefore mirrors the exact ``run.json`` and
+    ``metrics.json`` bytes while retaining the hashes of withheld files in the
+    version-controlled result index.
+
+    When ``publication_evidence/result_core`` exists it is used as the mirror
+    root.  Otherwise the function falls back to the ordinary repository root,
+    which keeps temporary fixtures and internal checkouts straightforward.
+    """
+    if evidence_root is None:
+        candidate = repository_root / "publication_evidence" / "result_core"
+        evidence_root = candidate if candidate.is_dir() else repository_root
+    errors: list[str] = []
+    seen: set[str] = set()
+    for line_number, line in enumerate(index_path.read_text(encoding="utf-8").splitlines(), 1):
+        if not line.strip():
+            continue
+        try:
+            entry = json.loads(line)
+        except json.JSONDecodeError as exc:
+            errors.append(f"line-{line_number}: invalid result-index JSON: {exc}")
+            continue
+        experiment_id = entry.get("experiment_id", f"line-{line_number}")
+        if experiment_id in seen:
+            errors.append(f"{experiment_id}: duplicate experiment_id")
+        seen.add(experiment_id)
+        result_path = evidence_root / entry["result_path"]
+        for hash_key, filename in PUBLICATION_HASH_PATHS.items():
+            target = result_path / filename
+            if not target.is_file():
+                errors.append(f"{experiment_id}: missing publication core {target}")
+            elif file_sha256(target) != entry[hash_key]:
+                errors.append(f"{experiment_id}: hash mismatch for publication core {target}")
+        for hash_key in (*HASH_PATHS, "dataset_manifest_sha256"):
+            value = entry.get(hash_key)
+            if not isinstance(value, str) or len(value) != 64:
+                errors.append(f"{experiment_id}: invalid preserved hash {hash_key}")
+        run_path, metrics_path = result_path / "run.json", result_path / "metrics.json"
+        if entry.get("paper_eligibility") in FORMAL_ELIGIBILITY and run_path.is_file() and metrics_path.is_file():
+            try:
+                run = json.loads(run_path.read_text(encoding="utf-8"))
+                metrics = json.loads(metrics_path.read_text(encoding="utf-8"))
+            except (json.JSONDecodeError, UnicodeDecodeError) as exc:
+                errors.append(f"{experiment_id}: invalid publication-core JSON: {exc}")
             else:
                 errors.extend(
                     f"{experiment_id}: {message}"

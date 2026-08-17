@@ -12,7 +12,7 @@
     "xu2021layoutlmv2"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "4951b06d14228f6db80f1ac814d58db2d69d5f629a42b99c45844b7fca11ca05",
+  "claim_registry_sha256": "b8f8415ebd1534ac7d8654126f93f6aa38aa0abdc09a721bc89f144012aa3f7a",
   "claim_source_errors": [],
   "evidence_tags": [
     "p2.bgs_layout_method_dev",
@@ -151,6 +151,7 @@
   "result_index_errors": [],
   "result_index_path": "experiments/paper2/result_index.jsonl",
   "result_index_sha256": "f4f9b9ea63772e0fea5954ef0cbd44c2071637fb55e1443a48f7ff93deb54ae9",
+  "result_index_verification_scope": "exact run.json and metrics.json publication core",
   "structurally_complete": true,
   "submission_ready": true,
   "tbd_or_citation_marker_count": 0,

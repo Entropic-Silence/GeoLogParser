@@ -1,0 +1,56 @@
+{
+  "claim_id": "p1.slopes_content",
+  "observations": [
+    {
+      "assertion": {
+        "expected": 28,
+        "pointer": "/content_class_counts/engineering_borehole_log",
+        "type": "json_pointer_equals"
+      },
+      "observed": 28
+    },
+    {
+      "assertion": {
+        "expected": 18,
+        "pointer": "/content_class_counts/electrical_resistivity_section",
+        "type": "json_pointer_equals"
+      },
+      "observed": 18
+    },
+    {
+      "assertion": {
+        "expected": 28,
+        "pointer": "/document_type_counts/vector_pdf_without_extractable_text",
+        "type": "json_pointer_equals"
+      },
+      "observed": 28
+    },
+    {
+      "assertion": {
+        "expected": 0,
+        "pointer": "/human_content_review_count",
+        "type": "json_pointer_equals"
+      },
+      "observed": 0
+    },
+    {
+      "assertion": {
+        "expected": 0,
+        "pointer": "/human_ground_truth_count",
+        "type": "json_pointer_equals"
+      },
+      "observed": 0
+    },
+    {
+      "assertion": {
+        "expected": 0,
+        "pointer": "/benchmark_eligible_count",
+        "type": "json_pointer_equals"
+      },
+      "observed": 0
+    }
+  ],
+  "origin_source_sha256": "32d7a487f5ef0bbe07394624d8bebfab6ec863bff0f06db92e993dea2ec48909",
+  "publication_evidence_schema_version": "claim_assertion_projection_v001",
+  "scope": "automated page-content triage of one CC BY international source; not human review, Ground Truth, or benchmark evidence"
+}

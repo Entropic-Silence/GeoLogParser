@@ -1,0 +1,114 @@
+{
+  "document_count": 1,
+  "document_full_exact": {
+    "denominator": 1,
+    "numerator": 1,
+    "value": 1.0
+  },
+  "documents_with_predictions": 1,
+  "evaluated_fields": [
+    "interval.top_depth_m",
+    "interval.bottom_depth_m",
+    "interval.thickness_m",
+    "interval.lithology_normalized"
+  ],
+  "excluded_reference_fields": [
+    "coordinates",
+    "description",
+    "source_bbox"
+  ],
+  "human_reviewed": false,
+  "interval_metrics": {
+    "interval_f1": {
+      "denominator": 1.0,
+      "details": {
+        "matched_count": 8,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 8,
+        "reference_count": 8,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 0,
+        "unmatched_reference_count": 0
+      },
+      "name": "interval_f1",
+      "numerator": 1.0,
+      "unit": "ratio",
+      "value": 1.0
+    },
+    "interval_precision": {
+      "denominator": 8,
+      "details": {
+        "matched_count": 8,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 8,
+        "reference_count": 8,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 0,
+        "unmatched_reference_count": 0
+      },
+      "name": "interval_precision",
+      "numerator": 8,
+      "unit": "ratio",
+      "value": 1.0
+    },
+    "interval_recall": {
+      "denominator": 8,
+      "details": {
+        "matched_count": 8,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 8,
+        "reference_count": 8,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 0,
+        "unmatched_reference_count": 0
+      },
+      "name": "interval_recall",
+      "numerator": 8,
+      "unit": "ratio",
+      "value": 1.0
+    },
+    "matched_bottom_boundary_mae_m": {
+      "denominator": 8,
+      "details": {
+        "matched_count": 8,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 8,
+        "reference_count": 8,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 0,
+        "unmatched_reference_count": 0
+      },
+      "name": "matched_bottom_boundary_mae_m",
+      "numerator": 0.0,
+      "unit": "m",
+      "value": 0.0
+    },
+    "matched_top_boundary_mae_m": {
+      "denominator": 8,
+      "details": {
+        "matched_count": 8,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 8,
+        "reference_count": 8,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 0,
+        "unmatched_reference_count": 0
+      },
+      "name": "matched_top_boundary_mae_m",
+      "numerator": 0.0,
+      "unit": "m",
+      "value": 0.0
+    }
+  },
+  "latency_seconds_per_document_wall": 17.386831894007628,
+  "page_count": 3,
+  "peak_process_rss_kib": 117104,
+  "predicted_interval_count": 8,
+  "prediction_reference_conditioning": "none",
+  "reference_ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+  "reference_interval_count": 8,
+  "scope": "authoritative-interval benchmark evaluation",
+  "selection_limitation": "single official PDF; explicit descriptions include a 635-639 ft entry while the header reports 638 ft total depth",
+  "source_domain": "USGS Idaho / INL USGS-144",
+  "wall_time_seconds": 17.38683128300181
+}

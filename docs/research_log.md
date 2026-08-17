@@ -2911,3 +2911,19 @@
 - Decision: report the result as a conditional action-level safety bound, not
   as a cross-source or document-level deployment certificate. This resolves a
   paper-level overclaim risk but does not solve unseen-template coverage.
+
+## 2026-08-17 — GitHub publication-core evidence bundle
+
+- Built a compact publication evidence bundle containing the exact
+  `run.json` and `metrics.json` bytes required by all three versioned result
+  indexes, plus privacy-minimized assertion projections used by manuscript
+  claims.
+- Kept source PDFs/images, model weights, record-level predictions and errors,
+  OCR text, logs, ROI artifacts, and complete databases outside the repository.
+  Their hashes and controlled-store provenance remain recorded.
+- Replaced external source-artifact claim inputs with assertion-only
+  projections bound to each original SHA-256. The Sanming projection contains
+  three table counts only; no database records are redistributed.
+- Added a publication-core verifier so a fresh clone can rebuild all three
+  manuscript evidence audits without mounting `/data/GeoLogParser`. Full
+  immutable-result verification remains a separate controlled-store check.

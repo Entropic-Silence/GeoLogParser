@@ -1,0 +1,36 @@
+{
+  "experiment_id": "P3_SWISSGEOL_STRATIGRAPHIC_LAYER_MODEL_002",
+  "git_commit": "09730fffbc0ad98b7cc36d4a6118d971f6968565",
+  "date": "2026-08-15",
+  "dataset_version": "swissgeol_thurgau_v003_real_stratigraphic_layer_model",
+  "split_version": "v003_heldout_frozen_boundary_predictions",
+  "model": "idw_stratigraphic_layer_volume_from_ordered_boundaries",
+  "model_revision": "v001",
+  "prompt_version": "not_applicable",
+  "seed": 0,
+  "hardware": {
+    "device": "cpu",
+    "processor": "x86_64",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "3.10.12"
+  },
+  "config": {
+    "ground_truth_sha256": "afb921fb606bd2e5f6213438edab775c41285cec78747e44319dadad6d355dc7",
+    "prediction_run": "/root/GeoLogParser/results/2026-08-14/P2_SWISSGEOL_TG_CONSTRAINT_REREAD_HELDOUT_V003_001",
+    "prediction_sha256": "1fb1e909fb613cfd9211c983e96cc38a69c038e2524085758220840bb9c5eb63",
+    "prediction_reference_conditioning": "none_inherited_from_upstream_run",
+    "reference_spatial_metadata": "authoritative_structured_coordinates_and_collar_elevation",
+    "boundary_alignment": "ordered_interval_index_without_reference_guided_repair",
+    "interpolator": "IDW_power_2",
+    "grid_size": 25,
+    "units": {
+      "coordinates": "m_CH1903_plus_LV95",
+      "elevation": "m",
+      "volume": "m3"
+    },
+    "rights_review": "PENDING_MANUAL_PRE_SUBMISSION_REVIEW"
+  },
+  "started_utc": "2026-08-15T04:27:14.300309+00:00"
+}

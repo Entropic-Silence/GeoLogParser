@@ -1,0 +1,32 @@
+{
+  "claim_id": "p3.padova_spatial_catalog",
+  "observations": [
+    {
+      "assertion": {
+        "expected": 11,
+        "pointer": "/boreholes",
+        "type": "json_pointer_equals"
+      },
+      "observed": 11
+    },
+    {
+      "assertion": {
+        "expected": 0,
+        "pointer": "/intervals",
+        "type": "json_pointer_equals"
+      },
+      "observed": 0
+    },
+    {
+      "assertion": {
+        "expected": "source_provided_unverified",
+        "pointer": "/coordinate_validation_status",
+        "type": "json_pointer_equals"
+      },
+      "observed": "source_provided_unverified"
+    }
+  ],
+  "origin_source_sha256": "27dd4267013ac81a2271736384650a6b900dd01231c6989f6b436c818e69ebc4",
+  "publication_evidence_schema_version": "claim_assertion_projection_v001",
+  "scope": "source-provided, unverified Padova coordinate catalog; not interval Ground Truth or a 3D model"
+}

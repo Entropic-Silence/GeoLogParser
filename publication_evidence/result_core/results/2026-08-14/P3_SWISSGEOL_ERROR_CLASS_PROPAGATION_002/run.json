@@ -1,0 +1,97 @@
+{
+  "experiment_id": "P3_SWISSGEOL_ERROR_CLASS_PROPAGATION_002",
+  "git_commit": "d4acefa99208fe6a510f9f4b314b3110f0b6a4c8",
+  "date": "2026-08-14",
+  "dataset_version": "swissgeol_thurgau_paired_v003_authoritative_controlled_errors",
+  "split_version": "v003_heldout_authoritative_reference_controlled_injection",
+  "model": "ordered_boundary_idw_error_class_protocol",
+  "model_revision": "v001",
+  "prompt_version": "not_applicable",
+  "seed": 2026081401,
+  "hardware": {
+    "device": "cpu",
+    "processor": "x86_64",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "3.10.12"
+  },
+  "config": {
+    "experiment_id": "P3_SWISSGEOL_ERROR_CLASS_PROPAGATION_002",
+    "dataset_version": "swissgeol_thurgau_paired_v003_authoritative_controlled_errors",
+    "split_version": "v003_heldout_authoritative_reference_controlled_injection",
+    "model": "ordered_boundary_idw_error_class_protocol",
+    "model_revision": "v001",
+    "prompt_version": "not_applicable",
+    "paper_eligibility": "formal_authoritative_controlled_error_downstream",
+    "base_seed": 2026081401,
+    "repetitions": 30,
+    "grid_size": 25,
+    "affected_fraction_numeric": 0.25,
+    "conditions": {
+      "boundary_shift": {
+        "family": "numeric_boundary",
+        "unit": "m",
+        "values": [
+          0.1,
+          0.5,
+          1.0
+        ]
+      },
+      "coordinate_shift": {
+        "family": "spatial_location",
+        "unit": "m",
+        "values": [
+          25.0,
+          100.0,
+          500.0
+        ]
+      },
+      "missing_boundary": {
+        "family": "spatial_support",
+        "unit": "affected_document_fraction",
+        "values": [
+          0.1,
+          0.25,
+          0.5
+        ]
+      },
+      "merged_layer": {
+        "family": "sequence_topology",
+        "unit": "affected_document_fraction",
+        "values": [
+          0.1,
+          0.25,
+          0.5
+        ]
+      },
+      "split_layer": {
+        "family": "sequence_topology",
+        "unit": "affected_document_fraction",
+        "values": [
+          0.1,
+          0.25,
+          0.5
+        ]
+      },
+      "duplicate_boundary": {
+        "family": "sequence_topology",
+        "unit": "affected_document_fraction",
+        "values": [
+          0.1,
+          0.25,
+          0.5
+        ]
+      }
+    },
+    "ground_truth_sha256": "afb921fb606bd2e5f6213438edab775c41285cec78747e44319dadad6d355dc7",
+    "reference_policy": "authoritative values used for injection and post-injection scoring",
+    "prediction_reference_conditioning": "controlled_injection_only_no_reference_guided_repair",
+    "coordinate_system": "CH1903+/LV95",
+    "spatial_metadata_source": "authoritative structured borehole records",
+    "query_domain": "fixed per-boundary authoritative reference convex hull",
+    "interpolator": "IDW_power_2",
+    "rights_review": "PENDING_MANUAL_PRE_SUBMISSION_REVIEW"
+  },
+  "started_utc": "2026-08-14T06:58:51.220462+00:00"
+}

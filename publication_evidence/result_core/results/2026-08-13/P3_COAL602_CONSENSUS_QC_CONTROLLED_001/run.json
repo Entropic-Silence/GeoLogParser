@@ -1,0 +1,49 @@
+{
+  "experiment_id": "P3_COAL602_CONSENSUS_QC_CONTROLLED_001",
+  "git_commit": "0748a681ba8d2697fad7c7afcefb35e2ff66ada3",
+  "date": "2026-08-13",
+  "dataset_version": "mendeley_coal_boreholes_602_v001",
+  "split_version": "controlled_dual_channel_error_injection_v001",
+  "model": "idw_power_2_with_exact_consensus_qc",
+  "model_revision": "geologparser_source_consensus_qc_v001",
+  "prompt_version": "not_applicable",
+  "seed": 20260813,
+  "hardware": {
+    "device": "cpu",
+    "processor": "x86_64",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "3.10.12"
+  },
+  "config": {
+    "experiment_id": "P3_COAL602_CONSENSUS_QC_CONTROLLED_001",
+    "dataset_version": "mendeley_coal_boreholes_602_v001",
+    "source_role": "source_structured_data",
+    "split_version": "controlled_dual_channel_error_injection_v001",
+    "model": "idw_power_2_with_exact_consensus_qc",
+    "model_revision": "geologparser_source_consensus_qc_v001",
+    "prompt_version": "not_applicable",
+    "base_seed": 20260813,
+    "repetitions": 30,
+    "grid_size": 41,
+    "magnitudes_m": [
+      0.01,
+      0.05,
+      0.1,
+      0.5,
+      1.0
+    ],
+    "per_channel_error_rate": 0.1,
+    "source_field": "source_reported_no_3_coal_roof_depth_m",
+    "comparison": "raw_vs_consensus_qc_vs_source_reference",
+    "paper_eligibility": "formal_source_controlled_downstream",
+    "ground_truth_sha256": "261bee6cdd7b400476aa34c19046034303c2114cf4f26c5cb1c5e0151f852b21",
+    "reference_policy": "source values used only for post-decision scoring",
+    "source_workbook_sha256": "a1b60f2d62bb87a84a4618a8cf0c254c25ca6df3baa282b2f742bc4201bfc31e",
+    "source_acquisition_sha256": "1a808d2f89050e5cad4d6bf315a0bc1e6ffe17de8012eb6e8600f7b94b62d9ad",
+    "source_audit_sha256": "261bee6cdd7b400476aa34c19046034303c2114cf4f26c5cb1c5e0151f852b21",
+    "coordinate_origin_persisted": false,
+    "source_identifiers_persisted": false
+  }
+}

@@ -1,0 +1,187 @@
+{
+  "accuracy_metrics": null,
+  "comparison": "source_field_vs_synthetically_perturbed_source_field",
+  "conditions": [
+    {
+      "confidence_z": 1.96,
+      "mae_m": {
+        "ci95_normal": [
+          0.002549163033613931,
+          0.0027237002808515815
+        ],
+        "mean": 0.0026364316572327563,
+        "n": 30,
+        "std": 0.00024387241693091206
+      },
+      "magnitude_m": 0.01,
+      "max_abs_error_m": {
+        "ci95_normal": [
+          0.009913363308933429,
+          0.009940314495830993
+        ],
+        "mean": 0.009926838902382211,
+        "n": 30,
+        "std": 3.7657584222790705e-05
+      },
+      "repetitions": 30,
+      "rmse_m": {
+        "ci95_normal": [
+          0.0035160693467979924,
+          0.0036833069114273276
+        ],
+        "mean": 0.00359968812911266,
+        "n": 30,
+        "std": 0.00023367292502478272
+      }
+    },
+    {
+      "confidence_z": 1.96,
+      "mae_m": {
+        "ci95_normal": [
+          0.01244570831799343,
+          0.01307767417679365
+        ],
+        "mean": 0.01276169124739354,
+        "n": 30,
+        "std": 0.00088301519499491
+      },
+      "magnitude_m": 0.05,
+      "max_abs_error_m": {
+        "ci95_normal": [
+          0.04957364094352042,
+          0.04970753090886493
+        ],
+        "mean": 0.04964058592619267,
+        "n": 30,
+        "std": 0.0001870779444968684
+      },
+      "repetitions": 30,
+      "rmse_m": {
+        "ci95_normal": [
+          0.017265103595179587,
+          0.017918563425649087
+        ],
+        "mean": 0.017591833510414337,
+        "n": 30,
+        "std": 0.0009130476774786932
+      }
+    },
+    {
+      "confidence_z": 1.96,
+      "mae_m": {
+        "ci95_normal": [
+          0.025220646958350492,
+          0.026525724371714365
+        ],
+        "mean": 0.02587318566503243,
+        "n": 30,
+        "std": 0.001823521271912977
+      },
+      "magnitude_m": 0.1,
+      "max_abs_error_m": {
+        "ci95_normal": [
+          0.09911063643295151,
+          0.09929551648136137
+        ],
+        "mean": 0.09920307645715644,
+        "n": 30,
+        "std": 0.0002583239105783686
+      },
+      "repetitions": 30,
+      "rmse_m": {
+        "ci95_normal": [
+          0.03540179991364774,
+          0.03635443283836948
+        ],
+        "mean": 0.03587811637600861,
+        "n": 30,
+        "std": 0.0013310677089087139
+      }
+    },
+    {
+      "confidence_z": 1.96,
+      "mae_m": {
+        "ci95_normal": [
+          0.12661324301539717,
+          0.13659850075209318
+        ],
+        "mean": 0.13160587188374517,
+        "n": 30,
+        "std": 0.013951915573702504
+      },
+      "magnitude_m": 0.5,
+      "max_abs_error_m": {
+        "ci95_normal": [
+          0.49605865932094834,
+          0.49681135563617534
+        ],
+        "mean": 0.49643500747856184,
+        "n": 30,
+        "std": 0.001051705996940894
+      },
+      "repetitions": 30,
+      "rmse_m": {
+        "ci95_normal": [
+          0.17686703036213686,
+          0.1855185794327439
+        ],
+        "mean": 0.18119280489744038,
+        "n": 30,
+        "std": 0.012088389243199878
+      }
+    },
+    {
+      "confidence_z": 1.96,
+      "mae_m": {
+        "ci95_normal": [
+          0.2537228520476147,
+          0.26713283063982407
+        ],
+        "mean": 0.2604278413437194,
+        "n": 30,
+        "std": 0.018737111659730712
+      },
+      "magnitude_m": 1.0,
+      "max_abs_error_m": {
+        "ci95_normal": [
+          0.9908701432198104,
+          0.9932829600115298
+        ],
+        "mean": 0.9920765516156701,
+        "n": 30,
+        "std": 0.0033713116937552235
+      },
+      "repetitions": 30,
+      "rmse_m": {
+        "ci95_normal": [
+          0.3538371820767487,
+          0.3686079811768244
+        ],
+        "mean": 0.36122258162678655,
+        "n": 30,
+        "std": 0.020638520049715448
+      }
+    }
+  ],
+  "constraint_qc_effect": null,
+  "convex_hull_vertex_count": 12,
+  "coordinate_origin_persisted": false,
+  "data_status": "licensed_source_structured_data_pending_human_spatial_review",
+  "human_ground_truth_comparison": null,
+  "latency_seconds_total": 4.402825971999846,
+  "local_coordinate_extent_m": {
+    "u": 77.2242000028491,
+    "v": 194.00460000010207
+  },
+  "query_grid_size": 41,
+  "query_points_within_convex_hull": 80,
+  "real_geological_model_metrics": null,
+  "repetitions_per_condition": 30,
+  "scope": "licensed structured-source proxy protocol; not extraction accuracy or geological-model evidence",
+  "source_identifier_values_persisted": false,
+  "source_record_count": 602,
+  "source_scalar_range_m": {
+    "maximum": 86.0,
+    "minimum": 27.0
+  }
+}

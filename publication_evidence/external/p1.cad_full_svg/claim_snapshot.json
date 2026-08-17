@@ -1,0 +1,72 @@
+{
+  "claim_id": "p1.cad_full_svg",
+  "observations": [
+    {
+      "assertion": {
+        "expected": 33,
+        "pointer": "/items",
+        "type": "json_pointer_equals"
+      },
+      "observed": 33
+    },
+    {
+      "assertion": {
+        "expected": 789244,
+        "pointer": "/source_entity_count",
+        "type": "json_pointer_equals"
+      },
+      "observed": 789244
+    },
+    {
+      "assertion": {
+        "expected": 538740,
+        "pointer": "/rendered_source_entity_count",
+        "type": "json_pointer_equals"
+      },
+      "observed": 538740
+    },
+    {
+      "assertion": {
+        "expected": 20,
+        "pointer": "/technical_render_status_counts/review_raster_created_with_missing_or_extra_entity_ids",
+        "type": "json_pointer_equals"
+      },
+      "observed": 20
+    },
+    {
+      "assertion": {
+        "expected": 11,
+        "pointer": "/technical_render_status_counts/renderer_emitted_empty_raster",
+        "type": "json_pointer_equals"
+      },
+      "observed": 11
+    },
+    {
+      "assertion": {
+        "expected": 2,
+        "pointer": "/technical_render_status_counts/renderer_emitted_invalid_svg_geometry",
+        "type": "json_pointer_equals"
+      },
+      "observed": 2
+    },
+    {
+      "assertion": {
+        "expected": 0,
+        "pointer": "/items_with_complete_entity_id_coverage",
+        "type": "json_pointer_equals"
+      },
+      "observed": 0
+    },
+    {
+      "assertion": {
+        "expected": 0,
+        "pointer": "/benchmark_eligible_items",
+        "type": "json_pointer_equals"
+      },
+      "observed": 0
+    }
+  ],
+  "origin_source_sha256": "94ac064a1c2f67262a7c23b9478baf2d3fa8b229c3bf5609365a86604ef655e7",
+  "publication_evidence_schema_version": "claim_assertion_projection_v001",
+  "scope": "33-item technical SVG/raster audit summary; structural coverage is not visual fidelity"
+}

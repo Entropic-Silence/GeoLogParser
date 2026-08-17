@@ -1,0 +1,33 @@
+{
+  "experiment_id": "P2_BGS_METADATA_CONSENSUS_ABSTENTION_001",
+  "git_commit": "030716881adbfa91321c544d8465eeece274b8b5",
+  "date": "2026-08-13",
+  "dataset_version": "bgs_authoritative_metadata_v001_downloaded31",
+  "split_version": "same_source_consensus_abstention_v001",
+  "model": "tesseract_rapidocr_exact_consensus_abstention",
+  "model_revision": "decision_policy_v001",
+  "prompt_version": "not_applicable",
+  "seed": null,
+  "hardware": {
+    "device": "cpu",
+    "processor": "x86_64",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "3.10.12"
+  },
+  "config": {
+    "ground_truth_sha256": "dd48dcaa71ab25326ff445c570e90d3713f430b467ff99b1095c8e7e61ddc26e",
+    "ground_truth_tier": "AUTHORITATIVE_METADATA",
+    "decision_blinding": "references not consulted until after accept/review decisions",
+    "accept_rule": "both independent first-pass readers emit the same non-null value",
+    "numeric_tolerance": 1e-06,
+    "tesseract_run": "/root/GeoLogParser/results/2026-08-13/P1_METADATA_BGS_TESSERACT_FORMAL_004",
+    "tesseract_run_sha256": "813a6aa6310373e4789ea09bdf3f0f832b38f1d20361d3cdbbf4210da2b663fc",
+    "tesseract_predictions_sha256": "b5e5ec39534128cefe4127bcd7de8c207698a6b3f4ce4d003fc79a88e1cc2da5",
+    "rapidocr_run": "/root/GeoLogParser/results/2026-08-13/P1_METADATA_BGS_RAPIDOCR_FORMAL_001",
+    "rapidocr_run_sha256": "cdfc67302e82a497ae90e92ef807129c18b171fdc985c639cd8e82456903e258",
+    "rapidocr_predictions_sha256": "860dcb7de0f4e91db6c9b8765907b5257333e7158dfc5982061bbc46746eef4e",
+    "scope": "real authoritative-metadata consensus/abstention study; no interval/lithology reference"
+  }
+}

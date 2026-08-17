@@ -115,6 +115,11 @@ def main() -> None:
         if transfer_summary_path.is_file() else {}
     )
     readiness = json.loads((ROOT / "docs/generated/publication_readiness.json").read_text(encoding="utf-8"))
+    publication_evidence_path = ROOT / "publication_evidence/manifest.json"
+    publication_evidence = (
+        json.loads(publication_evidence_path.read_text(encoding="utf-8"))
+        if publication_evidence_path.is_file() else {}
+    )
     rows = []
     for paper, value in sorted(readiness.get("paper_indexes", {}).items()):
         rows.append((paper, value.get("controlled_formal_experiment_count", 0), value.get("real_formal_experiment_count", 0), value.get("indexed_experiment_count", 0)))
@@ -156,6 +161,13 @@ def main() -> None:
     ])
     lines.extend(f"| {paper} | {controlled} | {real} | {indexed} |" for paper, controlled, real, indexed in rows)
     lines.extend([
+        "",
+        "## Publication evidence",
+        "",
+        f"- Exact indexed run/metrics files: {publication_evidence.get('result_core_file_count', 0)}.",
+        f"- External aggregate/source-audit summaries: {publication_evidence.get('external_summary_file_count', 0)}.",
+        "- Source pages, model weights, record-level predictions/errors, logs, ROI artifacts, and complete databases remain outside the repository.",
+        "- Fresh-clone paper audits verify the publication core; full immutable-run verification requires the controlled local evidence store.",
         "",
         "## Paper status",
         "",

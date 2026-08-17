@@ -1,0 +1,25 @@
+{
+  "experiment_id": "P1_B3_LAYOUT_UNIPD_AUDIT_001",
+  "git_commit": "e5fd64e2e9cbcce239b29c4f9623fe33294349fb",
+  "date": "2026-08-12",
+  "dataset_version": "unipd_levee_geotech_v001_auto_proposals",
+  "split_version": "engineering_audit_no_training_no_ground_truth",
+  "model": "B3_native_positioned_text_depth_column_rules",
+  "model_revision": "depth_column_layout_v001",
+  "prompt_version": "not_applicable",
+  "seed": null,
+  "hardware": {
+    "device": "cpu",
+    "processor": "x86_64",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "3.10.12"
+  },
+  "config": {
+    "manifest_path": "/data/GeoLogParser/artifacts/annotation/unipd_levee_geotech_v001/panel_manifest.jsonl",
+    "x_bin_points": 12.0,
+    "minimum_unique_ranges": 3,
+    "scope": "public auto-proposal B3 engineering audit; no accuracy claim"
+  }
+}

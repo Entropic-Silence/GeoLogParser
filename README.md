@@ -26,6 +26,10 @@ is signed off.
 The closure evidence trail is summarized in
 [docs/claim_evidence_matrix.md](docs/claim_evidence_matrix.md) and
 [docs/manuscript_closure_audit.md](docs/manuscript_closure_audit.md).
+The compact, clone-verifiable evidence subset is documented in
+[publication_evidence/README.md](publication_evidence/README.md). It contains
+exact run metadata and aggregate metrics, but not restricted source pages or
+record-level predictions.
 
 ## First-round capabilities
 
@@ -57,6 +61,7 @@ python3 -m venv .venv
 . .venv/bin/activate
 python -m pip install -e '.[dev]'
 pytest
+python scripts/build_paper_packages.py
 ```
 
 Optional document backends are installed separately:

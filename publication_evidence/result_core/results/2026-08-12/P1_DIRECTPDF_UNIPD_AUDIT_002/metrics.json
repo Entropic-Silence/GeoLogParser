@@ -1,0 +1,16 @@
+{
+  "scope": "public unannotated engineering audit; no accuracy claim",
+  "documents": 11,
+  "pages": 15,
+  "documents_with_borehole_id": 11,
+  "documents_with_final_depth": 0,
+  "documents_with_any_interval": 0,
+  "emitted_intervals": 0,
+  "constraint_evaluations": 11,
+  "constraint_violations": 10,
+  "latency_total_seconds": 1.932071917995927,
+  "latency_seconds_per_page": 0.1288047945330618,
+  "peak_process_rss_kib": 21088,
+  "accuracy_metrics": null,
+  "accuracy_metrics_reason": "dataset has no project human Ground Truth yet"
+}

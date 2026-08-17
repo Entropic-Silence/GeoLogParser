@@ -1,0 +1,72 @@
+{
+  "claim_id": "p1.padova_annotation_assignment",
+  "observations": [
+    {
+      "assertion": {
+        "expected": 15,
+        "pointer": "/source_annotation_count",
+        "type": "json_pointer_equals"
+      },
+      "observed": 15
+    },
+    {
+      "assertion": {
+        "expected": 2,
+        "pointer": "/track_count",
+        "type": "json_pointer_equals"
+      },
+      "observed": 2
+    },
+    {
+      "assertion": {
+        "expected": 30,
+        "pointer": "/total_track_annotations",
+        "type": "json_pointer_equals"
+      },
+      "observed": 30
+    },
+    {
+      "assertion": {
+        "expected": 0,
+        "pointer": "/total_effective_attestations",
+        "type": "json_pointer_equals"
+      },
+      "observed": 0
+    },
+    {
+      "assertion": {
+        "expected": 0,
+        "pointer": "/total_ground_truth_exportable_annotations",
+        "type": "json_pointer_equals"
+      },
+      "observed": 0
+    },
+    {
+      "assertion": {
+        "expected": 0,
+        "pointer": "/agreement_artifact_count",
+        "type": "json_pointer_equals"
+      },
+      "observed": 0
+    },
+    {
+      "assertion": {
+        "expected": 0,
+        "pointer": "/adjudication_manifest_count",
+        "type": "json_pointer_equals"
+      },
+      "observed": 0
+    },
+    {
+      "assertion": {
+        "expected": false,
+        "pointer": "/human_review_complete",
+        "type": "json_pointer_equals"
+      },
+      "observed": false
+    }
+  ],
+  "origin_source_sha256": "3906f8297d8a70b01e2b4af4ae1956a4d1b58eddbaa2ef16521192d663864d3e",
+  "publication_evidence_schema_version": "claim_assertion_projection_v001",
+  "scope": "live two-track Padova annotation-task status; task generation is not human annotation, agreement, or Ground Truth"
+}

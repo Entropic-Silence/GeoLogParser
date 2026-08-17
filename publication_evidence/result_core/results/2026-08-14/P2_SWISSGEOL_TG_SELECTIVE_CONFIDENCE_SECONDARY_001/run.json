@@ -1,0 +1,35 @@
+{
+  "experiment_id": "P2_SWISSGEOL_TG_SELECTIVE_CONFIDENCE_SECONDARY_001",
+  "git_commit": "72c1570763e2559a0aefec7a5053bdbfd1ca8f14",
+  "date": "2026-08-14",
+  "dataset_version": "swissgeol_thurgau_paired_v003_authoritative_interval",
+  "split_version": "v003_content_group_development_fit__heldout_evaluation",
+  "model": "v2_reread_plus_rapidocr_development_fitted_selective_confidence",
+  "model_revision": "beta_smoothed_signature_lookup_v001",
+  "prompt_version": "not_applicable",
+  "seed": 0,
+  "hardware": {
+    "device": "cpu",
+    "processor": "x86_64",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "3.10.12"
+  },
+  "config": {
+    "development_manifest_sha256": "e18e1378c4e718e9658c9cd45057fc55ae4e8df9d97fb4e7e7a92f38a3c443a8",
+    "ground_truth_sha256": "afb921fb606bd2e5f6213438edab775c41285cec78747e44319dadad6d355dc7",
+    "development_method_predictions_sha256": "4317bfd6d2a9f77dce6f8653a704ab8cc3a9105e748cb1fd10109b118ba2620a",
+    "development_peer_predictions_sha256": "d65459ed1de375fc6913ed3b898c4b18339b1a0a67613ba44362b46ee904ea26",
+    "heldout_method_predictions_sha256": "1fb1e909fb613cfd9211c983e96cc38a69c038e2524085758220840bb9c5eb63",
+    "heldout_peer_predictions_sha256": "a97875efbae641fa55db07965651e3168b05d92b2bbe055f7acb6317f64737c7",
+    "confidence_features": [
+      "decision",
+      "trigger_presence",
+      "cross_backend_exact_agreement"
+    ],
+    "calibration": "development empirical exact-document rate with Beta(1,1) smoothing",
+    "evaluation_role": "secondary_descriptive_post_result_calibration"
+  },
+  "started_utc": "2026-08-14T04:41:09.691342+00:00"
+}

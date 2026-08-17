@@ -1,0 +1,32 @@
+{
+  "experiment_id": "P2_CALIFORNIA_WCR_V005_CONSTRAINT_EXTERNAL_FORMAL_001",
+  "git_commit": "a2c6aebc9531a949550eeff650dc6825f482dee3",
+  "date": "2026-08-15",
+  "dataset_version": "california_wcr_gold_v005",
+  "split_version": "california_wcr_gold_split_v005_external_replication_test",
+  "model": "rapidocr_constraint_guided_sequence_ranker_v001",
+  "model_revision": "deterministic_dynamic_programming_v001",
+  "prompt_version": "not_applicable",
+  "seed": 0,
+  "hardware": {
+    "device": "cpu",
+    "processor": "x86_64",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "3.10.12"
+  },
+  "config": {
+    "ground_truth_sha256": "b37fb6f5fde0fa1ffa2f41f91da0c6f685cd48ed4d07972c983255f89ec5e6f9",
+    "split_sha256": "cabc8723b94830f88760dd72dd18c66d444113904322fc7303a70d625ef4ea2f",
+    "partition": "test",
+    "prediction_reference_conditioning": "none",
+    "reference_blinded_decision_policy": true,
+    "raw_run_id": "P1_CALIFORNIA_WCR_V005_RAPIDOCR_EXTERNAL_FORMAL_001",
+    "raw_artifact_manifest_sha256": "0a0651f72a9c2891aaee19b03c3580a9fae1bc6d9974a6e06ec222b07962bb94",
+    "candidate_source": "frozen RapidOCR positioned regions",
+    "constraint": "depth monotonicity plus adjacent boundary continuity plus layout-column stability",
+    "reference_doi": "10.5066/P9M85U0T"
+  },
+  "started_utc": "2026-08-15T03:25:18.516655+00:00"
+}

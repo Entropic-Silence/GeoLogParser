@@ -1,0 +1,210 @@
+{
+  "accepted_reread_count": 4,
+  "comparison": "single_pass_vs_constraint_guided_reread",
+  "constraint_reread": {
+    "document_full_exact_count": 29,
+    "interval_metrics": {
+      "interval_f1": {
+        "denominator": 1.0,
+        "details": {
+          "matched_count": 70,
+          "matching": "order_preserving_max_cardinality_then_min_error_v001",
+          "prediction_count": 72,
+          "reference_count": 80,
+          "tolerance_m": 0.05,
+          "unmatched_prediction_count": 2,
+          "unmatched_reference_count": 10
+        },
+        "name": "interval_f1",
+        "numerator": 0.9210526315789473,
+        "unit": "ratio",
+        "value": 0.9210526315789473
+      },
+      "interval_precision": {
+        "denominator": 72,
+        "details": {
+          "matched_count": 70,
+          "matching": "order_preserving_max_cardinality_then_min_error_v001",
+          "prediction_count": 72,
+          "reference_count": 80,
+          "tolerance_m": 0.05,
+          "unmatched_prediction_count": 2,
+          "unmatched_reference_count": 10
+        },
+        "name": "interval_precision",
+        "numerator": 70,
+        "unit": "ratio",
+        "value": 0.9722222222222222
+      },
+      "interval_recall": {
+        "denominator": 80,
+        "details": {
+          "matched_count": 70,
+          "matching": "order_preserving_max_cardinality_then_min_error_v001",
+          "prediction_count": 72,
+          "reference_count": 80,
+          "tolerance_m": 0.05,
+          "unmatched_prediction_count": 2,
+          "unmatched_reference_count": 10
+        },
+        "name": "interval_recall",
+        "numerator": 70,
+        "unit": "ratio",
+        "value": 0.875
+      },
+      "matched_bottom_boundary_mae_m": {
+        "denominator": 70,
+        "details": {
+          "matched_count": 70,
+          "matching": "order_preserving_max_cardinality_then_min_error_v001",
+          "prediction_count": 72,
+          "reference_count": 80,
+          "tolerance_m": 0.05,
+          "unmatched_prediction_count": 2,
+          "unmatched_reference_count": 10
+        },
+        "name": "matched_bottom_boundary_mae_m",
+        "numerator": 0.0,
+        "unit": "m",
+        "value": 0.0
+      },
+      "matched_top_boundary_mae_m": {
+        "denominator": 70,
+        "details": {
+          "matched_count": 70,
+          "matching": "order_preserving_max_cardinality_then_min_error_v001",
+          "prediction_count": 72,
+          "reference_count": 80,
+          "tolerance_m": 0.05,
+          "unmatched_prediction_count": 2,
+          "unmatched_reference_count": 10
+        },
+        "name": "matched_top_boundary_mae_m",
+        "numerator": 0.0,
+        "unit": "m",
+        "value": 0.0
+      }
+    }
+  },
+  "correct_document_trigger_rate": {
+    "denominator": 25,
+    "numerator": 2,
+    "value": 0.08
+  },
+  "correction_success_rate": {
+    "denominator": 4,
+    "numerator": 4,
+    "value": 1.0
+  },
+  "development_evaluation_overlap_count": 0,
+  "document_count": 35,
+  "evaluation_role": "heldout",
+  "false_correction_rate": {
+    "denominator": 4,
+    "numerator": 0,
+    "unit": "document_section_replacement",
+    "value": 0.0
+  },
+  "first_pass": {
+    "document_full_exact_count": 25,
+    "interval_metrics": {
+      "interval_f1": {
+        "denominator": 1.0,
+        "details": {
+          "matched_count": 66,
+          "matching": "order_preserving_max_cardinality_then_min_error_v001",
+          "prediction_count": 74,
+          "reference_count": 80,
+          "tolerance_m": 0.05,
+          "unmatched_prediction_count": 8,
+          "unmatched_reference_count": 14
+        },
+        "name": "interval_f1",
+        "numerator": 0.8571428571428571,
+        "unit": "ratio",
+        "value": 0.8571428571428571
+      },
+      "interval_precision": {
+        "denominator": 74,
+        "details": {
+          "matched_count": 66,
+          "matching": "order_preserving_max_cardinality_then_min_error_v001",
+          "prediction_count": 74,
+          "reference_count": 80,
+          "tolerance_m": 0.05,
+          "unmatched_prediction_count": 8,
+          "unmatched_reference_count": 14
+        },
+        "name": "interval_precision",
+        "numerator": 66,
+        "unit": "ratio",
+        "value": 0.8918918918918919
+      },
+      "interval_recall": {
+        "denominator": 80,
+        "details": {
+          "matched_count": 66,
+          "matching": "order_preserving_max_cardinality_then_min_error_v001",
+          "prediction_count": 74,
+          "reference_count": 80,
+          "tolerance_m": 0.05,
+          "unmatched_prediction_count": 8,
+          "unmatched_reference_count": 14
+        },
+        "name": "interval_recall",
+        "numerator": 66,
+        "unit": "ratio",
+        "value": 0.825
+      },
+      "matched_bottom_boundary_mae_m": {
+        "denominator": 66,
+        "details": {
+          "matched_count": 66,
+          "matching": "order_preserving_max_cardinality_then_min_error_v001",
+          "prediction_count": 74,
+          "reference_count": 80,
+          "tolerance_m": 0.05,
+          "unmatched_prediction_count": 8,
+          "unmatched_reference_count": 14
+        },
+        "name": "matched_bottom_boundary_mae_m",
+        "numerator": 0.0,
+        "unit": "m",
+        "value": 0.0
+      },
+      "matched_top_boundary_mae_m": {
+        "denominator": 66,
+        "details": {
+          "matched_count": 66,
+          "matching": "order_preserving_max_cardinality_then_min_error_v001",
+          "prediction_count": 74,
+          "reference_count": 80,
+          "tolerance_m": 0.05,
+          "unmatched_prediction_count": 8,
+          "unmatched_reference_count": 14
+        },
+        "name": "matched_top_boundary_mae_m",
+        "numerator": 0.0,
+        "unit": "m",
+        "value": 0.0
+      }
+    }
+  },
+  "incorrect_document_trigger_recall": {
+    "denominator": 10,
+    "numerator": 7,
+    "value": 0.7
+  },
+  "latency_seconds_per_document_wall": 7.796267122600278,
+  "needs_review_count": 5,
+  "peak_process_rss_kib": 328824,
+  "policy_version": "v2",
+  "prediction_reference_conditioning": "none",
+  "reference_blinded_decision_policy": true,
+  "reference_ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+  "reference_interval_count": 80,
+  "scope": "authoritative-interval heldout constraint-rereading evaluation",
+  "selection_limitation": "heldout records from the same canton/source family; source-agreement explicit-table selection; not cross-source or representative deployment evidence",
+  "triggered_document_count": 9,
+  "wall_time_seconds": 272.8693492910097
+}

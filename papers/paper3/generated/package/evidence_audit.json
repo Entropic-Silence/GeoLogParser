@@ -10,7 +10,7 @@
     "shepard1968interpolation"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "4951b06d14228f6db80f1ac814d58db2d69d5f629a42b99c45844b7fca11ca05",
+  "claim_registry_sha256": "b8f8415ebd1534ac7d8654126f93f6aa38aa0abdc09a721bc89f144012aa3f7a",
   "claim_source_errors": [],
   "evidence_tags": [
     "p3.coal602_consensus_qc",
@@ -152,6 +152,7 @@
   "result_index_errors": [],
   "result_index_path": "experiments/paper3/result_index.jsonl",
   "result_index_sha256": "b5b10e323f951264db85156ad1e5033744c4871333cd1730d59ffef5dd2871dc",
+  "result_index_verification_scope": "exact run.json and metrics.json publication core",
   "structurally_complete": true,
   "submission_ready": true,
   "tbd_or_citation_marker_count": 0,

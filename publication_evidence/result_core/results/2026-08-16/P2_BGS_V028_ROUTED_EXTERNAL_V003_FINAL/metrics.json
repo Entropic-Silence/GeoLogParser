@@ -1,0 +1,23 @@
+{
+  "boundary_f1": 0.0,
+  "boundary_precision": 0.0,
+  "boundary_recall": 0.0,
+  "comparison": "frozen_v028_routed_parser_vs_authoritative_boundaries",
+  "coverage": 0.0,
+  "critical_numerical_error_rate": 0.0,
+  "data_status": "real_bgs_v003_external_source",
+  "document_count": 1,
+  "false_positive_count": 0,
+  "human_ground_truth_evidence": false,
+  "interval_f1": 0.0,
+  "limitations": "single record and one unseen page family; full abstention is safe but operationally unusable",
+  "page_count": 5,
+  "prediction_reference_conditioning": "none",
+  "reference_blinded_decision_policy": true,
+  "reference_boundary_count": 8,
+  "reference_ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+  "reference_interval_count": 7,
+  "route": "abstain_unsupported_family",
+  "scope": "one-time frozen unseen-source external failure evaluation",
+  "status": "completed_external_evaluation"
+}

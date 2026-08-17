@@ -1,0 +1,40 @@
+{
+  "experiment_id": "P1_CALIFORNIA_WCR_V004_RAPIDOCR_PROSPECTIVE_FORMAL_001",
+  "git_commit": "e8754cdd3edbdebd4602d35b3d5fd6beea723edb",
+  "date": "2026-08-15",
+  "dataset_version": "california_wcr_gold_v004",
+  "split_version": "california_wcr_gold_split_v004_prospective_candidate_risk_test",
+  "model": "rapidocr_generic_positioned_interval_parser_v001",
+  "model_revision": "{\"cls_model_path\": \"e47acedf663230f8863ff1ab0e64dd2d82b838fceb5957146dab185a89d6215c\", \"det_model_path\": \"d2a7720d45a54257208b1e13e36a8479894cb74155a5efe29462512d42f49da9\", \"rec_model_path\": \"48fc40f24f6d2a207a2b1091d3437eb3cc3eb6b676dc3ef9c37384005483683b\"}",
+  "prompt_version": "not_applicable",
+  "seed": 0,
+  "hardware": {
+    "device": "cpu",
+    "processor": "x86_64",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "3.10.12",
+    "tesseract": "tesseract 4.1.1"
+  },
+  "config": {
+    "ground_truth_sha256": "054848cca5b5eac0e67b46151842a31d63d6e94558664ab8f15cec5b5ba4ca4c",
+    "split_sha256": "f0548634c811ab9392431d527ca6f38de6f2a813838ab4587e43cb5fc0597694",
+    "partition": "test",
+    "prediction_reference_conditioning": "none",
+    "ground_truth_tier": "GOLD_PUBLISHED_MANUAL_TRANSCRIPTION",
+    "render_dpi": 300,
+    "tesseract_psm": 11,
+    "unit_conversion": "feet_bls_to_meters_multiply_0.3048",
+    "evaluated_fields": [
+      "interval.top_depth_m",
+      "interval.bottom_depth_m",
+      "interval.thickness_m",
+      "interval.lithology_normalized"
+    ],
+    "reference_scope": "USGS-published verbatim manual transcriptions from DWR WCR images",
+    "reference_doi": "10.5066/P9M85U0T",
+    "rights": "CC0-1.0 transcriptions; publicly released redacted DWR report images retained locally"
+  },
+  "started_utc": "2026-08-15T02:16:11.582076+00:00"
+}

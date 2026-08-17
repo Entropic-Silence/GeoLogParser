@@ -1,0 +1,19 @@
+{
+  "scope": "synthetic interoperability protocol; not real-world evidence",
+  "point_count": 121,
+  "triangle_cell_count": 200,
+  "bounds": [
+    0.0,
+    10.0,
+    0.0,
+    10.0,
+    96.8,
+    100.8
+  ],
+  "array_names": [
+    "elevation_m"
+  ],
+  "surface_vtp_sha256": "283830930242804c7fa378972153c93a0da317c10a099739b8e13604fa62478b",
+  "surface_png_sha256": "ade2507596b32db5ab15e9898c8007b948f9536d68ce226eea640c6b249c98b5",
+  "interpretation": "artifact interoperability only; no geological accuracy claim"
+}

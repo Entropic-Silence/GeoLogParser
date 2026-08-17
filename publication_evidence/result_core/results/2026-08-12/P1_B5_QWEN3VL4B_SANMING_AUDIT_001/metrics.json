@@ -1,0 +1,17 @@
+{
+  "scope": "engineering audit; no Ground Truth accuracy claim",
+  "items": 4,
+  "schema_valid_responses": 1,
+  "structured_parse_rate": 0.25,
+  "emitted_borehole_field_values": 8,
+  "emitted_interval_field_values": 13,
+  "emitted_intervals": 3,
+  "constraint_evaluations": 29,
+  "constraint_violations": 3,
+  "latency_total_seconds": 237.20341226199525,
+  "latency_mean_seconds_per_image": 59.30085306549881,
+  "peak_gpu_memory_bytes": 9293797376,
+  "responses_hitting_max_new_tokens": 3,
+  "accuracy_metrics": null,
+  "accuracy_metrics_reason": "no human-validated Ground Truth in this audit"
+}

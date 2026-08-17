@@ -1,0 +1,37 @@
+{
+  "experiment_id": "P1_NATIVE_LAYOUT_SEDLOG_AUDIT_001",
+  "git_commit": "ea654cfd42c50ae18b1517d5c4ecfa25ad9eab29",
+  "date": "2026-08-13",
+  "dataset_version": "native_pdf_content_manifest_v001",
+  "split_version": "audit_selection_no_training_no_ground_truth",
+  "model": "direct_native_text_regex_plus_B3_positioned_layout_privacy_minimized",
+  "model_revision": "regex:cb3695830ef1d5e20af73e355d3ba0f3169d2d24a82179cc9d38fbca1d3d04e6;layout:730c9767a38c66692a3f649ba05d9955f0114a98d68a6bb8706c93e6b547e4b5",
+  "prompt_version": "not_applicable",
+  "seed": null,
+  "hardware": {
+    "device": "cpu",
+    "processor": "x86_64",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "3.10.12",
+    "PyMuPDF": "1.28.2"
+  },
+  "config": {
+    "manifest_path": "/data/GeoLogParser/datasets/public/mendeley_sedlog_drilling_cores_v002/metadata/content_manifest.jsonl",
+    "manifest_sha256": "a00f9079cc9fb5a5ae5bc8328cdedfa6222b193a141bb58ced8f32a36a24b0af",
+    "content_summary_path": "/data/GeoLogParser/datasets/public/mendeley_sedlog_drilling_cores_v002/metadata/content_summary.json",
+    "content_summary_sha256": "bd0f0f204f197d18b84d9fb502b75ffdef4dea090259b7b34600634052915fd8",
+    "dataset_id_filter": "v6k9s36pbm",
+    "content_class_filter": "digitised_sedlog_lithology_column",
+    "phase1_scope_filter": "international_candidate",
+    "x_bin_points": 12.0,
+    "minimum_unique_ranges": 3,
+    "regex_implementation_sha256": "cb3695830ef1d5e20af73e355d3ba0f3169d2d24a82179cc9d38fbca1d3d04e6",
+    "layout_implementation_sha256": "730c9767a38c66692a3f649ba05d9955f0114a98d68a6bb8706c93e6b547e4b5",
+    "source_content_review_status": "unreviewed",
+    "record_output_policy": "hash_and_presence_only",
+    "constraint_config_path": "/root/GeoLogParser/configs/constraints/default_v001.yaml",
+    "constraint_config_sha256": "09b560194d03d70620c090f40dc00f86d1883eaf96e3c0680be5f9bebd28ed29"
+  }
+}

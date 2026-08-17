@@ -1,0 +1,45 @@
+{
+  "scope": "synthetic protocol smoke; not real-world evidence",
+  "conditions": [
+    {
+      "magnitude_m": 0.01,
+      "seed": 20260812,
+      "count": 36,
+      "mae_m": 0.006136093162970171,
+      "rmse_m": 0.006701835838328773,
+      "max_abs_error_m": 0.010000000000005116
+    },
+    {
+      "magnitude_m": 0.05,
+      "seed": 20260813,
+      "count": 36,
+      "mae_m": 0.02472036228450531,
+      "rmse_m": 0.02917429171566011,
+      "max_abs_error_m": 0.04999999999999716
+    },
+    {
+      "magnitude_m": 0.1,
+      "seed": 20260814,
+      "count": 36,
+      "mae_m": 0.06136093162970803,
+      "rmse_m": 0.0670183583832859,
+      "max_abs_error_m": 0.10000000000000853
+    },
+    {
+      "magnitude_m": 0.5,
+      "seed": 20260815,
+      "count": 36,
+      "mae_m": 0.3068046581485405,
+      "rmse_m": 0.3350917919164347,
+      "max_abs_error_m": 0.5
+    },
+    {
+      "magnitude_m": 1.0,
+      "seed": 20260816,
+      "count": 36,
+      "mae_m": 0.9999999999999996,
+      "rmse_m": 0.9999999999999996,
+      "max_abs_error_m": 1.0000000000000142
+    }
+  ]
+}

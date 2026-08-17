@@ -1,0 +1,33 @@
+{
+  "experiment_id": "P3_SWISSGEOL_TG_MULTIBOUNDARY_SURFACE_FROM_FROZEN_REREAD_001",
+  "git_commit": "910911505b8f51eff8f640fcc89fc2ed0ca050d5",
+  "date": "2026-08-14",
+  "dataset_version": "swissgeol_thurgau_v003_multiboundary_surface_from_frozen_reread",
+  "split_version": "v003_heldout_inherited_from_p2_reread",
+  "model": "frozen_paper2_all_ordered_boundaries_plus_idw",
+  "model_revision": "upstream_prediction_run_frozen",
+  "prompt_version": "not_applicable",
+  "seed": 0,
+  "hardware": {
+    "device": "cpu",
+    "processor": "x86_64",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "3.10.12"
+  },
+  "config": {
+    "ground_truth_sha256": "afb921fb606bd2e5f6213438edab775c41285cec78747e44319dadad6d355dc7",
+    "upstream_prediction_run": "results/2026-08-14/P2_SWISSGEOL_TG_CONSTRAINT_REREAD_HELDOUT_V003_001",
+    "upstream_prediction_sha256": "1fb1e909fb613cfd9211c983e96cc38a69c038e2524085758220840bb9c5eb63",
+    "prediction_reference_conditioning": "none_inherited_from_upstream_run",
+    "boundary_alignment": "ordered_interval_index_without_reference_guided_repair",
+    "spatial_metadata_source": "authoritative_structured_reference_borehole_coordinates_and_collar_elevation",
+    "coordinate_system": "CH1903+/LV95",
+    "interpolator": "IDW_power_2",
+    "grid_size": 25,
+    "domain": "per_boundary_authoritative_reference_convex_hull",
+    "rights_review": "PENDING_MANUAL_PRE_SUBMISSION_REVIEW"
+  },
+  "started_utc": "2026-08-14T06:41:46.587108+00:00"
+}

@@ -1,0 +1,37 @@
+{
+  "experiment_id": "P2_QWEN3VL4B_TESSERACT_UNIPD_ROI_AUDIT_001",
+  "git_commit": "d59e301dc28d4d1280a01b2d595a42951d7484ff",
+  "date": "2026-08-13",
+  "dataset_version": "unipd_levee_geotech_auto_roi_v001",
+  "split_version": "public_engineering_audit_no_training_no_ground_truth",
+  "model": "tesseract_plus_Qwen/Qwen3-VL-4B-Instruct",
+  "model_revision": "tesseract_system_package+ebb281ec70b05090aa6165b016eac8ec08e71b17",
+  "prompt_version": "constraint_reread_numeric_v001",
+  "seed": null,
+  "hardware": {
+    "device": "cuda:0",
+    "visible_physical_gpu": "0",
+    "gpu_name": "NVIDIA GeForce RTX 5090",
+    "vram_bytes": 33670758400
+  },
+  "software": {
+    "python": "3.10.12",
+    "torch": "2.13.0",
+    "transformers": "5.14.1",
+    "accelerate": "1.14.0",
+    "tesseract": "tesseract 4.1.1"
+  },
+  "config": {
+    "cases_path": "configs/experiments/paper2_roi_reread_unipd_v001.jsonl",
+    "cases_sha256": "477eab0a47b86651c6da14c0d5473d8fea3e395e10224d8d7c77a08cd4dbf29a",
+    "prompt_path": "prompts/constraint_reread_numeric_v001.md",
+    "prompt_sha256": "8c690766fcd2e6e00eb03463777efd3f893f0c925dc47052f030ebd0dc801a9c",
+    "model_path": "/data/GeoLogParser/models/huggingface/Qwen3-VL-4B-Instruct",
+    "max_new_tokens": 64,
+    "min_pixels": 100352,
+    "max_pixels": 401408,
+    "padding_pixels": 12,
+    "scale": 3.0,
+    "scope": "public auto-proposal ROI engineering audit; no Ground Truth accuracy claim"
+  }
+}

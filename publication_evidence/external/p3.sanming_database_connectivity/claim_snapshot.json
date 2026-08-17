@@ -1,0 +1,32 @@
+{
+  "claim_id": "p3.sanming_database_connectivity",
+  "observations": [
+    {
+      "assertion": {
+        "expected": 4,
+        "table": "boreholes",
+        "type": "sqlite_row_count"
+      },
+      "observed": 4
+    },
+    {
+      "assertion": {
+        "expected": 12,
+        "table": "intervals",
+        "type": "sqlite_row_count"
+      },
+      "observed": 12
+    },
+    {
+      "assertion": {
+        "expected": 224,
+        "table": "field_provenance",
+        "type": "sqlite_row_count"
+      },
+      "observed": 224
+    }
+  ],
+  "origin_source_sha256": "52a860230739968408a90c5d9aa7762f65eb659cb74fd4b24f294b08fca127a1",
+  "publication_evidence_schema_version": "claim_assertion_projection_v001",
+  "scope": "quarantine-only auto-extraction database connectivity counts; not human Ground Truth or releasable data"
+}

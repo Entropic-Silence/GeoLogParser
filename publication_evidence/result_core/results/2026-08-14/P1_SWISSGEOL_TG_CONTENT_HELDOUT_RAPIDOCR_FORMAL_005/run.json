@@ -1,0 +1,56 @@
+{
+  "experiment_id": "P1_SWISSGEOL_TG_CONTENT_HELDOUT_RAPIDOCR_FORMAL_005",
+  "git_commit": "949a0e499477a63c1401e020cf03de3d27ba2261",
+  "date": "2026-08-14",
+  "dataset_version": "swissgeol_thurgau_paired_v003__interval_gold",
+  "split_version": "v003_content_group_heldout",
+  "model": "B1_rapidocr_onnx_ocr_conservative_interval_parser",
+  "model_revision": "rapidocr_onnxruntime=1.4.4;onnxruntime=1.23.2",
+  "prompt_version": "not_applicable",
+  "seed": 0,
+  "hardware": {
+    "device": "cpu",
+    "processor": "x86_64",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "3.10.12",
+    "poppler_pdftoppm": "pdftoppm version 22.02.0",
+    "rapidocr_onnxruntime": "1.4.4",
+    "onnxruntime": "1.23.2"
+  },
+  "config": {
+    "render_dpi": 250,
+    "ocr_backend": "rapidocr",
+    "rapidocr_model_dir": "/data/GeoLogParser/models/rapidocr",
+    "rapidocr_model_sha256": {
+      "ch_PP-OCRv4_det_infer.onnx": "d2a7720d45a54257208b1e13e36a8479894cb74155a5efe29462512d42f49da9",
+      "ch_PP-OCRv4_rec_infer.onnx": "48fc40f24f6d2a207a2b1091d3437eb3cc3eb6b676dc3ef9c37384005483683b",
+      "ch_ppocr_mobile_v2.0_cls_infer.onnx": "e47acedf663230f8863ff1ab0e64dd2d82b838fceb5957146dab185a89d6215c"
+    },
+    "rapidocr_threads": 4,
+    "region_serialization": "stable_approximate_top_left_v001",
+    "parser": "choose_interval_section_v2",
+    "interval_match_tolerance_m": 0.05,
+    "ground_truth_sha256": "afb921fb606bd2e5f6213438edab775c41285cec78747e44319dadad6d355dc7",
+    "ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+    "prediction_reference_conditioning": "none",
+    "pairing_audit_summary_sha256": "d1ecf9d05b9e77fb703a5e6581a4c1eef8f6ead39cb385bfd811e7c93937b5b0",
+    "dataset_summary_sha256": "7d3b0d6c1c4f7dcc3a8c0403250698cbb18f144b5beb17b8547686bd5a734459",
+    "evaluated_fields": [
+      "interval.top_depth_m",
+      "interval.bottom_depth_m",
+      "interval.thickness_m"
+    ],
+    "excluded_fields": [
+      "lithology",
+      "description",
+      "material_semantics",
+      "source_bbox"
+    ],
+    "selection_limitation": "source-agreement explicit-table pilot; documents were selected because the complete visible interval table agreed with the official database and are not a representative random sample",
+    "prediction_input": "250-DPI page raster rapidocr OCR only; native PDF text not used for prediction",
+    "rights_review": "PENDING_MANUAL_PRE_SUBMISSION_REVIEW"
+  },
+  "started_utc": "2026-08-14T04:32:09.577240+00:00"
+}

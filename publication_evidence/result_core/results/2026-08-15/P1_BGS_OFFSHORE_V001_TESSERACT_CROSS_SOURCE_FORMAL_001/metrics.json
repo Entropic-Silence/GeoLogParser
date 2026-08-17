@@ -1,0 +1,103 @@
+{
+  "document_count": 26,
+  "documents_with_predictions": 13,
+  "human_reviewed": false,
+  "interval_metrics": {
+    "interval_f1": {
+      "denominator": 1.0,
+      "details": {
+        "matched_count": 8,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 54,
+        "reference_count": 341,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 46,
+        "unmatched_reference_count": 333
+      },
+      "name": "interval_f1",
+      "numerator": 0.040506329113924044,
+      "unit": "ratio",
+      "value": 0.040506329113924044
+    },
+    "interval_precision": {
+      "denominator": 54,
+      "details": {
+        "matched_count": 8,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 54,
+        "reference_count": 341,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 46,
+        "unmatched_reference_count": 333
+      },
+      "name": "interval_precision",
+      "numerator": 8,
+      "unit": "ratio",
+      "value": 0.14814814814814814
+    },
+    "interval_recall": {
+      "denominator": 341,
+      "details": {
+        "matched_count": 8,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 54,
+        "reference_count": 341,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 46,
+        "unmatched_reference_count": 333
+      },
+      "name": "interval_recall",
+      "numerator": 8,
+      "unit": "ratio",
+      "value": 0.02346041055718475
+    },
+    "matched_bottom_boundary_mae_m": {
+      "denominator": 8,
+      "details": {
+        "matched_count": 8,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 54,
+        "reference_count": 341,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 46,
+        "unmatched_reference_count": 333
+      },
+      "name": "matched_bottom_boundary_mae_m",
+      "numerator": 0.02,
+      "unit": "m",
+      "value": 0.0025
+    },
+    "matched_top_boundary_mae_m": {
+      "denominator": 8,
+      "details": {
+        "matched_count": 8,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 54,
+        "reference_count": 341,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 46,
+        "unmatched_reference_count": 333
+      },
+      "name": "matched_top_boundary_mae_m",
+      "numerator": 0.0,
+      "unit": "m",
+      "value": 0.0
+    }
+  },
+  "latency_seconds_per_document_wall": 10.08021182903842,
+  "matched_lithology_exact": {
+    "denominator": 8,
+    "numerator": 2,
+    "value": 0.25
+  },
+  "page_count": 34,
+  "peak_process_rss_kib": 117684,
+  "predicted_interval_count": 54,
+  "prediction_reference_conditioning": "none",
+  "reference_ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+  "reference_interval_count": 341,
+  "scope": "authoritative-interval benchmark evaluation",
+  "selection_limitation": "26 source groups selected from 251 eligible paired graphic-log candidates; 34 composite pages evaluated; scan rights remain pending manual pre-submission verification",
+  "source_domain": "British Geological Survey GeoIndex Offshore",
+  "wall_time_seconds": 262.0855069850004
+}

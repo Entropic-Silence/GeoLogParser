@@ -1,0 +1,46 @@
+{
+  "accepted_reread_count": 4,
+  "comparison": "raw_image_boundary_vs_constraint_reread_boundary_vs_authoritative_reference_surface",
+  "data_status": "real_image_pdf_with_authoritative_structured_spatial_metadata",
+  "document_count": 35,
+  "needs_review_count": 5,
+  "peak_process_rss_kib": 20348,
+  "prediction_reference_conditioning": "none",
+  "query_count": 423,
+  "reference_blinded_decision_policy": true,
+  "reference_ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+  "reference_point_count": 35,
+  "rights_review": "PENDING_MANUAL_PRE_SUBMISSION_REVIEW",
+  "scope": "real image-derived first-boundary downstream surface diagnostic",
+  "selection_limitation": "source-agreement explicit-table held-out pilot from one canton/source family; not a representative random sample or cross-source evaluation",
+  "spatial_metadata_limitation": "coordinates and collar elevations come from the authoritative structured record; image extraction of spatial metadata is not evaluated",
+  "surface": {
+    "final": {
+      "boundary_available_count": 34,
+      "boundary_mae_m": 0.9411764705882353,
+      "point_count": 34,
+      "query_count": 423,
+      "surface_error": {
+        "count": 423,
+        "mae_m": 3.049676982776966,
+        "max_abs_error_m": 29.590358768901638,
+        "rmse_m": 5.013950010449702
+      }
+    },
+    "raw": {
+      "boundary_available_count": 34,
+      "boundary_mae_m": 1.4705882352941178,
+      "point_count": 34,
+      "query_count": 423,
+      "surface_error": {
+        "count": 423,
+        "mae_m": 3.40159655679205,
+        "max_abs_error_m": 29.595211517113626,
+        "rmse_m": 5.2142076648649045
+      }
+    }
+  },
+  "triggered_document_count": 9,
+  "upstream_prediction_run": "results/2026-08-14/P2_SWISSGEOL_TG_CONSTRAINT_REREAD_HELDOUT_V003_001",
+  "wall_time_seconds": 0.04970051100826822
+}

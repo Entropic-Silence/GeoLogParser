@@ -11,7 +11,7 @@ from typing import Any, Mapping, Sequence
 
 import yaml
 
-from geologparser.result_index import FORMAL_ELIGIBILITY, verify_index
+from geologparser.result_index import FORMAL_ELIGIBILITY, verify_publication_index
 
 
 CITATION_PATTERN = re.compile(r"@([A-Za-z0-9_:-]+)")
@@ -219,7 +219,7 @@ def audit_manuscript(
                 f"literature evidence registry is missing: {literature_evidence}"
             )
     local_links, missing_links = _local_links(manuscript, text, repository_root)
-    index_errors = verify_index(result_index, repository_root)
+    index_errors = verify_publication_index(result_index, repository_root)
     rows = [
         json.loads(line) for line in result_index.read_text(encoding="utf-8").splitlines()
         if line.strip()
@@ -314,6 +314,7 @@ def audit_manuscript(
         "indexed_experiment_count": len(rows),
         "formal_experiment_count": formal_count,
         "result_index_errors": index_errors,
+        "result_index_verification_scope": "exact run.json and metrics.json publication core",
         "evidence_tags": evidence_tags,
         "registered_evidence_tags": registered_tags,
         "missing_claim_registrations": missing_claim_registrations,

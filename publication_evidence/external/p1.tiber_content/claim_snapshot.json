@@ -1,0 +1,48 @@
+{
+  "claim_id": "p1.tiber_content",
+  "observations": [
+    {
+      "assertion": {
+        "expected": 1,
+        "pointer": "/content_class_counts/stratigraphic_borehole_column",
+        "type": "json_pointer_equals"
+      },
+      "observed": 1
+    },
+    {
+      "assertion": {
+        "expected": 20,
+        "pointer": "/content_class_counts/radiocarbon_laboratory_report",
+        "type": "json_pointer_equals"
+      },
+      "observed": 20
+    },
+    {
+      "assertion": {
+        "expected": 0,
+        "pointer": "/human_content_review_count",
+        "type": "json_pointer_equals"
+      },
+      "observed": 0
+    },
+    {
+      "assertion": {
+        "expected": 0,
+        "pointer": "/human_ground_truth_count",
+        "type": "json_pointer_equals"
+      },
+      "observed": 0
+    },
+    {
+      "assertion": {
+        "expected": 0,
+        "pointer": "/benchmark_eligible_count",
+        "type": "json_pointer_equals"
+      },
+      "observed": 0
+    }
+  ],
+  "origin_source_sha256": "b969d0206e8f6383a5f4d3293de0ead2a53b6f9b6f968ca3c46783f66bcfacf7",
+  "publication_evidence_schema_version": "claim_assertion_projection_v001",
+  "scope": "automated page-content triage of one CC BY international PDF; not human review, Ground Truth, or benchmark evidence"
+}

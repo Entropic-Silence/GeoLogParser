@@ -1,0 +1,210 @@
+{
+  "accepted_reread_count": 0,
+  "comparison": "single_pass_vs_constraint_guided_reread",
+  "constraint_reread": {
+    "document_full_exact_count": 17,
+    "interval_metrics": {
+      "interval_f1": {
+        "denominator": 1.0,
+        "details": {
+          "matched_count": 47,
+          "matching": "order_preserving_max_cardinality_then_min_error_v001",
+          "prediction_count": 55,
+          "reference_count": 55,
+          "tolerance_m": 0.05,
+          "unmatched_prediction_count": 8,
+          "unmatched_reference_count": 8
+        },
+        "name": "interval_f1",
+        "numerator": 0.8545454545454545,
+        "unit": "ratio",
+        "value": 0.8545454545454545
+      },
+      "interval_precision": {
+        "denominator": 55,
+        "details": {
+          "matched_count": 47,
+          "matching": "order_preserving_max_cardinality_then_min_error_v001",
+          "prediction_count": 55,
+          "reference_count": 55,
+          "tolerance_m": 0.05,
+          "unmatched_prediction_count": 8,
+          "unmatched_reference_count": 8
+        },
+        "name": "interval_precision",
+        "numerator": 47,
+        "unit": "ratio",
+        "value": 0.8545454545454545
+      },
+      "interval_recall": {
+        "denominator": 55,
+        "details": {
+          "matched_count": 47,
+          "matching": "order_preserving_max_cardinality_then_min_error_v001",
+          "prediction_count": 55,
+          "reference_count": 55,
+          "tolerance_m": 0.05,
+          "unmatched_prediction_count": 8,
+          "unmatched_reference_count": 8
+        },
+        "name": "interval_recall",
+        "numerator": 47,
+        "unit": "ratio",
+        "value": 0.8545454545454545
+      },
+      "matched_bottom_boundary_mae_m": {
+        "denominator": 47,
+        "details": {
+          "matched_count": 47,
+          "matching": "order_preserving_max_cardinality_then_min_error_v001",
+          "prediction_count": 55,
+          "reference_count": 55,
+          "tolerance_m": 0.05,
+          "unmatched_prediction_count": 8,
+          "unmatched_reference_count": 8
+        },
+        "name": "matched_bottom_boundary_mae_m",
+        "numerator": 0.0,
+        "unit": "m",
+        "value": 0.0
+      },
+      "matched_top_boundary_mae_m": {
+        "denominator": 47,
+        "details": {
+          "matched_count": 47,
+          "matching": "order_preserving_max_cardinality_then_min_error_v001",
+          "prediction_count": 55,
+          "reference_count": 55,
+          "tolerance_m": 0.05,
+          "unmatched_prediction_count": 8,
+          "unmatched_reference_count": 8
+        },
+        "name": "matched_top_boundary_mae_m",
+        "numerator": 0.0,
+        "unit": "m",
+        "value": 0.0
+      }
+    }
+  },
+  "correct_document_trigger_rate": {
+    "denominator": 17,
+    "numerator": 1,
+    "value": 0.058823529411764705
+  },
+  "correction_success_rate": {
+    "denominator": 0,
+    "numerator": 0,
+    "value": null
+  },
+  "development_evaluation_overlap_count": 0,
+  "document_count": 20,
+  "evaluation_role": "heldout",
+  "false_correction_rate": {
+    "denominator": 0,
+    "numerator": 0,
+    "unit": "document_section_replacement",
+    "value": null
+  },
+  "first_pass": {
+    "document_full_exact_count": 17,
+    "interval_metrics": {
+      "interval_f1": {
+        "denominator": 1.0,
+        "details": {
+          "matched_count": 47,
+          "matching": "order_preserving_max_cardinality_then_min_error_v001",
+          "prediction_count": 55,
+          "reference_count": 55,
+          "tolerance_m": 0.05,
+          "unmatched_prediction_count": 8,
+          "unmatched_reference_count": 8
+        },
+        "name": "interval_f1",
+        "numerator": 0.8545454545454545,
+        "unit": "ratio",
+        "value": 0.8545454545454545
+      },
+      "interval_precision": {
+        "denominator": 55,
+        "details": {
+          "matched_count": 47,
+          "matching": "order_preserving_max_cardinality_then_min_error_v001",
+          "prediction_count": 55,
+          "reference_count": 55,
+          "tolerance_m": 0.05,
+          "unmatched_prediction_count": 8,
+          "unmatched_reference_count": 8
+        },
+        "name": "interval_precision",
+        "numerator": 47,
+        "unit": "ratio",
+        "value": 0.8545454545454545
+      },
+      "interval_recall": {
+        "denominator": 55,
+        "details": {
+          "matched_count": 47,
+          "matching": "order_preserving_max_cardinality_then_min_error_v001",
+          "prediction_count": 55,
+          "reference_count": 55,
+          "tolerance_m": 0.05,
+          "unmatched_prediction_count": 8,
+          "unmatched_reference_count": 8
+        },
+        "name": "interval_recall",
+        "numerator": 47,
+        "unit": "ratio",
+        "value": 0.8545454545454545
+      },
+      "matched_bottom_boundary_mae_m": {
+        "denominator": 47,
+        "details": {
+          "matched_count": 47,
+          "matching": "order_preserving_max_cardinality_then_min_error_v001",
+          "prediction_count": 55,
+          "reference_count": 55,
+          "tolerance_m": 0.05,
+          "unmatched_prediction_count": 8,
+          "unmatched_reference_count": 8
+        },
+        "name": "matched_bottom_boundary_mae_m",
+        "numerator": 0.0,
+        "unit": "m",
+        "value": 0.0
+      },
+      "matched_top_boundary_mae_m": {
+        "denominator": 47,
+        "details": {
+          "matched_count": 47,
+          "matching": "order_preserving_max_cardinality_then_min_error_v001",
+          "prediction_count": 55,
+          "reference_count": 55,
+          "tolerance_m": 0.05,
+          "unmatched_prediction_count": 8,
+          "unmatched_reference_count": 8
+        },
+        "name": "matched_top_boundary_mae_m",
+        "numerator": 0.0,
+        "unit": "m",
+        "value": 0.0
+      }
+    }
+  },
+  "incorrect_document_trigger_recall": {
+    "denominator": 3,
+    "numerator": 0,
+    "value": 0.0
+  },
+  "latency_seconds_per_document_wall": 6.606767323150416,
+  "needs_review_count": 1,
+  "peak_process_rss_kib": 122196,
+  "policy_version": "v2",
+  "prediction_reference_conditioning": "none",
+  "reference_blinded_decision_policy": true,
+  "reference_ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+  "reference_interval_count": 55,
+  "scope": "authoritative-interval heldout constraint-rereading evaluation",
+  "selection_limitation": "heldout records from the same canton/source family; source-agreement explicit-table selection; not cross-source or representative deployment evidence",
+  "triggered_document_count": 1,
+  "wall_time_seconds": 132.13534646300832
+}

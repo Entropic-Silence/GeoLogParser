@@ -1,0 +1,69 @@
+{
+  "authoritative_collar_supplied_count": 35,
+  "collar_limitation": "all collar elevations are authoritative structured values because the frozen page parser abstained on every held-out page",
+  "comparison": "authoritative_reference_vs_page_coordinate_reference_boundary_vs_page_coordinate_raw_and_reread_boundary",
+  "coordinate_limitation": "page/database coordinate disagreement is not automatically attributed to recognition",
+  "data_status": "real_pdf_page_coordinates_image_boundaries_authoritative_collar",
+  "document_count": 35,
+  "human_ground_truth_evidence": false,
+  "page_collar_prediction_count": 0,
+  "page_coordinate_coverage": 0.4857142857142857,
+  "page_coordinate_database_exact_count": 15,
+  "page_coordinate_prediction_count": 17,
+  "peak_process_rss_kib": 136356,
+  "prediction_reference_conditioning": "none",
+  "query_count": 423,
+  "reference_blinded_decision_policy": true,
+  "reference_ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+  "reference_point_count": 35,
+  "rights_review": "PENDING_MANUAL_PRE_SUBMISSION_REVIEW",
+  "scope": "real page-coordinate image-boundary downstream surface diagnostic",
+  "selection_limitation": "one canton/source family and the first ordered boundary",
+  "variants": {
+    "authoritative_coordinate_reread_boundary": {
+      "boundary_mae_m": 0.9411764705882353,
+      "coverage": 0.9714285714285714,
+      "point_count": 34,
+      "surface_error": {
+        "count": 423,
+        "mae_m": 3.049676982776966,
+        "max_abs_error_m": 29.590358768901638,
+        "rmse_m": 5.013950010449702
+      }
+    },
+    "page_coordinate_raw_boundary": {
+      "boundary_mae_m": 0.0,
+      "coverage": 0.4857142857142857,
+      "point_count": 17,
+      "surface_error": {
+        "count": 423,
+        "mae_m": 9.514210728103434,
+        "max_abs_error_m": 69.82133162840336,
+        "rmse_m": 13.75092770248091
+      }
+    },
+    "page_coordinate_reference_boundary": {
+      "boundary_mae_m": 0.0,
+      "coverage": 0.4857142857142857,
+      "point_count": 17,
+      "surface_error": {
+        "count": 423,
+        "mae_m": 9.514210728103434,
+        "max_abs_error_m": 69.82133162840336,
+        "rmse_m": 13.75092770248091
+      }
+    },
+    "page_coordinate_reread_boundary": {
+      "boundary_mae_m": 0.0,
+      "coverage": 0.4857142857142857,
+      "point_count": 17,
+      "surface_error": {
+        "count": 423,
+        "mae_m": 9.514210728103434,
+        "max_abs_error_m": 69.82133162840336,
+        "rmse_m": 13.75092770248091
+      }
+    }
+  },
+  "wall_time_seconds": 0.44010248300037347
+}

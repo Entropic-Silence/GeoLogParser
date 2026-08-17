@@ -1,0 +1,30 @@
+{
+  "experiment_id": "P2_CALIFORNIA_WCR_V003_SELECTIVE_PROSPECTIVE_FORMAL_001",
+  "git_commit": "f5b8181dfcb52620c8949dbf4ef6c99ab276acb7",
+  "date": "2026-08-14",
+  "dataset_version": "california_wcr_gold_v003",
+  "split_version": "california_wcr_gold_split_v003_prospective_external_test",
+  "model": "california_selective_net_expansion_v001",
+  "model_revision": "document_net_expansion_rule_v001",
+  "prompt_version": "not_applicable",
+  "seed": 0,
+  "hardware": {
+    "device": "cpu",
+    "processor": "x86_64",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "3.10.12"
+  },
+  "config": {
+    "policy_config": "configs/experiments/paper2/california_selective_policy_v001.yaml",
+    "policy_config_sha256": "25d8d5cdf96ca601ff82e1fe6fb7ee7e28cd61d8058db1b273b624b8762bb523",
+    "constraint_run_id": "P2_CALIFORNIA_WCR_V003_CONSTRAINT_PROSPECTIVE_FORMAL_001",
+    "constraint_artifact_manifest_sha256": "035a5eaab6cd8a64ce3a14c3b1d3767a380ff9d2ba943a248ff45d45c097592e",
+    "ground_truth_sha256": "aab4df46be806f10e2475be63ade6654cd1d4d86a28ef41ae576b0a740e7f0c1",
+    "prediction_reference_conditioning": "none",
+    "reference_blinded_decision_policy": true,
+    "decision_rule": "constrained_prediction_count > raw_prediction_count"
+  },
+  "started_utc": "2026-08-14T12:49:01.847335+00:00"
+}

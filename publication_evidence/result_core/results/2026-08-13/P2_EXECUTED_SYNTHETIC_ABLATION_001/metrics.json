@@ -1,0 +1,1227 @@
+{
+  "protocol": "paper2_one_module_ablation_matrix_v001",
+  "ground_truth_policy": "synthetic",
+  "case_count": 127,
+  "variant_count": 8,
+  "complete_expected_matrix": true,
+  "variants": {
+    "full": {
+      "disabled_modules": [],
+      "metrics": {
+        "protocol": "paper2_synthetic_controlled_v001",
+        "ground_truth_policy": "synthetic",
+        "calibration_case_count": 30,
+        "test_case_count": 97,
+        "calibration_applied": true,
+        "temperature": 0.35,
+        "correction": {
+          "false_correction_rate": {
+            "name": "false_correction_rate",
+            "value": 0.0,
+            "numerator": 0,
+            "denominator": 54,
+            "unit": "ratio",
+            "details": {}
+          },
+          "incorrect_correction_rate": {
+            "name": "incorrect_correction_rate",
+            "value": 0.0,
+            "numerator": 0,
+            "denominator": 54,
+            "unit": "ratio",
+            "details": {}
+          },
+          "correction_success_rate": {
+            "name": "correction_success_rate",
+            "value": 1.0,
+            "numerator": 54,
+            "denominator": 54,
+            "unit": "ratio",
+            "details": {}
+          },
+          "automatic_correction_rate": {
+            "name": "automatic_correction_rate",
+            "value": 0.5567010309278351,
+            "numerator": 54,
+            "denominator": 97,
+            "unit": "ratio",
+            "details": {}
+          }
+        },
+        "review": {
+          "manual_review_precision": {
+            "name": "manual_review_precision",
+            "value": 0.32558139534883723,
+            "numerator": 14,
+            "denominator": 43,
+            "unit": "ratio",
+            "details": {}
+          },
+          "manual_review_recall": {
+            "name": "manual_review_recall",
+            "value": 1.0,
+            "numerator": 14,
+            "denominator": 14,
+            "unit": "ratio",
+            "details": {}
+          },
+          "review_rate": {
+            "name": "review_rate",
+            "value": 0.44329896907216493,
+            "numerator": 43,
+            "denominator": 97,
+            "unit": "ratio",
+            "details": {}
+          },
+          "auto_accept_rate": {
+            "name": "auto_accept_rate",
+            "value": 0.5567010309278351,
+            "numerator": 54,
+            "denominator": 97,
+            "unit": "ratio",
+            "details": {}
+          },
+          "auto_accept_error_rate": {
+            "name": "auto_accept_error_rate",
+            "value": 0.0,
+            "numerator": 0,
+            "denominator": 54,
+            "unit": "ratio",
+            "details": {
+              "definition": "review-required labels not sent to review / all auto-accepted fields"
+            }
+          }
+        },
+        "confidence": {
+          "raw_brier_score": {
+            "name": "brier_score",
+            "value": 0.09079896907216481,
+            "numerator": 8.807499999999987,
+            "denominator": 97,
+            "unit": "score",
+            "details": {}
+          },
+          "raw_expected_calibration_error": {
+            "name": "expected_calibration_error",
+            "value": 0.10773195876288733,
+            "numerator": 0.10773195876288733,
+            "denominator": 1.0,
+            "unit": "score",
+            "details": {
+              "bins": 10,
+              "bin_stats": [
+                {
+                  "bin": 6,
+                  "count": 43,
+                  "accuracy": 0.7674418604651163,
+                  "confidence": 0.6499999999999995
+                },
+                {
+                  "bin": 9,
+                  "count": 54,
+                  "accuracy": 1.0,
+                  "confidence": 0.8999999999999991
+                }
+              ]
+            }
+          },
+          "calibrated_brier_score": {
+            "name": "brier_score",
+            "value": 0.08246359715501679,
+            "numerator": 7.998968924036628,
+            "denominator": 97,
+            "unit": "score",
+            "details": {}
+          },
+          "calibrated_expected_calibration_error": {
+            "name": "expected_calibration_error",
+            "value": 0.03954468428346986,
+            "numerator": 0.03954468428346986,
+            "denominator": 1.0,
+            "unit": "score",
+            "details": {
+              "bins": 10,
+              "bin_stats": [
+                {
+                  "bin": 8,
+                  "count": 43,
+                  "accuracy": 0.7674418604651163,
+                  "confidence": 0.8542938691275525
+                },
+                {
+                  "bin": 9,
+                  "count": 54,
+                  "accuracy": 1.0,
+                  "confidence": 0.9981259629071885
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "minus_calibration": {
+      "disabled_modules": [
+        "calibration"
+      ],
+      "metrics": {
+        "protocol": "paper2_synthetic_controlled_v001",
+        "ground_truth_policy": "synthetic",
+        "calibration_case_count": 30,
+        "test_case_count": 97,
+        "calibration_applied": false,
+        "temperature": null,
+        "correction": {
+          "false_correction_rate": {
+            "name": "false_correction_rate",
+            "value": 0.0,
+            "numerator": 0,
+            "denominator": 54,
+            "unit": "ratio",
+            "details": {}
+          },
+          "incorrect_correction_rate": {
+            "name": "incorrect_correction_rate",
+            "value": 0.0,
+            "numerator": 0,
+            "denominator": 54,
+            "unit": "ratio",
+            "details": {}
+          },
+          "correction_success_rate": {
+            "name": "correction_success_rate",
+            "value": 1.0,
+            "numerator": 54,
+            "denominator": 54,
+            "unit": "ratio",
+            "details": {}
+          },
+          "automatic_correction_rate": {
+            "name": "automatic_correction_rate",
+            "value": 0.5567010309278351,
+            "numerator": 54,
+            "denominator": 97,
+            "unit": "ratio",
+            "details": {}
+          }
+        },
+        "review": {
+          "manual_review_precision": {
+            "name": "manual_review_precision",
+            "value": 0.32558139534883723,
+            "numerator": 14,
+            "denominator": 43,
+            "unit": "ratio",
+            "details": {}
+          },
+          "manual_review_recall": {
+            "name": "manual_review_recall",
+            "value": 1.0,
+            "numerator": 14,
+            "denominator": 14,
+            "unit": "ratio",
+            "details": {}
+          },
+          "review_rate": {
+            "name": "review_rate",
+            "value": 0.44329896907216493,
+            "numerator": 43,
+            "denominator": 97,
+            "unit": "ratio",
+            "details": {}
+          },
+          "auto_accept_rate": {
+            "name": "auto_accept_rate",
+            "value": 0.5567010309278351,
+            "numerator": 54,
+            "denominator": 97,
+            "unit": "ratio",
+            "details": {}
+          },
+          "auto_accept_error_rate": {
+            "name": "auto_accept_error_rate",
+            "value": 0.0,
+            "numerator": 0,
+            "denominator": 54,
+            "unit": "ratio",
+            "details": {
+              "definition": "review-required labels not sent to review / all auto-accepted fields"
+            }
+          }
+        },
+        "confidence": {
+          "raw_brier_score": {
+            "name": "brier_score",
+            "value": 0.09079896907216481,
+            "numerator": 8.807499999999987,
+            "denominator": 97,
+            "unit": "score",
+            "details": {}
+          },
+          "raw_expected_calibration_error": {
+            "name": "expected_calibration_error",
+            "value": 0.10773195876288733,
+            "numerator": 0.10773195876288733,
+            "denominator": 1.0,
+            "unit": "score",
+            "details": {
+              "bins": 10,
+              "bin_stats": [
+                {
+                  "bin": 6,
+                  "count": 43,
+                  "accuracy": 0.7674418604651163,
+                  "confidence": 0.6499999999999995
+                },
+                {
+                  "bin": 9,
+                  "count": 54,
+                  "accuracy": 1.0,
+                  "confidence": 0.8999999999999991
+                }
+              ]
+            }
+          },
+          "calibrated_brier_score": {
+            "name": "brier_score",
+            "value": 0.09079896907216481,
+            "numerator": 8.807499999999987,
+            "denominator": 97,
+            "unit": "score",
+            "details": {}
+          },
+          "calibrated_expected_calibration_error": {
+            "name": "expected_calibration_error",
+            "value": 0.10773195876288733,
+            "numerator": 0.10773195876288733,
+            "denominator": 1.0,
+            "unit": "score",
+            "details": {
+              "bins": 10,
+              "bin_stats": [
+                {
+                  "bin": 6,
+                  "count": 43,
+                  "accuracy": 0.7674418604651163,
+                  "confidence": 0.6499999999999995
+                },
+                {
+                  "bin": 9,
+                  "count": 54,
+                  "accuracy": 1.0,
+                  "confidence": 0.8999999999999991
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "minus_constraints": {
+      "disabled_modules": [
+        "constraints"
+      ],
+      "metrics": {
+        "protocol": "paper2_synthetic_controlled_v001",
+        "ground_truth_policy": "synthetic",
+        "calibration_case_count": 30,
+        "test_case_count": 97,
+        "calibration_applied": true,
+        "temperature": 0.05,
+        "correction": {
+          "false_correction_rate": {
+            "name": "false_correction_rate",
+            "value": 0.0,
+            "numerator": 0,
+            "denominator": 97,
+            "unit": "ratio",
+            "details": {}
+          },
+          "incorrect_correction_rate": {
+            "name": "incorrect_correction_rate",
+            "value": 0.6597938144329897,
+            "numerator": 64,
+            "denominator": 97,
+            "unit": "ratio",
+            "details": {}
+          },
+          "correction_success_rate": {
+            "name": "correction_success_rate",
+            "value": 0.0,
+            "numerator": 0,
+            "denominator": 97,
+            "unit": "ratio",
+            "details": {}
+          },
+          "automatic_correction_rate": {
+            "name": "automatic_correction_rate",
+            "value": 1.0,
+            "numerator": 97,
+            "denominator": 97,
+            "unit": "ratio",
+            "details": {}
+          }
+        },
+        "review": {
+          "manual_review_precision": {
+            "name": "manual_review_precision",
+            "value": null,
+            "numerator": 0,
+            "denominator": 0,
+            "unit": "ratio",
+            "details": {}
+          },
+          "manual_review_recall": {
+            "name": "manual_review_recall",
+            "value": 0.0,
+            "numerator": 0,
+            "denominator": 14,
+            "unit": "ratio",
+            "details": {}
+          },
+          "review_rate": {
+            "name": "review_rate",
+            "value": 0.0,
+            "numerator": 0,
+            "denominator": 97,
+            "unit": "ratio",
+            "details": {}
+          },
+          "auto_accept_rate": {
+            "name": "auto_accept_rate",
+            "value": 1.0,
+            "numerator": 97,
+            "denominator": 97,
+            "unit": "ratio",
+            "details": {}
+          },
+          "auto_accept_error_rate": {
+            "name": "auto_accept_error_rate",
+            "value": 0.14432989690721648,
+            "numerator": 14,
+            "denominator": 97,
+            "unit": "ratio",
+            "details": {
+              "definition": "review-required labels not sent to review / all auto-accepted fields"
+            }
+          }
+        },
+        "confidence": {
+          "raw_brier_score": {
+            "name": "brier_score",
+            "value": 0.02979381443298969,
+            "numerator": 2.89,
+            "denominator": 97,
+            "unit": "score",
+            "details": {}
+          },
+          "raw_expected_calibration_error": {
+            "name": "expected_calibration_error",
+            "value": 0.16597938144329902,
+            "numerator": 0.16597938144329902,
+            "denominator": 1.0,
+            "unit": "score",
+            "details": {
+              "bins": 10,
+              "bin_stats": [
+                {
+                  "bin": 2,
+                  "count": 64,
+                  "accuracy": 0.0,
+                  "confidence": 0.1999999999999998
+                },
+                {
+                  "bin": 9,
+                  "count": 33,
+                  "accuracy": 1.0,
+                  "confidence": 0.8999999999999995
+                }
+              ]
+            }
+          },
+          "calibrated_brier_score": {
+            "name": "brier_score",
+            "value": 5.457686515803902e-25,
+            "numerator": 5.293955920329785e-23,
+            "denominator": 97,
+            "unit": "score",
+            "details": {}
+          },
+          "calibrated_expected_calibration_error": {
+            "name": "expected_calibration_error",
+            "value": 6.0007897848881e-13,
+            "numerator": 6.0007897848881e-13,
+            "denominator": 1.0,
+            "unit": "score",
+            "details": {
+              "bins": 10,
+              "bin_stats": [
+                {
+                  "bin": 0,
+                  "count": 64,
+                  "accuracy": 0.0,
+                  "confidence": 9.094947017721027e-13
+                },
+                {
+                  "bin": 9,
+                  "count": 33,
+                  "accuracy": 1.0,
+                  "confidence": 1.0
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "minus_layout": {
+      "disabled_modules": [
+        "layout"
+      ],
+      "metrics": {
+        "protocol": "paper2_synthetic_controlled_v001",
+        "ground_truth_policy": "synthetic",
+        "calibration_case_count": 30,
+        "test_case_count": 97,
+        "calibration_applied": true,
+        "temperature": 0.35,
+        "correction": {
+          "false_correction_rate": {
+            "name": "false_correction_rate",
+            "value": 0.0,
+            "numerator": 0,
+            "denominator": 54,
+            "unit": "ratio",
+            "details": {}
+          },
+          "incorrect_correction_rate": {
+            "name": "incorrect_correction_rate",
+            "value": 0.0,
+            "numerator": 0,
+            "denominator": 54,
+            "unit": "ratio",
+            "details": {}
+          },
+          "correction_success_rate": {
+            "name": "correction_success_rate",
+            "value": 1.0,
+            "numerator": 54,
+            "denominator": 54,
+            "unit": "ratio",
+            "details": {}
+          },
+          "automatic_correction_rate": {
+            "name": "automatic_correction_rate",
+            "value": 0.5567010309278351,
+            "numerator": 54,
+            "denominator": 97,
+            "unit": "ratio",
+            "details": {}
+          }
+        },
+        "review": {
+          "manual_review_precision": {
+            "name": "manual_review_precision",
+            "value": 0.32558139534883723,
+            "numerator": 14,
+            "denominator": 43,
+            "unit": "ratio",
+            "details": {}
+          },
+          "manual_review_recall": {
+            "name": "manual_review_recall",
+            "value": 1.0,
+            "numerator": 14,
+            "denominator": 14,
+            "unit": "ratio",
+            "details": {}
+          },
+          "review_rate": {
+            "name": "review_rate",
+            "value": 0.44329896907216493,
+            "numerator": 43,
+            "denominator": 97,
+            "unit": "ratio",
+            "details": {}
+          },
+          "auto_accept_rate": {
+            "name": "auto_accept_rate",
+            "value": 0.5567010309278351,
+            "numerator": 54,
+            "denominator": 97,
+            "unit": "ratio",
+            "details": {}
+          },
+          "auto_accept_error_rate": {
+            "name": "auto_accept_error_rate",
+            "value": 0.0,
+            "numerator": 0,
+            "denominator": 54,
+            "unit": "ratio",
+            "details": {
+              "definition": "review-required labels not sent to review / all auto-accepted fields"
+            }
+          }
+        },
+        "confidence": {
+          "raw_brier_score": {
+            "name": "brier_score",
+            "value": 0.09079896907216481,
+            "numerator": 8.807499999999987,
+            "denominator": 97,
+            "unit": "score",
+            "details": {}
+          },
+          "raw_expected_calibration_error": {
+            "name": "expected_calibration_error",
+            "value": 0.10773195876288733,
+            "numerator": 0.10773195876288733,
+            "denominator": 1.0,
+            "unit": "score",
+            "details": {
+              "bins": 10,
+              "bin_stats": [
+                {
+                  "bin": 6,
+                  "count": 43,
+                  "accuracy": 0.7674418604651163,
+                  "confidence": 0.6499999999999995
+                },
+                {
+                  "bin": 9,
+                  "count": 54,
+                  "accuracy": 1.0,
+                  "confidence": 0.8999999999999991
+                }
+              ]
+            }
+          },
+          "calibrated_brier_score": {
+            "name": "brier_score",
+            "value": 0.08246359715501679,
+            "numerator": 7.998968924036628,
+            "denominator": 97,
+            "unit": "score",
+            "details": {}
+          },
+          "calibrated_expected_calibration_error": {
+            "name": "expected_calibration_error",
+            "value": 0.03954468428346986,
+            "numerator": 0.03954468428346986,
+            "denominator": 1.0,
+            "unit": "score",
+            "details": {
+              "bins": 10,
+              "bin_stats": [
+                {
+                  "bin": 8,
+                  "count": 43,
+                  "accuracy": 0.7674418604651163,
+                  "confidence": 0.8542938691275525
+                },
+                {
+                  "bin": 9,
+                  "count": 54,
+                  "accuracy": 1.0,
+                  "confidence": 0.9981259629071885
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "minus_normalization": {
+      "disabled_modules": [
+        "normalization"
+      ],
+      "metrics": {
+        "protocol": "paper2_synthetic_controlled_v001",
+        "ground_truth_policy": "synthetic",
+        "calibration_case_count": 30,
+        "test_case_count": 97,
+        "calibration_applied": true,
+        "temperature": 0.35,
+        "correction": {
+          "false_correction_rate": {
+            "name": "false_correction_rate",
+            "value": 0.0,
+            "numerator": 0,
+            "denominator": 54,
+            "unit": "ratio",
+            "details": {}
+          },
+          "incorrect_correction_rate": {
+            "name": "incorrect_correction_rate",
+            "value": 0.0,
+            "numerator": 0,
+            "denominator": 54,
+            "unit": "ratio",
+            "details": {}
+          },
+          "correction_success_rate": {
+            "name": "correction_success_rate",
+            "value": 1.0,
+            "numerator": 54,
+            "denominator": 54,
+            "unit": "ratio",
+            "details": {}
+          },
+          "automatic_correction_rate": {
+            "name": "automatic_correction_rate",
+            "value": 0.5567010309278351,
+            "numerator": 54,
+            "denominator": 97,
+            "unit": "ratio",
+            "details": {}
+          }
+        },
+        "review": {
+          "manual_review_precision": {
+            "name": "manual_review_precision",
+            "value": 0.32558139534883723,
+            "numerator": 14,
+            "denominator": 43,
+            "unit": "ratio",
+            "details": {}
+          },
+          "manual_review_recall": {
+            "name": "manual_review_recall",
+            "value": 1.0,
+            "numerator": 14,
+            "denominator": 14,
+            "unit": "ratio",
+            "details": {}
+          },
+          "review_rate": {
+            "name": "review_rate",
+            "value": 0.44329896907216493,
+            "numerator": 43,
+            "denominator": 97,
+            "unit": "ratio",
+            "details": {}
+          },
+          "auto_accept_rate": {
+            "name": "auto_accept_rate",
+            "value": 0.5567010309278351,
+            "numerator": 54,
+            "denominator": 97,
+            "unit": "ratio",
+            "details": {}
+          },
+          "auto_accept_error_rate": {
+            "name": "auto_accept_error_rate",
+            "value": 0.0,
+            "numerator": 0,
+            "denominator": 54,
+            "unit": "ratio",
+            "details": {
+              "definition": "review-required labels not sent to review / all auto-accepted fields"
+            }
+          }
+        },
+        "confidence": {
+          "raw_brier_score": {
+            "name": "brier_score",
+            "value": 0.09079896907216481,
+            "numerator": 8.807499999999987,
+            "denominator": 97,
+            "unit": "score",
+            "details": {}
+          },
+          "raw_expected_calibration_error": {
+            "name": "expected_calibration_error",
+            "value": 0.10773195876288733,
+            "numerator": 0.10773195876288733,
+            "denominator": 1.0,
+            "unit": "score",
+            "details": {
+              "bins": 10,
+              "bin_stats": [
+                {
+                  "bin": 6,
+                  "count": 43,
+                  "accuracy": 0.7674418604651163,
+                  "confidence": 0.6499999999999995
+                },
+                {
+                  "bin": 9,
+                  "count": 54,
+                  "accuracy": 1.0,
+                  "confidence": 0.8999999999999991
+                }
+              ]
+            }
+          },
+          "calibrated_brier_score": {
+            "name": "brier_score",
+            "value": 0.08246359715501679,
+            "numerator": 7.998968924036628,
+            "denominator": 97,
+            "unit": "score",
+            "details": {}
+          },
+          "calibrated_expected_calibration_error": {
+            "name": "expected_calibration_error",
+            "value": 0.03954468428346986,
+            "numerator": 0.03954468428346986,
+            "denominator": 1.0,
+            "unit": "score",
+            "details": {
+              "bins": 10,
+              "bin_stats": [
+                {
+                  "bin": 8,
+                  "count": 43,
+                  "accuracy": 0.7674418604651163,
+                  "confidence": 0.8542938691275525
+                },
+                {
+                  "bin": 9,
+                  "count": 54,
+                  "accuracy": 1.0,
+                  "confidence": 0.9981259629071885
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "minus_ocr": {
+      "disabled_modules": [
+        "ocr"
+      ],
+      "metrics": {
+        "protocol": "paper2_synthetic_controlled_v001",
+        "ground_truth_policy": "synthetic",
+        "calibration_case_count": 30,
+        "test_case_count": 97,
+        "calibration_applied": true,
+        "temperature": 10.0,
+        "correction": {
+          "false_correction_rate": {
+            "name": "false_correction_rate",
+            "value": null,
+            "numerator": 0,
+            "denominator": 0,
+            "unit": "ratio",
+            "details": {}
+          },
+          "incorrect_correction_rate": {
+            "name": "incorrect_correction_rate",
+            "value": null,
+            "numerator": 0,
+            "denominator": 0,
+            "unit": "ratio",
+            "details": {}
+          },
+          "correction_success_rate": {
+            "name": "correction_success_rate",
+            "value": null,
+            "numerator": 0,
+            "denominator": 0,
+            "unit": "ratio",
+            "details": {}
+          },
+          "automatic_correction_rate": {
+            "name": "automatic_correction_rate",
+            "value": 0.0,
+            "numerator": 0,
+            "denominator": 97,
+            "unit": "ratio",
+            "details": {}
+          }
+        },
+        "review": {
+          "manual_review_precision": {
+            "name": "manual_review_precision",
+            "value": 0.14432989690721648,
+            "numerator": 14,
+            "denominator": 97,
+            "unit": "ratio",
+            "details": {}
+          },
+          "manual_review_recall": {
+            "name": "manual_review_recall",
+            "value": 1.0,
+            "numerator": 14,
+            "denominator": 14,
+            "unit": "ratio",
+            "details": {}
+          },
+          "review_rate": {
+            "name": "review_rate",
+            "value": 1.0,
+            "numerator": 97,
+            "denominator": 97,
+            "unit": "ratio",
+            "details": {}
+          },
+          "auto_accept_rate": {
+            "name": "auto_accept_rate",
+            "value": 0.0,
+            "numerator": 0,
+            "denominator": 97,
+            "unit": "ratio",
+            "details": {}
+          },
+          "auto_accept_error_rate": {
+            "name": "auto_accept_error_rate",
+            "value": null,
+            "numerator": 0,
+            "denominator": 0,
+            "unit": "ratio",
+            "details": {
+              "definition": "review-required labels not sent to review / all auto-accepted fields"
+            }
+          }
+        },
+        "confidence": {
+          "raw_brier_score": {
+            "name": "brier_score",
+            "value": 0.3204381443298965,
+            "numerator": 31.08249999999996,
+            "denominator": 97,
+            "unit": "score",
+            "details": {}
+          },
+          "raw_expected_calibration_error": {
+            "name": "expected_calibration_error",
+            "value": 0.3097938144329887,
+            "numerator": 0.3097938144329887,
+            "denominator": 1.0,
+            "unit": "score",
+            "details": {
+              "bins": 10,
+              "bin_stats": [
+                {
+                  "bin": 6,
+                  "count": 97,
+                  "accuracy": 0.3402061855670103,
+                  "confidence": 0.649999999999999
+                }
+              ]
+            }
+          },
+          "calibrated_brier_score": {
+            "name": "brier_score",
+            "value": 0.25518370606272495,
+            "numerator": 24.75281948808432,
+            "denominator": 97,
+            "unit": "score",
+            "details": {}
+          },
+          "calibrated_expected_calibration_error": {
+            "name": "expected_calibration_error",
+            "value": 0.17526485441687645,
+            "numerator": 0.17526485441687645,
+            "denominator": 1.0,
+            "unit": "score",
+            "details": {
+              "bins": 10,
+              "bin_stats": [
+                {
+                  "bin": 5,
+                  "count": 97,
+                  "accuracy": 0.3402061855670103,
+                  "confidence": 0.5154710399838868
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "minus_rereading": {
+      "disabled_modules": [
+        "rereading"
+      ],
+      "metrics": {
+        "protocol": "paper2_synthetic_controlled_v001",
+        "ground_truth_policy": "synthetic",
+        "calibration_case_count": 30,
+        "test_case_count": 97,
+        "calibration_applied": true,
+        "temperature": 10.0,
+        "correction": {
+          "false_correction_rate": {
+            "name": "false_correction_rate",
+            "value": null,
+            "numerator": 0,
+            "denominator": 0,
+            "unit": "ratio",
+            "details": {}
+          },
+          "incorrect_correction_rate": {
+            "name": "incorrect_correction_rate",
+            "value": null,
+            "numerator": 0,
+            "denominator": 0,
+            "unit": "ratio",
+            "details": {}
+          },
+          "correction_success_rate": {
+            "name": "correction_success_rate",
+            "value": null,
+            "numerator": 0,
+            "denominator": 0,
+            "unit": "ratio",
+            "details": {}
+          },
+          "automatic_correction_rate": {
+            "name": "automatic_correction_rate",
+            "value": 0.0,
+            "numerator": 0,
+            "denominator": 97,
+            "unit": "ratio",
+            "details": {}
+          }
+        },
+        "review": {
+          "manual_review_precision": {
+            "name": "manual_review_precision",
+            "value": 0.14432989690721648,
+            "numerator": 14,
+            "denominator": 97,
+            "unit": "ratio",
+            "details": {}
+          },
+          "manual_review_recall": {
+            "name": "manual_review_recall",
+            "value": 1.0,
+            "numerator": 14,
+            "denominator": 14,
+            "unit": "ratio",
+            "details": {}
+          },
+          "review_rate": {
+            "name": "review_rate",
+            "value": 1.0,
+            "numerator": 97,
+            "denominator": 97,
+            "unit": "ratio",
+            "details": {}
+          },
+          "auto_accept_rate": {
+            "name": "auto_accept_rate",
+            "value": 0.0,
+            "numerator": 0,
+            "denominator": 97,
+            "unit": "ratio",
+            "details": {}
+          },
+          "auto_accept_error_rate": {
+            "name": "auto_accept_error_rate",
+            "value": null,
+            "numerator": 0,
+            "denominator": 0,
+            "unit": "ratio",
+            "details": {
+              "definition": "review-required labels not sent to review / all auto-accepted fields"
+            }
+          }
+        },
+        "confidence": {
+          "raw_brier_score": {
+            "name": "brier_score",
+            "value": 0.3204381443298965,
+            "numerator": 31.08249999999996,
+            "denominator": 97,
+            "unit": "score",
+            "details": {}
+          },
+          "raw_expected_calibration_error": {
+            "name": "expected_calibration_error",
+            "value": 0.3097938144329887,
+            "numerator": 0.3097938144329887,
+            "denominator": 1.0,
+            "unit": "score",
+            "details": {
+              "bins": 10,
+              "bin_stats": [
+                {
+                  "bin": 6,
+                  "count": 97,
+                  "accuracy": 0.3402061855670103,
+                  "confidence": 0.649999999999999
+                }
+              ]
+            }
+          },
+          "calibrated_brier_score": {
+            "name": "brier_score",
+            "value": 0.25518370606272495,
+            "numerator": 24.75281948808432,
+            "denominator": 97,
+            "unit": "score",
+            "details": {}
+          },
+          "calibrated_expected_calibration_error": {
+            "name": "expected_calibration_error",
+            "value": 0.17526485441687645,
+            "numerator": 0.17526485441687645,
+            "denominator": 1.0,
+            "unit": "score",
+            "details": {
+              "bins": 10,
+              "bin_stats": [
+                {
+                  "bin": 5,
+                  "count": 97,
+                  "accuracy": 0.3402061855670103,
+                  "confidence": 0.5154710399838868
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "minus_vlm": {
+      "disabled_modules": [
+        "vlm"
+      ],
+      "metrics": {
+        "protocol": "paper2_synthetic_controlled_v001",
+        "ground_truth_policy": "synthetic",
+        "calibration_case_count": 30,
+        "test_case_count": 97,
+        "calibration_applied": true,
+        "temperature": 10.0,
+        "correction": {
+          "false_correction_rate": {
+            "name": "false_correction_rate",
+            "value": null,
+            "numerator": 0,
+            "denominator": 0,
+            "unit": "ratio",
+            "details": {}
+          },
+          "incorrect_correction_rate": {
+            "name": "incorrect_correction_rate",
+            "value": null,
+            "numerator": 0,
+            "denominator": 0,
+            "unit": "ratio",
+            "details": {}
+          },
+          "correction_success_rate": {
+            "name": "correction_success_rate",
+            "value": null,
+            "numerator": 0,
+            "denominator": 0,
+            "unit": "ratio",
+            "details": {}
+          },
+          "automatic_correction_rate": {
+            "name": "automatic_correction_rate",
+            "value": 0.0,
+            "numerator": 0,
+            "denominator": 97,
+            "unit": "ratio",
+            "details": {}
+          }
+        },
+        "review": {
+          "manual_review_precision": {
+            "name": "manual_review_precision",
+            "value": 0.14432989690721648,
+            "numerator": 14,
+            "denominator": 97,
+            "unit": "ratio",
+            "details": {}
+          },
+          "manual_review_recall": {
+            "name": "manual_review_recall",
+            "value": 1.0,
+            "numerator": 14,
+            "denominator": 14,
+            "unit": "ratio",
+            "details": {}
+          },
+          "review_rate": {
+            "name": "review_rate",
+            "value": 1.0,
+            "numerator": 97,
+            "denominator": 97,
+            "unit": "ratio",
+            "details": {}
+          },
+          "auto_accept_rate": {
+            "name": "auto_accept_rate",
+            "value": 0.0,
+            "numerator": 0,
+            "denominator": 97,
+            "unit": "ratio",
+            "details": {}
+          },
+          "auto_accept_error_rate": {
+            "name": "auto_accept_error_rate",
+            "value": null,
+            "numerator": 0,
+            "denominator": 0,
+            "unit": "ratio",
+            "details": {
+              "definition": "review-required labels not sent to review / all auto-accepted fields"
+            }
+          }
+        },
+        "confidence": {
+          "raw_brier_score": {
+            "name": "brier_score",
+            "value": 0.3204381443298965,
+            "numerator": 31.08249999999996,
+            "denominator": 97,
+            "unit": "score",
+            "details": {}
+          },
+          "raw_expected_calibration_error": {
+            "name": "expected_calibration_error",
+            "value": 0.3097938144329887,
+            "numerator": 0.3097938144329887,
+            "denominator": 1.0,
+            "unit": "score",
+            "details": {
+              "bins": 10,
+              "bin_stats": [
+                {
+                  "bin": 6,
+                  "count": 97,
+                  "accuracy": 0.3402061855670103,
+                  "confidence": 0.649999999999999
+                }
+              ]
+            }
+          },
+          "calibrated_brier_score": {
+            "name": "brier_score",
+            "value": 0.25518370606272495,
+            "numerator": 24.75281948808432,
+            "denominator": 97,
+            "unit": "score",
+            "details": {}
+          },
+          "calibrated_expected_calibration_error": {
+            "name": "expected_calibration_error",
+            "value": 0.17526485441687645,
+            "numerator": 0.17526485441687645,
+            "denominator": 1.0,
+            "unit": "score",
+            "details": {
+              "bins": 10,
+              "bin_stats": [
+                {
+                  "bin": 5,
+                  "count": 97,
+                  "accuracy": 0.3402061855670103,
+                  "confidence": 0.5154710399838868
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

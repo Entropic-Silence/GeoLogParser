@@ -1,0 +1,19 @@
+{
+  "scope": "public unannotated B6 engineering audit; no Ground Truth accuracy claim",
+  "items": 15,
+  "items_with_schema_valid_vlm_record": 11,
+  "fusion_decision_counts": {
+    "agreement_keep_grounded_provenance": 17,
+    "visual_only_needs_review": 34,
+    "both_abstained": 69,
+    "visual_intervals_unaligned_needs_review": 11,
+    "vlm_unavailable_keep_grounded": 4,
+    "disagreement_keep_grounded_needs_review": 1
+  },
+  "emitted_intervals": 87,
+  "constraint_evaluations": 781,
+  "constraint_violations": 49,
+  "postprocessing_latency_total_seconds": 1.642202360992087,
+  "accuracy_metrics": null,
+  "accuracy_metrics_reason": "all annotations remain auto; no human-validated Ground Truth"
+}

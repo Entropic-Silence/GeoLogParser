@@ -1,0 +1,72 @@
+{
+  "claim_id": "p1.sedlog_source_review",
+  "observations": [
+    {
+      "assertion": {
+        "expected": 18,
+        "pointer": "/review_item_count",
+        "type": "json_pointer_equals"
+      },
+      "observed": 18
+    },
+    {
+      "assertion": {
+        "expected": 0,
+        "pointer": "/reviewed_item_count",
+        "type": "json_pointer_equals"
+      },
+      "observed": 0
+    },
+    {
+      "assertion": {
+        "expected": 18,
+        "pointer": "/unreviewed_item_count",
+        "type": "json_pointer_equals"
+      },
+      "observed": 18
+    },
+    {
+      "assertion": {
+        "expected": 0,
+        "pointer": "/annotation_eligible_count",
+        "type": "json_pointer_equals"
+      },
+      "observed": 0
+    },
+    {
+      "assertion": {
+        "expected": 0,
+        "pointer": "/human_ground_truth_count",
+        "type": "json_pointer_equals"
+      },
+      "observed": 0
+    },
+    {
+      "assertion": {
+        "expected": 0,
+        "pointer": "/benchmark_eligible_count",
+        "type": "json_pointer_equals"
+      },
+      "observed": 0
+    },
+    {
+      "assertion": {
+        "expected": false,
+        "pointer": "/review_complete",
+        "type": "json_pointer_equals"
+      },
+      "observed": false
+    },
+    {
+      "assertion": {
+        "expected": "85d8cba35d615a7be4e33b010374df07c2600b9f72d3e32fef6974cc69bb5833",
+        "pointer": "/pack_manifest_sha256",
+        "type": "json_pointer_equals"
+      },
+      "observed": "85d8cba35d615a7be4e33b010374df07c2600b9f72d3e32fef6974cc69bb5833"
+    }
+  ],
+  "origin_source_sha256": "9f2cfa3fc49929fc6e961b339cdfb9e5a1a4c14b409f127997fe9e214b7cc4ca",
+  "publication_evidence_schema_version": "claim_assertion_projection_v001",
+  "scope": "live SedLog human source-review queue status; rendering and automated triage are not human review or Ground Truth"
+}

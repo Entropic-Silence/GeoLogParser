@@ -1,0 +1,23 @@
+{
+  "claim_id": "p1.padova_inventory",
+  "observations": [
+    {
+      "assertion": {
+        "expected": 15,
+        "type": "jsonl_row_count"
+      },
+      "observed": 15
+    },
+    {
+      "assertion": {
+        "expected": 11,
+        "pointer": "/source_sha256",
+        "type": "jsonl_pointer_unique_count"
+      },
+      "observed": 11
+    }
+  ],
+  "origin_source_sha256": "2ee38b8da430075df80a4b3c16a4739838b4320ecbc73ce18dcfcbcb1ac79e2a",
+  "publication_evidence_schema_version": "claim_assertion_projection_v001",
+  "scope": "11 unique source records and 15 rendered pages; rights/annotation state is described separately"
+}

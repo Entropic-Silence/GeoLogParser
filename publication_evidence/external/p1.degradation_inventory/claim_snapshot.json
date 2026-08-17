@@ -1,0 +1,48 @@
+{
+  "claim_id": "p1.degradation_inventory",
+  "observations": [
+    {
+      "assertion": {
+        "expected": 270,
+        "pointer": "/derived_images",
+        "type": "json_pointer_equals"
+      },
+      "observed": 270
+    },
+    {
+      "assertion": {
+        "expected": 15,
+        "pointer": "/source_panels",
+        "type": "json_pointer_equals"
+      },
+      "observed": 15
+    },
+    {
+      "assertion": {
+        "expected": 18,
+        "pointer": "/profiles",
+        "type": "json_pointer_equals"
+      },
+      "observed": 18
+    },
+    {
+      "assertion": {
+        "expected": "ca6bc6d6f2eff3df6916b3a87d43f24df6dacb13f4e924048b79120a339c5ba9",
+        "pointer": "/degradation_manifest_sha256",
+        "type": "json_pointer_equals"
+      },
+      "observed": "ca6bc6d6f2eff3df6916b3a87d43f24df6dacb13f4e924048b79120a339c5ba9"
+    },
+    {
+      "assertion": {
+        "expected": null,
+        "pointer": "/accuracy_metrics",
+        "type": "json_pointer_equals"
+      },
+      "observed": null
+    }
+  ],
+  "origin_source_sha256": "62b001b386b38761f4fb518a1f33613df306a90c7c094e045222494db2804532",
+  "publication_evidence_schema_version": "claim_assertion_projection_v001",
+  "scope": "270 deterministic derivatives from 15 panels and 18 profiles; no performance values"
+}

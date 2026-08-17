@@ -1,0 +1,24 @@
+{
+  "experiment_id": "P1_DIRECTPDF_UNIPD_AUDIT_004",
+  "git_commit": "913b3d778bce38e022e5ce372f54b60996db796e",
+  "date": "2026-08-12",
+  "dataset_version": "unipd_levee_geotechnical_logs_v001",
+  "split_version": "engineering_audit_no_training_no_ground_truth",
+  "model": "direct_pdf_text_conservative_regex",
+  "model_revision": "geologparser_native_pdf_v001",
+  "prompt_version": "not_applicable",
+  "seed": null,
+  "hardware": {
+    "device": "cpu",
+    "processor": "x86_64",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "3.10.12"
+  },
+  "config": {
+    "manifest_path": "/data/GeoLogParser/datasets/public/unipd_levee_geotech_v001/metadata/manifest.jsonl",
+    "constraint_tolerance_m": "0.05",
+    "scope": "public unannotated engineering audit; no accuracy claim"
+  }
+}
