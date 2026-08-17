@@ -56,9 +56,18 @@ def table_markup_from_output(text: str) -> str:
     """Keep only the generated table payload passed to the fixed decoder."""
     first = text.find("<table")
     last = text.rfind("</table>")
-    if first < 0 or last < first:
-        return ""
-    return text[first : last + len("</table>")]
+    if first >= 0 and last >= first:
+        return text[first : last + len("</table>")]
+    # The official table task can emit OTSL cell tokens rather than literal
+    # HTML. Convert that documented representation before applying the shared
+    # explicit-header decoder; never infer a table from arbitrary OCR text.
+    if any(token in text for token in ("<nl>", "<fcel>", "<ecel>", "<lcel>", "<ucel>", "<xcel>")):
+        try:
+            from mineru_vl_utils.post_process.otsl2html import convert_otsl_to_html
+            return convert_otsl_to_html(text)
+        except Exception:
+            return ""
+    return ""
 
 
 def encode_page(processor: Any, image: Any, *, max_pixels: int) -> Any:

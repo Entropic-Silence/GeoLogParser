@@ -12,6 +12,6 @@
   "gpu_used": true,
   "extraction_mode": "official_table_recognition_prompt",
   "decoder": "declared_top_bottom_table_headers_only_v001",
-  "max_new_tokens": 4096,
+  "max_new_tokens": 512,
   "max_pixels": 1003520
 }

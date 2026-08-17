@@ -100,7 +100,7 @@
       "interface": "official_table_recognition_plus_fixed_decoder",
       "cohort": "California v001",
       "evidence_tier": "GOLD_PUBLISHED_MANUAL_TRANSCRIPTION",
-      "status": "READY_FOR_SMOKE",
+      "status": "NO_GO_PAGE_LEVEL_TABLE_TASK_ZERO_INTERVALS",
       "result_path": "results/2026-08-17/P1_MODERN_VLM_PADDLEOCR16_CALIFORNIA_V001_FORMAL_001"
     },
     {
