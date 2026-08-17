@@ -45,6 +45,11 @@ sources:
     metadata_verified_via: Crossref
     verification_level: metadata_and_title
     claim_scope: "provenance of probability verification/Brier score"
+  - key: clopper1934binomial
+    identifier: "10.1093/biomet/26.4.404"
+    metadata_verified_via: Oxford Academic publisher landing page and DOI metadata
+    verification_level: metadata_and_title
+    claim_scope: "provenance of exact binomial confidence/fiducial limits; this paper uses the zero-observed-error one-sided upper-limit special case and states the iid-unit assumption"
   - key: roberts2017crossvalidation
     identifier: 10.1111/ecog.02881
     metadata_verified_via: Crossref

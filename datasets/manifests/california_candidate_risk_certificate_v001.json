@@ -1,0 +1,42 @@
+{
+  "schema_version": "paper2_secondary_risk_certificate_inputs_v001",
+  "purpose": "Immutable input manifest for exact finite-sample certification of a previously frozen California candidate-risk policy. This is an outcome-analysis manifest, not a new training or Gold-label manifest.",
+  "policy_semantic_rule": {
+    "policy_id": "california_addition_only_high_confidence_v002",
+    "model_revision": "addition_only_node_score_nonoverlap_v002",
+    "minimum_node_score": 2.999,
+    "preserve_all_raw_intervals": true,
+    "reject_if_positive_overlap_with_selected": true
+  },
+  "source_runs": [
+    {
+      "role": "development_v001",
+      "path": "results/2026-08-15/P2_CALIFORNIA_CANDIDATE_RISK_V002_DEV_V001_001",
+      "run_sha256": "ffcae2a092b27d463bcba3bd1f69d725cf6d47b819fdc9175ae66e23f6219b2f",
+      "metrics_sha256": "a8bc8aae1fdef971ccdfe76422cb1efde70023b5027cdaf80c57fe6c26148217"
+    },
+    {
+      "role": "development_v002",
+      "path": "results/2026-08-15/P2_CALIFORNIA_CANDIDATE_RISK_V002_DEV_V002_001",
+      "run_sha256": "455d08f84d24f94d88a80a25b13c195210780672d15310a0102a76f7eef66be4",
+      "metrics_sha256": "182b801547f788a955fcd415ef0a52bc923eba48810d588f4128d2fbedef1a47"
+    },
+    {
+      "role": "external_v004",
+      "path": "results/2026-08-15/P2_CALIFORNIA_WCR_V004_CANDIDATE_RISK_PROSPECTIVE_FORMAL_001",
+      "run_sha256": "dcb560576ebd5cd98ea3c8a8906aa7838be0d49530d148b9cffbca39f9936b58",
+      "metrics_sha256": "da49a75adc0e737a703ddcc7c928aeeeee678a438908f8aa8702c4a143a3e6a4"
+    },
+    {
+      "role": "external_v005",
+      "path": "results/2026-08-15/P2_CALIFORNIA_WCR_V005_CANDIDATE_RISK_EXTERNAL_FORMAL_001",
+      "run_sha256": "2d8f753112c6742a0f5d29553ec314a4b19656e037545fb43ea0be52b7455ea7",
+      "metrics_sha256": "0c476c6e3dabc3a13754329a86c18df330ea39043098cce93215529c496f29b5"
+    }
+  ],
+  "limitations": [
+    "v004 and v005 are content-disjoint California evaluations rather than independent source families",
+    "the statistical analysis does not choose a threshold or change the frozen policy",
+    "action-level independence can be weakened by within-document clustering"
+  ]
+}

@@ -55,6 +55,17 @@ This component analysis was specified and executed after the full v2 held-out re
 
 The confidence lookup is fit on development-only outcomes and applied to held-out outputs. This table is a secondary post-result analysis with small denominators; it is not a confirmatory calibration estimate.
 
+### Frozen-policy finite-sample risk certificate
+
+| Experiment | Cohort | Accepted actions | Incorrect actions | Observed FCR | One-sided 95% FCR upper bound | One-sided 99% FCR upper bound | Accepted documents | Worsened documents | One-sided 95% document-worsening upper bound | Eligibility |
+|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---|
+| P2_CALIFORNIA_CANDIDATE_RISK_CERTIFICATE_001 | development | 51 | 0 | 0.000 | 0.057 | 0.086 | 21 | 0 | 0.133 | secondary_statistical_risk_analysis |
+| P2_CALIFORNIA_CANDIDATE_RISK_CERTIFICATE_001 | external_v004 | 43 | 0 | 0.000 | 0.067 | 0.102 | 8 | 0 | 0.312 | secondary_statistical_risk_analysis |
+| P2_CALIFORNIA_CANDIDATE_RISK_CERTIFICATE_001 | external_v005 | 39 | 0 | 0.000 | 0.074 | 0.111 | 11 | 0 | 0.238 | secondary_statistical_risk_analysis |
+| P2_CALIFORNIA_CANDIDATE_RISK_CERTIFICATE_001 | external_pooled_v004_v005 | 82 | 0 | 0.000 | 0.036 | 0.055 | 19 | 0 | 0.146 | secondary_statistical_risk_analysis |
+
+The policy was fixed before v004/v005. Exact zero-error upper bounds are conditional on independent Bernoulli action/document assumptions. The pooled 82-action California result supports a 5% action-FCR target at one-sided 95% confidence, but the 19 accepted documents do not certify a 5% document-worsening target; neither result is a cross-source guarantee.
+
 ### Public ROI engineering audit (no Ground Truth)
 
 | Experiment | Cases | VLM JSON-valid | VLM uncertain | OCR/VLM numeric-agreement cases | Accept proposals | Needs review | VLM s/ROI | Peak GiB | Eligibility |

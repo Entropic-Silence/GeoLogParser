@@ -572,6 +572,7 @@ def paper2_table(entries: list[dict], repository_root: Path) -> str:
     interval_method_rows = []
     secondary_ablation_rows = []
     selective_rows = []
+    risk_certificate_rows = []
     california_sequence_rows = []
     for entry in entries:
         metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
@@ -647,6 +648,20 @@ def paper2_table(entries: list[dict], repository_root: Path) -> str:
                 number(peer["interval_metrics"]["interval_f1"]["value"]),
                 entry["paper_eligibility"],
             ]) + " |")
+        if metrics.get("comparison") == "frozen_candidate_risk_policy_action_vs_document_risk_bounds":
+            for cohort in metrics.get("cohorts", []):
+                action = cohort["action_level"]
+                document = cohort["document_level"]
+                risk_certificate_rows.append("| " + " | ".join([
+                    entry["experiment_id"], cohort["cohort"],
+                    str(action["accepted_actions"]), str(action["observed_incorrect_actions"]),
+                    number(action["observed_fcr"]),
+                    number(action["one_sided_95pct_upper_fcr"]),
+                    number(action["one_sided_99pct_upper_fcr"]),
+                    str(document["accepted_documents"]), str(document["observed_worsened_documents"]),
+                    number(document["one_sided_95pct_upper_worsening_rate"]),
+                    entry["paper_eligibility"],
+                ]) + " |")
         if "vlm_schema_valid_count" in metrics:
             audit_rows.append("| " + " | ".join([
                 entry["experiment_id"], str(metrics["case_count"]),
@@ -723,6 +738,12 @@ def paper2_table(entries: list[dict], repository_root: Path) -> str:
         "|---|---:|---:|---:|---:|---:|---:|---:|---|",
         *selective_rows, "",
         "The confidence lookup is fit on development-only outcomes and applied to held-out outputs. This table is a secondary post-result analysis with small denominators; it is not a confirmatory calibration estimate.",
+        "",
+        "### Frozen-policy finite-sample risk certificate", "",
+        "| Experiment | Cohort | Accepted actions | Incorrect actions | Observed FCR | One-sided 95% FCR upper bound | One-sided 99% FCR upper bound | Accepted documents | Worsened documents | One-sided 95% document-worsening upper bound | Eligibility |",
+        "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---|",
+        *risk_certificate_rows, "",
+        "The policy was fixed before v004/v005. Exact zero-error upper bounds are conditional on independent Bernoulli action/document assumptions. The pooled 82-action California result supports a 5% action-FCR target at one-sided 95% confidence, but the 19 accepted documents do not certify a 5% document-worsening target; neither result is a cross-source guarantee.",
         "",
         "### Public ROI engineering audit (no Ground Truth)", "",
         "| Experiment | Cases | VLM JSON-valid | VLM uncertain | OCR/VLM numeric-agreement cases | Accept proposals | Needs review | VLM s/ROI | Peak GiB | Eligibility |",

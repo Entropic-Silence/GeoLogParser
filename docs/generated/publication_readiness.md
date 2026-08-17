@@ -14,7 +14,7 @@ Published manual-transcription formal runs: **17**.
 | Paper | Indexed runs | Controlled formal | Real formal |
 |---|---:|---:|---:|
 | paper1 | 62 | 2 | 28 |
-| paper2 | 19 | 1 | 12 |
+| paper2 | 20 | 1 | 12 |
 | paper3 | 15 | 1 | 6 |
 
 Audit/failure-analysis/protocol-only runs are intentionally excluded from formal counts.

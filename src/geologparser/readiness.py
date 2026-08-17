@@ -71,7 +71,10 @@ def result_index_readiness(index_path: Path) -> dict[str, Any]:
         if not metrics_path.is_file():
             continue
         metrics = json.loads(metrics_path.read_text(encoding="utf-8"))
-        if metrics.get("reference_ground_truth_tier") == "GOLD_PUBLISHED_MANUAL_TRANSCRIPTION":
+        if (
+            row.get("paper_eligibility") in FORMAL_ELIGIBILITY
+            and metrics.get("reference_ground_truth_tier") == "GOLD_PUBLISHED_MANUAL_TRANSCRIPTION"
+        ):
             published_manual_gold_runs += 1
     return {
         "index_path": str(path.resolve()),

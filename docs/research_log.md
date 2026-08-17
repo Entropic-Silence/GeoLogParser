@@ -2894,3 +2894,20 @@
   The deepest layers have only seven and three supporting records. This is a
   real downstream diagnostic with an explicit reliability–coverage trade-off,
   not a validated geological interpretation or a human-efficiency estimate.
+
+## 2026-08-17 — Paper II frozen-policy finite-sample risk certificate
+
+- Performed a secondary exact zero-error analysis on the unchanged California
+  addition-only policy. The analysis consumes immutable outcomes only; it did
+  not search a threshold, alter a parser, or access BGS v003.
+- The two prospective content-disjoint California cohorts accepted 43 and 39
+  additions with zero observed incorrect actions. Pooled across 82 actions,
+  the exact one-sided 95% Clopper--Pearson upper bound for action-level FCR is
+  `0.035874` (`0.054613` at 99%). Under an iid-action assumption, observing
+  zero errors when true FCR is 5% has probability `0.014905`.
+- The same accepted actions occur in only 19 documents. The exact one-sided
+  95% upper bound for document worsening is `0.145869`, so a 5%
+  document-worsening target is `NO_GO_INSUFFICIENT_ACCEPTED_DOCUMENTS`.
+- Decision: report the result as a conditional action-level safety bound, not
+  as a cross-source or document-level deployment certificate. This resolves a
+  paper-level overclaim risk but does not solve unseen-template coverage.
