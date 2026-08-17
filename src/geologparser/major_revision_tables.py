@@ -120,7 +120,7 @@ def paper2_major_revision_tables(ablation_path: Path, risk_path: Path) -> str:
         "Evidence tier: **Published manual transcription Gold**. The primary safety unit is the document; "
         "the iid-action bound is retained only as a secondary diagnostic.",
         "",
-        "| Cohort | Policy | Correct additions / 100 documents | Erroneous additions | Worsened documents | Accepted documents | Review/abstain documents |",
+        "| Cohort | Policy | Net additional matches / 100 documents | Net change in incorrect predictions | Worsened documents (document F1) | Accepted documents | Review/abstain documents |",
         "|---|---|---:|---:|---:|---:|---:|",
     ])
     for freeze in ("v004", "v005"):
@@ -195,6 +195,22 @@ def paper3_major_revision_tables(analysis_path: Path) -> str:
             f"{row['grid_to_nearest_observation_distance_m']['mean']:.1f} |"
         )
 
+    lines.extend([
+        "",
+        "## Accepted versus rejected document diagnostics",
+        "",
+        "| Risk-router group | Documents | Reference boundaries | Raw available | Raw missing | Raw aligned MAE (m) | Raw exact documents | Hull-area ratio | Mean nearest-neighbour distance (m) |",
+        "|---|---:|---:|---:|---:|---:|---:|---:|---:|",
+    ])
+    for group_name in ("accepted", "rejected"):
+        row = analysis["acceptance_group_diagnostics"][group_name]
+        lines.append(
+            f"| {group_name} | {row['document_count']} | {row['reference_boundary_count']} | "
+            f"{row['raw_available_boundary_count']} | {row['raw_missing_boundary_count']} | "
+            f"{row['raw_order_aligned_boundary_mae_m']:.3f} | {row['raw_exact_document_count']}/{row['document_count']} | "
+            f"{row['convex_hull_area_ratio_to_all_records']:.3f} | {row['nearest_neighbour_distance_m']['mean']:.1f} |"
+        )
+
     sensitivity: dict[tuple[str, str], list[float]] = {}
     for row in analysis["idw_parameter_sensitivity"]:
         domain = row["domain"]
@@ -206,8 +222,8 @@ def paper3_major_revision_tables(analysis_path: Path) -> str:
         "",
         "## IDW and leave-one-borehole-out sensitivity",
         "",
-        "| Domain | Variant | Relative volume-error range across IDW settings | Default LOO MAE (m) |",
-        "|---|---|---:|---:|",
+        "| Domain | Variant | Relative volume-error range across IDW settings | Default LOO n | Default LOO MAE (m) |",
+        "|---|---|---:|---:|---:|",
     ])
     default_loo = {
         row["domain"]: row for row in analysis["leave_one_borehole_out"]
@@ -224,7 +240,39 @@ def paper3_major_revision_tables(analysis_path: Path) -> str:
             volume_range = "--" if not values else f"{min(values):.3f}–{max(values):.3f}"
             lines.append(
                 f"| {label} | {variant} | {volume_range} | "
-                f"{loo[variant]['absolute_error_m']['mean']:.2f} |"
+                f"{loo[variant]['absolute_error_m']['count']} | {loo[variant]['absolute_error_m']['mean']:.2f} |"
+            )
+    lines.extend(["", "## Default LOO by ordered boundary", ""])
+    lines.extend([
+        "| Domain | Variant | B1 n / MAE (m) | B2 n / MAE (m) | B3 n / MAE (m) | B4 n / MAE (m) |",
+        "|---|---|---:|---:|---:|---:|",
+    ])
+    for label, _, loo_domain in domains:
+        loo = default_loo[loo_domain]["variants"]
+        for variant in ("reference", "raw", "reread", "risk"):
+            cells = []
+            for boundary in loo[variant]["by_boundary"][:4]:
+                metric = boundary["absolute_error_m"]
+                mean_text = "--" if metric["mean"] is None else f"{metric['mean']:.2f}"
+                cells.append(f"{metric['count']} / {mean_text}")
+            lines.append(f"| {label} | {variant} | " + " | ".join(cells) + " |")
+
+    lines.extend([
+        "",
+        "## Leave-one-borehole-out volume jackknife",
+        "",
+        "| Domain | Variant | Replicates | Relative volume error, mean [min, max] | Thickness MAE, mean [min, max] (m) |",
+        "|---|---|---:|---:|---:|",
+    ])
+    for label, key in (("Full support", "full_support"), ("Matched accepted", "matched_accepted_subset")):
+        jackknife = analysis["volume_jackknife"][key]
+        for variant in ("raw", "reread", "risk"):
+            volume = jackknife["variants"][variant]["relative_absolute_volume_error"]
+            thickness = jackknife["variants"][variant]["mean_thickness_mae_m"]
+            lines.append(
+                f"| {label} | {variant} | {jackknife['held_out_borehole_count']} | "
+                f"{volume['mean']:.4f} [{volume['minimum']:.4f}, {volume['maximum']:.4f}] | "
+                f"{thickness['mean']:.2f} [{thickness['minimum']:.2f}, {thickness['maximum']:.2f}] |"
             )
     lines.extend([
         "",

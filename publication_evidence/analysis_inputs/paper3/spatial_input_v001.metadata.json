@@ -1,0 +1,15 @@
+{
+  "evidence_tier": "SOURCE_AGREEMENT_REFERENCE_WITH_AUTHORITATIVE_SPATIAL_METADATA",
+  "excluded": [
+    "source record ID",
+    "absolute easting/northing",
+    "absolute vertical datum origin",
+    "source paths",
+    "document text"
+  ],
+  "invariance": "pairwise horizontal distances, relative elevations, interval depths, risk decisions, and IDW diagnostics are preserved up to decimal rounding",
+  "record_count": 35,
+  "rights_review": "PENDING_MANUAL_PRE_SUBMISSION_REVIEW",
+  "schema_version": "paper3_spatial_input_public_v001",
+  "transform": "subtract horizontal centroid; rotate 17 degrees; subtract mean collar elevation"
+}

@@ -6,7 +6,6 @@ import argparse
 from datetime import date, datetime, timezone
 import json
 import platform
-import resource
 import subprocess
 import time
 from pathlib import Path
@@ -16,6 +15,7 @@ import yaml
 from geologparser.evaluation import boundary_matched_interval_metrics, match_intervals_by_boundaries
 from geologparser.experiment import create_run_directory
 from geologparser.result_index import file_sha256, write_artifact_manifest
+from geologparser.runtime_resources import peak_process_rss_kib
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -28,6 +28,11 @@ def overlaps(left: dict, right: dict) -> bool:
     return max(float(left["top_depth_m"]), float(right["top_depth_m"])) < min(
         float(left["bottom_depth_m"]), float(right["bottom_depth_m"])
     ) - 1e-9
+
+
+def interval_f1(match_count: int, prediction_count: int, reference_count: int) -> float:
+    denominator = prediction_count + reference_count
+    return 2 * match_count / denominator if denominator else 0.0
 
 
 def main() -> None:
@@ -126,9 +131,11 @@ def main() -> None:
         raw_matches = len(match_intervals_by_boundaries(reference, raw, tolerance_m=tolerance)[0])
         selected_matches, missing, extra = match_intervals_by_boundaries(reference, selected, tolerance_m=tolerance)
         delta = len(selected_matches) - raw_matches
-        improved += delta > 0
-        worsened += delta < 0
-        unchanged += delta == 0
+        raw_document_f1 = interval_f1(raw_matches, len(raw), len(reference))
+        selected_document_f1 = interval_f1(len(selected_matches), len(selected), len(reference))
+        improved += selected_document_f1 > raw_document_f1 + 1e-12
+        worsened += selected_document_f1 < raw_document_f1 - 1e-12
+        unchanged += abs(selected_document_f1 - raw_document_f1) <= 1e-12
         references.append(reference)
         raws.append(raw)
         selected_groups.append(selected)
@@ -152,6 +159,8 @@ def main() -> None:
             "raw_match_count": raw_matches,
             "risk_selected_match_count": len(selected_matches),
             "match_delta": delta,
+            "raw_interval_f1": raw_document_f1,
+            "risk_selected_interval_f1": selected_document_f1,
             "unmatched_reference_indices": missing,
             "unmatched_prediction_indices": extra,
         })
@@ -172,7 +181,12 @@ def main() -> None:
         "changed_document_count": changed_documents,
         "accepted_correction_document_count": accepted_documents,
         "correction_coverage": {"value": accepted_documents / changed_documents if changed_documents else None, "numerator": accepted_documents, "denominator": changed_documents},
-        "document_outcomes": {"improved": improved, "unchanged": unchanged, "worsened": worsened},
+        "document_outcomes": {
+            "improved": improved,
+            "unchanged": unchanged,
+            "worsened": worsened,
+            "primary_definition": "document interval F1 compared with the unchanged raw parser",
+        },
         "raw_interval_metrics": {name: value.to_dict() for name, value in raw_metrics.items()},
         "risk_selected_interval_metrics": {name: value.to_dict() for name, value in selected_metrics.items()},
         "accepted_correct_additions": correct_additions,
@@ -180,7 +194,7 @@ def main() -> None:
         "accepted_correction_actions": actions,
         "false_correction_rate": {"value": incorrect_additions / actions if actions else None, "numerator": incorrect_additions, "denominator": actions, "definition": "incorrect accepted additions / all accepted additions"},
         "wall_time_seconds": time.perf_counter() - start,
-        "peak_process_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+        "peak_process_rss_kib": peak_process_rss_kib(),
     }
     (run / "predictions.jsonl").write_text("".join(json.dumps(item, ensure_ascii=False, sort_keys=True) + "\n" for item in output_rows), encoding="utf-8")
     (run / "errors.jsonl").write_text("".join(json.dumps(item, sort_keys=True) + "\n" for item in errors), encoding="utf-8")

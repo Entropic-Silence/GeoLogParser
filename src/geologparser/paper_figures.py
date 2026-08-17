@@ -277,6 +277,30 @@ def save_california_cohort_forest(analysis_path: Path, destination: Path) -> Non
     plt.close(fig)
 
 
+def save_california_selection_flow(analysis_path: Path, destination: Path) -> None:
+    """Render the deterministic California eligibility and acquisition flow."""
+    analysis = json.loads(analysis_path.read_text(encoding="utf-8"))
+    stages = analysis["stages"]
+    plt = _plt()
+    fig, axis = plt.subplots(figsize=(10.5, 6.2))
+    axis.axis("off")
+    y_positions = list(reversed([0.1 + index * 0.16 for index in range(len(stages))]))
+    for index, (stage, y) in enumerate(zip(stages, y_positions)):
+        label = f"{stage['label']}\n{stage['document_count']:,} documents / {stage['interval_count']:,} intervals"
+        axis.text(0.5, y, label, ha="center", va="center", fontsize=9, bbox={"boxstyle": "round,pad=0.5", "facecolor": "#eef4f7", "edgecolor": "#2f6f8f"})
+        if index:
+            previous_y = y_positions[index - 1]
+            removed = stage.get("documents_removed_from_previous", 0)
+            annotation = f"−{removed:,} documents" if removed >= 0 else "fixed acquisition budget"
+            axis.annotate(annotation, xy=(0.5, y + 0.045), xytext=(0.5, previous_y - 0.045), ha="center", va="center", fontsize=8, arrowprops={"arrowstyle": "->", "color": "#555555"})
+    axis.set_xlim(0, 1)
+    axis.set_ylim(0, 1)
+    axis.set_title("California eligibility, acquisition, and formal-evaluation flow", fontsize=12)
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(destination, dpi=180, bbox_inches="tight")
+    plt.close(fig)
+
+
 def save_paper2_sequence_risk(
     ablation_path: Path, risk_path: Path, destination: Path,
 ) -> None:
@@ -308,6 +332,32 @@ def save_paper2_sequence_risk(
     axes[0].legend(loc="lower right", fontsize=8)
     fig.suptitle("Sequence recovery versus correction harm (fixed candidate pool)")
     fig.tight_layout(rect=(0, 0, 1, .94))
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(destination, dpi=180, bbox_inches="tight")
+    plt.close(fig)
+
+
+def save_paper2_threshold_curve(analysis_path: Path, destination: Path) -> None:
+    """Plot development-only risk/coverage/utility versus the node threshold."""
+    analysis = json.loads(analysis_path.read_text(encoding="utf-8"))
+    rows = [row for row in analysis["curve"] if row["threshold"] >= 2.9]
+    thresholds = [row["threshold"] for row in rows]
+    plt = _plt()
+    fig, axes = plt.subplots(1, 2, figsize=(10.5, 4.6))
+    axes[0].plot(thresholds, [row["coverage_all_documents"] for row in rows], label="Document coverage")
+    axes[0].plot(thresholds, [row["interval_f1"] for row in rows], label="Interval F1")
+    axes[0].set_ylabel("Ratio")
+    axes[0].legend()
+    axes[1].plot(thresholds, [0.0 if row["action_fcr"] is None else row["action_fcr"] for row in rows], label="Action FCR")
+    axes[1].plot(thresholds, [row["worsened_documents"] / analysis["document_count"] for row in rows], label="Worsened-document rate")
+    axes[1].set_ylabel("Observed development risk")
+    axes[1].legend()
+    for axis in axes:
+        axis.axvline(analysis["chosen_threshold"], color="#b76e3b", linestyle="--", linewidth=1)
+        axis.set_xlabel("Raw node-score threshold")
+        axis.grid(alpha=.2)
+    fig.suptitle("Addition-only threshold selection on v001/v002 development evidence")
+    fig.tight_layout()
     destination.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(destination, dpi=180, bbox_inches="tight")
     plt.close(fig)

@@ -30,3 +30,25 @@ def test_document_outputs_are_deidentified_and_joinable():
             row = json.loads(line)
             assert row.get("record_key"), (path, line_number)
             assert BANNED_KEYS.isdisjoint(set(walk_keys(row))), (path, line_number)
+
+
+def test_public_reanalysis_inputs_are_deidentified_and_manifested():
+    root = ROOT / "publication_evidence/analysis_inputs"
+    manifest = json.loads((ROOT / "publication_evidence/manifest.json").read_text(encoding="utf-8"))
+    assert manifest["publication_evidence_schema_version"] == "publication_evidence_v002"
+    assert manifest["analysis_input_file_count"] == 6
+    assert len(manifest["analysis_inputs"]) == 6
+
+    candidate_path = root / "paper2/candidate_pool_v001.jsonl"
+    spatial_path = root / "paper3/spatial_input_v001.jsonl"
+    assert candidate_path.is_file()
+    assert spatial_path.is_file()
+    for path in (candidate_path, spatial_path):
+        for line_number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+            row = json.loads(line)
+            assert row.get("record_key"), (path, line_number)
+            assert BANNED_KEYS.isdisjoint(set(walk_keys(row))), (path, line_number)
+
+    spatial_text = spatial_path.read_text(encoding="utf-8")
+    for token in ("easting", "northing", "absolute_x", "absolute_y", "absolute origin"):
+        assert token not in spatial_text

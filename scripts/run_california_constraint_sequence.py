@@ -8,7 +8,6 @@ import json
 import math
 import platform
 import re
-import resource
 import subprocess
 import tempfile
 import time
@@ -18,7 +17,9 @@ from PIL import Image
 
 from geologparser.evaluation import boundary_matched_interval_metrics, match_intervals_by_boundaries
 from geologparser.experiment import create_run_directory
+from geologparser.paper2_sequence import select_sequence as select_sequence_path
 from geologparser.result_index import file_sha256, write_artifact_manifest
+from geologparser.runtime_resources import peak_process_rss_kib
 
 from run_california_wcr_interval_benchmark import (
     FT_TO_M, GEOLOGY_TERMS, PAIR_NUMBER, Region, anchor, normalize_lithology,
@@ -146,31 +147,7 @@ def transition_score(left: dict, right: dict) -> float | None:
 
 
 def select_sequence(candidates: list[dict]) -> list[dict]:
-    ordered = sorted(candidates, key=lambda item: (item["page"], item["y"], item["top"], item["bottom"]))
-    if not ordered:
-        return []
-    scores = [item["node_score"] - 0.0005 * item["top"] for item in ordered]
-    parents: list[int | None] = [None] * len(ordered)
-    lengths = [1] * len(ordered)
-    for right_index, right in enumerate(ordered):
-        for left_index in range(max(0, right_index - 400), right_index):
-            edge = transition_score(ordered[left_index], right)
-            if edge is None:
-                continue
-            candidate_score = scores[left_index] + right["node_score"] + edge
-            candidate_length = lengths[left_index] + 1
-            if candidate_score > scores[right_index] or (
-                abs(candidate_score - scores[right_index]) < 1e-9 and candidate_length > lengths[right_index]
-            ):
-                scores[right_index] = candidate_score
-                parents[right_index] = left_index
-                lengths[right_index] = candidate_length
-    end = max(range(len(ordered)), key=lambda index: (scores[index], lengths[index]))
-    path = []
-    while end is not None:
-        path.append(ordered[end])
-        end = parents[end]
-    return list(reversed(path))
+    return select_sequence_path(candidates, transition_score)
 
 
 def as_predictions(sequence: list[dict]) -> list[dict]:
@@ -350,7 +327,7 @@ def main() -> None:
         },
         "wall_time_seconds": time.perf_counter() - wall_started,
         "latency_seconds_per_document_wall": (time.perf_counter() - wall_started) / len(ids),
-        "peak_process_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+        "peak_process_rss_kib": peak_process_rss_kib(),
     }
     (run / "predictions.jsonl").write_text("".join(json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n" for row in output_rows), encoding="utf-8")
     (run / "errors.jsonl").write_text("".join(json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n" for row in errors), encoding="utf-8")

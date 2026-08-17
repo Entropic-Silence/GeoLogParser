@@ -17,6 +17,10 @@
       "sha256": "d04f249c8db34d7aaa71a5eb0cdd2d45ca0bcedc9e7f19570a82e3a2a62a221b"
     },
     {
+      "path": "paper1/generated/figures/california_selection_flow.png",
+      "sha256": "0e9039be160479790a404316d3aeb17cf38da12634d3d678c760a70acfa5faff"
+    },
+    {
       "path": "paper1/generated/figures/degradation_inputs.png",
       "sha256": "96ba230d3c91970c8cb2a874083fd045b2f3b933002d050012811ab43dabf149"
     },
@@ -31,6 +35,10 @@
     {
       "path": "paper2/generated/figures/method_schematic.png",
       "sha256": "608d92634c9ea7787d57bdee184554a54e8aa745bf18d52bd32fc7b1b11a1457"
+    },
+    {
+      "path": "paper2/generated/figures/risk_threshold_curve.png",
+      "sha256": "15909171aa7e44239d9aa5e3c5a1316c69bbfd863810892b90a4165266a956a3"
     },
     {
       "path": "paper2/generated/figures/sequence_risk_frontier.png",
@@ -62,7 +70,7 @@
     },
     {
       "path": "paper3/generated/figures/spatial_support_sensitivity.png",
-      "sha256": "912ba26541e32b7949f6959f8779bc8a7f5dafd376d067676abbc72f889411b2"
+      "sha256": "49c1f427cbb7fad0e8c8d3a4f5eb38546e6e3088f1fa48b5065d3da7c783b5d1"
     },
     {
       "path": "paper3/generated/figures/synthetic_error_propagation.png",
@@ -74,6 +82,10 @@
     "california_replication": {
       "path": "experiments/paper1/analysis/california_replication_statistics_v001.json",
       "sha256": "040cb8aa1701f42fbc0bcc5d7410fbe89c0e8b91e391e090bd4538e83fc6e519"
+    },
+    "california_selection": {
+      "path": "experiments/paper1/analysis/california_selection_flow_v001.json",
+      "sha256": "2d6a813ca6a667f3e0d1386ff5838eaea2c27f2ae02dce405876d870eac98be7"
     },
     "degradation": {
       "path": "/data/GeoLogParser/artifacts/robustness/unipd_degradation_v001/degradation_manifest.jsonl",
@@ -89,11 +101,15 @@
     },
     "paper2_document_risk": {
       "path": "experiments/paper2/analysis/california_document_risk_v001.json",
-      "sha256": "f3b713e35ffa0988e39411aa0f58b7b99767d3db953b3b2613159b9ea8a5f7dc"
+      "sha256": "f51ed6701128ef1c679f7ff8e11dcb25db15d219cc1f3e856c9369b46aa2203a"
+    },
+    "paper2_threshold_curve": {
+      "path": "experiments/paper2/analysis/california_risk_threshold_curve_v001.json",
+      "sha256": "2579f50965f389dee0699f1452b8c75cfead357e511b4657f185ba87b15498f0"
     },
     "paper3_spatial_sensitivity": {
       "path": "experiments/paper3/analysis/swissgeol_spatial_sensitivity_v001.json",
-      "sha256": "95bcb90ac28ddfa17203bde3bfd8c453783c22d73bb96f7038754753eb3b5370"
+      "sha256": "d0d260b2711f10c0008c9a13e5d262ef12ee03a3c10788771eddc5a9205b1c06"
     }
   }
 }

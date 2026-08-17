@@ -1,4 +1,37 @@
 {
+  "analysis_input_file_count": 6,
+  "analysis_inputs": {
+    "publication_evidence/analysis_inputs/paper2/candidate_pool_recomputed_v001.jsonl": {
+      "origin": "experiments/paper2/public/candidate_pool_recomputed_v001.jsonl",
+      "scope": "deterministically recomputed ablation sequences",
+      "sha256": "46216b50af4119311b2903c58348d8383f93fd832114c85f64bf3eee3fe85d65"
+    },
+    "publication_evidence/analysis_inputs/paper2/candidate_pool_v001.jsonl": {
+      "origin": "experiments/paper2/public/candidate_pool_v001.jsonl",
+      "scope": "deidentified positioned-candidate pool for same-pool ablation",
+      "sha256": "e07cd765a023e5d64c75ee427389d20d0f49dcf349c123312ecd62aaa03c2fd5"
+    },
+    "publication_evidence/analysis_inputs/paper2/candidate_pool_v001.metadata.json": {
+      "origin": "experiments/paper2/public/candidate_pool_v001.metadata.json",
+      "scope": "candidate-pool schema and release limitations",
+      "sha256": "dfd60f0d488d0c2ceab018d770dce10ad93c14a5b254b7d1071a768afd236189"
+    },
+    "publication_evidence/analysis_inputs/paper3/spatial_input_v001.jsonl": {
+      "origin": "experiments/paper3/public/spatial_input_v001.jsonl",
+      "scope": "rigidly transformed spatial diagnostic input",
+      "sha256": "51ff25a2f69ca01e12de86832b710a59ccfe91dbb4222574590ef62e90c1e202"
+    },
+    "publication_evidence/analysis_inputs/paper3/spatial_input_v001.metadata.json": {
+      "origin": "experiments/paper3/public/spatial_input_v001.metadata.json",
+      "scope": "spatial transform and release limitations",
+      "sha256": "177e6cc632aede29e5b7c6aa9bdb34fd0df79c30ba88271d45dfb618bffa46e8"
+    },
+    "publication_evidence/analysis_inputs/paper3/spatial_recomputed_v001.json": {
+      "origin": "experiments/paper3/public/spatial_recomputed_v001.json",
+      "scope": "diagnostics recomputed from transformed public input",
+      "sha256": "481e113332fa74708a8c29f7e47769164f468ead568b4609d2cd5ef8b0f059cb"
+    }
+  },
   "document_outputs": {
     "publication_evidence/document_outputs/results/2026-08-14/P1_CALIFORNIA_WCR_RAPIDOCR_TEST_FORMAL_001/errors.jsonl": {
       "row_count": 643,
@@ -178,7 +211,7 @@
   },
   "external_summary_file_count": 14,
   "frozen_date": "2026-08-17",
-  "publication_evidence_schema_version": "publication_evidence_v001",
+  "publication_evidence_schema_version": "publication_evidence_v002",
   "result_core": {
     "publication_evidence/result_core/results/2026-08-12/P1_B1_BGS_AUDIT_001/metrics.json": {
       "experiment_id": "P1_B1_BGS_AUDIT_001",
@@ -1157,5 +1190,5 @@
     }
   },
   "result_core_file_count": 195,
-  "scope": "exact aggregate run/metrics evidence, selected deidentified document outputs, and privacy-minimized claim projections"
+  "scope": "exact aggregate run/metrics evidence, selected deidentified document outputs, public reanalysis inputs, and privacy-minimized claim projections"
 }

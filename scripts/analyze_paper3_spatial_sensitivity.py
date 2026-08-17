@@ -8,6 +8,7 @@ borehole-out diagnostics.  It does not change upstream predictions.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import math
 from pathlib import Path
@@ -68,38 +69,56 @@ def convex_hull(points: list[tuple[float, float]]) -> list[tuple[float, float]]:
 def polygon_area(polygon: list[tuple[float, float]]) -> float:
     if len(polygon) < 3:
         return 0.0
+    # Evaluate the shoelace sum in a local frame.  Projected survey
+    # coordinates can be O(10^6) m, and subtracting large cross-products
+    # otherwise makes the reported area depend on an arbitrary map origin.
+    origin_x, origin_y = polygon[0]
+    local = [(x - origin_x, y - origin_y) for x, y in polygon]
     return abs(sum(
-        polygon[index][0] * polygon[(index + 1) % len(polygon)][1]
-        - polygon[(index + 1) % len(polygon)][0] * polygon[index][1]
-        for index in range(len(polygon))
+        local[index][0] * local[(index + 1) % len(local)][1]
+        - local[(index + 1) % len(local)][0] * local[index][1]
+        for index in range(len(local))
     )) / 2
 
 
 def inside(point: tuple[float, float], polygon: list[tuple[float, float]]) -> bool:
     if len(polygon) < 3:
         return point in polygon
+    extent = max(
+        max(x for x, _ in polygon) - min(x for x, _ in polygon),
+        max(y for _, y in polygon) - min(y for _, y in polygon),
+        1.0,
+    )
+    cross_tolerance = max(1e-9, extent * extent * 1e-12)
     signs = []
     for left, right in zip(polygon, polygon[1:] + polygon[:1]):
         value = (right[0] - left[0]) * (point[1] - left[1]) - (right[1] - left[1]) * (point[0] - left[0])
-        if abs(value) > 1e-9:
+        if abs(value) > cross_tolerance:
             signs.append(value > 0)
     return not signs or all(value == signs[0] for value in signs)
 
 
 def make_grid(points: list[tuple[float, float]], size: int) -> list[tuple[float, float]]:
     unique = sorted(set(points))
-    hull = convex_hull(unique)
+    if len(unique) < 3:
+        return unique
+    # Construct and clip the grid in a local coordinate frame so that hull
+    # membership is invariant to removal of an absolute survey origin.
+    origin_x = min(point[0] for point in unique)
+    origin_y = min(point[1] for point in unique)
+    local = [(x - origin_x, y - origin_y) for x, y in unique]
+    hull = convex_hull(local)
     if len(hull) < 3:
         return unique
-    xs = [point[0] for point in unique]
-    ys = [point[1] for point in unique]
+    xs = [point[0] for point in local]
+    ys = [point[1] for point in local]
     output = []
     for row in range(size):
         y = min(ys) + (max(ys) - min(ys)) * row / (size - 1)
         for column in range(size):
             x = min(xs) + (max(xs) - min(xs)) * column / (size - 1)
             if inside((x, y), hull):
-                output.append((x, y))
+                output.append((x + origin_x, y + origin_y))
     return output
 
 
@@ -107,7 +126,11 @@ def idw(points: list[tuple[float, float, float]], query: tuple[float, float], po
     distances = []
     for x, y, value in points:
         distance = math.hypot(x - query[0], y - query[1])
-        if distance <= 1e-12:
+        # Treat sub-micrometre coordinate differences as the same support
+        # location.  This keeps the diagnostic invariant to the documented
+        # rigid de-identification transform and avoids a near-zero IDW weight
+        # singularity after decimal serialization.
+        if distance <= 1e-6:
             return value
         distances.append((distance, value))
     if not distances:
@@ -306,6 +329,98 @@ def document_bootstrap(records: list[dict], variants: list[str], repetitions: in
     return output
 
 
+def acceptance_group_diagnostics(records: list[dict], accepted: bool) -> dict:
+    group = [record for record in records if record["risk_acceptance"] is accepted]
+    all_area = polygon_area(convex_hull([(record["x"], record["y"]) for record in records]))
+    group_xy = [(record["x"], record["y"]) for record in group]
+    errors = []
+    exact = 0
+    for record in group:
+        aligned = min(len(record["reference"]), len(record["raw"]))
+        document_errors = [abs(boundary_value(record, "raw", index) - boundary_value(record, "reference", index)) for index in range(aligned)]
+        errors.extend(document_errors)
+        exact += len(record["raw"]) == len(record["reference"]) and all(error <= 0.05 for error in document_errors)
+    group_area = polygon_area(convex_hull(group_xy))
+    return {
+        "risk_acceptance": accepted,
+        "document_count": len(group),
+        "reference_boundary_count": sum(len(record["reference"]) for record in group),
+        "raw_available_boundary_count": sum(len(record["raw"]) for record in group),
+        "raw_missing_boundary_count": sum(max(0, len(record["reference"]) - len(record["raw"])) for record in group),
+        "raw_order_aligned_boundary_mae_m": sum(errors) / len(errors) if errors else None,
+        "raw_exact_document_count": exact,
+        "convex_hull_area_ratio_to_all_records": group_area / all_area if all_area else None,
+        "nearest_neighbour_distance_m": summary(nearest_neighbour_distances(group_xy)),
+    }
+
+
+def volume_jackknife(records: list[dict], variants: list[str], power: float, neighbours: int | None, grid_size: int) -> dict:
+    values = {variant: {"relative_absolute_volume_error": [], "mean_thickness_mae_m": []} for variant in variants}
+    for held_out in records:
+        training = [record for record in records if record["record_id"] != held_out["record_id"]]
+        comparison = compare(training, variants, power, neighbours, grid_size)
+        for variant in variants:
+            aggregate = comparison[variant]["aggregate"]
+            for metric in values[variant]:
+                value = aggregate[metric]
+                if value is not None:
+                    values[variant][metric].append(float(value))
+    return {
+        "unit": "leave_one_borehole_out_recomputed_surface_and_volume",
+        "held_out_borehole_count": len(records),
+        "variants": {
+            variant: {metric: summary(metric_values) for metric, metric_values in metrics.items()}
+            for variant, metrics in values.items()
+        },
+    }
+
+
+def stripped_intervals(rows: list[dict]) -> list[dict]:
+    return [{
+        "top_depth_m": round(float(row["top_depth_m"]), 6),
+        "bottom_depth_m": round(float(row["bottom_depth_m"]), 6),
+        "thickness_m": round(float(row["bottom_depth_m"]) - float(row["top_depth_m"]), 6),
+    } for row in rows]
+
+
+def write_public_spatial_input(records: list[dict], destination: Path) -> dict:
+    """Remove absolute spatial origins while preserving all analysis distances."""
+    center_x = sum(record["x"] for record in records) / len(records)
+    center_y = sum(record["y"] for record in records) / len(records)
+    collar_origin = sum(record["collar"] for record in records) / len(records)
+    angle = math.radians(17.0)
+    cosine, sine = math.cos(angle), math.sin(angle)
+    public_rows = []
+    for record in records:
+        translated_x, translated_y = record["x"] - center_x, record["y"] - center_y
+        x_relative = cosine * translated_x - sine * translated_y
+        y_relative = sine * translated_x + cosine * translated_y
+        public_rows.append({
+            "record_key": "spatial_" + hashlib.sha256(f"paper3-spatial-v001:{record['record_id']}".encode()).hexdigest()[:20],
+            "x_relative_m": round(x_relative, 12),
+            "y_relative_m": round(y_relative, 12),
+            "collar_relative_m": round(record["collar"] - collar_origin, 9),
+            "risk_acceptance": record["risk_acceptance"],
+            "reference": stripped_intervals(record["reference"]),
+            "raw": stripped_intervals(record["raw"]),
+            "reread": stripped_intervals(record["reread"]),
+            "risk": stripped_intervals(record["risk"]),
+        })
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    destination.write_text("".join(json.dumps(row, sort_keys=True) + "\n" for row in public_rows), encoding="utf-8")
+    metadata = {
+        "schema_version": "paper3_spatial_input_public_v001",
+        "record_count": len(public_rows),
+        "transform": "subtract horizontal centroid; rotate 17 degrees; subtract mean collar elevation",
+        "invariance": "pairwise horizontal distances, relative elevations, interval depths, risk decisions, and IDW diagnostics are preserved up to decimal rounding",
+        "excluded": ["source record ID", "absolute easting/northing", "absolute vertical datum origin", "source paths", "document text"],
+        "evidence_tier": "SOURCE_AGREEMENT_REFERENCE_WITH_AUTHORITATIVE_SPATIAL_METADATA",
+        "rights_review": "PENDING_MANUAL_PRE_SUBMISSION_REVIEW",
+    }
+    destination.with_suffix(".metadata.json").write_text(json.dumps(metadata, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    return metadata
+
+
 def load_records(manifest_path: Path, prediction_path: Path) -> list[dict]:
     manifest = {
         row["record_id"]: row
@@ -342,6 +457,7 @@ def main() -> None:
     parser.add_argument("--predictions", type=Path, default=DEFAULT_PREDICTIONS)
     parser.add_argument("--bootstrap-repetitions", type=int, default=5_000)
     parser.add_argument("--seed", type=int, default=20260817)
+    parser.add_argument("--public-input", type=Path, default=ROOT / "experiments/paper3/public/spatial_input_v001.jsonl")
     parser.add_argument(
         "--output",
         type=Path,
@@ -353,6 +469,7 @@ def main() -> None:
     variants = ["raw", "reread", "risk"]
     full_support = compare(records, variants, power=2, neighbours=None, grid_size=25)
     matched_subset = compare(accepted, variants, power=2, neighbours=None, grid_size=25)
+    public_metadata = write_public_spatial_input(records, arguments.public_input)
 
     support = []
     for boundary in range(max(len(record["reference"]) for record in records)):
@@ -399,6 +516,18 @@ def main() -> None:
         "spatial_support": support,
         "idw_parameter_sensitivity": sensitivity,
         "leave_one_borehole_out": loocv_rows,
+        "acceptance_group_diagnostics": {
+            "accepted": acceptance_group_diagnostics(records, True),
+            "rejected": acceptance_group_diagnostics(records, False),
+        },
+        "volume_jackknife": {
+            "full_support": volume_jackknife(records, variants, 2, None, 25),
+            "matched_accepted_subset": volume_jackknife(accepted, variants, 2, None, 25),
+        },
+        "public_spatial_input": {
+            "path": arguments.public_input.relative_to(ROOT).as_posix(),
+            **public_metadata,
+        },
         "matched_subset_document_bootstrap": {
             "unit": "borehole/document",
             "repetitions": arguments.bootstrap_repetitions,

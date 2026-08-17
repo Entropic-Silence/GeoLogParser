@@ -1,4 +1,42 @@
 {
+  "acceptance_group_diagnostics": {
+    "accepted": {
+      "convex_hull_area_ratio_to_all_records": 0.6359897224702509,
+      "document_count": 15,
+      "nearest_neighbour_distance_m": {
+        "count": 15,
+        "maximum": 17782.330696508823,
+        "mean": 3080.6716861327304,
+        "median": 1182.223752087565,
+        "minimum": 14.0,
+        "p90": 6473.2355054110585
+      },
+      "raw_available_boundary_count": 30,
+      "raw_exact_document_count": 12,
+      "raw_missing_boundary_count": 5,
+      "raw_order_aligned_boundary_mae_m": 0.0,
+      "reference_boundary_count": 35,
+      "risk_acceptance": true
+    },
+    "rejected": {
+      "convex_hull_area_ratio_to_all_records": 0.9464239469928348,
+      "document_count": 20,
+      "nearest_neighbour_distance_m": {
+        "count": 20,
+        "maximum": 8274.357981136664,
+        "mean": 2313.608484681804,
+        "median": 1124.1530066965008,
+        "minimum": 27.459060435491963,
+        "p90": 6406.404696071574
+      },
+      "raw_available_boundary_count": 44,
+      "raw_exact_document_count": 13,
+      "raw_missing_boundary_count": 5,
+      "raw_order_aligned_boundary_mae_m": 19.55,
+      "reference_boundary_count": 45,
+      "risk_acceptance": false
+    }
+  },
   "analysis_version": "swissgeol_spatial_sensitivity_v001",
   "default_idw": {
     "grid_size": 25,
@@ -13,11 +51,11 @@
         "layer_count": 3,
         "layers_with_negative_thickness": 1,
         "mean_bottom_support": 0.6984126984126983,
-        "mean_thickness_mae_m": 45.95229835180885,
+        "mean_thickness_mae_m": 45.622880465422575,
         "mean_top_support": 0.7841269841269841,
-        "relative_absolute_volume_error": 0.13894166799209504,
-        "sum_absolute_volume_error_m3": 11284475100.083466,
-        "sum_reference_volume_m3": 81217357349.74397
+        "relative_absolute_volume_error": 0.13871017810493602,
+        "sum_absolute_volume_error_m3": 11268970718.007519,
+        "sum_reference_volume_m3": 81241123556.79047
       },
       "layers": [
         {
@@ -53,18 +91,18 @@
           "variant": "raw"
         },
         {
-          "absolute_volume_error_m3": 1014981012.9757504,
+          "absolute_volume_error_m3": 999476630.8998028,
           "bottom_support": 0.6666666666666666,
           "domain_area_m2": 15688666.5,
           "domain_record_count": 3,
           "layer_index": 3,
           "negative_thickness_query_fraction": 0.0,
-          "predicted_volume_m3": 1825010958.8306162,
-          "query_count": 130,
-          "reference_volume_m3": 810029945.8548658,
-          "relative_absolute_volume_error": 1.253016654717116,
-          "thickness_mae_m": 64.6951742505171,
-          "thickness_rmse_m": 70.45658480532651,
+          "predicted_volume_m3": 1833272783.8011487,
+          "query_count": 138,
+          "reference_volume_m3": 833796152.9013458,
+          "relative_absolute_volume_error": 1.198706215448394,
+          "thickness_mae_m": 63.70692059135826,
+          "thickness_rmse_m": 69.81578892494615,
           "top_support": 0.6666666666666666,
           "variant": "raw"
         }
@@ -75,11 +113,11 @@
         "layer_count": 3,
         "layers_with_negative_thickness": 1,
         "mean_bottom_support": 0.707936507936508,
-        "mean_thickness_mae_m": 45.67895340774866,
+        "mean_thickness_mae_m": 45.349535521362384,
         "mean_top_support": 0.7841269841269841,
-        "relative_absolute_volume_error": 0.12156521848079255,
-        "sum_absolute_volume_error_m3": 9873205790.654228,
-        "sum_reference_volume_m3": 81217357349.74397
+        "relative_absolute_volume_error": 0.12133881188493649,
+        "sum_absolute_volume_error_m3": 9857701408.578281,
+        "sum_reference_volume_m3": 81241123556.79047
       },
       "layers": [
         {
@@ -115,18 +153,18 @@
           "variant": "reread"
         },
         {
-          "absolute_volume_error_m3": 1014981012.9757504,
+          "absolute_volume_error_m3": 999476630.8998028,
           "bottom_support": 0.6666666666666666,
           "domain_area_m2": 15688666.5,
           "domain_record_count": 3,
           "layer_index": 3,
           "negative_thickness_query_fraction": 0.0,
-          "predicted_volume_m3": 1825010958.8306162,
-          "query_count": 130,
-          "reference_volume_m3": 810029945.8548658,
-          "relative_absolute_volume_error": 1.253016654717116,
-          "thickness_mae_m": 64.6951742505171,
-          "thickness_rmse_m": 70.45658480532651,
+          "predicted_volume_m3": 1833272783.8011487,
+          "query_count": 138,
+          "reference_volume_m3": 833796152.9013458,
+          "relative_absolute_volume_error": 1.198706215448394,
+          "thickness_mae_m": 63.70692059135826,
+          "thickness_rmse_m": 69.81578892494615,
           "top_support": 0.6666666666666666,
           "variant": "reread"
         }
@@ -137,11 +175,11 @@
         "layer_count": 3,
         "layers_with_negative_thickness": 0,
         "mean_bottom_support": 0.37777777777777777,
-        "mean_thickness_mae_m": 34.808162294317434,
+        "mean_thickness_mae_m": 34.89853038791244,
         "mean_top_support": 0.38730158730158726,
-        "relative_absolute_volume_error": 0.08238970710880726,
-        "sum_absolute_volume_error_m3": 6691474284.196741,
-        "sum_reference_volume_m3": 81217357349.74397
+        "relative_absolute_volume_error": 0.08207306577301696,
+        "sum_absolute_volume_error_m3": 6667708077.150261,
+        "sum_reference_volume_m3": 81241123556.79047
       },
       "layers": [
         {
@@ -177,18 +215,18 @@
           "variant": "risk"
         },
         {
-          "absolute_volume_error_m3": 225422043.1451342,
+          "absolute_volume_error_m3": 201655836.09865415,
           "bottom_support": 0.3333333333333333,
           "domain_area_m2": 15688666.5,
           "domain_record_count": 3,
           "layer_index": 3,
           "negative_thickness_query_fraction": 0.0,
           "predicted_volume_m3": 1035451989.0,
-          "query_count": 130,
-          "reference_volume_m3": 810029945.8548658,
-          "relative_absolute_volume_error": 0.2782885303175241,
-          "thickness_mae_m": 45.091115253772706,
-          "thickness_rmse_m": 52.3067651907234,
+          "query_count": 138,
+          "reference_volume_m3": 833796152.9013458,
+          "relative_absolute_volume_error": 0.2418526823336326,
+          "thickness_mae_m": 45.36221953455772,
+          "thickness_rmse_m": 52.896451677652905,
           "top_support": 0.3333333333333333,
           "variant": "risk"
         }
@@ -206,31 +244,31 @@
           "layer_count": 3,
           "layers_with_negative_thickness": 0,
           "mean_bottom_support": 0.6984126984126983,
-          "mean_thickness_mae_m": 42.51655364567666,
+          "mean_thickness_mae_m": 42.32251863831123,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.14787381677463726,
-          "sum_absolute_volume_error_m3": 12405896794.893288,
-          "sum_reference_volume_m3": 83895155109.17075
+          "relative_absolute_volume_error": 0.14767463319729437,
+          "sum_absolute_volume_error_m3": 12396764343.333643,
+          "sum_reference_volume_m3": 83946471204.51266
         },
         "reread": {
           "layer_count": 3,
           "layers_with_negative_thickness": 0,
           "mean_bottom_support": 0.707936507936508,
-          "mean_thickness_mae_m": 42.1377171115314,
+          "mean_thickness_mae_m": 41.94368210416598,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.13066075449069015,
-          "sum_absolute_volume_error_m3": 10961804264.677727,
-          "sum_reference_volume_m3": 83895155109.17075
+          "relative_absolute_volume_error": 0.13047209317988945,
+          "sum_absolute_volume_error_m3": 10952671813.118082,
+          "sum_reference_volume_m3": 83946471204.51266
         },
         "risk": {
           "layer_count": 3,
           "layers_with_negative_thickness": 0,
           "mean_bottom_support": 0.37777777777777777,
-          "mean_thickness_mae_m": 21.76850259322718,
+          "mean_thickness_mae_m": 22.8425429344789,
           "mean_top_support": 0.38730158730158726,
-          "relative_absolute_volume_error": 0.09507844198244943,
-          "sum_absolute_volume_error_m3": 7976620637.655887,
-          "sum_reference_volume_m3": 83895155109.17075
+          "relative_absolute_volume_error": 0.09440902552063357,
+          "sum_absolute_volume_error_m3": 7925304542.313968,
+          "sum_reference_volume_m3": 83946471204.51266
         }
       }
     },
@@ -244,31 +282,31 @@
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.6984126984126983,
-          "mean_thickness_mae_m": 43.65206511180574,
+          "mean_thickness_mae_m": 43.40107526129257,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.15254195307051885,
-          "sum_absolute_volume_error_m3": 12818711335.438665,
-          "sum_reference_volume_m3": 84034005579.51874
+          "relative_absolute_volume_error": 0.15237174627389327,
+          "sum_absolute_volume_error_m3": 12806898247.259907,
+          "sum_reference_volume_m3": 84050347655.917
         },
         "reread": {
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.707936507936508,
-          "mean_thickness_mae_m": 43.15633856647316,
+          "mean_thickness_mae_m": 42.905348715959995,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.1303939701549724,
-          "sum_absolute_volume_error_m3": 10957527615.53855,
-          "sum_reference_volume_m3": 84034005579.51874
+          "relative_absolute_volume_error": 0.130228069634751,
+          "sum_absolute_volume_error_m3": 10945714527.35979,
+          "sum_reference_volume_m3": 84050347655.917
         },
         "risk": {
           "layer_count": 3,
           "layers_with_negative_thickness": 0,
           "mean_bottom_support": 0.37777777777777777,
-          "mean_thickness_mae_m": 22.67711916441465,
+          "mean_thickness_mae_m": 22.75057374358255,
           "mean_top_support": 0.38730158730158726,
-          "relative_absolute_volume_error": 0.09551278414940265,
-          "sum_absolute_volume_error_m3": 8026321836.12627,
-          "sum_reference_volume_m3": 84034005579.51874
+          "relative_absolute_volume_error": 0.09529978141814523,
+          "sum_absolute_volume_error_m3": 8009979759.728006,
+          "sum_reference_volume_m3": 84050347655.917
         }
       }
     },
@@ -282,31 +320,31 @@
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.6984126984126983,
-          "mean_thickness_mae_m": 43.98972546976299,
+          "mean_thickness_mae_m": 43.790661061732045,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.15361018953741198,
-          "sum_absolute_volume_error_m3": 12909042195.801907,
-          "sum_reference_volume_m3": 84037668560.11783
+          "relative_absolute_volume_error": 0.15347574530157418,
+          "sum_absolute_volume_error_m3": 12899673030.473055,
+          "sum_reference_volume_m3": 84050238720.95016
         },
         "reread": {
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.707936507936508,
-          "mean_thickness_mae_m": 43.472413241939535,
+          "mean_thickness_mae_m": 43.27334883390861,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.13092776230544673,
-          "sum_absolute_volume_error_m3": 11002863893.94302,
-          "sum_reference_volume_m3": 84037668560.11783
+          "relative_absolute_volume_error": 0.13079671034740267,
+          "sum_absolute_volume_error_m3": 10993494728.614168,
+          "sum_reference_volume_m3": 84050238720.95016
         },
         "risk": {
           "layer_count": 3,
           "layers_with_negative_thickness": 0,
           "mean_bottom_support": 0.37777777777777777,
-          "mean_thickness_mae_m": 22.66068283218645,
+          "mean_thickness_mae_m": 22.713776170558884,
           "mean_top_support": 0.38730158730158726,
-          "relative_absolute_volume_error": 0.09590384240857314,
-          "sum_absolute_volume_error_m3": 8059535321.973442,
-          "sum_reference_volume_m3": 84037668560.11783
+          "relative_absolute_volume_error": 0.09573994415241739,
+          "sum_absolute_volume_error_m3": 8046965161.141119,
+          "sum_reference_volume_m3": 84050238720.95016
         }
       }
     },
@@ -320,31 +358,31 @@
           "layer_count": 3,
           "layers_with_negative_thickness": 0,
           "mean_bottom_support": 0.6984126984126983,
-          "mean_thickness_mae_m": 47.81189730751484,
+          "mean_thickness_mae_m": 47.61786230014942,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.12757250521524316,
-          "sum_absolute_volume_error_m3": 10319364381.126915,
-          "sum_reference_volume_m3": 80890191532.38274
+          "relative_absolute_volume_error": 0.12737879774845876,
+          "sum_absolute_volume_error_m3": 10310231929.56727,
+          "sum_reference_volume_m3": 80941507627.72466
         },
         "reread": {
           "layer_count": 3,
           "layers_with_negative_thickness": 0,
           "mean_bottom_support": 0.707936507936508,
-          "mean_thickness_mae_m": 47.648923941173905,
+          "mean_thickness_mae_m": 47.45488893380848,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.1286218467020857,
-          "sum_absolute_volume_error_m3": 10404245814.980484,
-          "sum_reference_volume_m3": 80890191532.38274
+          "relative_absolute_volume_error": 0.12842747396343568,
+          "sum_absolute_volume_error_m3": 10395113363.42084,
+          "sum_reference_volume_m3": 80941507627.72466
         },
         "risk": {
           "layer_count": 3,
           "layers_with_negative_thickness": 0,
           "mean_bottom_support": 0.37777777777777777,
-          "mean_thickness_mae_m": 27.53357352013845,
+          "mean_thickness_mae_m": 28.607613861390174,
           "mean_top_support": 0.38730158730158726,
-          "relative_absolute_volume_error": 0.03466556365033876,
-          "sum_absolute_volume_error_m3": 2804104083.253907,
-          "sum_reference_volume_m3": 80890191532.38274
+          "relative_absolute_volume_error": 0.034009596171261376,
+          "sum_absolute_volume_error_m3": 2752787987.911988,
+          "sum_reference_volume_m3": 80941507627.72466
         }
       }
     },
@@ -358,31 +396,31 @@
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.6984126984126983,
-          "mean_thickness_mae_m": 48.69589775750698,
+          "mean_thickness_mae_m": 48.44490790699381,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.13565536881226425,
-          "sum_absolute_volume_error_m3": 10980925515.297712,
-          "sum_reference_volume_m3": 80947223920.74582
+          "relative_absolute_volume_error": 0.13548208125499164,
+          "sum_absolute_volume_error_m3": 10969112427.118954,
+          "sum_reference_volume_m3": 80963565997.14409
         },
         "reread": {
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.707936507936508,
-          "mean_thickness_mae_m": 48.4878108016425,
+          "mean_thickness_mae_m": 48.236820951129324,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.13090938219268955,
-          "sum_absolute_volume_error_m3": 10596751073.678137,
-          "sum_reference_volume_m3": 80947223920.74582
+          "relative_absolute_volume_error": 0.13073705258823148,
+          "sum_absolute_volume_error_m3": 10584937985.499378,
+          "sum_reference_volume_m3": 80963565997.14409
         },
         "risk": {
           "layer_count": 3,
           "layers_with_negative_thickness": 0,
           "mean_bottom_support": 0.37777777777777777,
-          "mean_thickness_mae_m": 29.19499237554255,
+          "mean_thickness_mae_m": 29.268446954710452,
           "mean_top_support": 0.38730158730158726,
-          "relative_absolute_volume_error": 0.03348966435503409,
-          "sum_absolute_volume_error_m3": 2710895359.577564,
-          "sum_reference_volume_m3": 80947223920.74582
+          "relative_absolute_volume_error": 0.03328105981984969,
+          "sum_absolute_volume_error_m3": 2694553283.179301,
+          "sum_reference_volume_m3": 80963565997.14409
         }
       }
     },
@@ -396,31 +434,31 @@
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.6984126984126983,
-          "mean_thickness_mae_m": 49.06396578983752,
+          "mean_thickness_mae_m": 48.86490138180658,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.13826033025941062,
-          "sum_absolute_volume_error_m3": 11191305367.916555,
-          "sum_reference_volume_m3": 80943719336.69545
+          "relative_absolute_volume_error": 0.13812313128468143,
+          "sum_absolute_volume_error_m3": 11181936202.587704,
+          "sum_reference_volume_m3": 80956289497.52777
         },
         "reread": {
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.707936507936508,
-          "mean_thickness_mae_m": 48.87861963650537,
+          "mean_thickness_mae_m": 48.679555228474435,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.13141947880876897,
-          "sum_absolute_volume_error_m3": 10637581408.07179,
-          "sum_reference_volume_m3": 80943719336.69545
+          "relative_absolute_volume_error": 0.13128334201961542,
+          "sum_absolute_volume_error_m3": 10628212242.742939,
+          "sum_reference_volume_m3": 80956289497.52777
         },
         "risk": {
           "layer_count": 3,
           "layers_with_negative_thickness": 0,
           "mean_bottom_support": 0.37777777777777777,
-          "mean_thickness_mae_m": 28.89167159493464,
+          "mean_thickness_mae_m": 28.944764933307074,
           "mean_top_support": 0.38730158730158726,
-          "relative_absolute_volume_error": 0.03445811427665694,
-          "sum_absolute_volume_error_m3": 2789167930.881498,
-          "sum_reference_volume_m3": 80943719336.69545
+          "relative_absolute_volume_error": 0.03429749297161114,
+          "sum_absolute_volume_error_m3": 2776597770.0491753,
+          "sum_reference_volume_m3": 80956289497.52777
         }
       }
     },
@@ -434,31 +472,31 @@
           "layer_count": 3,
           "layers_with_negative_thickness": 0,
           "mean_bottom_support": 0.6984126984126983,
-          "mean_thickness_mae_m": 44.793609943118504,
+          "mean_thickness_mae_m": 44.59957493575308,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.12294059023654179,
-          "sum_absolute_volume_error_m3": 10260704233.898674,
-          "sum_reference_volume_m3": 83460671647.63678
+          "relative_absolute_volume_error": 0.12275569124147609,
+          "sum_absolute_volume_error_m3": 10251571782.33903,
+          "sum_reference_volume_m3": 83511987742.9787
         },
         "reread": {
           "layer_count": 3,
           "layers_with_negative_thickness": 0,
           "mean_bottom_support": 0.707936507936508,
-          "mean_thickness_mae_m": 45.84346518931318,
+          "mean_thickness_mae_m": 45.64943018194774,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.12815043087971756,
-          "sum_absolute_volume_error_m3": 10695521033.155281,
-          "sum_reference_volume_m3": 83460671647.63678
+          "relative_absolute_volume_error": 0.12796233056366327,
+          "sum_absolute_volume_error_m3": 10686388581.595636,
+          "sum_reference_volume_m3": 83511987742.9787
         },
         "risk": {
           "layer_count": 3,
           "layers_with_negative_thickness": 0,
           "mean_bottom_support": 0.37777777777777777,
-          "mean_thickness_mae_m": 25.56308815606076,
+          "mean_thickness_mae_m": 26.637128497312485,
           "mean_top_support": 0.38730158730158726,
-          "relative_absolute_volume_error": 0.12465625554797995,
-          "sum_absolute_volume_error_m3": 10403894813.113855,
-          "sum_reference_volume_m3": 83460671647.63678
+          "relative_absolute_volume_error": 0.12396518149745912,
+          "sum_absolute_volume_error_m3": 10352578717.771936,
+          "sum_reference_volume_m3": 83511987742.9787
         }
       }
     },
@@ -472,31 +510,31 @@
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.6984126984126983,
-          "mean_thickness_mae_m": 45.81674776092561,
+          "mean_thickness_mae_m": 45.56575791041244,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.12190540610512848,
-          "sum_absolute_volume_error_m3": 10142209000.01821,
-          "sum_reference_volume_m3": 83197368550.42996
+          "relative_absolute_volume_error": 0.12173950465049199,
+          "sum_absolute_volume_error_m3": 10130395911.83945,
+          "sum_reference_volume_m3": 83213710626.82823
         },
         "reread": {
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.707936507936508,
-          "mean_thickness_mae_m": 46.94161736401703,
+          "mean_thickness_mae_m": 46.69062751350386,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.1313693617226466,
-          "sum_absolute_volume_error_m3": 10929585203.473776,
-          "sum_reference_volume_m3": 83197368550.42996
+          "relative_absolute_volume_error": 0.13120160167181766,
+          "sum_absolute_volume_error_m3": 10917772115.295017,
+          "sum_reference_volume_m3": 83213710626.82823
         },
         "risk": {
           "layer_count": 3,
           "layers_with_negative_thickness": 0,
           "mean_bottom_support": 0.37777777777777777,
-          "mean_thickness_mae_m": 26.038492220552286,
+          "mean_thickness_mae_m": 26.111946799720187,
           "mean_top_support": 0.38730158730158726,
-          "relative_absolute_volume_error": 0.12152691906873012,
-          "sum_absolute_volume_error_m3": 10110719874.559414,
-          "sum_reference_volume_m3": 83197368550.42996
+          "relative_absolute_volume_error": 0.12130666595832233,
+          "sum_absolute_volume_error_m3": 10094377798.16115,
+          "sum_reference_volume_m3": 83213710626.82823
         }
       }
     },
@@ -510,31 +548,31 @@
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.6984126984126983,
-          "mean_thickness_mae_m": 46.165720491542345,
+          "mean_thickness_mae_m": 45.9666560835114,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.12277134767518849,
-          "sum_absolute_volume_error_m3": 10239242360.546589,
-          "sum_reference_volume_m3": 83400911975.29382
+          "relative_absolute_volume_error": 0.12264052444811203,
+          "sum_absolute_volume_error_m3": 10229873195.217737,
+          "sum_reference_volume_m3": 83413482136.12616
         },
         "reread": {
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.707936507936508,
-          "mean_thickness_mae_m": 47.201840557096176,
+          "mean_thickness_mae_m": 47.002776149065234,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.13201356067178285,
-          "sum_absolute_volume_error_m3": 11010051353.132473,
-          "sum_reference_volume_m3": 83400911975.29382
+          "relative_absolute_volume_error": 0.13188134467101037,
+          "sum_absolute_volume_error_m3": 11000682187.803621,
+          "sum_reference_volume_m3": 83413482136.12616
         },
         "risk": {
           "layer_count": 3,
           "layers_with_negative_thickness": 0,
           "mean_bottom_support": 0.37777777777777777,
-          "mean_thickness_mae_m": 26.045768593310516,
+          "mean_thickness_mae_m": 26.09886193168295,
           "mean_top_support": 0.38730158730158726,
-          "relative_absolute_volume_error": 0.12338287754782273,
-          "sum_absolute_volume_error_m3": 10290244509.62442,
-          "sum_reference_volume_m3": 83400911975.29382
+          "relative_absolute_volume_error": 0.12321358712755218,
+          "sum_absolute_volume_error_m3": 10277674348.792097,
+          "sum_reference_volume_m3": 83413482136.12616
         }
       }
     },
@@ -548,31 +586,31 @@
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.6984126984126983,
-          "mean_thickness_mae_m": 44.99823494572996,
+          "mean_thickness_mae_m": 44.37833032755454,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.13045217375004756,
-          "sum_absolute_volume_error_m3": 10576570702.897276,
-          "sum_reference_volume_m3": 81076231992.59583
+          "relative_absolute_volume_error": 0.12996720730093733,
+          "sum_absolute_volume_error_m3": 10547394272.448183,
+          "sum_reference_volume_m3": 81154273385.48433
         },
         "reread": {
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.707936507936508,
-          "mean_thickness_mae_m": 44.886544997592125,
+          "mean_thickness_mae_m": 44.266640379416714,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.12255226577536162,
-          "sum_absolute_volume_error_m3": 9936075931.22148,
-          "sum_reference_volume_m3": 81076231992.59583
+          "relative_absolute_volume_error": 0.12207489621297485,
+          "sum_absolute_volume_error_m3": 9906899500.772387,
+          "sum_reference_volume_m3": 81154273385.48433
         },
         "risk": {
           "layer_count": 3,
           "layers_with_negative_thickness": 0,
           "mean_bottom_support": 0.37777777777777777,
-          "mean_thickness_mae_m": 33.74952359760527,
+          "mean_thickness_mae_m": 35.2606593282187,
           "mean_top_support": 0.38730158730158726,
-          "relative_absolute_volume_error": 0.08158704651261352,
-          "sum_absolute_volume_error_m3": 6614770310.64736,
-          "sum_reference_volume_m3": 81076231992.59583
+          "relative_absolute_volume_error": 0.08054694651394738,
+          "sum_absolute_volume_error_m3": 6536728917.758869,
+          "sum_reference_volume_m3": 81154273385.48433
         }
       }
     },
@@ -586,31 +624,31 @@
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.6984126984126983,
-          "mean_thickness_mae_m": 45.95229835180885,
+          "mean_thickness_mae_m": 45.622880465422575,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.13894166799209504,
-          "sum_absolute_volume_error_m3": 11284475100.083466,
-          "sum_reference_volume_m3": 81217357349.74397
+          "relative_absolute_volume_error": 0.13871017810493602,
+          "sum_absolute_volume_error_m3": 11268970718.007519,
+          "sum_reference_volume_m3": 81241123556.79047
         },
         "reread": {
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.707936507936508,
-          "mean_thickness_mae_m": 45.67895340774866,
+          "mean_thickness_mae_m": 45.349535521362384,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.12156521848079255,
-          "sum_absolute_volume_error_m3": 9873205790.654228,
-          "sum_reference_volume_m3": 81217357349.74397
+          "relative_absolute_volume_error": 0.12133881188493649,
+          "sum_absolute_volume_error_m3": 9857701408.578281,
+          "sum_reference_volume_m3": 81241123556.79047
         },
         "risk": {
           "layer_count": 3,
           "layers_with_negative_thickness": 0,
           "mean_bottom_support": 0.37777777777777777,
-          "mean_thickness_mae_m": 34.808162294317434,
+          "mean_thickness_mae_m": 34.89853038791244,
           "mean_top_support": 0.38730158730158726,
-          "relative_absolute_volume_error": 0.08238970710880726,
-          "sum_absolute_volume_error_m3": 6691474284.196741,
-          "sum_reference_volume_m3": 81217357349.74397
+          "relative_absolute_volume_error": 0.08207306577301696,
+          "sum_absolute_volume_error_m3": 6667708077.150261,
+          "sum_reference_volume_m3": 81241123556.79047
         }
       }
     },
@@ -624,31 +662,31 @@
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.6984126984126983,
-          "mean_thickness_mae_m": 46.41950904423365,
+          "mean_thickness_mae_m": 46.16238642843964,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.13937079828338028,
-          "sum_absolute_volume_error_m3": 11314637883.384562,
-          "sum_reference_volume_m3": 81183705788.77435
+          "relative_absolute_volume_error": 0.13919061751321524,
+          "sum_absolute_volume_error_m3": 11302536150.478163,
+          "sum_reference_volume_m3": 81201853633.59755
         },
         "reread": {
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.707936507936508,
-          "mean_thickness_mae_m": 46.075655230645964,
+          "mean_thickness_mae_m": 45.81853261485196,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.1239612458028705,
-          "sum_absolute_volume_error_m3": 10063633308.470179,
-          "sum_reference_volume_m3": 81183705788.77435
+          "relative_absolute_volume_error": 0.12378450892166486,
+          "sum_absolute_volume_error_m3": 10051531575.56378,
+          "sum_reference_volume_m3": 81201853633.59755
         },
         "risk": {
           "layer_count": 3,
           "layers_with_negative_thickness": 0,
           "mean_bottom_support": 0.37777777777777777,
-          "mean_thickness_mae_m": 34.835093091717866,
+          "mean_thickness_mae_m": 34.898902067837476,
           "mean_top_support": 0.38730158730158726,
-          "relative_absolute_volume_error": 0.08172671499211628,
-          "sum_absolute_volume_error_m3": 6634877585.002982,
-          "sum_reference_volume_m3": 81183705788.77435
+          "relative_absolute_volume_error": 0.08148495932169322,
+          "sum_absolute_volume_error_m3": 6616729740.179784,
+          "sum_reference_volume_m3": 81201853633.59755
         }
       }
     },
@@ -662,31 +700,31 @@
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.6984126984126983,
-          "mean_thickness_mae_m": 48.137641719067766,
+          "mean_thickness_mae_m": 47.51773710089234,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.1324274681398189,
-          "sum_absolute_volume_error_m3": 10450503644.793304,
-          "sum_reference_volume_m3": 78914924460.83395
+          "relative_absolute_volume_error": 0.13192728114098426,
+          "sum_absolute_volume_error_m3": 10421327214.344212,
+          "sum_reference_volume_m3": 78992965853.72246
         },
         "reread": {
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.707936507936508,
-          "mean_thickness_mae_m": 47.210851517783794,
+          "mean_thickness_mae_m": 46.590946899608376,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.10328536169998939,
-          "sum_absolute_volume_error_m3": 8150756516.464576,
-          "sum_reference_volume_m3": 78914924460.83395
+          "relative_absolute_volume_error": 0.10281396575303753,
+          "sum_absolute_volume_error_m3": 8121580086.015484,
+          "sum_reference_volume_m3": 78992965853.72246
         },
         "risk": {
           "layer_count": 3,
           "layers_with_negative_thickness": 0,
           "mean_bottom_support": 0.37777777777777777,
-          "mean_thickness_mae_m": 37.006490819495376,
+          "mean_thickness_mae_m": 38.51762655010881,
           "mean_top_support": 0.38730158730158726,
-          "relative_absolute_volume_error": 0.03744751119874532,
-          "sum_absolute_volume_error_m3": 2955167517.4952207,
-          "sum_reference_volume_m3": 78914924460.83395
+          "relative_absolute_volume_error": 0.03642256109150949,
+          "sum_absolute_volume_error_m3": 2877126124.606729,
+          "sum_reference_volume_m3": 78992965853.72246
         }
       }
     },
@@ -700,31 +738,31 @@
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.6984126984126983,
-          "mean_thickness_mae_m": 48.86795271225213,
+          "mean_thickness_mae_m": 48.538534825865845,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.13659951551597274,
-          "sum_absolute_volume_error_m3": 10772948266.894983,
-          "sum_reference_volume_m3": 78865201140.74117
+          "relative_absolute_volume_error": 0.1363618291185645,
+          "sum_absolute_volume_error_m3": 10757443884.819036,
+          "sum_reference_volume_m3": 78888967347.78766
         },
         "reread": {
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.707936507936508,
-          "mean_thickness_mae_m": 47.91435758365525,
+          "mean_thickness_mae_m": 47.58493969726897,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.10941722782223866,
-          "sum_absolute_volume_error_m3": 8629211680.463152,
-          "sum_reference_volume_m3": 78865201140.74117
+          "relative_absolute_volume_error": 0.10918773040104658,
+          "sum_absolute_volume_error_m3": 8613707298.387205,
+          "sum_reference_volume_m3": 78888967347.78766
         },
         "risk": {
           "layer_count": 3,
           "layers_with_negative_thickness": 0,
           "mean_bottom_support": 0.37777777777777777,
-          "mean_thickness_mae_m": 38.66403801691576,
+          "mean_thickness_mae_m": 38.754406110510764,
           "mean_top_support": 0.38730158730158726,
-          "relative_absolute_volume_error": 0.035285300603172184,
-          "sum_absolute_volume_error_m3": 2782782329.3806896,
-          "sum_reference_volume_m3": 78865201140.74117
+          "relative_absolute_volume_error": 0.03497340902145277,
+          "sum_absolute_volume_error_m3": 2759016122.33421,
+          "sum_reference_volume_m3": 78888967347.78766
         }
       }
     },
@@ -738,31 +776,31 @@
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.6984126984126983,
-          "mean_thickness_mae_m": 49.33030908233396,
+          "mean_thickness_mae_m": 49.073186466539944,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.13757272152586197,
-          "sum_absolute_volume_error_m3": 10841026358.080677,
-          "sum_reference_volume_m3": 78802150875.83841
+          "relative_absolute_volume_error": 0.13738751058977694,
+          "sum_absolute_volume_error_m3": 10828924625.174278,
+          "sum_reference_volume_m3": 78820298720.6616
         },
         "reread": {
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.707936507936508,
-          "mean_thickness_mae_m": 48.433098674352806,
+          "mean_thickness_mae_m": 48.175976058558796,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.11244281198215242,
-          "sum_absolute_volume_error_m3": 8860735434.721106,
-          "sum_reference_volume_m3": 78802150875.83841
+          "relative_absolute_volume_error": 0.11226338703909483,
+          "sum_absolute_volume_error_m3": 8848633701.814705,
+          "sum_reference_volume_m3": 78820298720.6616
         },
         "risk": {
           "layer_count": 3,
           "layers_with_negative_thickness": 0,
           "mean_bottom_support": 0.37777777777777777,
-          "mean_thickness_mae_m": 38.50442601007379,
+          "mean_thickness_mae_m": 38.5682349861934,
           "mean_top_support": 0.38730158730158726,
-          "relative_absolute_volume_error": 0.03504691915710834,
-          "sum_absolute_volume_error_m3": 2761772611.151763,
-          "sum_reference_volume_m3": 78802150875.83841
+          "relative_absolute_volume_error": 0.03480860655009625,
+          "sum_absolute_volume_error_m3": 2743624766.3285646,
+          "sum_reference_volume_m3": 78820298720.6616
         }
       }
     },
@@ -776,31 +814,31 @@
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.6984126984126983,
-          "mean_thickness_mae_m": 46.37837273754019,
+          "mean_thickness_mae_m": 45.75846811936477,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.12651202216576948,
-          "sum_absolute_volume_error_m3": 10216190549.349615,
-          "sum_reference_volume_m3": 80752725112.2686
+          "relative_absolute_volume_error": 0.12602891892965754,
+          "sum_absolute_volume_error_m3": 10187014118.900522,
+          "sum_reference_volume_m3": 80830766505.1571
         },
         "reread": {
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.707936507936508,
-          "mean_thickness_mae_m": 46.71133834192184,
+          "mean_thickness_mae_m": 46.09143372374643,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.11321004893809061,
-          "sum_absolute_volume_error_m3": 9142019961.844107,
-          "sum_reference_volume_m3": 80752725112.2686
+          "relative_absolute_volume_error": 0.11273978863993085,
+          "sum_absolute_volume_error_m3": 9112843531.395014,
+          "sum_reference_volume_m3": 80830766505.1571
         },
         "risk": {
           "layer_count": 3,
           "layers_with_negative_thickness": 0,
           "mean_bottom_support": 0.37777777777777777,
-          "mean_thickness_mae_m": 34.93926056080641,
+          "mean_thickness_mae_m": 36.45039629141984,
           "mean_top_support": 0.38730158730158726,
-          "relative_absolute_volume_error": 0.09065213925631613,
-          "sum_absolute_volume_error_m3": 7320407282.20439,
-          "sum_reference_volume_m3": 80752725112.2686
+          "relative_absolute_volume_error": 0.08959912422522712,
+          "sum_absolute_volume_error_m3": 7242365889.315899,
+          "sum_reference_volume_m3": 80830766505.1571
         }
       }
     },
@@ -814,31 +852,31 @@
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.6984126984126983,
-          "mean_thickness_mae_m": 47.32008537968354,
+          "mean_thickness_mae_m": 46.99066749329725,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.12992332053816,
-          "sum_absolute_volume_error_m3": 10468018289.46299,
-          "sum_reference_volume_m3": 80570741619.77264
+          "relative_absolute_volume_error": 0.12969263277650786,
+          "sum_absolute_volume_error_m3": 10452513907.387043,
+          "sum_reference_volume_m3": 80594507826.81914
         },
         "reread": {
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.707936507936508,
-          "mean_thickness_mae_m": 47.5963591507581,
+          "mean_thickness_mae_m": 47.266941264371816,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.11615823805236768,
-          "sum_absolute_volume_error_m3": 9358955385.125359,
-          "sum_reference_volume_m3": 80570741619.77264
+          "relative_absolute_volume_error": 0.1159316094233933,
+          "sum_absolute_volume_error_m3": 9343451003.04941,
+          "sum_reference_volume_m3": 80594507826.81914
         },
         "risk": {
           "layer_count": 3,
           "layers_with_negative_thickness": 0,
           "mean_bottom_support": 0.37777777777777777,
-          "mean_thickness_mae_m": 35.89743598494959,
+          "mean_thickness_mae_m": 35.98780407854459,
           "mean_top_support": 0.38730158730158726,
-          "relative_absolute_volume_error": 0.08797290523879184,
-          "sum_absolute_volume_error_m3": 7088042217.53544,
-          "sum_reference_volume_m3": 80570741619.77264
+          "relative_absolute_volume_error": 0.08765207705801271,
+          "sum_absolute_volume_error_m3": 7064276010.48896,
+          "sum_reference_volume_m3": 80594507826.81914
         }
       }
     },
@@ -852,31 +890,31 @@
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.6984126984126983,
-          "mean_thickness_mae_m": 47.802758804946315,
+          "mean_thickness_mae_m": 47.545636189152304,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.13008911207665894,
-          "sum_absolute_volume_error_m3": 10495227151.828424,
-          "sum_reference_volume_m3": 80677214136.4436
+          "relative_absolute_volume_error": 0.12990988777466111,
+          "sum_absolute_volume_error_m3": 10483125418.922026,
+          "sum_reference_volume_m3": 80695361981.2668
         },
         "reread": {
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.707936507936508,
-          "mean_thickness_mae_m": 47.962162288520005,
+          "mean_thickness_mae_m": 47.705039672726,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.11858530039233801,
-          "sum_absolute_volume_error_m3": 9567131673.187143,
-          "sum_reference_volume_m3": 80677214136.4436
+          "relative_absolute_volume_error": 0.11840866322030896,
+          "sum_absolute_volume_error_m3": 9555029940.280745,
+          "sum_reference_volume_m3": 80695361981.2668
         },
         "risk": {
           "layer_count": 3,
           "layers_with_negative_thickness": 0,
           "mean_bottom_support": 0.37777777777777777,
-          "mean_thickness_mae_m": 35.948159184105286,
+          "mean_thickness_mae_m": 36.01196816022489,
           "mean_top_support": 0.38730158730158726,
-          "relative_absolute_volume_error": 0.08874032499208614,
-          "sum_absolute_volume_error_m3": 7159322201.924132,
-          "sum_reference_volume_m3": 80677214136.4436
+          "relative_absolute_volume_error": 0.08849547460681492,
+          "sum_absolute_volume_error_m3": 7141174357.100934,
+          "sum_reference_volume_m3": 80695361981.2668
         }
       }
     },
@@ -890,31 +928,31 @@
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.6984126984126983,
-          "mean_thickness_mae_m": 45.828427179912154,
+          "mean_thickness_mae_m": 44.88856556584074,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.12728398738253913,
-          "sum_absolute_volume_error_m3": 10083117989.143593,
-          "sum_reference_volume_m3": 79217489933.27655
+          "relative_absolute_volume_error": 0.12658216194014874,
+          "sum_absolute_volume_error_m3": 10038882462.88564,
+          "sum_reference_volume_m3": 79307244472.82137
         },
         "reread": {
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.707936507936508,
-          "mean_thickness_mae_m": 45.18481616198461,
+          "mean_thickness_mae_m": 44.2449545479132,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.10179981635608351,
-          "sum_absolute_volume_error_m3": 8064325927.397447,
-          "sum_reference_volume_m3": 79217489933.27655
+          "relative_absolute_volume_error": 0.10112683216333386,
+          "sum_absolute_volume_error_m3": 8020090401.139493,
+          "sum_reference_volume_m3": 79307244472.82137
         },
         "risk": {
           "layer_count": 3,
           "layers_with_negative_thickness": 0,
           "mean_bottom_support": 0.37777777777777777,
-          "mean_thickness_mae_m": 40.92137832201143,
+          "mean_thickness_mae_m": 42.47487789497682,
           "mean_top_support": 0.38730158730158726,
-          "relative_absolute_volume_error": 0.07147911981696524,
-          "sum_absolute_volume_error_m3": 5662396454.539912,
-          "sum_reference_volume_m3": 79217489933.27655
+          "relative_absolute_volume_error": 0.07026649270237666,
+          "sum_absolute_volume_error_m3": 5572641914.995104,
+          "sum_reference_volume_m3": 79307244472.82137
         }
       }
     },
@@ -928,31 +966,31 @@
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.6984126984126983,
-          "mean_thickness_mae_m": 46.48679369575711,
+          "mean_thickness_mae_m": 46.14661911199122,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.1318107939698278,
-          "sum_absolute_volume_error_m3": 10410145498.273148,
-          "sum_reference_volume_m3": 78977943950.90349
+          "relative_absolute_volume_error": 0.13156453454865671,
+          "sum_absolute_volume_error_m3": 10394134841.48371,
+          "sum_reference_volume_m3": 79004078699.03291
         },
         "reread": {
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.707936507936508,
-          "mean_thickness_mae_m": 45.708778181517864,
+          "mean_thickness_mae_m": 45.368603597751985,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.10707476447787033,
-          "sum_absolute_volume_error_m3": 8456544747.489434,
-          "sum_reference_volume_m3": 78977943950.90349
+          "relative_absolute_volume_error": 0.10683668779752907,
+          "sum_absolute_volume_error_m3": 8440534090.699996,
+          "sum_reference_volume_m3": 79004078699.03291
         },
         "risk": {
           "layer_count": 3,
           "layers_with_negative_thickness": 0,
           "mean_bottom_support": 0.37777777777777777,
-          "mean_thickness_mae_m": 41.907065687204664,
+          "mean_thickness_mae_m": 42.00304634235013,
           "mean_top_support": 0.38730158730158726,
-          "relative_absolute_volume_error": 0.06750349209551298,
-          "sum_absolute_volume_error_m3": 5331287015.2096815,
-          "sum_reference_volume_m3": 78977943950.90349
+          "relative_absolute_volume_error": 0.06715035925284696,
+          "sum_absolute_volume_error_m3": 5305152267.080255,
+          "sum_reference_volume_m3": 79004078699.03291
         }
       }
     },
@@ -966,31 +1004,31 @@
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.6984126984126983,
-          "mean_thickness_mae_m": 47.08834741656657,
+          "mean_thickness_mae_m": 46.821498112363315,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.131726226104615,
-          "sum_absolute_volume_error_m3": 10396811952.559933,
-          "sum_reference_volume_m3": 78927425919.74767
+          "relative_absolute_volume_error": 0.1315337473529441,
+          "sum_absolute_volume_error_m3": 10384252423.341728,
+          "sum_reference_volume_m3": 78947438450.73991
         },
         "reread": {
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.707936507936508,
-          "mean_thickness_mae_m": 46.195089781770186,
+          "mean_thickness_mae_m": 45.92824047756694,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.11056862145857187,
-          "sum_absolute_volume_error_m3": 8726896679.220053,
-          "sum_reference_volume_m3": 78927425919.74767
+          "relative_absolute_volume_error": 0.11038150598691367,
+          "sum_absolute_volume_error_m3": 8714337150.001846,
+          "sum_reference_volume_m3": 78947438450.73991
         },
         "risk": {
           "layer_count": 3,
           "layers_with_negative_thickness": 0,
           "mean_bottom_support": 0.37777777777777777,
-          "mean_thickness_mae_m": 41.87770820291495,
+          "mean_thickness_mae_m": 41.94539100310197,
           "mean_top_support": 0.38730158730158726,
-          "relative_absolute_volume_error": 0.0667040517822745,
-          "sum_absolute_volume_error_m3": 5264779105.592483,
-          "sum_reference_volume_m3": 78927425919.74767
+          "relative_absolute_volume_error": 0.06643365101545079,
+          "sum_absolute_volume_error_m3": 5244766574.600237,
+          "sum_reference_volume_m3": 78947438450.73991
         }
       }
     },
@@ -1004,31 +1042,31 @@
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.6984126984126983,
-          "mean_thickness_mae_m": 47.66798802240451,
+          "mean_thickness_mae_m": 46.72812640833311,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.13582240217763747,
-          "sum_absolute_volume_error_m3": 10575926771.812542,
-          "sum_reference_volume_m3": 77865849832.19962
+          "relative_absolute_volume_error": 0.1350985773304052,
+          "sum_absolute_volume_error_m3": 10531691245.554588,
+          "sum_reference_volume_m3": 77955604371.74443
         },
         "reread": {
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.707936507936508,
-          "mean_thickness_mae_m": 46.303439539731244,
+          "mean_thickness_mae_m": 45.36357792565983,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.09512121382261401,
-          "sum_absolute_volume_error_m3": 7406694151.368214,
-          "sum_reference_volume_m3": 77865849832.19962
+          "relative_absolute_volume_error": 0.09444425047365596,
+          "sum_absolute_volume_error_m3": 7362458625.11026,
+          "sum_reference_volume_m3": 77955604371.74443
         },
         "risk": {
           "layer_count": 3,
           "layers_with_negative_thickness": 0,
           "mean_bottom_support": 0.37777777777777777,
-          "mean_thickness_mae_m": 43.08613660461233,
+          "mean_thickness_mae_m": 44.63963617757772,
           "mean_top_support": 0.38730158730158726,
-          "relative_absolute_volume_error": 0.04905793946396365,
-          "sum_absolute_volume_error_m3": 3819938147.378133,
-          "sum_reference_volume_m3": 77865849832.19962
+          "relative_absolute_volume_error": 0.0478501018354667,
+          "sum_absolute_volume_error_m3": 3730183607.8333244,
+          "sum_reference_volume_m3": 77955604371.74443
         }
       }
     },
@@ -1042,31 +1080,31 @@
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.6984126984126983,
-          "mean_thickness_mae_m": 48.19505156520095,
+          "mean_thickness_mae_m": 47.854876981435076,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.13526584740974465,
-          "sum_absolute_volume_error_m3": 10486035674.24494,
-          "sum_reference_volume_m3": 77521679529.94702
+          "relative_absolute_volume_error": 0.1350137990983388,
+          "sum_absolute_volume_error_m3": 10470025017.455502,
+          "sum_reference_volume_m3": 77547814278.07645
         },
         "reread": {
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.707936507936508,
-          "mean_thickness_mae_m": 46.75933653449289,
+          "mean_thickness_mae_m": 46.419161950727016,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.09408979312486367,
-          "sum_absolute_volume_error_m3": 7293998789.664694,
-          "sum_reference_volume_m3": 77521679529.94702
+          "relative_absolute_volume_error": 0.09385162174626006,
+          "sum_absolute_volume_error_m3": 7277988132.875256,
+          "sum_reference_volume_m3": 77547814278.07645
         },
         "risk": {
           "layer_count": 3,
           "layers_with_negative_thickness": 0,
           "mean_bottom_support": 0.37777777777777777,
-          "mean_thickness_mae_m": 44.440484161130975,
+          "mean_thickness_mae_m": 44.53646481627644,
           "mean_top_support": 0.38730158730158726,
-          "relative_absolute_volume_error": 0.03890823533184974,
-          "sum_absolute_volume_error_m3": 3016231750.4714174,
-          "sum_reference_volume_m3": 77521679529.94702
+          "relative_absolute_volume_error": 0.03855810805472722,
+          "sum_absolute_volume_error_m3": 2990097002.3419905,
+          "sum_reference_volume_m3": 77547814278.07645
         }
       }
     },
@@ -1080,31 +1118,31 @@
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.6984126984126983,
-          "mean_thickness_mae_m": 48.767197925328524,
+          "mean_thickness_mae_m": 48.50034862112526,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.13538070195604382,
-          "sum_absolute_volume_error_m3": 10484698267.980078,
-          "sum_reference_volume_m3": 77446032680.37648
+          "relative_absolute_volume_error": 0.13518359831314852,
+          "sum_absolute_volume_error_m3": 10472138738.761873,
+          "sum_reference_volume_m3": 77466045211.36873
         },
         "reread": {
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.707936507936508,
-          "mean_thickness_mae_m": 47.35033615384274,
+          "mean_thickness_mae_m": 47.083486849639506,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.09814160748778165,
-          "sum_absolute_volume_error_m3": 7600678140.803419,
-          "sum_reference_volume_m3": 77446032680.37648
+          "relative_absolute_volume_error": 0.09795412416989631,
+          "sum_absolute_volume_error_m3": 7588118611.585214,
+          "sum_reference_volume_m3": 77466045211.36873
         },
         "risk": {
           "layer_count": 3,
           "layers_with_negative_thickness": 0,
           "mean_bottom_support": 0.37777777777777777,
-          "mean_thickness_mae_m": 44.3003767446715,
+          "mean_thickness_mae_m": 44.36805954485852,
           "mean_top_support": 0.38730158730158726,
-          "relative_absolute_volume_error": 0.03621719411897589,
-          "sum_absolute_volume_error_m3": 2804877999.329746,
-          "sum_reference_volume_m3": 77446032680.37648
+          "relative_absolute_volume_error": 0.03594949839944585,
+          "sum_absolute_volume_error_m3": 2784865468.3374996,
+          "sum_reference_volume_m3": 77466045211.36873
         }
       }
     },
@@ -1118,31 +1156,31 @@
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.6984126984126983,
-          "mean_thickness_mae_m": 46.53720958715587,
+          "mean_thickness_mae_m": 45.59734797308446,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.13016768023643094,
-          "sum_absolute_volume_error_m3": 10287906183.5187,
-          "sum_reference_volume_m3": 79035795712.36264
+          "relative_absolute_volume_error": 0.1294609721467789,
+          "sum_absolute_volume_error_m3": 10243670657.260746,
+          "sum_reference_volume_m3": 79125550251.90746
         },
         "reread": {
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.707936507936508,
-          "mean_thickness_mae_m": 46.077354986196134,
+          "mean_thickness_mae_m": 45.13749337212474,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.09303515650119443,
-          "sum_absolute_volume_error_m3": 7353107623.29609,
-          "sum_reference_volume_m3": 79035795712.36264
+          "relative_absolute_volume_error": 0.09237056897259231,
+          "sum_absolute_volume_error_m3": 7308872097.0381365,
+          "sum_reference_volume_m3": 79125550251.90746
         },
         "risk": {
           "layer_count": 3,
           "layers_with_negative_thickness": 0,
           "mean_bottom_support": 0.37777777777777777,
-          "mean_thickness_mae_m": 41.253498476599255,
+          "mean_thickness_mae_m": 42.80699804956465,
           "mean_top_support": 0.38730158730158726,
-          "relative_absolute_volume_error": 0.07331589994969678,
-          "sum_absolute_volume_error_m3": 5794580490.892253,
-          "sum_reference_volume_m3": 79035795712.36264
+          "relative_absolute_volume_error": 0.07209840479068164,
+          "sum_absolute_volume_error_m3": 5704825951.347445,
+          "sum_reference_volume_m3": 79125550251.90746
         }
       }
     },
@@ -1156,31 +1194,31 @@
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.6984126984126983,
-          "mean_thickness_mae_m": 47.224768402781564,
+          "mean_thickness_mae_m": 46.884593819015684,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.13158968555672823,
-          "sum_absolute_volume_error_m3": 10341670522.372269,
-          "sum_reference_volume_m3": 78590282198.93405
+          "relative_absolute_volume_error": 0.13134228532108802,
+          "sum_absolute_volume_error_m3": 10325659865.58283,
+          "sum_reference_volume_m3": 78616416947.06348
         },
         "reread": {
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.707936507936508,
-          "mean_thickness_mae_m": 46.645457496121765,
+          "mean_thickness_mae_m": 46.30528291235589,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.10076543789187703,
-          "sum_absolute_volume_error_m3": 7919184199.821778,
-          "sum_reference_volume_m3": 78590282198.93405
+          "relative_absolute_volume_error": 0.10052828467562898,
+          "sum_absolute_volume_error_m3": 7903173543.03234,
+          "sum_reference_volume_m3": 78616416947.06348
         },
         "risk": {
           "layer_count": 3,
           "layers_with_negative_thickness": 0,
           "mean_bottom_support": 0.37777777777777777,
-          "mean_thickness_mae_m": 42.23497907187721,
+          "mean_thickness_mae_m": 42.33095972702268,
           "mean_top_support": 0.38730158730158726,
-          "relative_absolute_volume_error": 0.06691410602324578,
-          "sum_absolute_volume_error_m3": 5258798475.456279,
-          "sum_reference_volume_m3": 78590282198.93405
+          "relative_absolute_volume_error": 0.06655942779547275,
+          "sum_absolute_volume_error_m3": 5232663727.326852,
+          "sum_reference_volume_m3": 78616416947.06348
         }
       }
     },
@@ -1194,31 +1232,31 @@
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.6984126984126983,
-          "mean_thickness_mae_m": 47.81480710167645,
+          "mean_thickness_mae_m": 47.5479577974732,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.13123235976270292,
-          "sum_absolute_volume_error_m3": 10318616584.153797,
-          "sum_reference_volume_m3": 78628598943.219
+          "relative_absolute_volume_error": 0.131039275350906,
+          "sum_absolute_volume_error_m3": 10306057054.935593,
+          "sum_reference_volume_m3": 78648611474.21124
         },
         "reread": {
           "layer_count": 3,
           "layers_with_negative_thickness": 1,
           "mean_bottom_support": 0.707936507936508,
-          "mean_thickness_mae_m": 47.11277323801181,
+          "mean_thickness_mae_m": 46.84592393380857,
           "mean_top_support": 0.7841269841269841,
-          "relative_absolute_volume_error": 0.10428615602575834,
-          "sum_absolute_volume_error_m3": 8199874337.479314,
-          "sum_reference_volume_m3": 78628598943.219
+          "relative_absolute_volume_error": 0.1040999282097398,
+          "sum_absolute_volume_error_m3": 8187314808.261108,
+          "sum_reference_volume_m3": 78648611474.21124
         },
         "risk": {
           "layer_count": 3,
           "layers_with_negative_thickness": 0,
           "mean_bottom_support": 0.37777777777777777,
-          "mean_thickness_mae_m": 42.23061249291079,
+          "mean_thickness_mae_m": 42.29829529309781,
           "mean_top_support": 0.38730158730158726,
-          "relative_absolute_volume_error": 0.06716810270718335,
-          "sum_absolute_volume_error_m3": 5281333809.540061,
-          "sum_reference_volume_m3": 78628598943.219
+          "relative_absolute_volume_error": 0.06689655646715384,
+          "sum_absolute_volume_error_m3": 5261321278.547815,
+          "sum_reference_volume_m3": 78648611474.21124
         }
       }
     },
@@ -6636,6 +6674,22 @@
   },
   "matched_subset_interpretation": "Risk and reread values are identical on accepted records; any full-support difference between them is therefore attributable to selection/support, not an additional correction.",
   "positioning": "stratigraphic surface and volume sensitivity diagnostic; not a validated geological model",
+  "public_spatial_input": {
+    "evidence_tier": "SOURCE_AGREEMENT_REFERENCE_WITH_AUTHORITATIVE_SPATIAL_METADATA",
+    "excluded": [
+      "source record ID",
+      "absolute easting/northing",
+      "absolute vertical datum origin",
+      "source paths",
+      "document text"
+    ],
+    "invariance": "pairwise horizontal distances, relative elevations, interval depths, risk decisions, and IDW diagnostics are preserved up to decimal rounding",
+    "path": "experiments/paper3/public/spatial_input_v001.jsonl",
+    "record_count": 35,
+    "rights_review": "PENDING_MANUAL_PRE_SUBMISSION_REVIEW",
+    "schema_version": "paper3_spatial_input_public_v001",
+    "transform": "subtract horizontal centroid; rotate 17 degrees; subtract mean collar elevation"
+  },
   "risk_accepted_document_count": 15,
   "risk_document_coverage": 0.42857142857142855,
   "spatial_support": [
@@ -6899,12 +6953,12 @@
       "effective_point_count": 2,
       "grid_size": 25,
       "grid_to_nearest_observation_distance_m": {
-        "count": 130,
+        "count": 138,
         "maximum": 14464.677398753143,
-        "mean": 8999.04602633055,
-        "median": 9630.887484873394,
+        "mean": 8896.628210275247,
+        "median": 9624.05484187531,
         "minimum": 0.0,
-        "p90": 13291.455072978835
+        "p90": 13282.460357572745
       },
       "nearest_neighbour_distance_m": {
         "count": 2,
@@ -6927,12 +6981,12 @@
       "effective_point_count": 2,
       "grid_size": 25,
       "grid_to_nearest_observation_distance_m": {
-        "count": 130,
+        "count": 138,
         "maximum": 14464.677398753143,
-        "mean": 8999.04602633055,
-        "median": 9630.887484873394,
+        "mean": 8896.628210275247,
+        "median": 9624.05484187531,
         "minimum": 0.0,
-        "p90": 13291.455072978835
+        "p90": 13282.460357572745
       },
       "nearest_neighbour_distance_m": {
         "count": 2,
@@ -6955,12 +7009,12 @@
       "effective_point_count": 1,
       "grid_size": 25,
       "grid_to_nearest_observation_distance_m": {
-        "count": 130,
+        "count": 138,
         "maximum": 28929.354797506287,
-        "mean": 12705.898184375505,
+        "mean": 12772.917565405249,
         "median": 12091.357735314956,
         "minimum": 0.0,
-        "p90": 21707.34713616169
+        "p90": 21719.313794753103
       },
       "nearest_neighbour_distance_m": {
         "count": 0,
@@ -6980,5 +7034,127 @@
     "borehole_sampling_variability": "document-cluster bootstrap over matched accepted records",
     "perturbation_seed_variability": "reported only by the separate controlled error-injection experiment; seeds are not independent sites",
     "spatial_model_variability": "IDW power/neighbour/grid/domain sweep"
+  },
+  "volume_jackknife": {
+    "full_support": {
+      "held_out_borehole_count": 35,
+      "unit": "leave_one_borehole_out_recomputed_surface_and_volume",
+      "variants": {
+        "raw": {
+          "mean_thickness_mae_m": {
+            "count": 35,
+            "maximum": 54.79937515443655,
+            "mean": 45.0572164972117,
+            "median": 45.72886082426385,
+            "minimum": 24.1231202561093,
+            "p90": 45.88950807242069
+          },
+          "relative_absolute_volume_error": {
+            "count": 35,
+            "maximum": 0.16585826521525432,
+            "mean": 0.1347514692383712,
+            "median": 0.13986062870757726,
+            "minimum": 0.08843371808698323,
+            "p90": 0.14837367881339844
+          }
+        },
+        "reread": {
+          "mean_thickness_mae_m": {
+            "count": 35,
+            "maximum": 54.75120291691741,
+            "mean": 44.78428973055945,
+            "median": 45.448510958898964,
+            "minimum": 23.94714257860804,
+            "p90": 45.59271410970213
+          },
+          "relative_absolute_volume_error": {
+            "count": 35,
+            "maximum": 0.16987886253261844,
+            "mean": 0.11771566462430054,
+            "median": 0.121552994932248,
+            "minimum": 0.048901577043475336,
+            "p90": 0.12480334835766434
+          }
+        },
+        "risk": {
+          "mean_thickness_mae_m": {
+            "count": 35,
+            "maximum": 44.02523283879375,
+            "mean": 35.27090589648568,
+            "median": 34.878623238949196,
+            "minimum": 30.508173100938578,
+            "p90": 36.259511943209816
+          },
+          "relative_absolute_volume_error": {
+            "count": 35,
+            "maximum": 0.13653838594647144,
+            "mean": 0.08491308830610042,
+            "median": 0.08044558108255784,
+            "minimum": 0.027372405399703065,
+            "p90": 0.10902000388090514
+          }
+        }
+      }
+    },
+    "matched_accepted_subset": {
+      "held_out_borehole_count": 15,
+      "unit": "leave_one_borehole_out_recomputed_surface_and_volume",
+      "variants": {
+        "raw": {
+          "mean_thickness_mae_m": {
+            "count": 15,
+            "maximum": 53.92574031725446,
+            "mean": 34.51020415910041,
+            "median": 35.37490755677768,
+            "minimum": 2.670249367480874,
+            "p90": 36.35730888042442
+          },
+          "relative_absolute_volume_error": {
+            "count": 15,
+            "maximum": 0.09652959659838821,
+            "mean": 0.042591274199325575,
+            "median": 0.03728519112963766,
+            "minimum": 0.026515003474886608,
+            "p90": 0.060527869636625986
+          }
+        },
+        "reread": {
+          "mean_thickness_mae_m": {
+            "count": 15,
+            "maximum": 53.37135422390108,
+            "mean": 33.960416601484674,
+            "median": 34.76221868958087,
+            "minimum": 0.7648999401706934,
+            "p90": 36.282442183162786
+          },
+          "relative_absolute_volume_error": {
+            "count": 15,
+            "maximum": 0.11079833874976852,
+            "mean": 0.07799456001746526,
+            "median": 0.07948052350384872,
+            "minimum": 0.01646664848522834,
+            "p90": 0.09552231175656747
+          }
+        },
+        "risk": {
+          "mean_thickness_mae_m": {
+            "count": 15,
+            "maximum": 53.37135422390108,
+            "mean": 33.960416601484674,
+            "median": 34.76221868958087,
+            "minimum": 0.7648999401706934,
+            "p90": 36.282442183162786
+          },
+          "relative_absolute_volume_error": {
+            "count": 15,
+            "maximum": 0.11079833874976852,
+            "mean": 0.07799456001746526,
+            "median": 0.07948052350384872,
+            "minimum": 0.01646664848522834,
+            "p90": 0.09552231175656747
+          }
+        }
+      }
+    }
   }
 }

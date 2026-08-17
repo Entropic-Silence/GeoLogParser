@@ -5,20 +5,41 @@
   "candidate_pool_statement": "Each freeze compares raw, unselective, and addition-only outputs derived from the identical frozen positioned-text run.",
   "combined_confirmatory": {
     "accepted_action_count": 82,
+    "accepted_counties_anonymized": [
+      "county_group_01",
+      "county_group_02",
+      "county_group_03",
+      "county_group_04",
+      "county_group_05",
+      "county_group_06",
+      "county_group_07",
+      "county_group_08",
+      "county_group_09",
+      "county_group_10",
+      "county_group_11",
+      "county_group_12",
+      "county_group_13",
+      "county_group_14"
+    ],
+    "accepted_county_count": 14,
     "accepted_document_count": 19,
     "action_level_one_sided_95_upper_bound_iid_assumption": 0.03587403171067116,
     "correct_intervals_added_per_100_documents": 41.0,
+    "county_group_one_sided_95_upper_bound_sensitivity": 0.19263617565013536,
     "document_count": 200,
     "document_level_one_sided_95_upper_bound": 0.14586850331224344,
-    "interpretation": "Documents, not actions, are the primary safety unit. The action bound is secondary because actions cluster within accepted documents.",
+    "interpretation": "Documents, not actions, are the primary safety unit. The action bound is secondary because actions cluster within accepted documents. County groups are a sensitivity unit, not independent source families; all accepted documents remain within one California WCR program and a reliable template grouping is unavailable.",
     "observed_incorrect_action_count": 0,
     "observed_worsened_document_count": 0,
-    "review_or_abstain_document_count": 145
+    "review_or_abstain_document_count": 145,
+    "source_program_count": 1,
+    "template_group_count": null
   },
   "document_rows": [
     {
       "accepted_action_count": 2,
       "candidate_sequence_changed": true,
+      "county": "Alameda",
       "freeze": "v004",
       "raw_match_count": 4,
       "raw_predictions": [
@@ -2266,6 +2287,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": false,
+      "county": "Fresno",
       "freeze": "v004",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -2372,6 +2394,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Merced",
       "freeze": "v004",
       "raw_match_count": 5,
       "raw_predictions": [
@@ -3619,6 +3642,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Kern",
       "freeze": "v004",
       "raw_match_count": 9,
       "raw_predictions": [
@@ -4940,6 +4964,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Kern",
       "freeze": "v004",
       "raw_match_count": 0,
       "raw_predictions": [
@@ -5191,6 +5216,7 @@
     {
       "accepted_action_count": 18,
       "candidate_sequence_changed": true,
+      "county": "Stanislaus",
       "freeze": "v004",
       "raw_match_count": 2,
       "raw_predictions": [
@@ -7886,6 +7912,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": false,
+      "county": "Stanislaus",
       "freeze": "v004",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -8111,6 +8138,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": false,
+      "county": "Kern",
       "freeze": "v004",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -8392,6 +8420,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Kern",
       "freeze": "v004",
       "raw_match_count": 7,
       "raw_predictions": [
@@ -10066,6 +10095,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": false,
+      "county": "Fresno",
       "freeze": "v004",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -10158,6 +10188,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": false,
+      "county": "Stanislaus",
       "freeze": "v004",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -10215,6 +10246,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Kern",
       "freeze": "v004",
       "raw_match_count": 0,
       "raw_predictions": [
@@ -10462,6 +10494,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Tulare",
       "freeze": "v004",
       "raw_match_count": 14,
       "raw_predictions": [
@@ -12687,6 +12720,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Fresno",
       "freeze": "v004",
       "raw_match_count": 10,
       "raw_predictions": [
@@ -14256,6 +14290,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Kern",
       "freeze": "v004",
       "raw_match_count": 3,
       "raw_predictions": [
@@ -14756,6 +14791,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Tulare",
       "freeze": "v004",
       "raw_match_count": 0,
       "raw_predictions": [
@@ -15573,6 +15609,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "San Joaquin",
       "freeze": "v004",
       "raw_match_count": 18,
       "raw_predictions": [
@@ -17695,6 +17732,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Kern",
       "freeze": "v004",
       "raw_match_count": 3,
       "raw_predictions": [
@@ -18379,6 +18417,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Kern",
       "freeze": "v004",
       "raw_match_count": 16,
       "raw_predictions": [
@@ -21163,6 +21202,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": false,
+      "county": "Merced",
       "freeze": "v004",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -21234,6 +21274,7 @@
     {
       "accepted_action_count": 11,
       "candidate_sequence_changed": true,
+      "county": "Plumas",
       "freeze": "v004",
       "raw_match_count": 5,
       "raw_predictions": [
@@ -24641,6 +24682,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Stanislaus",
       "freeze": "v004",
       "raw_match_count": 0,
       "raw_predictions": [
@@ -24906,6 +24948,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Kern",
       "freeze": "v004",
       "raw_match_count": 12,
       "raw_predictions": [
@@ -26901,6 +26944,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "San Joaquin",
       "freeze": "v004",
       "raw_match_count": 11,
       "raw_predictions": [
@@ -28709,6 +28753,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Kern",
       "freeze": "v004",
       "raw_match_count": 5,
       "raw_predictions": [
@@ -29619,6 +29664,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": false,
+      "county": "Kern",
       "freeze": "v004",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -29760,6 +29806,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Kern",
       "freeze": "v004",
       "raw_match_count": 4,
       "raw_predictions": [
@@ -31331,6 +31378,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Stanislaus",
       "freeze": "v004",
       "raw_match_count": 16,
       "raw_predictions": [
@@ -33628,6 +33676,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "San Joaquin",
       "freeze": "v004",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -33886,6 +33935,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "San Joaquin",
       "freeze": "v004",
       "raw_match_count": 0,
       "raw_predictions": [
@@ -34085,6 +34135,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": false,
+      "county": "San Joaquin",
       "freeze": "v004",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -34156,6 +34207,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Sacramento",
       "freeze": "v004",
       "raw_match_count": 4,
       "raw_predictions": [
@@ -35458,6 +35510,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": false,
+      "county": "Sacramento",
       "freeze": "v004",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -35641,6 +35694,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Sacramento",
       "freeze": "v004",
       "raw_match_count": 3,
       "raw_predictions": [
@@ -37311,6 +37365,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "San Bernardino",
       "freeze": "v004",
       "raw_match_count": 5,
       "raw_predictions": [
@@ -38067,6 +38122,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "San Bernardino",
       "freeze": "v004",
       "raw_match_count": 8,
       "raw_predictions": [
@@ -40251,6 +40307,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Los Angeles",
       "freeze": "v004",
       "raw_match_count": 40,
       "raw_predictions": [
@@ -47986,6 +48043,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Los Angeles",
       "freeze": "v004",
       "raw_match_count": 10,
       "raw_predictions": [
@@ -51106,6 +51164,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Glenn",
       "freeze": "v004",
       "raw_match_count": 2,
       "raw_predictions": [
@@ -51848,6 +51907,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Los Angeles",
       "freeze": "v004",
       "raw_match_count": 11,
       "raw_predictions": [
@@ -53642,6 +53702,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": false,
+      "county": "Fresno",
       "freeze": "v004",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -54007,6 +54068,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "San Joaquin",
       "freeze": "v004",
       "raw_match_count": 11,
       "raw_predictions": [
@@ -55348,6 +55410,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Yuba",
       "freeze": "v004",
       "raw_match_count": 1,
       "raw_predictions": [
@@ -55593,6 +55656,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": false,
+      "county": "Sutter",
       "freeze": "v004",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -55657,6 +55721,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Fresno",
       "freeze": "v004",
       "raw_match_count": 6,
       "raw_predictions": [
@@ -56954,6 +57019,7 @@
     {
       "accepted_action_count": 4,
       "candidate_sequence_changed": true,
+      "county": "Butte",
       "freeze": "v004",
       "raw_match_count": 2,
       "raw_predictions": [
@@ -58107,6 +58173,7 @@
     {
       "accepted_action_count": 1,
       "candidate_sequence_changed": true,
+      "county": "Merced",
       "freeze": "v004",
       "raw_match_count": 5,
       "raw_predictions": [
@@ -59214,6 +59281,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "San Joaquin",
       "freeze": "v004",
       "raw_match_count": 11,
       "raw_predictions": [
@@ -60924,6 +60992,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Fresno",
       "freeze": "v004",
       "raw_match_count": 6,
       "raw_predictions": [
@@ -62570,6 +62639,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Mendocino",
       "freeze": "v004",
       "raw_match_count": 7,
       "raw_predictions": [
@@ -64203,6 +64273,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "San Joaquin",
       "freeze": "v004",
       "raw_match_count": 2,
       "raw_predictions": [
@@ -64808,6 +64879,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Sonoma",
       "freeze": "v004",
       "raw_match_count": 1,
       "raw_predictions": [
@@ -65207,6 +65279,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Sonoma",
       "freeze": "v004",
       "raw_match_count": 2,
       "raw_predictions": [
@@ -65650,6 +65723,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Sacramento",
       "freeze": "v004",
       "raw_match_count": 12,
       "raw_predictions": [
@@ -67625,6 +67699,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Merced",
       "freeze": "v004",
       "raw_match_count": 5,
       "raw_predictions": [
@@ -68469,6 +68544,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Tulare",
       "freeze": "v004",
       "raw_match_count": 11,
       "raw_predictions": [
@@ -70384,6 +70460,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Los Angeles",
       "freeze": "v004",
       "raw_match_count": 25,
       "raw_predictions": [
@@ -74416,6 +74493,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Riverside",
       "freeze": "v004",
       "raw_match_count": 1,
       "raw_predictions": [
@@ -74807,6 +74885,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Los Angeles",
       "freeze": "v004",
       "raw_match_count": 0,
       "raw_predictions": [
@@ -75681,6 +75760,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": false,
+      "county": "Tuolumne",
       "freeze": "v004",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -75801,6 +75881,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Sonoma",
       "freeze": "v004",
       "raw_match_count": 15,
       "raw_predictions": [
@@ -79273,6 +79354,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Sonoma",
       "freeze": "v004",
       "raw_match_count": 12,
       "raw_predictions": [
@@ -81284,6 +81366,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": false,
+      "county": "Butte",
       "freeze": "v004",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -81348,6 +81431,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Los Angeles",
       "freeze": "v004",
       "raw_match_count": 13,
       "raw_predictions": [
@@ -83732,6 +83816,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "El Dorado",
       "freeze": "v004",
       "raw_match_count": 3,
       "raw_predictions": [
@@ -84218,6 +84303,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": false,
+      "county": "Sacramento",
       "freeze": "v004",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -84324,6 +84410,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Riverside",
       "freeze": "v004",
       "raw_match_count": 12,
       "raw_predictions": [
@@ -85773,6 +85860,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "San Diego",
       "freeze": "v004",
       "raw_match_count": 0,
       "raw_predictions": [
@@ -86371,6 +86459,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "San Bernardino",
       "freeze": "v004",
       "raw_match_count": 2,
       "raw_predictions": [
@@ -86609,6 +86698,7 @@
     {
       "accepted_action_count": 2,
       "candidate_sequence_changed": true,
+      "county": "San Diego",
       "freeze": "v004",
       "raw_match_count": 8,
       "raw_predictions": [
@@ -88931,6 +89021,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Mendocino",
       "freeze": "v004",
       "raw_match_count": 4,
       "raw_predictions": [
@@ -89876,6 +89967,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Contra Costa",
       "freeze": "v004",
       "raw_match_count": 2,
       "raw_predictions": [
@@ -90466,6 +90558,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": false,
+      "county": "Placer",
       "freeze": "v004",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -90614,6 +90707,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": false,
+      "county": "San Bernardino",
       "freeze": "v004",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -90685,6 +90779,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "San Bernardino",
       "freeze": "v004",
       "raw_match_count": 1,
       "raw_predictions": [
@@ -91101,6 +91196,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": false,
+      "county": "Yolo",
       "freeze": "v004",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -91186,6 +91282,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Sacramento",
       "freeze": "v004",
       "raw_match_count": 3,
       "raw_predictions": [
@@ -91744,6 +91841,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Fresno",
       "freeze": "v004",
       "raw_match_count": 2,
       "raw_predictions": [
@@ -92623,6 +92721,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Placer",
       "freeze": "v004",
       "raw_match_count": 9,
       "raw_predictions": [
@@ -94066,6 +94165,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Fresno",
       "freeze": "v004",
       "raw_match_count": 1,
       "raw_predictions": [
@@ -94456,6 +94556,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Los Angeles",
       "freeze": "v004",
       "raw_match_count": 3,
       "raw_predictions": [
@@ -95395,6 +95496,7 @@
     {
       "accepted_action_count": 1,
       "candidate_sequence_changed": true,
+      "county": "San Bernardino",
       "freeze": "v004",
       "raw_match_count": 4,
       "raw_predictions": [
@@ -96445,6 +96547,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": false,
+      "county": "San Diego",
       "freeze": "v004",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -96565,6 +96668,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": false,
+      "county": "Yolo",
       "freeze": "v004",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -96650,6 +96754,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Mendocino",
       "freeze": "v004",
       "raw_match_count": 4,
       "raw_predictions": [
@@ -97500,6 +97605,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": false,
+      "county": "Placer",
       "freeze": "v004",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -97676,6 +97782,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Santa Clara",
       "freeze": "v004",
       "raw_match_count": 35,
       "raw_predictions": [
@@ -102108,6 +102215,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": false,
+      "county": "San Diego",
       "freeze": "v004",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -102228,6 +102336,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Riverside",
       "freeze": "v004",
       "raw_match_count": 9,
       "raw_predictions": [
@@ -103619,6 +103728,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Nevada",
       "freeze": "v004",
       "raw_match_count": 0,
       "raw_predictions": [
@@ -103814,6 +103924,7 @@
     {
       "accepted_action_count": 4,
       "candidate_sequence_changed": true,
+      "county": "Riverside",
       "freeze": "v004",
       "raw_match_count": 5,
       "raw_predictions": [
@@ -105557,6 +105668,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Sonoma",
       "freeze": "v004",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -105702,6 +105814,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Sonoma",
       "freeze": "v004",
       "raw_match_count": 0,
       "raw_predictions": [
@@ -106134,6 +106247,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Plumas",
       "freeze": "v004",
       "raw_match_count": 0,
       "raw_predictions": [
@@ -106514,6 +106628,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "San Bernardino",
       "freeze": "v004",
       "raw_match_count": 55,
       "raw_predictions": [
@@ -115609,6 +115724,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "San Bernardino",
       "freeze": "v004",
       "raw_match_count": 7,
       "raw_predictions": [
@@ -116668,6 +116784,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Shasta",
       "freeze": "v004",
       "raw_match_count": 0,
       "raw_predictions": [
@@ -117162,6 +117279,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Santa Barbara",
       "freeze": "v004",
       "raw_match_count": 4,
       "raw_predictions": [
@@ -118216,6 +118334,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "San Diego",
       "freeze": "v004",
       "raw_match_count": 1,
       "raw_predictions": [
@@ -118554,6 +118673,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Kern",
       "freeze": "v004",
       "raw_match_count": 0,
       "raw_predictions": [
@@ -119184,6 +119304,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Kern",
       "freeze": "v005",
       "raw_match_count": 0,
       "raw_predictions": [
@@ -120756,6 +120877,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Kern",
       "freeze": "v005",
       "raw_match_count": 4,
       "raw_predictions": [
@@ -121577,6 +121699,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Kern",
       "freeze": "v005",
       "raw_match_count": 20,
       "raw_predictions": [
@@ -124470,6 +124593,7 @@
     {
       "accepted_action_count": 2,
       "candidate_sequence_changed": true,
+      "county": "Fresno",
       "freeze": "v005",
       "raw_match_count": 10,
       "raw_predictions": [
@@ -127512,6 +127636,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Fresno",
       "freeze": "v005",
       "raw_match_count": 6,
       "raw_predictions": [
@@ -128658,6 +128783,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Fresno",
       "freeze": "v005",
       "raw_match_count": 1,
       "raw_predictions": [
@@ -129263,6 +129389,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": false,
+      "county": "Kern",
       "freeze": "v005",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -129341,6 +129468,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Tulare",
       "freeze": "v005",
       "raw_match_count": 3,
       "raw_predictions": [
@@ -130078,6 +130206,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Kern",
       "freeze": "v005",
       "raw_match_count": 0,
       "raw_predictions": [
@@ -130641,6 +130770,7 @@
     {
       "accepted_action_count": 1,
       "candidate_sequence_changed": true,
+      "county": "Stanislaus",
       "freeze": "v005",
       "raw_match_count": 2,
       "raw_predictions": [
@@ -131466,6 +131596,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Merced",
       "freeze": "v005",
       "raw_match_count": 0,
       "raw_predictions": [
@@ -131788,6 +131919,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "San Joaquin",
       "freeze": "v005",
       "raw_match_count": 10,
       "raw_predictions": [
@@ -133561,6 +133693,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Stanislaus",
       "freeze": "v005",
       "raw_match_count": 0,
       "raw_predictions": [
@@ -133781,6 +133914,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": false,
+      "county": "Merced",
       "freeze": "v005",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -133901,6 +134035,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Stanislaus",
       "freeze": "v005",
       "raw_match_count": 2,
       "raw_predictions": [
@@ -134501,6 +134636,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Mendocino",
       "freeze": "v005",
       "raw_match_count": 0,
       "raw_predictions": [
@@ -134722,6 +134858,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Tulare",
       "freeze": "v005",
       "raw_match_count": 19,
       "raw_predictions": [
@@ -140437,6 +140574,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Fresno",
       "freeze": "v005",
       "raw_match_count": 15,
       "raw_predictions": [
@@ -143014,6 +143152,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "San Joaquin",
       "freeze": "v005",
       "raw_match_count": 0,
       "raw_predictions": [
@@ -143342,6 +143481,7 @@
     {
       "accepted_action_count": 1,
       "candidate_sequence_changed": true,
+      "county": "Merced",
       "freeze": "v005",
       "raw_match_count": 4,
       "raw_predictions": [
@@ -144410,6 +144550,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Madera",
       "freeze": "v005",
       "raw_match_count": 4,
       "raw_predictions": [
@@ -146101,6 +146242,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Kern",
       "freeze": "v005",
       "raw_match_count": 16,
       "raw_predictions": [
@@ -149557,6 +149699,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Monterey",
       "freeze": "v005",
       "raw_match_count": 5,
       "raw_predictions": [
@@ -150666,6 +150809,7 @@
     {
       "accepted_action_count": 1,
       "candidate_sequence_changed": true,
+      "county": "Merced",
       "freeze": "v005",
       "raw_match_count": 17,
       "raw_predictions": [
@@ -153559,6 +153703,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Santa Cruz",
       "freeze": "v005",
       "raw_match_count": 12,
       "raw_predictions": [
@@ -156436,6 +156581,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Alameda",
       "freeze": "v005",
       "raw_match_count": 3,
       "raw_predictions": [
@@ -157211,6 +157357,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Kern",
       "freeze": "v005",
       "raw_match_count": 1,
       "raw_predictions": [
@@ -157422,6 +157569,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": false,
+      "county": "San Joaquin",
       "freeze": "v005",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -157528,6 +157676,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Stanislaus",
       "freeze": "v005",
       "raw_match_count": 24,
       "raw_predictions": [
@@ -161025,6 +161174,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Stanislaus",
       "freeze": "v005",
       "raw_match_count": 2,
       "raw_predictions": [
@@ -161539,6 +161689,7 @@
     {
       "accepted_action_count": 17,
       "candidate_sequence_changed": true,
+      "county": "Fresno",
       "freeze": "v005",
       "raw_match_count": 3,
       "raw_predictions": [
@@ -164181,6 +164332,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": false,
+      "county": "San Joaquin",
       "freeze": "v005",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -164294,6 +164446,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": false,
+      "county": "Sacramento",
       "freeze": "v005",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -164442,6 +164595,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": false,
+      "county": "San Joaquin",
       "freeze": "v005",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -164548,6 +164702,7 @@
     {
       "accepted_action_count": 1,
       "candidate_sequence_changed": true,
+      "county": "Glenn",
       "freeze": "v005",
       "raw_match_count": 7,
       "raw_predictions": [
@@ -167029,6 +167184,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Humboldt",
       "freeze": "v005",
       "raw_match_count": 4,
       "raw_predictions": [
@@ -167803,6 +167959,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": false,
+      "county": "Shasta",
       "freeze": "v005",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -167895,6 +168052,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Sacramento",
       "freeze": "v005",
       "raw_match_count": 2,
       "raw_predictions": [
@@ -168542,6 +168700,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Sacramento",
       "freeze": "v005",
       "raw_match_count": 1,
       "raw_predictions": [
@@ -168904,6 +169063,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Fresno",
       "freeze": "v005",
       "raw_match_count": 2,
       "raw_predictions": [
@@ -169305,6 +169465,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "San Joaquin",
       "freeze": "v005",
       "raw_match_count": 0,
       "raw_predictions": [
@@ -170993,6 +171154,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Fresno",
       "freeze": "v005",
       "raw_match_count": 5,
       "raw_predictions": [
@@ -172339,6 +172501,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Mendocino",
       "freeze": "v005",
       "raw_match_count": 0,
       "raw_predictions": [
@@ -172786,6 +172949,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Riverside",
       "freeze": "v005",
       "raw_match_count": 1,
       "raw_predictions": [
@@ -173149,6 +173313,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "San Mateo",
       "freeze": "v005",
       "raw_match_count": 3,
       "raw_predictions": [
@@ -173942,6 +174107,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "San Bernardino",
       "freeze": "v005",
       "raw_match_count": 4,
       "raw_predictions": [
@@ -174372,6 +174538,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": false,
+      "county": "Alpine",
       "freeze": "v005",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -174443,6 +174610,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Siskiyou",
       "freeze": "v005",
       "raw_match_count": 3,
       "raw_predictions": [
@@ -174972,6 +175140,7 @@
     {
       "accepted_action_count": 1,
       "candidate_sequence_changed": true,
+      "county": "Sacramento",
       "freeze": "v005",
       "raw_match_count": 9,
       "raw_predictions": [
@@ -176772,6 +176941,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Santa Clara",
       "freeze": "v005",
       "raw_match_count": 6,
       "raw_predictions": [
@@ -178163,6 +178333,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Contra Costa",
       "freeze": "v005",
       "raw_match_count": 4,
       "raw_predictions": [
@@ -178544,6 +178715,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Los Angeles",
       "freeze": "v005",
       "raw_match_count": 1,
       "raw_predictions": [
@@ -178707,6 +178879,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": false,
+      "county": "Tuolumne",
       "freeze": "v005",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -178771,6 +178944,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Los Angeles",
       "freeze": "v005",
       "raw_match_count": 1,
       "raw_predictions": [
@@ -179335,6 +179509,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "El Dorado",
       "freeze": "v005",
       "raw_match_count": 3,
       "raw_predictions": [
@@ -179945,6 +180120,7 @@
     {
       "accepted_action_count": 1,
       "candidate_sequence_changed": true,
+      "county": "San Joaquin",
       "freeze": "v005",
       "raw_match_count": 7,
       "raw_predictions": [
@@ -182065,6 +182241,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Orange",
       "freeze": "v005",
       "raw_match_count": 22,
       "raw_predictions": [
@@ -185652,6 +185829,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "San Diego",
       "freeze": "v005",
       "raw_match_count": 3,
       "raw_predictions": [
@@ -186967,6 +187145,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "San Joaquin",
       "freeze": "v005",
       "raw_match_count": 3,
       "raw_predictions": [
@@ -194441,6 +194620,7 @@
     {
       "accepted_action_count": 11,
       "candidate_sequence_changed": true,
+      "county": "San Joaquin",
       "freeze": "v005",
       "raw_match_count": 2,
       "raw_predictions": [
@@ -196802,6 +196982,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "San Joaquin",
       "freeze": "v005",
       "raw_match_count": 21,
       "raw_predictions": [
@@ -200067,6 +200248,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Fresno",
       "freeze": "v005",
       "raw_match_count": 26,
       "raw_predictions": [
@@ -203929,6 +204111,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Fresno",
       "freeze": "v005",
       "raw_match_count": 2,
       "raw_predictions": [
@@ -205103,6 +205286,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": false,
+      "county": "Modoc",
       "freeze": "v005",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -205181,6 +205365,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "San Diego",
       "freeze": "v005",
       "raw_match_count": 0,
       "raw_predictions": [
@@ -205606,6 +205791,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "San Joaquin",
       "freeze": "v005",
       "raw_match_count": 2,
       "raw_predictions": [
@@ -206678,6 +206864,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": false,
+      "county": "Riverside",
       "freeze": "v005",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -206749,6 +206936,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Riverside",
       "freeze": "v005",
       "raw_match_count": 25,
       "raw_predictions": [
@@ -210414,6 +210602,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Shasta",
       "freeze": "v005",
       "raw_match_count": 1,
       "raw_predictions": [
@@ -210788,6 +210977,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Los Angeles",
       "freeze": "v005",
       "raw_match_count": 1,
       "raw_predictions": [
@@ -214266,6 +214456,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": false,
+      "county": "Sonoma",
       "freeze": "v005",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -214463,6 +214654,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Plumas",
       "freeze": "v005",
       "raw_match_count": 3,
       "raw_predictions": [
@@ -215107,6 +215299,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Shasta",
       "freeze": "v005",
       "raw_match_count": 3,
       "raw_predictions": [
@@ -215956,6 +216149,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "San Joaquin",
       "freeze": "v005",
       "raw_match_count": 16,
       "raw_predictions": [
@@ -219373,6 +219567,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Fresno",
       "freeze": "v005",
       "raw_match_count": 0,
       "raw_predictions": [
@@ -219935,6 +220130,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Shasta",
       "freeze": "v005",
       "raw_match_count": 0,
       "raw_predictions": [
@@ -220099,6 +220295,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Riverside",
       "freeze": "v005",
       "raw_match_count": 28,
       "raw_predictions": [
@@ -225288,6 +225485,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": false,
+      "county": "Calaveras",
       "freeze": "v005",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -225443,6 +225641,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "San Bernardino",
       "freeze": "v005",
       "raw_match_count": 1,
       "raw_predictions": [
@@ -225800,6 +225999,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Santa Barbara",
       "freeze": "v005",
       "raw_match_count": 8,
       "raw_predictions": [
@@ -228958,6 +229158,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "El Dorado",
       "freeze": "v005",
       "raw_match_count": 14,
       "raw_predictions": [
@@ -231018,6 +231219,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Siskiyou",
       "freeze": "v005",
       "raw_match_count": 6,
       "raw_predictions": [
@@ -231972,6 +232174,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": false,
+      "county": "San Bernardino",
       "freeze": "v005",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -232036,6 +232239,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Fresno",
       "freeze": "v005",
       "raw_match_count": 0,
       "raw_predictions": [
@@ -232332,6 +232536,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Lake",
       "freeze": "v005",
       "raw_match_count": 0,
       "raw_predictions": [
@@ -232531,6 +232736,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "San Bernardino",
       "freeze": "v005",
       "raw_match_count": 25,
       "raw_predictions": [
@@ -236881,6 +237087,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Fresno",
       "freeze": "v005",
       "raw_match_count": 2,
       "raw_predictions": [
@@ -237348,6 +237555,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": false,
+      "county": "Sonoma",
       "freeze": "v005",
       "raw_match_count": 0,
       "raw_predictions": [],
@@ -237461,6 +237669,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Fresno",
       "freeze": "v005",
       "raw_match_count": 0,
       "raw_predictions": [
@@ -237665,6 +237874,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Tuolumne",
       "freeze": "v005",
       "raw_match_count": 0,
       "raw_predictions": [
@@ -238077,6 +238287,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "San Diego",
       "freeze": "v005",
       "raw_match_count": 0,
       "raw_predictions": [
@@ -239065,6 +239276,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Nevada",
       "freeze": "v005",
       "raw_match_count": 2,
       "raw_predictions": [
@@ -239423,6 +239635,7 @@
     {
       "accepted_action_count": 1,
       "candidate_sequence_changed": true,
+      "county": "Los Angeles",
       "freeze": "v005",
       "raw_match_count": 35,
       "raw_predictions": [
@@ -244595,6 +244808,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Los Angeles",
       "freeze": "v005",
       "raw_match_count": 17,
       "raw_predictions": [
@@ -247034,6 +247248,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Plumas",
       "freeze": "v005",
       "raw_match_count": 9,
       "raw_predictions": [
@@ -248364,6 +248579,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Tulare",
       "freeze": "v005",
       "raw_match_count": 14,
       "raw_predictions": [
@@ -250377,6 +250593,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Tulare",
       "freeze": "v005",
       "raw_match_count": 1,
       "raw_predictions": [
@@ -250652,6 +250869,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Sonoma",
       "freeze": "v005",
       "raw_match_count": 0,
       "raw_predictions": [
@@ -250971,6 +251189,7 @@
     {
       "accepted_action_count": 2,
       "candidate_sequence_changed": true,
+      "county": "Solano",
       "freeze": "v005",
       "raw_match_count": 8,
       "raw_predictions": [
@@ -252438,6 +252657,7 @@
     {
       "accepted_action_count": 0,
       "candidate_sequence_changed": true,
+      "county": "Kern",
       "freeze": "v005",
       "raw_match_count": 0,
       "raw_predictions": [

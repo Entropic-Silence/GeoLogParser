@@ -16,6 +16,7 @@ import random
 import fitz
 
 from geologparser.evaluation import boundary_matched_interval_metrics, match_intervals_by_boundaries
+from geologparser.paper2_sequence import select_sequence as select_sequence_path
 from run_california_constraint_sequence import (
     GEOLOGY_TERMS,
     as_predictions,
@@ -77,43 +78,20 @@ def continuity_edge(left: dict, right: dict) -> float | None:
 
 
 def select(candidates: list[dict], edge_name: str, semantic_bonus: bool = True) -> list[dict]:
-    ordered = sorted(candidates, key=lambda item: (item["page"], item["y"], item["top"], item["bottom"]))
-    if not ordered:
-        return []
     edge_function = {
         "monotonic": monotonic_edge,
         "continuity": continuity_edge,
         "full": transition_score,
     }[edge_name]
-    node_scores = []
-    for item in ordered:
-        score = item["node_score"]
+    scored_candidates = []
+    for item in candidates:
+        score = float(item["node_score"])
         if not semantic_bonus and GEOLOGY_TERMS.search(item["description"]):
             score -= 1.0
-        node_scores.append(score)
-    scores = [score - 0.0005 * item["top"] for score, item in zip(node_scores, ordered)]
-    parents: list[int | None] = [None] * len(ordered)
-    lengths = [1] * len(ordered)
-    for right_index, right in enumerate(ordered):
-        for left_index in range(max(0, right_index - 400), right_index):
-            edge = edge_function(ordered[left_index], right)
-            if edge is None:
-                continue
-            candidate_score = scores[left_index] + node_scores[right_index] + edge
-            candidate_length = lengths[left_index] + 1
-            if candidate_score > scores[right_index] or (
-                abs(candidate_score - scores[right_index]) < 1e-9
-                and candidate_length > lengths[right_index]
-            ):
-                scores[right_index] = candidate_score
-                parents[right_index] = left_index
-                lengths[right_index] = candidate_length
-    end = max(range(len(ordered)), key=lambda index: (scores[index], lengths[index]))
-    path = []
-    while end is not None:
-        path.append(ordered[end])
-        end = parents[end]
-    return list(reversed(path))
+        scored = dict(item)
+        scored["node_score"] = score
+        scored_candidates.append(scored)
+    return select_sequence_path(scored_candidates, edge_function)
 
 
 def boundaries(rows: list[dict]) -> set[tuple[float, float]]:

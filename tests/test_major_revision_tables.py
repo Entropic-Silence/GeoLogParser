@@ -28,6 +28,9 @@ def test_paper2_tables_expose_same_pool_and_document_risk():
     assert "Complete archived score" in rendered
     assert "82 actions in 19 documents" in rendered
     assert "0.1459 per accepted document" in rendered
+    assert "Net additional matches / 100 documents" in rendered
+    assert "Net change in incorrect predictions" in rendered
+    assert "Worsened documents (document F1)" in rendered
 
 
 def test_paper3_tables_keep_full_and_matched_estimands_separate():
@@ -38,3 +41,6 @@ def test_paper3_tables_keep_full_and_matched_estimands_separate():
     assert "Matched accepted subset | raw | 15" in rendered
     assert f"{source['matched_subset_comparison']['raw']['aggregate']['relative_absolute_volume_error']:.4f}" in rendered
     assert "selection/support effect" in rendered
+    assert "Full reference | risk" in rendered and "79 |" in rendered
+    assert "| Matched accepted | reference | 15 /" in rendered
+    assert "15 /" in rendered and "4 /" in rendered and "0 / --" in rendered

@@ -5725,7 +5725,7 @@
       "paper": "paper2",
       "scope": "document-level risk, review coverage, and net utility for the frozen addition-only policy on California v004/v005",
       "source_path": "experiments/paper2/analysis/california_document_risk_v001.json",
-      "source_sha256": "f3b713e35ffa0988e39411aa0f58b7b99767d3db953b3b2613159b9ea8a5f7dc",
+      "source_sha256": "f51ed6701128ef1c679f7ff8e11dcb25db15d219cc1f3e856c9369b46aa2203a",
       "assertions": [
         {
           "type": "json_pointer_equals",
@@ -5758,7 +5758,7 @@
       "paper": "paper3",
       "scope": "matched-subset, spatial-support, IDW parameter, and leave-one-borehole-out reanalysis of frozen Swissgeol outputs",
       "source_path": "experiments/paper3/analysis/swissgeol_spatial_sensitivity_v001.json",
-      "source_sha256": "95bcb90ac28ddfa17203bde3bfd8c453783c22d73bb96f7038754753eb3b5370",
+      "source_sha256": "d0d260b2711f10c0008c9a13e5d262ef12ee03a3c10788771eddc5a9205b1c06",
       "assertions": [
         {
           "type": "json_pointer_equals",

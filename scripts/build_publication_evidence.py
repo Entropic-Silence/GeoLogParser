@@ -32,6 +32,38 @@ DOCUMENT_OUTPUT_RUNS = (
     "results/2026-08-15/P2_CALIFORNIA_WCR_V005_CANDIDATE_RISK_EXTERNAL_FORMAL_001",
     "results/2026-08-16/P3_SWISSGEOL_RISK_AWARE_DOWNSTREAM_INPUT_001",
 )
+ANALYSIS_INPUT_FILES = (
+    (
+        "experiments/paper2/public/candidate_pool_v001.jsonl",
+        "paper2/candidate_pool_v001.jsonl",
+        "deidentified positioned-candidate pool for same-pool ablation",
+    ),
+    (
+        "experiments/paper2/public/candidate_pool_v001.metadata.json",
+        "paper2/candidate_pool_v001.metadata.json",
+        "candidate-pool schema and release limitations",
+    ),
+    (
+        "experiments/paper2/public/candidate_pool_recomputed_v001.jsonl",
+        "paper2/candidate_pool_recomputed_v001.jsonl",
+        "deterministically recomputed ablation sequences",
+    ),
+    (
+        "experiments/paper3/public/spatial_input_v001.jsonl",
+        "paper3/spatial_input_v001.jsonl",
+        "rigidly transformed spatial diagnostic input",
+    ),
+    (
+        "experiments/paper3/public/spatial_input_v001.metadata.json",
+        "paper3/spatial_input_v001.metadata.json",
+        "spatial transform and release limitations",
+    ),
+    (
+        "experiments/paper3/public/spatial_recomputed_v001.json",
+        "paper3/spatial_recomputed_v001.json",
+        "diagnostics recomputed from transformed public input",
+    ),
+)
 SENSITIVE_KEYS = {
     "borehole_id", "project_name", "county", "filename", "source_file",
     "document_path", "pdf_path", "pdf_sha256", "reference_path", "source_text",
@@ -215,7 +247,7 @@ def main() -> None:
                 destination = target_root / filename
                 copy_exact(source, destination)
                 final_destination = core_root / result_path / filename
-                copied_core[str(final_destination.relative_to(root))] = {
+                copied_core[final_destination.relative_to(root).as_posix()] = {
                     "sha256": sha256(destination),
                     "experiment_id": entry["experiment_id"],
                     "paper": paper,
@@ -240,10 +272,10 @@ def main() -> None:
             if sha256(committed) != claim["source_sha256"]:
                 raise ValueError(f"committed external projection hash mismatch: {claim_id}")
             copy_exact(committed, destination)
-        claim["source_path"] = str(relative)
+        claim["source_path"] = relative.as_posix()
         claim["source_sha256"] = sha256(destination)
         claim["publication_evidence_mode"] = "assertion_projection"
-        copied_external[str(relative)] = {
+        copied_external[relative.as_posix()] = {
             "sha256": sha256(destination),
             "claim_id": claim_id,
             "origin_source_sha256": claim["origin_source_sha256"],
@@ -264,7 +296,7 @@ def main() -> None:
             if not source.is_file():
                 raise FileNotFoundError(source)
             copy_exact(source, destination)
-            copied_core[str(relative)] = {
+            copied_core[relative.as_posix()] = {
                 "sha256": sha256(destination),
                 "experiment_id": claim.get("experiment_id", "claim-only"),
                 "paper": claim["paper"],
@@ -273,7 +305,7 @@ def main() -> None:
             raise FileNotFoundError(destination)
         if sha256(destination) != claim["origin_source_sha256"]:
             raise ValueError(f"claim/core hash mismatch: {claim_id}")
-        claim["source_path"] = str(relative)
+        claim["source_path"] = relative.as_posix()
         claim["source_sha256"] = sha256(destination)
         claim["publication_evidence_mode"] = "exact_metrics_copy"
 
@@ -297,7 +329,7 @@ def main() -> None:
                 copy_exact(committed, destination)
                 row_count = sum(1 for line in destination.read_text(encoding="utf-8").splitlines() if line.strip())
             relative_path = Path("publication_evidence/document_outputs") / result_path / filename
-            relative = str(relative_path)
+            relative = relative_path.as_posix()
             document_outputs[relative] = {
                 "sha256": sha256(destination),
                 "row_count": row_count,
@@ -308,14 +340,33 @@ def main() -> None:
     replace_tree(external_staging, external_root)
     replace_tree(document_staging, document_root)
 
+    analysis_root = bundle / "analysis_inputs"
+    analysis_staging = bundle / ".analysis_inputs.staging"
+    if analysis_staging.is_dir():
+        shutil.rmtree(analysis_staging)
+    analysis_inputs: dict[str, dict[str, str]] = {}
+    for source_text, destination_text, scope in ANALYSIS_INPUT_FILES:
+        source = root / source_text
+        if not source.is_file():
+            raise FileNotFoundError(source)
+        destination = analysis_staging / destination_text
+        copy_exact(source, destination)
+        relative = (Path("publication_evidence/analysis_inputs") / destination_text).as_posix()
+        analysis_inputs[relative] = {
+            "sha256": sha256(destination),
+            "origin": Path(source_text).as_posix(),
+            "scope": scope,
+        }
+    replace_tree(analysis_staging, analysis_root)
+
     registry_path.write_text(
         json.dumps(registry, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
     manifest = {
-        "publication_evidence_schema_version": "publication_evidence_v001",
+        "publication_evidence_schema_version": "publication_evidence_v002",
         "frozen_date": BUNDLE_DATE,
-        "scope": "exact aggregate run/metrics evidence, selected deidentified document outputs, and privacy-minimized claim projections",
+        "scope": "exact aggregate run/metrics evidence, selected deidentified document outputs, public reanalysis inputs, and privacy-minimized claim projections",
         "excluded": [
             "source page images and PDFs",
             "model weights and caches",
@@ -329,6 +380,8 @@ def main() -> None:
         "result_core": dict(sorted(copied_core.items())),
         "external_summaries": dict(sorted(copied_external.items())),
         "document_outputs": dict(sorted(document_outputs.items())),
+        "analysis_input_file_count": len(analysis_inputs),
+        "analysis_inputs": dict(sorted(analysis_inputs.items())),
     }
     manifest_path = bundle / "manifest.json"
     manifest_path.parent.mkdir(parents=True, exist_ok=True)
@@ -340,6 +393,7 @@ def main() -> None:
     print(f"result core files: {len(copied_core)}")
     print(f"external summaries: {len(copied_external)}")
     print(f"deidentified document outputs: {len(document_outputs)}")
+    print(f"public reanalysis input files: {len(analysis_inputs)}")
 
 
 if __name__ == "__main__":

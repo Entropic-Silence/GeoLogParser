@@ -95,6 +95,11 @@ def one_sided_zero_event_upper(n: int, alpha: float = 0.05) -> float | None:
     return 1 - alpha ** (1 / n) if n else None
 
 
+def document_f1(match_count: int, prediction_count: int, reference_count: int) -> float:
+    denominator = prediction_count + reference_count
+    return 2 * match_count / denominator if denominator else 0.0
+
+
 def analyze_freeze(name: str, paths: dict[str, Path], repetitions: int, rng: random.Random) -> tuple[dict, list[dict]]:
     unselective = load_rows(paths["unselective"])
     risk = load_rows(paths["risk"])
@@ -118,6 +123,7 @@ def analyze_freeze(name: str, paths: dict[str, Path], repetitions: int, rng: ran
         row = {
             "freeze": name,
             "record_id": record_id,
+            "county": selected.get("county"),
             "reference_intervals": unselected["reference_intervals"],
             "raw_predictions": raw_pred,
             "raw_match_count": raw_match,
@@ -137,7 +143,10 @@ def analyze_freeze(name: str, paths: dict[str, Path], repetitions: int, rng: ran
                 unselected["correction_taxonomy"]["raw_correct_removed"]
                 + unselected["correction_taxonomy"]["constrained_incorrect_added"]
             ) > 0,
-            "risk_worsened": risk_match < raw_match,
+            "risk_worsened": (
+                document_f1(risk_match, len(risk_pred), len(unselected["reference_intervals"]))
+                < document_f1(raw_match, len(raw_pred), len(unselected["reference_intervals"])) - 1e-12
+            ),
             "accepted_action_count": accepted_actions,
             "risk_accepted_document": accepted_actions > 0,
             "candidate_sequence_changed": sequence_pred != raw_pred,
@@ -209,6 +218,7 @@ def main() -> None:
         all_rows.extend(rows)
     accepted_documents = [row for row in all_rows if row["risk_accepted_document"]]
     accepted_actions = sum(row["accepted_action_count"] for row in accepted_documents)
+    accepted_counties = sorted({row["county"] for row in accepted_documents if row.get("county")})
     payload = {
         "analysis_version": "california_document_risk_v001",
         "evidence_tier": "PUBLISHED_MANUAL_TRANSCRIPTION_GOLD",
@@ -226,11 +236,16 @@ def main() -> None:
             "observed_incorrect_action_count": sum(max(0, row["risk_erroneous_prediction_gain"]) for row in accepted_documents),
             "document_level_one_sided_95_upper_bound": one_sided_zero_event_upper(len(accepted_documents)),
             "action_level_one_sided_95_upper_bound_iid_assumption": one_sided_zero_event_upper(accepted_actions),
+            "accepted_county_count": len(accepted_counties),
+            "accepted_counties_anonymized": [f"county_group_{index:02d}" for index, _ in enumerate(accepted_counties, start=1)],
+            "county_group_one_sided_95_upper_bound_sensitivity": one_sided_zero_event_upper(len(accepted_counties)),
+            "source_program_count": 1,
+            "template_group_count": None,
             "correct_intervals_added_per_100_documents": 100 * sum(row["risk_correct_interval_gain"] for row in all_rows) / len(all_rows),
             "review_or_abstain_document_count": sum(
                 row["candidate_sequence_changed"] and not row["risk_accepted_document"] for row in all_rows
             ),
-            "interpretation": "Documents, not actions, are the primary safety unit. The action bound is secondary because actions cluster within accepted documents.",
+            "interpretation": "Documents, not actions, are the primary safety unit. The action bound is secondary because actions cluster within accepted documents. County groups are a sensitivity unit, not independent source families; all accepted documents remain within one California WCR program and a reliable template grouping is unavailable.",
         },
         "document_rows": all_rows,
     }
