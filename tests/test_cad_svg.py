@@ -58,7 +58,12 @@ def test_raster_audit_distinguishes_content_empty_and_invalid(tmp_path):
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"></svg>',
         tmp_path / "empty.png", 500,
     )
-    assert empty["raster_content_status"] == "transparent_or_empty_raster"
+    expected_empty_status = (
+        "renderer_unavailable"
+        if content["raster_content_status"] == "renderer_unavailable"
+        else "transparent_or_empty_raster"
+    )
+    assert empty["raster_content_status"] == expected_empty_status
     assert empty["raster_is_placeholder"] is True
 
     invalid = write_review_png(

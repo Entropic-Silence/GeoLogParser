@@ -205,7 +205,7 @@ def test_adjudication_pack_rejects_track_mutation_after_agreement(tmp_path: Path
     agreement = output / "agreement.json"
     compare_blinded_annotation_tracks(track_a, track_b, agreement)
     path = track_b / "P0.json"
-    path.write_text(path.read_text(encoding="utf-8") + "\n")
+    path.write_text(path.read_text(encoding="utf-8") + "\n", encoding="utf-8")
     with pytest.raises(ValueError, match="changed after agreement"):
         build_adjudication_pack(
             agreement, track_a, track_b, output / "adjudication",
