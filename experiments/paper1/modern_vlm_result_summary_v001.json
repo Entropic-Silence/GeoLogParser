@@ -588,10 +588,10 @@
       "evidence_tier": "GOLD_PUBLISHED_MANUAL_TRANSCRIPTION",
       "experiment_id": "P1_MODERN_VLM_GPT56_SOL_CALIFORNIA_EXTENSION_001",
       "group": "Closed",
-      "interface": "official_openai_direct_json",
-      "model": "GPT-5.6 Sol",
+      "interface": "user_endpoint_openai_responses_direct_json",
+      "model": "requested chatgpt5.6-sol-high / served gpt-5.6-sol",
       "result_path": null,
-      "status": "NOT_RUN_REQUIRES_VALID_OFFICIAL_API_CREDENTIAL"
+      "status": "NO_GO_SYNTHETIC_VISUAL_PREFLIGHT_UPSTREAM_502_NO_GOLD_REQUEST"
     },
     {
       "cohort": "California v001-v005",

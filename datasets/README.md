@@ -1,5 +1,13 @@
 # Dataset handling
 
+The repository includes formal manifests, record-disjoint splits, hashes,
+evidence tiers, and the source/licence ledger needed to audit every reported
+cohort. Lightweight cards for locally acquired public sources are under
+`datasets/public`. Original PDFs and page images remain excluded unless
+item-level redistribution permission and linkage/privacy review are complete;
+their omission does not remove the published interval manifests or public
+reanalysis inputs.
+
 `data_registry.yaml` records candidates and verified access/licensing facts.
 Listing a source is not permission to download or redistribute it.
 

@@ -1,0 +1,41 @@
+{
+  "adapter": "openai_responses",
+  "provider_family": "user_provided_openai_compatible_deployment",
+  "provider": "user-provided endpoint; server operator and upstream provenance not independently verified",
+  "base_url": "http://192.168.1.253:8080",
+  "endpoint_protocol": "OpenAI-compatible Responses at /v1/responses",
+  "requested_deployment_label": "chatgpt5.6-sol-high",
+  "model_id": "gpt-5.6-sol",
+  "model_revision": "models_endpoint_2026-08-17:gpt-5.6-sol; response_snapshot_captured_per_page_when_exposed",
+  "checkpoint_or_api_snapshot": "NOT_EXPOSED_BY_ENDPOINT_MODEL_LIST; response id/system_fingerprint retained when returned",
+  "prompt_version": "vlm_interval_source_units_v002",
+  "prompt_sha256": "891bc6beb7ff9cf35c55389191a208c9b09e9e2dc76909f716603f413745104a",
+  "image_preprocessing": {
+    "render_dpi": 200,
+    "renderer": "PyMuPDF Page.get_pixmap(dpi=200, alpha=False)",
+    "format": "lossless PNG",
+    "crop": "none",
+    "rotation": "none",
+    "enhancement": "none"
+  },
+  "weight_precision": "PROVIDER_UNDISCLOSED",
+  "inference_framework": "PROVIDER_UNDISCLOSED",
+  "api_key_env": "GEOLOGPARSER_CLOSED_VLM_API_KEY",
+  "max_tokens": 4096,
+  "temperature": null,
+  "top_p": "PROVIDER_DEFAULT_NOT_SENT",
+  "retry_policy": {
+    "automatic_page_retries": 0,
+    "policy": "Each requested page is sent once. Transport or parse failures are retained as failures; a resume operation may only continue untouched pages."
+  },
+  "request_options": {
+    "reasoning": {"effort": "high"}
+  },
+  "response_parsing_policy": "strict JSON object; no YAML, repair, completion, reorder, or deduplication",
+  "execution_status": "PREFLIGHT_PENDING_SYNTHETIC_VISUAL_SMOKE",
+  "testing_date_utc": "2026-08-17",
+  "model_list_evidence": {
+    "endpoint_returned_ids": ["gpt-5.6-sol"],
+    "requested_label_not_listed_as_a_distinct_id": true
+  }
+}

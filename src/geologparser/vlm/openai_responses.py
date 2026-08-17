@@ -1,10 +1,4 @@
-"""OpenAI-compatible HTTP adapter for frozen multimodal benchmark runs.
-
-The adapter deliberately has no provider-specific prompt shaping.  A benchmark
-configuration supplies the endpoint, served model identifier and an environment
-variable containing the credential.  Credentials are never written to a run
-directory or a configuration file.
-"""
+"""OpenAI-compatible Responses transport for auditable multimodal runs."""
 
 from __future__ import annotations
 
@@ -21,8 +15,8 @@ from urllib.request import Request, urlopen
 from .base import VLMAdapter, VLMGeneration
 
 
-class OpenAICompatibleVLMAdapter(VLMAdapter):
-    """Greedy image inference through an OpenAI-compatible chat endpoint."""
+class OpenAIResponsesVLMAdapter(VLMAdapter):
+    """Use the Responses image-input schema without provider-specific prompting."""
 
     def __init__(
         self,
@@ -33,7 +27,7 @@ class OpenAICompatibleVLMAdapter(VLMAdapter):
         api_key_env: str | None,
         max_tokens: int = 1024,
         timeout_seconds: float = 300.0,
-        temperature: float = 0.0,
+        temperature: float | None = None,
         request_options: Mapping[str, Any] | None = None,
     ) -> None:
         if not base_url.startswith(("http://", "https://")):
@@ -55,6 +49,22 @@ class OpenAICompatibleVLMAdapter(VLMAdapter):
         encoded = base64.b64encode(path.read_bytes()).decode("ascii")
         return f"data:{media_type};base64,{encoded}"
 
+    @staticmethod
+    def _output_text(body: Mapping[str, Any]) -> str:
+        direct = body.get("output_text")
+        if isinstance(direct, str):
+            return direct
+        parts: list[str] = []
+        for output in body.get("output", []):
+            if not isinstance(output, Mapping):
+                continue
+            for content in output.get("content", []):
+                if isinstance(content, Mapping) and content.get("type") == "output_text":
+                    text = content.get("text")
+                    if isinstance(text, str):
+                        parts.append(text)
+        return "".join(parts)
+
     def generate(
         self,
         images: Sequence[Path],
@@ -70,24 +80,24 @@ class OpenAICompatibleVLMAdapter(VLMAdapter):
         credential = os.environ.get(self.api_key_env) if self.api_key_env else None
         if self.api_key_env and not credential:
             raise RuntimeError(f"required credential environment variable is unset: {self.api_key_env}")
-        content: list[dict[str, Any]] = [{"type": "text", "text": prompt}]
+        content: list[dict[str, Any]] = [{"type": "input_text", "text": prompt}]
         content.extend(
-            {"type": "image_url", "image_url": {"url": self._image_url(path)}}
+            {"type": "input_image", "image_url": self._image_url(path)}
             for path in images
         )
         payload: dict[str, Any] = {
             "model": self.model_id,
-            "messages": [{"role": "user", "content": content}],
-            "temperature": self.temperature,
-            "max_tokens": self.max_tokens,
-            "stream": False,
+            "input": [{"role": "user", "content": content}],
+            "max_output_tokens": self.max_tokens,
         }
+        if self.temperature is not None:
+            payload["temperature"] = self.temperature
         payload.update(self.request_options)
         headers = {"Content-Type": "application/json"}
         if credential:
             headers["Authorization"] = f"Bearer {credential}"
         request = Request(
-            f"{self.base_url}/v1/chat/completions",
+            f"{self.base_url}/v1/responses",
             data=json.dumps(payload).encode("utf-8"),
             headers=headers,
             method="POST",
@@ -98,21 +108,14 @@ class OpenAICompatibleVLMAdapter(VLMAdapter):
                 body = json.loads(response.read().decode("utf-8"))
         except HTTPError as exc:
             detail = exc.read(800).decode("utf-8", "replace")
-            raise RuntimeError(f"VLM endpoint returned HTTP {exc.code}: {detail}") from exc
+            raise RuntimeError(f"VLM Responses endpoint returned HTTP {exc.code}: {detail}") from exc
         except URLError as exc:
-            raise RuntimeError(f"VLM endpoint is unavailable: {exc.reason}") from exc
+            raise RuntimeError(f"VLM Responses endpoint is unavailable: {exc.reason}") from exc
         elapsed = time.perf_counter() - started
-        choice = body.get("choices", [{}])[0]
-        message = choice.get("message", {})
-        text = message.get("content") or ""
-        if isinstance(text, list):
-            text = "".join(str(part.get("text") or "") for part in text if isinstance(part, Mapping))
-        if not isinstance(text, str):
-            text = str(text)
         usage = body.get("usage") or {}
-        output_tokens = usage.get("completion_tokens")
+        output_tokens = usage.get("output_tokens")
         return VLMGeneration(
-            text=text,
+            text=self._output_text(body),
             latency_seconds=elapsed,
             input_image_count=len(images),
             prompt_version=prompt_version,
@@ -122,19 +125,20 @@ class OpenAICompatibleVLMAdapter(VLMAdapter):
             output_tokens=int(output_tokens) if isinstance(output_tokens, int) else None,
             hit_max_new_tokens=(int(output_tokens) >= self.max_tokens) if isinstance(output_tokens, int) else None,
             generation_config={
-                "transport": "openai_compatible_chat_completions",
+                "transport": "openai_responses",
                 "endpoint": self.base_url,
                 "temperature": self.temperature,
-                "max_tokens": self.max_tokens,
+                "max_output_tokens": self.max_tokens,
                 "request_options": self.request_options,
-                "prompt_tokens": usage.get("prompt_tokens"),
+                "input_tokens": usage.get("input_tokens"),
                 "provider_response": {
                     "id": body.get("id"),
                     "model": body.get("model"),
-                    "created": body.get("created"),
+                    "created": body.get("created_at") or body.get("created"),
                     "system_fingerprint": body.get("system_fingerprint"),
                     "service_tier": body.get("service_tier"),
-                    "finish_reason": choice.get("finish_reason"),
+                    "status": body.get("status"),
+                    "incomplete_details": body.get("incomplete_details"),
                 },
             },
         )

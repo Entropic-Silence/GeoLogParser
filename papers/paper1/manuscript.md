@@ -87,7 +87,24 @@ The baselines are representative and reproducible, not a state-of-the-art leader
 
 The historical local VLM reference is Qwen3-VL-4B-Instruct revision `ebb281ec...`, run in BF16 with SDPA on rendered page images constrained to 200,704--1,003,520 input pixels. Prompt `vlm_extract_california_compact_v001` requests visible intervals only in a fixed JSON schema; decoding is greedy (`do_sample=false`, 512 new-token limit). Schema-valid page intervals are concatenated by report and page order without repair or deduplication. This baseline is retained to document the earlier failure mode, not as a current VLM upper bound.
 
-The modern open-model comparison uses the Apache-2.0 Qwen3.8-27B-FP8 native vision-language model [@qwen2026qwen38] through a local OpenAI-compatible endpoint on four RTX 2080 Ti GPUs. Every 200-DPI page receives the same `vlm_interval_source_units_v002` prompt, temperature 0, thinking disabled, and a 4,096-token completion ceiling. The decoder performs only JSON parsing, source-unit conversion, and rejection of non-finite or non-positive ranges; it does not complete, reorder, deduplicate, or reference-condition intervals. No California Gold page was used to change the prompt, schema, decoder, model roster, or matcher. MinerU2.5 and PaddleOCR-VL are separately registered document-specialist interfaces; incomplete runs are not treated as results. Closed-model slots require official provider endpoints and archived responses and remain excluded while valid credentials are unavailable. Engine and parser choices, provider revisions, page hashes, and latency are retained for every completed run.
+The modern open-model comparison uses the Apache-2.0 `Qwen/Qwen3.8-27B-FP8`
+native vision-language checkpoint [@qwen2026qwen38], served as
+`qwen38-fp8-tp4-mtp4-long`, through a local OpenAI-compatible endpoint on four
+RTX 2080 Ti GPUs. Its frozen weight format is fine-grained dynamic FP8 E4M3;
+the server did not expose a vLLM package version. Every 200-DPI page receives
+the same `vlm_interval_source_units_v002` prompt (SHA-256
+`891bc6beb7ff9cf35c55389191a208c9b09e9e2dc76909f716603f413745104a`),
+temperature 0, provider-default top-p, thinking disabled, and a 4,096-token
+completion ceiling. The decoder performs only JSON parsing, source-unit
+conversion, and rejection of non-finite or non-positive ranges; it does not
+complete, reorder, deduplicate, or reference-condition intervals. No California
+Gold page was used to change the prompt, schema, decoder, model roster, or
+matcher. MinerU2.5 and PaddleOCR-VL are separately registered document-specialist
+interfaces; incomplete runs are not treated as results. The user-provided
+closed endpoint served `gpt-5.6-sol` under the requested label
+`chatgpt5.6-sol-high`, but its synthetic visual preflight returned HTTP 502 and
+no real page was sent. Engine and parser choices, provider revisions, page
+hashes, and latency are retained for every completed run.
 
 ## 5. Evaluation
 

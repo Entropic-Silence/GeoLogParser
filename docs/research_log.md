@@ -3019,3 +3019,18 @@
 - Redesigned the Paper I flow/forest plots, Paper II candidate-graph/risk
   figures, and Paper III six-panel controlled-error and jackknife figures to
   match the revised scientific claims.
+## 2026-08-17 — Closed GPT-5.6 Sol visual baseline preflight
+
+- Registered the user-provided OpenAI-compatible deployment as an exploratory
+  closed VLM slot with requested label `chatgpt5.6-sol-high` and served model ID
+  `gpt-5.6-sol` returned by `/v1/models`.
+- Archived the exact frozen prompt hash, 200-DPI PyMuPDF PNG preprocessing,
+  reasoning effort, token budget, parsing policy, retry policy, and endpoint
+  metadata without storing the credential.
+- A synthetic image request reached `/v1/responses` but returned HTTP 502
+  `upstream_error` twice. No real California, Swissgeol, BGS, or other page was
+  sent. No closed-model accuracy, risk-layer, or comparative score exists.
+- Decision: `NO_GO_SYNTHETIC_VISUAL_PREFLIGHT_UPSTREAM_502_NO_GOLD_REQUEST`.
+  Qwen3.8-27B-FP8 remains the completed modern VLM baseline; Paper II uses its
+  verified proposal-assurance result to quantify complementarity rather than
+  claiming a closed-model result.

@@ -22,7 +22,13 @@ from typing import Any, Iterable, Mapping
 from geologparser.evaluation import boundary_matched_interval_metrics, match_intervals_by_boundaries
 from geologparser.experiment import create_run_directory
 from geologparser.result_index import file_sha256, write_artifact_manifest
-from geologparser.vlm import AnthropicMessagesVLMAdapter, OpenAICompatibleVLMAdapter, VLMAdapter, parse_json_object
+from geologparser.vlm import (
+    AnthropicMessagesVLMAdapter,
+    OpenAICompatibleVLMAdapter,
+    OpenAIResponsesVLMAdapter,
+    VLMAdapter,
+    parse_json_object,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -96,6 +102,51 @@ def _write_jsonl(path: Path, rows: Iterable[Mapping[str, Any]]) -> None:
     path.write_text("".join(json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n" for row in rows), encoding="utf-8")
 
 
+def page_preprocessing_metadata(pages: list[Mapping[str, Any]]) -> dict[str, Any]:
+    """Describe the immutable rendered-page input rather than an implicit image path."""
+    dpi_values = sorted({int(page["render_dpi"]) for page in pages if page.get("render_dpi") is not None})
+    suffixes = sorted({Path(str(page["image_path"])).suffix.lower() for page in pages})
+    return {
+        "render_dpi": dpi_values,
+        "renderer": "PyMuPDF Page.get_pixmap(dpi=<render_dpi>, alpha=False)",
+        "raster_format": suffixes,
+        "image_transport": "base64 data URL in OpenAI-compatible image_url content",
+        "geometric_preprocessing": "none after frozen page rendering",
+        "color_preprocessing": "renderer default RGB/RGBA-free PNG raster; no learned crop or enhancement",
+    }
+
+
+def declared_inference_metadata(provider: Mapping[str, Any], *, prompt: str) -> dict[str, Any]:
+    """Record every declared execution detail without ever serialising a credential."""
+    request_options = dict(provider.get("request_options") or {})
+    return {
+        "adapter": provider.get("adapter", "openai_compatible_chat_completions"),
+        "provider_family": provider.get("provider_family", "UNDECLARED"),
+        "provider": provider.get("provider", "UNDECLARED"),
+        "endpoint_protocol": provider.get("endpoint_protocol", "OpenAI-compatible Chat Completions"),
+        "declared_model_id": provider["model_id"],
+        "requested_deployment_label": provider.get("requested_deployment_label"),
+        "declared_model_revision": provider["model_revision"],
+        "checkpoint_or_api_snapshot": provider.get("checkpoint_or_api_snapshot", "NOT_DECLARED"),
+        "weight_precision": provider.get("weight_precision", "NOT_DISCLOSED"),
+        "inference_framework": provider.get("inference_framework", "NOT_DISCLOSED"),
+        "temperature": provider.get("temperature", 0.0),
+        "top_p": provider.get("top_p", request_options.get("top_p", "PROVIDER_DEFAULT_NOT_SENT")),
+        "max_tokens": int(provider.get("max_tokens", 1024)),
+        "request_options": request_options,
+        "retry_policy": provider.get("retry_policy", {"automatic_page_retries": 0}),
+        "response_parsing_policy": {
+            "expected_schema": "single JSON object with intervals[]",
+            "parser": "geologparser.vlm.parse_json_object",
+            "json_or_yaml_fallback": "JSON only; YAML is never parsed",
+            "markdown_fence_handling": "parser strips a single surrounding fenced JSON block when present",
+            "normalization": "source-unit conversion and rejection of non-finite, negative-top, or non-positive-thickness intervals only",
+            "repair_or_completion": "forbidden",
+        },
+        "prompt_sha256": _hash_text(prompt),
+    }
+
+
 def build_adapter(provider: Mapping[str, Any], *, timeout_seconds: float) -> VLMAdapter:
     """Construct only a declared, auditable provider transport."""
     adapter_kind = str(provider.get("adapter", "openai_compatible_chat_completions"))
@@ -106,11 +157,17 @@ def build_adapter(provider: Mapping[str, Any], *, timeout_seconds: float) -> VLM
         "api_key_env": provider.get("api_key_env"),
         "max_tokens": int(provider.get("max_tokens", 1024)),
         "timeout_seconds": timeout_seconds,
-        "temperature": float(provider.get("temperature", 0.0)),
         "request_options": provider.get("request_options"),
     }
     if adapter_kind == "openai_compatible_chat_completions":
-        return OpenAICompatibleVLMAdapter(**common)
+        return OpenAICompatibleVLMAdapter(
+            **common, temperature=float(provider.get("temperature", 0.0))
+        )
+    if adapter_kind == "openai_responses":
+        temperature = provider.get("temperature")
+        return OpenAIResponsesVLMAdapter(
+            **common, temperature=float(temperature) if temperature is not None else None
+        )
     if adapter_kind == "anthropic_messages":
         api_key_env = common.pop("api_key_env")
         if not isinstance(api_key_env, str) or not api_key_env:
@@ -190,6 +247,8 @@ def main() -> None:
             "aggregation": "page_order_concatenation_without_repair_or_deduplication",
             "boundary_tolerance_m": 0.05,
             "resumed_page_count": len(resumed),
+            "page_preprocessing": page_preprocessing_metadata(pages),
+            "declared_inference": declared_inference_metadata(provider, prompt=prompt),
         },
         "started_utc": datetime.now(timezone.utc).isoformat(),
     })
@@ -305,6 +364,21 @@ def main() -> None:
     _write_jsonl(run / "errors.jsonl", errors)
     (run / "metrics.json").write_text(json.dumps(metrics, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     (run / "run.log").write_text(f"status=completed\npages={len(page_rows)}\ndocuments={len(document_rows)}\n", encoding="utf-8")
+    run_metadata_path = run / "run.json"
+    run_metadata = json.loads(run_metadata_path.read_text(encoding="utf-8"))
+    observed_responses = [
+        row.get("generation_config", {}).get("provider_response", {})
+        for row in page_rows if row.get("generation_config", {}).get("provider_response")
+    ]
+    run_metadata["completed_utc"] = datetime.now(timezone.utc).isoformat()
+    run_metadata["observed_provider_responses"] = {
+        "returned_model_ids": sorted({str(row.get("model_id")) for row in page_rows if row.get("model_id")}),
+        "response_ids": sorted({str(item["id"]) for item in observed_responses if item.get("id")}),
+        "system_fingerprints": sorted({str(item["system_fingerprint"]) for item in observed_responses if item.get("system_fingerprint")}),
+        "service_tiers": sorted({str(item["service_tier"]) for item in observed_responses if item.get("service_tier")}),
+        "provider_created_timestamps": sorted({item["created"] for item in observed_responses if item.get("created") is not None}),
+    }
+    run_metadata_path.write_text(json.dumps(run_metadata, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     write_artifact_manifest(run)
     print(run)
 

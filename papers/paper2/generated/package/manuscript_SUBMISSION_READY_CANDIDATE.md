@@ -32,7 +32,7 @@ Paper I owns the evidence hierarchy and source-shift benchmark. Paper III owns d
 
 ## 2. Related Work
 
-Multimodal document models combine text, layout, and pixels [@xu2020layoutlm; @xu2021layoutlmv2; @kim2022donut; @hu2024docowl2], but borehole reliability additionally requires depth order and semantic ownership. Zhang et al. study same-specification image extraction [@zhang2020boreholeimages]; Han and Suh combine page typing with spreadsheet structuring [@han2024boreholeocr]; Amini et al. separate PDF discovery, selection, and capture [@amini2023boreholepdf]; Ma et al. report weaker extraction on image-based historical well records [@ma2024historicalwell]; and Shiga evaluates direct VLM structuring on a small, single-system borehole set [@shiga2026boreholevlm]. Our target is not another image-to-JSON pipeline, but auditable sequence choice and correction harm under fixed evidence.
+Multimodal document models combine text, layout, and pixels [@xu2020layoutlm; @xu2021layoutlmv2; @kim2022donut; @hu2024docowl2], but borehole reliability additionally requires depth order and semantic ownership. Zhang et al. study same-specification image extraction [@zhang2020boreholeimages]; Han and Suh combine page typing with spreadsheet structuring [@han2024boreholeocr]; Amini et al. separate PDF discovery, selection, and capture [@amini2023boreholepdf]; Ma et al. report weaker extraction on image-based historical well records [@ma2024historicalwell]; and Shiga evaluates direct VLM structuring on a small, single-system borehole set [@shiga2026boreholevlm]. Our target is not another image-to-JSON pipeline, but auditable sequence choice and correction harm under fixed evidence. The modern direct-VLM comparison is deliberately complementary: a strong visual reader can propose intervals, while the present route contributes independent positioned evidence, deterministic geometry, provenance, and a risk policy.
 
 Garzón et al. introduce geology-informed sequence and spatial metrics for automated stratigraphic interpretations of 1,394 already structured boreholes [@garzon2026stratigraphicmetrics]. Their work motivates evaluating geological order, but our problem occurs one stage earlier: candidates must first be grounded to page regions and assigned to the correct document column. Grammar-constrained decoding can guarantee a valid output language [@geng2023grammar], yet cannot establish that a valid depth belongs to the lithologic sequence.
 
@@ -159,6 +159,36 @@ Swissgeol evaluates an independently frozen rereading policy on 35 held-out sour
 
 The VLM-proposal assurance experiment uses the same California Gold definitions and 0.05 m evaluation matcher as Paper I. The proposal model, prompt, positioned reader, (10^{-6}) m agreement tolerance, bbox requirement, and non-overlap rule are fixed before v003. Document-cluster bootstrap resamples whole reports 5,000 times. The comparison is selective: raw precision and accepted precision answer different coverage questions and are reported together.
 
+### 5.3 Modern-VLM complementarity protocol
+
+The open modern-VLM baseline is identified by its official checkpoint and served
+ID rather than by a shorthand family name: `Qwen/Qwen3.8-27B-FP8`, served as
+`qwen38-fp8-tp4-mtp4-long`, with fine-grained dynamic FP8 E4M3 weights, through
+a local vLLM-compatible OpenAI server. The frozen prompt is
+`vlm_interval_source_units_v002` (SHA-256
+`891bc6beb7ff9cf35c55389191a208c9b09e9e2dc76909f716603f413745104a`); pages are
+rendered at 200 DPI with PyMuPDF to lossless PNG, with temperature 0,
+provider-default top-p, a 4,096-token ceiling, zero automatic retries, and
+strict JSON parsing without repair, reordering, or deduplication. The local
+server did not expose its vLLM package version; this is recorded as an unknown,
+not inferred.
+
+The comparison asks which capability is complementary rather than which model
+wins universally. Qwen supplies visual semantic recall and proposal coverage;
+positioned OCR supplies an independent page-coordinate witness; the routed
+sequence decoder supplies monotonic geometry and column-aware selection; and the
+risk layer decides whether to accept, retain, or abstain. On held-out California
+v003, raw Qwen proposal precision was 0.907, while complete-boundary agreement
+with the independent positioned reader yielded selective precision 0.993 at
+0.244 coverage, with three incorrect accepted intervals. This is a selective
+reliability improvement, not an all-output F1 improvement or evidence of
+whole-document completeness.
+
+The requested closed-model exploratory slot was recorded separately with the
+served ID `gpt-5.6-sol` and requested reasoning label
+`chatgpt5.6-sol-high`. Its synthetic visual preflight returned HTTP 502 before
+any real page request, so it contributes no baseline or risk-layer metric.
+
 ## 6. Results
 
 ### 6.1 Unselective reconstruction across California
@@ -198,6 +228,16 @@ The converged page-family router was authorized only after nested source-disjoin
 On v001 development, 81.7% of critical depth fields had a same-page positioned numeric anchor. Complete independently positioned interval agreement covered 174/736 proposals (0.236); all 174 matched Gold. On v002 validation, numeric-anchor coverage was 0.849 and the fixed rule accepted 561/1,953 proposals (0.287). Selective precision was 0.979 [0.951, 0.997], compared with raw proposal precision 0.854; 12 accepted actions were incorrect and 5/72 documents with an accepted action contained at least one such error. <!-- evidence:p2.vlm_proposal_assurance -->
 
 The frozen v003 replication retained the effect: numeric-anchor coverage 0.845, semantically owned/accepted coverage 0.244, and selective precision 444/447 = 0.993 [0.984, 1.000], compared with raw precision 0.907. Three accepted actions were incorrect, each in a different document; 63/100 documents contained at least one accepted action. The rule therefore converts roughly one quarter of high-recall proposals into highly reliable, bbox-grounded interval actions, but agreement is not independence from shared source ambiguity and does not certify whole-document completeness. The generated [assurance table](generated/vlm_proposal_assurance_v001.md) reports roles and cluster intervals without pooling them. <!-- evidence:p2.vlm_proposal_assurance -->
+
+The practical conclusion is asymmetric. Direct modern VLMs are stronger at
+recovering visually implicit intervals on the California family, while the
+existing route remains necessary for numerical traceability, semantic ownership
+checks, deterministic depth reconstruction, risk accounting, and review-queue
+generation. The supported deployment design is therefore a hybrid assurance
+stack: use the VLM as a high-recall reader, require independent positioned
+evidence for automatic acceptance, and abstain when evidence or source-family
+support is insufficient. The evidence does not support replacing the route with
+a direct VLM, nor replacing the VLM with OCR on every template.
 
 ## 7. Failure Analysis
 

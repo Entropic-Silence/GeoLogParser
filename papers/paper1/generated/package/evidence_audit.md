@@ -2,7 +2,7 @@
 # paper1 evidence audit
 
 Package: **SUBMISSION_READY_CANDIDATE**
-Manuscript words: **3502**; unresolved markers: **0**.
+Manuscript words: **3538**; unresolved markers: **0**.
 Indexed runs: **68**; formal runs: **30**.
 Structural audit: **PASSED**.
 
@@ -12,7 +12,7 @@ Structural audit: **PASSED**.
 
 ## Trace
 
-- Manuscript SHA256: `0e6cfc9b3b52222957421a5978852efb81f3e34d4f39c4659f3f2110c10a3f34`
+- Manuscript SHA256: `eae52d3236bd4b8721ad921f18aea82fa973b0c02830c5ddf622b00fe133624d`
 - Result-index SHA256: `3c2b9cd797f22ac91c23a24271eef1fa4ebf6ba0590cfa81438b9a22f6d405f8`
 - Citation keys: amini2023boreholepdf, borkovich2025californiawcr, garzon2026stratigraphicmetrics, han2024boreholeocr, haugen2025californialithology, hu2024docowl2, kim2022donut, ma2024historicalwell, pfitzmann2022doclaynet, qwen2026qwen38, roberts2017crossvalidation, shiga2026boreholevlm, smith2007tesseract, smock2022pubtables, xu2020layoutlm, xu2021layoutlmv2, zhang2020boreholeimages, zhong2019publaynet
 - Missing literature-evidence keys: none

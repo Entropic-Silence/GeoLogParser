@@ -40,12 +40,12 @@ The initial open-model roster is frozen under `paper1_modern_vlm_v002`.
 After that protocol began, a user-directed closed-model extension was added as
 `paper1_modern_vlm_closed_extension_v003`. It fixes the same inputs, prompt,
 decoder, matcher, and budget for `gpt-5.6-sol` and `claude-opus-4-6`, but is a
-post-hoc exploratory comparison rather than a confirmatory roster member. Each
-can be run only through its named provider's official, versioned endpoint with
-the direct credential recorded outside the repository. It remains `NOT RUN`
-until that credential and a synthetic endpoint-format smoke test are available.
-ChatGPT/Codex session identity and opaque model proxies are not valid
-experimental backends.
+post-hoc exploratory comparison rather than a confirmatory roster member. The
+user-provided GPT slot was tested on a synthetic visual page on 2026-08-17;
+the endpoint returned HTTP 502 upstream errors, so it is now explicitly
+`NO_GO_SYNTHETIC_VISUAL_PREFLIGHT_UPSTREAM_502_NO_GOLD_REQUEST`. No real page
+was sent and no accuracy or risk-layer number is reported. ChatGPT/Codex session
+identity and opaque model proxies are not valid experimental backends.
 
 ## Protocol History
 

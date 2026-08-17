@@ -1,28 +1,48 @@
 # Closed VLM Endpoint Preflight
 
-Date: 2026-08-17
+Date: 2026-08-17 (UTC)
 
-## Scope
+## Scope and identity
 
-This is a transport and credential preflight, not a model evaluation. One
-project-generated synthetic page was sent to the configured official OpenAI
-endpoint with the fixed request format and a trivial JSON response request.
-No California, Swissgeol, BGS, Raft River, or other real-source page was sent.
+This is a synthetic visual transport preflight, not a model evaluation. The
+user-provided OpenAI-compatible endpoint was queried through both `/v1/models`
+and the multimodal `/v1/responses` interface. The model list returned only
+`gpt-5.6-sol`; it did not expose a distinct `chatgpt5.6-sol-high` model ID.
+The auditable identity is therefore:
+
+| Field | Recorded value |
+| --- | --- |
+| requested deployment label | `chatgpt5.6-sol-high` |
+| served model ID | `gpt-5.6-sol` |
+| reasoning effort | `high` |
+| checkpoint/API snapshot | not exposed by endpoint; response IDs retained when returned |
+| revision/hash | model-list observation `2026-08-17:gpt-5.6-sol` |
+| precision | provider undisclosed |
+| serving framework/version | provider undisclosed |
+| transport | OpenAI-compatible Responses `/v1/responses` |
+| prompt | `vlm_interval_source_units_v002`, SHA-256 `891bc6beb7ff9cf35c55389191a208c9b09e9e2dc76909f716603f413745104a` |
+| image preprocessing | 200-DPI PyMuPDF PNG, no crop/rotation/enhancement |
+| temperature/top-p | temperature omitted; provider default top-p |
+| max output tokens | 4096 |
+| retries | zero automatic page retries |
+| parsing | strict JSON object; no YAML, repair, completion, reorder, or deduplication |
+| test date | 2026-08-17 |
+
+The credential is stored only in `/root/.geologparser_closed_vlm.env` with mode
+600 and is not part of the repository or any artifact.
 
 ## Outcome
 
-The endpoint rejected the configured credential before generation. No model
-response, token usage, Gold-page request, prediction artifact, or accuracy
-metric exists. The status of the OpenAI entry therefore remains
-`NOT_RUN_REQUIRES_VALID_OFFICIAL_API_CREDENTIAL`.
+The synthetic image request reached the visual endpoint but returned HTTP 502
+`upstream_error` twice. A minimal Responses request also returned a visual
+validation error before generation. No California, Swissgeol, BGS, Raft River,
+or other real-source page was sent. Consequently there is no closed-model Gold
+baseline, no closed-model risk-layer result, and no accuracy claim. The
+registered status is:
 
-This is an account-configuration failure, not evidence about GPT-5.6 Sol. A
-future run must repeat the synthetic preflight with a valid direct official
-credential before the frozen, exploratory closed-model protocol can process
-any Gold page.
+`NO_GO_SYNTHETIC_VISUAL_PREFLIGHT_UPSTREAM_502_NO_GOLD_REQUEST`
 
-## Documentation
-
-The registered model identifier and image-capable API surface were checked
-against the official OpenAI documentation on the same date:
-<https://developers.openai.com/api/docs/models/gpt-5.6-sol>.
+This is an endpoint availability/protocol failure, not evidence about the
+capability of the named model. The extension remains registered but excluded
+from confirmatory tables. It may be rerun only after a successful synthetic
+visual preflight, with the exact request/response metadata archived first.

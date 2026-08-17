@@ -2,9 +2,32 @@
   "base_url": "http://127.0.0.1:18000",
   "model_id": "qwen38-fp8-tp4-mtp4-long",
   "model_revision": "local_Qwen3.8-27B-FP8_qwen3_5_architecture_fp8_e4m3",
+  "official_model_name": "Qwen/Qwen3.8-27B-FP8",
+  "served_model_id": "qwen38-fp8-tp4-mtp4-long",
+  "checkpoint_hashes": {
+    "config.json": "74227dd615bf1ea975aa676bdf355a0379858c12f394b5365cd9dfa5fc2c70bc",
+    "preprocessor_config.json": "27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516",
+    "model.safetensors.index.json": "f0838c766951bdfe76d6afbdb2771a8f67aaa2231dedb3d33cebd817729843a2"
+  },
+  "weight_precision": "fine-grained dynamic FP8 E4M3",
+  "inference_framework": "vLLM-compatible OpenAI server; package version not exposed by frozen server",
   "api_key_env": "VLLM_API_KEY",
   "max_tokens": 4096,
   "temperature": 0.0,
+  "top_p": "PROVIDER_DEFAULT_NOT_SENT",
+  "prompt_version": "vlm_interval_source_units_v002",
+  "prompt_sha256": "891bc6beb7ff9cf35c55389191a208c9b09e9e2dc76909f716603f413745104a",
+  "image_preprocessing": {
+    "render_dpi": 200,
+    "renderer": "PyMuPDF Page.get_pixmap(dpi=200, alpha=False)",
+    "format": "lossless PNG",
+    "crop": "none",
+    "rotation": "none",
+    "enhancement": "none"
+  },
+  "retry_policy": {"automatic_page_retries": 0},
+  "response_parsing_policy": "strict JSON object; no YAML, repair, completion, reorder, or deduplication",
+  "testing_date_utc": "2026-08-17",
   "hardware": "local_vllm_tensor_parallel_4x_RTX_2080_Ti",
   "gpu_used": true,
   "request_options": {

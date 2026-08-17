@@ -21,6 +21,9 @@ results/**
 # Large or restricted data belong on /data/GeoLogParser.
 datasets/public/**
 !datasets/public/.gitkeep
+!datasets/public/README.md
+!datasets/public/**/
+!datasets/public/**/dataset.json
 datasets/raw/
 datasets/processed/
 /models/

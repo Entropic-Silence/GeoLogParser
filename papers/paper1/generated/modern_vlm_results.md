@@ -29,7 +29,7 @@ The following deltas resample whole reports while retaining the paired Qwen and 
 | --- | --- | --- | --- |
 | Open | MinerU2.5-Pro-2604-1.2B | California v001 | NO_GO_BOUNDED_SMOKE_ZERO_INTERVALS |
 | Open | PaddleOCR-VL-1.6 | California v001 | NO_GO_PAGE_LEVEL_TABLE_TASK_ZERO_INTERVALS |
-| Closed | GPT-5.6 Sol | California v001-v005 | NOT_RUN_REQUIRES_VALID_OFFICIAL_API_CREDENTIAL |
+| Closed | requested chatgpt5.6-sol-high / served gpt-5.6-sol | California v001-v005 | NO_GO_SYNTHETIC_VISUAL_PREFLIGHT_UPSTREAM_502_NO_GOLD_REQUEST |
 | Closed | Claude Opus 4.6 | California v001-v005 | NOT_RUN_REQUIRES_VALID_OFFICIAL_API_CREDENTIAL |
 
 ## Retained Operational Records
