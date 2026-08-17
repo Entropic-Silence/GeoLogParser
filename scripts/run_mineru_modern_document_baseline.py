@@ -51,9 +51,15 @@ def main() -> None:
     parser.add_argument("--results-root", type=Path, default=ROOT / "results")
     parser.add_argument("--limit-pages", type=int)
     parser.add_argument("--scale-to-m", type=float, default=0.3048)
+    parser.add_argument("--max-layout-new-tokens", type=int, default=2048)
+    parser.add_argument("--max-table-new-tokens", type=int, default=4096)
+    parser.add_argument("--max-content-new-tokens", type=int, default=1024)
     arguments = parser.parse_args()
     if arguments.limit_pages is not None and arguments.limit_pages < 1:
         raise ValueError("--limit-pages must be positive")
+    for name in ("max_layout_new_tokens", "max_table_new_tokens", "max_content_new_tokens"):
+        if getattr(arguments, name) < 1:
+            raise ValueError(f"--{name.replace('_', '-')} must be positive")
     model_config = json.loads(arguments.model_config.read_text(encoding="utf-8"))
     sources = {str(row["record_id"]): row for row in load_jsonl(arguments.source_manifest)}
     pages = load_jsonl(arguments.page_manifest)
@@ -68,6 +74,7 @@ def main() -> None:
         from PIL import Image
         from transformers import AutoProcessor, Qwen2VLForConditionalGeneration
         from mineru_vl_utils import MinerUClient
+        from mineru_vl_utils.mineru_client import MinerUSamplingParams
     except ImportError as exc:
         raise RuntimeError("MinerU baseline requires its locked external runtime") from exc
     if not torch.cuda.is_available():
@@ -80,7 +87,24 @@ def main() -> None:
         str(model_path), dtype=torch.bfloat16, local_files_only=True,
     ).to("cuda:0").eval()
     processor = AutoProcessor.from_pretrained(str(model_path), local_files_only=True, use_fast=True)
-    client = MinerUClient(backend="transformers", model=model, processor=processor, image_analysis=False)
+    # MinerU defaults to the model context length when max_new_tokens is unset.
+    # Bounded stage-specific generation makes a page-level baseline feasible and
+    # records the decoding budget rather than silently relying on that default.
+    sampling_params = {
+        "table": MinerUSamplingParams(presence_penalty=1.0, frequency_penalty=0.005, max_new_tokens=arguments.max_table_new_tokens),
+        "equation": MinerUSamplingParams(presence_penalty=1.0, frequency_penalty=0.05, max_new_tokens=arguments.max_content_new_tokens),
+        "image": MinerUSamplingParams(presence_penalty=1.0, frequency_penalty=0.05, max_new_tokens=arguments.max_content_new_tokens),
+        "chart": MinerUSamplingParams(presence_penalty=1.0, frequency_penalty=0.05, max_new_tokens=arguments.max_content_new_tokens),
+        "[default]": MinerUSamplingParams(presence_penalty=1.0, frequency_penalty=0.05, max_new_tokens=arguments.max_content_new_tokens),
+        "[layout]": MinerUSamplingParams(max_new_tokens=arguments.max_layout_new_tokens),
+    }
+    client = MinerUClient(
+        backend="transformers",
+        model=model,
+        processor=processor,
+        image_analysis=False,
+        sampling_params=sampling_params,
+    )
     commit = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True, capture_output=True, check=True).stdout.strip()
     run = create_run_directory(arguments.results_root, {
         "experiment_id": arguments.experiment_id,
@@ -90,7 +114,7 @@ def main() -> None:
         "split_version": "all_pages_of_frozen_manifest",
         "model": model_config["model_id"],
         "model_revision": model_config["model_revision"],
-        "prompt_version": "official_two_step_extract_without_image_analysis",
+        "prompt_version": "official_two_step_extract_without_image_analysis_bounded_v001",
         "seed": 0,
         "hardware": {"device": model_config["hardware"], "gpu_used": True},
         "software": {"python": platform.python_version(), "torch": torch.__version__},
@@ -103,6 +127,11 @@ def main() -> None:
             "metres_per_source_unit": arguments.scale_to_m,
             "prediction_reference_conditioning": "none",
             "decoder": model_config["decoder"],
+            "generation_budget": {
+                "layout_max_new_tokens": arguments.max_layout_new_tokens,
+                "table_max_new_tokens": arguments.max_table_new_tokens,
+                "content_max_new_tokens": arguments.max_content_new_tokens,
+            },
             "boundary_tolerance_m": 0.05,
         },
         "started_utc": datetime.now(timezone.utc).isoformat(),
