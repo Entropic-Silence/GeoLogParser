@@ -27,9 +27,11 @@ decoder, threshold, model roster or selection decision. BGS v003 is excluded.
 ## Model Families
 
 The open group consists of the locally served Qwen3.8-27B-FP8 generalist VLM,
-PaddleOCR-VL-1.6 and MinerU2.5-Pro-2604-1.2B, subject to independent local
-smoke tests. The prior Qwen3-VL-4B result remains a historical reproducible
-reference, not an upper bound. The closed group is pre-registered for an
+MinerU2.5-Pro-2604-1.2B through its official two-step document parser, and
+PaddleOCR-VL-1.6 subject to an independent local smoke test. For MinerU, the
+common decoder reads only explicitly labelled top/bottom HTML table cells. The
+prior Qwen3-VL-4B result remains a historical reproducible reference, not an
+upper bound. The closed group is pre-registered for an
 official, versioned endpoint with documented image input. It must remain
 `NOT RUN` until a valid direct credential and exact endpoint model ID are
 available; ChatGPT/Codex session identity and opaque model proxies are not
