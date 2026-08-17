@@ -33,8 +33,10 @@ def main() -> None:
     parser.add_argument("--plan", type=Path, default=ROOT / "configs/experiments/paper1_modern_vlm_result_plan_v001.json")
     parser.add_argument("--output", type=Path, default=ROOT / "papers/paper1/generated/modern_vlm_results.md")
     parser.add_argument("--json-output", type=Path, default=ROOT / "experiments/paper1/modern_vlm_result_summary_v001.json")
+    parser.add_argument("--statistics", type=Path, default=ROOT / "experiments/paper1/analysis/modern_vlm_statistics_v001.json")
     args = parser.parse_args()
     plan = json.loads(args.plan.read_text(encoding="utf-8"))
+    statistics = json.loads(args.statistics.read_text(encoding="utf-8")) if args.statistics.is_file() else {"analyses": {}}
     published: list[dict[str, Any]] = []
     summary: list[dict[str, Any]] = []
     for entry in plan["runs"]:
@@ -54,6 +56,7 @@ def main() -> None:
                 "numeric_invalidity": metrics.get("critical_numeric_invalidity_rate"),
                 "seconds_per_page": metrics.get("latency_seconds_per_page"),
             }
+            row["statistics"] = statistics.get("analyses", {}).get(entry["experiment_id"])
             published.append(row)
         summary.append(row)
     args.json_output.parent.mkdir(parents=True, exist_ok=True)
@@ -64,14 +67,16 @@ def main() -> None:
         "",
         "This table is generated only from runs whose artifact directory records `status=completed`. Metrics with different evidence tiers are never pooled.",
         "",
-        "| Group | Model | Interface | Cohort | Evidence | Docs | Pages | P | R | F1 | Boundary-exact | Zero output | JSON-valid | Numeric invalidity | s/page |",
+        "| Group | Model | Interface | Cohort | Evidence | Docs | Pages | P | R | F1 (document 95% CI) | Boundary-exact | Zero output | JSON-valid | Numeric invalidity | s/page |",
         "| --- | --- | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
     ]
     for row in published:
         value = row["metrics"]
+        ci = (row.get("statistics") or {}).get("document_cluster_metrics", {}).get("bootstrap_percentile_95_ci", {}).get("f1")
+        f1 = f"{fmt(value['f1'])} [{fmt(ci[0])}, {fmt(ci[1])}]" if ci else fmt(value["f1"])
         lines.append(
             f"| {row['group']} | {row['model']} | {row['interface']} | {row['cohort']} | {row['evidence_tier']} | "
-            f"{value['documents']} | {value['pages']} | {fmt(value['precision'])} | {fmt(value['recall'])} | {fmt(value['f1'])} | "
+            f"{value['documents']} | {value['pages']} | {fmt(value['precision'])} | {fmt(value['recall'])} | {f1} | "
             f"{fmt(value['boundary_exact'])} | {fmt(value['zero_output'])} | {fmt(value['json_valid'])} | "
             f"{fmt(value['numeric_invalidity'])} | {fmt(value['seconds_per_page'], 2)} |"
         )

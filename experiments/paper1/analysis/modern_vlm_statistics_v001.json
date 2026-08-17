@@ -1,0 +1,236 @@
+{
+  "analyses": {
+    "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V001_FORMAL_002": {
+      "cohort": "California v001",
+      "document_cluster_metrics": {
+        "bootstrap_percentile_95_ci": {
+          "f1": [
+            0.887909180315316,
+            0.9725753119783802
+          ],
+          "precision": [
+            0.8327903561702354,
+            0.9751038863204194
+          ],
+          "recall": [
+            0.9344262295081968,
+            0.9798996916576701
+          ]
+        },
+        "bootstrap_repetitions": 20000,
+        "bootstrap_unit": "document",
+        "f1": 0.9323098394975576,
+        "matched": 668,
+        "precision": 0.907608695652174,
+        "predicted": 736,
+        "recall": 0.9583931133428981,
+        "reference": 697
+      },
+      "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V001_FORMAL_002",
+      "interface": "generalist_direct_json",
+      "model": "Qwen3.8-27B-FP8",
+      "paired_against_frozen_rapidocr": {
+        "bootstrap_repetitions": 20000,
+        "bootstrap_unit": "document",
+        "delta_left_minus_right": {
+          "f1": {
+            "bootstrap_percentile_95_ci": [
+              0.43588854010798883,
+              0.6488243530217734
+            ],
+            "bootstrap_probability_delta_gt_zero": 1.0,
+            "observed": 0.5421753103495757
+          },
+          "precision": {
+            "bootstrap_percentile_95_ci": [
+              -0.05186931478694282,
+              0.09361412343015602
+            ],
+            "bootstrap_probability_delta_gt_zero": 0.6772,
+            "observed": 0.01530100334448159
+          },
+          "recall": {
+            "bootstrap_percentile_95_ci": [
+              0.6291375989938491,
+              0.7803033004798341
+            ],
+            "bootstrap_probability_delta_gt_zero": 1.0,
+            "observed": 0.7087517934002869
+          }
+        },
+        "left": {
+          "f1": 0.9323098394975576,
+          "matched": 668,
+          "precision": 0.907608695652174,
+          "predicted": 736,
+          "recall": 0.9583931133428981,
+          "reference": 697
+        },
+        "right": {
+          "f1": 0.390134529147982,
+          "matched": 174,
+          "precision": 0.8923076923076924,
+          "predicted": 195,
+          "recall": 0.24964131994261118,
+          "reference": 697
+        }
+      }
+    },
+    "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V002_FORMAL_002": {
+      "cohort": "California v002",
+      "document_cluster_metrics": {
+        "bootstrap_percentile_95_ci": {
+          "f1": [
+            0.8409314424925045,
+            0.9433757006394569
+          ],
+          "precision": [
+            0.7665752914109015,
+            0.933944079294689
+          ],
+          "recall": [
+            0.9057042744672446,
+            0.9702815233568874
+          ]
+        },
+        "bootstrap_repetitions": 20000,
+        "bootstrap_unit": "document",
+        "f1": 0.8955143701316143,
+        "matched": 1667,
+        "precision": 0.8535586277521762,
+        "predicted": 1953,
+        "recall": 0.9418079096045198,
+        "reference": 1770
+      },
+      "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V002_FORMAL_002",
+      "interface": "generalist_direct_json",
+      "model": "Qwen3.8-27B-FP8",
+      "paired_against_frozen_rapidocr": {
+        "bootstrap_repetitions": 20000,
+        "bootstrap_unit": "document",
+        "delta_left_minus_right": {
+          "f1": {
+            "bootstrap_percentile_95_ci": [
+              0.3447768871085781,
+              0.5426860871095665
+            ],
+            "bootstrap_probability_delta_gt_zero": 1.0,
+            "observed": 0.4452483038197027
+          },
+          "precision": {
+            "bootstrap_percentile_95_ci": [
+              -0.07789200682753208,
+              0.1554069091721316
+            ],
+            "bootstrap_probability_delta_gt_zero": 0.75075,
+            "observed": 0.03632237218011081
+          },
+          "recall": {
+            "bootstrap_percentile_95_ci": [
+              0.5643965202062624,
+              0.6961271951800749
+            ],
+            "bootstrap_probability_delta_gt_zero": 1.0,
+            "observed": 0.6310734463276836
+          }
+        },
+        "left": {
+          "f1": 0.8955143701316143,
+          "matched": 1667,
+          "precision": 0.8535586277521762,
+          "predicted": 1953,
+          "recall": 0.9418079096045198,
+          "reference": 1770
+        },
+        "right": {
+          "f1": 0.4502660663119116,
+          "matched": 550,
+          "precision": 0.8172362555720654,
+          "predicted": 673,
+          "recall": 0.3107344632768362,
+          "reference": 1770
+        }
+      }
+    },
+    "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V003_FORMAL_003": {
+      "cohort": "California v003",
+      "document_cluster_metrics": {
+        "bootstrap_percentile_95_ci": {
+          "f1": [
+            0.8776548298564902,
+            0.9532803311365402
+          ],
+          "precision": [
+            0.8470181432497917,
+            0.9578836535182448
+          ],
+          "recall": [
+            0.8823855280748664,
+            0.9687313189760882
+          ]
+        },
+        "bootstrap_repetitions": 20000,
+        "bootstrap_unit": "document",
+        "f1": 0.9179784589892295,
+        "matched": 1662,
+        "precision": 0.9067103109656302,
+        "predicted": 1833,
+        "recall": 0.9295302013422819,
+        "reference": 1788
+      },
+      "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V003_FORMAL_003",
+      "interface": "generalist_direct_json",
+      "model": "Qwen3.8-27B-FP8",
+      "paired_against_frozen_rapidocr": {
+        "bootstrap_repetitions": 20000,
+        "bootstrap_unit": "document",
+        "delta_left_minus_right": {
+          "f1": {
+            "bootstrap_percentile_95_ci": [
+              0.4571787866781199,
+              0.6136153414693359
+            ],
+            "bootstrap_probability_delta_gt_zero": 1.0,
+            "observed": 0.5353623533224208
+          },
+          "precision": {
+            "bootstrap_percentile_95_ci": [
+              0.03861687142712541,
+              0.17894735955433674
+            ],
+            "bootstrap_probability_delta_gt_zero": 0.99895,
+            "observed": 0.1034902751874548
+          },
+          "recall": {
+            "bootstrap_percentile_95_ci": [
+              0.6117707283068111,
+              0.7416005281609549
+            ],
+            "bootstrap_probability_delta_gt_zero": 1.0,
+            "observed": 0.6784116331096197
+          }
+        },
+        "left": {
+          "f1": 0.9179784589892295,
+          "matched": 1662,
+          "precision": 0.9067103109656302,
+          "predicted": 1833,
+          "recall": 0.9295302013422819,
+          "reference": 1788
+        },
+        "right": {
+          "f1": 0.38261610566680876,
+          "matched": 449,
+          "precision": 0.8032200357781754,
+          "predicted": 559,
+          "recall": 0.2511185682326622,
+          "reference": 1788
+        }
+      }
+    }
+  },
+  "analysis_version": "modern_vlm_statistics_v001",
+  "bootstrap_repetitions": 20000,
+  "method": "nonparametric percentile bootstrap clustered at document level; paired deltas retain document identity",
+  "seed": 20260817
+}

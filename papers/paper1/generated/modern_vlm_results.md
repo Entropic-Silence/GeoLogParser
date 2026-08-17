@@ -2,17 +2,18 @@
 
 This table is generated only from runs whose artifact directory records `status=completed`. Metrics with different evidence tiers are never pooled.
 
-| Group | Model | Interface | Cohort | Evidence | Docs | Pages | P | R | F1 | Boundary-exact | Zero output | JSON-valid | Numeric invalidity | s/page |
+| Group | Model | Interface | Cohort | Evidence | Docs | Pages | P | R | F1 (document 95% CI) | Boundary-exact | Zero output | JSON-valid | Numeric invalidity | s/page |
 | --- | --- | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Open | Qwen3.8-27B-FP8 | generalist_direct_json | California v001 | GOLD_PUBLISHED_MANUAL_TRANSCRIPTION | 50 | 77 | 0.908 | 0.958 | 0.932 | 0.740 | 0.000 | 0.987 | 0.009 | 9.99 |
-| Open | Qwen3.8-27B-FP8 | generalist_direct_json | California v002 | GOLD_PUBLISHED_MANUAL_TRANSCRIPTION | 100 | 154 | 0.854 | 0.942 | 0.896 | 0.700 | 0.000 | 1.000 | 0.007 | 10.83 |
+| Open | Qwen3.8-27B-FP8 | generalist_direct_json | California v001 | GOLD_PUBLISHED_MANUAL_TRANSCRIPTION | 50 | 77 | 0.908 | 0.958 | 0.932 [0.888, 0.973] | 0.740 | 0.000 | 0.987 | 0.009 | 9.99 |
+| Open | Qwen3.8-27B-FP8 | generalist_direct_json | California v002 | GOLD_PUBLISHED_MANUAL_TRANSCRIPTION | 100 | 154 | 0.854 | 0.942 | 0.896 [0.841, 0.943] | 0.700 | 0.000 | 1.000 | 0.007 | 10.83 |
+| Open | Qwen3.8-27B-FP8 | generalist_direct_json | California v003 | GOLD_PUBLISHED_MANUAL_TRANSCRIPTION | 100 | 154 | 0.907 | 0.930 | 0.918 [0.878, 0.953] | 0.720 | 0.000 | 1.000 | 0.004 | 10.40 |
 
 ## Registered But Not Yet Comparable
 
 | Group | Model | Cohort | Status |
 | --- | --- | --- | --- |
-| Open | Qwen3.8-27B-FP8 | California v003 | RUNNING |
-| Open | Qwen3.8-27B-FP8 | California v004 | PLANNED |
+| Open | Qwen3.8-27B-FP8 | California v004 | TRANSPORT_INTERRUPTED_BEFORE_PAGE_REQUEST |
+| Open | Qwen3.8-27B-FP8 | California v004 | RUNNING |
 | Open | Qwen3.8-27B-FP8 | California v005 | PLANNED |
 | Open | Qwen3.8-27B-FP8 | Swissgeol held-out | PLANNED |
 | Open | MinerU2.5-Pro-2604-1.2B | California v001 | RUNNING |
