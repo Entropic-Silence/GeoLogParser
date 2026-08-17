@@ -25,38 +25,37 @@ override the external rights and source-verification gate in
 
 Status: `SUBMISSION_READY_CANDIDATE`
 
-The manuscript is bounded as a benchmark and failure-characterization paper.
-California published manual-transcription references, BGS source-shift tests,
-USGS Idaho disagreement audits, Raft River, Swissgeol, degradation metadata,
-and the fixed-parser random/grouped leakage diagnostic are all separated by
-evidence tier. The random/grouped result is explicitly not described as a
-retraining generalization experiment. The paper does not claim broad
-multilingual human Gold or independent annotator agreement.
+The manuscript is bounded as a multi-cohort/cross-source evaluation and failure-
+characterization paper, not a comprehensive benchmark. Five California cohorts
+now use document-cluster bootstrap intervals, zero-output rates, per-document
+recall, and exact-record rates. Source-agreement, authoritative metadata,
+Machine Silver, and no-GT audits remain separate. The fixed-prediction random/
+grouped result is supplementary and supports no general leakage claim.
 
 ## Paper II
 
 Status: `SUBMISSION_READY_CANDIDATE`
 
-The manuscript is bounded around the converged v028 routed structural parser,
-geological constraints, candidate-level risk control, and abstention. It reports
-both positive California/Swissgeol results and the one-time BGS v003 zero-coverage
-external failure. The finite-sample certificate is stated with its iid-action
-assumption and is not promoted to a cross-source guarantee. NativeMM/Qwen
-branches remain documented as no-go exploratory evidence, not as hidden primary
-methods. Real-document component results are described as diagnostic artifact
-comparisons rather than a fabricated factorial ablation.
+The manuscript is bounded around same-candidate-pool sequence reconstruction,
+addition-only acceptance, and document-level risk. The v004/v005 ablation shows
+that monotonic decoding supplies most recovery, while the complete score trades
+recall for precision. The primary safety statement is zero worsened documents
+among 19 accepted documents with a one-sided 95% upper bound of 0.1459; the
+0/82 action result is secondary. NativeMM and v018–v030 branch history is
+supplementary, and BGS v003 is retained as one concise zero-coverage failure.
 
 ## Paper III
 
 Status: `SUBMISSION_READY_CANDIDATE`
 
-The manuscript is bounded around provenance-bearing database export, controlled
-error propagation, spatial support, and the real three-layer risk-aware IDW
-diagnostic. It no longer implies that a timed human study or GemPy integration
-was completed. It reports the 15/35 acceptance trade-off and the authoritative
-collar/coordinate limitation directly. The workflow is presented as a
-reproducible downstream diagnostic, not a validated production geological
-interpretation system.
+The manuscript is bounded as a stratigraphic surface/volume sensitivity
+diagnostic. Full-support and strict matched-subset estimands are reported
+separately; the latter shows that risk-aware and reread inputs are identical on
+the accepted 15 documents and that the apparent full-support gain is mainly a
+selection/spatial-support effect. Convex-hull coverage, neighbour spacing, IDW
+sensitivity, and leave-one-borehole-out interpolation error are now central.
+Software interoperability is supplementary, and no validated geological model
+or production workflow is claimed.
 
 ## Closure decision
 
@@ -64,4 +63,3 @@ The scientific manuscripts are closed for this cycle. No new model, training
 branch, threshold, prompt, alias, or frozen external evaluation is authorized
 by this closure audit. Any future change to a result-bearing claim must create a
 new experiment/result version and update the claim-evidence matrix.
-

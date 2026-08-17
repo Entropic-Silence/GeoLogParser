@@ -1,4 +1,4 @@
-verification_date_utc: "2026-08-14"
+verification_date_utc: "2026-08-17"
 policy:
   metadata_verified_does_not_imply_full_text_claim_verified: true
   unverified_claim_marker: "[CITATION TO VERIFY]"
@@ -110,3 +110,48 @@ sources:
     verification_level: official_metadata_and_data_release_reviewed
     local_full_text_sha256: c70c02284bb8db5fddd8ac8022801d2c8eddabd3e9d072c29cb7b739203e9205
     claim_scope: "version 6.0 title, authorship, CC0 status, public redacted DWR report-link field, and source limitations"
+  - key: smock2022pubtables
+    identifier: 10.1109/CVPR52688.2022.00459
+    metadata_verified_via: "IEEE Xplore and Microsoft Research publication page"
+    verification_level: official_metadata_and_abstract
+    claim_scope: "large table-extraction dataset, table-structure target, and ground-truth consistency motivation; no reported performance number is reused"
+  - key: kim2022donut
+    identifier: arXiv:2111.15664
+    metadata_verified_via: "arXiv and official implementation repository"
+    verification_level: official_metadata_and_abstract
+    claim_scope: "OCR-free document-understanding architecture and synthetic pretraining context; no performance number is reused"
+  - key: hu2024docowl2
+    identifier: 10.18653/v1/2025.acl-long.291
+    metadata_verified_via: "ACL Anthology and arXiv"
+    verification_level: official_metadata_and_abstract
+    claim_scope: "high-resolution compressed multi-page document understanding; no benchmark number is reused"
+  - key: geifman2017selective
+    identifier: arXiv:1705.08500
+    metadata_verified_via: "NeurIPS proceedings and arXiv"
+    verification_level: official_metadata_and_abstract
+    claim_scope: "selective classification trades coverage for risk; no guarantee is transferred to GeoLogParser"
+  - key: geifman2019selectivenet
+    identifier: https://proceedings.mlr.press/v97/geifman19a.html
+    metadata_verified_via: "official PMLR landing page"
+    verification_level: official_metadata_and_abstract
+    claim_scope: "integrated reject option and risk-coverage framing; no performance number is reused"
+  - key: angelopoulos2024crc
+    identifier: https://openreview.net/forum?id=33XGfHLtZg
+    metadata_verified_via: "official ICLR proceedings and OpenReview"
+    verification_level: official_metadata_and_abstract
+    claim_scope: "conformal control of expected monotone losses under stated assumptions; GeoLogParser does not claim a conformal guarantee"
+  - key: wellmann2018uncertainty
+    identifier: 10.1016/bs.agph.2018.09.001
+    metadata_verified_via: "HAL bibliographic record and DOI metadata"
+    verification_level: metadata_and_abstract
+    claim_scope: "structural geological modelling concepts, interpolation, and uncertainty framing; no numerical result is reused"
+  - key: tran2025boreholedensity
+    identifier: 10.1016/j.enggeo.2025.107991
+    metadata_verified_via: "Elsevier Engineering Geology issue page, author institutional bibliography, and DOI metadata"
+    verification_level: official_metadata_and_abstract
+    claim_scope: "borehole density changes geostatistical estimates and heterogeneous hydrogeological-model construction; no numerical result is reused"
+  - key: zhang2026boreholedensity
+    identifier: 10.1007/s12665-026-12843-2
+    metadata_verified_via: "Springer article landing page and DOI metadata"
+    verification_level: official_metadata_and_abstract
+    claim_scope: "quantitative comparison of 3D reconstruction under varying borehole density and sampling layout; no numerical result is reused"

@@ -2927,3 +2927,37 @@
 - Added a publication-core verifier so a fresh clone can rebuild all three
   manuscript evidence audits without mounting `/data/GeoLogParser`. Full
   immutable-result verification remains a separate controlled-store check.
+
+## 2026-08-17 — Adviser-driven major revision and statistical reanalysis
+
+- Reclassified the three papers by evidential strength: Paper I is a multi-
+  cohort/cross-source evaluation; Paper II centers risk-aware sequence
+  reconstruction and correction harm; Paper III is a surface/volume
+  sensitivity diagnostic rather than a complete geological-model workflow.
+- Corrected California v005 to 741 predictions, 546 matches, precision
+  `0.736842`, one fully exact document, four boundary-exact documents, and 15
+  zero-output documents. Added a prose-to-JSON numeric binding audit.
+- Recomputed five California cohorts with 20,000-repetition document-cluster
+  bootstrap intervals, zero-output rates, exact-record rates, and per-document
+  recall distributions. Pooled interval counts are now explicitly descriptive.
+- Reconstructed the v004/v005 Paper II ablation from identical archived
+  positioned candidate pools. Monotonic decoding achieved the highest F1;
+  continuity/column/semantic scoring moved the operating point toward
+  precision rather than uniformly improving F1.
+- Reanalysed addition-only risk at document level: 82 accepted additions occur
+  in 19 documents, 145/164 changed-sequence documents remain for review or
+  abstention, and the primary one-sided 95% zero-event upper bound is
+  `0.145869` per accepted document.
+- Added Paper III full-support versus identical-15-document matched-subset
+  estimands, spatial hull/spacing diagnostics, 54-setting IDW sensitivity, and
+  leave-one-borehole-out interpolation error. The lower full-support risk error
+  is primarily a selection/support effect; it does not persist as an accepted-
+  record correction advantage on the matched subset.
+- Expanded the publication bundle with 19 deidentified document-level
+  prediction/error files. Source paths, county, raw page text, OCR regions,
+  bboxes, and sensitive identifiers are removed; stable record keys and
+  reference/prediction/error structures are retained.
+- Validation: 454/454 tests passed in the working environment. A fresh
+  `pip install -e '.[test]'` environment passed 453 tests with one optional
+  PyVista test skipped; the missing CAD/SVG/RapidOCR dependencies found by the
+  first clean-install attempt were added to the test extra.
