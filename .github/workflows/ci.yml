@@ -40,12 +40,13 @@ jobs:
           cache: pip
       - name: Install core test environment
         run: python -m pip install --upgrade pip; pip install -e ".[test]"
-      - name: Cross-platform core smoke
-        run: >-
-          pytest
-          tests/test_schema.py
-          tests/test_constraints.py
-          tests/test_evaluation.py
-          tests/test_reliability_metrics.py
-          tests/test_result_index.py
-          tests/test_manuscript_metric_audit.py
+      - name: Full cross-platform test suite
+        run: pytest
+      - name: Manuscript numeric bindings
+        run: python scripts/audit_manuscript_metrics.py
+      - name: Rebuild publication-facing artifacts
+        run: python scripts/regenerate_publication_artifacts.py --publication-core
+      - name: Rebuild manuscript review packages
+        run: python scripts/build_paper_packages.py
+      - name: Generated artifacts are committed
+        run: git diff --exit-code

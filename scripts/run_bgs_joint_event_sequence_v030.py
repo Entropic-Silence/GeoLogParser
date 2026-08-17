@@ -16,7 +16,7 @@ import hashlib
 import json
 import math
 from pathlib import Path
-import resource
+from geologparser.runtime_resources import peak_process_rss_kib
 import time
 
 
@@ -239,7 +239,7 @@ def main() -> None:
         "predictions": route_rows,
         "reference_blinding": "candidate probabilities fixed before target references; threshold and owner penalty fitted only on non-target source folds",
         "wall_time_seconds": time.perf_counter() - started,
-        "peak_process_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+        "peak_process_rss_kib": peak_process_rss_kib(),
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")

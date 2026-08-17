@@ -5,7 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 import platform
-import resource
+from geologparser.runtime_resources import peak_process_rss_kib
 import subprocess
 import time
 from datetime import date
@@ -154,7 +154,7 @@ def main() -> None:
         "latency_total_seconds": total_elapsed,
         "latency_seconds_per_document": total_elapsed / len(rows) if rows else None,
         "latency_seconds_per_page": total_elapsed / sample_pages if sample_pages else None,
-        "peak_process_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+        "peak_process_rss_kib": peak_process_rss_kib(),
     }
     (run / "metrics.json").write_text(json.dumps(metrics, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     errors = []

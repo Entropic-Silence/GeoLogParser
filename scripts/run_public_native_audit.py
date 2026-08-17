@@ -6,7 +6,7 @@ from __future__ import annotations
 import argparse
 import json
 import platform
-import resource
+from geologparser.runtime_resources import peak_process_rss_kib
 import subprocess
 import time
 from pathlib import Path
@@ -90,7 +90,7 @@ def main() -> None:
         "constraint_violations": sum(sum(len(x["violations"]) for x in row["constraints"]) for row in rows),
         "latency_total_seconds": elapsed,
         "latency_seconds_per_page": elapsed / sum(row["page_count"] for row in rows),
-        "peak_process_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+        "peak_process_rss_kib": peak_process_rss_kib(),
         "accuracy_metrics": None,
         "accuracy_metrics_reason": "dataset has no project human Ground Truth yet",
     }

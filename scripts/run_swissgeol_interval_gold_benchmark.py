@@ -16,7 +16,7 @@ from importlib.metadata import PackageNotFoundError, version as package_version
 import json
 import platform
 import re
-import resource
+from geologparser.runtime_resources import peak_process_rss_kib
 import shutil
 import subprocess
 import tempfile
@@ -572,7 +572,7 @@ def main() -> None:
             "OCR artifacts resumed from a prior run; recompute wall time is not end-to-end latency"
             if any(row["ocr_resume_hit"] for row in prediction_rows) else None
         ),
-        "peak_process_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+        "peak_process_rss_kib": peak_process_rss_kib(),
         "ocr_unique_execution_count": len(ocr_cache),
         "ocr_cache_hit_count": sum(row["ocr_cache_hit"] for row in prediction_rows),
         "ocr_resume_hit_count": sum(row["ocr_resume_hit"] for row in prediction_rows),

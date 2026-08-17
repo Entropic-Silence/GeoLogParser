@@ -11,7 +11,7 @@ from __future__ import annotations
 
 import argparse
 import json
-import resource
+from geologparser.runtime_resources import peak_process_rss_kib
 from pathlib import Path
 import time
 import traceback
@@ -262,7 +262,7 @@ def run(args: argparse.Namespace) -> dict:
         "target_sha256": __import__("hashlib").sha256(target.encode()).hexdigest(),
         "stages": stage_results,
         "load_and_run_elapsed_seconds": time.perf_counter() - started,
-        "peak_process_rss_gib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024**2,
+        "peak_process_rss_gib": (peak_process_rss_kib() or 0) / 1024**2,
         "bgs_v003_accessed": False,
         "scope": "single synthetic joint-structure sample; gradient-chain feasibility only",
     }

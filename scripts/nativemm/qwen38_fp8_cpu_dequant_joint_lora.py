@@ -15,7 +15,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import resource
+from geologparser.runtime_resources import peak_process_rss_kib
 import time
 import traceback
 from pathlib import Path
@@ -213,7 +213,7 @@ def run(args):
         except BaseException as exc:
             results.append({"stage": name, "status": "FAILED", "error": f"{type(exc).__name__}: {exc}", "traceback": traceback.format_exc(limit=8), "elapsed_seconds": time.perf_counter() - t, "peak_memory_allocated_gib": torch.cuda.max_memory_allocated(0) / 2**30, "peak_memory_reserved_gib": torch.cuda.max_memory_reserved(0) / 2**30})
             break
-    return {"experiment_id": args.experiment_id, "checkpoint": str(args.model), "image": str(args.image), "gpu": torch.cuda.get_device_name(0), "backbone": "FP8 checkpoint dequantized to BF16 in host RAM", "adapter_dtype": "BF16", "prompt_tokens": int(inputs["labels"].shape[-1]), "visual_patch_tokens": int(inputs["pixel_values"].shape[0]), "target_sha256": hashlib.sha256(target.encode()).hexdigest(), "stages": results, "peak_process_rss_gib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024**2, "elapsed_seconds": time.perf_counter() - started, "bgs_v003_accessed": False, "scope": "single synthetic joint-structure sample; complete multimodal autograd feasibility only"}
+    return {"experiment_id": args.experiment_id, "checkpoint": str(args.model), "image": str(args.image), "gpu": torch.cuda.get_device_name(0), "backbone": "FP8 checkpoint dequantized to BF16 in host RAM", "adapter_dtype": "BF16", "prompt_tokens": int(inputs["labels"].shape[-1]), "visual_patch_tokens": int(inputs["pixel_values"].shape[0]), "target_sha256": hashlib.sha256(target.encode()).hexdigest(), "stages": results, "peak_process_rss_gib": (peak_process_rss_kib() or 0) / 1024**2, "elapsed_seconds": time.perf_counter() - started, "bgs_v003_accessed": False, "scope": "single synthetic joint-structure sample; complete multimodal autograd feasibility only"}
 
 
 def main():

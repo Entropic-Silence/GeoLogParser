@@ -12,7 +12,7 @@ from __future__ import annotations
 import argparse
 import json
 import platform
-import resource
+from geologparser.runtime_resources import peak_process_rss_kib
 import subprocess
 import time
 from datetime import date, datetime, timezone
@@ -213,7 +213,7 @@ def main() -> None:
         "selection_limitation": "one canton/source family and the first ordered boundary",
         "rights_review": "PENDING_MANUAL_PRE_SUBMISSION_REVIEW",
         "wall_time_seconds": elapsed,
-        "peak_process_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+        "peak_process_rss_kib": peak_process_rss_kib(),
     }
     (run / "metrics.json").write_text(
         json.dumps(metrics, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
