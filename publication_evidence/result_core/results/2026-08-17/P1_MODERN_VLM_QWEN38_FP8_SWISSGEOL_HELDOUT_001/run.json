@@ -1,0 +1,32 @@
+{
+  "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_SWISSGEOL_HELDOUT_001",
+  "git_commit": "c8122e9f2b9c8f9a3cfd3c8cb0c98bb219f5ec26",
+  "date": "2026-08-17",
+  "dataset_version": "swissgeol_tg_v003_layout_heldout_v001",
+  "split_version": "all_pages_of_frozen_manifest",
+  "model": "qwen38-fp8-tp4-mtp4-long",
+  "model_revision": "local_Qwen3.8-27B-FP8_qwen3_5_architecture_fp8_e4m3",
+  "prompt_version": "vlm_interval_source_units_v002",
+  "seed": 0,
+  "hardware": {
+    "device": "local_vllm_tensor_parallel_4x_RTX_2080_Ti",
+    "gpu_used": true
+  },
+  "software": {
+    "python": "3.10.12"
+  },
+  "config": {
+    "source_manifest_sha256": "10bf695a4bf1654f79a589172112417773a131dcfdab82a7f0cf483de7a3092e",
+    "page_manifest_sha256": "308f856118f674abc1af671518cb0cbebb259c720574e244eb1a4eb303837e8e",
+    "provider_config_sha256": "8242a3671e2b012e544e8599d751551eecc83a4388078d3ea534c19476019c60",
+    "protocol_config_sha256": "9a31bf98a321c880ae878e43b77399db97ee8842f232f2b4081f1f468bb03476",
+    "prompt_sha256": "891bc6beb7ff9cf35c55389191a208c9b09e9e2dc76909f716603f413745104a",
+    "source_unit": "ft",
+    "metres_per_source_unit": 1.0,
+    "prediction_reference_conditioning": "none",
+    "aggregation": "page_order_concatenation_without_repair_or_deduplication",
+    "boundary_tolerance_m": 0.05,
+    "resumed_page_count": 0
+  },
+  "started_utc": "2026-08-17T16:23:54.137062+00:00"
+}

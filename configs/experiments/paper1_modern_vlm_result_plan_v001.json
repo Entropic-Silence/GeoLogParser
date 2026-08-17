@@ -80,7 +80,7 @@
       "interface": "generalist_direct_json",
       "cohort": "Swissgeol held-out",
       "evidence_tier": "SOURCE_AGREEMENT_REFERENCE",
-      "status": "PLANNED",
+      "status": "COMPLETED",
       "result_path": "results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_SWISSGEOL_HELDOUT_001"
     },
     {

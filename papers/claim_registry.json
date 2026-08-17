@@ -5842,9 +5842,9 @@
     "p1.modern_vlm_qwen38": {
       "paper": "paper1",
       "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V005_FORMAL_001",
-      "scope": "frozen direct Qwen3.8-27B-FP8 evaluation on five record-disjoint California published-manual-transcription Gold cohorts",
+      "scope": "frozen direct Qwen3.8-27B-FP8 evaluation on five record-disjoint California published-manual-transcription Gold cohorts plus a separately tiered Swissgeol source-agreement panel",
       "source_path": "experiments/paper1/modern_vlm_result_summary_v001.json",
-      "source_sha256": "aeebe969d764424a4f0f222fd252ac3a1a22dad310a238f210588f8e345c9f82",
+      "source_sha256": "19fec212ddb3f6a7e14d63d088afe6977529295d91fda438411a07fc42c70b61",
       "assertions": [
         {
           "type": "json_pointer_equals",
@@ -5920,6 +5920,16 @@
           "type": "json_pointer_equals",
           "pointer": "/runs/6/metrics/numeric_invalidity",
           "expected": 0.010674429888403688
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/runs/7/metrics/f1",
+          "expected": 0.5769230769230769
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/runs/7/metrics/boundary_exact",
+          "expected": 0.0
         },
         {
           "type": "json_pointer_equals",

@@ -22,7 +22,7 @@
     "zhong2019publaynet"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "052053d798bc343db18f00ff5eda539b5cd47ac2ccd5e6504ce4616ae5a3dda6",
+  "claim_registry_sha256": "34971d072dd0411cdd01b37aa2a2bdb363d1f472d52e02d9357d9e967639b201",
   "claim_source_errors": [],
   "evidence_tags": [
     "p1.bgs_offshore_error_analysis",
@@ -63,7 +63,7 @@
     "9. Conclusion",
     "References"
   ],
-  "indexed_experiment_count": 67,
+  "indexed_experiment_count": 68,
   "literature_evidence_errors": [],
   "literature_evidence_path": "docs/literature_evidence.yaml",
   "literature_evidence_sha256": "f247c2130fa46c07564cde392e59bf1c5dfafe24c6be0c690d45838f9438bba8",
@@ -95,7 +95,7 @@
     {
       "exists": true,
       "resolved_path": "papers/paper1/generated/modern_vlm_results.md",
-      "sha256": "1c3574aa93933db84cb75cf29e35dc42f62b812d09691505b9b2b33e6afb8b20",
+      "sha256": "8cf214bbe1371b8e344b6a14c349717adb2213dbff52431040b1c6872da6d589",
       "target": "generated/modern_vlm_results.md"
     },
     {
@@ -112,7 +112,7 @@
     }
   ],
   "manuscript_path": "papers/paper1/manuscript.md",
-  "manuscript_sha256": "2b61e70bf84fe21c6eb9aff75e76b9e95f52c3571c2defe4fbd20a052c5f552f",
+  "manuscript_sha256": "9bfe752045b96be9bceaef4e73c830d954dfc36ce24c38c90271c77d46ee8524",
   "missing_bibliography_keys": [],
   "missing_claim_registrations": [],
   "missing_literature_evidence_keys": [],
@@ -187,7 +187,7 @@
   ],
   "result_index_errors": [],
   "result_index_path": "experiments/paper1/result_index.jsonl",
-  "result_index_sha256": "8b8562220d418f52a78ed2a2f30bb6296653005990ff5f28e4443e3f32da6448",
+  "result_index_sha256": "3c2b9cd797f22ac91c23a24271eef1fa4ebf6ba0590cfa81438b9a22f6d405f8",
   "result_index_verification_scope": "exact run.json and metrics.json publication core",
   "scientific_content_ready": true,
   "structurally_complete": true,
@@ -237,5 +237,5 @@
     "p1.usgs_idaho_cross_engine",
     "p1.usgs_idaho_error_analysis"
   ],
-  "word_count": 3355
+  "word_count": 3438
 }

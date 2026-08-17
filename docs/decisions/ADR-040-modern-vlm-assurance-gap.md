@@ -12,6 +12,12 @@ were retained as zero output rather than selectively retried. A broad claim
 that end-to-end VLMs cannot read borehole intervals is therefore false for this
 standardized source family.
 
+The separately tiered Swissgeol source-agreement panel gave a different result:
+the same frozen interface reached interval F1 0.577 (45/80 matched references),
+with no complete document sequence. It is not published manual-transcription
+Gold, but it is a direct source-transport stress test and rules out treating
+the California result as a general cross-source property.
+
 The same runs also expose an operational distinction. They provide direct
 interval text and page-level response provenance, but the frozen direct JSON
 interface has no field-level bbox, no calibrated field confidence, no

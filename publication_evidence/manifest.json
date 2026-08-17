@@ -1239,6 +1239,16 @@
       "paper": "paper1",
       "sha256": "36075954b937e5b38542db6ea7bdb2d82c1bf5a9508c23f545bff2ae80d84847"
     },
+    "publication_evidence/result_core/results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_SWISSGEOL_HELDOUT_001/metrics.json": {
+      "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_SWISSGEOL_HELDOUT_001",
+      "paper": "paper1",
+      "sha256": "aa22c6c9828efd68558765135c0339cdcc8803fe1bf501c0ba2d0de87b1d93e1"
+    },
+    "publication_evidence/result_core/results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_SWISSGEOL_HELDOUT_001/run.json": {
+      "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_SWISSGEOL_HELDOUT_001",
+      "paper": "paper1",
+      "sha256": "8022c1d5b5d5fff9ad002f941ba1d9f1f5c70a6a81fdaa5f04dcb56b12695da8"
+    },
     "publication_evidence/result_core/results/2026-08-17/P2_CALIFORNIA_CANDIDATE_RISK_CERTIFICATE_001/metrics.json": {
       "experiment_id": "P2_CALIFORNIA_CANDIDATE_RISK_CERTIFICATE_001",
       "paper": "paper2",
@@ -1280,6 +1290,6 @@
       "sha256": "dae5780b8c8ac43c44491499b92629d71cf1a2f95fc65db337312187fdcf3813"
     }
   },
-  "result_core_file_count": 211,
+  "result_core_file_count": 213,
   "scope": "exact aggregate run/metrics evidence, selected pseudonymized document outputs, public reanalysis inputs, linkage-risk diagnostics, and privacy-minimized claim projections"
 }

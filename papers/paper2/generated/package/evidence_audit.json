@@ -19,7 +19,7 @@
     "zhang2020boreholeimages"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "052053d798bc343db18f00ff5eda539b5cd47ac2ccd5e6504ce4616ae5a3dda6",
+  "claim_registry_sha256": "34971d072dd0411cdd01b37aa2a2bdb363d1f472d52e02d9357d9e967639b201",
   "claim_source_errors": [],
   "evidence_tags": [
     "p2.bgs_v003_v028_external_failure",

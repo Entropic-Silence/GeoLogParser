@@ -221,6 +221,20 @@
       ]
     },
     {
+      "id": "paper1_modern_vlm_swissgeol_source_agreement_v001",
+      "manuscript": "papers/paper1/manuscript.md",
+      "source": "experiments/paper1/modern_vlm_result_summary_v001.json",
+      "pattern": "frozen direct VLM produced (?P<matched>\\d+) matched intervals from (?P<predicted>\\d+) predictions against (?P<reference>\\d+) source-agreement references \\(P/R/F1 (?P<precision>\\d+\\.\\d+)/(?P<recall>\\d+\\.\\d+)/(?P<f1>\\d+\\.\\d+)\\)",
+      "bindings": [
+        {"group": "matched", "pointer": "/runs/7/statistics/document_cluster_metrics/matched"},
+        {"group": "predicted", "pointer": "/runs/7/statistics/document_cluster_metrics/predicted"},
+        {"group": "reference", "pointer": "/runs/7/statistics/document_cluster_metrics/reference"},
+        {"group": "precision", "pointer": "/runs/7/metrics/precision", "decimals": 3},
+        {"group": "recall", "pointer": "/runs/7/metrics/recall", "decimals": 3},
+        {"group": "f1", "pointer": "/runs/7/metrics/f1", "decimals": 3}
+      ]
+    },
+    {
       "id": "paper2_vlm_assurance_v003",
       "manuscript": "papers/paper2/manuscript.md",
       "source": "experiments/paper2/analysis/vlm_proposal_assurance_v001.json",

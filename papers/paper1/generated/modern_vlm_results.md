@@ -9,6 +9,7 @@ This table is generated only from runs whose artifact directory records `status=
 | Open | Qwen3.8-27B-FP8 | generalist_direct_json | California v003 | GOLD_PUBLISHED_MANUAL_TRANSCRIPTION | 100 | 154 | 0.907 | 0.930 | 0.918 [0.878, 0.953] | 0.720 | 0.000 | 1.000 | 0.004 | 10.40 |
 | Open | Qwen3.8-27B-FP8 | generalist_direct_json | California v004 | GOLD_PUBLISHED_MANUAL_TRANSCRIPTION | 100 | 147 | 0.919 | 0.915 | 0.917 [0.876, 0.952] | 0.740 | 0.050 | 0.959 | 0.017 | 11.35 |
 | Open | Qwen3.8-27B-FP8 | generalist_direct_json | California v005 | GOLD_PUBLISHED_MANUAL_TRANSCRIPTION | 100 | 141 | 0.909 | 0.896 | 0.903 [0.864, 0.939] | 0.690 | 0.010 | 1.000 | 0.011 | 12.60 |
+| Open | Qwen3.8-27B-FP8 | generalist_direct_json | Swissgeol held-out | SOURCE_AGREEMENT_REFERENCE | 35 | 35 | 0.592 | 0.562 | 0.577 [0.535, 0.619] | 0.000 | 0.000 | 1.000 | 0.050 | 4.54 |
 
 ## Registered But Not Yet Comparable
 
@@ -16,7 +17,6 @@ This table is generated only from runs whose artifact directory records `status=
 | --- | --- | --- | --- |
 | Open | Qwen3.8-27B-FP8 | California v004 | TRANSPORT_INTERRUPTED_BEFORE_PAGE_REQUEST |
 | Open | Qwen3.8-27B-FP8 | California v004 | TRANSPORT_INTERRUPTED_AFTER_98_PAGE_REQUESTS |
-| Open | Qwen3.8-27B-FP8 | Swissgeol held-out | PLANNED |
 | Open | MinerU2.5-Pro-2604-1.2B | California v001 | RUNNING |
 | Open | PaddleOCR-VL-1.6 | California v001 | READY_FOR_SMOKE |
 | Closed | GPT-5.6 Sol | California v001-v005 | NOT_RUN_REQUIRES_VALID_OFFICIAL_API_CREDENTIAL |

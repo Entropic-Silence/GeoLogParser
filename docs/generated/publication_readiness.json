@@ -23,7 +23,7 @@
     "paper2_formal_results_exist": true,
     "paper3_formal_results_exist": true
   },
-  "generated_at_utc": "2026-08-17T16:17:46.214146+00:00",
+  "generated_at_utc": "2026-08-17T16:31:28.217196+00:00",
   "ground_truth_exportable_count": 0,
   "interpretation": "Project-created human annotations and externally published manual-transcription Gold are counted separately. Either can establish a human-produced reference; machine-Silver runs do not satisfy that gate. audit-only, failure-analysis, and protocol-only runs cannot satisfy formal completion.",
   "machine_silver_formal_count": 2,
@@ -44,12 +44,13 @@
         "formal_modern_vlm_benchmark": 5,
         "formal_prospective_external_benchmark": 3,
         "formal_silver_benchmark": 2,
-        "formal_source_scan_coverage_audit": 1
+        "formal_source_scan_coverage_audit": 1,
+        "source_agreement_reference": 1
       },
       "formal_experiment_count": 30,
       "index_path": "/root/GeoLogParser/experiments/paper1/result_index.jsonl",
-      "index_sha256": "8b8562220d418f52a78ed2a2f30bb6296653005990ff5f28e4443e3f32da6448",
-      "indexed_experiment_count": 67,
+      "index_sha256": "3c2b9cd797f22ac91c23a24271eef1fa4ebf6ba0590cfa81438b9a22f6d405f8",
+      "indexed_experiment_count": 68,
       "published_manual_gold_run_count": 9,
       "real_formal_experiment_count": 28
     },

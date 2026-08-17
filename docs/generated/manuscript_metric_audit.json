@@ -2,7 +2,7 @@
   "audit_version": "manuscript_metric_bindings_v002",
   "config": "papers/manuscript_metric_bindings.json",
   "errors": [],
-  "observation_count": 64,
+  "observation_count": 70,
   "observations": [
     {
       "check_id": "paper1_california_v005_headline",
@@ -757,6 +757,78 @@
         "/runs/5/metrics/numeric_invalidity",
         "/runs/6/metrics/numeric_invalidity"
       ],
+      "source": "experiments/paper1/modern_vlm_result_summary_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper1_modern_vlm_swissgeol_source_agreement_v001",
+      "display_decimals": null,
+      "expected": 45,
+      "group": "matched",
+      "manuscript": "papers/paper1/manuscript.md",
+      "observed": 45,
+      "passed": true,
+      "pointer": "/runs/7/statistics/document_cluster_metrics/matched",
+      "source": "experiments/paper1/modern_vlm_result_summary_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper1_modern_vlm_swissgeol_source_agreement_v001",
+      "display_decimals": null,
+      "expected": 76,
+      "group": "predicted",
+      "manuscript": "papers/paper1/manuscript.md",
+      "observed": 76,
+      "passed": true,
+      "pointer": "/runs/7/statistics/document_cluster_metrics/predicted",
+      "source": "experiments/paper1/modern_vlm_result_summary_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper1_modern_vlm_swissgeol_source_agreement_v001",
+      "display_decimals": null,
+      "expected": 80,
+      "group": "reference",
+      "manuscript": "papers/paper1/manuscript.md",
+      "observed": 80,
+      "passed": true,
+      "pointer": "/runs/7/statistics/document_cluster_metrics/reference",
+      "source": "experiments/paper1/modern_vlm_result_summary_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper1_modern_vlm_swissgeol_source_agreement_v001",
+      "display_decimals": 3,
+      "expected": 0.5921052631578947,
+      "group": "precision",
+      "manuscript": "papers/paper1/manuscript.md",
+      "observed": 0.592,
+      "passed": true,
+      "pointer": "/runs/7/metrics/precision",
+      "source": "experiments/paper1/modern_vlm_result_summary_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper1_modern_vlm_swissgeol_source_agreement_v001",
+      "display_decimals": 3,
+      "expected": 0.5625,
+      "group": "recall",
+      "manuscript": "papers/paper1/manuscript.md",
+      "observed": 0.562,
+      "passed": true,
+      "pointer": "/runs/7/metrics/recall",
+      "source": "experiments/paper1/modern_vlm_result_summary_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper1_modern_vlm_swissgeol_source_agreement_v001",
+      "display_decimals": 3,
+      "expected": 0.5769230769230769,
+      "group": "f1",
+      "manuscript": "papers/paper1/manuscript.md",
+      "observed": 0.577,
+      "passed": true,
+      "pointer": "/runs/7/metrics/f1",
       "source": "experiments/paper1/modern_vlm_result_summary_v001.json",
       "transform": null
     },
