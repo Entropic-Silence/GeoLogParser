@@ -103,7 +103,7 @@ def test_annotation_api_review_queue_and_timing(tmp_path: Path):
     )
     assert completed.status_code == 200
     assert completed.json()["corrected_fields"] == 2
-    events = (annotation_root / "events/review_timing.jsonl").read_text().splitlines()
+    events = (annotation_root / "events/review_timing.jsonl").read_text(encoding="utf-8").splitlines()
     assert [json.loads(line)["event"] for line in events] == ["review_started", "review_completed"]
 
 

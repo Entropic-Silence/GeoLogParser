@@ -91,7 +91,7 @@ def test_geojson_skips_missing_coordinates_and_does_not_transform(tmp_path: Path
     missing["document"]["document_id"] = "missing"
     path = tmp_path / "boreholes.geojson"
     write_geojson([located, missing], path)
-    collection = json.loads(path.read_text())
+    collection = json.loads(path.read_text(encoding="utf-8"))
     assert len(collection["features"]) == 1
     assert collection["features"][0]["geometry"]["coordinates"] == [329168, 405889]
     assert collection["metadata"]["coordinate_systems"] == ["EPSG:27700"]

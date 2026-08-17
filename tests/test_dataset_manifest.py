@@ -17,7 +17,7 @@ def test_sha256_and_jsonl_are_stable(tmp_path):
     )
     manifest = tmp_path / "manifest.jsonl"
     write_jsonl([record], manifest)
-    decoded = json.loads(manifest.read_text())
+    decoded = json.loads(manifest.read_text(encoding="utf-8"))
     assert decoded["sha256"] == sha256_file(source)
     assert decoded["metadata"] == {"a": 1, "b": 2}
 
@@ -36,7 +36,7 @@ def test_bgs_fixed_sample_manifest_without_network(monkeypatch, tmp_path):
     })
     monkeypatch.setattr(bgs, "_get", lambda url, timeout=120: b"%PDF-fixture")
     path = bgs.download_fixed_sample([4, 4], tmp_path, "2026-08-12")
-    rows = path.read_text().splitlines()
+    rows = path.read_text(encoding="utf-8").splitlines()
     assert len(rows) == 1
     assert json.loads(rows[0])["source_record_id"] == "4"
 

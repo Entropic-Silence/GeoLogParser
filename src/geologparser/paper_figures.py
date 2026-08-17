@@ -21,7 +21,7 @@ def _plt():
 def save_audit_coverage(entries: Sequence[Mapping[str, Any]], repository_root: Path, destination: Path) -> None:
     labels, ratios, counts = [], [], []
     for entry in entries:
-        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
+        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text(encoding="utf-8"))
         if metrics.get("ground_truth_tier") == "SYNTHETIC":
             continue
         numerator = denominator = None
@@ -82,7 +82,7 @@ def save_authoritative_interval_pilot(
     candidates = []
     for entry in entries:
         metrics = json.loads(
-            (repository_root / entry["result_path"] / "metrics.json").read_text()
+            (repository_root / entry["result_path"] / "metrics.json").read_text(encoding="utf-8")
         )
         if metrics.get("scope") == "authoritative-interval benchmark evaluation":
             candidates.append((entry, metrics))
@@ -132,10 +132,10 @@ def save_source_disjoint_transfer(
     values: dict[tuple[str, str], tuple[float, float]] = {}
     for entry in entries:
         metrics = json.loads(
-            (repository_root / entry["result_path"] / "metrics.json").read_text()
+            (repository_root / entry["result_path"] / "metrics.json").read_text(encoding="utf-8")
         )
         model = json.loads(
-            (repository_root / entry["result_path"] / "run.json").read_text()
+            (repository_root / entry["result_path"] / "run.json").read_text(encoding="utf-8")
         )["model"].lower()
         backend = "Tesseract" if "tesseract" in model else "RapidOCR" if "rapidocr" in model else None
         if backend is None:
@@ -423,7 +423,7 @@ def save_padova_locations(location_manifest: Path, destination: Path) -> None:
 def save_error_propagation(entries: Sequence[Mapping[str, Any]], repository_root: Path, destination: Path) -> None:
     candidates = []
     for entry in entries:
-        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
+        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text(encoding="utf-8"))
         conditions = metrics.get("conditions", [])
         if (
             conditions
@@ -458,7 +458,7 @@ def save_source_field_propagation(
 
     candidates = []
     for entry in entries:
-        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
+        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text(encoding="utf-8"))
         if metrics.get("data_status") != "licensed_source_structured_data_pending_human_spatial_review":
             continue
         conditions = metrics.get("conditions", [])
@@ -494,7 +494,7 @@ def save_image_boundary_surface(
     """Plot the frozen real image-boundary downstream diagnostic."""
     candidates = []
     for entry in entries:
-        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
+        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text(encoding="utf-8"))
         if (
             metrics.get("comparison") == "raw_image_boundary_vs_constraint_reread_boundary_vs_authoritative_reference_surface"
             and "surface" in metrics
@@ -531,7 +531,7 @@ def save_image_multiboundary_surface(
     """Plot per-boundary MAE and support for the real multi-boundary diagnostic."""
     candidates = []
     for entry in entries:
-        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
+        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text(encoding="utf-8"))
         if metrics.get("scope") == "real image-derived multi-boundary downstream surface diagnostic":
             candidates.append((entry, metrics))
     if not candidates:
@@ -573,7 +573,7 @@ def save_controlled_error_class_propagation(
     """Plot surface impact, support, and topology by controlled error class."""
     candidates = []
     for entry in entries:
-        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
+        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text(encoding="utf-8"))
         if metrics.get("scope") == "authoritative controlled multi-error downstream propagation evaluation":
             candidates.append((entry, metrics))
     if not candidates:
@@ -626,7 +626,7 @@ def save_page_spatial_surface(
     """Plot the partial page-coordinate downstream comparison."""
     candidates = []
     for entry in entries:
-        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
+        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text(encoding="utf-8"))
         if metrics.get("scope") == "real page-coordinate image-boundary downstream surface diagnostic":
             candidates.append((entry, metrics))
     if not candidates:

@@ -66,7 +66,7 @@ def test_blinded_pack_copies_identical_auto_seed_into_separate_tracks(tmp_path: 
     for name in ("track_a", "track_b"):
         paths = sorted((output / "tracks" / name / "annotations").glob("*.json"))
         assert len(paths) == 2
-        assert all(json.loads(path.read_text())["annotation_status"] == "auto" for path in paths)
+        assert all(json.loads(path.read_text(encoding="utf-8"))["annotation_status"] == "auto" for path in paths)
     manifest = output / "assignment_manifest.json"
     assert result["assignment_manifest_sha256"] == sha256_file(manifest)
     with pytest.raises(FileExistsError):
@@ -84,7 +84,7 @@ def test_blinded_pack_rejects_duplicate_people_and_non_auto_or_changed_image(tmp
     assert not (tmp_path / "duplicate").exists()
 
     first_path = source / "P0.json"
-    annotation = json.loads(first_path.read_text())
+    annotation = json.loads(first_path.read_text(encoding="utf-8"))
     human = revise_annotation(annotation, annotation["record"], "reviewer", "single_verified")
     save_annotation(human, first_path)
     with pytest.raises(ValueError, match="not an auto seed"):
@@ -94,7 +94,7 @@ def test_blinded_pack_rejects_duplicate_people_and_non_auto_or_changed_image(tmp
     assert not (tmp_path / "human").exists()
 
     fresh = source_pack(tmp_path / "fresh")
-    panel = Path(json.loads((fresh / "P0.json").read_text())["panel"]["rendered_path"])
+    panel = Path(json.loads((fresh / "P0.json").read_text(encoding="utf-8"))["panel"]["rendered_path"])
     panel.write_bytes(b"tampered")
     with pytest.raises(ValueError, match="hash mismatch"):
         build_blinded_annotation_pack(
@@ -164,7 +164,7 @@ def test_adjudication_pack_freezes_disagreements_without_creating_gt(tmp_path: P
     assert result["manifest_sha256"] == sha256_file(
         adjudication / "adjudication_manifest.json"
     )
-    case = json.loads((adjudication / "cases/P0/case.json").read_text())
+    case = json.loads((adjudication / "cases/P0/case.json").read_text(encoding="utf-8"))
     assert case["status"] == "adjudication_pending"
     assert case["automatic_final_record_created"] is False
     assert case["disagreements"][0]["field_path"] == "intervals[0].bottom_depth_m"
@@ -205,7 +205,7 @@ def test_adjudication_pack_rejects_track_mutation_after_agreement(tmp_path: Path
     agreement = output / "agreement.json"
     compare_blinded_annotation_tracks(track_a, track_b, agreement)
     path = track_b / "P0.json"
-    path.write_text(path.read_text() + "\n")
+    path.write_text(path.read_text(encoding="utf-8") + "\n")
     with pytest.raises(ValueError, match="changed after agreement"):
         build_adjudication_pack(
             agreement, track_a, track_b, output / "adjudication",

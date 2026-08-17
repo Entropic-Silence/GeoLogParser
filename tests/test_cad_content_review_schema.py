@@ -33,12 +33,12 @@ def valid_review():
 
 
 def test_cad_content_review_schema_accepts_quarantined_review():
-    schema = json.loads((ROOT / "schemas/cad_content_review_v001.schema.json").read_text())
+    schema = json.loads((ROOT / "schemas/cad_content_review_v001.schema.json").read_text(encoding="utf-8"))
     Draft202012Validator(schema).validate(valid_review())
 
 
 def test_cad_content_review_schema_forbids_self_declared_eligibility():
-    schema = json.loads((ROOT / "schemas/cad_content_review_v001.schema.json").read_text())
+    schema = json.loads((ROOT / "schemas/cad_content_review_v001.schema.json").read_text(encoding="utf-8"))
     review = valid_review()
     review["benchmark_eligible"] = True
     errors = list(Draft202012Validator(schema).iter_errors(review))

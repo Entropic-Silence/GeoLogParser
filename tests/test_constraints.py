@@ -101,7 +101,7 @@ def test_default_yaml_really_builds_all_configured_constraints():
 
 def test_constraint_config_disables_exactly_one_module_and_applies_parameters():
     root = Path(__file__).resolve().parents[1]
-    config = yaml.safe_load((root / "configs/constraints/default_v001.yaml").read_text())
+    config = yaml.safe_load((root / "configs/constraints/default_v001.yaml").read_text(encoding="utf-8"))
     config["continuity"]["enabled"] = False
     config["thickness_consistency"]["tolerance_m"] = "0.10"
     config["thickness_consistency"]["severity"] = "custom_warning"
@@ -115,7 +115,7 @@ def test_constraint_config_disables_exactly_one_module_and_applies_parameters():
 
 def test_constraint_config_rejects_unknown_section_key_and_version():
     root = Path(__file__).resolve().parents[1]
-    config = yaml.safe_load((root / "configs/constraints/default_v001.yaml").read_text())
+    config = yaml.safe_load((root / "configs/constraints/default_v001.yaml").read_text(encoding="utf-8"))
     config["continuity"]["tolrance_m"] = "0.1"
     with pytest.raises(ValueError, match="unknown keys"):
         engine_from_config(config)

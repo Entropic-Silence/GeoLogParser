@@ -24,7 +24,7 @@ def test_mendeley_manifest_keeps_legacy_name_and_hashes_dwg(tmp_path, request):
         sys.executable, str(request.config.rootpath / "scripts/build_mendeley_dwg_manifest.py"),
         str(archive), str(manifest),
     ], check=True)
-    row = json.loads(manifest.read_text())
+    row = json.loads(manifest.read_text(encoding="utf-8"))
     assert row["dwg_signature"] == "AC1021"
     assert row["archive_member_decoded"] == "group/BH1.dwg"
     assert row["benchmark_eligible"] is False

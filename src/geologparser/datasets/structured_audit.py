@@ -289,7 +289,7 @@ def _audit_coal(dataset_root: Path, inventory: dict[str, dict[str, Any]]) -> dic
     run_all = dataset_root / "raw/run_all.py"
     if run_all.is_file():
         for relative in re.findall(r'root\s*/\s*"([^"]+)"\s*/\s*"([^"]+\.py)"', run_all.read_text(encoding="utf-8")):
-            reference = str(Path(*relative))
+            reference = Path(*relative).as_posix()
             if not (dataset_root / "raw" / reference).is_file():
                 missing_script_references.append(reference)
 

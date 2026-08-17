@@ -48,8 +48,11 @@ def test_raster_audit_distinguishes_content_empty_and_invalid(tmp_path):
         '<path d="M 1,1 L 9,9" stroke="white"/></svg>',
         tmp_path / "content.png", 500,
     )
-    assert content["raster_content_status"] == "nontransparent_content_detected_and_trimmed"
-    assert content["raster_is_placeholder"] is False
+    if content["raster_content_status"] == "renderer_unavailable":
+        assert content["raster_is_placeholder"] is True
+    else:
+        assert content["raster_content_status"] == "nontransparent_content_detected_and_trimmed"
+        assert content["raster_is_placeholder"] is False
 
     empty = write_review_png(
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"></svg>',

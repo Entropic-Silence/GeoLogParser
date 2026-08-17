@@ -44,8 +44,8 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
     published_manual_gold_rows = []
     robustness_rows = []
     for entry in entries:
-        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
-        run = json.loads((repository_root / entry["result_path"] / "run.json").read_text())
+        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text(encoding="utf-8"))
+        run = json.loads((repository_root / entry["result_path"] / "run.json").read_text(encoding="utf-8"))
         if metrics.get("scope") == "human-GT benchmark evaluation":
             interval = metrics["interval_metrics"]
             published_manual_gold_rows.append("| " + " | ".join([
@@ -356,7 +356,7 @@ def paper3_table(entries: list[dict], repository_root: Path) -> str:
     stratigraphic_layer_rows = []
     interoperability_rows = []
     for entry in entries:
-        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
+        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text(encoding="utf-8"))
         if metrics.get("comparison") == "raw_vs_constrained_vs_synthetic_reference":
             for condition in metrics["conditions"]:
                 comparison_rows.append("| " + " | ".join([
@@ -575,7 +575,7 @@ def paper2_table(entries: list[dict], repository_root: Path) -> str:
     risk_certificate_rows = []
     california_sequence_rows = []
     for entry in entries:
-        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
+        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text(encoding="utf-8"))
         if metrics.get("comparison") == "single_pass_vs_constraint_guided_sequence_recovery":
             raw = metrics["raw_interval_metrics"]
             constrained = metrics["constrained_interval_metrics"]

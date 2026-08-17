@@ -52,7 +52,7 @@ def test_parquet_dataset_preserves_tables_and_empty_intervals(tmp_path):
     interval_table = pq.read_table(directory / "intervals.parquet")
     assert interval_table.num_rows == 0
     assert "interval_id" in interval_table.column_names
-    assert json.loads((directory / "metadata.json").read_text())["format"].endswith("v001")
+    assert json.loads((directory / "metadata.json").read_text(encoding="utf-8"))["format"].endswith("v001")
 
 
 def test_geoparquet_has_geo_metadata_and_rejects_mixed_crs(tmp_path):

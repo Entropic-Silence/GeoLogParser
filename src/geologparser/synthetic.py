@@ -23,6 +23,21 @@ LITHOLOGIES = ("clay", "silt", "sand", "gravel", "mudstone", "sandstone")
 DESCRIPTIONS = ("brown, moist, stiff", "gray, dense", "yellow, medium dense", "weathered, fractured")
 
 
+def _load_render_font(image_font: Any, size: int) -> Any:
+    """Load a deterministic common font when available, with a portable fallback."""
+    candidates = (
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+        "C:/Windows/Fonts/arial.ttf",
+        "DejaVuSans.ttf",
+    )
+    for candidate in candidates:
+        try:
+            return image_font.truetype(candidate, size)
+        except OSError:
+            continue
+    return image_font.load_default()
+
+
 def _label(value: Any, source_text: str | None = None, unit: str | None = None) -> dict[str, Any]:
     return field(
         value, source_page=1, source_bbox=None,
@@ -80,8 +95,8 @@ def _render_page(record: dict[str, Any], path: Path, *, template_id: str, rng: r
     width, height = (1400, 1900) if template_id.endswith("A") else (1200, 1700)
     image = Image.new("RGB", (width, height), "white")
     draw = ImageDraw.Draw(image)
-    font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 30)
-    small = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 24)
+    font = _load_render_font(ImageFont, 30)
+    small = _load_render_font(ImageFont, 24)
     draw.text((60, 45), "BOREHOLE LOG", fill="black", font=font)
     draw.text((60, 95), f"ID: {record['borehole']['borehole_id']['value']}", fill="black", font=small)
     draw.text((60, 135), f"Final depth: {record['borehole']['final_depth_m']['value']:.2f} m", fill="black", font=small)

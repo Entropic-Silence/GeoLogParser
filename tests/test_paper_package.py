@@ -34,7 +34,7 @@ def write_registry(tmp_path: Path, claims: dict) -> Path:
 
 
 def add_evidence_tag(manuscript: Path, claim_id: str) -> None:
-    manuscript.write_text(manuscript.read_text() + f"\n<!-- evidence:{claim_id} -->\n")
+    manuscript.write_text(manuscript.read_text(encoding="utf-8") + f"\n<!-- evidence:{claim_id} -->\n")
 
 
 def write_indexed_run(tmp_path: Path, experiment_id: str = "E") -> tuple[Path, Path]:
@@ -76,7 +76,7 @@ def test_paper_audit_distinguishes_structure_from_empirical_completion(tmp_path:
 
 def test_paper_audit_reports_missing_citation_link_section_and_tbd(tmp_path: Path):
     manuscript, bibliography, index = fixture(tmp_path)
-    text = manuscript.read_text().replace("## 7. Results\ntext [@known]", "")
+    text = manuscript.read_text(encoding="utf-8").replace("## 7. Results\ntext [@known]", "")
     manuscript.write_text(text + "\nmissing [@unknown] and [asset](missing.png) `TBD`\n")
     audit = audit_manuscript("paper1", manuscript, bibliography, index, tmp_path)
     assert audit["missing_bibliography_keys"] == ["unknown"]

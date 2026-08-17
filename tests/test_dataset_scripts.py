@@ -21,7 +21,7 @@ def test_build_dataset_script_creates_disjoint_and_random_manifests(tmp_path):
         sys.executable, str(ROOT / "scripts/build_dataset.py"),
         str(manifest), str(output),
     ], cwd=ROOT, check=True, capture_output=True, text=True)
-    assert json.loads((output / "summary.json").read_text())["records"] == 12
+    assert json.loads((output / "summary.json").read_text(encoding="utf-8"))["records"] == 12
     assert (output / "project_disjoint_v001.json").is_file()
     assert (output / "template_disjoint_v001.json").is_file()
 
@@ -34,4 +34,4 @@ def test_preprocess_script_writes_output_and_metadata(tmp_path):
         str(source), str(destination), "--jpeg-quality", "50", "--metadata", str(metadata),
     ], cwd=ROOT, check=True, capture_output=True, text=True)
     assert destination.is_file()
-    assert json.loads(metadata.read_text())["parameters"]["jpeg_quality"] == 50
+    assert json.loads(metadata.read_text(encoding="utf-8"))["parameters"]["jpeg_quality"] == 50
