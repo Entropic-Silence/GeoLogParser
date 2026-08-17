@@ -21,6 +21,7 @@ def main() -> None:
     claim_registry = arguments.paper_root / "claim_registry.json"
     literature_evidence = ROOT / "docs" / "literature_evidence.yaml"
     package_rows = []
+    external_gate = ROOT / "docs" / "submission_blockers.md"
     for paper in ("paper1", "paper2", "paper3"):
         paper_root = arguments.paper_root / paper
         manuscript = paper_root / "manuscript.md"
@@ -35,6 +36,11 @@ def main() -> None:
         audit_path = output_root / "evidence_audit.json"
         audit_md_path = output_root / "evidence_audit.md"
         bundle_path = output_root / f"manuscript_{audit['package_label']}.md"
+        # Remove stale bundles from an earlier readiness state so the package
+        # directory cannot contain both a draft and a current review bundle.
+        for stale_bundle in output_root.glob("manuscript_*.md"):
+            if stale_bundle != bundle_path:
+                stale_bundle.unlink()
         audit_path.write_text(json.dumps(audit, indent=2, sort_keys=True) + "\n", encoding="utf-8")
         audit_md_path.write_text(evidence_markdown(audit), encoding="utf-8")
         bundle_path.write_text(review_bundle(
@@ -43,7 +49,9 @@ def main() -> None:
         ), encoding="utf-8")
         package_rows.append({
             "paper": paper, "package_label": audit["package_label"],
-            "submission_ready": audit["submission_ready"],
+            "scientific_content_ready": audit["submission_ready"],
+            "submission_ready": False,
+            "submission_gate_path": str(external_gate.relative_to(ROOT)),
             "evidence_audit_path": str(audit_path.relative_to(arguments.paper_root)),
             "evidence_audit_sha256": sha256(audit_path),
             "review_bundle_path": str(bundle_path.relative_to(arguments.paper_root)),
@@ -53,6 +61,8 @@ def main() -> None:
     manifest = {
         "package_schema_version": "paper_packages_v001",
         "scope": "traceable review packages; submission readiness is evidence-gated",
+        "scientific_content_ready": all(row["scientific_content_ready"] for row in package_rows),
+        "submission_gate_path": str(external_gate.relative_to(ROOT)),
         "bibliography_path": str(bibliography.relative_to(ROOT)),
         "bibliography_sha256": sha256(bibliography),
         "claim_registry_path": str(claim_registry.relative_to(ROOT)),

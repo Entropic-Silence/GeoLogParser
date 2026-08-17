@@ -2648,6 +2648,60 @@
         {"type": "json_pointer_equals", "pointer": "/selective/interval/f1", "expected": 0.0}
       ]
     },
+    "p2.bgs_v003_v028_external_failure": {
+      "paper": "paper2",
+      "experiment_id": "P2_BGS_V028_ROUTED_EXTERNAL_V003_FINAL",
+      "scope": "one-time frozen unseen-source external failure evaluation; no tuning or generalization claim",
+      "source_path": "results/2026-08-16/P2_BGS_V028_ROUTED_EXTERNAL_V003_FINAL/metrics.json",
+      "source_sha256": "4c26e96f41d7050234f9d0db6bd12a985dae2b9be2a3933e91d5216183b8b4d2",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 1},
+        {"type": "json_pointer_equals", "pointer": "/page_count", "expected": 5},
+        {"type": "json_pointer_equals", "pointer": "/reference_boundary_count", "expected": 8},
+        {"type": "json_pointer_equals", "pointer": "/reference_interval_count", "expected": 7},
+        {"type": "json_pointer_equals", "pointer": "/boundary_f1", "expected": 0.0},
+        {"type": "json_pointer_equals", "pointer": "/interval_f1", "expected": 0.0},
+        {"type": "json_pointer_equals", "pointer": "/coverage", "expected": 0.0},
+        {"type": "json_pointer_equals", "pointer": "/false_positive_count", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/critical_numerical_error_rate", "expected": 0.0},
+        {"type": "json_pointer_equals", "pointer": "/route", "expected": "abstain_unsupported_family"}
+      ]
+    },
+    "p2.california_candidate_risk_certificate": {
+      "paper": "paper2",
+      "scope": "secondary frozen-policy finite-sample risk certificate for California v004/v005 candidate additions",
+      "source_path": "results/2026-08-17/P2_CALIFORNIA_CANDIDATE_RISK_CERTIFICATE_001/metrics.json",
+      "source_sha256": "cabfb80e402b95ff1ad6e922103a794af2c53ef8778e584f144c7a4815158efd",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/policy_status", "expected": "frozen before v004/v005 evaluation"},
+        {"type": "json_pointer_equals", "pointer": "/cohorts/3/cohort", "expected": "external_pooled_v004_v005"},
+        {"type": "json_pointer_equals", "pointer": "/cohorts/3/action_level/accepted_actions", "expected": 82},
+        {"type": "json_pointer_equals", "pointer": "/cohorts/3/action_level/observed_incorrect_actions", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/cohorts/3/action_level/one_sided_95pct_upper_fcr", "expected": 0.03587403171067116},
+        {"type": "json_pointer_equals", "pointer": "/cohorts/3/document_level/accepted_documents", "expected": 19},
+        {"type": "json_pointer_equals", "pointer": "/cohorts/3/document_level/one_sided_95pct_upper_worsening_rate", "expected": 0.14586850331224344},
+        {"type": "json_pointer_equals", "pointer": "/decision/action_level_5pct_risk", "expected": "SUPPORTED_UNDER_IID_ACTION_ASSUMPTION"},
+        {"type": "json_pointer_equals", "pointer": "/decision/document_level_5pct_worsening", "expected": "NO_GO_INSUFFICIENT_ACCEPTED_DOCUMENTS"}
+      ]
+    },
+    "p3.stratigraphic_layer_model_risk_aware": {
+      "paper": "paper3",
+      "experiment_id": "P3_SWISSGEOL_STRATIGRAPHIC_LAYER_MODEL_RISK_AWARE_002",
+      "scope": "real three-layer stratigraphic layer-volume diagnostic comparing raw, constraint-reread, and risk-aware abstention",
+      "source_path": "results/2026-08-16/2026-08-16/P3_SWISSGEOL_STRATIGRAPHIC_LAYER_MODEL_RISK_AWARE_002/metrics.json",
+      "source_sha256": "6c88f4fadf7906c1516ec0be872a52d234888650132cdb3d2450c80a6e7eadf1",
+      "assertions": [
+        {"type": "json_pointer_equals", "pointer": "/document_count", "expected": 35},
+        {"type": "json_pointer_equals", "pointer": "/layer_count", "expected": 3},
+        {"type": "json_pointer_equals", "pointer": "/reference_point_count", "expected": 80},
+        {"type": "json_pointer_equals", "pointer": "/by_variant/raw/relative_absolute_volume_error", "expected": 0.13894166799209456},
+        {"type": "json_pointer_equals", "pointer": "/by_variant/final/relative_absolute_volume_error", "expected": 0.12156521848079282},
+        {"type": "json_pointer_equals", "pointer": "/by_variant/risk_aware/relative_absolute_volume_error", "expected": 0.08238970710880707},
+        {"type": "json_pointer_equals", "pointer": "/by_variant/risk_aware/mean_layer_thickness_mae_m", "expected": 34.80816229431745},
+        {"type": "json_pointer_equals", "pointer": "/by_variant/risk_aware/layers_with_negative_thickness", "expected": 0},
+        {"type": "json_pointer_equals", "pointer": "/spatial_metadata_limitation", "expected": "coordinates and collar elevations come from authoritative structured records rather than page extraction"}
+      ]
+    },
     "p1.california_vlm_gold": {
       "paper": "paper1",
       "experiment_id": "P1_B4_QWEN3VL4B_CALIFORNIA_TEST_FORMAL_001R",

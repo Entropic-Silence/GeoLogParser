@@ -1,10 +1,9 @@
 {
-  "blockers": [
-    "unresolved TBD/citation markers remain"
-  ],
+  "blockers": [],
   "broken_local_links": [],
   "citation_keys": [
     "brier1950verification",
+    "clopper1934binomial",
     "geng2023grammar",
     "guo2017calibration",
     "han2024boreholeocr",
@@ -13,7 +12,7 @@
     "xu2021layoutlmv2"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "d9f3a553508b0cfb87fa64acbe846b7baa739809cb594576de7e971683b94461",
+  "claim_registry_sha256": "4951b06d14228f6db80f1ac814d58db2d69d5f629a42b99c45844b7fca11ca05",
   "claim_source_errors": [],
   "evidence_tags": [
     "p2.bgs_layout_method_dev",
@@ -23,6 +22,8 @@
     "p2.bgs_routed_moe_v028_nested",
     "p2.bgs_safe_sequence_gate_no_go",
     "p2.bgs_semantic_column_role",
+    "p2.bgs_v003_v028_external_failure",
+    "p2.california_candidate_risk_certificate",
     "p2.california_constraint_sequence",
     "p2.california_external_constraint_sequence",
     "p2.california_external_error_analysis",
@@ -62,10 +63,10 @@
     "9. Conclusion",
     "References"
   ],
-  "indexed_experiment_count": 18,
+  "indexed_experiment_count": 20,
   "literature_evidence_errors": [],
   "literature_evidence_path": "docs/literature_evidence.yaml",
-  "literature_evidence_sha256": "54ceff4a97757e0fe2bc0d82ad559447b75694e388747cf4f9eb58b570a7e4d9",
+  "literature_evidence_sha256": "0b3e1598dea77745adde1f2bb6a99b3db33d34dad3ded03be608bfcd304ea42c",
   "local_links": [
     {
       "exists": true,
@@ -82,35 +83,35 @@
     {
       "exists": true,
       "resolved_path": "papers/paper2/generated/current_results.md",
-      "sha256": "96d3863492990479fa0d2bd317b56c1f01c491a155872d624aa39cecf6587af0",
+      "sha256": "60e97dadf84f497046ce07143464913de040e663d65f8c6fdcf3b3b804a9b49d",
       "target": "generated/current_results.md"
     },
     {
       "exists": true,
       "resolved_path": "docs/generated/publication_readiness.md",
-      "sha256": "47f719b7c040d21c1ea87cec480e3472b484107d7f3bbcdfd5e002df48e684e8",
+      "sha256": "c2b05d369f7b229d1faf85b700c14afd09de19a486068d31ccbca8bf0cc5eccc",
       "target": "../../docs/generated/publication_readiness.md"
     },
     {
       "exists": true,
       "resolved_path": "papers/references.bib",
-      "sha256": "c037d042f2252755f866c89848ea876f88a699e9c99dbb8ccdcd6b6d1e8a3882",
+      "sha256": "0902ed77964b92b3ce6dc5fdf75431ce4833eb4c6d4cf2cbb61ae6b129665064",
       "target": "../references.bib"
     },
     {
       "exists": true,
       "resolved_path": "docs/literature_evidence.yaml",
-      "sha256": "54ceff4a97757e0fe2bc0d82ad559447b75694e388747cf4f9eb58b570a7e4d9",
+      "sha256": "0b3e1598dea77745adde1f2bb6a99b3db33d34dad3ded03be608bfcd304ea42c",
       "target": "../../docs/literature_evidence.yaml"
     }
   ],
   "manuscript_path": "papers/paper2/manuscript.md",
-  "manuscript_sha256": "6ea2fd9344558726f365197d2049bdc8d9edae0856854221dbd6b72ac5ab9801",
+  "manuscript_sha256": "db86dde44bf93202ec2577cc39b0234d01b526cee51a570941fc45a46dd83645",
   "missing_bibliography_keys": [],
   "missing_claim_registrations": [],
   "missing_literature_evidence_keys": [],
   "missing_required_sections": [],
-  "package_label": "DRAFT_NOT_SUBMISSION_READY",
+  "package_label": "SUBMISSION_READY",
   "paper": "paper2",
   "registered_evidence_tags": [
     "p2.bgs_layout_method_dev",
@@ -120,6 +121,8 @@
     "p2.bgs_routed_moe_v028_nested",
     "p2.bgs_safe_sequence_gate_no_go",
     "p2.bgs_semantic_column_role",
+    "p2.bgs_v003_v028_external_failure",
+    "p2.california_candidate_risk_certificate",
     "p2.california_constraint_sequence",
     "p2.california_external_constraint_sequence",
     "p2.california_external_error_analysis",
@@ -147,10 +150,10 @@
   ],
   "result_index_errors": [],
   "result_index_path": "experiments/paper2/result_index.jsonl",
-  "result_index_sha256": "d84edf41a4d81b3fe135574c36bd5ef2c439c6ee9f741ed2ac172df0aa395b6d",
+  "result_index_sha256": "f4f9b9ea63772e0fea5954ef0cbd44c2071637fb55e1443a48f7ff93deb54ae9",
   "structurally_complete": true,
-  "submission_ready": false,
-  "tbd_or_citation_marker_count": 3,
+  "submission_ready": true,
+  "tbd_or_citation_marker_count": 0,
   "unused_claim_registrations": [],
-  "word_count": 5835
+  "word_count": 6661
 }

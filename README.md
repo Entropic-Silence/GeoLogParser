@@ -9,15 +9,23 @@ The current milestone is deliberately narrow:
 single borehole-log PDF/JPG/PNG -> JSON/CSV
 ```
 
-This repository contains executable engineering baselines and immutable audit
-runs. It does **not** yet contain a rights-cleared Chinese benchmark, a trained
-project model, or publishable headline results. Unrun experiments and unknown
-quantities are reported as `TBD`.
+This repository contains executable baselines, immutable audit runs, three
+evidence-linked manuscript candidates, and generated review packages. The
+current papers use published manual-transcription references and authoritative
+source-agreement references; no project-created human Ground Truth is claimed.
+Source licence, privacy, and redistribution checks remain a separate
+pre-submission gate.
 
-The machine-derived publication gate is
+The machine-derived scientific-content gate is
 [docs/generated/publication_readiness.md](docs/generated/publication_readiness.md).
 It excludes audit-only, failure-analysis, and protocol-only runs from formal
-paper completion and currently reports zero exportable human Ground Truth.
+paper evidence. The top-level package manifest deliberately keeps
+`all_submission_ready=false` until [docs/submission_blockers.md](docs/submission_blockers.md)
+is signed off.
+
+The closure evidence trail is summarized in
+[docs/claim_evidence_matrix.md](docs/claim_evidence_matrix.md) and
+[docs/manuscript_closure_audit.md](docs/manuscript_closure_audit.md).
 
 ## First-round capabilities
 
@@ -64,7 +72,7 @@ python -m pip install -r requirements-cad-audit.txt  # acquisition audit only
 See `docs/environment_report.md`, `docs/research_scope.md`, and
 `docs/project_plan.md` before adding a model or dataset.
 
-Current limitations are explicit: rights-cleared Chinese benchmark pages and
-manual/expert Ground Truth are `NOT COMPLETED`; B2–B6 have engineering audits
-but no GT-based formal comparison; Paper II empirical ablations and Paper III
-real-site/human studies are also `NOT COMPLETED`.
+Current limitations are explicit: there is no project-created human annotation
+study, the Chinese/DWG candidates are benchmark-ineligible, BGS v003 is a
+consumed zero-coverage external failure, and Paper III reports a downstream IDW
+diagnostic rather than validated production geology or human time savings.

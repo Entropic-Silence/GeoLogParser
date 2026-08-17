@@ -1,18 +1,18 @@
 <!-- AUTO-GENERATED. DO NOT EDIT. -->
 # paper1 evidence audit
 
-Package: **DRAFT_NOT_SUBMISSION_READY**
-Manuscript words: **6992**; unresolved markers: **7**.
+Package: **SUBMISSION_READY**
+Manuscript words: **6883**; unresolved markers: **0**.
 Indexed runs: **62**; formal runs: **30**.
 Structural audit: **PASSED**.
 
 ## Blockers
 
-- unresolved TBD/citation markers remain
+- None
 
 ## Trace
 
-- Manuscript SHA256: `b42de201826dfe53cafcf7e31b9153b5940a0856f164768eaf7c5db721cc3e93`
+- Manuscript SHA256: `704489954e854950d6b3750d61b089b8910c460d6606275f1066fe9498db547d`
 - Result-index SHA256: `5ef347f617cfd9617bf8b18fd8d3354c8c9eb84c07e6f71e49bc5959438311eb`
 - Citation keys: borkovich2025californiawcr, cohen1960agreement, han2024boreholeocr, haugen2025californialithology, pfitzmann2022doclaynet, roberts2017crossvalidation, smith2007tesseract, xu2020layoutlm, xu2021layoutlmv2, zhong2019publaynet
 - Missing literature-evidence keys: none

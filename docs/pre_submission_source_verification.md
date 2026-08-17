@@ -171,7 +171,10 @@ an unseen test. BGS v003 contains the final unused eligible source title, five
 explicit geological-log pages, and seven intervals; manifest SHA256 is
 `12f683ca0312740dbeb68ee3bebcd92b0a0644dce22de92115c46c8faf2236d4`.
 Its generic page marker was incomplete, so pages 2--6 were frozen after visual
-page-type inspection without reading interval values. v003 remains unopened.
+page-type inspection before the one-time v028 evaluation. That evaluation is
+complete: the route abstained on all five pages, producing zero boundaries,
+zero intervals, zero false positives, and zero critical numerical errors. BGS
+v003 is consumed and must not be reused for tuning or a second external run.
 Both successors inherit the same unresolved scan-footer/OGL scope conflict and
 must remain internal pending the final item-level review.
 
