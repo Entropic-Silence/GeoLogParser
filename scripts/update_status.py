@@ -120,6 +120,10 @@ def main() -> None:
         json.loads(publication_evidence_path.read_text(encoding="utf-8"))
         if publication_evidence_path.is_file() else {}
     )
+    paper1_revision = json.loads((ROOT / "experiments/paper1/analysis/california_replication_statistics_v001.json").read_text(encoding="utf-8"))
+    paper2_ablation = json.loads((ROOT / "experiments/paper2/analysis/california_candidate_pool_ablation_v001.json").read_text(encoding="utf-8"))
+    paper2_risk = json.loads((ROOT / "experiments/paper2/analysis/california_document_risk_v001.json").read_text(encoding="utf-8"))
+    paper3_spatial = json.loads((ROOT / "experiments/paper3/analysis/swissgeol_spatial_sensitivity_v001.json").read_text(encoding="utf-8"))
     rows = []
     for paper, value in sorted(readiness.get("paper_indexes", {}).items()):
         rows.append((paper, value.get("controlled_formal_experiment_count", 0), value.get("real_formal_experiment_count", 0), value.get("indexed_experiment_count", 0)))
@@ -189,6 +193,51 @@ def main() -> None:
         "unestablished without the corresponding evidence.",
         "",
     ])
+    # Replace the accumulated project-log status section with the review-focused
+    # scientific estimands.  Historical branch details remain in ADRs and the
+    # result index rather than on the primary dashboard.
+    publication_line = next(
+        index for index, line in enumerate(lines)
+        if line.startswith("- Source pages, model weights")
+    )
+    document_output_count = len(publication_evidence.get("document_outputs", []))
+    lines[publication_line] = (
+        f"- Deidentified document-level prediction/error files: {document_output_count}; "
+        "source pages, model weights, raw OCR text/regions, and sensitive fields remain outside the repository."
+    )
+    start = lines.index("## Paper status")
+    end = lines.index("## Boundary")
+    p1_f1 = [
+        paper1_revision["freezes"][key]["rapidocr_document_cluster_metrics"]["f1"]
+        for key in ("v001", "v002_external", "v003_prospective", "v004_prospective", "v005_external")
+    ]
+    p1_zero = [
+        paper1_revision["freezes"][key]["rapidocr_document_diagnostics"]["zero_output_document_rate"]
+        for key in ("v001", "v002_external", "v003_prospective", "v004_prospective", "v005_external")
+    ]
+    combined_risk = paper2_risk["combined_confirmatory"]
+    full = paper3_spatial["full_support_comparison"]
+    matched = paper3_spatial["matched_subset_comparison"]
+    replacement = [
+        "## Paper status", "",
+        "- Paper I: `SUBMISSION_READY_CANDIDATE` as a provenance-aware multi-cohort/cross-source evaluation, not a comprehensive multilingual benchmark. "
+        f"California RapidOCR F1 is {', '.join(f'{value:.3f}' for value in p1_f1)}; zero-output rates span "
+        f"{min(p1_zero):.0%}–{max(p1_zero):.0%}. Source-agreement, authoritative-metadata, Silver, and no-GT results remain visually and inferentially separate.",
+        "- Paper II: `SUBMISSION_READY_CANDIDATE` centered on same-candidate-pool sequence reconstruction and document-level correction risk. "
+        f"Monotonic decoding gives v004/v005 F1 {paper2_ablation['freezes']['v004']['document_cluster_f1']['monotonic_sequence']['f1']:.3f}/"
+        f"{paper2_ablation['freezes']['v005']['document_cluster_f1']['monotonic_sequence']['f1']:.3f}; the addition-only policy accepted "
+        f"{combined_risk['accepted_action_count']} additions in {combined_risk['accepted_document_count']} documents, observed zero worsened documents, "
+        f"and has a one-sided 95% document-level upper bound {combined_risk['document_level_one_sided_95_upper_bound']:.4f}. "
+        "The BGS external zero-coverage result remains a concise transport failure.",
+        "- Paper III: `SUBMISSION_READY_CANDIDATE` as a sensitivity diagnostic, not a complete geological-model workflow. "
+        f"Full-support relative volume error is raw/reread/risk {full['raw']['aggregate']['relative_absolute_volume_error']:.4f}/"
+        f"{full['reread']['aggregate']['relative_absolute_volume_error']:.4f}/{full['risk']['aggregate']['relative_absolute_volume_error']:.4f}; "
+        f"on the identical 15-document subset it is {matched['raw']['aggregate']['relative_absolute_volume_error']:.4f}/"
+        f"{matched['reread']['aggregate']['relative_absolute_volume_error']:.4f}/{matched['risk']['aggregate']['relative_absolute_volume_error']:.4f}, "
+        "showing that the apparent full-support risk gain is principally a selection/spatial-support effect.",
+        "", "## Boundary", "",
+    ]
+    lines = lines[:start] + replacement + lines[end + 2:]
     output = ROOT / "docs/status.md"
     output.write_text("\n".join(lines), encoding="utf-8")
     print(output)

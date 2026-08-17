@@ -1,0 +1,71 @@
+{
+  "audit_version": "manuscript_metric_bindings_v001",
+  "checks": [
+    {
+      "id": "paper1_california_v005_headline",
+      "manuscript": "papers/paper1/manuscript.md",
+      "source": "publication_evidence/result_core/results/2026-08-15/P1_CALIFORNIA_WCR_V005_RAPIDOCR_EXTERNAL_FORMAL_001/metrics.json",
+      "pattern": "v005[^\\n]*?emitted (?P<predicted>\\d+) intervals and matched (?P<matched>\\d+) \\(precision (?P<precision>\\d+\\.\\d+), recall (?P<recall>\\d+\\.\\d+), F1 (?P<f1>\\d+\\.\\d+)\\)[^\\n]*?(?P<full_exact>\\d+)/100 full-document exact, (?P<boundary_exact>\\d+)/100 boundary-exact, and (?P<zero_output>\\d+)/100 zero-output",
+      "bindings": [
+        {"group": "predicted", "pointer": "/predicted_interval_count"},
+        {"group": "matched", "pointer": "/interval_metrics/interval_precision/numerator"},
+        {"group": "precision", "pointer": "/interval_metrics/interval_precision/value", "decimals": 3},
+        {"group": "recall", "pointer": "/interval_metrics/interval_recall/value", "decimals": 3},
+        {"group": "f1", "pointer": "/interval_metrics/interval_f1/value", "decimals": 3},
+        {"group": "full_exact", "pointer": "/document_full_exact/numerator"},
+        {"group": "boundary_exact", "pointer": "/document_boundary_exact/numerator"},
+        {"group": "zero_output", "pointer": "/documents_with_predictions", "subtract_from": 100}
+      ]
+    },
+    {
+      "id": "paper2_v004_risk_policy",
+      "manuscript": "papers/paper2/manuscript.md",
+      "source": "publication_evidence/result_core/results/2026-08-15/P2_CALIFORNIA_WCR_V004_CANDIDATE_RISK_PROSPECTIVE_FORMAL_001/metrics.json",
+      "pattern": "v004[^\\n]*?accepted (?P<actions>\\d+) non-overlapping high-score additions across (?P<documents>\\d+) reports[^\\n]*?matched (?P<matched>\\d+)/(?P<predicted>\\d+) predictions \\(precision (?P<precision>\\d+\\.\\d+), recall (?P<recall>\\d+\\.\\d+), F1 (?P<f1>\\d+\\.\\d+)\\)",
+      "bindings": [
+        {"group": "actions", "pointer": "/accepted_correction_actions"},
+        {"group": "documents", "pointer": "/accepted_correction_document_count"},
+        {"group": "matched", "pointer": "/risk_selected_interval_metrics/interval_precision/numerator"},
+        {"group": "predicted", "pointer": "/risk_selected_interval_metrics/interval_precision/denominator"},
+        {"group": "precision", "pointer": "/risk_selected_interval_metrics/interval_precision/value", "decimals": 3},
+        {"group": "recall", "pointer": "/risk_selected_interval_metrics/interval_recall/value", "decimals": 3},
+        {"group": "f1", "pointer": "/risk_selected_interval_metrics/interval_f1/value", "decimals": 3}
+      ]
+    },
+    {
+      "id": "paper2_v005_risk_policy",
+      "manuscript": "papers/paper2/manuscript.md",
+      "source": "publication_evidence/result_core/results/2026-08-15/P2_CALIFORNIA_WCR_V005_CANDIDATE_RISK_EXTERNAL_FORMAL_001/metrics.json",
+      "pattern": "v005[^\\n]*?accepted (?P<actions>\\d+) additions[^\\n]*?matched (?P<matched>\\d+)/(?P<predicted>\\d+) predictions \\(precision (?P<precision>\\d+\\.\\d+), recall (?P<recall>\\d+\\.\\d+), F1 (?P<f1>\\d+\\.\\d+)\\)",
+      "bindings": [
+        {"group": "actions", "pointer": "/accepted_correction_actions"},
+        {"group": "matched", "pointer": "/risk_selected_interval_metrics/interval_precision/numerator"},
+        {"group": "predicted", "pointer": "/risk_selected_interval_metrics/interval_precision/denominator"},
+        {"group": "precision", "pointer": "/risk_selected_interval_metrics/interval_precision/value", "decimals": 3},
+        {"group": "recall", "pointer": "/risk_selected_interval_metrics/interval_recall/value", "decimals": 3},
+        {"group": "f1", "pointer": "/risk_selected_interval_metrics/interval_f1/value", "decimals": 3}
+      ]
+    },
+    {
+      "id": "paper3_full_support_headline_raw",
+      "manuscript": "papers/paper3/manuscript.md",
+      "source": "publication_evidence/result_core/results/2026-08-15/P3_SWISSGEOL_STRATIGRAPHIC_LAYER_MODEL_002/metrics.json",
+      "pattern": "full-support comparison[^\\n]*?raw volume error (?P<raw_volume>\\d+\\.\\d+) and mean thickness MAE (?P<raw_mae>\\d+\\.\\d+) m",
+      "bindings": [
+        {"group": "raw_volume", "pointer": "/by_variant/raw/relative_absolute_volume_error", "decimals": 4},
+        {"group": "raw_mae", "pointer": "/by_variant/raw/mean_layer_thickness_mae_m", "decimals": 3}
+      ]
+    },
+    {
+      "id": "paper3_full_support_headline_risk",
+      "manuscript": "papers/paper3/manuscript.md",
+      "source": "publication_evidence/result_core/results/2026-08-16/2026-08-16/P3_SWISSGEOL_STRATIGRAPHIC_LAYER_MODEL_RISK_AWARE_002/metrics.json",
+      "pattern": "risk-aware volume error (?P<risk_volume>\\d+\\.\\d+), mean thickness MAE (?P<risk_mae>\\d+\\.\\d+) m, and document coverage (?P<accepted>\\d+)/(?P<documents>\\d+)",
+      "bindings": [
+        {"group": "risk_volume", "pointer": "/by_variant/risk_aware/relative_absolute_volume_error", "decimals": 4},
+        {"group": "risk_mae", "pointer": "/by_variant/risk_aware/mean_layer_thickness_mae_m", "decimals": 3},
+        {"group": "documents", "pointer": "/document_count"}
+      ]
+    }
+  ]
+}

@@ -236,6 +236,116 @@ def save_california_replication(analysis_path: Path, destination: Path) -> None:
     plt.close(fig)
 
 
+def save_california_cohort_forest(analysis_path: Path, destination: Path) -> None:
+    """Plot per-cohort RapidOCR F1 with document-cluster bootstrap intervals."""
+    analysis = json.loads(analysis_path.read_text(encoding="utf-8"))
+    order = [
+        ("v001", "v001"),
+        ("v002", "v002_external"),
+        ("v003", "v003_prospective"),
+        ("v004", "v004_prospective"),
+        ("v005", "v005_external"),
+        ("Pooled*", None),
+    ]
+    rows = []
+    for label, key in order:
+        source = analysis["combined_descriptive"] if key is None else analysis["freezes"][key]
+        metric = source["rapidocr_document_cluster_metrics"]
+        rows.append((label, metric["f1"], metric["bootstrap_percentile_95_ci"]["f1"]))
+    plt = _plt()
+    fig, axis = plt.subplots(figsize=(8.2, 4.8))
+    y = list(reversed(range(len(rows))))
+    values = [row[1] for row in rows]
+    lower = [value - row[2][0] for value, row in zip(values, rows)]
+    upper = [row[2][1] - value for value, row in zip(values, rows)]
+    colors = ["#2f6f8f"] * 5 + ["#777777"]
+    for position, value, low, high, color in zip(y, values, lower, upper, colors):
+        axis.errorbar(value, position, xerr=[[low], [high]], fmt="o", capsize=4, color=color)
+    axis.set_yticks(y, [row[0] for row in rows])
+    axis.set_xlim(0.2, 0.58)
+    axis.set_xlabel("Interval F1 (document-cluster percentile 95% interval)")
+    axis.set_title("California multi-cohort extraction stability")
+    axis.grid(axis="x", alpha=.2)
+    axis.text(
+        .99, .03,
+        "*Pooled estimate is descriptive; cohorts have no population sampling weights.",
+        transform=axis.transAxes, ha="right", fontsize=8,
+    )
+    fig.tight_layout()
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(destination, dpi=180, bbox_inches="tight")
+    plt.close(fig)
+
+
+def save_paper2_sequence_risk(
+    ablation_path: Path, risk_path: Path, destination: Path,
+) -> None:
+    """Plot the recovery/harm frontier on California v004/v005."""
+    ablation = json.loads(ablation_path.read_text(encoding="utf-8"))
+    risk = json.loads(risk_path.read_text(encoding="utf-8"))
+    labels = {
+        "candidate_pool_without_sequence": "All candidates",
+        "monotonic_sequence": "Monotonic",
+        "continuity_sequence": "+ continuity",
+        "complete_sequence": "Complete",
+    }
+    plt = _plt()
+    fig, axes = plt.subplots(1, 2, figsize=(11, 4.8), sharey=True)
+    for axis, freeze in zip(axes, ("v004", "v005")):
+        data = ablation["freezes"][freeze]
+        for variant, label in labels.items():
+            f1 = data["metrics"][variant]["interval_f1"]["value"]
+            fcr = data["correction_safety"][variant]["false_correction_rate"]
+            axis.scatter(fcr, f1, s=55)
+            axis.annotate(label, (fcr, f1), xytext=(4, 4), textcoords="offset points", fontsize=8)
+        risk_f1 = risk["freezes"][freeze]["addition_only_risk"]["f1"]
+        axis.scatter(0, risk_f1, marker="*", s=130, color="#2ca02c", label="Addition-only")
+        axis.set_title(freeze)
+        axis.set_xlabel("False-correction rate")
+        axis.grid(alpha=.2)
+        axis.set_xlim(-.015, .36)
+    axes[0].set_ylabel("Interval F1")
+    axes[0].legend(loc="lower right", fontsize=8)
+    fig.suptitle("Sequence recovery versus correction harm (fixed candidate pool)")
+    fig.tight_layout(rect=(0, 0, 1, .94))
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(destination, dpi=180, bbox_inches="tight")
+    plt.close(fig)
+
+
+def save_paper3_spatial_support(analysis_path: Path, destination: Path) -> None:
+    """Plot full-support/matched-subset results and boundary support."""
+    analysis = json.loads(analysis_path.read_text(encoding="utf-8"))
+    variants = ["raw", "reread", "risk"]
+    labels = ["Raw", "Reread", "Risk-aware"]
+    colors = ["#e15759", "#4e79a7", "#59a14f"]
+    full = analysis["full_support_comparison"]
+    matched = analysis["matched_subset_comparison"]
+    support = {
+        row["variant"]: row for row in analysis["spatial_support"]
+        if row["boundary_index"] == 1
+    }
+    plt = _plt()
+    fig, axes = plt.subplots(1, 3, figsize=(13, 4.5))
+    x = list(range(3))
+    axes[0].bar(x, [full[v]["aggregate"]["relative_absolute_volume_error"] for v in variants], color=colors)
+    axes[0].set_title("Full-support volume diagnostic")
+    axes[0].set_ylabel("Relative absolute volume error")
+    axes[1].bar(x, [matched[v]["aggregate"]["relative_absolute_volume_error"] for v in variants], color=colors)
+    axes[1].set_title("Matched 15-document subset")
+    axes[2].bar(x, [support[v]["convex_hull_area_ratio"] for v in variants], color=colors)
+    axes[2].set_title("Boundary 1 hull-area support")
+    axes[2].set_ylabel("Accepted/reference hull area")
+    for axis in axes:
+        axis.set_xticks(x, labels, rotation=18)
+        axis.grid(axis="y", alpha=.2)
+    fig.suptitle("Selection changes both error and spatial support")
+    fig.tight_layout(rect=(0, 0, 1, .94))
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(destination, dpi=180, bbox_inches="tight")
+    plt.close(fig)
+
+
 def save_padova_locations(location_manifest: Path, destination: Path) -> None:
     rows = [json.loads(line) for line in location_manifest.read_text(encoding="utf-8").splitlines() if line]
     groups = {

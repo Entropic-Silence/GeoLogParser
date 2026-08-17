@@ -2,9 +2,9 @@
 """Build the minimal redistributable evidence bundle for manuscript audit.
 
 The bundle contains exact run metadata and aggregate metrics for every indexed
-experiment.  It deliberately excludes page images, OCR text rows, predictions,
-error rows, logs, model weights, complete source databases, and sensitive
-source-inventory details.
+experiment plus a selected, deidentified document-level prediction/error core.
+It deliberately excludes page images, OCR text rows, raw identifiers, logs,
+model weights, complete source databases, and sensitive source-inventory details.
 """
 
 from __future__ import annotations
@@ -20,6 +20,23 @@ import sqlite3
 ROOT = Path(__file__).resolve().parents[1]
 PAPERS = ("paper1", "paper2", "paper3")
 BUNDLE_DATE = "2026-08-17"
+DOCUMENT_OUTPUT_RUNS = (
+    "results/2026-08-14/P1_CALIFORNIA_WCR_RAPIDOCR_TEST_FORMAL_001",
+    "results/2026-08-14/P1_CALIFORNIA_WCR_V002_RAPIDOCR_EXTERNAL_FORMAL_002",
+    "results/2026-08-14/P1_CALIFORNIA_WCR_V003_RAPIDOCR_PROSPECTIVE_FORMAL_001",
+    "results/2026-08-15/P1_CALIFORNIA_WCR_V004_RAPIDOCR_PROSPECTIVE_FORMAL_001",
+    "results/2026-08-15/P1_CALIFORNIA_WCR_V005_RAPIDOCR_EXTERNAL_FORMAL_001",
+    "results/2026-08-15/P2_CALIFORNIA_WCR_V004_CONSTRAINT_PROSPECTIVE_FORMAL_001",
+    "results/2026-08-15/P2_CALIFORNIA_WCR_V004_CANDIDATE_RISK_PROSPECTIVE_FORMAL_001",
+    "results/2026-08-15/P2_CALIFORNIA_WCR_V005_CONSTRAINT_EXTERNAL_FORMAL_001",
+    "results/2026-08-15/P2_CALIFORNIA_WCR_V005_CANDIDATE_RISK_EXTERNAL_FORMAL_001",
+    "results/2026-08-16/P3_SWISSGEOL_RISK_AWARE_DOWNSTREAM_INPUT_001",
+)
+SENSITIVE_KEYS = {
+    "borehole_id", "project_name", "county", "filename", "source_file",
+    "document_path", "pdf_path", "pdf_sha256", "reference_path", "source_text",
+    "source_bbox", "display_bbox", "bbox", "regions", "ocr_regions_path",
+}
 
 
 def sha256(path: Path) -> str:
@@ -33,6 +50,47 @@ def sha256(path: Path) -> str:
 def copy_exact(source: Path, destination: Path) -> None:
     destination.parent.mkdir(parents=True, exist_ok=True)
     shutil.copyfile(source, destination)
+
+
+def public_record_key(record_id: str) -> str:
+    return hashlib.sha256(
+        f"geologparser-publication-v001:{record_id}".encode()
+    ).hexdigest()[:20]
+
+
+def sanitize(value: object, key: str | None = None) -> object:
+    if key in SENSITIVE_KEYS:
+        return None
+    if isinstance(value, dict):
+        output = {}
+        for child_key, child_value in value.items():
+            if child_key in SENSITIVE_KEYS:
+                continue
+            if child_key == "record_id":
+                output["record_key"] = public_record_key(str(child_value))
+            else:
+                output[child_key] = sanitize(child_value, child_key)
+        return output
+    if isinstance(value, list):
+        return [sanitize(item) for item in value]
+    return value
+
+
+def sanitize_jsonl(source: Path, destination: Path) -> int:
+    rows = [
+        sanitize(json.loads(line))
+        for line in source.read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    ]
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    destination.write_text(
+        "".join(
+            json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n"
+            for row in rows
+        ),
+        encoding="utf-8",
+    )
+    return len(rows)
 
 
 def json_pointer(document: object, pointer: str) -> object:
@@ -200,6 +258,28 @@ def main() -> None:
         claim["source_sha256"] = sha256(destination)
         claim["publication_evidence_mode"] = "exact_metrics_copy"
 
+    document_root = bundle / "document_outputs"
+    if document_root.is_dir():
+        shutil.rmtree(document_root)
+    document_outputs: dict[str, dict[str, object]] = {}
+    for result_path_text in DOCUMENT_OUTPUT_RUNS:
+        result_path = Path(result_path_text)
+        source_root = root / result_path
+        if not source_root.is_dir():
+            raise FileNotFoundError(source_root)
+        for filename in ("predictions.jsonl", "errors.jsonl"):
+            source = source_root / filename
+            if not source.is_file():
+                continue
+            destination = document_root / result_path / filename
+            row_count = sanitize_jsonl(source, destination)
+            relative = str(destination.relative_to(root))
+            document_outputs[relative] = {
+                "sha256": sha256(destination),
+                "row_count": row_count,
+                "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+            }
+
     registry_path.write_text(
         json.dumps(registry, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
@@ -207,11 +287,12 @@ def main() -> None:
     manifest = {
         "publication_evidence_schema_version": "publication_evidence_v001",
         "frozen_date": BUNDLE_DATE,
-        "scope": "exact aggregate run/metrics evidence plus privacy-minimized claim projections",
+        "scope": "exact aggregate run/metrics evidence, selected deidentified document outputs, and privacy-minimized claim projections",
         "excluded": [
             "source page images and PDFs",
             "model weights and caches",
-            "predictions.jsonl and errors.jsonl",
+            "unselected development and audit prediction rows",
+            "source text and bounding boxes from released prediction rows",
             "run.log and recursive ROI artifacts",
             "complete source databases",
         ],
@@ -219,6 +300,7 @@ def main() -> None:
         "external_summary_file_count": len(copied_external),
         "result_core": dict(sorted(copied_core.items())),
         "external_summaries": dict(sorted(copied_external.items())),
+        "document_outputs": dict(sorted(document_outputs.items())),
     }
     manifest_path = bundle / "manifest.json"
     manifest_path.parent.mkdir(parents=True, exist_ok=True)
@@ -229,6 +311,7 @@ def main() -> None:
     print(manifest_path)
     print(f"result core files: {len(copied_core)}")
     print(f"external summaries: {len(copied_external)}")
+    print(f"deidentified document outputs: {len(document_outputs)}")
 
 
 if __name__ == "__main__":

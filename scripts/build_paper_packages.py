@@ -25,7 +25,9 @@ def main() -> None:
     for paper in ("paper1", "paper2", "paper3"):
         paper_root = arguments.paper_root / paper
         manuscript = paper_root / "manuscript.md"
+        supplement = paper_root / "supplement.md"
         generated_results = paper_root / "generated" / "current_results.md"
+        major_revision_tables = paper_root / "generated" / "major_revision_tables.md"
         index = ROOT / "experiments" / paper / "result_index.jsonl"
         audit = audit_manuscript(
             paper, manuscript, bibliography, index, ROOT, claim_registry=claim_registry,
@@ -43,10 +45,13 @@ def main() -> None:
                 stale_bundle.unlink()
         audit_path.write_text(json.dumps(audit, indent=2, sort_keys=True) + "\n", encoding="utf-8")
         audit_md_path.write_text(evidence_markdown(audit), encoding="utf-8")
-        bundle_path.write_text(review_bundle(
-            manuscript.read_text(encoding="utf-8"),
-            generated_results.read_text(encoding="utf-8"), audit,
-        ), encoding="utf-8")
+        manuscript_text = manuscript.read_text(encoding="utf-8")
+        if supplement.is_file():
+            manuscript_text += "\n\n# Linked Supplementary Material\n\n" + supplement.read_text(encoding="utf-8")
+        generated_text = major_revision_tables.read_text(encoding="utf-8")
+        generated_text += "\n\n# Full Indexed Result Catalogue\n\n"
+        generated_text += generated_results.read_text(encoding="utf-8")
+        bundle_path.write_text(review_bundle(manuscript_text, generated_text, audit), encoding="utf-8")
         package_rows.append({
             "paper": paper, "package_label": audit["package_label"],
             "scientific_content_ready": audit["submission_ready"],
@@ -56,6 +61,10 @@ def main() -> None:
             "evidence_audit_sha256": sha256(audit_path),
             "review_bundle_path": str(bundle_path.relative_to(arguments.paper_root)),
             "review_bundle_sha256": sha256(bundle_path),
+            "supplement_path": str(supplement.relative_to(arguments.paper_root)) if supplement.is_file() else None,
+            "supplement_sha256": sha256(supplement) if supplement.is_file() else None,
+            "major_revision_tables_path": str(major_revision_tables.relative_to(arguments.paper_root)),
+            "major_revision_tables_sha256": sha256(major_revision_tables),
         })
         print(bundle_path)
     manifest = {
