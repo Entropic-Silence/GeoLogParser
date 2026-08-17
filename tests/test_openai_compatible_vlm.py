@@ -7,7 +7,7 @@ from unittest.mock import patch
 
 import pytest
 
-from geologparser.vlm import OpenAICompatibleVLMAdapter
+from geologparser.vlm import AnthropicMessagesVLMAdapter, OpenAICompatibleVLMAdapter
 
 
 class FakeResponse:
@@ -68,3 +68,35 @@ def test_openai_compatible_adapter_requires_declared_credential(tmp_path: Path, 
     )
     with pytest.raises(RuntimeError, match="MISSING_VLM_KEY"):
         adapter.generate([image], "read", prompt_version="p1")
+
+
+def test_anthropic_messages_adapter_sends_image_and_records_generation(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
+    image = tmp_path / "page.png"
+    image.write_bytes(b"png-bytes")
+    monkeypatch.setenv("TEST_ANTHROPIC_KEY", "secret")
+    adapter = AnthropicMessagesVLMAdapter(
+        base_url="https://api.anthropic.example",
+        model_id="claude-example",
+        model_revision="snapshot-1",
+        api_key_env="TEST_ANTHROPIC_KEY",
+        max_tokens=64,
+    )
+    captured = {}
+
+    def fake_urlopen(request, timeout):
+        captured["url"] = request.full_url
+        captured["headers"] = dict(request.header_items())
+        captured["payload"] = json.loads(request.data.decode("utf-8"))
+        return FakeResponse({"model": "served-claude", "content": [{"type": "text", "text": "{}"}], "usage": {"input_tokens": 12, "output_tokens": 4}})
+
+    with patch("geologparser.vlm.anthropic_messages.urlopen", fake_urlopen):
+        output = adapter.generate([image], "read the page", prompt_version="p1")
+
+    assert captured["url"] == "https://api.anthropic.example/v1/messages"
+    assert captured["payload"]["model"] == "claude-example"
+    assert captured["payload"]["messages"][0]["content"][0]["type"] == "image"
+    assert captured["payload"]["messages"][0]["content"][0]["source"]["media_type"] == "image/png"
+    assert captured["headers"]["X-api-key"] == "secret"
+    assert output.model_id == "served-claude"
+    assert output.output_tokens == 4
+    assert output.generation_config["input_tokens"] == 12

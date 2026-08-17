@@ -22,7 +22,7 @@ from typing import Any, Iterable, Mapping
 from geologparser.evaluation import boundary_matched_interval_metrics, match_intervals_by_boundaries
 from geologparser.experiment import create_run_directory
 from geologparser.result_index import file_sha256, write_artifact_manifest
-from geologparser.vlm import OpenAICompatibleVLMAdapter, parse_json_object
+from geologparser.vlm import AnthropicMessagesVLMAdapter, OpenAICompatibleVLMAdapter, VLMAdapter, parse_json_object
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -67,15 +67,25 @@ def normalized_intervals(payload: Mapping[str, Any], *, scale_to_m: float) -> tu
 
 
 def references_for(source: Mapping[str, Any]) -> list[dict[str, Any]]:
-    return [
-        {
-            "top_depth_m": float(interval["top_depth_ft"]) * 0.3048,
-            "bottom_depth_m": float(interval["bottom_depth_ft"]) * 0.3048,
-            "thickness_m": float(interval["thickness_ft"]) * 0.3048,
+    converted: list[dict[str, Any]] = []
+    for interval in source["intervals"]:
+        if "top_depth_m" in interval and "bottom_depth_m" in interval:
+            top = float(interval["top_depth_m"])
+            bottom = float(interval["bottom_depth_m"])
+            thickness = float(interval.get("thickness_m", bottom - top))
+        elif "top_depth_ft" in interval and "bottom_depth_ft" in interval:
+            top = float(interval["top_depth_ft"]) * 0.3048
+            bottom = float(interval["bottom_depth_ft"]) * 0.3048
+            thickness = float(interval.get("thickness_ft", float(interval["bottom_depth_ft"]) - float(interval["top_depth_ft"]))) * 0.3048
+        else:
+            raise ValueError(f"reference interval lacks recognised metre or foot depth fields: {interval}")
+        converted.append({
+            "top_depth_m": top,
+            "bottom_depth_m": bottom,
+            "thickness_m": thickness,
             "lithology_normalized": str(interval.get("lithology_raw") or "").strip().lower(),
-        }
-        for interval in source["intervals"]
-    ]
+        })
+    return converted
 
 
 def _hash_text(text: str) -> str:
@@ -84,6 +94,33 @@ def _hash_text(text: str) -> str:
 
 def _write_jsonl(path: Path, rows: Iterable[Mapping[str, Any]]) -> None:
     path.write_text("".join(json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n" for row in rows), encoding="utf-8")
+
+
+def build_adapter(provider: Mapping[str, Any], *, timeout_seconds: float) -> VLMAdapter:
+    """Construct only a declared, auditable provider transport."""
+    adapter_kind = str(provider.get("adapter", "openai_compatible_chat_completions"))
+    common: dict[str, Any] = {
+        "base_url": str(provider["base_url"]),
+        "model_id": str(provider["model_id"]),
+        "model_revision": str(provider["model_revision"]),
+        "api_key_env": provider.get("api_key_env"),
+        "max_tokens": int(provider.get("max_tokens", 1024)),
+        "timeout_seconds": timeout_seconds,
+        "temperature": float(provider.get("temperature", 0.0)),
+        "request_options": provider.get("request_options"),
+    }
+    if adapter_kind == "openai_compatible_chat_completions":
+        return OpenAICompatibleVLMAdapter(**common)
+    if adapter_kind == "anthropic_messages":
+        api_key_env = common.pop("api_key_env")
+        if not isinstance(api_key_env, str) or not api_key_env:
+            raise ValueError("Anthropic adapter requires a non-empty api_key_env")
+        return AnthropicMessagesVLMAdapter(
+            **common,
+            api_key_env=api_key_env,
+            anthropic_version=str(provider.get("anthropic_version", "2023-06-01")),
+        )
+    raise ValueError(f"unsupported modern VLM adapter: {adapter_kind}")
 
 
 def main() -> None:
@@ -99,6 +136,8 @@ def main() -> None:
     parser.add_argument("--limit-pages", type=int)
     parser.add_argument("--scale-to-m", type=float, default=0.3048)
     parser.add_argument("--timeout-seconds", type=float, default=300.0)
+    parser.add_argument("--scope", default="frozen direct-VLM California Gold benchmark evaluation")
+    parser.add_argument("--reference-ground-truth-tier", default="GOLD_PUBLISHED_MANUAL_TRANSCRIPTION")
     arguments = parser.parse_args()
     if arguments.limit_pages is not None and arguments.limit_pages < 1:
         raise ValueError("--limit-pages must be positive")
@@ -120,16 +159,7 @@ def main() -> None:
     source_by_id = {record_id: source_by_id[record_id] for record_id in selected_record_ids}
     provider = json.loads(arguments.provider_config.read_text(encoding="utf-8"))
     prompt = arguments.prompt.read_text(encoding="utf-8")
-    adapter = OpenAICompatibleVLMAdapter(
-        base_url=str(provider["base_url"]),
-        model_id=str(provider["model_id"]),
-        model_revision=str(provider["model_revision"]),
-        api_key_env=provider.get("api_key_env"),
-        max_tokens=int(provider.get("max_tokens", 1024)),
-        timeout_seconds=arguments.timeout_seconds,
-        temperature=float(provider.get("temperature", 0.0)),
-        request_options=provider.get("request_options"),
-    )
+    adapter = build_adapter(provider, timeout_seconds=arguments.timeout_seconds)
     resumed: dict[str, dict[str, Any]] = {}
     if arguments.resume_page_predictions:
         for row in load_jsonl(arguments.resume_page_predictions):
@@ -232,8 +262,8 @@ def main() -> None:
         prediction_all.append(predicted)
     interval_metrics = boundary_matched_interval_metrics(reference_all, prediction_all, tolerance_m=0.05)
     metrics = {
-        "scope": "frozen direct-VLM California Gold benchmark evaluation",
-        "reference_ground_truth_tier": "GOLD_PUBLISHED_MANUAL_TRANSCRIPTION",
+        "scope": arguments.scope,
+        "reference_ground_truth_tier": arguments.reference_ground_truth_tier,
         "prediction_reference_conditioning": "none",
         "document_count": len(document_rows),
         "page_count": len(page_rows),

@@ -1,0 +1,17 @@
+{
+  "adapter": "anthropic_messages",
+  "provider_family": "closed_official",
+  "provider": "Anthropic",
+  "base_url": "https://api.anthropic.com",
+  "model_id": "claude-opus-4-6",
+  "model_revision": "claude-opus-4-6",
+  "api_key_env": "ANTHROPIC_API_KEY",
+  "anthropic_version": "2023-06-01",
+  "max_tokens": 4096,
+  "temperature": 0.0,
+  "hardware": "provider_managed",
+  "gpu_used": null,
+  "execution_status": "NOT_RUN_REQUIRES_VALID_OFFICIAL_API_CREDENTIAL",
+  "source_documentation": "https://docs.anthropic.com/en/docs/about-claude/models/overview",
+  "retrieved_utc": "2026-08-17"
+}

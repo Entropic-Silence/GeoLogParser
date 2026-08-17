@@ -31,11 +31,18 @@ MinerU2.5-Pro-2604-1.2B through its official two-step document parser, and
 PaddleOCR-VL-1.6 subject to an independent local smoke test. For MinerU, the
 common decoder reads only explicitly labelled top/bottom HTML table cells. The
 prior Qwen3-VL-4B result remains a historical reproducible reference, not an
-upper bound. The closed group is pre-registered for an
-official, versioned endpoint with documented image input. It must remain
-`NOT RUN` until a valid direct credential and exact endpoint model ID are
-available; ChatGPT/Codex session identity and opaque model proxies are not
-valid experimental backends.
+upper bound.
+
+The initial open-model roster is frozen under `paper1_modern_vlm_v002`.
+After that protocol began, a user-directed closed-model extension was added as
+`paper1_modern_vlm_closed_extension_v003`. It fixes the same inputs, prompt,
+decoder, matcher, and budget for `gpt-5.6-sol` and `claude-opus-4-6`, but is a
+post-hoc exploratory comparison rather than a confirmatory roster member. Each
+can be run only through its named provider's official, versioned endpoint with
+the direct credential recorded outside the repository. It remains `NOT RUN`
+until that credential and a synthetic endpoint-format smoke test are available.
+ChatGPT/Codex session identity and opaque model proxies are not valid
+experimental backends.
 
 ## Protocol History
 
