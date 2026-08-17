@@ -12,7 +12,7 @@
     "zhang2026boreholedensity"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "34971d072dd0411cdd01b37aa2a2bdb363d1f472d52e02d9357d9e967639b201",
+  "claim_registry_sha256": "c396d5a54f33913f5b7538ba0f0ce2e2cea0d89783c11587852b9ac7a81d4aa2",
   "claim_source_errors": [],
   "evidence_tags": [
     "p3.coal602_consensus_qc",

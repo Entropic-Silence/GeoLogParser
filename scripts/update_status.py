@@ -124,6 +124,8 @@ def main() -> None:
     paper1_revision = json.loads((ROOT / "experiments/paper1/analysis/california_replication_statistics_v001.json").read_text(encoding="utf-8"))
     paper2_ablation = json.loads((ROOT / "experiments/paper2/analysis/california_candidate_pool_ablation_v001.json").read_text(encoding="utf-8"))
     paper2_risk = json.loads((ROOT / "experiments/paper2/analysis/california_document_risk_v001.json").read_text(encoding="utf-8"))
+    modern_vlm = json.loads((ROOT / "experiments/paper1/analysis/modern_vlm_statistics_v001.json").read_text(encoding="utf-8"))
+    vlm_assurance = json.loads((ROOT / "experiments/paper2/analysis/vlm_proposal_assurance_v001.json").read_text(encoding="utf-8"))
     paper3_spatial = json.loads((ROOT / "experiments/paper3/analysis/swissgeol_spatial_sensitivity_v001.json").read_text(encoding="utf-8"))
     rows = []
     for paper, value in sorted(readiness.get("paper_indexes", {}).items()):
@@ -225,6 +227,19 @@ def main() -> None:
         paper1_revision["freezes"][key]["rapidocr_document_diagnostics"]["zero_output_document_rate"]
         for key in ("v001", "v002_external", "v003_prospective", "v004_prospective", "v005_external")
     ]
+    qwen_runs = list(modern_vlm["analyses"].values())
+    qwen_california = [row for row in qwen_runs if row["cohort"].startswith("California")]
+    qwen_f1 = [row["document_cluster_metrics"]["f1"] for row in qwen_california]
+    qwen_delta = [
+        row["paired_against_frozen_rapidocr"]["delta_left_minus_right"]["f1"]["observed"]
+        for row in qwen_california
+    ]
+    qwen_swiss = next(row for row in qwen_runs if row["cohort"] == "Swissgeol held-out")
+    qwen_swiss_f1 = qwen_swiss["document_cluster_metrics"]["f1"]
+    assurance_v003 = next(
+        row for row in vlm_assurance["analyses"]
+        if row["role"] == "held-out replication"
+    )["point_estimates"]
     combined_risk = paper2_risk["combined_confirmatory"]
     full = paper3_spatial["full_support_comparison"]
     matched = paper3_spatial["matched_subset_comparison"]
@@ -232,13 +247,17 @@ def main() -> None:
         "## Paper status", "",
         "- Paper I: `SUBMISSION_READY_CANDIDATE` as a provenance-aware multi-cohort/cross-source evaluation, not a comprehensive multilingual benchmark. "
         f"California RapidOCR F1 is {', '.join(f'{value:.3f}' for value in p1_f1)}; zero-output rates span "
-        f"{min(p1_zero):.0%}–{max(p1_zero):.0%}. Source-agreement, authoritative-metadata, Silver, and no-GT results remain visually and inferentially separate.",
+        f"{min(p1_zero):.0%}–{max(p1_zero):.0%}. Frozen Qwen3.8 direct-VLM F1 spans {min(qwen_f1):.3f}–{max(qwen_f1):.3f} "
+        f"with paired Qwen-minus-RapidOCR gains of {min(qwen_delta):.3f}–{max(qwen_delta):.3f}; its separately tiered Swissgeol source-agreement F1 is {qwen_swiss_f1:.3f}. "
+        "Source-agreement, authoritative-metadata, Silver, and no-GT results remain visually and inferentially separate.",
         "- Paper II: `SUBMISSION_READY_CANDIDATE` centered on same-candidate-pool sequence reconstruction and document-level correction risk. "
         f"Monotonic decoding gives v004/v005 F1 {paper2_ablation['freezes']['v004']['document_cluster_f1']['monotonic_sequence']['f1']:.3f}/"
         f"{paper2_ablation['freezes']['v005']['document_cluster_f1']['monotonic_sequence']['f1']:.3f}; the addition-only policy accepted "
         f"{combined_risk['accepted_action_count']} additions in {combined_risk['accepted_document_count']} documents, observed zero worsened documents, "
         f"and has a one-sided 95% document-level upper bound {combined_risk['document_level_one_sided_95_upper_bound']:.4f}. "
-        "The BGS external zero-coverage result remains a concise transport failure.",
+        f"The held-out VLM-proposal assurance rule reached selective precision {assurance_v003['accepted_precision']:.3f} at "
+        f"coverage {assurance_v003['accepted_coverage']:.3f}, with {assurance_v003['accepted_count'] - assurance_v003['accepted_correct_count']} wrong accepted intervals; "
+        "the BGS external zero-coverage result remains a concise transport failure.",
         "- Paper III: `SUBMISSION_READY_CANDIDATE` as a sensitivity diagnostic, not a complete geological-model workflow. "
         f"Full-support relative volume error is raw/reread/risk {full['raw']['aggregate']['relative_absolute_volume_error']:.4f}/"
         f"{full['reread']['aggregate']['relative_absolute_volume_error']:.4f}/{full['risk']['aggregate']['relative_absolute_volume_error']:.4f}; "

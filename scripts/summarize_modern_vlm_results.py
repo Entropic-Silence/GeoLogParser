@@ -80,8 +80,39 @@ def main() -> None:
             f"{fmt(value['boundary_exact'])} | {fmt(value['zero_output'])} | {fmt(value['json_valid'])} | "
             f"{fmt(value['numeric_invalidity'])} | {fmt(value['seconds_per_page'], 2)} |"
         )
+    paired_rows = [
+        row for row in published
+        if (row.get("statistics") or {}).get("paired_against_frozen_rapidocr")
+    ]
+    if paired_rows:
+        lines.extend([
+            "",
+            "## Paired California Comparison",
+            "",
+            "The following deltas resample whole reports while retaining the paired Qwen and frozen RapidOCR predictions. They apply only to the published-manual-transcription California cohorts; they are not pooled with the Swissgeol source-agreement panel.",
+            "",
+            "| Cohort | Qwen F1 | RapidOCR F1 | Delta F1 (Qwen - RapidOCR), document 95% CI | Bootstrap Pr(delta > 0) |",
+            "| --- | ---: | ---: | ---: | ---: |",
+        ])
+        for row in paired_rows:
+            paired = row["statistics"]["paired_against_frozen_rapidocr"]
+            delta = paired["delta_left_minus_right"]["f1"]
+            ci = delta["bootstrap_percentile_95_ci"]
+            lines.append(
+                f"| {row['cohort']} | {fmt(row['metrics']['f1'])} | {fmt(paired['right']['f1'])} | "
+                f"{fmt(delta['observed'])} [{fmt(ci[0])}, {fmt(ci[1])}] | "
+                f"{fmt(delta['bootstrap_probability_delta_gt_zero'])} |"
+            )
     if not published:
         lines.append("| - | No completed modern baseline | - | - | - | - | - | - | - | - | - | - | - | - | - |")
+    pending_rows = [
+        row for row in summary
+        if row["status"] != "COMPLETED" and not str(row["status"]).startswith("TRANSPORT_INTERRUPTED")
+    ]
+    interrupted_rows = [
+        row for row in summary
+        if str(row["status"]).startswith("TRANSPORT_INTERRUPTED")
+    ]
     lines.extend([
         "",
         "## Registered But Not Yet Comparable",
@@ -89,9 +120,20 @@ def main() -> None:
         "| Group | Model | Cohort | Status |",
         "| --- | --- | --- | --- |",
     ])
-    for row in summary:
-        if row["status"] != "COMPLETED":
-            lines.append(f"| {row['group']} | {row['model']} | {row['cohort']} | {row['status']} |")
+    for row in pending_rows:
+        lines.append(f"| {row['group']} | {row['model']} | {row['cohort']} | {row['status']} |")
+    if interrupted_rows:
+        lines.extend([
+            "",
+            "## Retained Operational Records",
+            "",
+            "The interrupted v004 attempts are retained for transport auditing only. They have no score and were superseded by the completed frozen v004 run above; no page was selectively retried.",
+            "",
+            "| Model | Cohort | Status |",
+            "| --- | --- | --- |",
+        ])
+        for row in interrupted_rows:
+            lines.append(f"| {row['model']} | {row['cohort']} | {row['status']} |")
     lines.extend([
         "",
         "## Interpretation Boundary",

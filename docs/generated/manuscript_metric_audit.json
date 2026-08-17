@@ -2,7 +2,7 @@
   "audit_version": "manuscript_metric_bindings_v002",
   "config": "papers/manuscript_metric_bindings.json",
   "errors": [],
-  "observation_count": 70,
+  "observation_count": 72,
   "observations": [
     {
       "check_id": "paper1_california_v005_headline",
@@ -650,6 +650,42 @@
       "passed": true,
       "pointer": "/runs/0/metrics/f1",
       "source": "experiments/paper1/modern_vlm_result_summary_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper1_modern_vlm_paired_f1_gain_range",
+      "display_decimals": 3,
+      "expected": 0.4452483038197027,
+      "group": "minimum",
+      "manuscript": "papers/paper1/manuscript.md",
+      "observed": 0.445,
+      "passed": true,
+      "pointer": [
+        "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V001_FORMAL_002/paired_against_frozen_rapidocr/delta_left_minus_right/f1/observed",
+        "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V002_FORMAL_002/paired_against_frozen_rapidocr/delta_left_minus_right/f1/observed",
+        "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V003_FORMAL_003/paired_against_frozen_rapidocr/delta_left_minus_right/f1/observed",
+        "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V004_FORMAL_003/paired_against_frozen_rapidocr/delta_left_minus_right/f1/observed",
+        "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V005_FORMAL_001/paired_against_frozen_rapidocr/delta_left_minus_right/f1/observed"
+      ],
+      "source": "experiments/paper1/analysis/modern_vlm_statistics_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper1_modern_vlm_paired_f1_gain_range",
+      "display_decimals": 3,
+      "expected": 0.5421753103495757,
+      "group": "maximum",
+      "manuscript": "papers/paper1/manuscript.md",
+      "observed": 0.542,
+      "passed": true,
+      "pointer": [
+        "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V001_FORMAL_002/paired_against_frozen_rapidocr/delta_left_minus_right/f1/observed",
+        "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V002_FORMAL_002/paired_against_frozen_rapidocr/delta_left_minus_right/f1/observed",
+        "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V003_FORMAL_003/paired_against_frozen_rapidocr/delta_left_minus_right/f1/observed",
+        "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V004_FORMAL_003/paired_against_frozen_rapidocr/delta_left_minus_right/f1/observed",
+        "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V005_FORMAL_001/paired_against_frozen_rapidocr/delta_left_minus_right/f1/observed"
+      ],
+      "source": "experiments/paper1/analysis/modern_vlm_statistics_v001.json",
       "transform": null
     },
     {

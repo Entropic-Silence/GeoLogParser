@@ -207,6 +207,38 @@
       ]
     },
     {
+      "id": "paper1_modern_vlm_paired_f1_gain_range",
+      "manuscript": "papers/paper1/manuscript.md",
+      "source": "experiments/paper1/analysis/modern_vlm_statistics_v001.json",
+      "pattern": "Against the paired frozen RapidOCR outputs, Qwen gained (?P<minimum>\\d+\\.\\d+)--(?P<maximum>\\d+\\.\\d+) F1 across the five cohorts",
+      "bindings": [
+        {
+          "group": "minimum",
+          "pointers": [
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V001_FORMAL_002/paired_against_frozen_rapidocr/delta_left_minus_right/f1/observed",
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V002_FORMAL_002/paired_against_frozen_rapidocr/delta_left_minus_right/f1/observed",
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V003_FORMAL_003/paired_against_frozen_rapidocr/delta_left_minus_right/f1/observed",
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V004_FORMAL_003/paired_against_frozen_rapidocr/delta_left_minus_right/f1/observed",
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V005_FORMAL_001/paired_against_frozen_rapidocr/delta_left_minus_right/f1/observed"
+          ],
+          "aggregate": "min",
+          "decimals": 3
+        },
+        {
+          "group": "maximum",
+          "pointers": [
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V001_FORMAL_002/paired_against_frozen_rapidocr/delta_left_minus_right/f1/observed",
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V002_FORMAL_002/paired_against_frozen_rapidocr/delta_left_minus_right/f1/observed",
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V003_FORMAL_003/paired_against_frozen_rapidocr/delta_left_minus_right/f1/observed",
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V004_FORMAL_003/paired_against_frozen_rapidocr/delta_left_minus_right/f1/observed",
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V005_FORMAL_001/paired_against_frozen_rapidocr/delta_left_minus_right/f1/observed"
+          ],
+          "aggregate": "max",
+          "decimals": 3
+        }
+      ]
+    },
+    {
       "id": "paper1_modern_vlm_five_cohort_ranges_v001",
       "manuscript": "papers/paper1/manuscript.md",
       "source": "experiments/paper1/modern_vlm_result_summary_v001.json",

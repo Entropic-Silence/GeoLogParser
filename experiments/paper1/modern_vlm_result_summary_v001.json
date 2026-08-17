@@ -571,7 +571,7 @@
       "interface": "official_document_parser_plus_fixed_decoder",
       "model": "MinerU2.5-Pro-2604-1.2B",
       "result_path": "results/2026-08-17/P1_MODERN_VLM_MINERU25_CALIFORNIA_V001_FORMAL_001",
-      "status": "RUNNING"
+      "status": "NO_GO_BOUNDED_SMOKE_ZERO_INTERVALS"
     },
     {
       "cohort": "California v001",
@@ -581,7 +581,7 @@
       "interface": "official_table_recognition_plus_fixed_decoder",
       "model": "PaddleOCR-VL-1.6",
       "result_path": "results/2026-08-17/P1_MODERN_VLM_PADDLEOCR16_CALIFORNIA_V001_FORMAL_001",
-      "status": "READY_FOR_SMOKE"
+      "status": "NO_GO_PAGE_LEVEL_TABLE_TASK_ZERO_INTERVALS"
     },
     {
       "cohort": "California v001-v005",

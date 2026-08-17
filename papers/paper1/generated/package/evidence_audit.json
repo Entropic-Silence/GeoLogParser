@@ -22,7 +22,7 @@
     "zhong2019publaynet"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "34971d072dd0411cdd01b37aa2a2bdb363d1f472d52e02d9357d9e967639b201",
+  "claim_registry_sha256": "c396d5a54f33913f5b7538ba0f0ce2e2cea0d89783c11587852b9ac7a81d4aa2",
   "claim_source_errors": [],
   "evidence_tags": [
     "p1.bgs_offshore_error_analysis",
@@ -95,7 +95,7 @@
     {
       "exists": true,
       "resolved_path": "papers/paper1/generated/modern_vlm_results.md",
-      "sha256": "8cf214bbe1371b8e344b6a14c349717adb2213dbff52431040b1c6872da6d589",
+      "sha256": "13560b4f65bd96660dee102a5eba2b12e2a3f6f9688db14e946efcaf38086ac3",
       "target": "generated/modern_vlm_results.md"
     },
     {
@@ -112,7 +112,7 @@
     }
   ],
   "manuscript_path": "papers/paper1/manuscript.md",
-  "manuscript_sha256": "9bfe752045b96be9bceaef4e73c830d954dfc36ce24c38c90271c77d46ee8524",
+  "manuscript_sha256": "0e6cfc9b3b52222957421a5978852efb81f3e34d4f39c4659f3f2110c10a3f34",
   "missing_bibliography_keys": [],
   "missing_claim_registrations": [],
   "missing_literature_evidence_keys": [],
@@ -237,5 +237,5 @@
     "p1.usgs_idaho_cross_engine",
     "p1.usgs_idaho_error_analysis"
   ],
-  "word_count": 3438
+  "word_count": 3502
 }
