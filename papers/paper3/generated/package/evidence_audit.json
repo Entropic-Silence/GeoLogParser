@@ -3,7 +3,7 @@
   "broken_local_links": [],
   "citation_keys": [
     "delavarga2019gempy",
-    "han2024boreholeocr",
+    "garzon2026stratigraphicmetrics",
     "lark2014crosssection",
     "pakyuzcharrier2018drillhole",
     "shepard1968interpolation",
@@ -12,139 +12,65 @@
     "zhang2026boreholedensity"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "a43950307d69fc4ff15a83ea0ec8a1b0483a0d2f3a01388f139b749ec3f5d2e5",
+  "claim_registry_sha256": "4468e93d55f60f55dbe34b2d508ecd036193894d3ca1b63a61609c86c633e443",
   "claim_source_errors": [],
   "evidence_tags": [
     "p3.coal602_consensus_qc",
     "p3.coal602_source_audit",
-    "p3.coal602_source_proxy",
     "p3.controlled_error_classes",
-    "p3.executed_synthetic_comparison",
-    "p3.external_spatial_metadata",
-    "p3.idw_multiseed",
-    "p3.image_boundary_surface",
-    "p3.image_multiboundary_surface",
-    "p3.padova_spatial_catalog",
-    "p3.page_spatial_surface",
-    "p3.pyvista_interop",
-    "p3.real_surface_visualization",
-    "p3.sanming_database_connectivity",
-    "p3.spatial_sensitivity",
-    "p3.stratigraphic_layer_model",
-    "p3.stratigraphic_layer_model_risk_aware"
+    "p3.spatial_sensitivity"
   ],
+  "external_submission_gate_required": true,
   "formal_experiment_count": 8,
   "headings": [
     "Abstract",
     "1. Introduction",
     "2. Related Work",
-    "3. Workflow",
+    "3. Evidence and Data",
     "4. Error-Propagation Method",
-    "5. Database Boundary and Interoperability",
-    "6. Results",
-    "7. Human-in-the-Loop Boundary",
-    "8. Discussion and Threats to Validity",
-    "9. Reproducibility and Ethics",
-    "10. Conclusion",
+    "5. Results",
+    "6. Discussion",
+    "7. Reproducibility and Data Protection",
+    "8. Conclusion",
     "References"
   ],
   "indexed_experiment_count": 15,
   "literature_evidence_errors": [],
   "literature_evidence_path": "docs/literature_evidence.yaml",
-  "literature_evidence_sha256": "fac3d908a9ffa6b34a5ca57623a0ac5297e2f8f23f5da949a80b19d88535f32f",
+  "literature_evidence_sha256": "7b318830159927f34724441e0eeceacfba9f2c87dceb04bea3d18b9fab2aff2f",
   "local_links": [
     {
       "exists": true,
-      "resolved_path": "papers/paper3/supplement.md",
-      "sha256": "00ed6b5aa0e7aa4c4c74cfe535fb2c787a2a258751f106c6ca11f67430114c6c",
-      "target": "supplement.md"
-    },
-    {
-      "exists": true,
       "resolved_path": "papers/paper3/generated/major_revision_tables.md",
-      "sha256": "d371aedff4a5fdb6a599baeb77b6c1a53b6508a02a270c23d51d71471d8cda51",
+      "sha256": "b423d3b68284b606d00471c7b589a22c15eafd751b96ce7bbebf199e96c12352",
       "target": "generated/major_revision_tables.md"
     },
     {
       "exists": true,
-      "resolved_path": "papers/paper3/generated/current_results.md",
-      "sha256": "c8914eb1a0ba08dcf9c22ce4d4566359b58ab4b393bb8de736ffad69a6898999",
-      "target": "generated/current_results.md"
-    },
-    {
-      "exists": true,
-      "resolved_path": "papers/paper3/generated/current_results.md",
-      "sha256": "c8914eb1a0ba08dcf9c22ce4d4566359b58ab4b393bb8de736ffad69a6898999",
-      "target": "generated/current_results.md"
-    },
-    {
-      "exists": true,
-      "resolved_path": "papers/paper3/generated/figures/padova_locations.png",
-      "sha256": "354c3ebb82ae7a1d735d2bfa158f8fddf8fa01969ac688d0fb3debbb6635fb3d",
-      "target": "generated/figures/padova_locations.png"
-    },
-    {
-      "exists": true,
-      "resolved_path": "papers/paper3/generated/figures/synthetic_error_propagation.png",
-      "sha256": "664d69bc34b7f5d3aef919ca06e1ce9aee153aaadab48e1fa144c78406c13d8a",
-      "target": "generated/figures/synthetic_error_propagation.png"
-    },
-    {
-      "exists": true,
-      "resolved_path": "papers/paper3/generated/figures/coal602_source_proxy.png",
-      "sha256": "1677211e892782771aa99c52dca98fc154130eef04f5c14690fb71539791cc04",
-      "target": "generated/figures/coal602_source_proxy.png"
-    },
-    {
-      "exists": true,
-      "resolved_path": "papers/paper3/generated/figures/image_boundary_surface.png",
-      "sha256": "729969b0223fdc62262685a2fbd0b406383ab64bbc75e59608616b3df2661b9e",
-      "target": "generated/figures/image_boundary_surface.png"
-    },
-    {
-      "exists": true,
-      "resolved_path": "papers/paper3/generated/figures/image_multiboundary_surface.png",
-      "sha256": "1f480502d7e3a8c980f682562b4ac627e51232906c8f07cf3fa528c1f66981e3",
-      "target": "generated/figures/image_multiboundary_surface.png"
-    },
-    {
-      "exists": true,
-      "resolved_path": "papers/paper3/generated/figures/controlled_error_classes.png",
-      "sha256": "2104768099fe26ac01e3ef9f8d872c5cf9f9a934d583e3666929797d3725e0bc",
-      "target": "generated/figures/controlled_error_classes.png"
-    },
-    {
-      "exists": true,
-      "resolved_path": "papers/paper3/generated/figures/page_spatial_surface.png",
-      "sha256": "5718a4840613e99682e909abb23d33f64a5b0f029e44e4576a13a3fb057ac21a",
-      "target": "generated/figures/page_spatial_surface.png"
-    },
-    {
-      "exists": true,
-      "resolved_path": "docs/generated/publication_readiness.md",
-      "sha256": "c2b05d369f7b229d1faf85b700c14afd09de19a486068d31ccbca8bf0cc5eccc",
-      "target": "../../docs/generated/publication_readiness.md"
+      "resolved_path": "papers/paper3/supplement.md",
+      "sha256": "52142d495844695f2df735df2756bfc4afd7c88e14c11aa09a3d116060f383ae",
+      "target": "supplement.md"
     },
     {
       "exists": true,
       "resolved_path": "papers/references.bib",
-      "sha256": "3176ef0d463bb7fe960252f0b257498ba506237a4262e8f59c7b85c5e49cdba8",
+      "sha256": "6c19c51b70e90b8f20cce0007401d47987153d5b764e4bca423b84e06fb53602",
       "target": "../references.bib"
     },
     {
       "exists": true,
       "resolved_path": "docs/literature_evidence.yaml",
-      "sha256": "fac3d908a9ffa6b34a5ca57623a0ac5297e2f8f23f5da949a80b19d88535f32f",
+      "sha256": "7b318830159927f34724441e0eeceacfba9f2c87dceb04bea3d18b9fab2aff2f",
       "target": "../../docs/literature_evidence.yaml"
     }
   ],
   "manuscript_path": "papers/paper3/manuscript.md",
-  "manuscript_sha256": "281d33ab822605f729700a7afd874b496a39454bdeb14f68e1abc28dd3b0fddb",
+  "manuscript_sha256": "a51c4c9bac3d90905e2e5162cb408b6228ac43203b9d075d7eb86a6198750c34",
   "missing_bibliography_keys": [],
   "missing_claim_registrations": [],
   "missing_literature_evidence_keys": [],
   "missing_required_sections": [],
-  "package_label": "SUBMISSION_READY",
+  "package_label": "SUBMISSION_READY_CANDIDATE",
   "paper": "paper3",
   "registered_evidence_tags": [
     "p3.coal602_consensus_qc",
@@ -169,9 +95,24 @@
   "result_index_path": "experiments/paper3/result_index.jsonl",
   "result_index_sha256": "b5b10e323f951264db85156ad1e5033744c4871333cd1730d59ffef5dd2871dc",
   "result_index_verification_scope": "exact run.json and metrics.json publication core",
+  "scientific_content_ready": true,
   "structurally_complete": true,
-  "submission_ready": true,
+  "submission_ready": false,
   "tbd_or_citation_marker_count": 0,
-  "unused_claim_registrations": [],
-  "word_count": 4079
+  "unused_claim_registrations": [
+    "p3.coal602_source_proxy",
+    "p3.executed_synthetic_comparison",
+    "p3.external_spatial_metadata",
+    "p3.idw_multiseed",
+    "p3.image_boundary_surface",
+    "p3.image_multiboundary_surface",
+    "p3.padova_spatial_catalog",
+    "p3.page_spatial_surface",
+    "p3.pyvista_interop",
+    "p3.real_surface_visualization",
+    "p3.sanming_database_connectivity",
+    "p3.stratigraphic_layer_model",
+    "p3.stratigraphic_layer_model_risk_aware"
+  ],
+  "word_count": 2529
 }

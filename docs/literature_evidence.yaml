@@ -35,6 +35,21 @@ sources:
     verification_level: published_full_text_reviewed
     local_full_text_sha256: de341a63189e5c5ffc0d0b61195efabd74078426cf3d04dabda7feab73b05d0e
     claim_scope: "47 Korean abandoned-mine reports, 908 borehole-log pages, five manually assigned types, an 8:2 page split for EfficientNet-B3 type classification, Type-1-only spreadsheet structuring, and qualitative/example-based OCR comparison; no GeoLogParser performance implication"
+  - key: zhang2020boreholeimages
+    identifier: 10.3390/app10165520
+    metadata_verified_via: "Crossref and MDPI publisher landing page"
+    verification_level: published_abstract_and_metadata
+    claim_scope: "rapid information extraction from 100 same-specification borehole-log images; comparison is used only to position template-specific image extraction, not to transfer a performance number"
+  - key: amini2023boreholepdf
+    identifier: 10.4095/332258
+    metadata_verified_via: "Geological Survey of Canada publication record and DOI metadata"
+    verification_level: official_report_metadata_and_abstract
+    claim_scope: "PDF borehole-log identification, selection, and data-capture evaluation; the report's scope and limitations are discussed without importing a benchmark score"
+  - key: ma2024historicalwell
+    identifier: 10.1038/s41598-024-81846-5
+    metadata_verified_via: "Nature Scientific Reports publisher landing page and DOI metadata"
+    verification_level: published_abstract_and_metadata
+    claim_scope: "LLM information extraction from 160 historical well records, including weaker behavior on image-based records; no performance number is transferred"
   - key: guo2017calibration
     identifier: https://proceedings.mlr.press/v70/guo17a.html
     metadata_verified_via: official PMLR landing-page citation metadata
@@ -155,3 +170,13 @@ sources:
     metadata_verified_via: "Springer article landing page and DOI metadata"
     verification_level: official_metadata_and_abstract
     claim_scope: "quantitative comparison of 3D reconstruction under varying borehole density and sampling layout; no numerical result is reused"
+  - key: shiga2026boreholevlm
+    identifier: 10.11532/jsceiii.7.1_133
+    metadata_verified_via: "J-STAGE publisher landing page and open-access article metadata"
+    verification_level: official_metadata_and_abstract
+    claim_scope: "two-stage Gemini VLM schema-selection/YAML extraction evaluated on 10 boreholes and 12 pages from one Japanese ground-information system; used to position direct image-to-structure extraction without transferring its reported scores"
+  - key: garzon2026stratigraphicmetrics
+    identifier: 10.1016/j.cageo.2025.106043
+    metadata_verified_via: "Computers & Geosciences open-access article PDF, Utrecht University repository, and DOI metadata"
+    verification_level: published_full_text_reviewed
+    claim_scope: "geology-informed sequence and spatial evaluation of automated stratigraphic interpretations for 1,394 boreholes; used to distinguish post-extraction interpretation metrics from image-grounded extraction and downstream support sensitivity"

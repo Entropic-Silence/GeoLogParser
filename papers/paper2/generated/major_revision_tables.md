@@ -18,7 +18,7 @@ Evidence tier: **Published manual transcription Gold**. All variants use identic
 
 Evidence tier: **Published manual transcription Gold**. The primary safety unit is the document; the iid-action bound is retained only as a secondary diagnostic.
 
-| Cohort | Policy | Correct additions / 100 documents | Erroneous additions | Worsened documents | Accepted documents | Review/abstain documents |
+| Cohort | Policy | Net additional matches / 100 documents | Net change in incorrect predictions | Worsened documents (document F1) | Accepted documents | Review/abstain documents |
 |---|---|---:|---:|---:|---:|---:|
 | v004 | Unselective sequence | 234.0 | -34 | 6 | 79 | 0 |
 | v004 | Addition-only risk policy | 43.0 | 0 | 0 | 8 | 71 |

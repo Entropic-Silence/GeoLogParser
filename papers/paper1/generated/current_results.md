@@ -4,7 +4,7 @@
 | Experiment | Model | Borehole ID EM | X coverage | X paired MAE | Final-depth coverage | Emitted intervals | s/page | Eligibility |
 |---|---|---:|---:|---:|---:|---:|---:|---|
 | P1_B1_BGS_AUDIT_001 | B1_tesseract_ocr_regex | 3/4 (0.750) | 4/4 (1.000) | 0.000 | 0/4 (0.000) | 1 | 6.369 | audit_only |
-| P1_B1_RAPIDOCR_BGS_AUDIT_001 | B1_rapidocr_onnxruntime_ppocrv4_regex | 4/4 (1.000) | 0/4 (0.000) | TBD | 0/4 (0.000) | 0 | 3.525 | audit_only |
+| P1_B1_RAPIDOCR_BGS_AUDIT_001 | B1_rapidocr_onnxruntime_ppocrv4_regex | 4/4 (1.000) | 0/4 (0.000) | N/A | 0/4 (0.000) | 0 | 3.525 | audit_only |
 | P1_B1_RAPIDOCR_BGS_AUDIT_002 | B1_rapidocr_onnxruntime_ppocrv4_regex | 4/4 (1.000) | 4/4 (1.000) | 0.000 | 0/4 (0.000) | 0 | 3.506 | audit_only |
 | P1_METADATA_BGS_TESSERACT_FORMAL_002 | B1_tesseract_ocr_regex | 2/4 (0.500) | 4/4 (1.000) | 0.000 | 0/4 (0.000) | 0 | 3.150 | formal_authoritative_metadata |
 | P1_METADATA_BGS_TESSERACT_FORMAL_003 | B1_tesseract_ocr_regex | 29/31 (0.935) | 31/31 (1.000) | 9677.419 | 0/31 (0.000) | 1 | 2.210 | formal_authoritative_metadata |
@@ -32,7 +32,7 @@ These rows use programmatically known Synthetic labels. They validate controlled
 | P1_CALIFORNIA_WCR_V003_TESSERACT_PROSPECTIVE_FORMAL_001 | tesseract_generic_positioned_interval_parser_v001 | 100 | 31 | 154 | 1788 | 507 | 85 | 0.748 | 0.212 | 0.330 | 132/379 (0.348) | 4/100 (0.040) | 8.454 | formal_prospective_external_benchmark |
 | P1_CALIFORNIA_WCR_V004_RAPIDOCR_PROSPECTIVE_FORMAL_001 | rapidocr_generic_positioned_interval_parser_v001 | 100 | 28 | 147 | 1944 | 622 | 77 | 0.883 | 0.282 | 0.428 | 244/549 (0.444) | 3/100 (0.030) | 9.086 | formal_prospective_external_benchmark |
 | P1_CALIFORNIA_WCR_V005_RAPIDOCR_EXTERNAL_FORMAL_001 | rapidocr_generic_positioned_interval_parser_v001 | 100 | 35 | 141 | 2069 | 741 | 85 | 0.737 | 0.264 | 0.389 | 297/546 (0.544) | 4/100 (0.040) | 9.329 | formal_external_benchmark |
-| P1_B4_QWEN3VL4B_CALIFORNIA_TEST_FORMAL_001R | Qwen3-VL-4B-Instruct_page_aggregate | 50 | 48 | 77 | 697 | 5 | 1 | 0.000 | 0.000 | 0.000 | TBD | 0/50 (0.000) | 0.000 | formal_external_benchmark |
+| P1_B4_QWEN3VL4B_CALIFORNIA_TEST_FORMAL_001R | Qwen3-VL-4B-Instruct_page_aggregate | 50 | 48 | 77 | 697 | 5 | 1 | 0.000 | 0.000 | 0.000 | N/A | 0/50 (0.000) | 0.000 | formal_external_benchmark |
 The reference intervals were manually transcribed verbatim by USGS staff from California DWR well-completion-report images and received published depth-sequence and completeness checks. The project did not repeat human review of the 60-document freeze. Metrics therefore evaluate against published manual transcription, while report-image redistribution remains a separate pre-submission check.
 
 ### Held-out authoritative source-agreement interval result
@@ -48,10 +48,10 @@ The reference contains only interval boundaries from official database records w
 
 | Experiment | Model | Records | Visual content groups | Official intervals | Predicted intervals | Records with predictions | Interval P | Interval R | Interval F1 | Content-group macro F1 | Full-record exact | s/record | Eligibility |
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
-| P1_SWISSGEOL_CROSS_CANTON_TESSERACT_TRANSFER_003 | B1_tesseract_ocr_conservative_interval_parser | 42 | 35 | 787 | 9 | 2 | 0.111 | 0.001 | 0.003 | 0.003 | 0/42 (0.000) | TBD | formal_authoritative_source_disjoint_transfer |
-| P1_SWISSGEOL_CROSS_CANTON_RAPIDOCR_TRANSFER_002 | B1_rapidocr_onnx_ocr_conservative_interval_parser | 42 | 35 | 787 | 7 | 2 | 0.000 | 0.000 | 0.000 | 0.000 | 0/42 (0.000) | TBD | formal_authoritative_source_disjoint_transfer |
-| P1_SWISSGEOL_FIVE_CANTON_TESSERACT_TRANSFER_001 | B1_tesseract_ocr_conservative_interval_parser | 46 | 39 | 3332 | 9 | 2 | 0.111 | 0.000 | 0.001 | 0.003 | 0/46 (0.000) | TBD | formal_authoritative_source_disjoint_transfer |
-| P1_SWISSGEOL_FIVE_CANTON_RAPIDOCR_TRANSFER_001 | B1_rapidocr_onnx_ocr_conservative_interval_parser | 46 | 39 | 3332 | 7 | 2 | 0.000 | 0.000 | 0.000 | 0.000 | 0/46 (0.000) | TBD | formal_authoritative_source_disjoint_transfer |
+| P1_SWISSGEOL_CROSS_CANTON_TESSERACT_TRANSFER_003 | B1_tesseract_ocr_conservative_interval_parser | 42 | 35 | 787 | 9 | 2 | 0.111 | 0.001 | 0.003 | 0.003 | 0/42 (0.000) | N/A | formal_authoritative_source_disjoint_transfer |
+| P1_SWISSGEOL_CROSS_CANTON_RAPIDOCR_TRANSFER_002 | B1_rapidocr_onnx_ocr_conservative_interval_parser | 42 | 35 | 787 | 7 | 2 | 0.000 | 0.000 | 0.000 | 0.000 | 0/42 (0.000) | N/A | formal_authoritative_source_disjoint_transfer |
+| P1_SWISSGEOL_FIVE_CANTON_TESSERACT_TRANSFER_001 | B1_tesseract_ocr_conservative_interval_parser | 46 | 39 | 3332 | 9 | 2 | 0.111 | 0.000 | 0.001 | 0.003 | 0/46 (0.000) | N/A | formal_authoritative_source_disjoint_transfer |
+| P1_SWISSGEOL_FIVE_CANTON_RAPIDOCR_TRANSFER_001 | B1_rapidocr_onnx_ocr_conservative_interval_parser | 46 | 39 | 3332 | 7 | 2 | 0.000 | 0.000 | 0.000 | 0.000 | 0/46 (0.000) | N/A | formal_authoritative_source_disjoint_transfer |
 These runs apply the frozen Thurgau parser without reference conditioning to all paired records in each successively frozen non-development-canton panel. Official database intervals belong to the same borehole objects, but complete page/database agreement was not established; the values therefore measure transfer agreement and combine extraction error with possible source mismatch. Content-group macro F1 prevents one repeated 21-page report from receiving eightfold weight. The indexed aggregations resumed completed OCR artifacts after earlier interrupted/metric-only runs, so end-to-end latency is not reported.
 
 ### Cross-source authoritative interval diagnostic
@@ -62,8 +62,8 @@ These runs apply the frozen Thurgau parser without reference conditioning to all
 | P1_USGS144_CROSS_SOURCE_INTERVAL_FORMAL_001 | tesseract_raster_page_interval_parser | 1 | 8 | 8 | 1.000 | 1.000 | 1.000 | 0.000 | 0.000 | 1/1 (1.000) | 17.387 | formal_authoritative_interval |
 | P1_USGS_RAFT_RIVER_TESSERACT_INTERVAL_FORMAL_001 | tesseract_raster_table_interval_parser | 2 | 62 | 56 | 0.875 | 0.790 | 0.831 | 0.000 | 0.000 | 0/2 (0.000) | 6.354 | formal_authoritative_interval |
 | P1_USGS_RAFT_RIVER_RAPIDOCR_INTERVAL_FORMAL_001 | rapidocr_raster_table_interval_parser | 2 | 62 | 62 | 1.000 | 1.000 | 1.000 | 0.000 | 0.000 | 1/2 (0.500) | 7.736 | formal_authoritative_interval |
-| P1_BGS_OFFSHORE_V001_RAPIDOCR_CROSS_SOURCE_FORMAL_001 | rapidocr_bgs_composite_interval_parser_v001 | 26 | 341 | 28 | 0.250 | 0.021 | 0.038 | 0.000 | 0.000 | TBD | 9.568 | formal_authoritative_interval |
-| P1_BGS_OFFSHORE_V001_TESSERACT_CROSS_SOURCE_FORMAL_001 | tesseract_bgs_composite_interval_parser_v001 | 26 | 341 | 54 | 0.148 | 0.023 | 0.041 | 0.000 | 0.003 | TBD | 10.080 | formal_authoritative_interval |
+| P1_BGS_OFFSHORE_V001_RAPIDOCR_CROSS_SOURCE_FORMAL_001 | rapidocr_bgs_composite_interval_parser_v001 | 26 | 341 | 28 | 0.250 | 0.021 | 0.038 | 0.000 | 0.000 | N/A | 9.568 | formal_authoritative_interval |
+| P1_BGS_OFFSHORE_V001_TESSERACT_CROSS_SOURCE_FORMAL_001 | tesseract_bgs_composite_interval_parser_v001 | 26 | 341 | 54 | 0.148 | 0.023 | 0.041 | 0.000 | 0.003 | N/A | 10.080 | formal_authoritative_interval |
 This table adds a single official USGS Idaho PDF with an explicit generalized-lithology legend. It is a cross-source diagnostic, not evidence for a representative source-disjoint estimate; source rights remain pending manual verification.
 
 ### Reference-conditioned interval diagnostics excluded from formal claims
@@ -86,7 +86,7 @@ These reference-independent runs used the v001 records on which parser/reread be
 | Experiment | Model | Pages | Borehole ID agreement | Final-depth MAE (Silver) | Interval P | Interval R | Interval F1 | Eligibility |
 |---|---|---:|---:|---:|---:|---:|---:|---|
 | P1_SILVER_B4_UNIPD_FIELD_002 | qwen3-vl-4b-instruct | 10 | 9/10 (0.900) | 0.000 | 0.714 | 0.663 | 0.688 | formal_silver_benchmark |
-| P1_SILVER_B3_HELDOUT_UNIPD_FIELD_001 | positioned-text-layout-rules | 10 | 9/10 (0.900) | TBD | 0.677 | 0.253 | 0.368 | formal_silver_benchmark |
+| P1_SILVER_B3_HELDOUT_UNIPD_FIELD_001 | positioned-text-layout-rules | 10 | 9/10 (0.900) | N/A | 0.677 | 0.253 | 0.368 | formal_silver_benchmark |
 These metrics measure agreement with an explicitly machine-adjudicated Silver reference. They are not human/expert accuracy, and the reference construction channels are recorded in the source ledger and experiment configuration.
 
 ### Real-source controlled-degradation robustness (metadata fields only)
@@ -170,4 +170,4 @@ Direct-text and positioned-layout columns are extraction-path coverage diagnosti
 | P1_DIRECTPDF_UNIPD_AUDIT_003 | direct_pdf_text_conservative_regex | 11 | 11/11 | 0/11 | 0 | 10 | 0.130 | failure_analysis_only |
 | P1_DIRECTPDF_UNIPD_AUDIT_004 | direct_pdf_text_conservative_regex | 11 | 11/11 | 0/11 | 0 | 1 | 0.125 | audit_only |
 
-All rows are audit-only and not representative benchmark estimates. `TBD` paired MAE indicates zero paired predictions, not zero error. VLM audits have no human Ground Truth, so they report parse/diagnostic behavior rather than accuracy.
+All rows are audit-only and not representative benchmark estimates. `N/A` paired MAE indicates zero paired predictions or an inapplicable field, not zero error. VLM audits have no human Ground Truth, so they report parse/diagnostic behavior rather than accuracy.

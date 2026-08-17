@@ -130,7 +130,23 @@ def test_review_bundle_is_explicitly_labelled():
     result = review_bundle("# Manuscript\n", "| result |\n", audit)
     assert result.startswith("<!-- AUTO-GENERATED REVIEW BUNDLE")
     assert "DRAFT_NOT_SUBMISSION_READY" in result
-    assert "# Appendix: Machine-Generated Current Results" in result
+    assert "# Appendix: Reproducibly Generated Current Results" in result
+
+
+def test_scientifically_complete_package_uses_candidate_not_submission_ready_label(
+    tmp_path: Path, monkeypatch,
+):
+    manuscript, bibliography, index = fixture(tmp_path)
+    index.write_text(json.dumps({
+        "experiment_id": "FORMAL",
+        "paper_eligibility": "formal_method",
+    }) + "\n")
+    monkeypatch.setattr("geologparser.paper_package.verify_publication_index", lambda *_: [])
+    audit = audit_manuscript("paper1", manuscript, bibliography, index, tmp_path)
+    assert audit["scientific_content_ready"] is True
+    assert audit["submission_ready"] is False
+    assert audit["package_label"] == "SUBMISSION_READY_CANDIDATE"
+    assert audit["package_label"] != "SUBMISSION_READY"
 
 
 def test_paper_audit_rejects_changed_claim_source(tmp_path: Path):
@@ -147,7 +163,7 @@ def test_paper_audit_rejects_changed_claim_source(tmp_path: Path):
     assert audit["structurally_complete"] is False
 
 
-def test_paper_audit_rejects_unused_registered_claim(tmp_path: Path):
+def test_paper_audit_allows_registry_claims_reserved_for_supplement(tmp_path: Path):
     manuscript, bibliography, index = fixture(tmp_path)
     source = tmp_path / "evidence.json"
     source.write_text("{}")
@@ -156,7 +172,8 @@ def test_paper_audit_rejects_unused_registered_claim(tmp_path: Path):
     }})
     audit = audit_manuscript("paper1", manuscript, bibliography, index, tmp_path, registry)
     assert audit["unused_claim_registrations"] == ["p1.unused"]
-    assert "claim registry entries are not cited by manuscript" in audit["blockers"]
+    assert "claim registry entries are not cited by manuscript" not in audit["blockers"]
+    assert audit["structurally_complete"] is True
 
 
 def test_paper_audit_rejects_unregistered_manuscript_tag(tmp_path: Path):

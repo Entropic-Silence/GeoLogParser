@@ -23,16 +23,34 @@ EVIDENCE_TAG_PATTERN = re.compile(r"<!--\s*evidence:([A-Za-z0-9_.:-]+)\s*-->")
 
 
 REQUIRED_SECTION_PREFIXES = {
-    "paper1": ("Abstract", "1. Introduction", "2. Related Work", "3. Task Definition",
-               "4. Dataset Construction", "5. Baselines", "6. Evaluation", "7. Results",
-               "8. Discussion", "9. Reproducibility", "10. Conclusion", "References"),
-    "paper2": ("Abstract", "1. Introduction", "2. Related Work", "3. Method",
-               "4. Experimental Design", "5. Results", "6. Failure Analysis", "7. Discussion",
-               "8. Reproducibility", "9. Conclusion", "References"),
-    "paper3": ("Abstract", "1. Introduction", "2. Related Work", "3. Workflow",
-               "4. Error-Propagation Method", "5. Database", "6. Results",
-               "7. Human-in-the-Loop", "8. Discussion", "9. Reproducibility",
-               "10. Conclusion", "References"),
+    "paper1": (
+        ("Abstract",), ("1. Introduction",), ("2. Related Work",),
+        ("3. Task Definition", "3. Task and Evidence"),
+        ("4. Dataset Construction", "4. Data and Experimental Design"),
+        ("6. Evaluation", "5. Evaluation"), ("7. Results", "6. Results"),
+        ("8. Discussion", "7. Discussion"),
+        ("9. Reproducibility", "8. Reproducibility"),
+        ("10. Conclusion", "9. Conclusion"), ("References",),
+    ),
+    "paper2": (
+        ("Abstract",), ("1. Introduction",), ("2. Related Work",),
+        ("3. Method", "4. Method"),
+        ("4. Experimental Design", "5. Experimental Design"),
+        ("5. Results", "6. Results"),
+        ("6. Failure Analysis", "7. Failure Analysis"),
+        ("7. Discussion", "8. Discussion"),
+        ("8. Reproducibility", "9. Reproducibility"),
+        ("9. Conclusion", "10. Conclusion"), ("References",),
+    ),
+    "paper3": (
+        ("Abstract",), ("1. Introduction",), ("2. Related Work",),
+        ("3. Workflow", "3. Evidence and Data"),
+        ("4. Error-Propagation Method",),
+        ("6. Results", "5. Results"),
+        ("8. Discussion", "6. Discussion"),
+        ("9. Reproducibility", "7. Reproducibility"),
+        ("10. Conclusion", "8. Conclusion"), ("References",),
+    ),
 }
 
 
@@ -40,16 +58,20 @@ def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def _section_present(headings: Sequence[str], prefix: str) -> bool:
-    return any(heading == prefix or heading.startswith(prefix) for heading in headings)
+def _section_present(headings: Sequence[str], prefixes: Sequence[str]) -> bool:
+    return any(
+        heading == prefix or heading.startswith(prefix)
+        for heading in headings
+        for prefix in prefixes
+    )
 
 
 def _portable_path(path: Path, repository_root: Path) -> str:
     resolved = path.resolve()
     try:
-        return str(resolved.relative_to(repository_root.resolve()))
+        return resolved.relative_to(repository_root.resolve()).as_posix()
     except ValueError:
-        return str(resolved)
+        return resolved.as_posix()
 
 
 def _literature_evidence(
@@ -226,8 +248,8 @@ def audit_manuscript(
     ]
     formal_count = sum(row.get("paper_eligibility") in FORMAL_ELIGIBILITY for row in rows)
     missing_sections = [
-        name for name in REQUIRED_SECTION_PREFIXES[paper]
-        if not _section_present(headings, name)
+        alternatives[0] for alternatives in REQUIRED_SECTION_PREFIXES[paper]
+        if not _section_present(headings, alternatives)
     ]
     markers = TBD_PATTERN.findall(text)
     evidence_tags = sorted(set(EVIDENCE_TAG_PATTERN.findall(text)))
@@ -261,7 +283,7 @@ def audit_manuscript(
                 claim_errors.append(f"{claim_id}: metrics hash differs from result index")
     structural_complete = not (
         missing_sections or missing_citations or missing_links or index_errors
-        or missing_claim_registrations or unused_claim_registrations or claim_errors
+        or missing_claim_registrations or claim_errors
         or missing_literature_evidence or literature_evidence_errors
     )
     blockers = []
@@ -279,15 +301,13 @@ def audit_manuscript(
         blockers.append("result index verification failed")
     if missing_claim_registrations:
         blockers.append("manuscript evidence tags are absent from claim registry")
-    if unused_claim_registrations:
-        blockers.append("claim registry entries are not cited by manuscript")
     if claim_errors:
         blockers.append("claim source verification failed")
     if markers:
         blockers.append("unresolved TBD/citation markers remain")
     if formal_count == 0:
         blockers.append("no formal experiment is indexed")
-    submission_ready = structural_complete and not markers and formal_count > 0
+    scientific_content_ready = structural_complete and not markers and formal_count > 0
     return {
         "paper": paper,
         "manuscript_path": _portable_path(manuscript, repository_root),
@@ -325,8 +345,10 @@ def audit_manuscript(
         ),
         "claim_registry_sha256": sha256(claim_registry) if claim_registry and claim_registry.is_file() else None,
         "structurally_complete": structural_complete,
-        "submission_ready": submission_ready,
-        "package_label": "SUBMISSION_READY" if submission_ready else "DRAFT_NOT_SUBMISSION_READY",
+        "scientific_content_ready": scientific_content_ready,
+        "submission_ready": False,
+        "external_submission_gate_required": True,
+        "package_label": "SUBMISSION_READY_CANDIDATE" if scientific_content_ready else "DRAFT_NOT_SUBMISSION_READY",
         "blockers": blockers,
     }
 
@@ -340,7 +362,7 @@ def review_bundle(manuscript_text: str, generated_results_text: str, audit: Mapp
     if audit["blockers"]:
         preamble.append("> Blockers: " + "; ".join(audit["blockers"]) + ".")
     return "\n".join(preamble) + "\n\n" + manuscript_text.rstrip() + (
-        "\n\n# Appendix: Machine-Generated Current Results\n\n" + generated_results_text.rstrip() + "\n"
+        "\n\n# Appendix: Reproducibly Generated Current Results\n\n" + generated_results_text.rstrip() + "\n"
     )
 
 

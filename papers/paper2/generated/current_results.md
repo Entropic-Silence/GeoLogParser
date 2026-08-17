@@ -4,9 +4,9 @@
 | Experiment | Field | Reference n | Auto-accepted | Coverage | Accepted accuracy | Review | Review recall | Eligibility |
 |---|---|---:|---:|---:|---:|---:|---:|---|
 | P2_BGS_METADATA_CONSENSUS_ABSTENTION_001 | borehole_id | 31 | 25 | 25/31 (0.806) | 1.000 | 6 | 1.000 | formal_authoritative_metadata_method |
-| P2_BGS_METADATA_CONSENSUS_ABSTENTION_001 | x_coordinate | 31 | 31 | 31/31 (1.000) | 1.000 | 0 | TBD | formal_authoritative_metadata_method |
-| P2_BGS_METADATA_CONSENSUS_ABSTENTION_001 | y_coordinate | 31 | 31 | 31/31 (1.000) | 1.000 | 0 | TBD | formal_authoritative_metadata_method |
-| P2_BGS_METADATA_CONSENSUS_ABSTENTION_001 | final_depth_m | 31 | 0 | 0/31 (0.000) | TBD | 31 | 1.000 | formal_authoritative_metadata_method |
+| P2_BGS_METADATA_CONSENSUS_ABSTENTION_001 | x_coordinate | 31 | 31 | 31/31 (1.000) | 1.000 | 0 | N/A | formal_authoritative_metadata_method |
+| P2_BGS_METADATA_CONSENSUS_ABSTENTION_001 | y_coordinate | 31 | 31 | 31/31 (1.000) | 1.000 | 0 | N/A | formal_authoritative_metadata_method |
+| P2_BGS_METADATA_CONSENSUS_ABSTENTION_001 | final_depth_m | 31 | 0 | 0/31 (0.000) | N/A | 31 | 1.000 | formal_authoritative_metadata_method |
 
 The decision policy accepts only equal non-null values from two independent OCR readers. References are consulted only after decisions are frozen. This is real metadata-field evidence; interval/lithology effects remain unmeasured.
 
@@ -26,9 +26,9 @@ The deterministic sequence ranker was frozen on the ten-document development par
 
 | Experiment | Documents | Reference intervals | First-pass F1 | Reread F1 | Triggered | Accepted rereads | Needs review | Incorrect-doc trigger recall | Correct-doc trigger rate | Correction success | FCR | Eligibility |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
-| P2_SWISSGEOL_TG_CONSTRAINT_REREAD_HELDOUT_001 | 20 | 55 | 0.855 | 0.855 | 1 | 0 | 1 | 0/3 (0.000) | 1/17 (0.059) | TBD | TBD | formal_authoritative_interval_method |
+| P2_SWISSGEOL_TG_CONSTRAINT_REREAD_HELDOUT_001 | 20 | 55 | 0.855 | 0.855 | 1 | 0 | 1 | 0/3 (0.000) | 1/17 (0.059) | N/A | N/A | formal_authoritative_interval_method |
 | P2_SWISSGEOL_TG_CONSTRAINT_REREAD_HELDOUT_V003_001 | 35 | 80 | 0.857 | 0.921 | 9 | 4 | 5 | 7/10 (0.700) | 2/25 (0.080) | 4/4 (1.000) | 0/4 (0.000) | formal_authoritative_interval_method |
-| P2_SWISSGEOL_TG_CONSTRAINT_REREAD_V2_EXTERNAL_V002_001 | 20 | 55 | 0.855 | 0.855 | 1 | 0 | 1 | 0/3 (0.000) | 1/17 (0.059) | TBD | TBD | formal_authoritative_interval_method |
+| P2_SWISSGEOL_TG_CONSTRAINT_REREAD_V2_EXTERNAL_V002_001 | 20 | 55 | 0.855 | 0.855 | 1 | 0 | 1 | 0/3 (0.000) | 1/17 (0.059) | N/A | N/A | formal_authoritative_interval_method |
 
 Each policy was frozen on its recorded development partition before the corresponding source-agreement test was evaluated. A null FCR means no automatic correction occurred; it is not zero. The same-source, explicit-table selection remains a major limitation.
 
@@ -84,8 +84,8 @@ These rows report parser, candidate-path, latency, and resource behavior only. S
 | P2_EXECUTED_SYNTHETIC_ABLATION_001 | minus_constraints | constraints | 30 | 97 | 0/97 (0.000) | 0/97 (0.000) | 0/14 (0.000) | 0/97 (0.000) | 14/97 (0.144) | 0.166 | 0.000 | formal_synthetic_method |
 | P2_EXECUTED_SYNTHETIC_ABLATION_001 | minus_layout | layout | 30 | 97 | 54/54 (1.000) | 0/54 (0.000) | 14/14 (1.000) | 43/97 (0.443) | 0/54 (0.000) | 0.108 | 0.040 | formal_synthetic_method |
 | P2_EXECUTED_SYNTHETIC_ABLATION_001 | minus_normalization | normalization | 30 | 97 | 54/54 (1.000) | 0/54 (0.000) | 14/14 (1.000) | 43/97 (0.443) | 0/54 (0.000) | 0.108 | 0.040 | formal_synthetic_method |
-| P2_EXECUTED_SYNTHETIC_ABLATION_001 | minus_ocr | ocr | 30 | 97 | TBD | TBD | 14/14 (1.000) | 97/97 (1.000) | TBD | 0.310 | 0.175 | formal_synthetic_method |
-| P2_EXECUTED_SYNTHETIC_ABLATION_001 | minus_rereading | rereading | 30 | 97 | TBD | TBD | 14/14 (1.000) | 97/97 (1.000) | TBD | 0.310 | 0.175 | formal_synthetic_method |
-| P2_EXECUTED_SYNTHETIC_ABLATION_001 | minus_vlm | vlm | 30 | 97 | TBD | TBD | 14/14 (1.000) | 97/97 (1.000) | TBD | 0.310 | 0.175 | formal_synthetic_method |
+| P2_EXECUTED_SYNTHETIC_ABLATION_001 | minus_ocr | ocr | 30 | 97 | N/A | N/A | 14/14 (1.000) | 97/97 (1.000) | N/A | 0.310 | 0.175 | formal_synthetic_method |
+| P2_EXECUTED_SYNTHETIC_ABLATION_001 | minus_rereading | rereading | 30 | 97 | N/A | N/A | 14/14 (1.000) | 97/97 (1.000) | N/A | 0.310 | 0.175 | formal_synthetic_method |
+| P2_EXECUTED_SYNTHETIC_ABLATION_001 | minus_vlm | vlm | 30 | 97 | N/A | N/A | 14/14 (1.000) | 97/97 (1.000) | N/A | 0.310 | 0.175 | formal_synthetic_method |
 
 Rows are generated from identical-case, one-module-at-a-time matrices. `formal_synthetic_method` rows are controlled Synthetic evidence and do not support human-GT claims; human-GT rows remain separately labelled.

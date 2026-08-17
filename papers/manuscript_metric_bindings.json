@@ -1,5 +1,5 @@
 {
-  "audit_version": "manuscript_metric_bindings_v001",
+  "audit_version": "manuscript_metric_bindings_v002",
   "checks": [
     {
       "id": "paper1_california_v005_headline",
@@ -49,22 +49,87 @@
     {
       "id": "paper3_full_support_headline_raw",
       "manuscript": "papers/paper3/manuscript.md",
-      "source": "publication_evidence/result_core/results/2026-08-15/P3_SWISSGEOL_STRATIGRAPHIC_LAYER_MODEL_002/metrics.json",
+      "source": "experiments/paper3/analysis/swissgeol_spatial_sensitivity_v001.json",
       "pattern": "full-support comparison[^\\n]*?raw volume error (?P<raw_volume>\\d+\\.\\d+) and mean thickness MAE (?P<raw_mae>\\d+\\.\\d+) m",
       "bindings": [
-        {"group": "raw_volume", "pointer": "/by_variant/raw/relative_absolute_volume_error", "decimals": 4},
-        {"group": "raw_mae", "pointer": "/by_variant/raw/mean_layer_thickness_mae_m", "decimals": 3}
+        {"group": "raw_volume", "pointer": "/full_support_comparison/raw/aggregate/relative_absolute_volume_error", "decimals": 4},
+        {"group": "raw_mae", "pointer": "/full_support_comparison/raw/aggregate/mean_thickness_mae_m", "decimals": 3}
       ]
     },
     {
       "id": "paper3_full_support_headline_risk",
       "manuscript": "papers/paper3/manuscript.md",
-      "source": "publication_evidence/result_core/results/2026-08-16/2026-08-16/P3_SWISSGEOL_STRATIGRAPHIC_LAYER_MODEL_RISK_AWARE_002/metrics.json",
+      "source": "experiments/paper3/analysis/swissgeol_spatial_sensitivity_v001.json",
       "pattern": "risk-aware volume error (?P<risk_volume>\\d+\\.\\d+), mean thickness MAE (?P<risk_mae>\\d+\\.\\d+) m, and document coverage (?P<accepted>\\d+)/(?P<documents>\\d+)",
       "bindings": [
-        {"group": "risk_volume", "pointer": "/by_variant/risk_aware/relative_absolute_volume_error", "decimals": 4},
-        {"group": "risk_mae", "pointer": "/by_variant/risk_aware/mean_layer_thickness_mae_m", "decimals": 3},
+        {"group": "risk_volume", "pointer": "/full_support_comparison/risk/aggregate/relative_absolute_volume_error", "decimals": 4},
+        {"group": "risk_mae", "pointer": "/full_support_comparison/risk/aggregate/mean_thickness_mae_m", "decimals": 3},
+        {"group": "accepted", "pointer": "/risk_accepted_document_count"},
         {"group": "documents", "pointer": "/document_count"}
+      ]
+    },
+    {
+      "id": "paper1_boundary_exact_range",
+      "manuscript": "papers/paper1/manuscript.md",
+      "source": "experiments/paper1/analysis/california_replication_statistics_v001.json",
+      "pattern": "only (?P<minimum>\\d+)%–(?P<maximum>\\d+)% of reports had an exact boundary sequence",
+      "bindings": [
+        {
+          "group": "minimum",
+          "pointers": [
+            "/freezes/v001/rapidocr_document_diagnostics/boundary_exact_document_rate",
+            "/freezes/v002_external/rapidocr_document_diagnostics/boundary_exact_document_rate",
+            "/freezes/v003_prospective/rapidocr_document_diagnostics/boundary_exact_document_rate",
+            "/freezes/v004_prospective/rapidocr_document_diagnostics/boundary_exact_document_rate",
+            "/freezes/v005_external/rapidocr_document_diagnostics/boundary_exact_document_rate"
+          ],
+          "aggregate": "min",
+          "scale": 100
+        },
+        {
+          "group": "maximum",
+          "pointers": [
+            "/freezes/v001/rapidocr_document_diagnostics/boundary_exact_document_rate",
+            "/freezes/v002_external/rapidocr_document_diagnostics/boundary_exact_document_rate",
+            "/freezes/v003_prospective/rapidocr_document_diagnostics/boundary_exact_document_rate",
+            "/freezes/v004_prospective/rapidocr_document_diagnostics/boundary_exact_document_rate",
+            "/freezes/v005_external/rapidocr_document_diagnostics/boundary_exact_document_rate"
+          ],
+          "aggregate": "max",
+          "scale": 100
+        }
+      ]
+    },
+    {
+      "id": "paper2_raw_f1_range",
+      "manuscript": "papers/paper2/manuscript.md",
+      "source": "experiments/paper1/analysis/california_replication_statistics_v001.json",
+      "pattern": "unselective sequence ranking increased interval F1 from (?P<minimum>\\d+\\.\\d+)–(?P<maximum>\\d+\\.\\d+)",
+      "bindings": [
+        {
+          "group": "minimum",
+          "pointers": [
+            "/freezes/v001/rapidocr_document_cluster_metrics/f1",
+            "/freezes/v002_external/rapidocr_document_cluster_metrics/f1",
+            "/freezes/v003_prospective/rapidocr_document_cluster_metrics/f1",
+            "/freezes/v004_prospective/rapidocr_document_cluster_metrics/f1",
+            "/freezes/v005_external/rapidocr_document_cluster_metrics/f1"
+          ],
+          "aggregate": "min",
+          "decimals": 3
+        },
+        {
+          "group": "maximum",
+          "pointers": [
+            "/freezes/v001/rapidocr_document_cluster_metrics/f1",
+            "/freezes/v002_external/rapidocr_document_cluster_metrics/f1",
+            "/freezes/v003_prospective/rapidocr_document_cluster_metrics/f1",
+            "/freezes/v004_prospective/rapidocr_document_cluster_metrics/f1",
+            "/freezes/v005_external/rapidocr_document_cluster_metrics/f1"
+          ],
+          "aggregate": "max",
+          "decimals": 3
+        }
       ]
     }
   ]

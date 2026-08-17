@@ -37,9 +37,23 @@ def audit(config_path: Path, root: Path) -> dict:
         match = matches[0]
         for binding in check["bindings"]:
             observed = as_number(match.group(binding["group"]))
-            expected = json_pointer(source, binding["pointer"])
+            if "pointers" in binding:
+                values = [json_pointer(source, pointer) for pointer in binding["pointers"]]
+                aggregate = binding.get("aggregate", "identity")
+                if aggregate == "min":
+                    expected = min(values)
+                elif aggregate == "max":
+                    expected = max(values)
+                elif aggregate == "range":
+                    expected = [min(values), max(values)]
+                else:
+                    raise ValueError(f"unsupported manuscript metric aggregate: {aggregate}")
+            else:
+                expected = json_pointer(source, binding["pointer"])
             if "subtract_from" in binding:
                 expected = binding["subtract_from"] - expected
+            if "scale" in binding:
+                expected = expected * binding["scale"]
             decimals = binding.get("decimals")
             if decimals is None:
                 passed = observed == expected
@@ -50,7 +64,7 @@ def audit(config_path: Path, root: Path) -> dict:
                 "group": binding["group"],
                 "manuscript": check["manuscript"],
                 "source": check["source"],
-                "pointer": binding["pointer"],
+                "pointer": binding.get("pointer", binding.get("pointers")),
                 "observed": observed,
                 "expected": expected,
                 "display_decimals": decimals,

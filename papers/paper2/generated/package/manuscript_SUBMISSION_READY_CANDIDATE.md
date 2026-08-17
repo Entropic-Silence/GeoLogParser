@@ -1,3 +1,7 @@
+<!-- AUTO-GENERATED REVIEW BUNDLE. DO NOT EDIT. -->
+> Package status: **SUBMISSION_READY_CANDIDATE**
+> This bundle combines the versioned manuscript and generated results for review.
+
 # Risk-Aware Sequence Reconstruction for Borehole-Log Extraction with Auditable Constraints and Abstention
 
 ## Abstract
@@ -198,3 +202,166 @@ Sequence reconstruction and safe correction are distinct objectives. Across five
 ## References
 
 Shared bibliography: [../references.bib](../references.bib). Citation verification and permitted claim scope are recorded in [../../docs/literature_evidence.yaml](../../docs/literature_evidence.yaml).
+
+
+# Linked Supplementary Material
+
+# Supplementary Material for Paper II
+
+## S1. Role of exploratory evidence
+
+The main manuscript reports the California same-candidate-pool ablation, addition-only risk policy, Swissgeol validation, and the one-time BGS v003 transport failure. This supplement retains development branches that explain why the final claim is narrower. They are not pooled with confirmatory results and are not counted as independent external tests.
+
+## S2. BGS long-page development history
+
+The BGS v001 source groups were available for development and failure attribution. Multiscale OCR and field-specific crops increased exact boundary visibility from 20.44% on full pages to 26.43%, but most reference boundaries still had no exact numeric candidate. A continuous-depth geometry decoder reached development Boundary F1 0.3381 and Interval F1 0.1797. Its one-time v002 source-disjoint evaluation collapsed to Boundary F1 0.0286 and Interval F1 0, demonstrating that the fitted page/column assumptions did not transport.
+
+The final routed parser combined positioned-text evidence, semantic column roles, page-family routing, deterministic geometry, and abstention. Nested source-disjoint development reached Boundary F1 0.3475 and Interval F1 0.1978. Fold Interval F1 ranged from 0 to 0.381, so even the development gain was heterogeneous. This gate authorized the single BGS v003 evaluation reported in the main paper; no later development used v003.
+
+## S3. Native multimodal feasibility
+
+A frozen-backbone document-VLM branch tested synthetic structural pretraining, real-reference fine-tuning, row supervision, and spatial heads. Direct generation improved output format but provided no grounded interval sequence. The strongest spatial variant reached Boundary F1 0.0789, Interval F1 0.0312, and structural-evidence coverage 0.075 on source-disjoint development. A MinerU2.5 smoke run established local LoRA trainability only. Because the predefined structural and interval gates were missed, the branch was closed without consuming BGS v003.
+
+These results do not show that document VLMs are generally ineffective. They show that the available labels, frozen visual representation, and small source-disjoint study did not solve boundary ownership well enough to replace the positioned structural parser.
+
+## S4. Semantic-role and event-owner diagnostics
+
+OCR-header semantic roles improved development Boundary/Interval F1 to 0.3265/0.1458 and reached 0.4410/0.2825 on the nine explicit Graphic-Log documents. The subset result identifies column meaning as a genuine failure mode but is not a transport estimate.
+
+Aligning candidates to description-row edges was weakly discriminative (rank AUC 0.591) and did not exceed the final routed parser. A post-candidate joint event-owner decoder reached Boundary F1 0.293, Interval F1 0.113, and Boundary CNER 0.652. Once candidates had been scored independently, owner penalties could not reconstruct the lost page context. These negative results support the main paper's decision not to claim a learned page-level ownership solution.
+
+## S5. Swissgeol secondary analyses
+
+Alias-only routing produced high precision at low coverage. Broadening the alias set raised family recognition but lowered accepted precision and increased CNER, so that expansion was rejected. A secondary calibration lookup and an exact cross-reader agreement rule produced useful selective subsets, but both were specified after the primary held-out method result and remain exploratory.
+
+## S6. Synthetic and no-reference engineering checks
+
+The executed 127-case synthetic experiment verifies that the actual constraint evaluator, rereading ranker, and calibration path are wired correctly. It does not estimate real-document effect. A two-ROI Padova audit produced schema-valid numeric candidates but both decisions remained NEEDS_REVIEW; no accuracy or FCR is defined because the annotations are not independent reference labels.
+
+Full experiment IDs, configurations, metrics, and hashes remain in [current results](generated/current_results.md), the result index, ADRs, and the publication-evidence bundle. The public candidate pool permits independent recomputation of the main same-pool ablation without exposing OCR text or source identifiers.
+
+# Appendix: Reproducibly Generated Current Results
+
+<!-- AUTO-GENERATED. DO NOT EDIT. -->
+# Paper II major-revision tables
+
+## Same-candidate-pool sequence ablation
+
+Evidence tier: **Published manual transcription Gold**. All variants use identical documents, positioned candidate pools, matcher, and tolerance; the bootstrap unit is the document.
+
+| Variant | v004 P / R / F1 (95% CI) | v004 FCR | v005 P / R / F1 (95% CI) | v005 FCR |
+|---|---:|---:|---:|---:|
+| Raw parser | 0.883 / 0.282 / 0.428 [0.339, 0.515] | -- | 0.737 / 0.264 / 0.389 [0.305, 0.466] | -- |
+| Eligible pool, no sequence | 0.815 / 0.419 / 0.554 [0.475, 0.625] | 0.324 | 0.718 / 0.402 / 0.516 [0.438, 0.588] | 0.322 |
+| + monotonic sequence | 0.942 / 0.418 / 0.579 [0.495, 0.655] | 0.111 | 0.911 / 0.394 / 0.550 [0.471, 0.619] | 0.062 |
+| + continuity / zero-origin | 0.950 / 0.403 / 0.566 [0.480, 0.644] | 0.126 | 0.914 / 0.374 / 0.530 [0.450, 0.603] | 0.086 |
+| + column stability, no term bonus | 0.951 / 0.400 / 0.563 [0.476, 0.641] | 0.126 | 0.909 / 0.363 / 0.519 [0.437, 0.593] | 0.124 |
+| Complete archived score | 0.953 / 0.403 / 0.566 [0.480, 0.645] | 0.121 | 0.914 / 0.374 / 0.530 [0.450, 0.603] | 0.084 |
+
+## Document-level risk and net utility
+
+Evidence tier: **Published manual transcription Gold**. The primary safety unit is the document; the iid-action bound is retained only as a secondary diagnostic.
+
+| Cohort | Policy | Net additional matches / 100 documents | Net change in incorrect predictions | Worsened documents (document F1) | Accepted documents | Review/abstain documents |
+|---|---|---:|---:|---:|---:|---:|
+| v004 | Unselective sequence | 234.0 | -34 | 6 | 79 | 0 |
+| v004 | Addition-only risk policy | 43.0 | 0 | 0 | 8 | 71 |
+| v005 | Unselective sequence | 227.0 | -122 | 10 | 85 | 0 |
+| v005 | Addition-only risk policy | 39.0 | 0 | 0 | 11 | 74 |
+
+Across 200 documents, the addition-only policy accepted 82 actions in 19 documents, observed 0 worsened documents, and retained 145 changed-sequence documents for review or abstention. The one-sided 95% zero-event upper bound is 0.1459 per accepted document; the secondary iid-action bound is 0.0359.
+
+
+# Full Indexed Result Catalogue
+
+<!-- AUTO-GENERATED. DO NOT EDIT. -->
+### Real authoritative-metadata consensus and abstention
+
+| Experiment | Field | Reference n | Auto-accepted | Coverage | Accepted accuracy | Review | Review recall | Eligibility |
+|---|---|---:|---:|---:|---:|---:|---:|---|
+| P2_BGS_METADATA_CONSENSUS_ABSTENTION_001 | borehole_id | 31 | 25 | 25/31 (0.806) | 1.000 | 6 | 1.000 | formal_authoritative_metadata_method |
+| P2_BGS_METADATA_CONSENSUS_ABSTENTION_001 | x_coordinate | 31 | 31 | 31/31 (1.000) | 1.000 | 0 | N/A | formal_authoritative_metadata_method |
+| P2_BGS_METADATA_CONSENSUS_ABSTENTION_001 | y_coordinate | 31 | 31 | 31/31 (1.000) | 1.000 | 0 | N/A | formal_authoritative_metadata_method |
+| P2_BGS_METADATA_CONSENSUS_ABSTENTION_001 | final_depth_m | 31 | 0 | 0/31 (0.000) | N/A | 31 | 1.000 | formal_authoritative_metadata_method |
+
+The decision policy accepts only equal non-null values from two independent OCR readers. References are consulted only after decisions are frozen. This is real metadata-field evidence; interval/lithology effects remain unmeasured.
+
+### Published manual-transcription Gold sequence recovery
+
+| Experiment | Documents | Counties | Reference intervals | Candidates | Raw P | Raw R | Raw F1 | Constrained P | Constrained R | Constrained F1 | Correct added | Incorrect added | Correct removed | FCR | Eligibility |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
+| P2_CALIFORNIA_WCR_CONSTRAINT_TEST_FORMAL_001 | 50 | 48 | 697 | 353 | 0.892 | 0.250 | 0.390 | 0.915 | 0.357 | 0.514 | 81 | 12 | 6 | 18/109 (0.165) | formal_benchmark |
+| P2_CALIFORNIA_WCR_V002_CONSTRAINT_EXTERNAL_FORMAL_002 | 100 | 23 | 1770 | 1143 | 0.817 | 0.311 | 0.450 | 0.925 | 0.406 | 0.564 | 212 | 17 | 46 | 63/355 (0.177) | formal_external_benchmark |
+| P2_CALIFORNIA_WCR_V003_CONSTRAINT_PROSPECTIVE_FORMAL_001 | 100 | 31 | 1788 | 836 | 0.803 | 0.251 | 0.383 | 0.897 | 0.318 | 0.470 | 149 | 29 | 30 | 59/281 (0.210) | formal_prospective_external_benchmark |
+| P2_CALIFORNIA_WCR_V004_CONSTRAINT_PROSPECTIVE_FORMAL_001 | 100 | 28 | 1944 | 1008 | 0.883 | 0.282 | 0.428 | 0.953 | 0.403 | 0.566 | 257 | 20 | 23 | 43/354 (0.121) | formal_prospective_external_method |
+| P2_CALIFORNIA_WCR_V005_CONSTRAINT_EXTERNAL_FORMAL_001 | 100 | 35 | 2069 | 1217 | 0.737 | 0.264 | 0.389 | 0.914 | 0.374 | 0.530 | 251 | 10 | 25 | 35/417 (0.084) | formal_prospective_external_method |
+
+The deterministic sequence ranker was frozen on the ten-document development partition and evaluated without reference access on the fifty-document California test. FCR counts both correct raw boundaries removed and incorrect constrained boundaries added. The result shows recovery gain and a non-negligible correction hazard rather than uniformly safe automatic repair.
+
+### Held-out authoritative-interval constraint-rereading result
+
+| Experiment | Documents | Reference intervals | First-pass F1 | Reread F1 | Triggered | Accepted rereads | Needs review | Incorrect-doc trigger recall | Correct-doc trigger rate | Correction success | FCR | Eligibility |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
+| P2_SWISSGEOL_TG_CONSTRAINT_REREAD_HELDOUT_001 | 20 | 55 | 0.855 | 0.855 | 1 | 0 | 1 | 0/3 (0.000) | 1/17 (0.059) | N/A | N/A | formal_authoritative_interval_method |
+| P2_SWISSGEOL_TG_CONSTRAINT_REREAD_HELDOUT_V003_001 | 35 | 80 | 0.857 | 0.921 | 9 | 4 | 5 | 7/10 (0.700) | 2/25 (0.080) | 4/4 (1.000) | 0/4 (0.000) | formal_authoritative_interval_method |
+| P2_SWISSGEOL_TG_CONSTRAINT_REREAD_V2_EXTERNAL_V002_001 | 20 | 55 | 0.855 | 0.855 | 1 | 0 | 1 | 0/3 (0.000) | 1/17 (0.059) | N/A | N/A | formal_authoritative_interval_method |
+
+Each policy was frozen on its recorded development partition before the corresponding source-agreement test was evaluated. A null FCR means no automatic correction occurred; it is not zero. The same-source, explicit-table selection remains a major limitation.
+
+### Secondary held-out component analysis
+
+| Experiment | Variant | Interval P | Interval R | Interval F1 | Full-document exact | Changed documents vs v2 first pass | Eligibility |
+|---|---|---:|---:|---:|---:|---:|---|
+| P2_SWISSGEOL_TG_V2_SECONDARY_ABLATION_001 | full_v2 | 0.972 | 0.875 | 0.921 | 29/35 | 4 | secondary_ablation_only |
+| P2_SWISSGEOL_TG_V2_SECONDARY_ABLATION_001 | legacy_parser_first_pass | 0.871 | 0.762 | 0.813 | 23/35 | 4 | secondary_ablation_only |
+| P2_SWISSGEOL_TG_V2_SECONDARY_ABLATION_001 | v2_first_pass | 0.892 | 0.825 | 0.857 | 25/35 | 0 | secondary_ablation_only |
+| P2_SWISSGEOL_TG_V2_SECONDARY_ABLATION_001 | v2_parser_v1_acceptance | 0.893 | 0.838 | 0.865 | 26/35 | 1 | secondary_ablation_only |
+| P2_SWISSGEOL_TG_V2_EXTERNAL_V002_SECONDARY_ABLATION_001 | full_v2 | 0.855 | 0.855 | 0.855 | 17/20 | 0 | secondary_ablation_only |
+| P2_SWISSGEOL_TG_V2_EXTERNAL_V002_SECONDARY_ABLATION_001 | legacy_parser_first_pass | 0.855 | 0.855 | 0.855 | 17/20 | 0 | secondary_ablation_only |
+| P2_SWISSGEOL_TG_V2_EXTERNAL_V002_SECONDARY_ABLATION_001 | v2_first_pass | 0.855 | 0.855 | 0.855 | 17/20 | 0 | secondary_ablation_only |
+| P2_SWISSGEOL_TG_V2_EXTERNAL_V002_SECONDARY_ABLATION_001 | v2_parser_v1_acceptance | 0.855 | 0.855 | 0.855 | 17/20 | 0 | secondary_ablation_only |
+
+This component analysis was specified and executed after the full v2 held-out result was observed. It is descriptive evidence on frozen artifacts, not an independent confirmatory experiment; change counts for the legacy parser are parser differences, not automatic corrections.
+
+### Secondary selective-confidence and abstention analysis
+
+| Experiment | Brier | ECE (5-bin) | Abstain review coverage | Abstain document exact | Abstain interval F1 | Peer-agreement coverage | Peer-agreement interval F1 | Eligibility |
+|---|---:|---:|---:|---:|---:|---:|---:|---|
+| P2_SWISSGEOL_TG_SELECTIVE_CONFIDENCE_SECONDARY_001 | 0.126 | 0.044 | 30/35 (0.857) | 0.900 | 0.948 | 14/35 (0.400) | 1.000 | secondary_calibration_only |
+
+The confidence lookup is fit on development-only outcomes and applied to held-out outputs. This table is a secondary post-result analysis with small denominators; it is not a confirmatory calibration estimate.
+
+### Frozen-policy finite-sample risk certificate
+
+| Experiment | Cohort | Accepted actions | Incorrect actions | Observed FCR | One-sided 95% FCR upper bound | One-sided 99% FCR upper bound | Accepted documents | Worsened documents | One-sided 95% document-worsening upper bound | Eligibility |
+|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---|
+| P2_CALIFORNIA_CANDIDATE_RISK_CERTIFICATE_001 | development | 51 | 0 | 0.000 | 0.057 | 0.086 | 21 | 0 | 0.133 | secondary_statistical_risk_analysis |
+| P2_CALIFORNIA_CANDIDATE_RISK_CERTIFICATE_001 | external_v004 | 43 | 0 | 0.000 | 0.067 | 0.102 | 8 | 0 | 0.312 | secondary_statistical_risk_analysis |
+| P2_CALIFORNIA_CANDIDATE_RISK_CERTIFICATE_001 | external_v005 | 39 | 0 | 0.000 | 0.074 | 0.111 | 11 | 0 | 0.238 | secondary_statistical_risk_analysis |
+| P2_CALIFORNIA_CANDIDATE_RISK_CERTIFICATE_001 | external_pooled_v004_v005 | 82 | 0 | 0.000 | 0.036 | 0.055 | 19 | 0 | 0.146 | secondary_statistical_risk_analysis |
+
+The policy was fixed before v004/v005. Exact zero-error upper bounds are conditional on independent Bernoulli action/document assumptions. The pooled 82-action California result supports a 5% action-FCR target at one-sided 95% confidence, but the 19 accepted documents do not certify a 5% document-worsening target; neither result is a cross-source guarantee.
+
+### Public ROI engineering audit (no Ground Truth)
+
+| Experiment | Cases | VLM JSON-valid | VLM uncertain | OCR/VLM numeric-agreement cases | Accept proposals | Needs review | VLM s/ROI | Peak GiB | Eligibility |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---|
+| P2_QWEN3VL4B_TESSERACT_UNIPD_ROI_AUDIT_001 | 2 | 2/2 | 0 | 2 | 0 | 2 | 3.510 | 8.413 | audit_only |
+
+These rows report parser, candidate-path, latency, and resource behavior only. Source annotations are `auto`; accuracy, correction success, and FCR are undefined.
+
+### Method and ablation results
+
+<!-- AUTO-GENERATED. DO NOT EDIT. -->
+| Experiment | Variant | Disabled | Calibration n | Test n | Correction success | FCR | Review recall | Review rate | Auto-accept error | Raw ECE | Calibrated ECE | Eligibility |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
+| P2_EXECUTED_SYNTHETIC_ABLATION_001 | full | none | 30 | 97 | 54/54 (1.000) | 0/54 (0.000) | 14/14 (1.000) | 43/97 (0.443) | 0/54 (0.000) | 0.108 | 0.040 | formal_synthetic_method |
+| P2_EXECUTED_SYNTHETIC_ABLATION_001 | minus_calibration | calibration | 30 | 97 | 54/54 (1.000) | 0/54 (0.000) | 14/14 (1.000) | 43/97 (0.443) | 0/54 (0.000) | 0.108 | 0.108 | formal_synthetic_method |
+| P2_EXECUTED_SYNTHETIC_ABLATION_001 | minus_constraints | constraints | 30 | 97 | 0/97 (0.000) | 0/97 (0.000) | 0/14 (0.000) | 0/97 (0.000) | 14/97 (0.144) | 0.166 | 0.000 | formal_synthetic_method |
+| P2_EXECUTED_SYNTHETIC_ABLATION_001 | minus_layout | layout | 30 | 97 | 54/54 (1.000) | 0/54 (0.000) | 14/14 (1.000) | 43/97 (0.443) | 0/54 (0.000) | 0.108 | 0.040 | formal_synthetic_method |
+| P2_EXECUTED_SYNTHETIC_ABLATION_001 | minus_normalization | normalization | 30 | 97 | 54/54 (1.000) | 0/54 (0.000) | 14/14 (1.000) | 43/97 (0.443) | 0/54 (0.000) | 0.108 | 0.040 | formal_synthetic_method |
+| P2_EXECUTED_SYNTHETIC_ABLATION_001 | minus_ocr | ocr | 30 | 97 | N/A | N/A | 14/14 (1.000) | 97/97 (1.000) | N/A | 0.310 | 0.175 | formal_synthetic_method |
+| P2_EXECUTED_SYNTHETIC_ABLATION_001 | minus_rereading | rereading | 30 | 97 | N/A | N/A | 14/14 (1.000) | 97/97 (1.000) | N/A | 0.310 | 0.175 | formal_synthetic_method |
+| P2_EXECUTED_SYNTHETIC_ABLATION_001 | minus_vlm | vlm | 30 | 97 | N/A | N/A | 14/14 (1.000) | 97/97 (1.000) | N/A | 0.310 | 0.175 | formal_synthetic_method |
+
+Rows are generated from identical-case, one-module-at-a-time matrices. `formal_synthetic_method` rows are controlled Synthetic evidence and do not support human-GT claims; human-GT rows remain separately labelled.

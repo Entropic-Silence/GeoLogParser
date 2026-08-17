@@ -15,14 +15,14 @@ def ratio(metric: dict) -> str:
     a missing metric as zero.
     """
     if not metric or metric.get("value") is None:
-        return "TBD"
+        return "N/A"
     if "numerator" not in metric or "denominator" not in metric:
-        return "TBD"
+        return "N/A"
     return f"{metric['numerator']}/{metric['denominator']} ({metric['value']:.3f})"
 
 
 def number(value, decimals: int = 3) -> str:
-    return "TBD" if value is None else f"{value:.{decimals}f}"
+    return "N/A" if value is None else f"{value:.{decimals}f}"
 
 
 def paper1_table(entries: list[dict], repository_root: Path) -> str:
@@ -101,7 +101,7 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
                 number(metrics["content_group_macro_interval_f1"]),
                 ratio(metrics.get("document_full_exact")),
                 (
-                    "TBD" if metrics.get("ocr_resume_hit_count", 0)
+                    "N/A" if metrics.get("ocr_resume_hit_count", 0)
                     else number(metrics["latency_seconds_per_document_wall"])
                 ),
                 entry["paper_eligibility"],
@@ -340,7 +340,7 @@ def paper1_table(entries: list[dict], repository_root: Path) -> str:
         "| Experiment | Model | Documents | Borehole-ID coverage | Final-depth coverage | Emitted intervals | Violations | s/page | Eligibility |",
         "|---|---|---:|---:|---:|---:|---:|---:|---|",
         *native_rows, "",
-        "All rows are audit-only and not representative benchmark estimates. `TBD` paired MAE indicates zero paired predictions, not zero error. VLM audits have no human Ground Truth, so they report parse/diagnostic behavior rather than accuracy.",
+        "All rows are audit-only and not representative benchmark estimates. `N/A` paired MAE indicates zero paired predictions or an inapplicable field, not zero error. VLM audits have no human Ground Truth, so they report parse/diagnostic behavior rather than accuracy.",
     ]) + "\n"
 
 
@@ -378,10 +378,10 @@ def paper3_table(entries: list[dict], repository_root: Path) -> str:
                     entry["experiment_id"], number(condition["magnitude_m"], 2),
                     f'{number(condition["raw"]["mae_m"]["mean"], 6)} ± {number(condition["raw"]["mae_m"]["std"], 6)}',
                     f'{number(condition["qc"]["mae_m"]["mean"], 6)} ± {number(condition["qc"]["mae_m"]["std"], 6)}',
-                    (f'{number(fused["mae_m"]["mean"], 6)} ± {number(fused["mae_m"]["std"], 6)}' if fused else "TBD"),
-                    (number(paired["relative_mae_reduction"]) if paired else "TBD"),
-                    (f'{paired["fusion_better_count"]}/{paired["n"]}' if paired else "TBD"),
-                    (f'{paired["two_sided_exact_sign_test_p"]:.3g}' if paired else "TBD"),
+                    (f'{number(fused["mae_m"]["mean"], 6)} ± {number(fused["mae_m"]["std"], 6)}' if fused else "N/A"),
+                    (number(paired["relative_mae_reduction"]) if paired else "N/A"),
+                    (f'{paired["fusion_better_count"]}/{paired["n"]}' if paired else "N/A"),
+                    (f'{paired["two_sided_exact_sign_test_p"]:.3g}' if paired else "N/A"),
                     number(condition["coverage_mean"]),
                     str(condition["false_accepted_corruptions_total"]),
                     entry["paper_eligibility"],
@@ -398,14 +398,14 @@ def paper3_table(entries: list[dict], repository_root: Path) -> str:
             if query_count is None:
                 query_count = raw.get("surface_query_count")
             image_boundary_rows.append("| " + " | ".join([
-                entry["experiment_id"], str(metrics.get("document_count", "TBD")),
-                str(metrics.get("reference_point_count", "TBD")),
-                str(query_count if query_count is not None else "TBD"),
+                entry["experiment_id"], str(metrics.get("document_count", "N/A")),
+                str(metrics.get("reference_point_count", "N/A")),
+                str(query_count if query_count is not None else "N/A"),
                 number(raw.get("boundary_mae_m")), number(final.get("boundary_mae_m")),
                 number(raw.get("surface_error", {}).get("mae_m")),
                 number(final.get("surface_error", {}).get("mae_m")),
-                str(metrics.get("accepted_reread_count", "TBD")),
-                str(metrics.get("needs_review_count", "TBD")),
+                str(metrics.get("accepted_reread_count", "N/A")),
+                str(metrics.get("needs_review_count", "N/A")),
                 entry["paper_eligibility"],
             ]) + " |")
             continue
@@ -451,13 +451,13 @@ def paper3_table(entries: list[dict], repository_root: Path) -> str:
         if metrics.get("scope") == "real image-derived stratigraphic layer-model diagnostic":
             for variant, values in metrics.get("by_variant", {}).items():
                 stratigraphic_layer_rows.append("| " + " | ".join([
-                    entry["experiment_id"], variant, str(metrics.get("document_count", "TBD")),
-                    str(metrics.get("layer_count", "TBD")),
+                    entry["experiment_id"], variant, str(metrics.get("document_count", "N/A")),
+                    str(metrics.get("layer_count", "N/A")),
                     number(values.get("mean_layer_thickness_mae_m")),
                     number(values.get("relative_absolute_volume_error")),
                     number(values.get("mean_top_boundary_support"), 4),
                     number(values.get("mean_bottom_boundary_support"), 4),
-                    str(values.get("layers_with_negative_thickness", "TBD")),
+                    str(values.get("layers_with_negative_thickness", "N/A")),
                     entry["paper_eligibility"],
                 ]) + " |")
             continue
@@ -703,7 +703,7 @@ def paper2_table(entries: list[dict], repository_root: Path) -> str:
         *rows,
     ]
     if not rows:
-        formal_section.append("| `TBD` | `TBD` | `TBD` | `TBD` | `TBD` | `TBD` | `TBD` | `TBD` | `TBD` | `TBD` | `TBD` | `TBD` | no formal run |")
+        formal_section.append("| N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | no formal run |")
     formal_section.extend(["",
         "Rows are generated from identical-case, one-module-at-a-time matrices. `formal_synthetic_method` rows are controlled Synthetic evidence and do not support human-GT claims; human-GT rows remain separately labelled.",
     ])

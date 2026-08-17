@@ -2961,3 +2961,36 @@
   `pip install -e '.[test]'` environment passed 453 tests with one optional
   PyVista test skipped; the missing CAD/SVG/RapidOCR dependencies found by the
   first clean-install attempt were added to the test extra.
+
+## 2026-08-17 — Major-revision closure and public reanalysis
+
+- Experiment: reconciled the Paper II equations with the frozen implementation,
+  regenerated the California same-pool and document-risk analyses, and released
+  a deidentified 200-document/2,225-candidate recomputation input.
+- Observation: the raw node score excludes the shallow-start penalty; the
+  penalty is applied only at path initialization, and the 2.999 risk threshold
+  applies to raw score. The confirmatory policy accepts 82 actions in 19
+  documents spanning 14 counties, with a document-level one-sided 95% upper
+  bound of 0.145869.
+- Experiment: released a rigidly transformed 35-document Paper III spatial
+  input and recomputed full-support, matched-subset, spatial-support, IDW, LOO,
+  and volume-jackknife diagnostics.
+- Failure: the first public recomputation differed by approximately 9.7e-5 in
+  relative volume error. The cause was floating cancellation in hull boundary
+  tests at million-metre projected coordinates, not loss of released values.
+- Decision: polygon and grid geometry now use local coordinates with
+  scale-aware edge tolerance. Stabilized full-support relative volume error is
+  0.1387/0.1213/0.0821 for raw/reread/risk; the matched-subset result remains
+  0.0326/0.0754/0.0754 and continues to attribute the apparent risk advantage
+  to selection and spatial support.
+- Experiment: rewrote the three main manuscripts around their non-overlapping
+  claims, moved development histories to supplements, added two verified direct
+  2026 studies, and regenerated all tables, figures, evidence audits, and
+  review bundles.
+- Validation: 461 tests passed on Linux; manuscript numeric bindings,
+  deidentification tests, public-input recomputations, and generated-package
+  audits all passed. Packages are labelled SUBMISSION_READY_CANDIDATE while
+  submission_ready remains false pending final rights and author review.
+- Next step: inspect the complete diff, commit in focused units, push the
+  existing review branch, verify GitHub CI, and perform a fresh-clone
+  regeneration check.
