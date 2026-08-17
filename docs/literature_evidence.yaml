@@ -180,3 +180,8 @@ sources:
     metadata_verified_via: "Computers & Geosciences open-access article PDF, Utrecht University repository, and DOI metadata"
     verification_level: published_full_text_reviewed
     claim_scope: "geology-informed sequence and spatial evaluation of automated stratigraphic interpretations for 1,394 boreholes; used to distinguish post-extraction interpretation metrics from image-grounded extraction and downstream support sensitivity"
+  - key: qwen2026qwen38
+    identifier: https://huggingface.co/Qwen/Qwen3.8-27B-FP8
+    metadata_verified_via: "official Qwen model card and Apache-2.0 license file archived with the local checkpoint"
+    verification_level: official_model_card_and_license
+    claim_scope: "model identity, 27B native vision-language architecture, FP8 checkpoint format, and Apache-2.0 license; no vendor benchmark number is reused"

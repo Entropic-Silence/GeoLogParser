@@ -31,13 +31,13 @@ Status basis: current version-controlled working tree; experiment-level commits 
 
 | Paper | Controlled formal | Real formal | Indexed runs |
 |---|---:|---:|---:|
-| paper1 | 2 | 28 | 62 |
-| paper2 | 1 | 12 | 20 |
+| paper1 | 2 | 28 | 66 |
+| paper2 | 1 | 12 | 23 |
 | paper3 | 1 | 6 | 15 |
 
 ## Publication evidence
 
-- Exact indexed run/metrics files: 195.
+- Exact indexed run/metrics files: 209.
 - External aggregate/source-audit summaries: 14.
 - Public reanalysis input files: 8.
 - Pseudonymized document-level prediction/error files: 19; source pages, model weights, raw OCR text/regions, and sensitive fields remain outside the repository.

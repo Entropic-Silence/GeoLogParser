@@ -2,7 +2,7 @@
   "audit_version": "manuscript_metric_bindings_v002",
   "config": "papers/manuscript_metric_bindings.json",
   "errors": [],
-  "observation_count": 45,
+  "observation_count": 64,
   "observations": [
     {
       "check_id": "paper1_california_v005_headline",
@@ -578,6 +578,270 @@
       "passed": true,
       "pointer": "/volume_jackknife/full_support/variants/risk/relative_absolute_volume_error/maximum",
       "source": "experiments/paper3/analysis/swissgeol_spatial_sensitivity_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper1_modern_vlm_v001",
+      "display_decimals": null,
+      "expected": 668,
+      "group": "matched",
+      "manuscript": "papers/paper1/manuscript.md",
+      "observed": 668,
+      "passed": true,
+      "pointer": "/runs/0/statistics/document_cluster_metrics/matched",
+      "source": "experiments/paper1/modern_vlm_result_summary_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper1_modern_vlm_v001",
+      "display_decimals": null,
+      "expected": 736,
+      "group": "predicted",
+      "manuscript": "papers/paper1/manuscript.md",
+      "observed": 736,
+      "passed": true,
+      "pointer": "/runs/0/statistics/document_cluster_metrics/predicted",
+      "source": "experiments/paper1/modern_vlm_result_summary_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper1_modern_vlm_v001",
+      "display_decimals": null,
+      "expected": 697,
+      "group": "reference",
+      "manuscript": "papers/paper1/manuscript.md",
+      "observed": 697,
+      "passed": true,
+      "pointer": "/runs/0/statistics/document_cluster_metrics/reference",
+      "source": "experiments/paper1/modern_vlm_result_summary_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper1_modern_vlm_v001",
+      "display_decimals": 3,
+      "expected": 0.907608695652174,
+      "group": "precision",
+      "manuscript": "papers/paper1/manuscript.md",
+      "observed": 0.908,
+      "passed": true,
+      "pointer": "/runs/0/metrics/precision",
+      "source": "experiments/paper1/modern_vlm_result_summary_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper1_modern_vlm_v001",
+      "display_decimals": 3,
+      "expected": 0.9583931133428981,
+      "group": "recall",
+      "manuscript": "papers/paper1/manuscript.md",
+      "observed": 0.958,
+      "passed": true,
+      "pointer": "/runs/0/metrics/recall",
+      "source": "experiments/paper1/modern_vlm_result_summary_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper1_modern_vlm_v001",
+      "display_decimals": 3,
+      "expected": 0.9323098394975576,
+      "group": "f1",
+      "manuscript": "papers/paper1/manuscript.md",
+      "observed": 0.932,
+      "passed": true,
+      "pointer": "/runs/0/metrics/f1",
+      "source": "experiments/paper1/modern_vlm_result_summary_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper1_modern_vlm_five_cohort_ranges_v001",
+      "display_decimals": 3,
+      "expected": 0.8955143701316143,
+      "group": "f1_min",
+      "manuscript": "papers/paper1/manuscript.md",
+      "observed": 0.896,
+      "passed": true,
+      "pointer": [
+        "/runs/0/metrics/f1",
+        "/runs/1/metrics/f1",
+        "/runs/2/metrics/f1",
+        "/runs/5/metrics/f1",
+        "/runs/6/metrics/f1"
+      ],
+      "source": "experiments/paper1/modern_vlm_result_summary_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper1_modern_vlm_five_cohort_ranges_v001",
+      "display_decimals": 3,
+      "expected": 0.9323098394975576,
+      "group": "f1_max",
+      "manuscript": "papers/paper1/manuscript.md",
+      "observed": 0.932,
+      "passed": true,
+      "pointer": [
+        "/runs/0/metrics/f1",
+        "/runs/1/metrics/f1",
+        "/runs/2/metrics/f1",
+        "/runs/5/metrics/f1",
+        "/runs/6/metrics/f1"
+      ],
+      "source": "experiments/paper1/modern_vlm_result_summary_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper1_modern_vlm_five_cohort_ranges_v001",
+      "display_decimals": null,
+      "expected": 69.0,
+      "group": "exact_min",
+      "manuscript": "papers/paper1/manuscript.md",
+      "observed": 69,
+      "passed": true,
+      "pointer": [
+        "/runs/0/metrics/boundary_exact",
+        "/runs/1/metrics/boundary_exact",
+        "/runs/2/metrics/boundary_exact",
+        "/runs/5/metrics/boundary_exact",
+        "/runs/6/metrics/boundary_exact"
+      ],
+      "source": "experiments/paper1/modern_vlm_result_summary_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper1_modern_vlm_five_cohort_ranges_v001",
+      "display_decimals": null,
+      "expected": 74.0,
+      "group": "exact_max",
+      "manuscript": "papers/paper1/manuscript.md",
+      "observed": 74,
+      "passed": true,
+      "pointer": [
+        "/runs/0/metrics/boundary_exact",
+        "/runs/1/metrics/boundary_exact",
+        "/runs/2/metrics/boundary_exact",
+        "/runs/5/metrics/boundary_exact",
+        "/runs/6/metrics/boundary_exact"
+      ],
+      "source": "experiments/paper1/modern_vlm_result_summary_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper1_modern_vlm_five_cohort_ranges_v001",
+      "display_decimals": 3,
+      "expected": 0.0043454644215100485,
+      "group": "invalid_min",
+      "manuscript": "papers/paper1/manuscript.md",
+      "observed": 0.004,
+      "passed": true,
+      "pointer": [
+        "/runs/0/metrics/numeric_invalidity",
+        "/runs/1/metrics/numeric_invalidity",
+        "/runs/2/metrics/numeric_invalidity",
+        "/runs/5/metrics/numeric_invalidity",
+        "/runs/6/metrics/numeric_invalidity"
+      ],
+      "source": "experiments/paper1/modern_vlm_result_summary_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper1_modern_vlm_five_cohort_ranges_v001",
+      "display_decimals": 3,
+      "expected": 0.01676829268292683,
+      "group": "invalid_max",
+      "manuscript": "papers/paper1/manuscript.md",
+      "observed": 0.017,
+      "passed": true,
+      "pointer": [
+        "/runs/0/metrics/numeric_invalidity",
+        "/runs/1/metrics/numeric_invalidity",
+        "/runs/2/metrics/numeric_invalidity",
+        "/runs/5/metrics/numeric_invalidity",
+        "/runs/6/metrics/numeric_invalidity"
+      ],
+      "source": "experiments/paper1/modern_vlm_result_summary_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper2_vlm_assurance_v003",
+      "display_decimals": 3,
+      "expected": 0.24386252045826515,
+      "group": "coverage",
+      "manuscript": "papers/paper2/manuscript.md",
+      "observed": 0.244,
+      "passed": true,
+      "pointer": "/analyses/2/point_estimates/accepted_coverage",
+      "source": "experiments/paper2/analysis/vlm_proposal_assurance_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper2_vlm_assurance_v003",
+      "display_decimals": null,
+      "expected": 444,
+      "group": "correct",
+      "manuscript": "papers/paper2/manuscript.md",
+      "observed": 444,
+      "passed": true,
+      "pointer": "/analyses/2/point_estimates/accepted_correct_count",
+      "source": "experiments/paper2/analysis/vlm_proposal_assurance_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper2_vlm_assurance_v003",
+      "display_decimals": null,
+      "expected": 447,
+      "group": "accepted",
+      "manuscript": "papers/paper2/manuscript.md",
+      "observed": 447,
+      "passed": true,
+      "pointer": "/analyses/2/point_estimates/accepted_count",
+      "source": "experiments/paper2/analysis/vlm_proposal_assurance_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper2_vlm_assurance_v003",
+      "display_decimals": 3,
+      "expected": 0.9932885906040269,
+      "group": "precision",
+      "manuscript": "papers/paper2/manuscript.md",
+      "observed": 0.993,
+      "passed": true,
+      "pointer": "/analyses/2/point_estimates/accepted_precision",
+      "source": "experiments/paper2/analysis/vlm_proposal_assurance_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper2_vlm_assurance_v003",
+      "display_decimals": 3,
+      "expected": 0.9844036767288107,
+      "group": "ci_low",
+      "manuscript": "papers/paper2/manuscript.md",
+      "observed": 0.984,
+      "passed": true,
+      "pointer": "/analyses/2/document_cluster_bootstrap_percentile_95_ci/accepted_precision/0",
+      "source": "experiments/paper2/analysis/vlm_proposal_assurance_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper2_vlm_assurance_v003",
+      "display_decimals": 3,
+      "expected": 1.0,
+      "group": "ci_high",
+      "manuscript": "papers/paper2/manuscript.md",
+      "observed": 1.0,
+      "passed": true,
+      "pointer": "/analyses/2/document_cluster_bootstrap_percentile_95_ci/accepted_precision/1",
+      "source": "experiments/paper2/analysis/vlm_proposal_assurance_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper2_vlm_assurance_v003",
+      "display_decimals": 3,
+      "expected": 0.9067103109656302,
+      "group": "raw",
+      "manuscript": "papers/paper2/manuscript.md",
+      "observed": 0.907,
+      "passed": true,
+      "pointer": "/analyses/2/point_estimates/raw_precision",
+      "source": "experiments/paper2/analysis/vlm_proposal_assurance_v001.json",
       "transform": null
     }
   ],

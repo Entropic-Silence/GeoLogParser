@@ -5,8 +5,10 @@ Date: 2026-08-17
 ## Context
 
 Under the frozen direct page-to-JSON protocol, Qwen3.8-27B-FP8 obtained
-California Gold interval F1 of 0.932 (v001), 0.896 (v002), and 0.918 (v003),
-with document-boundary exact rates of 0.740, 0.700, and 0.720. A broad claim
+California Gold interval F1 of 0.932 (v001), 0.896 (v002), 0.918 (v003),
+0.917 (v004), and 0.903 (v005), with document-boundary exact rates of 0.740,
+0.700, 0.720, 0.740, and 0.690. The six v004 page-level transport failures
+were retained as zero output rather than selectively retried. A broad claim
 that end-to-end VLMs cannot read borehole intervals is therefore false for this
 standardized source family.
 

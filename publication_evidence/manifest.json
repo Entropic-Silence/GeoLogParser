@@ -1189,6 +1189,56 @@
       "paper": "paper2",
       "sha256": "946f316bd94b87dfeb1f2a0fb243e4a8d43312724168f2ad14ca77c515d27d6d"
     },
+    "publication_evidence/result_core/results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V001_FORMAL_002/metrics.json": {
+      "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V001_FORMAL_002",
+      "paper": "paper1",
+      "sha256": "d096b0c14084610e3435f307156ae867725edfd3336264ba26ef81ca5e2b2727"
+    },
+    "publication_evidence/result_core/results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V001_FORMAL_002/run.json": {
+      "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V001_FORMAL_002",
+      "paper": "paper1",
+      "sha256": "fdfb8d5b043f93bc0b931e495196046b08acb597111b86636677a061c4b397a5"
+    },
+    "publication_evidence/result_core/results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V002_FORMAL_002/metrics.json": {
+      "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V002_FORMAL_002",
+      "paper": "paper1",
+      "sha256": "496e9d7509fe2f214b6e4740d9344cf130d7af845494975bdefc29f973704195"
+    },
+    "publication_evidence/result_core/results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V002_FORMAL_002/run.json": {
+      "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V002_FORMAL_002",
+      "paper": "paper1",
+      "sha256": "fa5bc8f98b3fa5a8c623d748896164258214c82ec553e0582d04dc5d4842e5b6"
+    },
+    "publication_evidence/result_core/results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V003_FORMAL_003/metrics.json": {
+      "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V003_FORMAL_003",
+      "paper": "paper1",
+      "sha256": "93493671998cf92fc4365c6e7773facdccc2d3658cb6c38edf7950f72044891d"
+    },
+    "publication_evidence/result_core/results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V003_FORMAL_003/run.json": {
+      "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V003_FORMAL_003",
+      "paper": "paper1",
+      "sha256": "428446943fdbaa45fa12ff72d0599d4ae1ca301c56567b4280ca9d0e8af73c49"
+    },
+    "publication_evidence/result_core/results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V004_FORMAL_003/metrics.json": {
+      "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V004_FORMAL_003",
+      "paper": "paper1",
+      "sha256": "12f0bfa5d857c8117820492ef0d6cf8be69885ef0384fff078629cd0ac97e3a9"
+    },
+    "publication_evidence/result_core/results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V004_FORMAL_003/run.json": {
+      "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V004_FORMAL_003",
+      "paper": "paper1",
+      "sha256": "df1c1b1f1b7959e61f4d9aa7d1c4231ee54145053f935e176a61dfa7e9e1149e"
+    },
+    "publication_evidence/result_core/results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V005_FORMAL_001/metrics.json": {
+      "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V005_FORMAL_001",
+      "paper": "paper1",
+      "sha256": "a01da7d961b42c189c06bbc3ab348c7175168ed6e660056419f95a74b3894261"
+    },
+    "publication_evidence/result_core/results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V005_FORMAL_001/run.json": {
+      "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V005_FORMAL_001",
+      "paper": "paper1",
+      "sha256": "36075954b937e5b38542db6ea7bdb2d82c1bf5a9508c23f545bff2ae80d84847"
+    },
     "publication_evidence/result_core/results/2026-08-17/P2_CALIFORNIA_CANDIDATE_RISK_CERTIFICATE_001/metrics.json": {
       "experiment_id": "P2_CALIFORNIA_CANDIDATE_RISK_CERTIFICATE_001",
       "paper": "paper2",
@@ -1198,8 +1248,38 @@
       "experiment_id": "P2_CALIFORNIA_CANDIDATE_RISK_CERTIFICATE_001",
       "paper": "paper2",
       "sha256": "49bd07614a40fc08e20d44e66f71712d5823116b869b3cbcb03ece9beda3124c"
+    },
+    "publication_evidence/result_core/results/2026-08-17/P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V001_DEV_003/metrics.json": {
+      "experiment_id": "P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V001_DEV_003",
+      "paper": "paper2",
+      "sha256": "50d77067df851e215f75f2456a26dda9ce0688cd3ff05c58e4441226b8f9fe76"
+    },
+    "publication_evidence/result_core/results/2026-08-17/P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V001_DEV_003/run.json": {
+      "experiment_id": "P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V001_DEV_003",
+      "paper": "paper2",
+      "sha256": "e58cdb14ddfc7332061a33a5632ac42440c8445fe41e612debcfb93b63e9452f"
+    },
+    "publication_evidence/result_core/results/2026-08-17/P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V002_VALIDATION_003/metrics.json": {
+      "experiment_id": "P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V002_VALIDATION_003",
+      "paper": "paper2",
+      "sha256": "b7abb1baeeb951274a8682f49b6bc03c8e0cad442349f6496a3c375446b5aea2"
+    },
+    "publication_evidence/result_core/results/2026-08-17/P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V002_VALIDATION_003/run.json": {
+      "experiment_id": "P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V002_VALIDATION_003",
+      "paper": "paper2",
+      "sha256": "fdb2b765df76ce3971b6bd06da30304e27705a14b9af41501f450b024e075ecf"
+    },
+    "publication_evidence/result_core/results/2026-08-17/P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V003_HELDOUT_002/metrics.json": {
+      "experiment_id": "P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V003_HELDOUT_002",
+      "paper": "paper2",
+      "sha256": "0762d224c1ee5af979434573fdb3afff120bb9c461b89f0aefcfd5235352eb68"
+    },
+    "publication_evidence/result_core/results/2026-08-17/P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V003_HELDOUT_002/run.json": {
+      "experiment_id": "P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V003_HELDOUT_002",
+      "paper": "paper2",
+      "sha256": "dae5780b8c8ac43c44491499b92629d71cf1a2f95fc65db337312187fdcf3813"
     }
   },
-  "result_core_file_count": 195,
+  "result_core_file_count": 211,
   "scope": "exact aggregate run/metrics evidence, selected pseudonymized document outputs, public reanalysis inputs, linkage-risk diagnostics, and privacy-minimized claim projections"
 }

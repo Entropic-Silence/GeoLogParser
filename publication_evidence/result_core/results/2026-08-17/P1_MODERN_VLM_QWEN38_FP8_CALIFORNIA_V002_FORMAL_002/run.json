@@ -1,0 +1,32 @@
+{
+  "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V002_FORMAL_002",
+  "git_commit": "a11baca387c21a800d05d7c1863119599a53efdd",
+  "date": "2026-08-17",
+  "dataset_version": "california_wcr_gold_v002",
+  "split_version": "all_pages_of_frozen_manifest",
+  "model": "qwen38-fp8-tp4-mtp4-long",
+  "model_revision": "local_Qwen3.8-27B-FP8_qwen3_5_architecture_fp8_e4m3",
+  "prompt_version": "vlm_interval_source_units_v002",
+  "seed": 0,
+  "hardware": {
+    "device": "local_vllm_tensor_parallel_4x_RTX_2080_Ti",
+    "gpu_used": true
+  },
+  "software": {
+    "python": "3.10.12"
+  },
+  "config": {
+    "source_manifest_sha256": "5cfbf20673bef235ae5b7d9c9e1d806898d9826511e1f6ffb4c0337b146ededc",
+    "page_manifest_sha256": "68f6565918047cec0e76299badc53482f3cbeeee04a1030760d29cf74979283b",
+    "provider_config_sha256": "8242a3671e2b012e544e8599d751551eecc83a4388078d3ea534c19476019c60",
+    "protocol_config_sha256": "b830fe37324259b64b4c2c53dd669dac6f7810b116fa99cbf3a396d4a6c4ae58",
+    "prompt_sha256": "891bc6beb7ff9cf35c55389191a208c9b09e9e2dc76909f716603f413745104a",
+    "source_unit": "ft",
+    "metres_per_source_unit": 0.3048,
+    "prediction_reference_conditioning": "none",
+    "aggregation": "page_order_concatenation_without_repair_or_deduplication",
+    "boundary_tolerance_m": 0.05,
+    "resumed_page_count": 0
+  },
+  "started_utc": "2026-08-17T13:32:25.967337+00:00"
+}

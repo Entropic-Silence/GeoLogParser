@@ -1,0 +1,180 @@
+{
+  "analyses": [
+    {
+      "cohort": "California v001",
+      "complete_document_auto_acceptance": {
+        "denominator": 50,
+        "numerator": 2,
+        "value": 0.04
+      },
+      "correct_complete_document_auto_acceptance": {
+        "denominator": 2,
+        "numerator": 2,
+        "value": 1.0
+      },
+      "document_cluster_bootstrap_percentile_95_ci": {
+        "accepted_coverage": [
+          0.166438613665476,
+          0.3151283339422725
+        ],
+        "accepted_document_error_rate": [
+          0.0,
+          0.0
+        ],
+        "accepted_precision": [
+          1.0,
+          1.0
+        ],
+        "false_acceptance_rate": [
+          0.0,
+          0.0
+        ]
+      },
+      "experiment_id": "P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V001_DEV_003",
+      "go_gate": {
+        "accepted_coverage_pass": true,
+        "accepted_invalid_numeric_rate_pass": true,
+        "accepted_precision_pass": true,
+        "overall_pass": true,
+        "same_page_numeric_anchor_coverage_pass": true,
+        "serialized_trace_pass": true
+      },
+      "metrics_sha256": "50d77067df851e215f75f2456a26dda9ce0688cd3ff05c58e4441226b8f9fe76",
+      "point_estimates": {
+        "accepted_correct_count": 174,
+        "accepted_count": 174,
+        "accepted_coverage": 0.23641304347826086,
+        "accepted_document_count": 33,
+        "accepted_document_error_rate": 0.0,
+        "accepted_precision": 1.0,
+        "false_acceptance_rate": 0.0,
+        "proposal_count": 736,
+        "raw_precision": 0.907608695652174
+      },
+      "predictions_sha256": "c57b7e1b45913ce6450f674531227eb6979c1a8610b2e78df0780a53635491be",
+      "result_path": "results/2026-08-17/P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V001_DEV_003",
+      "role": "development",
+      "same_page_numeric_anchor_coverage": 0.8172554347826086,
+      "semantically_owned_field_coverage": 0.23641304347826086
+    },
+    {
+      "cohort": "California v002",
+      "complete_document_auto_acceptance": {
+        "denominator": 100,
+        "numerator": 4,
+        "value": 0.04
+      },
+      "correct_complete_document_auto_acceptance": {
+        "denominator": 4,
+        "numerator": 4,
+        "value": 1.0
+      },
+      "document_cluster_bootstrap_percentile_95_ci": {
+        "accepted_coverage": [
+          0.23321833771066408,
+          0.34894926083353384
+        ],
+        "accepted_document_error_rate": [
+          0.014285714285714285,
+          0.13333333333333333
+        ],
+        "accepted_precision": [
+          0.950980027969583,
+          0.996539941792017
+        ],
+        "false_acceptance_rate": [
+          0.00346005820798298,
+          0.049019972030416914
+        ]
+      },
+      "experiment_id": "P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V002_VALIDATION_003",
+      "go_gate": {
+        "accepted_coverage_pass": true,
+        "accepted_invalid_numeric_rate_pass": true,
+        "accepted_precision_pass": true,
+        "overall_pass": true,
+        "same_page_numeric_anchor_coverage_pass": true,
+        "serialized_trace_pass": true
+      },
+      "metrics_sha256": "b7abb1baeeb951274a8682f49b6bc03c8e0cad442349f6496a3c375446b5aea2",
+      "point_estimates": {
+        "accepted_correct_count": 549,
+        "accepted_count": 561,
+        "accepted_coverage": 0.2872503840245776,
+        "accepted_document_count": 72,
+        "accepted_document_error_rate": 0.06944444444444445,
+        "accepted_precision": 0.9786096256684492,
+        "false_acceptance_rate": 0.0213903743315508,
+        "proposal_count": 1953,
+        "raw_precision": 0.8535586277521762
+      },
+      "predictions_sha256": "4a08b46af3aefe5815795d56031f846c1410812b110917c97338d4d01e5ffe40",
+      "result_path": "results/2026-08-17/P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V002_VALIDATION_003",
+      "role": "validation",
+      "same_page_numeric_anchor_coverage": 0.8492063492063492,
+      "semantically_owned_field_coverage": 0.2872503840245776
+    },
+    {
+      "cohort": "California v003",
+      "complete_document_auto_acceptance": {
+        "denominator": 100,
+        "numerator": 4,
+        "value": 0.04
+      },
+      "correct_complete_document_auto_acceptance": {
+        "denominator": 4,
+        "numerator": 4,
+        "value": 1.0
+      },
+      "document_cluster_bootstrap_percentile_95_ci": {
+        "accepted_coverage": [
+          0.18611659999839678,
+          0.3079299044680187
+        ],
+        "accepted_document_error_rate": [
+          0.0,
+          0.10608766233766195
+        ],
+        "accepted_precision": [
+          0.9844036767288107,
+          1.0
+        ],
+        "false_acceptance_rate": [
+          0.0,
+          0.01559632327118926
+        ]
+      },
+      "experiment_id": "P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V003_HELDOUT_002",
+      "go_gate": {
+        "accepted_coverage_pass": true,
+        "accepted_invalid_numeric_rate_pass": true,
+        "accepted_precision_pass": true,
+        "overall_pass": true,
+        "same_page_numeric_anchor_coverage_pass": true,
+        "serialized_trace_pass": true
+      },
+      "metrics_sha256": "0762d224c1ee5af979434573fdb3afff120bb9c461b89f0aefcfd5235352eb68",
+      "point_estimates": {
+        "accepted_correct_count": 444,
+        "accepted_count": 447,
+        "accepted_coverage": 0.24386252045826515,
+        "accepted_document_count": 63,
+        "accepted_document_error_rate": 0.047619047619047616,
+        "accepted_precision": 0.9932885906040269,
+        "false_acceptance_rate": 0.006711409395973154,
+        "proposal_count": 1833,
+        "raw_precision": 0.9067103109656302
+      },
+      "predictions_sha256": "df64ee0f64081008d1cb1e8b49fc00db6132a1a9cd52139e0a817043e91ab932",
+      "result_path": "results/2026-08-17/P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V003_HELDOUT_002",
+      "role": "held-out replication",
+      "same_page_numeric_anchor_coverage": 0.8453355155482815,
+      "semantically_owned_field_coverage": 0.24386252045826515
+    }
+  ],
+  "bootstrap_repetitions": 5000,
+  "bootstrap_seed": 20260817,
+  "bootstrap_unit": "document",
+  "interpretation": "Same-page numeric anchors are occurrence-level visual evidence, not semantic ownership. Only complete interval agreement with positioned candidate evidence is automatically accepted.",
+  "protocol": "paper2_vlm_proposal_assurance_v001"
+}

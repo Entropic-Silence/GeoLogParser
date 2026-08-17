@@ -165,12 +165,13 @@ def main() -> None:
         grounded = [index for index, candidate_index in candidate_for.items() if candidates[candidate_index].get("evidence", {}).get("regions")]
         accepted, rejected_by_constraint = monotonic_nonoverlapping_indices(proposals, grounded, tolerance_m=tolerance_m)
         accepted_set = set(accepted)
-        gold_matches, _, _ = match_intervals_by_boundaries(references, proposals, tolerance_m=0.05)
-        gold_indices = {match.prediction_index for match in gold_matches}
-        incorrect = accepted_set - gold_indices
-        accepted_correct += len(accepted_set & gold_indices)
-        accepted_incorrect += len(incorrect)
-        accepted_error_documents += bool(incorrect)
+        accepted_intervals = [proposals[index] for index in accepted]
+        accepted_matches, _, accepted_unmatched = match_intervals_by_boundaries(
+            references, accepted_intervals, tolerance_m=0.05,
+        )
+        accepted_correct += len(accepted_matches)
+        accepted_incorrect += len(accepted_unmatched)
+        accepted_error_documents += bool(accepted_unmatched)
         decisions: list[dict[str, Any]] = []
         for index, proposal in enumerate(proposals):
             proposal_count += 1
@@ -208,7 +209,6 @@ def main() -> None:
                     "accepted_subsequence_nonoverlap": index not in rejected_by_constraint,
                 },
             })
-        accepted_intervals = [proposals[index] for index in accepted]
         json_pages = [row for row in qwen_pages if str(row["record_id"]) == record_id]
         complete_accept = (
             len(accepted) == len(proposals) == len(candidates)

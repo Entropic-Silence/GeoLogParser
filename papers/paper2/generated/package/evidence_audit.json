@@ -19,7 +19,7 @@
     "zhang2020boreholeimages"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "4e7a3d37d0ec845326edb35feee5598b5afeefff1bbdac6bf4398c2ae6c00400",
+  "claim_registry_sha256": "052053d798bc343db18f00ff5eda539b5cd47ac2ccd5e6504ce4616ae5a3dda6",
   "claim_source_errors": [],
   "evidence_tags": [
     "p2.bgs_v003_v028_external_failure",
@@ -38,7 +38,8 @@
     "p2.swissgeol_heldout_constraint_reread",
     "p2.swissgeol_risk_router_v002",
     "p2.swissgeol_v2_external_negative",
-    "p2.swissgeol_v2_heldout_constraint_reread"
+    "p2.swissgeol_v2_heldout_constraint_reread",
+    "p2.vlm_proposal_assurance"
   ],
   "external_submission_gate_required": true,
   "formal_experiment_count": 13,
@@ -56,10 +57,10 @@
     "10. Conclusion",
     "References"
   ],
-  "indexed_experiment_count": 20,
+  "indexed_experiment_count": 23,
   "literature_evidence_errors": [],
   "literature_evidence_path": "docs/literature_evidence.yaml",
-  "literature_evidence_sha256": "7b318830159927f34724441e0eeceacfba9f2c87dceb04bea3d18b9fab2aff2f",
+  "literature_evidence_sha256": "f247c2130fa46c07564cde392e59bf1c5dfafe24c6be0c690d45838f9438bba8",
   "local_links": [
     {
       "exists": true,
@@ -75,19 +76,25 @@
     },
     {
       "exists": true,
+      "resolved_path": "papers/paper2/generated/vlm_proposal_assurance_v001.md",
+      "sha256": "ab8ae033a8b7f436288da7f4a76326e0424a5cf14f281e143b691e89754a1358",
+      "target": "generated/vlm_proposal_assurance_v001.md"
+    },
+    {
+      "exists": true,
       "resolved_path": "papers/references.bib",
-      "sha256": "6c19c51b70e90b8f20cce0007401d47987153d5b764e4bca423b84e06fb53602",
+      "sha256": "6c1a2ee2c32c0ec4ae192cc1bba423b3590ae5bf818ebf33113feb8991cc33c9",
       "target": "../references.bib"
     },
     {
       "exists": true,
       "resolved_path": "docs/literature_evidence.yaml",
-      "sha256": "7b318830159927f34724441e0eeceacfba9f2c87dceb04bea3d18b9fab2aff2f",
+      "sha256": "f247c2130fa46c07564cde392e59bf1c5dfafe24c6be0c690d45838f9438bba8",
       "target": "../../docs/literature_evidence.yaml"
     }
   ],
   "manuscript_path": "papers/paper2/manuscript.md",
-  "manuscript_sha256": "8ad4afc7f4106ba07acc1cb469496c100f6dce7ef6ca5af5940a753621bea754",
+  "manuscript_sha256": "a118c64fa6abe08635d60ae294f8cd680039ee5dcb3b5c242873c5caf0b6f237",
   "missing_bibliography_keys": [],
   "missing_claim_registrations": [],
   "missing_literature_evidence_keys": [],
@@ -129,11 +136,12 @@
     "p2.swissgeol_routed_moe_independent_coverage",
     "p2.swissgeol_v2_external_negative",
     "p2.swissgeol_v2_heldout_constraint_reread",
-    "p2.swissgeol_v2_secondary_ablation"
+    "p2.swissgeol_v2_secondary_ablation",
+    "p2.vlm_proposal_assurance"
   ],
   "result_index_errors": [],
   "result_index_path": "experiments/paper2/result_index.jsonl",
-  "result_index_sha256": "f4f9b9ea63772e0fea5954ef0cbd44c2071637fb55e1443a48f7ff93deb54ae9",
+  "result_index_sha256": "e1591722fb1293879d32127abcb4fcd258c4e304c02af2bae07cdc5a1248bbd4",
   "result_index_verification_scope": "exact run.json and metrics.json publication core",
   "scientific_content_ready": true,
   "structurally_complete": true,
@@ -159,5 +167,5 @@
     "p2.swissgeol_routed_moe_independent_coverage",
     "p2.swissgeol_v2_secondary_ablation"
   ],
-  "word_count": 3333
+  "word_count": 3937
 }

@@ -313,7 +313,105 @@
       "interface": "generalist_direct_json",
       "model": "Qwen3.8-27B-FP8",
       "result_path": "results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V004_FORMAL_002",
-      "status": "RUNNING"
+      "status": "TRANSPORT_INTERRUPTED_AFTER_98_PAGE_REQUESTS"
+    },
+    {
+      "cohort": "California v004",
+      "evidence_tier": "GOLD_PUBLISHED_MANUAL_TRANSCRIPTION",
+      "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V004_FORMAL_003",
+      "group": "Open",
+      "interface": "generalist_direct_json",
+      "metrics": {
+        "boundary_exact": 0.74,
+        "documents": 100,
+        "f1": 0.9172467130703789,
+        "json_valid": 0.9591836734693877,
+        "numeric_invalidity": 0.01676829268292683,
+        "pages": 147,
+        "precision": 0.9193798449612403,
+        "recall": 0.9151234567901234,
+        "seconds_per_page": 11.34920762019148,
+        "zero_output": 0.05
+      },
+      "model": "Qwen3.8-27B-FP8",
+      "result_path": "results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V004_FORMAL_003",
+      "statistics": {
+        "cohort": "California v004",
+        "document_cluster_metrics": {
+          "bootstrap_percentile_95_ci": {
+            "f1": [
+              0.8760836108552399,
+              0.9516097062004341
+            ],
+            "precision": [
+              0.8627257516693463,
+              0.9631943069396585
+            ],
+            "recall": [
+              0.8583576276424115,
+              0.960085831873277
+            ]
+          },
+          "bootstrap_repetitions": 20000,
+          "bootstrap_unit": "document",
+          "f1": 0.9172467130703789,
+          "matched": 1779,
+          "precision": 0.9193798449612403,
+          "predicted": 1935,
+          "recall": 0.9151234567901234,
+          "reference": 1944
+        },
+        "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V004_FORMAL_003",
+        "interface": "generalist_direct_json",
+        "model": "Qwen3.8-27B-FP8",
+        "paired_against_frozen_rapidocr": {
+          "bootstrap_repetitions": 20000,
+          "bootstrap_unit": "document",
+          "delta_left_minus_right": {
+            "f1": {
+              "bootstrap_percentile_95_ci": [
+                0.4049699210736324,
+                0.5779727785879261
+              ],
+              "bootstrap_probability_delta_gt_zero": 1.0,
+              "observed": 0.4893433615505036
+            },
+            "precision": {
+              "bootstrap_percentile_95_ci": [
+                -0.012995697565780423,
+                0.08473705964231831
+              ],
+              "bootstrap_probability_delta_gt_zero": 0.93305,
+              "observed": 0.03674318901268725
+            },
+            "recall": {
+              "bootstrap_percentile_95_ci": [
+                0.5527850050614918,
+                0.7088976706970127
+              ],
+              "bootstrap_probability_delta_gt_zero": 1.0,
+              "observed": 0.632716049382716
+            }
+          },
+          "left": {
+            "f1": 0.9172467130703789,
+            "matched": 1779,
+            "precision": 0.9193798449612403,
+            "predicted": 1935,
+            "recall": 0.9151234567901234,
+            "reference": 1944
+          },
+          "right": {
+            "f1": 0.42790335151987524,
+            "matched": 549,
+            "precision": 0.882636655948553,
+            "predicted": 622,
+            "recall": 0.2824074074074074,
+            "reference": 1944
+          }
+        }
+      },
+      "status": "COMPLETED"
     },
     {
       "cohort": "California v005",
@@ -321,9 +419,97 @@
       "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V005_FORMAL_001",
       "group": "Open",
       "interface": "generalist_direct_json",
+      "metrics": {
+        "boundary_exact": 0.69,
+        "documents": 100,
+        "f1": 0.9026290165530672,
+        "json_valid": 1.0,
+        "numeric_invalidity": 0.010674429888403688,
+        "pages": 141,
+        "precision": 0.9092692496321726,
+        "recall": 0.8960850652489125,
+        "seconds_per_page": 12.600492152992054,
+        "zero_output": 0.01
+      },
       "model": "Qwen3.8-27B-FP8",
       "result_path": "results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V005_FORMAL_001",
-      "status": "PLANNED"
+      "statistics": {
+        "cohort": "California v005",
+        "document_cluster_metrics": {
+          "bootstrap_percentile_95_ci": {
+            "f1": [
+              0.864093354114215,
+              0.938713010591632
+            ],
+            "precision": [
+              0.8593457718833846,
+              0.9552085182277444
+            ],
+            "recall": [
+              0.8484425683817923,
+              0.9408076642147277
+            ]
+          },
+          "bootstrap_repetitions": 20000,
+          "bootstrap_unit": "document",
+          "f1": 0.9026290165530672,
+          "matched": 1854,
+          "precision": 0.9092692496321726,
+          "predicted": 2039,
+          "recall": 0.8960850652489125,
+          "reference": 2069
+        },
+        "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V005_FORMAL_001",
+        "interface": "generalist_direct_json",
+        "model": "Qwen3.8-27B-FP8",
+        "paired_against_frozen_rapidocr": {
+          "bootstrap_repetitions": 20000,
+          "bootstrap_unit": "document",
+          "delta_left_minus_right": {
+            "f1": {
+              "bootstrap_percentile_95_ci": [
+                0.43429758590039413,
+                0.5954641516894275
+              ],
+              "bootstrap_probability_delta_gt_zero": 1.0,
+              "observed": 0.514016916908939
+            },
+            "precision": {
+              "bootstrap_percentile_95_ci": [
+                0.039410802897110714,
+                0.33792272228202164
+              ],
+              "bootstrap_probability_delta_gt_zero": 0.9987,
+              "observed": 0.17242714436901474
+            },
+            "recall": {
+              "bootstrap_percentile_95_ci": [
+                0.5644082275908521,
+                0.6974541139929703
+              ],
+              "bootstrap_probability_delta_gt_zero": 1.0,
+              "observed": 0.6321894635089416
+            }
+          },
+          "left": {
+            "f1": 0.9026290165530672,
+            "matched": 1854,
+            "precision": 0.9092692496321726,
+            "predicted": 2039,
+            "recall": 0.8960850652489125,
+            "reference": 2069
+          },
+          "right": {
+            "f1": 0.38861209964412813,
+            "matched": 546,
+            "precision": 0.7368421052631579,
+            "predicted": 741,
+            "recall": 0.263895601739971,
+            "reference": 2069
+          }
+        }
+      },
+      "status": "COMPLETED"
     },
     {
       "cohort": "Swissgeol held-out",

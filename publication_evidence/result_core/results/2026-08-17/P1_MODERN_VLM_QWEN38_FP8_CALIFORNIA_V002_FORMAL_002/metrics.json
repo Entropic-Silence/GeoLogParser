@@ -1,0 +1,109 @@
+{
+  "critical_numeric_invalidity_rate": 0.0071174377224199285,
+  "document_boundary_exact": {
+    "denominator": 100,
+    "numerator": 70,
+    "value": 0.7
+  },
+  "document_count": 100,
+  "documents_with_predictions": 100,
+  "interval_metrics": {
+    "interval_f1": {
+      "denominator": 1.0,
+      "details": {
+        "matched_count": 1667,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 1953,
+        "reference_count": 1770,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 286,
+        "unmatched_reference_count": 103
+      },
+      "name": "interval_f1",
+      "numerator": 0.8955143701316143,
+      "unit": "ratio",
+      "value": 0.8955143701316143
+    },
+    "interval_precision": {
+      "denominator": 1953,
+      "details": {
+        "matched_count": 1667,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 1953,
+        "reference_count": 1770,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 286,
+        "unmatched_reference_count": 103
+      },
+      "name": "interval_precision",
+      "numerator": 1667,
+      "unit": "ratio",
+      "value": 0.8535586277521762
+    },
+    "interval_recall": {
+      "denominator": 1770,
+      "details": {
+        "matched_count": 1667,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 1953,
+        "reference_count": 1770,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 286,
+        "unmatched_reference_count": 103
+      },
+      "name": "interval_recall",
+      "numerator": 1667,
+      "unit": "ratio",
+      "value": 0.9418079096045198
+    },
+    "matched_bottom_boundary_mae_m": {
+      "denominator": 1667,
+      "details": {
+        "matched_count": 1667,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 1953,
+        "reference_count": 1770,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 286,
+        "unmatched_reference_count": 103
+      },
+      "name": "matched_bottom_boundary_mae_m",
+      "numerator": 0.0,
+      "unit": "m",
+      "value": 0.0
+    },
+    "matched_top_boundary_mae_m": {
+      "denominator": 1667,
+      "details": {
+        "matched_count": 1667,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 1953,
+        "reference_count": 1770,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 286,
+        "unmatched_reference_count": 103
+      },
+      "name": "matched_top_boundary_mae_m",
+      "numerator": 0.0,
+      "unit": "m",
+      "value": 0.0
+    }
+  },
+  "invalid_numeric_interval_count": 14,
+  "json_valid_page_count": 154,
+  "json_valid_page_rate": 1.0,
+  "latency_seconds_per_page": 10.827770988991736,
+  "latency_seconds_total": 1667.4767323047272,
+  "limitations": [
+    "Direct VLM output is normalized only by deterministic source-unit conversion and range validation.",
+    "No OCR candidate, reference interval, post-hoc repair, or deduplication is supplied to the model."
+  ],
+  "page_count": 154,
+  "predicted_interval_count": 1953,
+  "prediction_reference_conditioning": "none",
+  "reference_ground_truth_tier": "GOLD_PUBLISHED_MANUAL_TRANSCRIPTION",
+  "reference_interval_count": 1770,
+  "responses_hitting_max_new_tokens": 0,
+  "scope": "frozen direct-VLM California Gold benchmark evaluation",
+  "zero_output_document_rate": 0.0
+}

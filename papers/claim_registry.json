@@ -5838,6 +5838,160 @@
       "origin_source_path": "results/2026-08-15/P1_B4_QWEN3VL4B_CALIFORNIA_TEST_FORMAL_001R/metrics.json",
       "origin_source_sha256": "a02cd0bfc7d5e80956e03187ef90c3b36aa2bbf88885459d83c03ff71c7fe911",
       "publication_evidence_mode": "exact_metrics_copy"
+    },
+    "p1.modern_vlm_qwen38": {
+      "paper": "paper1",
+      "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V005_FORMAL_001",
+      "scope": "frozen direct Qwen3.8-27B-FP8 evaluation on five record-disjoint California published-manual-transcription Gold cohorts",
+      "source_path": "experiments/paper1/modern_vlm_result_summary_v001.json",
+      "source_sha256": "aeebe969d764424a4f0f222fd252ac3a1a22dad310a238f210588f8e345c9f82",
+      "assertions": [
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/runs/0/metrics/f1",
+          "expected": 0.9323098394975576
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/runs/1/metrics/f1",
+          "expected": 0.8955143701316143
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/runs/2/metrics/f1",
+          "expected": 0.9179784589892295
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/runs/5/metrics/f1",
+          "expected": 0.9172467130703789
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/runs/6/metrics/f1",
+          "expected": 0.9026290165530672
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/runs/0/metrics/boundary_exact",
+          "expected": 0.74
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/runs/1/metrics/boundary_exact",
+          "expected": 0.7
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/runs/2/metrics/boundary_exact",
+          "expected": 0.72
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/runs/5/metrics/boundary_exact",
+          "expected": 0.74
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/runs/6/metrics/boundary_exact",
+          "expected": 0.69
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/runs/0/metrics/numeric_invalidity",
+          "expected": 0.009421265141318977
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/runs/1/metrics/numeric_invalidity",
+          "expected": 0.0071174377224199285
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/runs/2/metrics/numeric_invalidity",
+          "expected": 0.0043454644215100485
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/runs/5/metrics/numeric_invalidity",
+          "expected": 0.01676829268292683
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/runs/6/metrics/numeric_invalidity",
+          "expected": 0.010674429888403688
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/runs/2/statistics/document_cluster_metrics/bootstrap_percentile_95_ci/f1",
+          "expected": [
+            0.8776548298564902,
+            0.9532803311365402
+          ]
+        }
+      ]
+    },
+    "p2.vlm_proposal_assurance": {
+      "paper": "paper2",
+      "experiment_id": "P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V003_HELDOUT_002",
+      "scope": "development, validation, and pre-registered held-out evaluation of independent positioned-evidence acceptance for frozen direct-VLM interval proposals",
+      "source_path": "experiments/paper2/analysis/vlm_proposal_assurance_v001.json",
+      "source_sha256": "efc58a74802ac245058a95b120d8e4b239ec45caeab6df5997e541d4ef23581a",
+      "assertions": [
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/analyses/0/point_estimates/accepted_count",
+          "expected": 174
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/analyses/0/point_estimates/accepted_precision",
+          "expected": 1.0
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/analyses/1/point_estimates/accepted_count",
+          "expected": 561
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/analyses/1/point_estimates/accepted_correct_count",
+          "expected": 549
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/analyses/1/point_estimates/accepted_precision",
+          "expected": 0.9786096256684492
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/analyses/2/point_estimates/accepted_count",
+          "expected": 447
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/analyses/2/point_estimates/accepted_correct_count",
+          "expected": 444
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/analyses/2/point_estimates/accepted_coverage",
+          "expected": 0.24386252045826515
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/analyses/2/point_estimates/accepted_precision",
+          "expected": 0.9932885906040269
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/analyses/2/document_cluster_bootstrap_percentile_95_ci/accepted_precision",
+          "expected": [
+            0.9844036767288107,
+            1.0
+          ]
+        }
+      ]
     }
   }
 }

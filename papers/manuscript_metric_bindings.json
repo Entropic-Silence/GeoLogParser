@@ -72,7 +72,7 @@
       "id": "paper1_boundary_exact_range",
       "manuscript": "papers/paper1/manuscript.md",
       "source": "experiments/paper1/analysis/california_replication_statistics_v001.json",
-      "pattern": "only (?P<minimum>\\d+)%–(?P<maximum>\\d+)% of reports had an exact boundary sequence",
+      "pattern": "exact boundary sequences in only (?P<minimum>\\d+)%–(?P<maximum>\\d+)% of reports",
       "bindings": [
         {
           "group": "minimum",
@@ -190,6 +190,49 @@
         {"group": "risk_mean", "pointer": "/volume_jackknife/full_support/variants/risk/relative_absolute_volume_error/mean", "decimals": 4},
         {"group": "risk_min", "pointer": "/volume_jackknife/full_support/variants/risk/relative_absolute_volume_error/minimum", "decimals": 4},
         {"group": "risk_max", "pointer": "/volume_jackknife/full_support/variants/risk/relative_absolute_volume_error/maximum", "decimals": 4}
+      ]
+    },
+    {
+      "id": "paper1_modern_vlm_v001",
+      "manuscript": "papers/paper1/manuscript.md",
+      "source": "experiments/paper1/modern_vlm_result_summary_v001.json",
+      "pattern": "On v001 it matched (?P<matched>\\d+) of (?P<predicted>\\d+) predictions against (?P<reference>\\d+) references \\(precision (?P<precision>\\d+\\.\\d+), recall (?P<recall>\\d+\\.\\d+), F1 (?P<f1>\\d+\\.\\d+)\\)",
+      "bindings": [
+        {"group": "matched", "pointer": "/runs/0/statistics/document_cluster_metrics/matched"},
+        {"group": "predicted", "pointer": "/runs/0/statistics/document_cluster_metrics/predicted"},
+        {"group": "reference", "pointer": "/runs/0/statistics/document_cluster_metrics/reference"},
+        {"group": "precision", "pointer": "/runs/0/metrics/precision", "decimals": 3},
+        {"group": "recall", "pointer": "/runs/0/metrics/recall", "decimals": 3},
+        {"group": "f1", "pointer": "/runs/0/metrics/f1", "decimals": 3}
+      ]
+    },
+    {
+      "id": "paper1_modern_vlm_five_cohort_ranges_v001",
+      "manuscript": "papers/paper1/manuscript.md",
+      "source": "experiments/paper1/modern_vlm_result_summary_v001.json",
+      "pattern": "direct page-to-JSON baseline reached F1 (?P<f1_min>\\d+\\.\\d+)–(?P<f1_max>\\d+\\.\\d+) and exact boundary sequences in (?P<exact_min>\\d+)%–(?P<exact_max>\\d+)% of reports across all five cohorts, while emitting invalid numeric ranges at rates of (?P<invalid_min>\\d+\\.\\d+)–(?P<invalid_max>\\d+\\.\\d+)",
+      "bindings": [
+        {"group": "f1_min", "pointers": ["/runs/0/metrics/f1", "/runs/1/metrics/f1", "/runs/2/metrics/f1", "/runs/5/metrics/f1", "/runs/6/metrics/f1"], "aggregate": "min", "decimals": 3},
+        {"group": "f1_max", "pointers": ["/runs/0/metrics/f1", "/runs/1/metrics/f1", "/runs/2/metrics/f1", "/runs/5/metrics/f1", "/runs/6/metrics/f1"], "aggregate": "max", "decimals": 3},
+        {"group": "exact_min", "pointers": ["/runs/0/metrics/boundary_exact", "/runs/1/metrics/boundary_exact", "/runs/2/metrics/boundary_exact", "/runs/5/metrics/boundary_exact", "/runs/6/metrics/boundary_exact"], "aggregate": "min", "scale": 100},
+        {"group": "exact_max", "pointers": ["/runs/0/metrics/boundary_exact", "/runs/1/metrics/boundary_exact", "/runs/2/metrics/boundary_exact", "/runs/5/metrics/boundary_exact", "/runs/6/metrics/boundary_exact"], "aggregate": "max", "scale": 100},
+        {"group": "invalid_min", "pointers": ["/runs/0/metrics/numeric_invalidity", "/runs/1/metrics/numeric_invalidity", "/runs/2/metrics/numeric_invalidity", "/runs/5/metrics/numeric_invalidity", "/runs/6/metrics/numeric_invalidity"], "aggregate": "min", "decimals": 3},
+        {"group": "invalid_max", "pointers": ["/runs/0/metrics/numeric_invalidity", "/runs/1/metrics/numeric_invalidity", "/runs/2/metrics/numeric_invalidity", "/runs/5/metrics/numeric_invalidity", "/runs/6/metrics/numeric_invalidity"], "aggregate": "max", "decimals": 3}
+      ]
+    },
+    {
+      "id": "paper2_vlm_assurance_v003",
+      "manuscript": "papers/paper2/manuscript.md",
+      "source": "experiments/paper2/analysis/vlm_proposal_assurance_v001.json",
+      "pattern": "owned/accepted coverage (?P<coverage>\\d+\\.\\d+), and selective precision (?P<correct>\\d+)/(?P<accepted>\\d+) = (?P<precision>\\d+\\.\\d+) \\[(?P<ci_low>\\d+\\.\\d+), (?P<ci_high>\\d+\\.\\d+)\\], compared with raw precision (?P<raw>\\d+\\.\\d+)",
+      "bindings": [
+        {"group": "coverage", "pointer": "/analyses/2/point_estimates/accepted_coverage", "decimals": 3},
+        {"group": "correct", "pointer": "/analyses/2/point_estimates/accepted_correct_count"},
+        {"group": "accepted", "pointer": "/analyses/2/point_estimates/accepted_count"},
+        {"group": "precision", "pointer": "/analyses/2/point_estimates/accepted_precision", "decimals": 3},
+        {"group": "ci_low", "pointer": "/analyses/2/document_cluster_bootstrap_percentile_95_ci/accepted_precision/0", "decimals": 3},
+        {"group": "ci_high", "pointer": "/analyses/2/document_cluster_bootstrap_percentile_95_ci/accepted_precision/1", "decimals": 3},
+        {"group": "raw", "pointer": "/analyses/2/point_estimates/raw_precision", "decimals": 3}
       ]
     }
   ]

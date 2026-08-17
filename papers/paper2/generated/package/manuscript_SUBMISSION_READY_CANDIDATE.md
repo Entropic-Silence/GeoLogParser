@@ -6,7 +6,7 @@
 
 ## Abstract
 
-We study borehole-log extraction as risk-aware reconstruction of an ordered interval sequence rather than unconstrained text generation. Positioned OCR hypotheses are filtered by field semantics, linked by document order and depth geometry, and decoded by dynamic programming; a separate addition-only policy may accept supported candidates or retain the first pass. Across five record-disjoint California cohorts, unselective sequence ranking increased interval F1 from 0.383–0.450 to 0.470–0.566, but action-level false-correction rate was 0.084–0.210. On identical archived candidate pools from two confirmatory cohorts, monotonic decoding maximized F1 at 0.579 and 0.550, whereas the complete continuity/column/semantic score increased precision to 0.953 and 0.914 at lower F1. The frozen addition-only policy accepted 82 candidates in 19 documents with no observed incorrect action or worsened document, but the primary document-level one-sided 95% upper risk bound remained 0.1459. It yielded a net gain of 41 matched intervals per 100 documents, compared with 230.5 under unselective reconstruction. A one-time unseen BGS source-family evaluation abstained on every visible page, preventing false positives but providing zero utility. The evidence supports auditable sequence reconstruction and bounded correction risk, not universal source transport or safety certification. <!-- evidence:p2.california_constraint_sequence --> <!-- evidence:p2.california_v004_candidate_risk --> <!-- evidence:p2.california_v005_candidate_risk --> <!-- evidence:p2.california_candidate_risk_certificate --> <!-- evidence:p2.california_candidate_pool_ablation --> <!-- evidence:p2.california_document_risk --> <!-- evidence:p2.bgs_v003_v028_external_failure -->
+We study borehole-log extraction as risk-aware reconstruction and selective assurance rather than unconstrained text generation. Positioned OCR hypotheses are filtered by field semantics, linked by document order and depth geometry, and decoded by dynamic programming; a separate addition-only policy may accept supported candidates or retain the first pass. Across five record-disjoint California cohorts, unselective sequence ranking increased interval F1 from 0.383–0.450 to 0.470–0.566, but action-level false-correction rate was 0.084–0.210. The frozen addition-only policy accepted 82 candidates in 19 documents with no observed incorrect action or worsened document, but the primary document-level one-sided 95% upper risk bound remained 0.1459. A complementary assurance experiment treated a strong direct VLM as a proposal reader and accepted an interval only when an independent positioned reader agreed on both boundaries with retained bbox evidence. On held-out California v003 this increased proposal precision from 0.907 to selective precision 0.993 [0.984, 1.000] at 0.244 coverage, with 3 incorrect among 447 accepted actions and errors in 3/63 documents containing an accepted action. A one-time unseen BGS source-family evaluation abstained on every visible page, preventing false positives but providing zero utility. The evidence supports auditable risk reduction, not universal source transport or safety certification. <!-- evidence:p2.california_constraint_sequence --> <!-- evidence:p2.california_v004_candidate_risk --> <!-- evidence:p2.california_v005_candidate_risk --> <!-- evidence:p2.california_candidate_risk_certificate --> <!-- evidence:p2.california_document_risk --> <!-- evidence:p2.vlm_proposal_assurance --> <!-- evidence:p2.bgs_v003_v028_external_failure -->
 
 ## 1. Introduction
 
@@ -18,13 +18,15 @@ This paper treats extraction as two coupled problems: reconstruct the best sourc
 - RQ2: how often does automatic reconstruction harm a document or action?
 - RQ3: how much recovery is sacrificed by addition-only acceptance and abstention?
 - RQ4: does the method transport to a genuinely unseen page family?
+- RQ5: can independent positioned evidence raise the reliability of strong direct-VLM proposals without silently repairing them?
 
 The contributions are:
 
 1. a formally specified candidate graph and dynamic-programming decoder for ordered borehole intervals;
 2. same-candidate-pool ablation that separates monotonic selection from continuity, column stability, and semantic score;
 3. a reference-blind addition-only policy evaluated by document-level harm, action-level false-correction rate, and net utility; and
-4. explicit negative transport evidence showing that conservative abstention can avoid errors while eliminating utility.
+4. a frozen VLM-proposal assurance rule evaluated by field anchoring, selective precision, coverage, and document-cluster uncertainty; and
+5. explicit negative transport evidence showing that conservative abstention can avoid errors while eliminating utility.
 
 Paper I owns the evidence hierarchy and source-shift benchmark. Paper III owns downstream spatial propagation.
 
@@ -126,6 +128,18 @@ The action-level analogue is secondary because independence is implausible when 
 
 For numeric constraint violations, provenance localizes a region, registered readers rerender it at higher resolution, and candidate ranking combines reader agreement, layout, and constraint change. A proposal requires a unique candidate value, a minimum score and margin, and fewer target violations; otherwise it becomes NEEDS_REVIEW. The original record is immutable. This rereading path is evaluated on Swissgeol but is not conflated with the California fixed-pool sequence ablation.
 
+### 4.6 Direct-VLM proposal assurance
+
+A separate branch starts from the unchanged interval sequence (V=(v_1,\ldots,v_n)) emitted by a frozen Qwen3.8-27B-FP8 page-to-JSON reader. An independently frozen RapidOCR positioned parser produces candidates (C=(c_1,\ldots,c_m)) with page, bbox, text, confidence, and interval geometry. No output from either reader is supplied to the other. An order-preserving bipartite match forms
+
+\[
+M=\{(i,j): |t(v_i)-t(c_j)|\le10^{-6}\ \land\ |b(v_i)-b(c_j)|\le10^{-6}\},
+\]
+
+maximizing match cardinality and then minimizing boundary error. Proposal (v_i) is automatically accepted only if it has a matched positioned candidate with retained source regions, has non-negative top and positive thickness, and the accepted subsequence remains monotonic and non-overlapping. No value is repaired, averaged, completed, or removed from the proposal stream; non-accepted intervals receive NEEDS_REVIEW. Exact source-unit occurrences in a positioned bbox on the same page are reported as numeric-anchor candidates, but only complete interval agreement is treated as semantic ownership.
+
+California v001 alone developed and froze this rule. v002 is validation and v003 is a record-disjoint held-out replication; v004/v005 and BGS v003 were not used. Gold is read only after decisions to estimate selective precision, false acceptance, and document-level clustering. Partial interval acceptance never establishes document completeness.
+
 ## 5. Experimental Design
 
 California roles depend on the claim being evaluated. v001 was the initial held-out evaluation of the parser and v002 was its external replication, but both were subsequently used to develop the 2.999 risk threshold and are development evidence for that policy. v003 prospectively tested and falsified an earlier document-selective rule. Only v004 and v005 confirm the unchanged addition-only policy. The same-pool ablation is a post-hoc explanatory analysis of archived v004/v005 positioned candidates; it uses identical documents, one matcher, and no OCR rerun, and is not represented as preregistered.
@@ -142,6 +156,8 @@ The variants are:
 Semantic eligibility and multi-reader agreement are embedded before the archived pool and cannot be isolated; no independent effect is claimed for them. The public evidence bundle contains 200 pseudonymized documents and 2,225 candidates with normalized geometry and component scores, plus a deterministic recomputation script. Distinctive reference depth sequences remain linkable to public USGS tables, so the pool is not claimed to be anonymous and release remains subject to rights and disclosure review.
 
 Swissgeol evaluates an independently frozen rereading policy on 35 held-out source-agreement documents and a separate 20-document replication panel. BGS development source groups were used for page-family design; the final external v003 source family remained unopened until its preregistered gate passed. No BGS v003 result was used to change routing, thresholds, aliases, prompts, or models.
+
+The VLM-proposal assurance experiment uses the same California Gold definitions and 0.05 m evaluation matcher as Paper I. The proposal model, prompt, positioned reader, (10^{-6}) m agreement tolerance, bbox requirement, and non-overlap rule are fixed before v003. Document-cluster bootstrap resamples whole reports 5,000 times. The comparison is selective: raw precision and accepted precision answer different coverage questions and are reported together.
 
 ## 6. Results
 
@@ -177,6 +193,12 @@ A development-fitted selective router accepted 15/35 reused held-out documents w
 
 The converged page-family router was authorized only after nested source-disjoint development. In the one-time BGS v003 evaluation, every one of five visible pages was classified as unsupported and abstained: boundary F1, interval F1, and coverage were all 0. No false positive or critical numerical error was emitted. The router therefore protected against unsupported output but delivered no utility. This single result is the correct external conclusion; the development version history and failed NativeMM branches are confined to the supplement. <!-- evidence:p2.bgs_v003_v028_external_failure -->
 
+### 6.6 Assurance of modern VLM proposals
+
+On v001 development, 81.7% of critical depth fields had a same-page positioned numeric anchor. Complete independently positioned interval agreement covered 174/736 proposals (0.236); all 174 matched Gold. On v002 validation, numeric-anchor coverage was 0.849 and the fixed rule accepted 561/1,953 proposals (0.287). Selective precision was 0.979 [0.951, 0.997], compared with raw proposal precision 0.854; 12 accepted actions were incorrect and 5/72 documents with an accepted action contained at least one such error. <!-- evidence:p2.vlm_proposal_assurance -->
+
+The frozen v003 replication retained the effect: numeric-anchor coverage 0.845, semantically owned/accepted coverage 0.244, and selective precision 444/447 = 0.993 [0.984, 1.000], compared with raw precision 0.907. Three accepted actions were incorrect, each in a different document; 63/100 documents contained at least one accepted action. The rule therefore converts roughly one quarter of high-recall proposals into highly reliable, bbox-grounded interval actions, but agreement is not independence from shared source ambiguity and does not certify whole-document completeness. The generated [assurance table](generated/vlm_proposal_assurance_v001.md) reports roles and cluster intervals without pooling them. <!-- evidence:p2.vlm_proposal_assurance -->
+
 ## 7. Failure Analysis
 
 The California failures separate recovery from harm. A long monotone path can include a wrong but plausible column; document-level growth does not reveal that failure. The addition-only rule prevents removal of correct raw intervals and blocks overlap, but its high threshold sacrifices most recoverable omissions. Constraints therefore shape the operating point; they do not establish correctness.
@@ -191,6 +213,8 @@ The same-pool ablation changes the interpretation of the method. The dominant em
 
 The addition-only policy optimizes a different objective from the complete sequence. It substantially reduces observed harm while recovering far fewer intervals. Zero harm in 19 documents is encouraging but statistically weak; the upper bound of 0.1459 precludes a safety-certification claim. At the other extreme, BGS shows that abstention can reach zero utility. Deployment therefore requires risk–coverage reporting, not one F1 number.
 
+The modern-VLM branch sharpens that conclusion. Model scale solves much of the California interval-recall problem, but not automatic database acceptance. Independent complete-boundary agreement raises selective precision substantially and attaches bbox provenance, yet its v002 errors show that two readers can share a plausible wrong interpretation. The useful system contribution is therefore an assurance layer around strong proposals, not a claim that the routed OCR parser is the best raw extractor.
+
 The principal limitations are one publication program for confirmatory correction risk, unavailable reliable visual-template grouping, only 19 accepted documents, reused Swissgeol validation, and zero BGS external coverage. No cross-source safety certificate, universal calibration, or complete real-document multimodal factorial ablation is claimed.
 
 ## 9. Reproducibility and Safety
@@ -199,7 +223,7 @@ The core objective is centralized in one module used by experiment and public-re
 
 ## 10. Conclusion
 
-Sequence reconstruction and safe correction are distinct objectives. Across five California cohorts, unselective reconstruction consistently recovered intervals but produced action-level FCR of 0.084–0.210. On identical confirmatory candidate pools, monotonic decoding gave the highest F1, while the complete score traded recall for precision. The addition-only policy accepted 82 additions in 19 documents, all matched under the frozen reference and matcher, with no observed worsened report; its net gain was only 41 matched intervals per 100 documents and its document-level upper risk bound remained 0.1459. Swissgeol showed both positive and null within-family effects. The one-time BGS evaluation abstained everywhere. The defensible contribution is therefore an auditable risk–coverage framework for sequence reconstruction, together with direct evidence that unseen-family transport remains unsolved. <!-- evidence:p2.california_candidate_pool_ablation --> <!-- evidence:p2.california_document_risk --> <!-- evidence:p2.california_candidate_risk_certificate --> <!-- evidence:p2.bgs_v003_v028_external_failure -->
+Sequence reconstruction and safe acceptance are distinct objectives. Across five California cohorts, unselective reconstruction consistently recovered intervals but produced action-level FCR of 0.084–0.210. The addition-only policy accepted 82 additions in 19 documents, all matched under the frozen reference and matcher, while its net gain remained only 41 matched intervals per 100 documents and its document-level upper risk bound was 0.1459. For a much stronger direct VLM, independent complete-boundary agreement achieved held-out selective precision 0.993 at 0.244 proposal coverage with retained bbox evidence, but still accepted three wrong intervals and did not establish document completeness. Swissgeol showed both positive and null within-family effects; the one-time BGS evaluation abstained everywhere. The defensible contribution is an auditable risk–coverage framework that can surround either positioned candidates or modern VLM proposals, together with direct evidence that correlated errors and unseen-family transport remain unsolved. <!-- evidence:p2.california_candidate_pool_ablation --> <!-- evidence:p2.california_document_risk --> <!-- evidence:p2.california_candidate_risk_certificate --> <!-- evidence:p2.vlm_proposal_assurance --> <!-- evidence:p2.bgs_v003_v028_external_failure -->
 
 ## References
 
