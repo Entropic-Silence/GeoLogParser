@@ -12,13 +12,14 @@ reliability properties remain unique to an evidence-aware routed parser?
 
 ## Frozen Common Protocol
 
-Every model receives the same 200-DPI rendered page, the same
+Every direct-JSON model receives the same 200-DPI rendered page, the same
 `vlm_interval_source_units_v002` prompt, greedy decoding and a 4,096-token
-limit. It returns source-unit interval JSON. A shared deterministic decoder
-only converts feet to metres and discards invalid ranges; it does not complete,
-repair or deduplicate intervals. Page outputs are concatenated in document
-order and scored with the repository's frozen order-preserving boundary matcher
-at 0.05 m tolerance.
+limit. It returns source-unit interval JSON. Document-specialist models retain
+their published task prompt and produce table markup, so they are a separate
+interface rather than an artificially prompt-matched variant. All interfaces
+use the same source-unit conversion, explicit-header decoder, document-order
+aggregation and frozen order-preserving boundary matcher at 0.05 m tolerance.
+Neither decoder completes, repairs, reorders, or deduplicates intervals.
 
 Prompt writing and endpoint-format smoke tests are restricted to synthetic
 pages. No California Gold page is used to revise the prompt, output schema,

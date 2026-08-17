@@ -32,7 +32,8 @@
   },
   "anti_leakage": [
     "No Gold label, error category, or metric was used to alter the prompt, decoder, threshold, roster, or model selection.",
-    "All models receive the same frozen page image, prompt, source-unit decoder, and boundary matcher.",
+    "All direct-JSON models receive the same frozen page image and prompt; document-specialist models use their official task interface.",
+    "All interfaces use the same frozen source-unit decoder and boundary matcher.",
     "BGS v003 is excluded from this protocol."
   ]
 }
