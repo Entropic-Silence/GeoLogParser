@@ -53,8 +53,14 @@ linkable to public records; the bundle does not claim anonymity.
 
 Code, tests, schemas, prompts, small manifests, and experiment metadata live in
 this repository on SSD. Large datasets, weights, caches, and generated
-artifacts live under `/data/GeoLogParser` on the mechanical RAID array. No
-dataset is redistributed merely because it appears in the registry.
+artifacts live under `/data/GeoLogParser` on the mechanical RAID array. The
+formal source inputs needed for the principal paper experiments are published
+as the versioned GitHub Release asset `data-v001`; see
+[`datasets/public/dataset_bundle_v001/README.md`](datasets/public/dataset_bundle_v001/README.md).
+Duplicate freezes, failed branches, model weights, and quarantine-only sources
+remain outside the release. The release manifest and source ledger preserve
+the evidence tier, attribution, and final-author rights-review status for every
+file.
 
 ## Development
 
