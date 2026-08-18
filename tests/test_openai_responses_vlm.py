@@ -33,6 +33,7 @@ def test_openai_responses_adapter_sends_image_and_records_provider_metadata(tmp_
         max_tokens=64,
         temperature=None,
         request_options={"reasoning": {"effort": "high"}},
+        max_retries=0,
     )
     captured = {}
 
@@ -57,3 +58,39 @@ def test_openai_responses_adapter_sends_image_and_records_provider_metadata(tmp_
     assert "temperature" not in captured["payload"]
     assert output.model_id == "served-vlm"
     assert output.generation_config["provider_response"]["id"] == "resp-example"
+
+
+def test_openai_responses_adapter_retries_transient_502(tmp_path: Path, monkeypatch):
+    image = tmp_path / "page.png"
+    image.write_bytes(b"png-bytes")
+    adapter = OpenAIResponsesVLMAdapter(
+        base_url="http://127.0.0.1:18001",
+        model_id="example-vlm",
+        model_revision="revision-1",
+        api_key_env=None,
+        max_tokens=64,
+        temperature=None,
+        max_retries=1,
+        retry_backoff_seconds=0,
+    )
+    calls = {"count": 0}
+
+    def fake_urlopen(request, timeout):
+        calls["count"] += 1
+        if calls["count"] == 1:
+            from urllib.error import HTTPError
+            raise HTTPError(request.full_url, 502, "upstream", {}, None)
+        return FakeResponse({
+            "id": "resp-retry",
+            "model": "served-vlm",
+            "status": "completed",
+            "output": [{"content": [{"type": "output_text", "text": '{"intervals":[]}'}]}],
+            "usage": {"input_tokens": 11, "output_tokens": 3},
+        })
+
+    with patch("geologparser.vlm.openai_responses.urlopen", fake_urlopen):
+        output = adapter.generate([image], "read the page", prompt_version="p1")
+
+    assert calls["count"] == 2
+    assert output.generation_config["attempts"] == 2
+    assert output.generation_config["max_retries"] == 1

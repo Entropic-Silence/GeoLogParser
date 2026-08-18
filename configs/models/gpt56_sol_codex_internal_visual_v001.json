@@ -1,0 +1,30 @@
+{
+  "provider_family": "closed_host_managed_visual_runtime",
+  "provider": "OpenAI Codex host runtime",
+  "model_name": "OpenAI GPT-5.6-Sol",
+  "model_id": "gpt-5.6-sol",
+  "requested_reasoning_effort": "xhigh",
+  "interface": "Codex internal visual component",
+  "checkpoint_or_api_snapshot": "HOST_MANAGED_NOT_EXPOSED",
+  "revision_hash": "HOST_MANAGED_NOT_EXPOSED",
+  "weight_precision": "HOST_MANAGED_NOT_EXPOSED",
+  "inference_framework": "Codex host visual runtime; version not exposed",
+  "closed_source": true,
+  "prompt_version": "codex_visual_interval_source_units_v001",
+  "prompt_sha256": "26d15300ef3e40e5deec990cbe2ed42456d0de076219512efce5795e704b5b56",
+  "image_preprocessing": {
+    "render_dpi": 200,
+    "renderer": "PyMuPDF page raster from frozen California VLM manifests",
+    "format": "PNG",
+    "crop": "none",
+    "rotation": "none",
+    "enhancement": "none"
+  },
+  "temperature": "HOST_DEFAULT_NOT_EXPOSED",
+  "top_p": "HOST_DEFAULT_NOT_EXPOSED",
+  "max_tokens": "HOST_DEFAULT_NOT_EXPOSED",
+  "retries": 0,
+  "json_yaml_parsing_policy": "strict JSON object; JSON only; no YAML, repair, completion, reorder, deduplication, or Gold-conditioned correction",
+  "testing_date_utc": "2026-08-18",
+  "reproducibility": "not independently reproducible outside the Codex host runtime"
+}

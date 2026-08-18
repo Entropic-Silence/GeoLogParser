@@ -22,7 +22,7 @@
     "zhong2019publaynet"
   ],
   "claim_registry_path": "papers/claim_registry.json",
-  "claim_registry_sha256": "e0e8d119a753e313b20f5d78f5ec1fb634b4980401c65873bd0e01f35e899005",
+  "claim_registry_sha256": "13d7c33be460b7c0d76a8458cb8cca884e63ac37d34a1d92d247c6cd08a79914",
   "claim_source_errors": [],
   "evidence_tags": [
     "p1.bgs_offshore_error_analysis",

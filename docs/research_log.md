@@ -1,5 +1,25 @@
 # Research log
 
+## 2026-08-18 — Closed GPT-5.6-Sol internal-visual baseline pilot
+
+- Experiment: `P2_CODEX_INTERNAL_VISUAL_CALIFORNIA_STRATIFIED_PILOT_001`.
+  The Codex host visual runtime identified itself as `OpenAI GPT-5.6-Sol`,
+  model ID `gpt-5.6-sol`, with requested reasoning effort `xhigh`.
+- Protocol: one geology-bearing page from each frozen California cohort,
+  selected before reference inspection; 200-DPI PNG inputs; frozen prompt and
+  output JSONL; no parser, threshold, or risk-policy tuning.
+- Result: 5 pages, 91 published Gold intervals, 91 matched; precision 1.000,
+  recall 1.000, F1 1.000, matched-boundary MAE 0.000 m, and 5/5 exact boundary
+  sequences.
+- Limitation: checkpoint/API snapshot, revision hash, precision, host runtime
+  version, provider response trace, and sampling defaults are not exposed. This
+  is therefore a closed baseline pilot, not a full-cohort estimate or an
+  independently reproducible model run. It is not pooled with Qwen's 450-report
+  benchmark and cannot support a general superiority claim.
+- Decision: include the pilot in Paper II's modern-VLM complementarity section;
+  retain the separate endpoint HTTP-502 record as a transport failure and keep
+  the two-page fallback audit explicitly exploratory.
+
 ## 2026-08-18 — Codex internal-vision fallback audit
 
 - The user-provided closed visual endpoint continued to fail image requests,

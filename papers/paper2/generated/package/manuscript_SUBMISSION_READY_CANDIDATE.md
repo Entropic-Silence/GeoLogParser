@@ -184,10 +184,38 @@ with the independent positioned reader yielded selective precision 0.993 at
 reliability improvement, not an all-output F1 improvement or evidence of
 whole-document completeness.
 
-The requested closed-model exploratory slot was recorded separately with the
-served ID `gpt-5.6-sol` and requested reasoning label
-`chatgpt5.6-sol-high`. Its synthetic visual preflight returned HTTP 502 before
-any real page request, so it contributes no baseline or risk-layer metric.
+The user-provided endpoint requested as `chatgpt5.6-sol-high` remains a
+separate transport-failure record: its synthetic visual preflight returned
+HTTP 502 and is not scored. In addition, we ran a host-managed closed visual
+pilot using the Codex internal component identified by the runtime as
+`OpenAI GPT-5.6-Sol` (`gpt-5.6-sol`, reasoning effort `xhigh`). One
+geology-bearing page was fixed from each California cohort before reference
+inspection. The exact prompt (`codex_visual_interval_source_units_v001`, SHA-256
+`26d15300ef3e40e5deec990cbe2ed42456d0de076219512efce5795e704b5b56`), 200-DPI
+PNG inputs, page hashes, and frozen JSON outputs are archived in the public
+analysis record. The host does not expose checkpoint/API snapshot, revision,
+precision, runtime version, temperature, top-p, or token-limit metadata; these
+fields are therefore recorded as not exposed rather than inferred. Because the
+pilot has only five pages and no provider trace or field-level bbox, it is not
+pooled with the full-cohort Qwen result and cannot establish a general
+closed-model or transport claim.
+
+The complete execution record is summarized here so that the closed baseline is
+not identified only by a product label:
+
+| Execution field | Recorded value |
+|---|---|
+| official model / model ID | OpenAI GPT-5.6-Sol / `gpt-5.6-sol` |
+| checkpoint or API snapshot | host-managed; not exposed |
+| revision/hash | host-managed; not exposed |
+| precision | host-managed; not exposed |
+| inference framework/version | Codex host visual runtime; not exposed |
+| prompt hash | SHA-256 `26d15300ef3e40e5deec990cbe2ed42456d0de076219512efce5795e704b5b56` |
+| image preprocessing | 200-DPI PyMuPDF PNG; no crop, rotation, or enhancement |
+| temperature / top-p / max tokens | host defaults; not exposed |
+| retries | 0 |
+| JSON/YAML policy | strict JSON only; no YAML, repair, completion, reorder, or deduplication |
+| test date | 2026-08-18 UTC |
 
 ## 6. Results
 
@@ -238,6 +266,32 @@ stack: use the VLM as a high-recall reader, require independent positioned
 evidence for automatic acceptance, and abstain when evidence or source-family
 support is insufficient. The evidence does not support replacing the route with
 a direct VLM, nor replacing the VLM with OCR on every template.
+
+### 6.7 Closed host-managed visual baseline pilot
+
+The Codex internal-visual pilot recovered all visible intervals on the five
+fixed pages: 91/91 matched intervals, precision 1.000, recall 1.000, interval
+F1 1.000, matched-boundary MAE 0.000 m, and five exact boundary sequences. This
+result is deliberately labelled a stratified page pilot rather than a
+California benchmark. Its perfect score is compatible with the larger Qwen
+cohort results because the sample is small, page-visible, and not a random
+estimate of 450 reports. The host response exposed neither field-level bbox nor
+confidence/provenance traces, so the internal visual output could not be passed
+through the same independent-evidence risk layer used for Qwen proposals.
+
+The comparison clarifies the project's non-replaceable contribution. A strong
+closed visual reader can supply high-recall semantic reading, including
+handwritten or visually implicit material. GeoLogParser supplies what the
+host-managed reader did not expose: page-local evidence, column ownership,
+deterministic boundary and thickness reconstruction, explicit constraint traces,
+finite-sample risk bounds, and an accept/abstain/review decision. On the
+reproducible Qwen branch, independent positioned agreement raised selective
+precision to 0.993 at 0.244 coverage while retaining bbox provenance; no such
+assurance statistic can be computed for the internal pilot without inventing
+hidden provider metadata. Thus the modern-VLM advantage is semantic proposal
+recall, whereas the proposed system's advantage is auditable acceptance and
+controlled failure. The two capabilities are complementary rather than
+interchangeable. <!-- evidence:p2.codex_internal_visual_baseline -->
 
 ## 7. Failure Analysis
 

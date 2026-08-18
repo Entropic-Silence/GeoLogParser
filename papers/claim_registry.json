@@ -6002,6 +6002,40 @@
           ]
         }
       ]
+    },
+    "p2.codex_internal_visual_baseline": {
+      "paper": "paper2",
+      "experiment_id": "P2_CODEX_INTERNAL_VISUAL_CALIFORNIA_STRATIFIED_PILOT_001",
+      "scope": "closed host-managed GPT-5.6-Sol visual baseline on one geology-bearing page from each California cohort",
+      "source_path": "experiments/paper2/analysis/codex_internal_visual_baseline_v001.json",
+      "source_sha256": "f1027593f296a446c14f881a1c5726715d9d14a559d3a7c3d6e2cd1e2e997bb2",
+      "assertions": [
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/aggregate/documents",
+          "expected": 5
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/aggregate/reference_intervals",
+          "expected": 91
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/aggregate/matched_intervals",
+          "expected": 91
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/aggregate/f1",
+          "expected": 1.0
+        },
+        {
+          "type": "json_pointer_equals",
+          "pointer": "/aggregate/matched_boundary_mae_m",
+          "expected": 0.0
+        }
+      ]
     }
   }
 }

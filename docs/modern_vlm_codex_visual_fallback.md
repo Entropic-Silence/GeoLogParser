@@ -7,10 +7,12 @@ Date: 2026-08-18 (UTC)
 The user-provided closed visual endpoint remained unavailable for image
 generation requests, although its text/model-list interface responded. A small
 fallback audit was therefore performed with the local Codex visual inspection
-component. This is an exploratory audit only; it is not a formal VLM baseline
-because the component does not expose a stable public model ID, checkpoint,
-revision hash, precision, inference framework, prompt hash, or provider response
-metadata.
+component. This two-page audit remains exploratory. A separate five-page
+stratified Gold pilot was subsequently registered as
+`P2_CODEX_INTERNAL_VISUAL_CALIFORNIA_STRATIFIED_PILOT_001` and is reported in
+Paper II. That pilot is a formal closed-baseline pilot, but not a full-cohort
+benchmark: the host component does not expose a checkpoint, revision hash,
+precision, inference-framework version, or provider response metadata.
 
 ## Inputs
 
@@ -31,13 +33,17 @@ Using the frozen 0.05 m boundary matcher, the two-document exploratory output
 matched 12/12 Gold intervals: precision 1.000, recall 1.000, F1 1.000, and
 matched-boundary MAE 0.000 m. The sample is intentionally too small for a
 benchmark claim and was not added to Paper I/II metrics or used to tune any
-parser, prompt, threshold, or risk policy.
+parser, prompt, threshold, or risk policy. The later five-page pilot is archived
+at `experiments/paper2/analysis/codex_internal_visual_baseline_v001.json` with
+frozen predictions in the adjacent JSONL file.
 
 ## Interpretation
 
 Codex visual inspection can provide a useful emergency qualitative reader, but
 it is not scientifically equivalent to the closed endpoint or the completed
 Qwen3.8-27B-FP8 baseline. It lacks reproducible model identity and structured
-bbox/provider traces. The formal comparison therefore remains Qwen direct VLM
-versus GeoLogParser risk assurance; this fallback is retained only as an
-explicitly labelled exploratory audit.
+bbox/provider traces. The reproducible full-cohort comparison therefore
+remains Qwen direct VLM versus GeoLogParser risk assurance. The five-page Codex
+pilot is retained as a separately labelled closed baseline because it
+demonstrates page-level visual recovery without supporting a general transport
+or reproducibility claim.

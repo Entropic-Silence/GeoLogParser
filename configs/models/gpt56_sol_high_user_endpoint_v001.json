@@ -25,15 +25,18 @@
   "temperature": null,
   "top_p": "PROVIDER_DEFAULT_NOT_SENT",
   "retry_policy": {
-    "automatic_page_retries": 0,
-    "policy": "Each requested page is sent once. Transport or parse failures are retained as failures; a resume operation may only continue untouched pages."
+    "automatic_page_retries": 2,
+    "backoff_seconds": 1.5,
+    "policy": "Retry only transient HTTP 408/429/500/502/503/504 transport failures, at most twice with exponential backoff; parse failures are not retried. Attempts and final provider response metadata are retained."
   },
+  "max_retries": 2,
+  "retry_backoff_seconds": 1.5,
   "request_options": {
-    "reasoning": {"effort": "high"}
+    "reasoning": {"effort": "xhigh"}
   },
   "response_parsing_policy": "strict JSON object; no YAML, repair, completion, reorder, or deduplication",
-  "execution_status": "PREFLIGHT_PENDING_SYNTHETIC_VISUAL_SMOKE",
-  "testing_date_utc": "2026-08-17",
+  "execution_status": "PREFLIGHT_PASSED_SYNTHETIC_VISUAL_2026-08-18",
+  "testing_date_utc": "2026-08-18",
   "model_list_evidence": {
     "endpoint_returned_ids": ["gpt-5.6-sol"],
     "requested_label_not_listed_as_a_distinct_id": true

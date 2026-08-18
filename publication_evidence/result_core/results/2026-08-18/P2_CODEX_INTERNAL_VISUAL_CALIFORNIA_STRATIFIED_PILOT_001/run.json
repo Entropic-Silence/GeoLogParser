@@ -1,0 +1,14 @@
+{
+  "experiment_id": "P2_CODEX_INTERNAL_VISUAL_CALIFORNIA_STRATIFIED_PILOT_001",
+  "run_date": "2026-08-18",
+  "status": "completed_closed_host_managed_pilot",
+  "model": "OpenAI GPT-5.6-Sol",
+  "model_id": "gpt-5.6-sol",
+  "reasoning_effort": "xhigh",
+  "model_config": "configs/models/gpt56_sol_codex_internal_visual_v001.json",
+  "prompt": "prompts/codex_visual_interval_source_units_v001.md",
+  "source_scope": "one geology-bearing page per California cohort",
+  "reference_tier": "GOLD_PUBLISHED_MANUAL_TRANSCRIPTION",
+  "reproducibility": "host-managed runtime; checkpoint, revision, precision, runtime version, and provider trace not exposed",
+  "prediction_policy": "frozen visual reading; strict JSON normalization; no Gold-conditioned correction"
+}

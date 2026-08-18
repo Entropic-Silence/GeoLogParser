@@ -1288,8 +1288,18 @@
       "experiment_id": "P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V003_HELDOUT_002",
       "paper": "paper2",
       "sha256": "dae5780b8c8ac43c44491499b92629d71cf1a2f95fc65db337312187fdcf3813"
+    },
+    "publication_evidence/result_core/results/2026-08-18/P2_CODEX_INTERNAL_VISUAL_CALIFORNIA_STRATIFIED_PILOT_001/metrics.json": {
+      "experiment_id": "P2_CODEX_INTERNAL_VISUAL_CALIFORNIA_STRATIFIED_PILOT_001",
+      "paper": "paper2",
+      "sha256": "8b771aeaf74255178885b8bf8a3e73111f110d5202d9c59af6aa8f9e8a150579"
+    },
+    "publication_evidence/result_core/results/2026-08-18/P2_CODEX_INTERNAL_VISUAL_CALIFORNIA_STRATIFIED_PILOT_001/run.json": {
+      "experiment_id": "P2_CODEX_INTERNAL_VISUAL_CALIFORNIA_STRATIFIED_PILOT_001",
+      "paper": "paper2",
+      "sha256": "d4439df8f3f2b3acca6f0bc9cc40791e8facf9e74809ad6e8ba4c05de182c7f2"
     }
   },
-  "result_core_file_count": 213,
+  "result_core_file_count": 215,
   "scope": "exact aggregate run/metrics evidence, selected pseudonymized document outputs, public reanalysis inputs, linkage-risk diagnostics, and privacy-minimized claim projections"
 }

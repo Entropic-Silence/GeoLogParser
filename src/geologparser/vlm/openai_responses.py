@@ -29,6 +29,8 @@ class OpenAIResponsesVLMAdapter(VLMAdapter):
         timeout_seconds: float = 300.0,
         temperature: float | None = None,
         request_options: Mapping[str, Any] | None = None,
+        max_retries: int = 0,
+        retry_backoff_seconds: float = 1.5,
     ) -> None:
         if not base_url.startswith(("http://", "https://")):
             raise ValueError("base_url must be an HTTP(S) URL")
@@ -42,6 +44,10 @@ class OpenAIResponsesVLMAdapter(VLMAdapter):
         self.timeout_seconds = timeout_seconds
         self.temperature = temperature
         self.request_options = dict(request_options or {})
+        if max_retries < 0:
+            raise ValueError("max_retries must be non-negative")
+        self.max_retries = max_retries
+        self.retry_backoff_seconds = retry_backoff_seconds
 
     @staticmethod
     def _image_url(path: Path) -> str:
@@ -103,14 +109,30 @@ class OpenAIResponsesVLMAdapter(VLMAdapter):
             method="POST",
         )
         started = time.perf_counter()
-        try:
-            with urlopen(request, timeout=self.timeout_seconds) as response:
-                body = json.loads(response.read().decode("utf-8"))
-        except HTTPError as exc:
-            detail = exc.read(800).decode("utf-8", "replace")
-            raise RuntimeError(f"VLM Responses endpoint returned HTTP {exc.code}: {detail}") from exc
-        except URLError as exc:
-            raise RuntimeError(f"VLM Responses endpoint is unavailable: {exc.reason}") from exc
+        attempts = 0
+        last_error: Exception | None = None
+        while attempts <= self.max_retries:
+            attempts += 1
+            try:
+                with urlopen(request, timeout=self.timeout_seconds) as response:
+                    body = json.loads(response.read().decode("utf-8"))
+                break
+            except HTTPError as exc:
+                detail = exc.read(800).decode("utf-8", "replace")
+                last_error = RuntimeError(
+                    f"VLM Responses endpoint returned HTTP {exc.code}: {detail}"
+                )
+                if exc.code not in {408, 429, 500, 502, 503, 504} or attempts > self.max_retries:
+                    raise last_error from exc
+            except URLError as exc:
+                last_error = RuntimeError(f"VLM Responses endpoint is unavailable: {exc.reason}")
+                if attempts > self.max_retries:
+                    raise last_error from exc
+            if attempts <= self.max_retries:
+                time.sleep(self.retry_backoff_seconds * (2 ** (attempts - 1)))
+        else:
+            assert last_error is not None
+            raise last_error
         elapsed = time.perf_counter() - started
         usage = body.get("usage") or {}
         output_tokens = usage.get("output_tokens")
@@ -129,6 +151,8 @@ class OpenAIResponsesVLMAdapter(VLMAdapter):
                 "endpoint": self.base_url,
                 "temperature": self.temperature,
                 "max_output_tokens": self.max_tokens,
+                "attempts": attempts,
+                "max_retries": self.max_retries,
                 "request_options": self.request_options,
                 "input_tokens": usage.get("input_tokens"),
                 "provider_response": {

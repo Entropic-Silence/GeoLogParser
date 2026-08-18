@@ -38,14 +38,17 @@ remains a historical reproducible reference, not an upper bound.
 
 The initial open-model roster is frozen under `paper1_modern_vlm_v002`.
 After that protocol began, a user-directed closed-model extension was added as
-`paper1_modern_vlm_closed_extension_v003`. It fixes the same inputs, prompt,
-decoder, matcher, and budget for `gpt-5.6-sol` and `claude-opus-4-6`, but is a
-post-hoc exploratory comparison rather than a confirmatory roster member. The
-user-provided GPT slot was tested on a synthetic visual page on 2026-08-17;
-the endpoint returned HTTP 502 upstream errors, so it is now explicitly
-`NO_GO_SYNTHETIC_VISUAL_PREFLIGHT_UPSTREAM_502_NO_GOLD_REQUEST`. No real page
-was sent and no accuracy or risk-layer number is reported. ChatGPT/Codex session
-identity and opaque model proxies are not valid experimental backends.
+`paper1_modern_vlm_closed_extension_v003`. The user-provided HTTP endpoint was
+tested on a synthetic visual page on 2026-08-17; it returned HTTP 502 upstream
+errors, so that transport slot remains
+`NO_GO_SYNTHETIC_VISUAL_PREFLIGHT_UPSTREAM_502_NO_GOLD_REQUEST` and contributes
+no score. Separately, the Codex host-managed visual runtime was evaluated in a
+five-page California Gold pilot under the exact identity
+`OpenAI GPT-5.6-Sol` / `gpt-5.6-sol`, reasoning effort `xhigh`. That pilot is
+reported in Paper II as `formal_closed_baseline_pilot_not_full_cohort`; it is
+not pooled with Qwen's full-cohort benchmark because checkpoint, revision,
+precision, runtime version, provider traces, and sampling defaults are not
+exposed by the host.
 
 ## Protocol History
 

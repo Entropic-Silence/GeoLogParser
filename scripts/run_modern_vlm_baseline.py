@@ -166,7 +166,10 @@ def build_adapter(provider: Mapping[str, Any], *, timeout_seconds: float) -> VLM
     if adapter_kind == "openai_responses":
         temperature = provider.get("temperature")
         return OpenAIResponsesVLMAdapter(
-            **common, temperature=float(temperature) if temperature is not None else None
+            **common,
+            temperature=float(temperature) if temperature is not None else None,
+            max_retries=int(provider.get("max_retries", 0)),
+            retry_backoff_seconds=float(provider.get("retry_backoff_seconds", 1.5)),
         )
     if adapter_kind == "anthropic_messages":
         api_key_env = common.pop("api_key_env")
