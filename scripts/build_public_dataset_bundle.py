@@ -51,12 +51,12 @@ def copy_tree(source: Path, destination: Path) -> None:
     shutil.copytree(source, destination, dirs_exist_ok=True)
 
 
-def build_manifest(stage: Path) -> dict:
+def build_manifest(stage: Path, data_root: Path) -> dict:
     records = []
     total_bytes = 0
     total_files = 0
     for source_rel, archive_rel, rights_note in DATASETS:
-        source = DATA_ROOT / source_rel
+        source = data_root / source_rel
         destination = stage / archive_rel
         copy_tree(source, destination)
         files = []
@@ -92,10 +92,11 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--stage", type=Path)
     parser.add_argument("--archive", type=Path)
+    parser.add_argument("--data-root", type=Path, default=DATA_ROOT)
     args = parser.parse_args()
     stage = args.stage or Path(tempfile.mkdtemp(prefix="geologparser-public-data-v001-"))
     stage.mkdir(parents=True, exist_ok=True)
-    manifest = build_manifest(stage)
+    manifest = build_manifest(stage, args.data_root)
     manifest_path = stage / "datasets/public/dataset_bundle_v001/manifest.json"
     manifest_path.parent.mkdir(parents=True, exist_ok=True)
     manifest_path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8")
