@@ -1,8 +1,9 @@
 # Manuscript closure audit
 
-Date: 2026-08-17  
+Date: 2026-08-18
 Repository: `GeoLogParser`  
 Adviser-reviewed baseline commit: `0f4d2d5`
+Closure commit: `54587ae`
 
 ## Automated checks
 
@@ -11,9 +12,13 @@ The following were run after the closure edits:
 ```text
 scripts/audit_publication_readiness.py
 scripts/build_paper_packages.py
+papers/paper4/verify_claims.py
+papers/paper4/audit_claim_evidence.py
+scripts/audit_paper4_submission.py
+scripts/audit_generated_text_format.py
 ```
 
-All three manuscripts passed structural section, bibliography, literature
+All four manuscript packages passed structural section, bibliography, literature
 evidence, local-link, result-index, and claim-source checks. No manuscript
 contains an unresolved ``TBD`` or ``[CITATION TO VERIFY]`` marker. Generated
 review packages are labelled `SUBMISSION_READY_CANDIDATE` by the repository's evidence
@@ -56,6 +61,23 @@ selection/spatial-support effect. Convex-hull coverage, neighbour spacing, IDW
 sensitivity, and leave-one-borehole-out interpolation error are now central.
 Software interoperability is supplementary, and no validated geological model
 or production workflow is claimed.
+
+## Paper IV (Computers & Geosciences integrated manuscript)
+
+Status: `SUBMISSION_READY_CANDIDATE`
+
+The manuscript is a single 5,843-word narrative with three research questions,
+four integrated main figures, and a structured abstract. Its evidence chain is
+explicitly ordered as modern VLM proposal, independently positioned evidence,
+deterministic checks, selective accept/review, and downstream spatial-support
+diagnostics. The primary reported VLM result is Qwen3.8-27B-FP8 boundary-pair
+F1 0.896--0.932; the assurance result is held-out selective precision 0.993 at
+proposal coverage 0.244, with only 4/100 complete-document auto-acceptance.
+Matched-support analysis is retained to show that abstention changes the spatial
+observation process. Runtime provenance is partially reconstructable where the
+historical serving trace is incomplete; no unverified fields are inferred.
+Source PDFs and derivatives without completed rights clearance are not claimed
+as redistributable.
 
 ## Closure decision
 
