@@ -249,7 +249,7 @@ def main() -> None:
         f"California RapidOCR F1 is {', '.join(f'{value:.3f}' for value in p1_f1)}; zero-output rates span "
         f"{min(p1_zero):.0%}–{max(p1_zero):.0%}. Frozen Qwen3.8 direct-VLM F1 spans {min(qwen_f1):.3f}–{max(qwen_f1):.3f} "
         f"with paired Qwen-minus-RapidOCR gains of {min(qwen_delta):.3f}–{max(qwen_delta):.3f}; its separately tiered Swissgeol source-agreement F1 is {qwen_swiss_f1:.3f}. "
-        "Source-agreement, authoritative-metadata, Silver, and no-GT results remain visually and inferentially separate. The Qwen run identity is `Qwen/Qwen3.8-27B-FP8` served as `qwen38-fp8-tp4-mtp4-long` in fine-grained dynamic FP8 E4M3; the user-provided closed slot served `gpt-5.6-sol` but remained NO-GO after synthetic visual HTTP 502.",
+        "Source-agreement, authoritative-metadata, Silver, and no-GT results remain visually and inferentially separate. The Qwen run identity is `Qwen/Qwen3.8-27B-FP8` served as `qwen38-fp8-tp4-mtp4-long` in fine-grained dynamic FP8 E4M3; the user-provided closed slot served `gpt-5.6-sol` but remained NO-GO after synthetic visual HTTP 502. A two-document Codex internal-vision audit matched 12/12 intervals but is exploratory and excluded from formal metrics.",
         "- Paper II: `SUBMISSION_READY_CANDIDATE` centered on same-candidate-pool sequence reconstruction and document-level correction risk. "
         f"Monotonic decoding gives v004/v005 F1 {paper2_ablation['freezes']['v004']['document_cluster_f1']['monotonic_sequence']['f1']:.3f}/"
         f"{paper2_ablation['freezes']['v005']['document_cluster_f1']['monotonic_sequence']['f1']:.3f}; the addition-only policy accepted "

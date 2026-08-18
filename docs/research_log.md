@@ -1,5 +1,18 @@
 # Research log
 
+## 2026-08-18 — Codex internal-vision fallback audit
+
+- The user-provided closed visual endpoint continued to fail image requests,
+  despite a responsive text/model-list interface. Two California Gold pages were
+  inspected with the local Codex visual component as an exploratory fallback.
+- The manually structured outputs matched 12/12 published Gold intervals across
+  two documents (precision/recall/F1 1.000; matched-boundary MAE 0.000 m).
+- The second page required semantic exclusion of a visible well-deepening row
+  that is not part of the authoritative lithology interval sequence.
+- Decision: retain the result as `internal_visual_exploratory`, exclude it from
+  formal Paper I/II metrics, and do not present it as a reproducible closed-model
+  baseline. It lacks stable model/checkpoint identity and provider traces.
+
 ## 2026-08-13 — Human-gated page source-review queue
 
 - Experiment: source-review workflow construction, not a human review or
