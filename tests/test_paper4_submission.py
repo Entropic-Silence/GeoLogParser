@@ -15,6 +15,9 @@ def test_paper4_cg_package_is_evidence_gated_and_complete():
     assert "## 7. Discussion" in manuscript
     assert "4/100 (4%)" in manuscript
     assert "reference-relative volume discrepancy" in manuscript
+    assert "endpoint-field** quantity" in manuscript
+    figure_manifest = json.loads((paper / "figure_manifest.json").read_text(encoding="utf-8"))
+    assert all(not path.startswith("results/") for path in figure_manifest["source_manifests"])
     for name in (
         "F1_trustworthy_framework.png",
         "F2_vlm_source_shift.png",

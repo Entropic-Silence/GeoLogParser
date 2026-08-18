@@ -131,7 +131,12 @@ def fig3() -> None:
     coverage = [rows[k]["point_estimates"]["accepted_coverage"] for k in keys]
     raw_p = [rows[k]["point_estimates"]["raw_precision"] for k in keys]
     complete = [rows[k]["complete_document_auto_acceptance"]["value"] for k in keys]
-    heldout_metrics = load(ROOT / rows[keys[-1]]["result_path"] / "metrics.json")
+    # Use the committed public evidence projection rather than the controlled
+    # local result store so fresh-clone CI can regenerate this figure.
+    heldout_metrics = load(
+        ROOT / "publication_evidence/result_core/results/2026-08-17/"
+        "P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V003_HELDOUT_002/metrics.json"
+    )
     proposals = heldout_metrics["proposal_count"]
     accepted = heldout_metrics["accepted_proposal_coverage"]["numerator"]
     endpoint_anchor = heldout_metrics["same_page_numeric_anchor_coverage"]
@@ -247,7 +252,8 @@ def main() -> None:
             for p in [
                 MODERN,
                 ASSURANCE,
-                ROOT / "results/2026-08-17/P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V003_HELDOUT_002/metrics.json",
+                ROOT / "publication_evidence/result_core/results/2026-08-17/"
+                "P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V003_HELDOUT_002/metrics.json",
                 SPATIAL,
             ]
         },

@@ -18,7 +18,8 @@ def main() -> None:
     modern = load("experiments/paper1/modern_vlm_result_summary_v001.json")
     assurance = load("experiments/paper2/analysis/vlm_proposal_assurance_v001.json")
     assurance_v003_metrics = load(
-        "results/2026-08-17/P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V003_HELDOUT_002/metrics.json"
+        "publication_evidence/result_core/results/2026-08-17/"
+        "P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V003_HELDOUT_002/metrics.json"
     )
     risk = load("experiments/paper2/analysis/california_document_risk_v001.json")
     spatial = load("experiments/paper3/analysis/swissgeol_spatial_sensitivity_v001.json")
