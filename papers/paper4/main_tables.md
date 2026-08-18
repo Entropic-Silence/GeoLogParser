@@ -18,14 +18,16 @@ are not pooled.
 
 ## Table 2. Independent evidence and selective assurance
 
-| Cohort | Raw proposal precision | Numeric-anchor coverage | Owned/accepted coverage | Accepted intervals | Selective precision (95% CI) | Error documents |
-|---|---:|---:|---:|---:|---:|---:|
-| California v001 development | 0.908 | 0.817 | 0.236 | 174 | 1.000 [1.000, 1.000] | 0 |
-| California v002 validation | 0.854 | 0.849 | 0.287 | 561 | 0.979 [0.951, 0.997] | 5 |
-| California v003 held-out | 0.907 | 0.845 | 0.244 | 447 | 0.993 [0.984, 1.000] | 3 |
+| Cohort | Raw proposal precision | Endpoint-field numeric-anchor coverage | Both-endpoints anchored proposal coverage | Owned/accepted proposal coverage | Accepted intervals | Selective precision (95% CI) | Error documents |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| California v001 development | 0.908 | 0.817 | 0.731 | 0.236 | 174 | 1.000 [1.000, 1.000] | 0 |
+| California v002 validation | 0.854 | 0.849 | 0.792 | 0.287 | 561 | 0.979 [0.951, 0.997] | 5 |
+| California v003 held-out | 0.907 | 0.845 | 0.791 | 0.244 | 447 | 0.993 [0.984, 1.000] | 3 |
 
 Complete-document auto-acceptance on v003 is 4/100 (4%); it is not inferred
-from interval-level coverage.
+from interval-level coverage. Endpoint-field anchor coverage counts proposed top
+and bottom fields separately; both-endpoints coverage counts intervals, and only
+the final owned/accepted column represents automatically accepted intervals.
 
 ## Table 3. Risk/coverage and downstream support
 
@@ -47,8 +49,11 @@ from interval-level coverage.
 | Served model ID | `qwen38-fp8-tp4-mtp4-long` |
 | Local revision | `local_Qwen3.8-27B-FP8_qwen3_5_architecture_fp8_e4m3` |
 | Precision | Fine-grained dynamic FP8 E4M3 |
-| Runtime | vLLM-compatible OpenAI server; package version not exposed |
-| Hardware | 4 × RTX 2080 Ti |
+| Runtime | vLLM 0.1.14 OpenAI server; partially reconstructable after evaluation |
+| Python / ML runtime | Python 3.10.12; PyTorch 2.11.0+cu128; CUDA 12.8; Transformers 4.57.6; Triton 3.6.0 |
+| Hardware | CUDA devices 1–4: 4 × RTX 2080 Ti (SM75); host driver 595.71.05 |
+| Serving path | `ai@sha256:b937…22fc78d`; `runc`; `/workspace/vllm-2080ti-definitive`; TP=4 / MP backend |
+| Server settings | FP8 weights; half compute dtype; KV cache auto; chunked prefill; MTP-4 speculative decoding; `flashqla_legacy` prefill |
 | Prompt | `vlm_interval_source_units_v002` |
 | Prompt SHA-256 | `891bc6beb7ff9cf35c55389191a208c9b09e9e2dc76909f716603f413745104a` |
 | Image input | PyMuPDF, 200-DPI lossless PNG, no crop/rotation/enhancement |
@@ -56,3 +61,4 @@ from interval-level coverage.
 | Retries | 0 automatic retries |
 | Parsing | strict JSON; no YAML, repair, completion, reorder, or deduplication |
 | Testing date | 2026-08-17 UTC |
+| Unrecoverable fields | vLLM source commit, per-request trace, and immutable contemporaneous runtime lockfile |

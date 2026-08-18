@@ -69,9 +69,20 @@ correctness.
 The open baseline is the official `Qwen/Qwen3.8-27B-FP8` model. The exact
 served ID is `qwen38-fp8-tp4-mtp4-long`; local revision is
 `local_Qwen3.8-27B-FP8_qwen3_5_architecture_fp8_e4m3`; precision is fine-grained
-dynamic FP8 E4M3; runtime is a vLLM-compatible OpenAI server whose package
-version was not exposed. The run used four RTX 2080 Ti GPUs. The frozen prompt
-is `vlm_interval_source_units_v002`, hash
+dynamic FP8 E4M3. The runtime record is **partially reconstructable** rather
+than a complete immutable per-request log: the continuously running server was
+inspected on 2026-08-18 UTC after starting on 2026-08-17 15:25:16 UTC. It was
+vLLM 0.1.14, Python 3.10.12, PyTorch 2.11.0+cu128, CUDA 12.8, Transformers
+4.57.6, and Triton 3.6.0. The server ran in image
+`ai@sha256:b937a8fa086d1ab30d5ac5843f04503bc5fc2be9152a0ee44bec7eb3b22fc78d`
+under `runc`, working directory `/workspace/vllm-2080ti-definitive`, with
+`CUDA_VISIBLE_DEVICES=1,2,3,4`, tensor parallelism 4, MP distributed execution,
+FP8 weights, half compute dtype, automatic KV-cache dtype, chunked prefill,
+prefix caching, MTP-4 speculative decoding, and `flashqla_legacy` prefill. The
+selected devices were four RTX 2080 Ti GPUs (SM75); the host driver observed
+during reconstruction was 595.71.05. The source commit, build recipe,
+per-request scheduler trace, and immutable contemporaneous runtime lockfile are
+unavailable and are not guessed. The frozen prompt is `vlm_interval_source_units_v002`, hash
 `891bc6beb7ff9cf35c55389191a208c9b09e9e2dc76909f716603f413745104a`. Pages
 were rendered at 200 DPI with PyMuPDF as lossless PNGs without crop, rotation,
 or enhancement. Temperature was 0, top-p was not sent and therefore remained
@@ -100,16 +111,20 @@ model claim.
 
 The VLM proposal assurance experiment uses the same frozen Qwen output and a
 separate positioned candidate pool. The two readers are not allowed to read one
-another's output. Numeric-anchor coverage is the proportion of proposal values
-that occur in a positioned bbox on the same page. Owned/accepted coverage is
-stricter: both boundaries must agree with one positioned interval and retain
-source regions. Acceptance additionally requires positive thickness, monotonic
-order, and no overlap. All unaccepted proposals remain review items.
+another's output. **Endpoint-field numeric-anchor coverage** is the proportion
+of proposed top and bottom fields that occur in a positioned bbox on the same
+page. **Both-endpoints anchored proposal coverage** is the fraction of VLM
+interval proposals whose top and bottom fields are both anchored; it is a
+different, interval-level quantity. Owned/accepted coverage is stricter: both
+boundaries must agree with one positioned interval in the same semantic column
+and retain source regions. Acceptance additionally requires positive thickness,
+monotonic order, and no overlap. All unaccepted proposals remain review items.
 
 | Component | Effect represented | Main evidence |
 |---|---|---|
 | VLM proposal | visual recall and implicit layout semantics | California v001–v005 F1 |
-| Positioned numeric anchor | page-local numerical evidence | 0.817–0.849 coverage |
+| Endpoint-field numeric anchor | page-local numerical evidence | 0.817–0.849 endpoint-field coverage |
+| Both endpoints anchored | interval-level numerical evidence | 0.731–0.792 proposal coverage |
 | Complete top-bottom ownership | semantic column evidence | 0.236–0.287 development/validation coverage; 0.244 held-out |
 | Deterministic geometry | unit conversion, positive thickness, order | zero non-finite accepted values |
 | Selective risk policy | acceptance versus review/abstention | 0.993 held-out selective precision |
@@ -153,7 +168,7 @@ grid-to-nearest-observation distance 4,618.6 m. Raw and reread use 34/35 points,
 retain hull-area ratio 1.000, and have mean distances 1,387.5 m and 2,745.0 m.
 
 The IDW sweep varies power 1–3, all points versus four/eight nearest neighbours,
-and grid sizes 15, 25, and 41. Full-support volume-error ranges are 0.122–0.153
+and grid sizes 15, 25, and 41. Full-support reference-relative volume-discrepancy ranges are 0.122–0.153
 (raw), 0.092–0.132 (reread), and 0.033–0.124 (risk). Matched-subset ranges are
 0.021–0.065 (raw) and 0.061–0.098 for both reread and risk. Reference-input
 leave-one-borehole-out MAE is 47.06 m for 80 ordered boundary targets; risk has
@@ -180,11 +195,15 @@ claim registry preserve their exact status and hashes.
 
 ## S9. Reproducibility and release contents
 
-The public `data-v001` release contains California WCR Gold v001–v005, BGS
-offshore paired/validation inputs, Swissgeol Thurgau v003, Raft River, the
-structured Coal-602 source, and Synthetic v002. The archive contains 1,951
-files and is checked by a per-file manifest. The repository additionally stores
-the candidate-pool reanalysis inputs, transformed spatial inputs, model configs,
-prompt hashes, generated tables, and the scripts that recompute public analyses.
-All source-specific rights, attribution, and linkage notes remain in the data
-registry and source-verification ledger.
+The Paper 4 public reproducibility package is deliberately narrower than the
+internal experiment store. It provides legally redistributable structured or
+reanalysis assets, transformed/pseudonymized inputs, aggregate metrics,
+manifests, checksums, model configurations, prompt hashes, generated tables,
+and scripts that recompute the public analyses. Source PDFs, rendered pages,
+page crops, raw OCR regions/text, model weights, and source-derived assets whose
+item-level rights remain pending are not redistributed in this package. Source
+URLs, retrieval manifests, and checksums remain available so an authorized
+reader can retrieve original material from its publisher under the applicable
+terms. The released transformed inputs may remain linkable and are not claimed
+to be anonymous. Source-specific attribution, linkage, and rights status remain
+in the data registry and source-verification ledger.

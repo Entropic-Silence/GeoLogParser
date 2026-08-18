@@ -96,7 +96,10 @@ def fig2() -> None:
     ax1.set_ylabel("Boundary-pair interval F1")
     ax1.set_xticks(x, cohorts)
     ax1.set_title("Five record-disjoint California cohorts", fontweight="bold")
-    ax1.legend(frameon=False, fontsize=8, loc="lower right")
+    ax1.legend(
+        frameon=False, fontsize=8, loc="upper center", ncol=2,
+        bbox_to_anchor=(0.5, -0.14),
+    )
     style(ax1)
     for i, v in enumerate(qwen):
         ax1.text(i - width / 2, v + 0.025, f"{v:.3f}", ha="center", fontsize=8, color="#1d4ed8")
@@ -113,7 +116,7 @@ def fig2() -> None:
     for i, v in enumerate(ax2_values):
         ax2.text(i, min(v + 0.035, 0.97), f"{v:.3f}", ha="center", fontsize=8)
     fig.suptitle("High familiar-source accuracy does not imply transport", fontsize=13, fontweight="bold")
-    fig.tight_layout(rect=(0, 0, 1, 0.94))
+    fig.tight_layout(rect=(0, 0.06, 1, 0.94))
     fig.savefig(OUT / "F2_vlm_source_shift.png", bbox_inches="tight")
     plt.close(fig)
 
@@ -128,13 +131,17 @@ def fig3() -> None:
     coverage = [rows[k]["point_estimates"]["accepted_coverage"] for k in keys]
     raw_p = [rows[k]["point_estimates"]["raw_precision"] for k in keys]
     complete = [rows[k]["complete_document_auto_acceptance"]["value"] for k in keys]
-    proposals = rows[keys[-1]]["point_estimates"]["proposal_count"]
-    accepted = rows[keys[-1]]["point_estimates"]["accepted_count"]
-    numeric = round(proposals * rows[keys[-1]]["same_page_numeric_anchor_coverage"])
+    heldout_metrics = load(ROOT / rows[keys[-1]]["result_path"] / "metrics.json")
+    proposals = heldout_metrics["proposal_count"]
+    accepted = heldout_metrics["accepted_proposal_coverage"]["numerator"]
+    endpoint_anchor = heldout_metrics["same_page_numeric_anchor_coverage"]
+    both_anchors = heldout_metrics["complete_interval_numeric_anchor_coverage"]
+    top_anchor = heldout_metrics["top_numeric_anchor_coverage"]
+    bottom_anchor = heldout_metrics["bottom_numeric_anchor_coverage"]
     fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(12.6, 4.4), dpi=180)
     ax1.plot(coverage, precision, "o-", color="#16a34a", linewidth=2, label="selective")
     ax1.scatter([1.0], [raw_p[-1]], color="#64748b", marker="x", s=60, label="raw proposal")
-    offsets = [(4, 10), (4, -18), (4, 10)]
+    offsets = [(-28, -8), (4, -18), (16, -6)]
     for x, y, label, offset in zip(coverage, precision, point_labels, offsets):
         ax1.annotate(label, (x, y), xytext=offset, textcoords="offset points", fontsize=8)
     ax1.set_xlim(0, 1.05); ax1.set_ylim(0.80, 1.01)
@@ -148,14 +155,26 @@ def fig3() -> None:
     ax2.set_title("Complete-record utility", fontweight="bold")
     style(ax2)
     for i, v in enumerate(complete): ax2.text(i, v * 100 + 3, f"{int(v*100)}%", ha="center", fontsize=9)
-    stages = ["VLM proposals", "same-page\nnumeric anchor", "accepted\nintervals", "complete\ndocuments"]
-    values = [proposals, numeric, accepted, rows[keys[-1]]["complete_document_auto_acceptance"]["numerator"]]
+    stages = ["VLM interval\nproposals", "both endpoints\nanchored", "owned + accepted\nintervals", "complete\ndocuments"]
+    values = [proposals, both_anchors["numerator"], accepted, rows[keys[-1]]["complete_document_auto_acceptance"]["numerator"]]
     y = np.arange(len(stages))
     ax3.barh(y, values, color=["#2563eb", "#60a5fa", "#16a34a", "#f59e0b"])
     ax3.set_yticks(y, stages); ax3.invert_yaxis(); ax3.set_xlabel("Count (held-out v003)")
     ax3.set_title("Evidence funnel", fontweight="bold")
     style(ax3)
     for yi, v in zip(y, values): ax3.text(v + max(values) * 0.02, yi, str(v), va="center", fontsize=9)
+    ax3.text(
+        0.0, -0.25,
+        "Endpoint-field anchors: top %s/%s; bottom %s/%s; total %s/%s = %.1f%%\n"
+        "Both-endpoint anchoring is the interval-level funnel stage."
+        % (
+            top_anchor["numerator"], top_anchor["denominator"],
+            bottom_anchor["numerator"], bottom_anchor["denominator"],
+            endpoint_anchor["numerator"], endpoint_anchor["denominator"],
+            endpoint_anchor["value"] * 100,
+        ),
+        transform=ax3.transAxes, va="top", fontsize=7.2, color="#475569",
+    )
     fig.suptitle("Selective assurance makes automation utility explicit", fontsize=13, fontweight="bold")
     fig.tight_layout(rect=(0, 0, 1, 0.94))
     fig.savefig(OUT / "F3_assurance_frontier.png", bbox_inches="tight")
@@ -223,10 +242,20 @@ def main() -> None:
             {"id": "S2", "file": "figures/F5_threshold_development_curve.png", "purpose": "development-only threshold curve"},
             {"id": "S3", "file": "figures/F7_controlled_error_mechanisms.png", "purpose": "controlled synthetic perturbation mechanisms"},
         ],
-        "source_manifests": {str(p.relative_to(ROOT)): digest(p) for p in [MODERN, ASSURANCE, SPATIAL]},
+        "source_manifests": {
+            str(p.relative_to(ROOT)): digest(p)
+            for p in [
+                MODERN,
+                ASSURANCE,
+                ROOT / "results/2026-08-17/P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V003_HELDOUT_002/metrics.json",
+                SPATIAL,
+            ]
+        },
     }
-    (Path(__file__).resolve().parent / "figure_manifest.json").write_text(
-        json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+    # This manifest is committed and hash-audited, so bypass platform newline
+    # conversion and always emit UTF-8 with LF line endings.
+    (Path(__file__).resolve().parent / "figure_manifest.json").write_bytes(
+        (json.dumps(manifest, indent=2, sort_keys=True) + "\n").encode("utf-8")
     )
 
 

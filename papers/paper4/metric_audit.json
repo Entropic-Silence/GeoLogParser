@@ -1,6 +1,7 @@
 {
   "checks": {
     "assurance_v003": true,
+    "assurance_v003_anchor_units": true,
     "complete_document_auto_acceptance_v003": true,
     "qwen_boundary_exact_range": true,
     "qwen_california_f1_range": true,

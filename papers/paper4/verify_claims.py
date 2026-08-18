@@ -17,6 +17,9 @@ def load(path: str):
 def main() -> None:
     modern = load("experiments/paper1/modern_vlm_result_summary_v001.json")
     assurance = load("experiments/paper2/analysis/vlm_proposal_assurance_v001.json")
+    assurance_v003_metrics = load(
+        "results/2026-08-17/P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V003_HELDOUT_002/metrics.json"
+    )
     risk = load("experiments/paper2/analysis/california_document_risk_v001.json")
     spatial = load("experiments/paper3/analysis/swissgeol_spatial_sensitivity_v001.json")
     completed_qwen = [
@@ -45,6 +48,14 @@ def main() -> None:
             and assurance["analyses"][2]["complete_document_auto_acceptance"]["denominator"] == 100
             and round(assurance["analyses"][2]["complete_document_auto_acceptance"]["value"], 2) == 0.04
         ),
+        "assurance_v003_anchor_units": (
+            assurance_v003_metrics["same_page_numeric_anchor_coverage"] == {
+                "denominator": 3666, "numerator": 3099, "value": 0.8453355155482815
+            }
+            and assurance_v003_metrics["complete_interval_numeric_anchor_coverage"] == {
+                "denominator": 1833, "numerator": 1450, "value": 0.7910529187124932
+            }
+        ),
         "risk_actions": risk["combined_confirmatory"]["accepted_action_count"] == 82,
         "risk_documents": risk["combined_confirmatory"]["accepted_document_count"] == 19,
         "spatial_full_support": round(spatial["full_support_comparison"]["risk"]["aggregate"]["relative_absolute_volume_error"], 4) == 0.0821,
@@ -56,7 +67,9 @@ def main() -> None:
     failed = [key for key, value in checks.items() if not value]
     report = {"checks": checks, "passed": len(failed) == 0, "failed": failed}
     output = ROOT / "papers/paper4/metric_audit.json"
-    output.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    # Write bytes deliberately: Path.write_text() translates LF to CRLF on
+    # Windows, which changes the SHA of committed generated JSON.
+    output.write_bytes((json.dumps(report, indent=2, sort_keys=True) + "\n").encode("utf-8"))
     print(json.dumps(report, indent=2, sort_keys=True))
     if failed:
         raise SystemExit(1)

@@ -23,7 +23,7 @@ Modern VLMs make the first condition substantially easier on familiar page famil
 
 We retain exactly three research questions:
 
-**RQ1 — Extraction reliability under cohort and source shift.** How stable are boundary-pair interval predictions, complete boundary sequences, and semantic/full-record outcomes across independent cohorts from the same publication program and across unrelated source families?
+**RQ1 — Extraction reliability under cohort and source shift.** How stable are boundary-pair interval predictions and complete boundary sequences across independent cohorts from the same publication program and across unrelated source families?
 
 **RQ2 — Provenance-grounded selective assurance.** Can independent positioned evidence, field semantics, deterministic depth geometry, and geological constraints convert high-recall VLM proposals into auditable selective decisions with low critical error and explicit abstention?
 
@@ -94,7 +94,7 @@ Boundary-exact rate requires the complete ordered boundary sequence for a docume
 
 ### 4.1 Modern VLM proposal reader
 
-The open modern baseline is the official `Qwen/Qwen3.8-27B-FP8` checkpoint [@qwen2026qwen38]. It is served as `qwen38-fp8-tp4-mtp4-long`; the frozen local revision is `local_Qwen3.8-27B-FP8_qwen3_5_architecture_fp8_e4m3`. The recorded component hashes are: `config.json` `74227dd615bf1ea975aa676bdf355a0379858c12f394b5365cd9dfa5fc2c70bc`, `preprocessor_config.json` `27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516`, and `model.safetensors.index.json` `f0838c766951bdfe76d6afbdb2771a8f67aaa2231dedb3d33cebd817729843a2`. The weights use fine-grained dynamic FP8 E4M3. Inference runs through a vLLM-compatible OpenAI server on four RTX 2080 Ti GPUs; the server did not expose a package version, so no version is inferred.
+The open modern baseline is the official `Qwen/Qwen3.8-27B-FP8` checkpoint [@qwen2026qwen38]. It is served as `qwen38-fp8-tp4-mtp4-long`; the frozen local revision is `local_Qwen3.8-27B-FP8_qwen3_5_architecture_fp8_e4m3`. The recorded component hashes are: `config.json` `74227dd615bf1ea975aa676bdf355a0379858c12f394b5365cd9dfa5fc2c70bc`, `preprocessor_config.json` `27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516`, and `model.safetensors.index.json` `f0838c766951bdfe76d6afbdb2771a8f67aaa2231dedb3d33cebd817729843a2`. The weights use fine-grained dynamic FP8 E4M3. The serving process was inspected after evaluation and is **partially reconstructable**: vLLM 0.1.14, PyTorch 2.11.0+cu128, CUDA 12.8, FP8 weights, half compute dtype, and tensor parallelism over four RTX 2080 Ti GPUs. Its source commit, per-request logs, and immutable contemporaneous runtime lockfile were not recoverable; Supplementary Methods S4 and the model configuration provide the observed record.
 
 Pages are rendered at 200 DPI with PyMuPDF to lossless PNG, without crop, rotation, or enhancement. The prompt is `vlm_interval_source_units_v002`, SHA-256 `891bc6beb7ff9cf35c55389191a208c9b09e9e2dc76909f716603f413745104a`. Decoding uses temperature 0, provider-default top-p, thinking disabled, a 4,096-token maximum, zero automatic retries, and strict JSON parsing. No repair, reordering, deduplication, or reference-conditioned completion is performed. Non-finite or non-positive ranges are rejected during deterministic source-unit conversion. This protocol was frozen before each cohort result.
 
@@ -162,11 +162,11 @@ The one-time BGS v003 external gate is even more informative operationally. The 
 
 ### 6.3 Independent evidence converts proposals into selective decisions
 
-The assurance experiment keeps the Qwen proposals unchanged and adds an independently positioned reader. On development v001, complete positioned agreement covers 174/736 proposals and all are correct. On validation v002, 561 proposals are accepted at precision 0.979 [0.951, 0.997], compared with raw proposal precision 0.854. On held-out v003, the frozen rule accepts 447/1,833 proposals: 444 are correct, selective precision is 0.993 [0.984, 1.000], raw proposal precision is 0.907, and accepted coverage is 0.244. The three incorrect accepted intervals occur in three different documents. Numeric-anchor coverage is higher (0.845), confirming that finding a number is easier than proving semantic ownership.
+The assurance experiment keeps the Qwen proposals unchanged and adds an independently positioned reader. On development v001, complete positioned agreement covers 174/736 proposals and all are correct. On validation v002, 561 proposals are accepted at precision 0.979 [0.951, 0.997], compared with raw proposal precision 0.854. On held-out v003, the frozen rule accepts 447/1,833 proposals: 444 are correct, selective precision is 0.993 [0.984, 1.000], raw proposal precision is 0.907, and accepted coverage is 0.244. The three incorrect accepted intervals occur in three different documents. Same-page numeric-anchor coverage is an **endpoint-field** quantity: 3,099/3,666 proposed top/bottom fields are located (0.845). Requiring both endpoints to be anchored yields 1,450/1,833 proposals (0.791), still substantially higher than the 447/1,833 semantically owned and accepted intervals. Finding a number is therefore easier than proving interval ownership.
 
 The selective result is intentionally not reported as whole-document accuracy. Partial proposal acceptance cannot establish complete-record correctness, and non-accepted proposals remain in the review queue. Complete-document auto-acceptance is only 4/100 documents (4%) on held-out v003, even though interval-level accepted coverage is 24.4%. That gap is not a weakness hidden by the metric; it is the conservative deployment boundary. The method's benefit is a reliable subset with explicit provenance, not an assertion that the unaccepted 75.6% are correct. This distinction is operationally important when a database ingestion job must state which rows were automatically accepted and which require review.
 
-![Figure 3. Selective assurance viewed simultaneously as precision, proposal coverage, and complete-document automation.](figures/F3_assurance_frontier.png)
+![Figure 3. Selective assurance viewed simultaneously as precision, proposal coverage, complete-document automation, and a held-out v003 evidence funnel. Numeric anchors are reported separately as endpoint-field coverage (3,099/3,666) and as both-endpoint interval coverage (1,450/1,833); only semantically owned intervals are accepted.](figures/F3_assurance_frontier.png)
 
 ### 6.4 Secondary legacy sequence reconstruction improves recovery but can create harm
 
@@ -224,7 +224,7 @@ First, the five California cohorts are independent but come from one publication
 
 Second, direct-VLM semantic correctness is incompletely observed. The Qwen interface was scored for boundary-pair interval F1, boundary-exactness, numeric invalidity, and transport. The archived direct-VLM protocol does not provide a validated lithology/full-record target for every proposal, so semantic correctness cannot be inferred from JSON validity or boundary matching. Future releases should add field-level semantic adjudication with the same evidence hierarchy.
 
-Third, foundation-model contamination cannot be ruled out. California report identifiers, lithology strings, and public USGS tables may have appeared in pretraining data. Record-disjoint and source-disjoint splits reduce ordinary leakage, but they do not establish that the model has never seen the source family. The Qwen checkpoint, revision fields, component hashes, prompt hash, render settings, and runtime limitations are therefore reported explicitly, and the results are interpreted as an operational benchmark rather than a contamination-free capability estimate.
+Third, foundation-model contamination cannot be ruled out. California report identifiers, lithology strings, and public USGS tables may have appeared in pretraining data. Record-disjoint and source-disjoint splits reduce ordinary leakage, but they do not establish that the model has never seen the source family. The Qwen checkpoint, revision fields, component hashes, prompt hash, render settings, and partially reconstructable runtime record are therefore reported explicitly, and the results are interpreted as an operational benchmark rather than a contamination-free capability estimate.
 
 Fourth, the provenance layer is conservative and incomplete by design. Independent positioned agreement is not statistical independence when both readers observe the same ambiguous page. A matched bbox proves localization, not geological truth. The 0.993 selective precision result has three errors and a document-level finite-sample bound; it is not safety certification. The direct closed host-managed visual pilot is excluded from headline comparisons because it contains only five pages and lacks provider trace, field bboxes, and complete runtime metadata.
 
@@ -242,9 +242,13 @@ The downstream analysis establishes the second half of the argument. Abstention 
 
 The resulting deployment principle is simple: use modern VLMs for high-recall visual proposals, require provenance-grounded independent evidence for automatic acceptance, preserve immutable raw outputs, abstain on unsupported structure, and report how acceptance changes downstream spatial support. High F1 is a useful capability indicator. It is not, by itself, a reliability argument for a geological database.
 
-## Data and code availability
+## Computer Code Availability
 
-The formal source inputs, manifests, splits, hashes, model configuration, prompt hashes, public reanalysis inputs, and recomputation scripts are distributed in the GeoLogParser `data-v001` release and repository. Source-specific attribution, linkage risk, and final rights status remain recorded in the accompanying ledgers. The integrated manuscript and its supplementary materials are independently versioned under `papers/paper4/`.
+The GeoLogParser repository contains versioned code/configuration, prompt hashes, metric bindings, and scripts that regenerate the Paper 4 tables, figures, claim audit, submission gate, and redistributable reanalysis package. The manuscript, supplement, and execution configuration are versioned under `papers/paper4/` and `configs/models/`. A final archival identifier and release commit will be inserted at submission.
+
+## Data Availability
+
+The public reproducibility package contains only redistributable structured/reanalysis assets: transformed or pseudonymized inputs, aggregate metrics, manifests, checksums, source URLs, and recomputation scripts. It does **not** redistribute source PDFs, rendered pages, page crops, raw OCR regions/text, model weights, or derivatives with pending item-level rights clearance. Source manifests and hashes support retrieval from the original publisher under applicable terms after final rights, attribution, linkage, and sensitive-location review. No release artifact is described as anonymous.
 
 ## Declarations
 

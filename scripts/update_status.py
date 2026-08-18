@@ -269,7 +269,8 @@ def main() -> None:
     ]
     lines = lines[:start] + replacement + lines[end + 2:]
     output = ROOT / "docs/status.md"
-    output.write_text("\n".join(lines), encoding="utf-8")
+    # Status is a committed generated Markdown artifact; avoid CRLF drift.
+    output.write_bytes("\n".join(lines).encode("utf-8"))
     print(output)
 
 

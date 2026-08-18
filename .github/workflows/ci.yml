@@ -33,6 +33,8 @@ jobs:
         run: python scripts/regenerate_publication_artifacts.py --publication-core
       - name: Rebuild manuscript review packages
         run: python scripts/build_paper_packages.py
+      - name: Verify UTF-8 + LF publication artifacts
+        run: python scripts/audit_generated_text_format.py
       - name: Generated artifacts are committed
         run: git diff --exit-code
 
@@ -59,5 +61,7 @@ jobs:
         run: python scripts/regenerate_publication_artifacts.py --publication-core --skip-figures
       - name: Rebuild manuscript review packages
         run: python scripts/build_paper_packages.py
+      - name: Verify UTF-8 + LF publication artifacts
+        run: python scripts/audit_generated_text_format.py
       - name: Generated artifacts are committed
         run: git diff --exit-code

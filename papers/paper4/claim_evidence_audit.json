@@ -1,6 +1,6 @@
 {
   "artifacts": {
-    "configs/models/qwen38_fp8_modern_vlm_v002.json": "2659d1ce05dc6e717b40d3c3c7de6f46378ce8309ffe94026c43eaadb4f3a1c3",
+    "configs/models/qwen38_fp8_modern_vlm_v002.json": "be3d80893c4384b9a5c6c61539b06a1b49d8ed33705f48a02f42e91b66c93485",
     "experiments/paper1/modern_vlm_result_summary_v001.json": "a6f56a2b7f99c12dec9e4e359c0bf688915c103096f61f1f450f88c149e67517",
     "experiments/paper2/analysis/bgs_v003_v028_routed_external_final.json": "76e63a9c122ed02d42ff8c1f90f9535622daa9f3392d20cb979318ed5b913858",
     "experiments/paper2/analysis/california_candidate_pool_ablation_v001.json": "defbdef70c75ba70998e2e74e384a96a1fdb5014bc22a7b443d4d1162efd1cfe",

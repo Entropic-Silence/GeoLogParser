@@ -70,7 +70,8 @@ def main() -> None:
         "errors": errors,
         "passed": not errors and set(rows) == EXPECTED,
     }
-    OUT.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    # Keep committed audit JSON byte-stable on Windows and Unix runners.
+    OUT.write_bytes((json.dumps(report, indent=2, sort_keys=True) + "\n").encode("utf-8"))
     print(json.dumps(report, indent=2, sort_keys=True))
     if errors:
         raise SystemExit("\n".join(errors))

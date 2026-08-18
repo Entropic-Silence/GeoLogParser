@@ -89,6 +89,12 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def write_text_lf(path: Path, contents: str) -> None:
+    """Write a committed text artifact as UTF-8 bytes with LF endings."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_bytes(contents.encode("utf-8"))
+
+
 def copy_exact(source: Path, destination: Path) -> None:
     destination.parent.mkdir(parents=True, exist_ok=True)
     shutil.copyfile(source, destination)
@@ -130,13 +136,12 @@ def sanitize_jsonl(source: Path, destination: Path) -> int:
         for line in source.read_text(encoding="utf-8").splitlines()
         if line.strip()
     ]
-    destination.parent.mkdir(parents=True, exist_ok=True)
-    destination.write_text(
+    write_text_lf(
+        destination,
         "".join(
             json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n"
             for row in rows
         ),
-        encoding="utf-8",
     )
     return len(rows)
 
@@ -204,10 +209,9 @@ def build_assertion_snapshot(
         "origin_source_sha256": sha256(source),
         "observations": observations,
     }
-    destination.parent.mkdir(parents=True, exist_ok=True)
-    destination.write_text(
+    write_text_lf(
+        destination,
         json.dumps(document, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
-        encoding="utf-8",
     )
     claim["origin_assertions"] = origin_assertions
     claim["assertions"] = [
@@ -369,9 +373,9 @@ def main() -> None:
         }
     replace_tree(analysis_staging, analysis_root)
 
-    registry_path.write_text(
+    write_text_lf(
+        registry_path,
         json.dumps(registry, ensure_ascii=False, indent=2) + "\n",
-        encoding="utf-8",
     )
     manifest = {
         "publication_evidence_schema_version": "publication_evidence_v003",
@@ -395,10 +399,9 @@ def main() -> None:
         "analysis_inputs": dict(sorted(analysis_inputs.items())),
     }
     manifest_path = bundle / "manifest.json"
-    manifest_path.parent.mkdir(parents=True, exist_ok=True)
-    manifest_path.write_text(
+    write_text_lf(
+        manifest_path,
         json.dumps(manifest, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
-        encoding="utf-8",
     )
     print(manifest_path)
     print(f"result core files: {len(copied_core)}")
