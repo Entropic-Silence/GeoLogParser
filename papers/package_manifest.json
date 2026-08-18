@@ -1,16 +1,16 @@
 {
   "all_submission_ready": false,
   "bibliography_path": "papers/references.bib",
-  "bibliography_sha256": "6c1a2ee2c32c0ec4ae192cc1bba423b3590ae5bf818ebf33113feb8991cc33c9",
+  "bibliography_sha256": "700428d5ceb20fb92fb03e6696a6edf5265384eb71ab131d9012a2f8c0edae12",
   "claim_registry_path": "papers/claim_registry.json",
   "claim_registry_sha256": "13d7c33be460b7c0d76a8458cb8cca884e63ac37d34a1d92d247c6cd08a79914",
   "literature_evidence_path": "docs/literature_evidence.yaml",
-  "literature_evidence_sha256": "f247c2130fa46c07564cde392e59bf1c5dfafe24c6be0c690d45838f9438bba8",
+  "literature_evidence_sha256": "6e6367aebb49a90ae7fca3289f225a4e020a61496a8f71c5d97f57bfb1e4bca7",
   "package_schema_version": "paper_packages_v001",
   "papers": [
     {
       "evidence_audit_path": "paper1/generated/package/evidence_audit.json",
-      "evidence_audit_sha256": "7fdb9c3cb8244baad8fb54faefb6a57e8170815cdf035efab9bb1e7d7a0a7161",
+      "evidence_audit_sha256": "5ea49fcd35247b91febc3cb773ff7f13666771fdcceba2dd77a587e3306529bb",
       "major_revision_tables_path": "paper1/generated/major_revision_tables.md",
       "major_revision_tables_sha256": "b653e4d08f0e4710f3b5cf453e1610a2666d74216207b48365e08ba5bb72dcc5",
       "package_label": "SUBMISSION_READY_CANDIDATE",
@@ -25,7 +25,7 @@
     },
     {
       "evidence_audit_path": "paper2/generated/package/evidence_audit.json",
-      "evidence_audit_sha256": "47e0a46dcb76aab061116a6b186f36014977f3ca9d8d51a3a0e248d81e58c3ca",
+      "evidence_audit_sha256": "cb50814269ccefc9c8f61a943035162f9c2b84bd226e82d6c3d5ceb2ff57714f",
       "major_revision_tables_path": "paper2/generated/major_revision_tables.md",
       "major_revision_tables_sha256": "fa4303e0f1e44efcc37c21fce94e040a14e9e5f11f21baf709a2ad0ac4c5ccbe",
       "package_label": "SUBMISSION_READY_CANDIDATE",
@@ -40,7 +40,7 @@
     },
     {
       "evidence_audit_path": "paper3/generated/package/evidence_audit.json",
-      "evidence_audit_sha256": "ea78b2dfc9216f038fa2ea4835ece5074f4bc652035e72f76131d18a44838eaf",
+      "evidence_audit_sha256": "1f68bbf2ae8aaa7ee5638f3f58b37b88d9417ab37ee1c7dd101931705d5cc114",
       "major_revision_tables_path": "paper3/generated/major_revision_tables.md",
       "major_revision_tables_sha256": "b423d3b68284b606d00471c7b589a22c15eafd751b96ce7bbebf199e96c12352",
       "package_label": "SUBMISSION_READY_CANDIDATE",
@@ -52,6 +52,21 @@
       "submission_ready": false,
       "supplement_path": "paper3/supplement.md",
       "supplement_sha256": "e6d18f756c15e6f4b9b6f6143b4cac9212d1b1921cfba8793e1d123d7d295ab4"
+    },
+    {
+      "evidence_audit_path": "paper4/claim_evidence_audit.json",
+      "evidence_audit_sha256": "6938fb9552428e64ed82796c2be9204c9da87228fa00b5b44f3fc6dc8c8dc557",
+      "major_revision_tables_path": "paper4/main_tables.md",
+      "major_revision_tables_sha256": "562bc30b076a33022abe953d9cf60748a9a3b9fa363744de369def53f0f84ce6",
+      "package_label": "SUBMISSION_READY_CANDIDATE",
+      "paper": "paper4",
+      "review_bundle_path": "paper4/manuscript.md",
+      "review_bundle_sha256": "b7f62bc05c7cfa8f9d8a88597a6e2a7a8ee5e0c6776197d9a20a2c1ed75f2550",
+      "scientific_content_ready": true,
+      "submission_gate_path": "docs/submission_blockers.md",
+      "submission_ready": false,
+      "supplement_path": "paper4/supplement.md",
+      "supplement_sha256": "ca6747139edcf258400a0eab651cf6c9b5d50fc751e3b6a30c4c948f8a70ce24"
     }
   ],
   "scientific_content_ready": true,

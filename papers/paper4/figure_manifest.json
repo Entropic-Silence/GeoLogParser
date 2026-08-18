@@ -1,14 +1,48 @@
 {
-  "manuscript": "paper4",
-  "status": "integrated_main_figure_set",
   "figures": [
-    {"id": "F1", "file": "figures/F1_california_selection_flow.png", "purpose": "California cohort selection and evidence flow", "source": "paper1/generated/figures/california_selection_flow.png"},
-    {"id": "F2", "file": "figures/F2_cohort_forest.png", "purpose": "Document-cluster cohort reliability and source-shift context", "source": "paper1/generated/figures/california_cohort_forest.png"},
-    {"id": "F3", "file": "figures/F3_assurance_pipeline.png", "purpose": "VLM proposal to positioned evidence, candidate graph, selective decision", "source": "paper2/generated/figures/method_schematic.png"},
-    {"id": "F4", "file": "figures/F4_risk_coverage_frontier.png", "purpose": "Recovery, false-correction, coverage and abstention trade-off", "source": "paper2/generated/figures/sequence_risk_frontier.png"},
-    {"id": "F5", "file": "figures/F5_threshold_development_curve.png", "purpose": "Development-only threshold/coverage/risk curve", "source": "paper2/generated/figures/risk_threshold_curve.png"},
-    {"id": "F6", "file": "figures/F6_spatial_support_diagnostic.png", "purpose": "Full-support versus matched-subset spatial consequences", "source": "paper3/generated/figures/spatial_support_sensitivity.png"},
-    {"id": "F7", "file": "figures/F7_controlled_error_mechanisms.png", "purpose": "Within-class controlled error dose-response; supplementary/optional main figure", "source": "paper3/generated/figures/controlled_error_classes.png"}
+    {
+      "file": "figures/F1_trustworthy_framework.png",
+      "id": "F1",
+      "purpose": "provenance-grounded assurance framework"
+    },
+    {
+      "file": "figures/F2_vlm_source_shift.png",
+      "id": "F2",
+      "purpose": "California VLM/OCR comparison and source shift"
+    },
+    {
+      "file": "figures/F3_assurance_frontier.png",
+      "id": "F3",
+      "purpose": "precision, coverage, and complete-document automation"
+    },
+    {
+      "file": "figures/F4_spatial_support_consequence.png",
+      "id": "F4",
+      "purpose": "full-support versus matched-support downstream consequence"
+    }
   ],
-  "generation_note": "The integrated manuscript uses frozen, code-generated figures from the three original analyses. Their source scripts and metrics remain unchanged; the copied assets are a standalone C&G package view."
+  "manuscript": "paper4",
+  "source_manifests": {
+    "experiments/paper1/analysis/modern_vlm_statistics_v001.json": "676ea2758165a6a8e94883a5ac5acb22b24715cf73542955a3dae8ee20d527da",
+    "experiments/paper2/analysis/vlm_proposal_assurance_v001.json": "efc58a74802ac245058a95b120d8e4b239ec45caeab6df5997e541d4ef23581a",
+    "experiments/paper3/analysis/swissgeol_spatial_sensitivity_v001.json": "32440b01b2a5f7255d07b896f1dcc77b721e5f8a08a045b0b80433970c46a690"
+  },
+  "status": "integrated_cg_main_figure_set",
+  "supplementary_figures": [
+    {
+      "file": "figures/F4_risk_coverage_frontier.png",
+      "id": "S1",
+      "purpose": "legacy sequence risk frontier"
+    },
+    {
+      "file": "figures/F5_threshold_development_curve.png",
+      "id": "S2",
+      "purpose": "development-only threshold curve"
+    },
+    {
+      "file": "figures/F7_controlled_error_mechanisms.png",
+      "id": "S3",
+      "purpose": "controlled synthetic perturbation mechanisms"
+    }
+  ]
 }

@@ -280,6 +280,58 @@
         {"group": "ci_high", "pointer": "/analyses/2/document_cluster_bootstrap_percentile_95_ci/accepted_precision/1", "decimals": 3},
         {"group": "raw", "pointer": "/analyses/2/point_estimates/raw_precision", "decimals": 3}
       ]
+    },
+    {
+      "id": "paper4_qwen_headline_range",
+      "manuscript": "papers/paper4/manuscript.md",
+      "source": "experiments/paper1/analysis/modern_vlm_statistics_v001.json",
+      "pattern": "Qwen3\\.8-27B-FP8[^\\n]*?boundary-pair F1 (?P<minimum>\\d+\\.\\d+)–(?P<maximum>\\d+\\.\\d+) on California",
+      "bindings": [
+        {
+          "group": "minimum",
+          "pointers": [
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V001_FORMAL_002/document_cluster_metrics/f1",
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V002_FORMAL_002/document_cluster_metrics/f1",
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V003_FORMAL_003/document_cluster_metrics/f1",
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V004_FORMAL_003/document_cluster_metrics/f1",
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V005_FORMAL_001/document_cluster_metrics/f1"
+          ],
+          "aggregate": "min",
+          "decimals": 3
+        },
+        {
+          "group": "maximum",
+          "pointers": [
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V001_FORMAL_002/document_cluster_metrics/f1",
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V002_FORMAL_002/document_cluster_metrics/f1",
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V003_FORMAL_003/document_cluster_metrics/f1",
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V004_FORMAL_003/document_cluster_metrics/f1",
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V005_FORMAL_001/document_cluster_metrics/f1"
+          ],
+          "aggregate": "max",
+          "decimals": 3
+        }
+      ]
+    },
+    {
+      "id": "paper4_heldout_selective_assurance",
+      "manuscript": "papers/paper4/manuscript.md",
+      "source": "experiments/paper2/analysis/vlm_proposal_assurance_v001.json",
+      "pattern": "held-out California v003[^\\n]*?selective precision (?P<precision>\\d+\\.\\d+) \\(444/447 accepted intervals correct\\) at (?P<coverage>\\d+\\.\\d+) proposal coverage",
+      "bindings": [
+        {"group": "precision", "pointer": "/analyses/2/point_estimates/accepted_precision", "decimals": 3},
+        {"group": "coverage", "pointer": "/analyses/2/point_estimates/accepted_coverage", "decimals": 3}
+      ]
+    },
+    {
+      "id": "paper4_complete_document_acceptance",
+      "manuscript": "papers/paper4/manuscript.md",
+      "source": "experiments/paper2/analysis/vlm_proposal_assurance_v001.json",
+      "pattern": "complete-document auto-acceptance is (?P<numerator>\\d+)/(?P<denominator>\\d+) \\(4%\\)",
+      "bindings": [
+        {"group": "numerator", "pointer": "/analyses/2/complete_document_auto_acceptance/numerator"},
+        {"group": "denominator", "pointer": "/analyses/2/complete_document_auto_acceptance/denominator"}
+      ]
     }
   ]
 }

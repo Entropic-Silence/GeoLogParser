@@ -21,6 +21,12 @@ jobs:
         run: pytest
       - name: Manuscript numeric bindings
         run: python scripts/audit_manuscript_metrics.py
+      - name: Paper 4 claim and submission gates
+        run: |
+          python papers/paper4/verify_claims.py
+          python papers/paper4/audit_claim_evidence.py
+          python scripts/audit_paper4_submission.py
+          python papers/paper4/build_cg_figures.py
       - name: Rebuild redistributable evidence core
         run: python scripts/build_publication_evidence.py
       - name: Rebuild publication-facing artifacts
@@ -44,6 +50,11 @@ jobs:
         run: pytest
       - name: Manuscript numeric bindings
         run: python scripts/audit_manuscript_metrics.py
+      - name: Paper 4 claim and submission gates
+        run: |
+          python papers/paper4/verify_claims.py
+          python papers/paper4/audit_claim_evidence.py
+          python scripts/audit_paper4_submission.py
       - name: Rebuild publication-facing artifacts
         run: python scripts/regenerate_publication_artifacts.py --publication-core --skip-figures
       - name: Rebuild manuscript review packages

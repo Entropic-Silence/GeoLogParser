@@ -61,7 +61,7 @@
   "indexed_experiment_count": 24,
   "literature_evidence_errors": [],
   "literature_evidence_path": "docs/literature_evidence.yaml",
-  "literature_evidence_sha256": "f247c2130fa46c07564cde392e59bf1c5dfafe24c6be0c690d45838f9438bba8",
+  "literature_evidence_sha256": "6e6367aebb49a90ae7fca3289f225a4e020a61496a8f71c5d97f57bfb1e4bca7",
   "local_links": [
     {
       "exists": true,
@@ -84,13 +84,13 @@
     {
       "exists": true,
       "resolved_path": "papers/references.bib",
-      "sha256": "6c1a2ee2c32c0ec4ae192cc1bba423b3590ae5bf818ebf33113feb8991cc33c9",
+      "sha256": "700428d5ceb20fb92fb03e6696a6edf5265384eb71ab131d9012a2f8c0edae12",
       "target": "../references.bib"
     },
     {
       "exists": true,
       "resolved_path": "docs/literature_evidence.yaml",
-      "sha256": "f247c2130fa46c07564cde392e59bf1c5dfafe24c6be0c690d45838f9438bba8",
+      "sha256": "6e6367aebb49a90ae7fca3289f225a4e020a61496a8f71c5d97f57bfb1e4bca7",
       "target": "../../docs/literature_evidence.yaml"
     }
   ],

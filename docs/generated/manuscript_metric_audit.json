@@ -2,7 +2,7 @@
   "audit_version": "manuscript_metric_bindings_v002",
   "config": "papers/manuscript_metric_bindings.json",
   "errors": [],
-  "observation_count": 72,
+  "observation_count": 78,
   "observations": [
     {
       "check_id": "paper1_california_v005_headline",
@@ -949,6 +949,90 @@
       "observed": 0.907,
       "passed": true,
       "pointer": "/analyses/2/point_estimates/raw_precision",
+      "source": "experiments/paper2/analysis/vlm_proposal_assurance_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper4_qwen_headline_range",
+      "display_decimals": 3,
+      "expected": 0.8955143701316143,
+      "group": "minimum",
+      "manuscript": "papers/paper4/manuscript.md",
+      "observed": 0.896,
+      "passed": true,
+      "pointer": [
+        "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V001_FORMAL_002/document_cluster_metrics/f1",
+        "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V002_FORMAL_002/document_cluster_metrics/f1",
+        "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V003_FORMAL_003/document_cluster_metrics/f1",
+        "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V004_FORMAL_003/document_cluster_metrics/f1",
+        "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V005_FORMAL_001/document_cluster_metrics/f1"
+      ],
+      "source": "experiments/paper1/analysis/modern_vlm_statistics_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper4_qwen_headline_range",
+      "display_decimals": 3,
+      "expected": 0.9323098394975576,
+      "group": "maximum",
+      "manuscript": "papers/paper4/manuscript.md",
+      "observed": 0.932,
+      "passed": true,
+      "pointer": [
+        "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V001_FORMAL_002/document_cluster_metrics/f1",
+        "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V002_FORMAL_002/document_cluster_metrics/f1",
+        "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V003_FORMAL_003/document_cluster_metrics/f1",
+        "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V004_FORMAL_003/document_cluster_metrics/f1",
+        "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V005_FORMAL_001/document_cluster_metrics/f1"
+      ],
+      "source": "experiments/paper1/analysis/modern_vlm_statistics_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper4_heldout_selective_assurance",
+      "display_decimals": 3,
+      "expected": 0.9932885906040269,
+      "group": "precision",
+      "manuscript": "papers/paper4/manuscript.md",
+      "observed": 0.993,
+      "passed": true,
+      "pointer": "/analyses/2/point_estimates/accepted_precision",
+      "source": "experiments/paper2/analysis/vlm_proposal_assurance_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper4_heldout_selective_assurance",
+      "display_decimals": 3,
+      "expected": 0.24386252045826515,
+      "group": "coverage",
+      "manuscript": "papers/paper4/manuscript.md",
+      "observed": 0.244,
+      "passed": true,
+      "pointer": "/analyses/2/point_estimates/accepted_coverage",
+      "source": "experiments/paper2/analysis/vlm_proposal_assurance_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper4_complete_document_acceptance",
+      "display_decimals": null,
+      "expected": 4,
+      "group": "numerator",
+      "manuscript": "papers/paper4/manuscript.md",
+      "observed": 4,
+      "passed": true,
+      "pointer": "/analyses/2/complete_document_auto_acceptance/numerator",
+      "source": "experiments/paper2/analysis/vlm_proposal_assurance_v001.json",
+      "transform": null
+    },
+    {
+      "check_id": "paper4_complete_document_acceptance",
+      "display_decimals": null,
+      "expected": 100,
+      "group": "denominator",
+      "manuscript": "papers/paper4/manuscript.md",
+      "observed": 100,
+      "passed": true,
+      "pointer": "/analyses/2/complete_document_auto_acceptance/denominator",
       "source": "experiments/paper2/analysis/vlm_proposal_assurance_v001.json",
       "transform": null
     }

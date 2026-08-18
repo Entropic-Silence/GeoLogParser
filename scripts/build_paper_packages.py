@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build three traceable Markdown review bundles and evidence audits."""
+"""Build traceable Markdown review bundles and evidence audits."""
 
 from __future__ import annotations
 
@@ -71,6 +71,31 @@ def main() -> None:
             "major_revision_tables_sha256": sha256(major_revision_tables),
         })
         print(bundle_path)
+    # Paper 4 is an independently curated C&G package rather than a generated
+    # three-paper review bundle.  Include its evidence and submission gate in
+    # the central manifest without forcing it through the legacy result-index
+    # schema used by Papers I–III.
+    paper4_root = arguments.paper_root / "paper4"
+    paper4_gate = paper4_root / "submission_gate.json"
+    paper4_audit = paper4_root / "claim_evidence_audit.json"
+    if paper4_gate.is_file():
+        gate = json.loads(paper4_gate.read_text(encoding="utf-8"))
+        package_rows.append({
+            "paper": "paper4",
+            "package_label": gate["package_label"],
+            "scientific_content_ready": gate["scientific_content_ready"],
+            "submission_ready": False,
+            "submission_gate_path": external_gate.relative_to(ROOT).as_posix(),
+            "evidence_audit_path": paper4_audit.relative_to(arguments.paper_root).as_posix(),
+            "evidence_audit_sha256": sha256(paper4_audit) if paper4_audit.is_file() else None,
+            "review_bundle_path": "paper4/manuscript.md",
+            "review_bundle_sha256": sha256(paper4_root / "manuscript.md"),
+            "supplement_path": "paper4/supplement.md",
+            "supplement_sha256": sha256(paper4_root / "supplement.md"),
+            "major_revision_tables_path": "paper4/main_tables.md",
+            "major_revision_tables_sha256": sha256(paper4_root / "main_tables.md"),
+        })
+        print(paper4_root / "manuscript.md")
     manifest = {
         "package_schema_version": "paper_packages_v001",
         "scope": "traceable review packages; submission readiness is evidence-gated",

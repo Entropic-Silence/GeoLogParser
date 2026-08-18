@@ -2,7 +2,7 @@
 
 ## Proposed title
 
-**From High-F1 Vision-Language Extraction to Trustworthy Borehole Databases: Provenance-Grounded Assurance, Selective Risk, and Spatial-Support Diagnostics**
+**From High VLM Accuracy to Trustworthy Borehole Databases: Provenance-Grounded Assurance and Spatial-Support Consequences**
 
 ## Why this manuscript fits
 
@@ -10,8 +10,8 @@
   geological data management, and reproducible spatial analysis.
 - It evaluates a modern open VLM under record-disjoint cohort and source-shift
   conditions rather than presenting a single-template demonstration.
-- It contributes an auditable software architecture: page-grounded evidence,
-  field semantics, deterministic depth geometry, selective acceptance,
+- It contributes an auditable assurance architecture: page-grounded evidence,
+  field semantics, deterministic depth geometry, selective accept/review,
   abstention, and review-queue provenance.
 - It tests whether an apparently improved extraction policy changes the spatial
   support and volume diagnostics used by downstream geoscience workflows.
@@ -39,14 +39,13 @@
 - The small host-managed closed visual pilot is not pooled with the formal VLM
   baseline.
 
-## Related manuscripts
+## Related manuscripts and disclosure
 
-The earlier Paper I, Paper II, and Paper III drafts are retained as frozen
-fallback analyses. This manuscript is a new integrated submission with one
-problem statement, three research questions, one assurance method, and one
-downstream consequence analysis. The associated manuscripts should be
-disclosed to the editor as related work if submitted simultaneously or
-subsequently.
+The associated Paper I, Paper II, and Paper III analyses should be disclosed to
+the editor if they are submitted simultaneously or subsequently. This
+manuscript is independently structured around one problem statement, three
+research questions, one provenance-grounded assurance method, and one
+downstream consequence analysis; it is not a concatenation of those studies.
 
 ## Suggested reviewer expertise
 

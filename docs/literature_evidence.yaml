@@ -180,6 +180,16 @@ sources:
     metadata_verified_via: "Computers & Geosciences open-access article PDF, Utrecht University repository, and DOI metadata"
     verification_level: published_full_text_reviewed
     claim_scope: "geology-informed sequence and spatial evaluation of automated stratigraphic interpretations for 1,394 boreholes; used to distinguish post-extraction interpretation metrics from image-grounded extraction and downstream support sensitivity"
+  - key: fuentes2020lithologicalmapping
+    identifier: 10.1016/j.cageo.2020.104516
+    metadata_verified_via: "Computers & Geosciences article metadata and DOI record"
+    verification_level: official_metadata_and_abstract
+    claim_scope: "3-D lithological mapping from borehole descriptions using word embeddings; cited only to position structured post-extraction mapping, with no reported score reused"
+  - key: wang2023interfaceuncertainty
+    identifier: 10.1016/j.cageo.2023.105419
+    metadata_verified_via: "Computers & Geosciences article metadata and DOI record"
+    verification_level: official_metadata_and_abstract
+    claim_scope: "geological-interface uncertainty evaluated with a data-knowledge-driven trend-surface analysis; cited only for downstream uncertainty context"
   - key: qwen2026qwen38
     identifier: https://huggingface.co/Qwen/Qwen3.8-27B-FP8
     metadata_verified_via: "official Qwen model card and Apache-2.0 license file archived with the local checkpoint"

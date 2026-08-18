@@ -264,6 +264,7 @@ def main() -> None:
         f"on the identical 15-document subset it is {matched['raw']['aggregate']['relative_absolute_volume_error']:.4f}/"
         f"{matched['reread']['aggregate']['relative_absolute_volume_error']:.4f}/{matched['risk']['aggregate']['relative_absolute_volume_error']:.4f}, "
         "showing that the apparent full-support risk gain is principally a selection/spatial-support effect.",
+        "- Paper IV (C&G integrated): `SUBMISSION_READY_CANDIDATE` with a 5,843-word single narrative, 243-word structured abstract, four integrated main figures, and exactly three RQs. It foregrounds Qwen3.8-27B-FP8 California boundary-pair F1 0.896–0.932, held-out selective precision 0.993 at coverage 0.244, complete-document auto-acceptance 4/100, and the full-support versus matched-support spatial consequence. Paper 4 numeric bindings, claim-evidence audit, and C&G submission gate are green; rights, linkage, authorship, and final journal-format checks remain external gates.",
         "", "## Boundary", "",
     ]
     lines = lines[:start] + replacement + lines[end + 2:]

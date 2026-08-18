@@ -40,10 +40,16 @@ def main() -> None:
             and round(assurance["analyses"][2]["point_estimates"]["accepted_precision"], 3) == 0.993
             and round(assurance["analyses"][2]["point_estimates"]["accepted_coverage"], 3) == 0.244
         ),
+        "complete_document_auto_acceptance_v003": (
+            assurance["analyses"][2]["complete_document_auto_acceptance"]["numerator"] == 4
+            and assurance["analyses"][2]["complete_document_auto_acceptance"]["denominator"] == 100
+            and round(assurance["analyses"][2]["complete_document_auto_acceptance"]["value"], 2) == 0.04
+        ),
         "risk_actions": risk["combined_confirmatory"]["accepted_action_count"] == 82,
         "risk_documents": risk["combined_confirmatory"]["accepted_document_count"] == 19,
         "spatial_full_support": round(spatial["full_support_comparison"]["risk"]["aggregate"]["relative_absolute_volume_error"], 4) == 0.0821,
         "spatial_matched_subset": round(spatial["matched_subset_comparison"]["risk"]["aggregate"]["relative_absolute_volume_error"], 4) == 0.0754,
+        "spatial_matched_raw": round(spatial["matched_subset_comparison"]["raw"]["aggregate"]["relative_absolute_volume_error"], 4) == 0.0326,
         "spatial_hull_ratio": round(spatial["spatial_support"][2]["convex_hull_area_ratio"], 3) == 0.636,
         "spatial_loo_reference": round(loo_reference, 2) == 47.06,
     }

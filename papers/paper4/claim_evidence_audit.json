@@ -1,0 +1,22 @@
+{
+  "artifacts": {
+    "configs/models/qwen38_fp8_modern_vlm_v002.json": "2659d1ce05dc6e717b40d3c3c7de6f46378ce8309ffe94026c43eaadb4f3a1c3",
+    "experiments/paper1/modern_vlm_result_summary_v001.json": "a6f56a2b7f99c12dec9e4e359c0bf688915c103096f61f1f450f88c149e67517",
+    "experiments/paper2/analysis/bgs_v003_v028_routed_external_final.json": "76e63a9c122ed02d42ff8c1f90f9535622daa9f3392d20cb979318ed5b913858",
+    "experiments/paper2/analysis/california_candidate_pool_ablation_v001.json": "defbdef70c75ba70998e2e74e384a96a1fdb5014bc22a7b443d4d1162efd1cfe",
+    "experiments/paper2/analysis/california_document_risk_v001.json": "f51ed6701128ef1c679f7ff8e11dcb25db15d219cc1f3e856c9369b46aa2203a",
+    "experiments/paper2/analysis/vlm_proposal_assurance_v001.json": "efc58a74802ac245058a95b120d8e4b239ec45caeab6df5997e541d4ef23581a",
+    "experiments/paper3/analysis/swissgeol_spatial_sensitivity_v001.json": "32440b01b2a5f7255d07b896f1dcc77b721e5f8a08a045b0b80433970c46a690",
+    "papers/paper1/generated/major_revision_tables.md": "b653e4d08f0e4710f3b5cf453e1610a2666d74216207b48365e08ba5bb72dcc5",
+    "papers/paper1/generated/modern_vlm_execution_ledger.md": "9dd45e2ab70735e889f59e5e3d0156f34caaa1f3050895cd78c3eb4a23b4eca9",
+    "papers/paper1/generated/modern_vlm_results.md": "7c84a5a33c2752de67b2434fcea1fd277a02c8cc424e960a436d3d661ab3b64b",
+    "publication_evidence/analysis_inputs/paper3/spatial_input_v001.jsonl": "51ff25a2f69ca01e12de86832b710a59ccfe91dbb4222574590ef62e90c1e202",
+    "publication_evidence/result_core/results/2026-08-13/P3_COAL602_CONSENSUS_QC_CONTROLLED_002/metrics.json": "f8be81da5e7188fa77a0fae6c20a0c452bac3ef0ef1b0c84e4df84e384ae0abc",
+    "publication_evidence/result_core/results/2026-08-17/P2_CALIFORNIA_CANDIDATE_RISK_CERTIFICATE_001/metrics.json": "cabfb80e402b95ff1ad6e922103a794af2c53ef8778e584f144c7a4815158efd"
+  },
+  "audit_version": "paper4_claim_evidence_v001",
+  "claim_count": 14,
+  "errors": [],
+  "expected_claim_count": 14,
+  "passed": true
+}

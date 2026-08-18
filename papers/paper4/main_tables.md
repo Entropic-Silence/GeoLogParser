@@ -24,6 +24,9 @@ are not pooled.
 | California v002 validation | 0.854 | 0.849 | 0.287 | 561 | 0.979 [0.951, 0.997] | 5 |
 | California v003 held-out | 0.907 | 0.845 | 0.244 | 447 | 0.993 [0.984, 1.000] | 3 |
 
+Complete-document auto-acceptance on v003 is 4/100 (4%); it is not inferred
+from interval-level coverage.
+
 ## Table 3. Risk/coverage and downstream support
 
 | Analysis | Raw | Reread | Risk-aware |
@@ -31,8 +34,8 @@ are not pooled.
 | California v004/v005 net matched gain per 100 documents | — | — | 41 (versus 230.5 unselective) |
 | California accepted actions | — | — | 82 in 19 documents |
 | California worsened documents | — | — | 0 observed; one-sided upper bound 0.1459 |
-| Swissgeol full-support volume error | 0.1387 | 0.1213 | 0.0821 |
-| Swissgeol matched-subset volume error | 0.0326 | 0.0754 | 0.0754 |
+| Swissgeol full-support reference-relative volume discrepancy | 0.1387 | 0.1213 | 0.0821 |
+| Swissgeol matched-subset reference-relative volume discrepancy | 0.0326 | 0.0754 | 0.0754 |
 | Swissgeol first-boundary hull-area ratio | 1.000 | 1.000 | 0.636 |
 | Swissgeol default LOO MAE (m) | 49.84 | 46.62 | 47.05 |
 

@@ -11,12 +11,11 @@ results are retained for agreement, coverage, and failure analysis only. The
 synthetic class has programmatically known labels and is never substituted for
 real Gold.
 
-The original Paper I, Paper II, and Paper III manuscripts are frozen fallback
-documents. Their version histories, failed NativeMM branches, PaddleOCR-VL and
-MinerU2.5 smoke tests, Chinese/DWG audits, Padova inventories, and no-reference
-coverage studies remain in their original supplements and are not reproduced as
-main evidence here. This integrated supplement retains only details needed to
-reproduce or interpret the combined claims.
+Other model branches, alternative OCR/VLM experiments, no-reference audits, and
+source-acquisition diagnostics are not used as main evidence here. They are
+excluded because they have a different evidence tier, consumed a development
+role, or do not change the three research questions. This supplement retains
+only details needed to reproduce or interpret the combined claims.
 
 ## S2. California selection and split audit
 
@@ -121,6 +120,11 @@ new threshold search. The document-level upper bound of 0.1459 follows from 19
 accepted documents and zero observed worsened documents. The 82 actions are
 clustered within those documents; the iid action bound is reported only as a
 secondary sensitivity quantity.
+
+Complete-document auto-acceptance is 2/50 (4%) in v001, 4/100 (4%) in v002,
+and 4/100 (4%) in held-out v003. This is distinct from interval-level proposal
+coverage and is reported as deployment utility, not as a replacement for
+interval precision.
 
 ## S6. Candidate-graph and sequence ablation
 

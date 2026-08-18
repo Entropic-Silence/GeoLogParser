@@ -6,14 +6,20 @@ fallback analyses.
 
 ## Package
 
-- `manuscript.md`: integrated main text (target C&G length, one narrative and
-  three research questions).
+- `manuscript.md`: integrated main text (C&G-length, structured abstract, one
+  narrative, and exactly three research questions).
 - `supplement.md`: detailed provenance, split, ablation, source-shift, and
   spatial sensitivity material.
 - `main_tables.md`: headline tables, including exact VLM runtime provenance.
-- `figure_manifest.json` and `figures/`: standalone main-figure assets copied
-  from the frozen code-generated analyses.
+- `figure_manifest.json` and `figures/`: four integrated C&G main figures plus
+  supplementary risk/threshold/error-mechanism figures.
+- `build_cg_figures.py`: deterministic main-figure generator from frozen JSON
+  analyses.
 - `claim_evidence_map.md`: claim-to-artifact audit map.
+- `audit_claim_evidence.py` and `claim_evidence_audit.json`: claim/evidence
+  existence and evidence-tier audit.
+- `submission_gate.json`: C&G-facing scientific package gate; rights,
+  authorship, linkage, and final journal formatting remain external gates.
 - `cover_letter_points.md`: C&G-oriented submission framing and disclosure
   checklist.
 
@@ -22,12 +28,12 @@ fallback analyses.
 The central claim is not that a VLM is inaccurate. The central claim is that
 high boundary-pair interval F1 does not, by itself, establish a trustworthy
 geological database. The manuscript therefore couples modern VLM proposals to
-independent positioned evidence, deterministic sequence/geometry checks,
-selective risk decisions, abstention, and downstream spatial-support diagnostics.
+independent positioned evidence, deterministic geometry checks, selective
+accept/review decisions, abstention, and downstream spatial-support diagnostics.
 
 ## Rebuild
 
-The figure assets originate from the frozen Paper I/II/III generation scripts.
-The manuscript values are bound to the existing claim registry and generated
-analysis files. Before submission, run the repository-wide manuscript metric
-audit and confirm the final C&G artwork/reference requirements.
+The main-figure assets are regenerated from frozen Paper I/II/III analysis JSON
+files by `build_cg_figures.py`; no model is rerun. Before submission, run the
+repository-wide numeric audit, `audit_claim_evidence.py`, and the C&G submission
+gate, then confirm the final artwork/reference requirements.
