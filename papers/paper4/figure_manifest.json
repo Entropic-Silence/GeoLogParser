@@ -1,0 +1,14 @@
+{
+  "manuscript": "paper4",
+  "status": "integrated_main_figure_set",
+  "figures": [
+    {"id": "F1", "file": "figures/F1_california_selection_flow.png", "purpose": "California cohort selection and evidence flow", "source": "paper1/generated/figures/california_selection_flow.png"},
+    {"id": "F2", "file": "figures/F2_cohort_forest.png", "purpose": "Document-cluster cohort reliability and source-shift context", "source": "paper1/generated/figures/california_cohort_forest.png"},
+    {"id": "F3", "file": "figures/F3_assurance_pipeline.png", "purpose": "VLM proposal to positioned evidence, candidate graph, selective decision", "source": "paper2/generated/figures/method_schematic.png"},
+    {"id": "F4", "file": "figures/F4_risk_coverage_frontier.png", "purpose": "Recovery, false-correction, coverage and abstention trade-off", "source": "paper2/generated/figures/sequence_risk_frontier.png"},
+    {"id": "F5", "file": "figures/F5_threshold_development_curve.png", "purpose": "Development-only threshold/coverage/risk curve", "source": "paper2/generated/figures/risk_threshold_curve.png"},
+    {"id": "F6", "file": "figures/F6_spatial_support_diagnostic.png", "purpose": "Full-support versus matched-subset spatial consequences", "source": "paper3/generated/figures/spatial_support_sensitivity.png"},
+    {"id": "F7", "file": "figures/F7_controlled_error_mechanisms.png", "purpose": "Within-class controlled error dose-response; supplementary/optional main figure", "source": "paper3/generated/figures/controlled_error_classes.png"}
+  ],
+  "generation_note": "The integrated manuscript uses frozen, code-generated figures from the three original analyses. Their source scripts and metrics remain unchanged; the copied assets are a standalone C&G package view."
+}
