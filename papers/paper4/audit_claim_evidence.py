@@ -17,7 +17,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 MAP = ROOT / "papers/paper4/claim_evidence_map.md"
 OUT = ROOT / "papers/paper4/claim_evidence_audit.json"
-EXPECTED = {f"C4-{i:02d}" for i in range(1, 15)}
+EXPECTED = {f"C4-{i:02d}" for i in range(1, 16)}
 
 
 def digest(path: Path) -> str:

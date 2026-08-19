@@ -10,7 +10,7 @@ def test_paper4_cg_package_is_evidence_gated_and_complete():
     assert gate["package_label"] == "SUBMISSION_READY_CANDIDATE"
     assert gate["submission_ready"] is False
     assert claims["passed"] is True
-    assert claims["claim_count"] == 14
+    assert claims["claim_count"] == 15
     manuscript = (paper / "manuscript.md").read_text(encoding="utf-8")
     assert "## 7. Discussion" in manuscript
     assert "4/100 (4%)" in manuscript

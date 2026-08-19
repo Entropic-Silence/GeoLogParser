@@ -107,6 +107,60 @@ version, provider decode settings, field bboxes, and confidence traces were not
 exposed, the pilot is not pooled with Qwen and cannot support a general closed-
 model claim.
 
+### S4.1 Exploratory open-model transport roster
+
+To test whether the source-shift risk was specific to the 27B Qwen serving path,
+we ran a post-hoc, source-disjoint exploratory roster on the complete 35-page
+Swissgeol Thurgau held-out panel. The panel was not used to change the Paper 4
+prompt, thresholds, parser, or acceptance policy, and BGS v003 was not accessed.
+The direct generalist comparison used the official
+`Qwen/Qwen3-VL-4B-Instruct` checkpoint at revision
+`ebb281ec70b05090aa6165b016eac8ec08e71b17`, local Transformers 5.14.1 and
+PyTorch 2.11.0+cu128 on an RTX 5090. Its local checkpoint config records
+`torch_dtype=null`, so the effective per-weight runtime dtype is marked
+partially reconstructable rather than guessed. It used the same frozen prompt
+`vlm_interval_source_units_v002` (SHA-256
+`891bc6beb7ff9cf35c55389191a208c9b09e9e2dc76909f716603f413745104a`), 200-DPI
+lossless page PNGs, greedy decoding (temperature 0, 4,096 maximum new tokens,
+zero retries), strict JSON parsing, and metre units for Swissgeol. On the fixed
+20-page California v003 exploratory panel it reached boundary-pair interval F1
+0.793 (207/249 matched intervals; 3/13 complete documents); on Swissgeol it
+reached 0.619 (43/80 matched; 0/35 complete documents). The California subset is
+not a replacement for the full-cohort Qwen result and is reported only to make
+the transport comparison explicit.
+
+Two document-specialist open models were evaluated through their published task
+interfaces rather than forced into a direct JSON prompt. `PaddlePaddle/PaddleOCR-VL-1.6`
+(local revision `c5630abae1d940eafe0697512a0325494b02ab42`, Transformers 5.14.1,
+PyTorch 2.11.0+cu128, checkpoint `torch_dtype=bfloat16`, RTX 5090) used its
+official `Table Recognition:` task.
+`opendatalab/MinerU2.5-Pro-2604-1.2B` (local snapshot
+`local_snapshot_MinerU2.5-Pro-2604-1.2B`, Transformers 4.57.6,
+`mineru-vl-utils` 1.2.1, PyTorch 2.11.0+cu128, RTX 5090; checkpoint
+`torch_dtype=null`, effective runtime dtype partially reconstructable) used its
+official two-step document parser. Both completed page inference on all 35
+pages, but
+the fixed auditable decoder found no explicit top/bottom interval rows (decoder
+output rate 0.0 and interval F1 0.0 for both). This is a **task/interface
+coverage result**, not evidence that either model visually recognized no table
+content; the specialist outputs were intentionally not converted through an
+unregistered heuristic decoder.
+
+| Model/interface | Swissgeol pages | Interval output | Boundary-pair F1 | Complete documents | Interpretation |
+|---|---:|---:|---:|---:|---|
+| Qwen/Qwen3.8-27B-FP8, direct JSON | 35 | 76 intervals | 0.577 | 0/35 | source-shift degradation |
+| Qwen/Qwen3-VL-4B-Instruct, direct JSON | 35 | 59 intervals | 0.619 | 0/35 | recurring source sensitivity; not monotonic with size |
+| PaddleOCR-VL-1.6, official table task | 35 | 0 auditable decoded intervals | 0.000 | 0/35 | complete page-task execution but no compatible interval decoder output |
+| MinerU2.5-Pro-2604-1.2B, official parser | 35 | 0 auditable decoded intervals | 0.000 | 0/35 | complete page-task execution but no compatible interval decoder output |
+
+The comparison supports a bounded conclusion: transport degradation or loss of
+usable, auditable interval output recurred across multiple open-model families
+and interfaces. It does not estimate universal model capability, and specialist
+decoder coverage must not be pooled with direct-JSON F1. The practical advantage
+of the Paper 4 route is therefore not a claim that one VLM dominates all
+others; it is the explicit separation of proposal quality, evidence ownership,
+decoder coverage, and accept/review state.
+
 ## S5. Assurance ablation details
 
 The VLM proposal assurance experiment uses the same frozen Qwen output and a

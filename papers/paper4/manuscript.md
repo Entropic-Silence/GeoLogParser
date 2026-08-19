@@ -156,9 +156,25 @@ The direct VLM is therefore not a failure case. It recovers visually implicit st
 
 ### 6.2 Source shift reveals the missing assurance layer
 
-Qwen's F1 on the Swissgeol source-agreement panel is 0.577 with zero boundary-exact documents, despite JSON validity of 1.000. RapidOCR and Tesseract on the same selected Thurgau panel obtain 0.679 and 0.857 respectively, while source-disjoint five-canton transfer falls to near zero for both conservative parsers. BGS offshore historical logs yield interval F1 0.038 for RapidOCR and 0.041 for Tesseract. Raft River's two explicit tabular reports yield F1 0.831 and 1.000 for Tesseract and RapidOCR. These source-specific outcomes are not pooled as one benchmark score. They show that source shift changes which representation is useful: direct visual semantics help on one family, while explicit tables and column geometry dominate another.
+Qwen's F1 on the Swissgeol source-agreement panel is 0.577 with zero
+boundary-exact documents, despite JSON validity of 1.000. On that panel,
+RapidOCR and Tesseract obtain 0.679 and 0.857, whereas five-canton transfer
+falls near zero for both. These source-specific outcomes are not pooled: source
+shift changes which representation is useful, making column geometry and
+explicit tables valuable in some families.
 
-The one-time BGS v003 external gate is even more informative operationally. The converged routed parser classified all five visible pages as unsupported and abstained, giving zero utility but also no false positive or critical numerical error. This is a defensible transport outcome for a deployable system: unsupported pages should enter a review queue rather than produce an apparently complete database record. It is not evidence of universal generalization.
+An exploratory roster extension indicates that this is not only a Qwen3.8-27B
+property. `Qwen/Qwen3-VL-4B-Instruct` scored 0.793 on the fixed California
+page-20 panel and 0.619 on Swissgeol, with no complete Swissgeol document.
+PaddleOCR-VL-1.6 and MinerU2.5 completed all pages but yielded no rows through
+the auditable interval decoder; this is decoder/task coverage, not direct-JSON
+F1. The bounded conclusion is recurring transport risk across model families
+and interfaces, not a universal capability estimate (Supplement S4.1).
+
+The one-time BGS v003 gate classified all five visible pages as unsupported and
+abstained: zero utility, but no false positive or critical numerical error.
+Unsupported pages should enter review rather than produce apparently complete
+records; this is not evidence of universal generalization.
 
 ### 6.3 Independent evidence converts proposals into selective decisions
 

@@ -22,6 +22,7 @@ fallback analyses.
   authorship, linkage, and final journal formatting remain external gates.
 - `cover_letter_points.md`: C&G-oriented submission framing and disclosure
   checklist.
+- `experiments/paper1/analysis/modern_vlm_transport_comparison_v001.json`: exploratory open-model source-shift roster; specialist decoder/task coverage is kept separate from direct-JSON F1.
 
 ## Scientific positioning
 

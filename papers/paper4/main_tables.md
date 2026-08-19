@@ -62,3 +62,16 @@ the final owned/accepted column represents automatically accepted intervals.
 | Parsing | strict JSON; no YAML, repair, completion, reorder, or deduplication |
 | Testing date | 2026-08-17 UTC |
 | Unrecoverable fields | vLLM source commit, per-request trace, and immutable contemporaneous runtime lockfile |
+
+## Table 5. Exploratory modern open-model transport panel
+
+| Model/interface | Panel | Documents/pages | Interval output | Boundary-pair F1 | Complete-document exactness | Evidence interpretation |
+|---|---|---:|---:|---:|---:|---|
+| `Qwen/Qwen3.8-27B-FP8` direct JSON | Swissgeol held-out | 35/35 | 76 | 0.577 | 0/35 | source-agreement transport result |
+| `Qwen/Qwen3-VL-4B-Instruct` direct JSON | California v003 page-20 exploratory | 13/20 | 273 | 0.793 | 3/13 | fixed exploratory subset |
+| `Qwen/Qwen3-VL-4B-Instruct` direct JSON | Swissgeol held-out | 35/35 | 59 | 0.619 | 0/35 | source-agreement transport result |
+| `PaddlePaddle/PaddleOCR-VL-1.6` official table task | Swissgeol held-out | 35/35 | 0 auditable decoded rows | 0.000* | 0/35 | task completed; fixed interval decoder coverage 0 |
+| `opendatalab/MinerU2.5-Pro-2604-1.2B` official parser | Swissgeol held-out | 35/35 | 0 auditable decoded rows | 0.000* | 0/35 | task completed; fixed interval decoder coverage 0 |
+
+\* The specialist rows are decoder/task-coverage results, not claims that the
+models produced no table content. They are not pooled with direct-JSON F1.

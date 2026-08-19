@@ -30,15 +30,25 @@ def write_jsonl(path: Path, rows: Iterable[Mapping[str, Any]]) -> None:
 
 
 def reference_intervals(source: Mapping[str, Any]) -> list[dict[str, Any]]:
-    return [
-        {
-            "top_depth_m": float(item["top_depth_ft"]) * 0.3048,
-            "bottom_depth_m": float(item["bottom_depth_ft"]) * 0.3048,
-            "thickness_m": float(item["thickness_ft"]) * 0.3048,
+    output: list[dict[str, Any]] = []
+    for item in source["intervals"]:
+        if "top_depth_m" in item:
+            top = float(item["top_depth_m"])
+            bottom = float(item["bottom_depth_m"])
+            thickness = float(item.get("thickness_m", bottom - top))
+        elif "top_depth_ft" in item:
+            top = float(item["top_depth_ft"]) * 0.3048
+            bottom = float(item["bottom_depth_ft"]) * 0.3048
+            thickness = float(item.get("thickness_ft", float(item["bottom_depth_ft"]) - float(item["top_depth_ft"]))) * 0.3048
+        else:
+            raise ValueError(f"reference interval lacks supported units: {item}")
+        output.append({
+            "top_depth_m": top,
+            "bottom_depth_m": bottom,
+            "thickness_m": thickness,
             "lithology_normalized": str(item.get("lithology_raw") or "").strip().lower(),
-        }
-        for item in source["intervals"]
-    ]
+        })
+    return output
 
 
 def main() -> None:
