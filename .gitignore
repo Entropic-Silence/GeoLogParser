@@ -30,3 +30,17 @@ datasets/raw/
 datasets/processed/
 /models/
 /cache/
+
+# Paper 4 local PDF QA renders and TeX intermediates.
+papers/paper4/_vector_render/
+papers/paper4/submission/cageo/_qa*/
+papers/paper4/submission/cageo/_render*/
+papers/paper4/submission/cageo/manuscript.abs
+papers/paper4/submission/cageo/manuscript.aux
+papers/paper4/submission/cageo/manuscript.bbl
+papers/paper4/submission/cageo/manuscript.blg
+papers/paper4/submission/cageo/manuscript.log
+papers/paper4/submission/cageo/manuscript.pdf
+papers/paper4/submission/cageo/manuscript_zh.*
+papers/paper4/submission/cageo/zh_page-*.png
+papers/paper4/submission/cageo/*审阅说明*.md
