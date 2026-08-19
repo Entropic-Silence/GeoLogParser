@@ -96,10 +96,10 @@
       "sha256": "4a01952a09a39ffb4ccea6d893c3606eddc3d9e350e807d5557a082c3e969e6f"
     }
   ],
-  "generated_utc": "2026-08-19T11:53:32.976249+00:00",
+  "generated_utc": "2026-08-19T12:02:00.820190+00:00",
   "license": "MIT (source code)",
   "repository": "https://github.com/Entropic-Silence/GeoLogParser",
   "rights_status": "Programmatic figures and redistributable structured/reanalysis assets are included; source PDFs, rendered pages, raw OCR regions, and model weights remain excluded where third-party terms apply. Final item-level rights sign-off is an author action.",
   "schema": "paper4_cageo_artifact_manifest_v001",
-  "source_git_commit": "f1b24436246b61eac2377417238b7777bd4ebf34"
+  "source_git_commit": "de8a5d6ad6fe1ae5557c153b643d913e52cb7b59"
 }
