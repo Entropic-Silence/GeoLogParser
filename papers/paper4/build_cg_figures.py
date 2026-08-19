@@ -51,16 +51,18 @@ def fig1() -> None:
         (0.235, 0.42, 0.16, 0.28, "Independent evidence", "positioned values\npage + bbox", "#dcfce7"),
         (0.44, 0.42, 0.16, 0.28, "Deterministic checks", "units · order\ncolumn ownership", "#fef3c7"),
         (0.645, 0.55, 0.14, 0.22, "ACCEPT", "auditable row", "#bbf7d0"),
-        (0.645, 0.28, 0.14, 0.22, "REVIEW", "raw proposal +\nreason preserved", "#fee2e2"),
-        (0.84, 0.42, 0.14, 0.28, "Downstream", "support mask →\nsurface / volume", "#e0e7ff"),
+        (0.645, 0.28, 0.14, 0.22, "NEEDS REVIEW", "raw proposal +\nreason preserved", "#fee2e2"),
+        (0.84, 0.42, 0.14, 0.28, "Database + support", "accepted rows →\nsupport mask", "#e0e7ff"),
+        (0.44, 0.08, 0.16, 0.18, "Legacy recovery", "secondary harm\nanalysis only", "#f1f5f9"),
     ]
     for x, y, w, h, title, body, color in nodes:
+        linestyle = "--" if title == "Legacy recovery" else "-"
         box = FancyBboxPatch((x, y), w, h, boxstyle="round,pad=0.012,rounding_size=0.02",
-                             linewidth=1.2, edgecolor="#334155", facecolor=color)
+                             linewidth=1.2, linestyle=linestyle, edgecolor="#334155", facecolor=color)
         ax.add_patch(box)
-        ax.text(x + w / 2, y + h * 0.64, title, ha="center", va="center", fontsize=11,
+        ax.text(x + w / 2, y + h * 0.64, title, ha="center", va="center", fontsize=10,
                 fontweight="bold", color="#0f172a")
-        ax.text(x + w / 2, y + h * 0.34, body, ha="center", va="center", fontsize=9,
+        ax.text(x + w / 2, y + h * 0.34, body, ha="center", va="center", fontsize=8.5,
                 color="#334155")
     arrows = [
         ((0.19, 0.56), (0.235, 0.56)), ((0.395, 0.56), (0.44, 0.56)),
@@ -70,12 +72,22 @@ def fig1() -> None:
     for start, end in arrows:
         ax.add_patch(FancyArrowPatch(start, end, arrowstyle="-|>", mutation_scale=14,
                                      linewidth=1.3, color="#475569"))
-    ax.text(0.5, 0.91, "Provenance-grounded assurance is a decision layer, not a second generative answer",
+    ax.add_patch(FancyArrowPatch((0.52, 0.42), (0.52, 0.26), arrowstyle="-|>",
+                                 mutation_scale=12, linewidth=1.1,
+                                 linestyle="--", color="#64748b"))
+    ax.text(0.03, 0.78, "RQ1 / CAPABILITY", ha="left", fontsize=9,
+            fontweight="bold", color="#1d4ed8")
+    ax.text(0.235, 0.78, "RQ2 / ASSURANCE", ha="left", fontsize=9,
+            fontweight="bold", color="#15803d")
+    ax.text(0.84, 0.78, "RQ3 / CONSEQUENCE", ha="left", fontsize=9,
+            fontweight="bold", color="#4338ca")
+    ax.text(0.5, 0.91, "One chain: capability → evidence → decision → support consequence",
             ha="center", fontsize=13, fontweight="bold", color="#0f172a")
-    ax.text(0.5, 0.06, "The immutable VLM proposal remains available even when the system abstains.",
-            ha="center", fontsize=9.5, color="#475569")
+    ax.text(0.5, 0.02, "Dashed branch: legacy sequence reconstruction is secondary harm analysis, not the main assurance path.",
+            ha="center", fontsize=8.5, color="#475569")
     fig.tight_layout()
-    fig.savefig(OUT / "F1_trustworthy_framework.png", bbox_inches="tight")
+    fig.savefig(OUT / "F1_trustworthy_framework.png", dpi=300, bbox_inches="tight")
+    fig.savefig(OUT / "F1_trustworthy_framework.pdf", bbox_inches="tight")
     plt.close(fig)
 
 
@@ -95,7 +107,9 @@ def fig2() -> None:
     ax1.set_ylim(0, 1.0)
     ax1.set_ylabel("Boundary-pair interval F1")
     ax1.set_xticks(x, cohorts)
-    ax1.set_title("Five record-disjoint California cohorts", fontweight="bold")
+    ax1.set_title("Familiar source: five record-disjoint cohorts", fontweight="bold")
+    ax1.text(0.02, 0.97, "Published manual-transcription Gold",
+             transform=ax1.transAxes, va="top", fontsize=8.5, color="#334155")
     ax1.legend(
         frameon=False, fontsize=8, loc="upper center", ncol=2,
         bbox_to_anchor=(0.5, -0.14),
@@ -111,13 +125,16 @@ def fig2() -> None:
     ax2.set_ylim(0, 1.0)
     ax2.set_ylabel("Boundary-pair interval F1")
     ax2.set_xticks(x2, ax2_labels, fontsize=8)
-    ax2.set_title("Source-shift panels (tiered evidence)", fontweight="bold")
+    ax2.set_title("Source shift: declared evidence tiers", fontweight="bold")
+    ax2.text(0.02, 0.97, "Source-agreement/stress panels; not pooled with Gold",
+             transform=ax2.transAxes, va="top", fontsize=8.5, color="#334155")
     style(ax2)
     for i, v in enumerate(ax2_values):
         ax2.text(i, min(v + 0.035, 0.97), f"{v:.3f}", ha="center", fontsize=8)
-    fig.suptitle("High familiar-source accuracy does not imply transport", fontsize=13, fontweight="bold")
+    fig.suptitle("Capability and transport are separate evidence questions", fontsize=13, fontweight="bold")
     fig.tight_layout(rect=(0, 0.06, 1, 0.94))
-    fig.savefig(OUT / "F2_vlm_source_shift.png", bbox_inches="tight")
+    fig.savefig(OUT / "F2_vlm_source_shift.png", dpi=300, bbox_inches="tight")
+    fig.savefig(OUT / "F2_vlm_source_shift.pdf", bbox_inches="tight")
     plt.close(fig)
 
 
@@ -182,7 +199,8 @@ def fig3() -> None:
     )
     fig.suptitle("Selective assurance makes automation utility explicit", fontsize=13, fontweight="bold")
     fig.tight_layout(rect=(0, 0, 1, 0.94))
-    fig.savefig(OUT / "F3_assurance_frontier.png", bbox_inches="tight")
+    fig.savefig(OUT / "F3_assurance_frontier.png", dpi=300, bbox_inches="tight")
+    fig.savefig(OUT / "F3_assurance_frontier.pdf", bbox_inches="tight")
     plt.close(fig)
 
 
@@ -200,7 +218,9 @@ def fig4() -> None:
     ax1.bar(x - width / 2, full, width, color="#64748b", label="full support")
     ax1.bar(x + width / 2, matched, width, color="#2563eb", label="matched 15 documents")
     ax1.set_xticks(x, labels); ax1.set_ylabel("Reference-relative volume discrepancy")
-    ax1.set_ylim(0, 0.17); ax1.set_title("The estimand changes the conclusion", fontweight="bold")
+    ax1.set_ylim(0, 0.17); ax1.set_title("Distinct estimands", fontweight="bold")
+    ax1.text(0.02, 0.97, "Full support uses each policy's retained points",
+             transform=ax1.transAxes, va="top", fontsize=8.2, color="#334155")
     ax1.legend(frameon=False, fontsize=8); style(ax1)
     for i, (a, b) in enumerate(zip(full, matched)):
         ax1.text(i - width / 2, a + 0.006, f"{a:.4f}", ha="center", fontsize=8)
@@ -224,15 +244,58 @@ def fig4() -> None:
     ax3.set_xticks(np.arange(2), dist_names); ax3.set_ylabel("Distance (km)")
     ax3.set_title("Support spacing", fontweight="bold")
     ax3.legend(frameon=False, fontsize=8); style(ax3)
-    fig.suptitle("Downstream consequence: acceptance is also a spatial sampling decision", fontsize=13, fontweight="bold")
+    fig.suptitle("Abstention changes the geoscientific observation set", fontsize=13, fontweight="bold")
     fig.tight_layout(rect=(0, 0, 1, 0.94))
-    fig.savefig(OUT / "F4_spatial_support_consequence.png", bbox_inches="tight")
+    fig.savefig(OUT / "F4_spatial_support_consequence.png", dpi=300, bbox_inches="tight")
+    fig.savefig(OUT / "F4_spatial_support_consequence.pdf", bbox_inches="tight")
+    plt.close(fig)
+
+
+def graphical_abstract() -> None:
+    fig, ax = plt.subplots(figsize=(12.5, 4.2), dpi=220)
+    ax.set_xlim(0, 1)
+    ax.set_ylim(0, 1)
+    ax.axis("off")
+    nodes = [
+        (0.03, 0.35, 0.14, 0.30, "Borehole page", "visual record", "#e2e8f0"),
+        (0.22, 0.35, 0.14, 0.30, "VLM proposal", "high recall", "#dbeafe"),
+        (0.41, 0.35, 0.14, 0.30, "Independent\n evidence", "page + bbox", "#dcfce7"),
+        (0.60, 0.53, 0.13, 0.22, "ACCEPT", "auditable row", "#bbf7d0"),
+        (0.60, 0.25, 0.13, 0.22, "REVIEW", "preserve reason", "#fee2e2"),
+        (0.79, 0.35, 0.16, 0.30, "Database +\nspatial support", "support mask", "#e0e7ff"),
+    ]
+    for x, y, w, h, title, body, color in nodes:
+        ax.add_patch(FancyBboxPatch((x, y), w, h,
+                                    boxstyle="round,pad=0.012,rounding_size=0.018",
+                                    linewidth=1.1, edgecolor="#334155",
+                                    facecolor=color))
+        ax.text(x + w / 2, y + h * 0.63, title, ha="center", va="center",
+                fontsize=11, fontweight="bold", color="#0f172a")
+        ax.text(x + w / 2, y + h * 0.34, body, ha="center", va="center",
+                fontsize=9, color="#334155")
+    for start, end in [
+        ((0.17, 0.50), (0.22, 0.50)), ((0.36, 0.50), (0.41, 0.50)),
+        ((0.55, 0.50), (0.60, 0.64)), ((0.55, 0.50), (0.60, 0.36)),
+        ((0.73, 0.64), (0.79, 0.50)), ((0.73, 0.36), (0.79, 0.50)),
+    ]:
+        ax.add_patch(FancyArrowPatch(start, end, arrowstyle="-|>",
+                                     mutation_scale=14, linewidth=1.3,
+                                     color="#475569"))
+    ax.text(0.50, 0.90,
+            "From visual extraction to trustworthy database ingestion",
+            ha="center", fontsize=15, fontweight="bold", color="#0f172a")
+    ax.text(0.50, 0.07,
+            "0.993 precision @ 24.4% proposal coverage  |  4/100 complete documents auto-accepted",
+            ha="center", fontsize=10, color="#334155")
+    fig.tight_layout()
+    fig.savefig(OUT / "graphical_abstract.png", dpi=300, bbox_inches="tight")
+    fig.savefig(OUT / "graphical_abstract.pdf", bbox_inches="tight")
     plt.close(fig)
 
 
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
-    fig1(); fig2(); fig3(); fig4()
+    fig1(); fig2(); fig3(); fig4(); graphical_abstract()
     manifest = {
         "manuscript": "paper4",
         "status": "integrated_cg_main_figure_set",
@@ -242,6 +305,11 @@ def main() -> None:
             {"id": "F3", "file": "figures/F3_assurance_frontier.png", "purpose": "precision, coverage, and complete-document automation"},
             {"id": "F4", "file": "figures/F4_spatial_support_consequence.png", "purpose": "full-support versus matched-support downstream consequence"},
         ],
+        "graphical_abstract": {
+            "file": "figures/graphical_abstract.pdf",
+            "purpose": "schematic overview of proposal, evidence, decision, and support",
+            "rights": "programmatic schematic; no source-page image used",
+        },
         "supplementary_figures": [
             {"id": "S1", "file": "figures/F4_risk_coverage_frontier.png", "purpose": "legacy sequence risk frontier"},
             {"id": "S2", "file": "figures/F5_threshold_development_curve.png", "purpose": "development-only threshold curve"},

@@ -36,7 +36,7 @@ def main() -> None:
     text = manuscript_path.read_text(encoding="utf-8")
     errors: list[str] = []
     required_headings = [
-        "## Abstract", "## Highlights", "## 1. Problem and research questions",
+        "## Abstract", "## Highlights", "## 1. Problem, hypothesis, and research questions",
         "## 2. Related work and positioning", "## 3. Evidence, data, and task definition",
         "## 4. Methods: provenance-grounded selective assurance", "## 5. Experimental protocol and reproducibility",
         "## 6. Results", "## 7. Discussion", "## 8. Limitations and threats to validity",
@@ -99,9 +99,9 @@ def main() -> None:
         "citation_key_count": len(cited_keys),
         "errors": errors,
         "external_review_required": [
-            "source rights and linkage verification",
-            "authorship, funding, competing-interest, and data-rights declarations",
-            "final Computers & Geosciences formatting and reference-style check",
+            "author-authorized archival DOI and data citation",
+            "Elsevier declarations-tool upload and item-level rights/linkage sign-off",
+            "final Computers & Geosciences portal formatting and artwork check",
         ],
     }
     # The gate is committed and rebuilt on Ubuntu and Windows CI runners.

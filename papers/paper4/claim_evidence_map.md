@@ -16,6 +16,7 @@
 | C4-12 | Reference-input LOO MAE is 47.06 m and jackknife ranges overlap | `p3.spatial_sensitivity` | Source-agreement reference | `experiments/paper3/analysis/swissgeol_spatial_sensitivity_v001.json` |
 | C4-13 | Support-preserving fusion improves 26–29 of 30 synthetic perturbation repetitions | `p3.coal602_consensus_qc` | Controlled synthetic error injection | `publication_evidence/result_core/results/2026-08-13/P3_COAL602_CONSENSUS_QC_CONTROLLED_002/metrics.json` |
 | C4-14 | Model, prompt, rendering, precision, runtime and parsing provenance | Qwen config and execution ledger | Protocol metadata | `configs/models/qwen38_fp8_modern_vlm_v002.json`; `papers/paper1/generated/modern_vlm_execution_ledger.md` |
+| C4-15 | Exploratory transport evidence across Qwen3-VL-4B, PaddleOCR-VL-1.6 and MinerU2.5-Pro on the independent Swissgeol panel | Modern open-model transport roster | Source-agreement reference; decoder/task-coverage diagnostics | `experiments/paper1/analysis/modern_vlm_transport_comparison_v001.json`; `configs/experiments/paper1_modern_vlm_transport_v001.json`; `papers/paper4/supplement.md` |
 
 ## Evidence boundary
 

@@ -1,0 +1,259 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 1090.00 335.00] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+6 0 obj
+<< /Length 3131 >>
+stream
+0.059 0.090 0.165 rg
+BT
+/F2 15.00 Tf
+285.00 315.00 Td
+(One chain: capability -> evidence -> decision -> support consequence) Tj
+ET
+0.059 0.090 0.165 rg
+BT
+/F2 9.00 Tf
+35.00 285.00 Td
+(RQ1 / CAPABILITY) Tj
+ET
+0.059 0.090 0.165 rg
+BT
+/F2 9.00 Tf
+290.00 285.00 Td
+(RQ2 / ASSURANCE) Tj
+ET
+0.059 0.090 0.165 rg
+BT
+/F2 9.00 Tf
+860.00 285.00 Td
+(RQ3 / CONSEQUENCE) Tj
+ET
+0.859 0.918 0.996 rg
+0.200 0.255 0.333 RG
+1.00 w
+25.00 150.00 185.00 80.00 re
+B
+0.059 0.090 0.165 rg
+BT
+/F2 10.00 Tf
+70.00 210.00 Td
+(Modern VLM proposal) Tj
+ET
+0.059 0.090 0.165 rg
+BT
+/F1 8.00 Tf
+57.50 191.00 Td
+(high-recall image -> intervals) Tj
+ET
+0.863 0.988 0.906 rg
+0.200 0.255 0.333 RG
+1.00 w
+240.00 150.00 185.00 80.00 re
+B
+0.059 0.090 0.165 rg
+BT
+/F2 10.00 Tf
+282.50 210.00 Td
+(Independent evidence) Tj
+ET
+0.059 0.090 0.165 rg
+BT
+/F1 8.00 Tf
+272.50 191.00 Td
+(positioned values; page + bbox) Tj
+ET
+0.996 0.953 0.780 rg
+0.200 0.255 0.333 RG
+1.00 w
+455.00 150.00 185.00 80.00 re
+B
+0.059 0.090 0.165 rg
+BT
+/F2 10.00 Tf
+497.50 210.00 Td
+(Deterministic checks) Tj
+ET
+0.059 0.090 0.165 rg
+BT
+/F1 8.00 Tf
+501.50 191.00 Td
+(units; order; ownership) Tj
+ET
+0.733 0.969 0.816 rg
+0.200 0.255 0.333 RG
+1.00 w
+675.00 190.00 145.00 68.00 re
+B
+0.059 0.090 0.165 rg
+BT
+/F2 10.00 Tf
+732.50 238.00 Td
+(ACCEPT) Tj
+ET
+0.059 0.090 0.165 rg
+BT
+/F1 8.00 Tf
+721.50 219.00 Td
+(auditable row) Tj
+ET
+0.996 0.886 0.886 rg
+0.200 0.255 0.333 RG
+1.00 w
+675.00 112.00 145.00 68.00 re
+B
+0.059 0.090 0.165 rg
+BT
+/F2 10.00 Tf
+717.50 160.00 Td
+(NEEDS REVIEW) Tj
+ET
+0.059 0.090 0.165 rg
+BT
+/F1 8.00 Tf
+713.50 141.00 Td
+(proposal + reason) Tj
+ET
+0.878 0.906 1.000 rg
+0.200 0.255 0.333 RG
+1.00 w
+875.00 150.00 190.00 80.00 re
+B
+0.059 0.090 0.165 rg
+BT
+/F2 10.00 Tf
+925.00 210.00 Td
+(Database + support) Tj
+ET
+0.059 0.090 0.165 rg
+BT
+/F1 8.00 Tf
+912.00 191.00 Td
+(accepted rows -> support mask) Tj
+ET
+0.278 0.333 0.412 RG
+1.40 w
+210.00 190.00 m
+240.00 190.00 l
+S
+0.278 0.333 0.412 rg
+240.00 190.00 m
+232.80 193.48 l
+232.80 186.52 l
+h
+f
+0.278 0.333 0.412 RG
+1.40 w
+425.00 190.00 m
+455.00 190.00 l
+S
+0.278 0.333 0.412 rg
+455.00 190.00 m
+447.80 193.48 l
+447.80 186.52 l
+h
+f
+0.278 0.333 0.412 RG
+1.40 w
+640.00 190.00 m
+675.00 224.00 l
+S
+0.278 0.333 0.412 rg
+675.00 224.00 m
+667.41 221.48 l
+672.26 216.48 l
+h
+f
+0.278 0.333 0.412 RG
+1.40 w
+640.00 190.00 m
+675.00 146.00 l
+S
+0.278 0.333 0.412 rg
+675.00 146.00 m
+673.24 153.80 l
+667.79 149.47 l
+h
+f
+0.278 0.333 0.412 RG
+1.40 w
+820.00 224.00 m
+875.00 190.00 l
+S
+0.278 0.333 0.412 rg
+875.00 190.00 m
+870.70 196.75 l
+867.04 190.83 l
+h
+f
+0.278 0.333 0.412 RG
+1.40 w
+820.00 146.00 m
+875.00 190.00 l
+S
+0.278 0.333 0.412 rg
+875.00 190.00 m
+867.20 188.22 l
+871.55 182.78 l
+h
+f
+0.945 0.961 0.976 rg
+0.392 0.455 0.545 RG
+1.00 w
+455.00 45.00 185.00 55.00 re
+B
+0.059 0.090 0.165 rg
+BT
+/F2 9.00 Tf
+513.25 80.00 Td
+(Legacy recovery) Tj
+ET
+0.059 0.090 0.165 rg
+BT
+/F1 7.50 Tf
+494.50 63.00 Td
+(secondary harm analysis only) Tj
+ET
+0.392 0.455 0.545 RG
+1.00 w
+[5 4] 0 d
+547.00 150.00 m
+547.00 100.00 l
+S
+[] 0 d
+0.059 0.090 0.165 rg
+BT
+/F1 8.00 Tf
+336.00 20.00 Td
+(Dashed branch: legacy sequence reconstruction is secondary harm analysis, not the main assurance path.) Tj
+ET
+
+endstream
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000121 00000 n 
+0000000264 00000 n 
+0000000334 00000 n 
+0000000409 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+3592
+%%EOF

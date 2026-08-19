@@ -1,0 +1,105 @@
+{
+  "author": {
+    "affiliation": "North China University of Water Resources and Electric Power",
+    "corresponding_author": true,
+    "email": "duyifan619916@gmail.com",
+    "name": "Yifan Du",
+    "orcid": "0009-0008-7740-5408"
+  },
+  "branch": "agent/publication-evidence-bundle",
+  "doi": null,
+  "doi_status": "pending author-authorized Zenodo/DataCite archival deposit",
+  "files": [
+    {
+      "bytes": 44274,
+      "file": "papers/paper4/submission/cageo/manuscript_final.md",
+      "sha256": "60c02f64bf39f903d4f6915fdbb874723759e47dd5a621b84a03dbc85ae81658"
+    },
+    {
+      "bytes": 129904,
+      "file": "papers/paper4/submission/cageo/manuscript_final.pdf",
+      "sha256": "cd5d6b81c1b406afe7f0d617e9ed2352be205983b70ce4c8a477d65ccb4f13d1"
+    },
+    {
+      "bytes": 51513,
+      "file": "papers/paper4/submission/cageo/manuscript.tex",
+      "sha256": "ac2945d98394cabbb1d535039a123d5f7fb90f41cd574a461f806884004fd76c"
+    },
+    {
+      "bytes": 11885,
+      "file": "papers/paper4/submission/cageo/references_cageo.bib",
+      "sha256": "3e880fce5d8d97e93211504af6bb08bf67f0a7b33c14de48ee7fcd5f6e97afe1"
+    },
+    {
+      "bytes": 310,
+      "file": "papers/paper4/submission/cageo/highlights.txt",
+      "sha256": "b3e5378092b8bdb8f2dbb9344b6c3fe9946e8e62b8ddae4ebd80c2a22d410bce"
+    },
+    {
+      "bytes": 131734,
+      "file": "papers/paper4/submission/cageo/manuscript_review_v2.pdf",
+      "sha256": "2a6845cdcea06e4f94119484b43f930ee9fc2e2b1927e80f5393b7a2962874bc"
+    },
+    {
+      "bytes": 19281,
+      "file": "papers/paper4/submission/cageo/CAGEO_REQUIREMENTS.md",
+      "sha256": "f2ac8c0489586ce80771d78d0cd03755fb75091b90fab6b55366666664e1a4e5"
+    },
+    {
+      "bytes": 5011,
+      "file": "papers/paper4/submission/cageo/FOCUS_AND_REVIEW_AUDIT.md",
+      "sha256": "f624e404293838eb191b439d326ef03cb7114148f9fa68f740083bae6973e4b4"
+    },
+    {
+      "bytes": 3315,
+      "file": "papers/paper4/submission/cageo/REVIEW_VERSION_NOTES.md",
+      "sha256": "e21a93f8e0aa5841a7c70c78d8ce4a604f71034eac78d7d7e6a09db732a897b7"
+    },
+    {
+      "bytes": 6149,
+      "file": "papers/paper4/submission_bundle/Paper4_Upload_Manifest.json",
+      "sha256": "62458ceb05d6678a2c557d156c899d6d5aa234c5586c5e9710720750ae9bdd69"
+    },
+    {
+      "bytes": 44274,
+      "file": "papers/paper4/submission_bundle/Paper4_Final_Manuscript.md",
+      "sha256": "60c02f64bf39f903d4f6915fdbb874723759e47dd5a621b84a03dbc85ae81658"
+    },
+    {
+      "bytes": 129904,
+      "file": "papers/paper4/submission_bundle/Paper4_Final_Manuscript.pdf",
+      "sha256": "cd5d6b81c1b406afe7f0d617e9ed2352be205983b70ce4c8a477d65ccb4f13d1"
+    },
+    {
+      "bytes": 3796,
+      "file": "papers/paper4/figures/Figure_1.pdf",
+      "sha256": "8de9eb27b5c9136fd9ed77050c407b1dbea3ba88788ca54bfcd2d3636d77330c"
+    },
+    {
+      "bytes": 6223,
+      "file": "papers/paper4/figures/Figure_2.pdf",
+      "sha256": "be17aa09cbe242479a2931b5ff5489b8f1859b0fb0a67d16a20b34be4fb1f140"
+    },
+    {
+      "bytes": 5950,
+      "file": "papers/paper4/figures/Figure_3.pdf",
+      "sha256": "8782edce00543230871a0a44b8a53815365237c297a3b62d88db9b046b8db637"
+    },
+    {
+      "bytes": 6385,
+      "file": "papers/paper4/figures/Figure_4.pdf",
+      "sha256": "d85530f2bc4ed46771151817b1497fa2ea70a067725cc20acfc1ed18663e332e"
+    },
+    {
+      "bytes": 3129,
+      "file": "papers/paper4/figures/graphical_abstract.pdf",
+      "sha256": "4a01952a09a39ffb4ccea6d893c3606eddc3d9e350e807d5557a082c3e969e6f"
+    }
+  ],
+  "generated_utc": "2026-08-19T11:53:32.976249+00:00",
+  "license": "MIT (source code)",
+  "repository": "https://github.com/Entropic-Silence/GeoLogParser",
+  "rights_status": "Programmatic figures and redistributable structured/reanalysis assets are included; source PDFs, rendered pages, raw OCR regions, and model weights remain excluded where third-party terms apply. Final item-level rights sign-off is an author action.",
+  "schema": "paper4_cageo_artifact_manifest_v001",
+  "source_git_commit": "f1b24436246b61eac2377417238b7777bd4ebf34"
+}

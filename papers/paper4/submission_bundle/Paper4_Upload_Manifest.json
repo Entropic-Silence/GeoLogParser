@@ -1,0 +1,163 @@
+{
+  "files": [
+    {
+      "bytes": 1893,
+      "file": "Paper4_Data_Code_Availability.md",
+      "role": "supplementary/reproducibility document",
+      "sha256": "09e54baccee1f7a66b64527dd31743ef6a7e2cd4d4f98c4acbaa15520350ca02",
+      "source": "papers/paper4/data_code_availability.md"
+    },
+    {
+      "bytes": 3796,
+      "file": "Paper4_Figure_1.pdf",
+      "role": "main figure",
+      "sha256": "8de9eb27b5c9136fd9ed77050c407b1dbea3ba88788ca54bfcd2d3636d77330c",
+      "source": "papers/paper4/figures/Figure_1.pdf"
+    },
+    {
+      "bytes": 77927,
+      "file": "Paper4_Figure_1.png",
+      "role": "main figure",
+      "sha256": "6fdb0780ea142b16279bc0207ee868a2b288ba8f3e6d882ecdbd5527b5e91b5a",
+      "source": "papers/paper4/figures/F1_trustworthy_framework.png"
+    },
+    {
+      "bytes": 6223,
+      "file": "Paper4_Figure_2.pdf",
+      "role": "main figure",
+      "sha256": "be17aa09cbe242479a2931b5ff5489b8f1859b0fb0a67d16a20b34be4fb1f140",
+      "source": "papers/paper4/figures/Figure_2.pdf"
+    },
+    {
+      "bytes": 73700,
+      "file": "Paper4_Figure_2.png",
+      "role": "main figure",
+      "sha256": "d16b54c7c030b9753c4b97ff1e03f14365fa00a23ffd8c40fa25f2f1eedeebf7",
+      "source": "papers/paper4/figures/F2_vlm_source_shift.png"
+    },
+    {
+      "bytes": 5950,
+      "file": "Paper4_Figure_3.pdf",
+      "role": "main figure",
+      "sha256": "8782edce00543230871a0a44b8a53815365237c297a3b62d88db9b046b8db637",
+      "source": "papers/paper4/figures/Figure_3.pdf"
+    },
+    {
+      "bytes": 162995,
+      "file": "Paper4_Figure_3.png",
+      "role": "main figure",
+      "sha256": "45947d8b6defc542bcac55c330a6ce9366b987f3c938b60791aeda837c7c1dc2",
+      "source": "papers/paper4/figures/F3_assurance_frontier.png"
+    },
+    {
+      "bytes": 6385,
+      "file": "Paper4_Figure_4.pdf",
+      "role": "main figure",
+      "sha256": "d85530f2bc4ed46771151817b1497fa2ea70a067725cc20acfc1ed18663e332e",
+      "source": "papers/paper4/figures/Figure_4.pdf"
+    },
+    {
+      "bytes": 85054,
+      "file": "Paper4_Figure_4.png",
+      "role": "main figure",
+      "sha256": "b52f4c6d5733aeada88faf05a45096dd444dbde7b0100fc0bdee8dc164017d69",
+      "source": "papers/paper4/figures/F4_spatial_support_consequence.png"
+    },
+    {
+      "bytes": 2172,
+      "file": "Paper4_Figure_Manifest.json",
+      "role": "figure manifest",
+      "sha256": "9047b5488210b0634e58734a09370023081e6b57b4399e7a7b1375366f6a896a",
+      "source": "papers/paper4/figure_manifest.json"
+    },
+    {
+      "bytes": 44274,
+      "file": "Paper4_Final_Manuscript.md",
+      "role": "final manuscript",
+      "sha256": "60c02f64bf39f903d4f6915fdbb874723759e47dd5a621b84a03dbc85ae81658",
+      "source": "papers/paper4/submission/cageo/manuscript_final.md"
+    },
+    {
+      "bytes": 129904,
+      "file": "Paper4_Final_Manuscript.pdf",
+      "role": "final manuscript",
+      "sha256": "cd5d6b81c1b406afe7f0d617e9ed2352be205983b70ce4c8a477d65ccb4f13d1",
+      "source": "papers/paper4/submission/cageo/manuscript_final.pdf"
+    },
+    {
+      "bytes": 3129,
+      "file": "Paper4_Graphical_Abstract.pdf",
+      "role": "supplementary figure",
+      "sha256": "4a01952a09a39ffb4ccea6d893c3606eddc3d9e350e807d5557a082c3e969e6f",
+      "source": "papers/paper4/figures/graphical_abstract.pdf"
+    },
+    {
+      "bytes": 56090,
+      "file": "Paper4_Graphical_Abstract.png",
+      "role": "supplementary figure",
+      "sha256": "e4694df4d38f56b66fcf5798f303322e65461a8faf0e857ab4c319638e543a24",
+      "source": "papers/paper4/figures/graphical_abstract.png"
+    },
+    {
+      "bytes": 43467,
+      "file": "Paper4_Main_Manuscript.md",
+      "role": "main manuscript",
+      "sha256": "d5fd37848fdf5c9bc2721d18237f072482a126c35697e22b0800e0574ff42a7d",
+      "source": "papers/paper4/manuscript.md"
+    },
+    {
+      "bytes": 4323,
+      "file": "Paper4_Main_Tables.md",
+      "role": "supplementary/reproducibility document",
+      "sha256": "5fd51f7b50f3c0892c12e6bc8a5d890e007b34408b675c23a5a34011ec86cea0",
+      "source": "papers/paper4/main_tables.md"
+    },
+    {
+      "bytes": 3125,
+      "file": "Paper4_Reproduce.md",
+      "role": "supplementary/reproducibility document",
+      "sha256": "f6da784bce34ffedcfe358302b4add3143bbde70a749b68a570e07c8588e24a0",
+      "source": "papers/paper4/REPRODUCE.md"
+    },
+    {
+      "bytes": 3964,
+      "file": "Paper4_Supplementary_Figure_Captions.md",
+      "role": "supplementary/reproducibility document",
+      "sha256": "4a37dcaf524f5761ccc04132dd632a4168b1b0c6e2b2277f0451680701ababb9",
+      "source": "papers/paper4/supplementary_captions.md"
+    },
+    {
+      "bytes": 89432,
+      "file": "Paper4_Supplementary_Figure_S1.png",
+      "role": "supplementary figure",
+      "sha256": "39c3ecdb57440992326a4e154ab5bd63d876c600f729a37e0e0520f667941d25",
+      "source": "papers/paper4/figures/F4_risk_coverage_frontier.png"
+    },
+    {
+      "bytes": 103810,
+      "file": "Paper4_Supplementary_Figure_S2.png",
+      "role": "supplementary figure",
+      "sha256": "15909171aa7e44239d9aa5e3c5a1316c69bbfd863810892b90a4165266a956a3",
+      "source": "papers/paper4/figures/F5_threshold_development_curve.png"
+    },
+    {
+      "bytes": 290010,
+      "file": "Paper4_Supplementary_Figure_S3.png",
+      "role": "supplementary figure",
+      "sha256": "5aa64a60fd82ed56ba6efbb20feca4c30810cef087d192cf6d0ef58e8fdac0ff",
+      "source": "papers/paper4/figures/F7_controlled_error_mechanisms.png"
+    },
+    {
+      "bytes": 17666,
+      "file": "Paper4_Supplementary_Methods.md",
+      "role": "supplementary/reproducibility document",
+      "sha256": "eb3505d7d4b096a1fa7fc976130b8ab259e6c663b395a3d03de35a522e3c082b",
+      "source": "papers/paper4/supplement.md"
+    }
+  ],
+  "package_label": "SUBMISSION_READY_CANDIDATE",
+  "purpose": "manuscript-facing file assembly for Computers & Geosciences review",
+  "rights_scope": "No source PDFs, rendered source pages, raw OCR, model weights, credentials, or uncleared source-derived page assets are included.",
+  "schema": "paper4_cg_upload_bundle_v001",
+  "supplementary_caption_file": "Paper4_Supplementary_Figure_Captions.md"
+}

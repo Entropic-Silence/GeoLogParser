@@ -1,0 +1,65 @@
+{
+  "experiment_family": "PaperI-ModernVLM-Transport",
+  "protocol_revision": "transport_v001",
+  "status": "FROZEN_POST_HOC_EXPLORATORY_ROSTER_EXTENSION",
+  "purpose": "Test whether source-shift degradation recurs across independent open VLM families/interfaces without changing the frozen Paper 4 parser or consuming BGS v003.",
+  "panels": {
+    "california_v003_page20": {
+      "source_manifest": "datasets/manifests/california_wcr_gold_v003_test_v001.jsonl",
+      "page_manifest": "experiments/paper1/transport_inputs/california_v003_pages.jsonl",
+      "selection": "first 20 frozen evaluation pages from the existing California v003 page run; exploratory only",
+      "document_count_expected": 13,
+      "page_count_expected": 20,
+      "printed_depth_unit": "ft",
+      "metres_per_printed_unit": 0.3048
+    },
+    "swissgeol_heldout": {
+      "source_manifest": "datasets/manifests/swissgeol_tg_v003_layout_heldout_v001.jsonl",
+      "page_manifest": "experiments/paper1/transport_inputs/swissgeol_heldout_pages.jsonl",
+      "selection": "complete 35-document held-out source-agreement panel",
+      "document_count_expected": 35,
+      "page_count_expected": 35,
+      "printed_depth_unit": "m",
+      "metres_per_printed_unit": 1.0
+    }
+  },
+  "models": [
+    {
+      "model_config": "configs/models/qwen38_fp8_modern_vlm_v002.json",
+      "interface": "direct page-to-JSON",
+      "role": "existing reference baseline"
+    },
+    {
+      "model_config": "configs/models/qwen3vl4b_modern_vlm_v001.json",
+      "interface": "direct page-to-JSON",
+      "role": "open generalist VLM transport baseline"
+    },
+    {
+      "model_config": "configs/models/paddleocr_vl_1_6_modern_vlm_v001.json",
+      "interface": "official table-recognition task",
+      "role": "document-specialist open VLM baseline"
+    },
+    {
+      "model_config": "configs/models/mineru25_pro_modern_vlm_v001.json",
+      "interface": "official two-step document parser",
+      "role": "document-specialist open VLM baseline"
+    }
+  ],
+  "fixed_decoding": {
+    "temperature": 0.0,
+    "top_p": "not_sent_or_provider_default",
+    "repair": false,
+    "reorder": false,
+    "deduplicate": false,
+    "reference_conditioning": false,
+    "threshold_tuning": false,
+    "prompt_tuning": false,
+    "boundary_tolerance_m": 0.05
+  },
+  "exclusions": [
+    "BGS v003 is not read, used for tuning, or used for model selection.",
+    "The interrupted full California Qwen3-VL run is not evidence and is excluded from aggregate metrics.",
+    "Document-specialist decoder coverage is reported separately from direct-JSON interval F1.",
+    "This panel is transport evidence, not a universal capability estimate."
+  ]
+}
