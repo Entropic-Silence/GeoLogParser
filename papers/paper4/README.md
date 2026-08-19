@@ -22,7 +22,10 @@ fallback analyses.
   authorship, linkage, and final journal formatting remain external gates.
 - `cover_letter_points.md`: C&G-oriented submission framing and disclosure
   checklist.
-- `experiments/paper1/analysis/modern_vlm_transport_comparison_v001.json`: exploratory open-model source-shift roster; specialist decoder/task coverage is kept separate from direct-JSON F1.
+- `../../experiments/paper1/analysis/modern_vlm_transport_comparison_v001.json`: exploratory open-model source-shift roster; specialist decoder/task coverage is kept separate from direct-JSON F1.
+- `REPRODUCE.md`: fresh-checkout commands for rebuilding the Paper 4 figures,
+  publication evidence, tables, package manifest, and audits without source
+  PDFs or model weights.
 
 ## Scientific positioning
 
@@ -38,3 +41,7 @@ The main-figure assets are regenerated from frozen Paper I/II/III analysis JSON
 files by `build_cg_figures.py`; no model is rerun. Before submission, run the
 repository-wide numeric audit, `audit_claim_evidence.py`, and the C&G submission
 gate, then confirm the final artwork/reference requirements.
+
+For the complete result-reproduction workflow, run
+`python scripts/reproduce_paper4.py`; see `REPRODUCE.md` for the exact
+environment, publication-evidence scope, and expected gate state.
