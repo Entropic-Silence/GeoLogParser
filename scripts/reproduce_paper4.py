@@ -32,6 +32,7 @@ def main() -> None:
     args = parser.parse_args()
 
     run("build integrated C&G figures", "papers/paper4/build_cg_figures.py")
+    run("assemble manuscript-facing upload bundle", "scripts/build_paper4_upload_bundle.py")
     run("rebuild redistributable evidence core", "scripts/build_publication_evidence.py")
     run(
         "rebuild publication-facing tables and metric audit",

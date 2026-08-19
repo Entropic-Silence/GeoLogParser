@@ -92,8 +92,13 @@ def main() -> None:
             "review_bundle_sha256": sha256(paper4_root / "manuscript.md"),
             "supplement_path": "paper4/supplement.md",
             "supplement_sha256": sha256(paper4_root / "supplement.md"),
+            "supplementary_captions_path": "paper4/supplementary_captions.md",
+            "supplementary_captions_sha256": sha256(paper4_root / "supplementary_captions.md"),
             "major_revision_tables_path": "paper4/main_tables.md",
             "major_revision_tables_sha256": sha256(paper4_root / "main_tables.md"),
+            "upload_bundle_path": "paper4/submission_bundle",
+            "upload_manifest_path": "paper4/submission_bundle/Paper4_Upload_Manifest.json",
+            "upload_manifest_sha256": sha256(paper4_root / "submission_bundle/Paper4_Upload_Manifest.json"),
         })
         print(paper4_root / "manuscript.md")
     manifest = {

@@ -237,15 +237,15 @@ def main() -> None:
         "manuscript": "paper4",
         "status": "integrated_cg_main_figure_set",
         "figures": [
-            {"id": "F1", "file": "figures/F1_trustworthy_framework.png", "purpose": "provenance-grounded assurance framework"},
-            {"id": "F2", "file": "figures/F2_vlm_source_shift.png", "purpose": "California VLM/OCR comparison and source shift"},
-            {"id": "F3", "file": "figures/F3_assurance_frontier.png", "purpose": "precision, coverage, and complete-document automation"},
-            {"id": "F4", "file": "figures/F4_spatial_support_consequence.png", "purpose": "full-support versus matched-support downstream consequence"},
+            {"id": "F1", "file": "figures/F1_trustworthy_framework.png", "purpose": "provenance-grounded assurance framework", "caption": "Provenance-grounded assurance framework."},
+            {"id": "F2", "file": "figures/F2_vlm_source_shift.png", "purpose": "California VLM/OCR comparison and source shift", "caption": "Modern VLM reliability across California cohorts and source shift."},
+            {"id": "F3", "file": "figures/F3_assurance_frontier.png", "purpose": "precision, coverage, and complete-document automation", "caption": "Selective assurance viewed simultaneously as precision, proposal coverage, complete-document automation, and a held-out v003 evidence funnel."},
+            {"id": "F4", "file": "figures/F4_spatial_support_consequence.png", "purpose": "full-support versus matched-support downstream consequence", "caption": "Full-support versus matched-support downstream consequence of selective acceptance."},
         ],
         "supplementary_figures": [
-            {"id": "S1", "file": "figures/F4_risk_coverage_frontier.png", "purpose": "legacy sequence risk frontier"},
-            {"id": "S2", "file": "figures/F5_threshold_development_curve.png", "purpose": "development-only threshold curve"},
-            {"id": "S3", "file": "figures/F7_controlled_error_mechanisms.png", "purpose": "controlled synthetic perturbation mechanisms"},
+            {"id": "S1", "file": "figures/F4_risk_coverage_frontier.png", "purpose": "legacy sequence risk frontier", "caption": "Legacy sequence-reconstruction risk frontier."},
+            {"id": "S2", "file": "figures/F5_threshold_development_curve.png", "purpose": "development-only threshold curve", "caption": "Development-only threshold selection."},
+            {"id": "S3", "file": "figures/F7_controlled_error_mechanisms.png", "purpose": "controlled synthetic perturbation mechanisms", "caption": "Controlled error mechanisms and spatial response."},
         ],
         "source_manifests": {
             str(p.relative_to(ROOT)): digest(p)
