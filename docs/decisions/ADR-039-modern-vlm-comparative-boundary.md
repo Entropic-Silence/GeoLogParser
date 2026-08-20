@@ -10,7 +10,8 @@ of deployability. The comparison records interval recovery, JSON delivery,
 numeric invalidity, latency, raw output volume, source grounding, deterministic
 validation, abstention, acceptance risk, and database provenance separately.
 
-Qwen3.8-27B-FP8 and MinerU2.5-Pro form the initial open-model group. GPT-5.6
+Qwen3.8-27B-FP8, Qwen3-VL-4B-Instruct, MinerU2.5-Pro, and PaddleOCR-VL-1.6
+form the open-model group. GPT-5.6
 Sol and Claude Opus 4.6 are registered as a user-directed, post-hoc exploratory
 closed-model extension. They require a direct official credential; neither the
 interactive Codex model nor an opaque API proxy may be substituted.

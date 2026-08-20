@@ -35,6 +35,40 @@ HIGHLIGHTS = [
 ]
 
 
+CODE_AVAILABILITY = (
+    "The GeoLogParser repository contains versioned code/configuration, prompt hashes, "
+    "metric bindings, figure generators, claim audits, and recomputation scripts for "
+    "this article. The source code is released under the MIT license at "
+    "https://github.com/Entropic-Silence/GeoLogParser. The frozen article and "
+    "reproducibility package is identified by the annotated release tag "
+    "paper4-cageo-v1.0.0. An archival DOI will be added after the author deposits "
+    "the tagged release."
+)
+
+DATA_AVAILABILITY = (
+    "Public structured/reanalysis assets and materials needed to reproduce the reported "
+    "analyses are available in the GeoLogParser repository under the "
+    "paper4-cageo-v1.0.0 release tag. Source PDFs, rendered pages, raw OCR regions, "
+    "model weights, and private credentials are not redistributed where third-party "
+    "terms apply. The sole author reviewed and screened the release materials for public "
+    "dissemination and confirmed the retained source attribution and linkage records. "
+    "The archival DOI will be appended after deposit."
+)
+
+
+DECLARATIONS = (
+    "**Funding:** This research did not receive any specific grant from funding agencies "
+    "in the public, commercial, or not-for-profit sectors; it was self-funded.\n\n"
+    "**Competing interests:** The author declares no competing interests.\n\n"
+    "**Rights and linkage:** Yifan Du, sole and corresponding author, confirms that the "
+    "materials included in the tagged GeoLogParser release were reviewed and screened "
+    "for public dissemination, that source-specific attribution and linkage information "
+    "is retained in the repository manifests, and that the public package is sufficient "
+    "to reproduce the reported analyses. This sign-off does not redistribute third-party "
+    "source files whose terms prohibit redistribution."
+)
+
+
 FROZEN_STRINGS = [
     "450 reports",
     "8,268 intervals",
@@ -108,6 +142,13 @@ def repair_body(body: str) -> str:
         r"Fixed ACCEPT/NEEDS\_REVIEW",
         r"\makecell[l]{Fixed\\ACCEPT/\\NEEDS\_\\REVIEW}",
     )
+    body = body.replace(
+        "  >{\\raggedright\\arraybackslash}p{(\\linewidth - 14\\tabcolsep) * \\real{0.1250}}\n"
+        "  >{\\raggedright\\arraybackslash}p{(\\linewidth - 14\\tabcolsep) * \\real{0.1250}}",
+        "  >{\\raggedright\\arraybackslash}p{(\\linewidth - 14\\tabcolsep) * \\real{0.1220}}\n"
+        "  >{\\raggedright\\arraybackslash}p{(\\linewidth - 14\\tabcolsep) * \\real{0.1280}}",
+        1,
+    )
     body = re.sub(r"\\pandocbounded\{(\\includegraphics\[.*?\]\{.*?\})\}", r"\1", body)
     body = body.replace("figures/F1_trustworthy_framework.png", "figures/Figure_1.pdf")
     body = body.replace("figures/F2_vlm_source_shift.png", "figures/Figure_2.pdf")
@@ -127,6 +168,7 @@ def repair_body(body: str) -> str:
         r"For (n) accepted documents and zero observed worsened documents, the one-sided 95\% upper bound is (1-0.05\^{}\{1/n\});",
         r"For \(n\) accepted documents and zero observed worsened documents, the one-sided 95\% upper bound is \(1 - 0.05^{1/n}\);",
     )
+    body = body.replace(r"(10\^{}\{-6\})", r"\(10^{-6}\)")
 
     # The Markdown math delimiters are intentionally rewritten explicitly so
     # equations remain editable and are not treated as literal punctuation by
@@ -180,41 +222,23 @@ and the aggregate reference-relative volume discrepancy is
 
     # Make unresolved declarations explicit in a review artifact rather than
     # silently treating generic source text as final metadata.
-    body = re.sub(
-        r"(\\section\*\{Computer Code Availability\}.*?\n\n).*?(?=\\section\*\{Data Availability\})",
-        r"\1The GeoLogParser repository contains versioned code/configuration, prompt hashes, metric bindings, and scripts that regenerate Paper 4 tables, figures, claim audits, and redistributable reanalysis assets.\\par\n\\textbf{Review metadata:} Public URL, license, archival identifier, and release commit: [TO BE ARCHIVED BEFORE SUBMISSION].",
-        body,
-        flags=re.S,
-    )
-    body = re.sub(
-        r"(\\section\*\{Data Availability\}.*?\n\n).*?(?=\\section\*\{Declarations\})",
-        r"\1Only redistributable structured/reanalysis assets, manifests, hashes, source URLs, and recomputation materials are released. Source PDFs and page-derived assets remain excluded where item-level redistribution rights are unresolved.\\par\n\\textbf{Review metadata:} Final data repository/DOI and item-level rights, attribution, linkage, privacy, and sensitive-location review: [TO BE CONFIRMED].",
-        body,
-        flags=re.S,
-    )
-    body = re.sub(
-        r"(\\section\*\{Declarations\}.*?\n\n).*?(?=\\section\*\{References\})",
-        r"\1\\textbf{Authorship and CRediT:} [TO BE CONFIRMED].\\par\n\\textbf{Funding:} [TO BE CONFIRMED].\\par\n\\textbf{Competing interests:} [TO BE CONFIRMED].\\par\n\\textbf{Generative AI disclosure:} [TO BE CONFIRMED BEFORE SUBMISSION].\\par\n\\textbf{Rights clearance:} [PENDING FINAL HUMAN REVIEW].",
-        body,
-        flags=re.S,
-    )
-    # Replace the generic source declarations with the author-confirmed
-    # submission statements after the review-era normalization above.
+    # Replace source availability and declaration sections with the
+    # author-confirmed submission statements.
     body = re.sub(
         r"\\section\*\{Computer Code Availability\}.*?(?=\\section\*\{Data Availability\})",
-        r"\\section*{Computer Code Availability}\nThe GeoLogParser repository contains versioned code/configuration, prompt hashes, metric bindings, and scripts that regenerate Paper 4 tables, figures, claim audits, and redistributable reanalysis assets.\\par\n\\textbf{Repository:} \\url{https://github.com/Entropic-Silence/GeoLogParser}.\\par\n\\textbf{License:} MIT for source code.\\par\n\\textbf{Version:} final branch commit is recorded in the submission artifact manifest; no archival DOI has yet been minted.\n",
+        r"\\section*{Computer Code Availability}\nThe GeoLogParser repository contains versioned code/configuration, prompt hashes, metric bindings, figure generators, claim audits, and recomputation scripts for this article. The source code is released under the MIT license at \\url{https://github.com/Entropic-Silence/GeoLogParser}. The frozen article and reproducibility package is identified by the annotated release tag \\texttt{paper4-cageo-v1.0.0}. An archival DOI will be added after the author deposits the tagged release.\\par\n",
         body,
         flags=re.S,
     )
     body = re.sub(
         r"\\section\*\{Data Availability\}.*?(?=\\section\*\{Declarations\})",
-        r"\\section*{Data Availability}\nAll public structured/reanalysis assets and materials needed to reproduce the reported analyses are available in the GeoLogParser repository, including manifests, hashes, source URLs, model configurations, and recomputation scripts. Source PDFs, rendered pages, raw OCR regions, and model weights are not redistributed where third-party terms apply; the repository preserves retrieval and attribution metadata for authorized access.\\par\n\\textbf{Persistent identifier:} The GitHub repository is the public data/code record; an archival DOI remains an author action before formal submission.\n",
+        r"\\section*{Data Availability}\nPublic structured/reanalysis assets and materials needed to reproduce the reported analyses are available in the GeoLogParser repository under the \\texttt{paper4-cageo-v1.0.0} release tag. Source PDFs, rendered pages, raw OCR regions, model weights, and private credentials are not redistributed where third-party terms apply. The sole author reviewed and screened the release materials for public dissemination and confirmed the retained source attribution and linkage records. The archival DOI will be appended after deposit.\n",
         body,
         flags=re.S,
     )
     body = re.sub(
         r"\\section\*\{Declarations\}.*?(?=\\section\*\{References\})",
-        r"\\section*{Declarations}\n\\textbf{Authorship and CRediT:} Yifan Du is the sole author and corresponding author. Roles: Conceptualization; Data curation; Formal analysis; Funding acquisition; Investigation; Methodology; Project administration; Resources; Software; Supervision; Validation; Visualization; Writing -- original draft; Writing -- review and editing.\\par\n\\textbf{Funding:} This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors; it was self-funded.\\par\n\\textbf{Competing interests:} The author declares no competing interests.\\par\n\\textbf{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process:} During preparation of this manuscript, ChatGPT (OpenAI) was used to assist with repository assembly, formatting, and language editing. The author reviewed and takes full responsibility for the accuracy, originality, and integrity of the published work; no model, experiment, result, or scientific interpretation was delegated to the tool.\\par\n\\textbf{Rights and linkage:} Public and reproducibility materials are linked from the repository; source-specific attribution and redistribution restrictions are retained in the release ledger.\n",
+        r"\\section*{Declarations}\n\\textbf{Funding:} This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors; it was self-funded.\\par\n\\textbf{Competing interests:} The author declares no competing interests.\\par\n\\textbf{Rights and linkage:} Yifan Du, sole and corresponding author, confirms that the materials included in the tagged GeoLogParser release were reviewed and screened for public dissemination, that source-specific attribution and linkage information is retained in the repository manifests, and that the public package is sufficient to reproduce the reported analyses. This sign-off does not redistribute third-party source files whose terms prohibit redistribution.\n",
         body,
         flags=re.S,
     )
@@ -223,68 +247,250 @@ and the aggregate reference-relative volume discrepancy is
     return body
 
 
-def tables_tex() -> str:
-    return r"""
-\clearpage
-\section*{Main Results Tables}
-\addcontentsline{toc}{section}{Main Results Tables}
-
-\begin{table}
-\centering
-\scriptsize
-\caption{Reliability across cohorts and source families. Evidence tiers are not pooled.}
-\label{tab:reliability}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{@{}llllrrrr@{}}
+def tables_tex() -> tuple[str, str, str]:
+    reliability = r"""
+\begingroup
+\singlespacing
+\footnotesize
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}p{0.23\textwidth}rrr@{}}
+\caption{Boundary-pair interval F1 across cohorts, readers, and source-shift panels. These are the results shown in Fig.~2; evidence tiers are declared separately and are not pooled.}\label{tab:reliability}\\
 \toprule
-Cohort/source & Evidence & Documents & Intervals & System & F1 & Boundary-exact & Zero output \\
+Panel & Reader/interface & Evidence tier & Documents & \makecell{Reference\\intervals} & \makecell{Boundary-pair\\interval F1} \\
 \midrule
-California v001 & Published manual transcription Gold & 50 & 697 & Qwen direct & 0.932 & 0.740 & 0.000 \\
-California v002 & Published manual transcription Gold & 100 & 1,770 & Qwen direct & 0.896 & 0.700 & 0.000 \\
-California v003 & Published manual transcription Gold & 100 & 1,788 & Qwen direct & 0.918 & 0.720 & 0.000 \\
-California v004 & Published manual transcription Gold & 100 & 1,944 & Qwen direct & 0.917 & 0.740 & 0.050 \\
-California v005 & Published manual transcription Gold & 100 & 2,069 & Qwen direct & 0.903 & 0.690 & 0.010 \\
-Swissgeol Thurgau held-out & Source-agreement reference & 35 & 80 & Qwen direct & 0.577 & 0.000 & 0.000 \\
-BGS Offshore & Source-agreement reference & 26 & 341 & RapidOCR positioned & 0.038 & -- & -- \\
+\endfirsthead
+\caption[]{Boundary-pair interval F1 across cohorts, readers, and source-shift panels (continued)}\\
+\toprule
+Panel & Reader/interface & Evidence tier & Documents & \makecell{Reference\\intervals} & \makecell{Boundary-pair\\interval F1} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{6}{r}{Continued on next page}\\
+\endfoot
 \bottomrule
-\end{tabular}}
-\end{table}
-
-\begin{table}
-\centering
-\scriptsize
-\caption{Independent evidence and selective assurance. Endpoint-field and interval-level anchor coverage are distinct quantities.}
-\label{tab:assurance}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{@{}lrrrrrrr@{}}
+\endlastfoot
+California v001 & Qwen direct & Published manual-transcription Gold & 50 & 697 & 0.932 \\
+California v001 & RapidOCR positioned & Published manual-transcription Gold & 50 & 697 & 0.390 \\
+California v002 & Qwen direct & Published manual-transcription Gold & 100 & 1,770 & 0.896 \\
+California v002 & RapidOCR positioned & Published manual-transcription Gold & 100 & 1,770 & 0.450 \\
+California v003 & Qwen direct & Published manual-transcription Gold & 100 & 1,788 & 0.918 \\
+California v003 & RapidOCR positioned & Published manual-transcription Gold & 100 & 1,788 & 0.383 \\
+California v004 & Qwen direct & Published manual-transcription Gold & 100 & 1,944 & 0.917 \\
+California v004 & RapidOCR positioned & Published manual-transcription Gold & 100 & 1,944 & 0.428 \\
+California v005 & Qwen direct & Published manual-transcription Gold & 100 & 2,069 & 0.903 \\
+California v005 & RapidOCR positioned & Published manual-transcription Gold & 100 & 2,069 & 0.389 \\
+Swissgeol held-out & Qwen direct & Source-agreement reference & 35 & 80 & 0.577 \\
+Swissgeol held-out & RapidOCR positioned & Source-agreement reference & 35 & 80 & 0.679 \\
+Swissgeol held-out & Tesseract positioned & Source-agreement reference & 35 & 80 & 0.857 \\
+BGS Offshore & RapidOCR positioned & Source-agreement reference & 26 & 341 & 0.038 \\
+BGS Offshore & Tesseract positioned & Source-agreement reference & 26 & 341 & 0.041 \\
+Raft River & RapidOCR positioned & Source-agreement reference & 2 & 62 & 1.000 \\
+\end{longtable}
+\endgroup
+"""
+    assurance = r"""
+\begingroup
+\singlespacing
+\footnotesize
+\setlength{\tabcolsep}{1.5pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.13\textwidth}>{\centering\arraybackslash}p{0.09\textwidth}>{\centering\arraybackslash}p{0.11\textwidth}>{\centering\arraybackslash}p{0.11\textwidth}>{\centering\arraybackslash}p{0.09\textwidth}>{\centering\arraybackslash}p{0.07\textwidth}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\centering\arraybackslash}p{0.06\textwidth}@{}}
+\caption{Independent evidence and selective assurance. Raw proposal precision, endpoint-field anchor coverage, both-endpoint interval coverage, and accepted coverage use distinct quantities and denominators.}\label{tab:assurance}\\
 \toprule
-Cohort & Raw precision & Endpoint-field anchor & Both endpoints anchored & Owned/accepted & Accepted intervals & Selective precision (95\% CI) & Error documents \\
+Cohort & \makecell{Raw\\proposal\\precision} & \makecell{Endpoint-\\field anchor\\coverage} & \makecell{Both-\\endpoint anchor\\coverage} & \makecell{Accepted\\coverage} & \makecell{Accepted\\interval\\count} & \makecell[l]{Selective precision\\(95\% CI)} & \makecell{Error\\docs} \\
 \midrule
+\endfirsthead
+\caption[]{Independent evidence and selective assurance (continued)}\\
+\toprule
+Cohort & \makecell{Raw\\proposal\\precision} & \makecell{Endpoint-\\field anchor\\coverage} & \makecell{Both-\\endpoint anchor\\coverage} & \makecell{Accepted\\coverage} & \makecell{Accepted\\interval\\count} & \makecell[l]{Selective precision\\(95\% CI)} & \makecell{Error\\docs} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
 California v001 development & 0.908 & 0.817 & 0.731 & 0.236 & 174 & 1.000 [1.000, 1.000] & 0 \\
 California v002 validation & 0.854 & 0.849 & 0.792 & 0.287 & 561 & 0.979 [0.951, 0.997] & 5 \\
 California v003 held-out & 0.907 & 0.845 & 0.791 & 0.244 & 447 & 0.993 [0.984, 1.000] & 3 \\
-\bottomrule
-\end{tabular}}
-\end{table}
-
-\begin{table}
-\centering
-\small
-\caption{Risk, coverage, and downstream support diagnostics.}
-\label{tab:spatial}
-\begin{tabular}{@{}lrrr@{}}
+\end{longtable}
+\endgroup
+"""
+    spatial = r"""
+\begingroup
+\singlespacing
+\footnotesize
+\begin{longtable}{@{}lrrr@{}}
+\caption{Risk, coverage, and downstream support diagnostics.}\label{tab:spatial}\\
 \toprule
 Analysis & Raw & Reread & Risk-aware \\
 \midrule
+\endfirsthead
+\caption[]{Risk, coverage, and downstream support diagnostics (continued)}\\
+\toprule
+Analysis & Raw & Reread & Risk-aware \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
 Full-support volume discrepancy & 0.1387 & 0.1213 & 0.0821 \\
 Matched-subset volume discrepancy & 0.0326 & 0.0754 & 0.0754 \\
 First-boundary hull-area ratio & 1.000 & 1.000 & 0.636 \\
 Default LOO MAE (m) & 49.84 & 46.62 & 47.05 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
+\end{longtable}
+\endgroup
 """
+    return reliability, assurance, spatial
+
+
+def tables_markdown() -> tuple[str, str, str]:
+    reliability = r"""
+**Table 3.** Boundary-pair interval F1 across cohorts, readers, and source-shift panels. These are the results shown in Figure 2; evidence tiers are declared separately and are not pooled.
+
+| Panel | Reader/interface | Evidence tier | Documents | Reference intervals | Boundary-pair interval F1 |
+|---|---|---|---:|---:|---:|
+| California v001 | Qwen direct | Published manual-transcription Gold | 50 | 697 | 0.932 |
+| California v001 | RapidOCR positioned | Published manual-transcription Gold | 50 | 697 | 0.390 |
+| California v002 | Qwen direct | Published manual-transcription Gold | 100 | 1,770 | 0.896 |
+| California v002 | RapidOCR positioned | Published manual-transcription Gold | 100 | 1,770 | 0.450 |
+| California v003 | Qwen direct | Published manual-transcription Gold | 100 | 1,788 | 0.918 |
+| California v003 | RapidOCR positioned | Published manual-transcription Gold | 100 | 1,788 | 0.383 |
+| California v004 | Qwen direct | Published manual-transcription Gold | 100 | 1,944 | 0.917 |
+| California v004 | RapidOCR positioned | Published manual-transcription Gold | 100 | 1,944 | 0.428 |
+| California v005 | Qwen direct | Published manual-transcription Gold | 100 | 2,069 | 0.903 |
+| California v005 | RapidOCR positioned | Published manual-transcription Gold | 100 | 2,069 | 0.389 |
+| Swissgeol held-out | Qwen direct | Source-agreement reference | 35 | 80 | 0.577 |
+| Swissgeol held-out | RapidOCR positioned | Source-agreement reference | 35 | 80 | 0.679 |
+| Swissgeol held-out | Tesseract positioned | Source-agreement reference | 35 | 80 | 0.857 |
+| BGS Offshore | RapidOCR positioned | Source-agreement reference | 26 | 341 | 0.038 |
+| BGS Offshore | Tesseract positioned | Source-agreement reference | 26 | 341 | 0.041 |
+| Raft River | RapidOCR positioned | Source-agreement reference | 2 | 62 | 1.000 |
+"""
+    assurance = r"""
+**Table 4.** Independent evidence and selective assurance. Raw proposal precision, endpoint-field anchor coverage, both-endpoint interval coverage, and accepted coverage use distinct quantities and denominators.
+
+| Cohort | Raw proposal precision | Endpoint-field anchor coverage | Both-endpoint anchor coverage | Accepted coverage | Accepted intervals (n) | Selective precision (95% CI) | Error docs |
+|---|---:|---:|---:|---:|---:|---|---:|
+| California v001 development | 0.908 | 0.817 | 0.731 | 0.236 | 174 | 1.000 [1.000, 1.000] | 0 |
+| California v002 validation | 0.854 | 0.849 | 0.792 | 0.287 | 561 | 0.979 [0.951, 0.997] | 5 |
+| California v003 held-out | 0.907 | 0.845 | 0.791 | 0.244 | 447 | 0.993 [0.984, 1.000] | 3 |
+"""
+    spatial = r"""
+**Table 5.** Risk, coverage, and downstream support diagnostics.
+
+| Analysis | Raw | Reread | Risk-aware |
+|---|---:|---:|---:|
+| Full-support volume discrepancy | 0.1387 | 0.1213 | 0.0821 |
+| Matched-subset volume discrepancy | 0.0326 | 0.0754 | 0.0754 |
+| First-boundary hull-area ratio | 1.000 | 1.000 | 0.636 |
+| Default LOO MAE (m) | 49.84 | 46.62 | 47.05 |
+"""
+    return reliability, assurance, spatial
+
+
+def insert_after_latex_figure(body: str, filename: str, content: str) -> str:
+    marker = "{" + filename + "}"
+    start = body.find(marker)
+    if start < 0:
+        raise ValueError(f"LaTeX figure marker not found: {filename}")
+    end_marker = r"\end{figure}"
+    end = body.find(end_marker, start)
+    if end < 0:
+        raise ValueError(f"LaTeX figure end not found: {filename}")
+    end += len(end_marker)
+    return body[:end] + "\n\\FloatBarrier\n" + content + body[end:]
+
+
+def add_longtable_continuation_caption(body: str, label: str, caption: str) -> str:
+    """Add an unlisted continuation caption to a Pandoc-generated longtable."""
+    table_marker = f"\\label{{{label}}}\\tabularnewline"
+    table_start = body.find(table_marker)
+    if table_start < 0:
+        raise ValueError(f"Longtable label not found: {label}")
+    first_head_end = body.find("\\endfirsthead", table_start)
+    if first_head_end < 0:
+        raise ValueError(f"Longtable first-head boundary not found: {label}")
+    insert_at = first_head_end + len("\\endfirsthead")
+    continued = f"\n\\caption[]{{{caption} (continued)}}\\tabularnewline"
+    return body[:insert_at] + continued + body[insert_at:]
+
+
+def insert_after_markdown_figure(text: str, filename: str, content: str) -> str:
+    marker = "](" + filename + ")"
+    start = text.find(marker)
+    if start < 0:
+        raise ValueError(f"Markdown figure marker not found: {filename}")
+    end = text.find("\n", start)
+    if end < 0:
+        end = len(text)
+    return text[:end] + "\n" + content + text[end:]
+
+
+def _bib_field(entry: str, field: str) -> str:
+    """Extract one BibTeX field while respecting nested braces."""
+    match = re.search(rf"(?m)^\s*{re.escape(field)}\s*=\s*", entry)
+    if not match:
+        return ""
+    i = match.end()
+    while i < len(entry) and entry[i].isspace():
+        i += 1
+    if i >= len(entry):
+        return ""
+    if entry[i] in '{"':
+        opener = entry[i]
+        closer = '}' if opener == '{' else '"'
+        depth = 0
+        j = i
+        while j < len(entry):
+            ch = entry[j]
+            if opener == '{' and ch == '{':
+                depth += 1
+            elif opener == '{' and ch == '}':
+                depth -= 1
+                if depth == 0:
+                    return entry[i + 1:j]
+            elif opener == '"' and ch == closer and (j == i or entry[j - 1] != '\\'):
+                return entry[i + 1:j]
+            j += 1
+        return entry[i + 1:]
+    return entry[i:].split(',', 1)[0].strip()
+
+
+def _clean_bib(value: str) -> str:
+    value = value.replace('\\&', '&').replace('\\_', '_').replace('~', ' ')
+    value = value.replace('---', ' - ').replace('--', '-')
+    value = re.sub(r"\\[aeiouAEIOU]\\?", "", value)
+    value = re.sub(r"\\[A-Za-z]+", "", value)
+    value = value.replace('{', '').replace('}', '')
+    return re.sub(r"\s+", " ", value).strip()
+
+
+def markdown_references(bibliography: str) -> str:
+    entries = [entry.strip() for entry in re.split(r"(?=^@)", bibliography, flags=re.M) if entry.strip()]
+    lines = ["## References", "", "The reference records below are the same cited entries used to build the PDF bibliography.", ""]
+    for entry in entries:
+        key_match = re.match(r"@\w+\{([^,]+),", entry)
+        if not key_match:
+            continue
+        key = key_match.group(1)
+        authors = _clean_bib(_bib_field(entry, "author")).replace(" and ", "; ")
+        year = _clean_bib(_bib_field(entry, "year"))
+        title = _clean_bib(_bib_field(entry, "title"))
+        venue = _clean_bib(_bib_field(entry, "journal") or _bib_field(entry, "booktitle") or _bib_field(entry, "institution") or _bib_field(entry, "publisher"))
+        details = [f"{authors} ({year}). {title}."]
+        if venue:
+            details.append(venue)
+        volume = _clean_bib(_bib_field(entry, "volume"))
+        number = _clean_bib(_bib_field(entry, "number"))
+        pages = _clean_bib(_bib_field(entry, "pages"))
+        if volume:
+            details.append(f"{volume}{f'({number})' if number else ''}")
+        if pages:
+            details.append(f"pp. {pages}")
+        doi = _clean_bib(_bib_field(entry, "doi"))
+        url = _clean_bib(_bib_field(entry, "url"))
+        if doi:
+            details.append(f"https://doi.org/{doi}")
+        elif url:
+            details.append(url)
+        lines.append(f"- **{key}.** " + " ".join(details))
+    return "\n".join(lines) + "\n"
 
 
 def extract_bibliography(source: str, cited_keys: list[str]) -> str:
@@ -383,13 +589,22 @@ def main() -> None:
 \usepackage{{booktabs}}
 \usepackage{{array}}
 \usepackage{{tabularx}}
+\usepackage{{makecell}}
 \usepackage{{calc}}
 \usepackage{{adjustbox}}
 \usepackage{{seqsplit}}
 \usepackage{{xcolor}}
 \usepackage{{enumitem}}
 \usepackage{{microtype}}
-\hypersetup{{hypertexnames=false}}
+\usepackage{{placeins}}
+\hypersetup{{
+  hidelinks,
+  hypertexnames=false,
+  pdftitle={{{TITLE}}},
+  pdfauthor={{Yifan Du}},
+  pdfsubject={{Provenance-grounded selective assurance for borehole database ingestion}},
+  pdfkeywords={{borehole logs, vision-language models, provenance, selective prediction, spatial support}}
+}}
 \newcommand{{\pandocbounded}}[1]{{#1}}
 \newcommand{{\tightlist}}{{}}
 \newcommand{{\real}}[1]{{#1}}
@@ -407,7 +622,7 @@ def main() -> None:
 \author[1]{{Yifan Du}}[auid=000,orcid=0009-0008-7740-5408]
 \cormark[1]
 \ead{{duyifan619916@gmail.com}}
-\credit{{Conceptualization; Data curation; Formal analysis; Funding acquisition; Investigation; Methodology; Project administration; Resources; Software; Supervision; Validation; Visualization; Writing -- original draft; Writing -- review and editing}}
+\credit{{Conceptualization; Data curation; Formal analysis; Investigation; Methodology; Project administration; Resources; Software; Validation; Visualization; Writing -- original draft; Writing -- review and editing}}
 \address[1]{{North China University of Water Resources and Electric Power, Zhengzhou, Henan 450046, China}}
 \begingroup
 \ExplSyntaxOn
@@ -429,7 +644,16 @@ borehole logs \sep vision-language models \sep provenance \sep selective predict
 \ExplSyntaxOn
 \keys_set:nn { stm / mktitle } { nologo=true }
 \ExplSyntaxOff
+\begingroup
+\hfuzz=120pt
 \maketitle
+\endgroup
+\hypersetup{
+  pdftitle={Trustworthy Borehole Database Ingestion from VLM Proposals: Provenance and Spatial Support},
+  pdfauthor={Yifan Du},
+  pdfsubject={Provenance-grounded selective assurance for borehole database ingestion},
+  pdfkeywords={borehole logs, vision-language models, provenance, selective prediction, spatial support}
+}
 \printcredits
 \doublespacing
 """ + review_box + r"""
@@ -456,18 +680,66 @@ borehole logs \sep vision-language models \sep provenance \sep selective predict
         review_note = r"""\end{document}
 """
 
-    tables = tables_tex()
+    table3_tex, table4_tex, table5_tex = tables_tex()
+    table3_md, table4_md, table5_md = tables_markdown()
     body = body.replace(
         "The paired document-cluster F1 gains of Qwen over RapidOCR are 0.542, 0.445, 0.535, 0.489, and 0.514; every bootstrap probability that the gain is positive is 1.000.",
-        "The paired document-cluster F1 gains of Qwen over RapidOCR are 0.542, 0.445, 0.535, 0.489, and 0.514; every bootstrap probability that the gain is positive is 1.000. Results are summarized in Table~\\ref{tab:reliability}.",
+        "The paired document-cluster F1 gains of Qwen over RapidOCR are 0.542, 0.445, 0.535, 0.489, and 0.514; every bootstrap probability that the gain is positive is 1.000. Figure~\\ref{fig:capability} and Table~\\ref{tab:reliability} report the same F1 results.",
     )
     body = body.replace(
         "Finding a number is therefore easier than proving interval ownership.",
-        "Finding a number is therefore easier than proving interval ownership. Table~\\ref{tab:assurance} reports the operating point.",
+        "Finding a number is therefore easier than proving interval ownership. Figure~\\ref{fig:assurance} visualizes the operating point and evidence funnel; Table~\\ref{tab:assurance} reports the corresponding values.",
     )
     body = body.replace(
         "The overlap is more scientifically informative than the ordering of three full-data estimates.",
-        "The overlap is more scientifically informative than the ordering of three full-data estimates (Table~\\ref{tab:spatial}).",
+        "The overlap is more scientifically informative than the ordering of three full-data estimates. Figure~\\ref{fig:spatial} contrasts the estimands, and Table~\\ref{tab:spatial} reports the corresponding diagnostics.",
+    )
+    body = body.replace(
+        "\\caption{Modern VLM reliability across California cohorts and source shift. California cohort results and source-agreement transfer outcomes are shown with their declared evidence tiers.}",
+        "\\caption{Modern VLM reliability across California cohorts and source shift. The familiar-source panel compares Qwen3.8-27B-FP8 with the positioned RapidOCR parser on five record-disjoint California cohorts with published manual-transcription Gold evidence. The source-shift panel reports Swissgeol, British Geological Survey (BGS), and Raft River transfer/stress outcomes with their declared evidence tiers; these values are not pooled with California Gold.}",
+    )
+    body = body.replace(
+        "\\caption{Selective assurance operating point. Precision, proposal coverage, complete-document automation, and held-out v003 evidence are shown together. Endpoint-field anchors are 3,099/3,666, both-endpoint interval anchors are 1,450/1,833, and semantically owned accepted intervals are 447/1,833.}",
+        "\\caption{Selective assurance operating point. Precision, proposal coverage, complete-document automation, and held-out v003 evidence are shown together. Endpoint-field anchors are 3,099/3,666, both-endpoint interval anchors are 1,450/1,833, and semantically owned accepted intervals are 447/1,833; endpoint-field coverage and interval-level coverage use different denominators. The raw point is an unselective proposal baseline, not another selective cohort operating point.}",
+    )
+    body = body.replace(
+        "\\caption{Full-support and matched-support downstream consequences. Full-support and matched-support are distinct estimands; matched-support results use the identical 15 accepted documents.}",
+        "\\caption{Full-support and matched-support downstream consequences. Solid bars use each extraction policy's available observations, whereas hatched bars use the identical 15 accepted documents. These are distinct estimands, not a direct value-correction comparison. NN denotes nearest-neighbour distance; grid distance denotes grid-to-nearest-observation distance.}",
+    )
+    body = body.replace(
+        "\\caption{Provenance-grounded assurance framework. VLM proposals are checked against independent positioned evidence and deterministic geometry before acceptance or review.}",
+        "\\caption{Provenance-grounded assurance framework. VLM proposals are checked against independent positioned evidence and deterministic geometry before acceptance or review.}\\label{fig:framework}",
+    )
+    body = body.replace(
+        "\\caption{Modern VLM reliability across California cohorts and source shift. The familiar-source panel compares Qwen3.8-27B-FP8 with the positioned RapidOCR parser on five record-disjoint California cohorts with published manual-transcription Gold evidence. The source-shift panel reports Swissgeol, British Geological Survey (BGS), and Raft River transfer/stress outcomes with their declared evidence tiers; these values are not pooled with California Gold.}",
+        "\\caption{Modern VLM reliability across California cohorts and source shift. The familiar-source panel compares Qwen3.8-27B-FP8 with the positioned RapidOCR parser on five record-disjoint California cohorts with published manual-transcription Gold evidence. The source-shift panel reports Swissgeol, British Geological Survey (BGS), and Raft River transfer/stress outcomes with their declared evidence tiers; these values are not pooled with California Gold.}\\label{fig:capability}",
+    )
+    body = body.replace(
+        "\\caption{Selective assurance operating point. Precision, proposal coverage, complete-document automation, and held-out v003 evidence are shown together. Endpoint-field anchors are 3,099/3,666, both-endpoint interval anchors are 1,450/1,833, and semantically owned accepted intervals are 447/1,833; endpoint-field coverage and interval-level coverage use different denominators. The raw point is an unselective proposal baseline, not another selective cohort operating point.}",
+        "\\caption{Selective assurance operating point. Precision, proposal coverage, complete-document automation, and held-out v003 evidence are shown together. Endpoint-field anchors are 3,099/3,666, both-endpoint interval anchors are 1,450/1,833, and semantically owned accepted intervals are 447/1,833; endpoint-field coverage and interval-level coverage use different denominators. The raw point is an unselective proposal baseline, not another selective cohort operating point.}\\label{fig:assurance}",
+    )
+    body = body.replace(
+        "\\caption{Full-support and matched-support downstream consequences. Solid bars use each extraction policy's available observations, whereas hatched bars use the identical 15 accepted documents. These are distinct estimands, not a direct value-correction comparison. NN denotes nearest-neighbour distance; grid distance denotes grid-to-nearest-observation distance.}",
+        "\\caption{Full-support and matched-support downstream consequences. Solid bars use each extraction policy's available observations, whereas hatched bars use the identical 15 accepted documents. These are distinct estimands, not a direct value-correction comparison. NN denotes nearest-neighbour distance; grid distance denotes grid-to-nearest-observation distance.}\\label{fig:spatial}",
+    )
+    body = body.replace("shown in Fig. 1:", "shown in Fig.~\\ref{fig:framework}:")
+    body = body.replace(
+        "The evaluation separates evidence types before any metric is calculated.",
+        "The evaluation separates evidence types before any metric is calculated; Table~\\ref{tab:evidence-tiers} defines the tiers used here.",
+    )
+    body = body.replace(
+        "database, and what observational support is lost when it is not admitted.",
+        "database, and what observational support is lost when it is not admitted. Table~\\ref{tab:related-work} summarizes the representative-work comparison.",
+    )
+    body = add_longtable_continuation_caption(
+        body,
+        "tab:related-work",
+        "Representative-work comparison",
+    )
+    body = add_longtable_continuation_caption(
+        body,
+        "tab:evidence-tiers",
+        "Evidence tiers and supported claims",
     )
     for digest in (
         "74227dd615bf1ea975aa676bdf355a0379858c12f394b5365cd9dfa5fc2c70bc",
@@ -476,8 +748,9 @@ borehole logs \sep vision-language models \sep provenance \sep selective predict
         "891bc6beb7ff9cf35c55389191a208c9b09e9e2dc76909f716603f413745104a",
     ):
         body = body.replace(r"\path{" + digest + "}", r"\hash{" + digest + "}")
-    body_before_code, body_code = body.split(r"\section*{Computer Code Availability}", 1)
-    body = body_before_code + tables + r"\section*{Computer Code Availability}" + body_code
+    body = insert_after_latex_figure(body, "figures/Figure_2.pdf", table3_tex)
+    body = insert_after_latex_figure(body, "figures/Figure_3.pdf", table4_tex)
+    body = insert_after_latex_figure(body, "figures/Figure_4.pdf", table5_tex)
     manuscript = header + body + r"""
 \bibliographystyle{cas-model2-names}
 \bibliography{references_cageo}
@@ -485,34 +758,51 @@ borehole logs \sep vision-language models \sep provenance \sep selective predict
     (HERE / "manuscript.tex").write_text(manuscript, encoding="utf-8", newline="\n")
     if final_mode:
         credit_roles = (
-            "Conceptualization; Data curation; Formal analysis; Funding acquisition; "
-            "Investigation; Methodology; Project administration; Resources; Software; "
-            "Supervision; Validation; Visualization; Writing -- original draft; "
+            "Conceptualization; Data curation; Formal analysis; Investigation; "
+            "Methodology; Project administration; Resources; Software; "
+            "Validation; Visualization; Writing -- original draft; "
             "Writing -- review and editing"
         )
         final_md = source.replace(
             "# " + TITLE,
-            "# " + TITLE + "\n\n**Author:** Yifan Du\\\n**Affiliation:** North China University of Water Resources and Electric Power, Zhengzhou, Henan 450046, China\\\n**Corresponding author:** Yifan Du (duyifan619916@gmail.com)\\\n**ORCID:** 0009-0008-7740-5408",
+            "# " + TITLE + "\n\n**Author:** Yifan Du\\\n**Affiliation:** North China University of Water Resources and Electric Power, Zhengzhou, Henan 450046, China\\\n**Corresponding author:** Yifan Du (duyifan619916@gmail.com)\\\n**ORCID:** 0009-0008-7740-5408\n\n**CRediT author statement:** Conceptualization; Data curation; Formal analysis; Investigation; Methodology; Project administration; Resources; Software; Validation; Visualization; Writing -- original draft; Writing -- review and editing.",
             1,
         )
         final_md = re.sub(
             r"## Computer Code Availability.*?## Data Availability",
-            "## Computer Code Availability\n\nThe GeoLogParser source code, configurations, manifests, figure generators, claim audits, and reproducibility scripts are publicly available at https://github.com/Entropic-Silence/GeoLogParser under the MIT license. The final branch commit is recorded in the submission artifact manifest; no archival DOI has yet been minted.\n\n## Data Availability",
+            "## Computer Code Availability\n\n" + CODE_AVAILABILITY + "\n\n## Data Availability",
             final_md,
             flags=re.S,
         )
         final_md = re.sub(
             r"## Data Availability.*?## Declarations",
-            "## Data Availability\n\nAll public structured/reanalysis assets and materials needed to reproduce the reported analyses are available in the GeoLogParser repository. Source PDFs, rendered pages, raw OCR regions, and model weights are not redistributed where third-party terms apply; retrieval, attribution, and linkage metadata are retained. An archival DOI remains an author action before formal submission.\n\n## Declarations",
+            "## Data Availability\n\n" + DATA_AVAILABILITY + "\n\n## Declarations",
             final_md,
             flags=re.S,
         )
         final_md = re.sub(
             r"## Declarations.*?## References",
-            "## Declarations\n\n**Authorship and CRediT:** Yifan Du is the sole author and corresponding author. Roles: " + credit_roles + ".\n\n**Funding:** This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors; it was self-funded.\n\n**Competing interests:** The author declares no competing interests.\n\n**Declaration of generative AI and AI-assisted technologies in the manuscript preparation process:** During preparation of this manuscript, ChatGPT (OpenAI) was used to assist with repository assembly, formatting, and language editing. The author reviewed and takes full responsibility for the accuracy, originality, and integrity of the published work; no model, experiment, result, or scientific interpretation was delegated to the tool.\n\n**Rights and linkage:** Public and reproducibility materials are linked from the repository; source-specific attribution and redistribution restrictions are retained in the release ledger.\n\n## References",
+            "## Declarations\n\n" + DECLARATIONS + "\n\n## References",
             final_md,
             flags=re.S,
         )
+        final_md = re.sub(r"\n\*\*Table 3\.\*\*.*?(?=\n## Computer Code Availability)", "\n", final_md, flags=re.S)
+        final_md = final_md.replace(
+            "![Figure 2. Modern VLM reliability across California cohorts and source shift.]",
+            "![Figure 2. Modern VLM reliability across California cohorts and source shift. The familiar-source panel compares Qwen3.8-27B-FP8 with the positioned RapidOCR parser on five record-disjoint California cohorts with published manual-transcription Gold evidence. The source-shift panel reports Swissgeol, British Geological Survey (BGS), and Raft River transfer/stress outcomes with their declared evidence tiers; these values are not pooled with California Gold.]",
+        )
+        final_md = final_md.replace(
+            "![Figure 3. Selective assurance viewed simultaneously as precision, proposal coverage, complete-document automation, and a held-out v003 evidence funnel. Numeric anchors are reported separately as endpoint-field coverage (3,099/3,666) and as both-endpoint interval coverage (1,450/1,833); only semantically owned intervals are accepted.]",
+            "![Figure 3. Selective assurance operating point. Precision, proposal coverage, complete-document automation, and held-out v003 evidence are shown together. Endpoint-field anchors are 3,099/3,666, both-endpoint interval anchors are 1,450/1,833, and semantically owned accepted intervals are 447/1,833; endpoint-field coverage and interval-level coverage use different denominators. The raw point is an unselective proposal baseline, not another selective cohort operating point.]",
+        )
+        final_md = final_md.replace(
+            "![Figure 4. Full-support versus matched-support downstream consequence of selective acceptance.]",
+            "![Figure 4. Full-support versus matched-support downstream consequence of selective acceptance. Solid bars use each policy's available observations; hatched bars use the identical 15 accepted documents. These are distinct estimands. NN means nearest-neighbour distance; grid distance means grid-to-nearest-observation distance.]",
+        )
+        final_md = insert_after_markdown_figure(final_md, "figures/F2_vlm_source_shift.png", table3_md)
+        final_md = insert_after_markdown_figure(final_md, "figures/F3_assurance_frontier.png", table4_md)
+        final_md = insert_after_markdown_figure(final_md, "figures/F4_spatial_support_consequence.png", table5_md)
+        final_md = re.sub(r"## References\s*$", markdown_references(bibliography), final_md, flags=re.S)
         (HERE / "manuscript_final.md").write_text(final_md, encoding="utf-8", newline="\n")
     print(f"wrote {HERE / 'manuscript.tex'}")
     print(f"wrote {HERE / 'references_cageo.bib'} with {len(cited_keys)} cited entries")

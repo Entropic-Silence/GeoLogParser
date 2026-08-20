@@ -4,21 +4,30 @@ All interval F1 values below are **boundary-pair interval F1**: both top and
 bottom depths must match under the order-preserving tolerance. Evidence tiers
 are not pooled.
 
-## Table 1. Reliability across cohorts and source families
+## Table 1. Boundary-pair interval F1 across cohorts and source-shift panels
 
-| Cohort/source | Evidence | Documents | Reference intervals | System | Boundary-pair F1 | Boundary-exact | Zero output |
-|---|---|---:|---:|---|---:|---:|---:|
-| California v001 | Published manual transcription Gold | 50 | 697 | Qwen/Qwen3.8-27B-FP8 direct | 0.932 | 0.740 | 0.000 |
-| California v002 | Published manual transcription Gold | 100 | 1,770 | Qwen/Qwen3.8-27B-FP8 direct | 0.896 | 0.700 | 0.000 |
-| California v003 | Published manual transcription Gold | 100 | 1,788 | Qwen/Qwen3.8-27B-FP8 direct | 0.918 | 0.720 | 0.000 |
-| California v004 | Published manual transcription Gold | 100 | 1,944 | Qwen/Qwen3.8-27B-FP8 direct | 0.917 | 0.740 | 0.050 |
-| California v005 | Published manual transcription Gold | 100 | 2,069 | Qwen/Qwen3.8-27B-FP8 direct | 0.903 | 0.690 | 0.010 |
-| Swissgeol Thurgau held-out | Source-agreement reference | 35 | 80 | Qwen/Qwen3.8-27B-FP8 direct | 0.577 | 0.000 | 0.000 |
-| BGS Offshore | Source-agreement reference | 26 | 341 | RapidOCR positioned parser | 0.038 | — | — |
+| Panel | Reader/interface | Evidence tier | Documents | Reference intervals | Boundary-pair interval F1 |
+|---|---|---|---:|---:|---:|
+| California v001 | Qwen/Qwen3.8-27B-FP8 direct | Published manual-transcription Gold | 50 | 697 | 0.932 |
+| California v001 | RapidOCR positioned | Published manual-transcription Gold | 50 | 697 | 0.390 |
+| California v002 | Qwen/Qwen3.8-27B-FP8 direct | Published manual-transcription Gold | 100 | 1,770 | 0.896 |
+| California v002 | RapidOCR positioned | Published manual-transcription Gold | 100 | 1,770 | 0.450 |
+| California v003 | Qwen/Qwen3.8-27B-FP8 direct | Published manual-transcription Gold | 100 | 1,788 | 0.918 |
+| California v003 | RapidOCR positioned | Published manual-transcription Gold | 100 | 1,788 | 0.383 |
+| California v004 | Qwen/Qwen3.8-27B-FP8 direct | Published manual-transcription Gold | 100 | 1,944 | 0.917 |
+| California v004 | RapidOCR positioned | Published manual-transcription Gold | 100 | 1,944 | 0.428 |
+| California v005 | Qwen/Qwen3.8-27B-FP8 direct | Published manual-transcription Gold | 100 | 2,069 | 0.903 |
+| California v005 | RapidOCR positioned | Published manual-transcription Gold | 100 | 2,069 | 0.389 |
+| Swissgeol held-out | Qwen/Qwen3.8-27B-FP8 direct | Source-agreement reference | 35 | 80 | 0.577 |
+| Swissgeol held-out | RapidOCR positioned | Source-agreement reference | 35 | 80 | 0.679 |
+| Swissgeol held-out | Tesseract positioned | Source-agreement reference | 35 | 80 | 0.857 |
+| BGS Offshore | RapidOCR positioned | Source-agreement reference | 26 | 341 | 0.038 |
+| BGS Offshore | Tesseract positioned | Source-agreement reference | 26 | 341 | 0.041 |
+| Raft River | RapidOCR positioned | Source-agreement reference | 2 | 62 | 1.000 |
 
 ## Table 2. Independent evidence and selective assurance
 
-| Cohort | Raw proposal precision | Endpoint-field numeric-anchor coverage | Both-endpoints anchored proposal coverage | Owned/accepted proposal coverage | Accepted intervals | Selective precision (95% CI) | Error documents |
+| Cohort | Raw proposal precision | Endpoint-field anchor coverage | Both-endpoint anchor coverage | Accepted coverage | Accepted intervals (n) | Selective precision (95% CI) | Error documents |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | California v001 development | 0.908 | 0.817 | 0.731 | 0.236 | 174 | 1.000 [1.000, 1.000] | 0 |
 | California v002 validation | 0.854 | 0.849 | 0.792 | 0.287 | 561 | 0.979 [0.951, 0.997] | 5 |
@@ -62,3 +71,16 @@ the final owned/accepted column represents automatically accepted intervals.
 | Parsing | strict JSON; no YAML, repair, completion, reorder, or deduplication |
 | Testing date | 2026-08-17 UTC |
 | Unrecoverable fields | vLLM source commit, per-request trace, and immutable contemporaneous runtime lockfile |
+
+## Table 5. Exploratory modern open-model transport panel
+
+| Model/interface | Panel | Documents/pages | Interval output | Boundary-pair F1 | Complete-document exactness | Evidence interpretation |
+|---|---|---:|---:|---:|---:|---|
+| `Qwen/Qwen3.8-27B-FP8` direct JSON | Swissgeol held-out | 35/35 | 76 | 0.577 | 0/35 | source-agreement transport result |
+| `Qwen/Qwen3-VL-4B-Instruct` direct JSON | California v003 page-20 exploratory | 13/20 | 273 | 0.793 | 3/13 | fixed exploratory subset |
+| `Qwen/Qwen3-VL-4B-Instruct` direct JSON | Swissgeol held-out | 35/35 | 59 | 0.619 | 0/35 | source-agreement transport result |
+| `PaddlePaddle/PaddleOCR-VL-1.6` official table task | Swissgeol held-out | 35/35 | 0 auditable decoded rows | 0.000* | 0/35 | task completed; fixed interval decoder coverage 0 |
+| `opendatalab/MinerU2.5-Pro-2604-1.2B` official parser | Swissgeol held-out | 35/35 | 0 auditable decoded rows | 0.000* | 0/35 | task completed; fixed interval decoder coverage 0 |
+
+\* The specialist rows are decoder/task-coverage results, not claims that the
+models produced no table content. They are not pooled with direct-JSON F1.

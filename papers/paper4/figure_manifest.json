@@ -1,60 +1,68 @@
 {
   "figures": [
     {
+      "caption": "Provenance-grounded assurance framework.",
       "file": "figures/F1_trustworthy_framework.png",
       "id": "F1",
       "purpose": "provenance-grounded assurance framework"
     },
     {
+      "caption": "Modern VLM reliability across California cohorts and source shift.",
       "file": "figures/F2_vlm_source_shift.png",
       "id": "F2",
       "purpose": "California VLM/OCR comparison and source shift"
     },
     {
+      "caption": "Selective assurance viewed simultaneously as precision, proposal coverage, complete-document automation, and a held-out v003 evidence funnel.",
       "file": "figures/F3_assurance_frontier.png",
       "id": "F3",
       "purpose": "precision, coverage, and complete-document automation"
     },
     {
+      "caption": "Full-support versus matched-support downstream consequence of selective acceptance.",
       "file": "figures/F4_spatial_support_consequence.png",
       "id": "F4",
       "purpose": "full-support versus matched-support downstream consequence"
-    }
-  ],
-  "manuscript": "paper4",
-  "source_manifests": {
-    "experiments/paper1/analysis/modern_vlm_statistics_v001.json": "676ea2758165a6a8e94883a5ac5acb22b24715cf73542955a3dae8ee20d527da",
-    "experiments/paper2/analysis/vlm_proposal_assurance_v001.json": "efc58a74802ac245058a95b120d8e4b239ec45caeab6df5997e541d4ef23581a",
-    "experiments/paper3/analysis/swissgeol_spatial_sensitivity_v001.json": "32440b01b2a5f7255d07b896f1dcc77b721e5f8a08a045b0b80433970c46a690",
-    "publication_evidence/result_core/results/2026-08-17/P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V003_HELDOUT_002/metrics.json": "0762d224c1ee5af979434573fdb3afff120bb9c461b89f0aefcfd5235352eb68"
-  },
-  "status": "integrated_cg_main_figure_set",
-  "vector_exports": [
-    "figures/Figure_1.pdf",
-    "figures/Figure_2.pdf",
-    "figures/Figure_3.pdf",
-    "figures/Figure_4.pdf"
-  ],
-  "supplementary_figures": [
-    {
-      "file": "figures/F4_risk_coverage_frontier.png",
-      "id": "S1",
-      "purpose": "legacy sequence risk frontier"
-    },
-    {
-      "file": "figures/F5_threshold_development_curve.png",
-      "id": "S2",
-      "purpose": "development-only threshold curve"
-    },
-    {
-      "file": "figures/F7_controlled_error_mechanisms.png",
-      "id": "S3",
-      "purpose": "controlled synthetic perturbation mechanisms"
     }
   ],
   "graphical_abstract": {
     "file": "figures/graphical_abstract.pdf",
     "purpose": "schematic overview of proposal, evidence, decision, and support",
     "rights": "programmatic schematic; no source-page image used"
-  }
+  },
+  "manuscript": "paper4",
+  "rights_linkage": "All programmatic artwork was reviewed by the sole author for public dissemination; no source-page image is embedded in the main figures or graphical abstract.",
+  "source_manifests": {
+    "experiments\\paper1\\analysis\\modern_vlm_statistics_v001.json": "676ea2758165a6a8e94883a5ac5acb22b24715cf73542955a3dae8ee20d527da",
+    "experiments\\paper2\\analysis\\vlm_proposal_assurance_v001.json": "efc58a74802ac245058a95b120d8e4b239ec45caeab6df5997e541d4ef23581a",
+    "experiments\\paper3\\analysis\\swissgeol_spatial_sensitivity_v001.json": "32440b01b2a5f7255d07b896f1dcc77b721e5f8a08a045b0b80433970c46a690",
+    "publication_evidence\\result_core\\results\\2026-08-17\\P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V003_HELDOUT_002\\metrics.json": "0762d224c1ee5af979434573fdb3afff120bb9c461b89f0aefcfd5235352eb68"
+  },
+  "status": "integrated_cg_main_figure_set",
+  "supplementary_figures": [
+    {
+      "caption": "Legacy sequence-reconstruction risk frontier.",
+      "file": "figures/F4_risk_coverage_frontier.png",
+      "id": "S1",
+      "purpose": "legacy sequence risk frontier"
+    },
+    {
+      "caption": "Development-only threshold selection.",
+      "file": "figures/F5_threshold_development_curve.png",
+      "id": "S2",
+      "purpose": "development-only threshold curve"
+    },
+    {
+      "caption": "Controlled error mechanisms and spatial response.",
+      "file": "figures/F7_controlled_error_mechanisms.png",
+      "id": "S3",
+      "purpose": "controlled synthetic perturbation mechanisms"
+    }
+  ],
+  "vector_exports": [
+    "figures/Figure_1.pdf",
+    "figures/Figure_2.pdf",
+    "figures/Figure_3.pdf",
+    "figures/Figure_4.pdf"
+  ]
 }

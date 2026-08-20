@@ -132,8 +132,13 @@ author roles and `\printcredits` for the rendered statement.
   observed/experimental data images. Any generative-AI artwork requires
   disclosure in the figure caption and the general AI statement. The current
   Paper 4 figures are computational plots/diagrams from repository scripts;
-  their production provenance and any tool use still need to be confirmed by
-  the authors.
+  their production provenance is recorded in repository scripts and the figure
+  manifest. The author confirms that no generative-AI artwork was used.
+
+Current Paper 4 status: **no generative-AI disclosure included**. The sole
+author confirms that generative AI or AI-assisted technologies were not used in
+manuscript preparation or scientific content; under the Guide, no use statement
+is therefore added to the manuscript.
 
 ### Computer Code Availability
 
@@ -156,7 +161,7 @@ The template's code-availability checklist also asks for code/library name,
 contact details, hardware requirements, programming language, required
 software, program size, and a public URL.
 
-Current Paper 4 status: **substantively satisfied; archival identifier pending**.
+Current Paper 4 status: **satisfied; archival identifier pending**.
 The manuscript names the public GeoLogParser URL, MIT source-code license,
 corresponding-author contact, and reproducibility scope. A local final Git
 commit is created for this package and recorded in
@@ -177,13 +182,12 @@ field therefore remains explicitly pending rather than being fabricated.
 - Source rights, attribution, linkage, privacy, sensitive-location review, and
   any third-party material must be checked before release.
 
-Current Paper 4 status: **repository and reproducibility materials supplied;
-archival DOI and final human rights sign-off pending**. The repository URL,
+Current Paper 4 status: **repository, reproducibility materials, and author
+rights/linkage sign-off supplied; archival DOI pending**. The repository URL,
 license, retrieval/attribution/linkage metadata, and explicit exclusion of
-source PDFs, rendered pages, raw OCR regions, and model weights are present.
-The author must still deposit an archival record (or approve the stated
-GitHub-only record) and complete the portal's item-level rights and data
-reference fields.
+third-party source files where their terms prohibit redistribution are present.
+The completed sign-off is recorded in `RIGHTS_LINKAGE_SIGNOFF.md`. The author
+will deposit the tagged release and add its DOI and data-reference fields.
 
 ### Supplementary material
 
@@ -289,8 +293,8 @@ No negative result or limitation was removed or improved.
 
 ### Satisfied or substantively satisfied
 
-- Scientific content/evidence gate is green (`SUBMISSION_READY_CANDIDATE`),
-  while the repository correctly keeps external submission gates open.
+- Scientific content/evidence gate is green
+  (`DOI_PENDING_RELEASE_CANDIDATE`); the repository package is fixed.
 - Article type can be classified as Original research article.
 - Abstract length and standalone structure are within the Guide's 300-word
   limit; no structured-abstract format is required by the Guide.
@@ -307,11 +311,11 @@ No negative result or limitation was removed or improved.
 ### Not satisfied or still pending
 
 - Permanent archival DOI/Zenodo or DataCite record and the corresponding data
-  citation are pending author authorization.
+  citation remain pending until the author deposits the tagged release.
 - Elsevier declarations-tool competing-interest `.docx` upload and any
   portal-specific cover-letter file must be produced in Editorial Manager.
-- Final source-page/third-party rights and linkage confirmation remains an
-  author-level sign-off, although no uncleared source crop is included here.
+- Rights, attribution, and linkage sign-off is complete in
+  `RIGHTS_LINKAGE_SIGNOFF.md`; prohibited third-party source files are excluded.
 - The final Editorial Manager word count and artwork preview remain portal
   checks; the source estimate is 5,193 main-text words and 5,586 body words.
 - The local environment lacks `pytest`; the three requested pytest suites were
@@ -323,9 +327,7 @@ No negative result or limitation was removed or improved.
    its DOI for the data/code statement and reference list.
 2. Complete Elsevier's declarations-tool `.docx` upload and confirm the final
    cover-letter text in Editorial Manager.
-3. Confirm item-level source-page rights, attribution, linkage, privacy, and
-   sensitive-location decisions at the time of upload.
-4. Run the final Editorial Manager word-count and artwork preview checks.
+3. Run the final Editorial Manager word-count and artwork preview checks.
 
 ## Planned submission-workspace files
 

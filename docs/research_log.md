@@ -3067,3 +3067,24 @@
   Qwen3.8-27B-FP8 remains the completed modern VLM baseline; Paper II uses its
   verified proposal-assurance result to quantify complementarity rather than
   claiming a closed-model result.
+
+## 2026-08-19 — Open-model transport roster extension
+
+- Stopped only the RTX 5090 mining container for the controlled experiments;
+  the historical Qwen3.8 run on four RTX 2080 Ti GPUs was not altered.
+- Added a fixed, post-hoc source-shift roster under
+  `paper1_modern_vlm_transport_v001`, with no prompt, threshold, parser, or
+  BGS v003 changes. The direct Qwen3-VL-4B run reached boundary-pair F1 `0.793`
+  on the fixed 20-page California v003 exploratory panel and `0.619` on the
+  complete 35-page Swissgeol panel; complete Swissgeol exactness was `0/35`.
+- PaddleOCR-VL-1.6 and MinerU2.5-Pro completed page inference on all 35
+  Swissgeol pages, but the fixed explicit-header interval decoder produced zero
+  auditable interval rows. These are task/interface coverage diagnostics, not
+  direct-JSON F1 claims.
+- Updated Paper 4, the supplement, provenance configs, claim map, model roster,
+  and transport aggregate. Qwen3.8 provenance now explicitly records the
+  modified/non-reference 2080 Ti hardware and non-official runtime path as
+  partially reconstructable; no unrecoverable detail was guessed.
+- Decision: retain the roster as exploratory transport evidence. It supports a
+  recurring source-shift/usable-output risk across open model families and
+  interfaces, but not a universal capability estimate.

@@ -10,13 +10,22 @@
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage{tabularx}
+\usepackage{makecell}
 \usepackage{calc}
 \usepackage{adjustbox}
 \usepackage{seqsplit}
 \usepackage{xcolor}
 \usepackage{enumitem}
 \usepackage{microtype}
-\hypersetup{hypertexnames=false}
+\usepackage{placeins}
+\hypersetup{
+  hidelinks,
+  hypertexnames=false,
+  pdftitle={Trustworthy Borehole Database Ingestion from VLM Proposals: Provenance and Spatial Support},
+  pdfauthor={Yifan Du},
+  pdfsubject={Provenance-grounded selective assurance for borehole database ingestion},
+  pdfkeywords={borehole logs, vision-language models, provenance, selective prediction, spatial support}
+}
 \newcommand{\pandocbounded}[1]{#1}
 \newcommand{\tightlist}{}
 \newcommand{\real}[1]{#1}
@@ -36,7 +45,7 @@
 \author[1]{Yifan Du}[auid=000,orcid=0009-0008-7740-5408]
 \cormark[1]
 \ead{duyifan619916@gmail.com}
-\credit{Conceptualization; Data curation; Formal analysis; Funding acquisition; Investigation; Methodology; Project administration; Resources; Software; Supervision; Validation; Visualization; Writing -- original draft; Writing -- review and editing}
+\credit{Conceptualization; Data curation; Formal analysis; Investigation; Methodology; Project administration; Resources; Software; Validation; Visualization; Writing -- original draft; Writing -- review and editing}
 \address[1]{North China University of Water Resources and Electric Power, Zhengzhou, Henan 450046, China}
 \begingroup
 \ExplSyntaxOn
@@ -54,7 +63,16 @@ borehole logs \sep vision-language models \sep provenance \sep selective predict
 \ExplSyntaxOn
 \keys_set:nn { stm / mktitle } { nologo=true }
 \ExplSyntaxOff
+\begingroup
+\hfuzz=120pt
 \maketitle
+\endgroup
+\hypersetup{
+  pdftitle={Trustworthy Borehole Database Ingestion from VLM Proposals: Provenance and Spatial Support},
+  pdfauthor={Yifan Du},
+  pdfsubject={Provenance-grounded selective assurance for borehole database ingestion},
+  pdfkeywords={borehole logs, vision-language models, provenance, selective prediction, spatial support}
+}
 \printcredits
 \doublespacing
 
@@ -99,7 +117,7 @@ The contributions correspond directly to the three questions:
 \begin{figure}
 \centering
 \includegraphics[width=0.94\textwidth,keepaspectratio,alt={Figure 1. Provenance-grounded assurance framework.}]{figures/Figure_1.pdf}
-\caption{Provenance-grounded assurance framework. VLM proposals are checked against independent positioned evidence and deterministic geometry before acceptance or review.}
+\caption{Provenance-grounded assurance framework. VLM proposals are checked against independent positioned evidence and deterministic geometry before acceptance or review.}\label{fig:framework}
 \end{figure}
 
 \section{Related Work}
@@ -119,16 +137,37 @@ Geoscientific studies show that borehole interpretation and geological interface
 \begingroup
 \scriptsize
 
-{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1220}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1280}}
   >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
   >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
   >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
   >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
   >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
   >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}@{}}
+\caption{Representative-work comparison across extraction capability, provenance, selective admission, document-level utility, and downstream spatial support. ``Not reported'' means that the cited study did not report that evaluation dimension; it does not imply a methodological deficiency for the study's stated objective.}\label{tab:related-work}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Representative study
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Domain/source
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+OCR/VLM
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Cross-source
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Provenance
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Selective gate
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Complete document
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Spatial support
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\caption[]{Representative-work comparison (continued)}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Representative study
@@ -151,33 +190,43 @@ Spatial support
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Zhang et al.~(2020) \citep{zhang2020boreholeimages} & Borehole-log images & OCR/deep model & Not reported & Not reported & Not reported & Not reported & Not reported \\
-Han and Suh (2024) \citep{han2024boreholeocr} & Abandoned-mine logs & OCR/deep model & Not reported & Page extraction, not field trace & Not reported & Structured target, not admission & Not reported \\
-Amini et al.~(2023) \citep{amini2023boreholepdf} & Government PDF logs & OCR/PDF workflow & Multiple PDF sources & PDF selection and capture & Not reported & Not reported & Not reported \\
-Ma et al.~(2024) \citep{ma2024historicalwell} & Historical well records & Large language model & Not reported & Record extraction, not bbox gate & Not reported & Not reported & Not reported \\
-Geifman and El-Yaniv (2017) \citep{geifman2017selective} & General classification & Neural classifier & Not applicable & Model confidence & Reject option & Coverage/risk, not documents & Not reported \\
-Hendrickx et al.~(2024) \citep{hendrickx2024reject} & Reject-option survey & Multiple ML settings & Review of settings & Not a source-provenance workflow & Selective risk & Not document completeness & Not reported \\
-Buneman et al.~(2001) \citep{buneman2001provenance} & Database provenance & Not an extraction model & Not applicable & Provenance semantics & Not an acceptance experiment & Not reported & Not reported \\
-Lark et al.~(2014) \citep{lark2014crosssection} & Geological cross-sections & Geoscientific modelling & Borehole uncertainty & Input uncertainty & Not an extraction gate & Not reported & Support/model uncertainty \\
+Zhang et al.~(2020) & Borehole-log images & OCR/deep model & Not reported & Not reported & Not reported & Not reported & Not reported \\
+Han and Suh (2024) & Abandoned-mine logs & OCR/deep model & Not reported & Page extraction, not field trace & Not reported & Structured target, not admission & Not reported \\
+Amini et al.~(2023) & Government PDF logs & OCR/PDF workflow & Multiple PDF sources & PDF selection and capture & Not reported & Not reported & Not reported \\
+Ma et al.~(2024) & Historical well records & Large language model & Not reported & Record extraction, not bbox gate & Not reported & Not reported & Not reported \\
+Geifman and El-Yaniv (2017) & General classification & Neural classifier & Not applicable & Model confidence & Reject option & Coverage/risk, not documents & Not reported \\
+Hendrickx et al.~(2024) & Reject-option survey & Multiple ML settings & Review of settings & Not a source-provenance workflow & Selective risk & Not document completeness & Not reported \\
+Buneman et al.~(2001) & Database provenance & Not an extraction model & Not applicable & Provenance semantics & Not an acceptance experiment & Not reported & Not reported \\
+Lark et al.~(2014) & Geological cross-sections & Geoscientific modelling & Borehole uncertainty & Input uncertainty & Not an extraction gate & Not reported & Support/model uncertainty \\
 This study & Borehole pages to database & VLM + positioned evidence & California cohorts + shift & Page-local bboxes & \makecell[l]{Fixed\\ACCEPT/\\NEEDS\_\\REVIEW} & 4/100 documents & Full/matched \\
 \end{longtable}
-}
 
 \endgroup
 
-Existing studies establish extraction capability, selective-risk principles, and downstream geoscientific uncertainty largely as separate problems. This study connects them at the document-to-database decision boundary. Extraction studies mainly ask whether a page can be parsed; selective prediction asks when a model should abstain; geoscientific uncertainty studies ask how imperfect observations affect downstream models. The present question is when a visually plausible borehole extraction can be admitted to a geological database, and what observational support is lost when it is not admitted.
+Existing studies establish extraction capability, selective-risk principles, and downstream geoscientific uncertainty largely as separate problems. This study connects them at the document-to-database decision boundary. Extraction studies mainly ask whether a page can be parsed; selective prediction asks when a model should abstain; geoscientific uncertainty studies ask how imperfect observations affect downstream models. The present question is when a visually plausible borehole extraction can be admitted to a geological database, and what observational support is lost when it is not admitted. Table~\ref{tab:related-work} summarizes the representative-work comparison.
 
 \section{Data, Evidence Tiers, and Task Definition}
 
 \subsection{Evidence tiers}
 
-The evaluation separates evidence types before any metric is calculated.
+The evaluation separates evidence types before any metric is calculated; Table~\ref{tab:evidence-tiers} defines the tiers used here.
 
-{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
   >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
   >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\caption{Evidence tiers and the claims each tier supports in this study. Evidence tiers are kept separate rather than pooled into a single accuracy estimate.}\label{tab:evidence-tiers}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Evidence type
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Meaning
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Claims supported here
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\caption[]{Evidence tiers and supported claims (continued)}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Evidence type
@@ -196,7 +245,6 @@ Authoritative metadata & Official IDs, coordinates, collars, or final-depth fiel
 Machine Silver & Multiple machines or deterministic rules construct a reference & Agreement and development analysis only \\
 Audit/no reference & No independent target & Coverage, runtime, schema validity, and failure mechanisms \\
 \end{longtable}
-}
 
 Synthetic records are a separate controlled class with programmatically known labels. Evidence tiers are never pooled into a single accuracy estimate. In particular, source-agreement panels are not described as newly annotated human Gold, and synthetic dual-reader experiments are not described as two observed readers.
 
@@ -240,11 +288,11 @@ The numeric anchor is weaker than semantic ownership: finding the same number so
 
 The positioned reader supplies candidates with source-unit top and bottom depths, page order, normalized column coordinates, OCR confidence, geological-term evidence, source text, and both original region bboxes. Deterministic checks convert these fields into an evidence state: finite and positive depths, compatible units, top \textless{} bottom, non-overlap, monotone page/depth order, and agreement of both endpoints with the same positioned semantic column. A matched number without semantic ownership remains \texttt{LOCATED}, not \texttt{ACCEPTED}.
 
-The main assurance path is therefore a four-stage decision, shown in Fig. 1: (i) the VLM proposes visible intervals; (ii) the independently positioned reader supplies page-local evidence; (iii) deterministic geometry checks test endpoint, unit, order, and ownership conditions; and (iv) the system returns \texttt{ACCEPT} or \texttt{NEEDS\_REVIEW} while preserving the immutable proposal and its provenance. The direct VLM interface used here did not provide independently verifiable field provenance; the assurance layer adds that missing evidence rather than assuming that JSON validity supplies it.
+The main assurance path is therefore a four-stage decision, shown in Fig.~\ref{fig:framework}: (i) the VLM proposes visible intervals; (ii) the independently positioned reader supplies page-local evidence; (iii) deterministic geometry checks test endpoint, unit, order, and ownership conditions; and (iv) the system returns \texttt{ACCEPT} or \texttt{NEEDS\_REVIEW} while preserving the immutable proposal and its provenance. The direct VLM interface used here did not provide independently verifiable field provenance; the assurance layer adds that missing evidence rather than assuming that JSON validity supplies it.
 
 \subsection{Selective accept/review policy}
 
-The policy accepts a proposal only when both endpoints agree with an independently positioned interval, both source bboxes are retained, the interval is non-overlapping and monotone, and no critical numerical or unit check fails. Partial agreement is recorded as a proposal for review. The protocol was frozen after California v001 development: the agreement and field-evidence tolerances are fixed at (10\^{}\{-6\}) in their respective units, v002 is validation, and v003 is the reported held-out replication. Although v004 and v005 are held-out direct-reader cohorts in the broader protocol, no VLM assurance confirmation run is claimed for them here. The document is the primary risk unit because actions cluster within reports; action-level false-correction rates are secondary.
+The policy accepts a proposal only when both endpoints agree with an independently positioned interval, both source bboxes are retained, the interval is non-overlapping and monotone, and no critical numerical or unit check fails. Partial agreement is recorded as a proposal for review. The protocol was frozen after California v001 development: the agreement and field-evidence tolerances are fixed at \(10^{-6}\) in their respective units, v002 is validation, and v003 is the reported held-out replication. Although v004 and v005 are held-out direct-reader cohorts in the broader protocol, no VLM assurance confirmation run is claimed for them here. The document is the primary risk unit because actions cluster within reports; action-level false-correction rates are secondary.
 
 The policy reports three different quantities rather than one automation score: proposal coverage (accepted intervals divided by VLM proposals), selective precision among accepted intervals, and complete-document automation (documents for which the full ordered record passes the acceptance gate). On held-out v003, complete-document auto-acceptance is 4/100 (4\%). This is the intended conservative deployment boundary: it identifies a small set that can enter a database automatically and sends the remaining proposals to review, rather than treating partial acceptance as complete-record correctness. For \(n\) accepted documents and zero observed worsened documents, the one-sided 95\% upper bound is \(1 - 0.05^{1/n}\); this finite-sample statement is not a safety certification.
 
@@ -284,7 +332,7 @@ The evaluation protocol and deterministic post-processing components are reprodu
 
 \subsection{Capability is high on familiar sources but does not transport uniformly}
 
-On the five California cohorts, Qwen3.8-27B-FP8 obtains boundary-pair interval F1 of 0.932, 0.896, 0.918, 0.917, and 0.903. Its document-cluster 95\% intervals are {[}0.888, 0.973{]}, {[}0.841, 0.943{]}, {[}0.878, 0.953{]}, {[}0.876, 0.952{]}, and {[}0.864, 0.939{]}. Complete boundary sequences occur in 74\%, 70\%, 72\%, 74\%, and 69\% of documents. Zero-output rates are 0, 0, 0, 0.05, and 0.01. The corresponding frozen RapidOCR parser obtains 0.390, 0.450, 0.383, 0.428, and 0.389, with zero-output rates of 0.08--0.23 and full-record exactness of 0--2\% in the available evaluated fields. The paired document-cluster F1 gains of Qwen over RapidOCR are 0.542, 0.445, 0.535, 0.489, and 0.514; every bootstrap probability that the gain is positive is 1.000. Results are summarized in Table~\ref{tab:reliability}.
+On the five California cohorts, Qwen3.8-27B-FP8 obtains boundary-pair interval F1 of 0.932, 0.896, 0.918, 0.917, and 0.903. Its document-cluster 95\% intervals are {[}0.888, 0.973{]}, {[}0.841, 0.943{]}, {[}0.878, 0.953{]}, {[}0.876, 0.952{]}, and {[}0.864, 0.939{]}. Complete boundary sequences occur in 74\%, 70\%, 72\%, 74\%, and 69\% of documents. Zero-output rates are 0, 0, 0, 0.05, and 0.01. The corresponding frozen RapidOCR parser obtains 0.390, 0.450, 0.383, 0.428, and 0.389, with zero-output rates of 0.08--0.23 and full-record exactness of 0--2\% in the available evaluated fields. The paired document-cluster F1 gains of Qwen over RapidOCR are 0.542, 0.445, 0.535, 0.489, and 0.514; every bootstrap probability that the gain is positive is 1.000. Figure~\ref{fig:capability} and Table~\ref{tab:reliability} report the same F1 results.
 
 The direct VLM is therefore not a failure case. It recovers visually implicit structure that the positioned parser misses. However, JSON validity is not provenance. Before deterministic rejection, invalid numeric ranges occur at 0.004--0.017 across the five cohorts. The tested direct interface did not provide independently verifiable field provenance, an independent column-ownership witness, or an auditable acceptance trace. The headline F1 is a boundary-pair metric; it does not establish lithology correctness or complete semantic records. In the RapidOCR reference, matched lithology exactness ranges from 0.431 to 0.544 and full-record exactness remains 0--2\%. The source-shift panels make the deployment implication concrete: Swissgeol Qwen F1 is 0.577 with zero boundary-exact documents, while BGS Offshore RapidOCR and Tesseract obtain 0.038 and 0.041. On the one-time unseen BGS external gate, all five visible pages are classified as unsupported and abstain, producing zero utility but no false positive or critical numerical error. These results are tiered source-shift evidence, not a pooled benchmark; they show that capability does not establish transportability or database assurance.
 
@@ -293,20 +341,86 @@ An exploratory open-model roster tests whether this transport risk is specific t
 \begin{figure}
 \centering
 \includegraphics[width=0.94\textwidth,keepaspectratio,alt={Figure 2. Modern VLM reliability across California cohorts and source shift.}]{figures/Figure_2.pdf}
-\caption{Modern VLM reliability across California cohorts and source shift. California cohort results and source-agreement transfer outcomes are shown with their declared evidence tiers.}
+\caption{Modern VLM reliability across California cohorts and source shift. The familiar-source panel compares Qwen3.8-27B-FP8 with the positioned RapidOCR parser on five record-disjoint California cohorts with published manual-transcription Gold evidence. The source-shift panel reports Swissgeol, British Geological Survey (BGS), and Raft River transfer/stress outcomes with their declared evidence tiers; these values are not pooled with California Gold.}\label{fig:capability}
 \end{figure}
+\FloatBarrier
+
+\begingroup
+\singlespacing
+\footnotesize
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}p{0.23\textwidth}rrr@{}}
+\caption{Boundary-pair interval F1 across cohorts, readers, and source-shift panels. These are the results shown in Fig.~2; evidence tiers are declared separately and are not pooled.}\label{tab:reliability}\\
+\toprule
+Panel & Reader/interface & Evidence tier & Documents & \makecell{Reference\\intervals} & \makecell{Boundary-pair\\interval F1} \\
+\midrule
+\endfirsthead
+\caption[]{Boundary-pair interval F1 across cohorts, readers, and source-shift panels (continued)}\\
+\toprule
+Panel & Reader/interface & Evidence tier & Documents & \makecell{Reference\\intervals} & \makecell{Boundary-pair\\interval F1} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{6}{r}{Continued on next page}\\
+\endfoot
+\bottomrule
+\endlastfoot
+California v001 & Qwen direct & Published manual-transcription Gold & 50 & 697 & 0.932 \\
+California v001 & RapidOCR positioned & Published manual-transcription Gold & 50 & 697 & 0.390 \\
+California v002 & Qwen direct & Published manual-transcription Gold & 100 & 1,770 & 0.896 \\
+California v002 & RapidOCR positioned & Published manual-transcription Gold & 100 & 1,770 & 0.450 \\
+California v003 & Qwen direct & Published manual-transcription Gold & 100 & 1,788 & 0.918 \\
+California v003 & RapidOCR positioned & Published manual-transcription Gold & 100 & 1,788 & 0.383 \\
+California v004 & Qwen direct & Published manual-transcription Gold & 100 & 1,944 & 0.917 \\
+California v004 & RapidOCR positioned & Published manual-transcription Gold & 100 & 1,944 & 0.428 \\
+California v005 & Qwen direct & Published manual-transcription Gold & 100 & 2,069 & 0.903 \\
+California v005 & RapidOCR positioned & Published manual-transcription Gold & 100 & 2,069 & 0.389 \\
+Swissgeol held-out & Qwen direct & Source-agreement reference & 35 & 80 & 0.577 \\
+Swissgeol held-out & RapidOCR positioned & Source-agreement reference & 35 & 80 & 0.679 \\
+Swissgeol held-out & Tesseract positioned & Source-agreement reference & 35 & 80 & 0.857 \\
+BGS Offshore & RapidOCR positioned & Source-agreement reference & 26 & 341 & 0.038 \\
+BGS Offshore & Tesseract positioned & Source-agreement reference & 26 & 341 & 0.041 \\
+Raft River & RapidOCR positioned & Source-agreement reference & 2 & 62 & 1.000 \\
+\end{longtable}
+\endgroup
+
 
 \subsection{Independent evidence creates a high-precision but selective operating point}
 
-The assurance experiment keeps the Qwen proposals unchanged and adds an independently positioned reader. On development v001, complete positioned agreement covers 174/736 proposals and all are correct. On validation v002, 561 proposals are accepted at precision 0.979 {[}0.951, 0.997{]}, compared with raw proposal precision 0.854. On held-out v003, the frozen rule accepts 447/1,833 proposals: 444 are correct, selective precision is 0.993 {[}0.984, 1.000{]}, raw proposal precision is 0.907, and accepted coverage is 0.244. The three incorrect accepted intervals occur in three different documents. Same-page numeric-anchor coverage is an \textbf{endpoint-field} quantity: 3,099/3,666 proposed top/bottom fields are located (0.845). Requiring both endpoints to be anchored yields 1,450/1,833 proposals (0.791), still substantially higher than the 447/1,833 semantically owned and accepted intervals. Finding a number is therefore easier than proving interval ownership. Table~\ref{tab:assurance} reports the operating point.
+The assurance experiment keeps the Qwen proposals unchanged and adds an independently positioned reader. On development v001, complete positioned agreement covers 174/736 proposals and all are correct. On validation v002, 561 proposals are accepted at precision 0.979 {[}0.951, 0.997{]}, compared with raw proposal precision 0.854. On held-out v003, the frozen rule accepts 447/1,833 proposals: 444 are correct, selective precision is 0.993 {[}0.984, 1.000{]}, raw proposal precision is 0.907, and accepted coverage is 0.244. The three incorrect accepted intervals occur in three different documents. Same-page numeric-anchor coverage is an \textbf{endpoint-field} quantity: 3,099/3,666 proposed top/bottom fields are located (0.845). Requiring both endpoints to be anchored yields 1,450/1,833 proposals (0.791), still substantially higher than the 447/1,833 semantically owned and accepted intervals. Finding a number is therefore easier than proving interval ownership. Figure~\ref{fig:assurance} visualizes the operating point and evidence funnel; Table~\ref{tab:assurance} reports the corresponding values.
 
 The selective result is intentionally not reported as whole-document accuracy. Partial proposal acceptance cannot establish complete-record correctness, and non-accepted proposals remain in the review queue. Complete-document auto-acceptance is only 4/100 documents (4\%) on held-out v003, even though interval-level accepted coverage is 24.4\%. That gap is not a weakness hidden by the metric; it is the conservative deployment boundary. The method's benefit is a reliable subset with explicit provenance, not an assertion that the unaccepted 75.6\% are correct. This distinction is operationally important when a database ingestion job must state which rows were automatically accepted and which require review.
 
 \begin{figure}
 \centering
 \includegraphics[width=0.94\textwidth,keepaspectratio,alt={Figure 3. Selective assurance viewed simultaneously as precision, proposal coverage, complete-document automation, and a held-out v003 evidence funnel. Numeric anchors are reported separately as endpoint-field coverage (3,099/3,666) and as both-endpoint interval coverage (1,450/1,833); only semantically owned intervals are accepted.}]{figures/Figure_3.pdf}
-\caption{Selective assurance operating point. Precision, proposal coverage, complete-document automation, and held-out v003 evidence are shown together. Endpoint-field anchors are 3,099/3,666, both-endpoint interval anchors are 1,450/1,833, and semantically owned accepted intervals are 447/1,833.}
+\caption{Selective assurance operating point. Precision, proposal coverage, complete-document automation, and held-out v003 evidence are shown together. Endpoint-field anchors are 3,099/3,666, both-endpoint interval anchors are 1,450/1,833, and semantically owned accepted intervals are 447/1,833; endpoint-field coverage and interval-level coverage use different denominators. The raw point is an unselective proposal baseline, not another selective cohort operating point.}\label{fig:assurance}
 \end{figure}
+\FloatBarrier
+
+\begingroup
+\singlespacing
+\footnotesize
+\setlength{\tabcolsep}{1.5pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.13\textwidth}>{\centering\arraybackslash}p{0.09\textwidth}>{\centering\arraybackslash}p{0.11\textwidth}>{\centering\arraybackslash}p{0.11\textwidth}>{\centering\arraybackslash}p{0.09\textwidth}>{\centering\arraybackslash}p{0.07\textwidth}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\centering\arraybackslash}p{0.06\textwidth}@{}}
+\caption{Independent evidence and selective assurance. Raw proposal precision, endpoint-field anchor coverage, both-endpoint interval coverage, and accepted coverage use distinct quantities and denominators.}\label{tab:assurance}\\
+\toprule
+Cohort & \makecell{Raw\\proposal\\precision} & \makecell{Endpoint-\\field anchor\\coverage} & \makecell{Both-\\endpoint anchor\\coverage} & \makecell{Accepted\\coverage} & \makecell{Accepted\\interval\\count} & \makecell[l]{Selective precision\\(95\% CI)} & \makecell{Error\\docs} \\
+\midrule
+\endfirsthead
+\caption[]{Independent evidence and selective assurance (continued)}\\
+\toprule
+Cohort & \makecell{Raw\\proposal\\precision} & \makecell{Endpoint-\\field anchor\\coverage} & \makecell{Both-\\endpoint anchor\\coverage} & \makecell{Accepted\\coverage} & \makecell{Accepted\\interval\\count} & \makecell[l]{Selective precision\\(95\% CI)} & \makecell{Error\\docs} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+California v001 development & 0.908 & 0.817 & 0.731 & 0.236 & 174 & 1.000 [1.000, 1.000] & 0 \\
+California v002 validation & 0.854 & 0.849 & 0.792 & 0.287 & 561 & 0.979 [0.951, 0.997] & 5 \\
+California v003 held-out & 0.907 & 0.845 & 0.791 & 0.244 & 447 & 0.993 [0.984, 1.000] & 3 \\
+\end{longtable}
+\endgroup
+
 
 \subsection{Unselective recovery illustrates why accuracy gains are not sufficient}
 
@@ -318,15 +432,40 @@ The recovery gain is not automatically safe. Unselective reconstruction produces
 
 On the 35-document source-agreement panel, full-support raw, reread, and risk-aware inputs produce reference-relative volume discrepancies 0.1387, 0.1213, and 0.0821, with mean thickness MAE 45.623, 45.350, and 34.899 m. A superficial reading would call risk-aware selection an improvement. It would be incomplete. Risk accepts 15/35 documents and retains only 0.636 of the reference convex-hull area for the first boundary. Mean nearest-neighbour distance rises from approximately 1.39 km to 3.48 km, and mean grid-to-nearest-observation distance rises from 2.75 km to 4.62 km. Accepted documents have raw aligned boundary MAE 0.000 m and 12/15 exact raw sequences; rejected documents have 19.550 m and 13/20 exact sequences. The router selects easier and spatially narrower records.
 
-The matched-subset estimand removes this selection difference. On the identical 15 accepted documents, raw, reread, and risk-aware thickness MAE are 35.128, 34.670, and 34.670 m, while reference-relative volume discrepancy is 0.0326, 0.0754, and 0.0754. Reread and risk are identical after conditioning on acceptance. The lower full-support risk discrepancy therefore cannot be attributed to an additional correction; it is a consequence of selection and changed support. IDW sensitivity yields overlapping ranges, and reference-input leave-one-borehole-out MAE is 47.06 m across 80 targets. Full-support volume-jackknife means are 0.1348 {[}0.0884, 0.1659{]} for raw, 0.1177 {[}0.0489, 0.1699{]} for reread, and 0.0849 {[}0.0274, 0.1365{]} for risk-aware input. The overlap is more scientifically informative than the ordering of three full-data estimates (Table~\ref{tab:spatial}).
+The matched-subset estimand removes this selection difference. On the identical 15 accepted documents, raw, reread, and risk-aware thickness MAE are 35.128, 34.670, and 34.670 m, while reference-relative volume discrepancy is 0.0326, 0.0754, and 0.0754. Reread and risk are identical after conditioning on acceptance. The lower full-support risk discrepancy therefore cannot be attributed to an additional correction; it is a consequence of selection and changed support. IDW sensitivity yields overlapping ranges, and reference-input leave-one-borehole-out MAE is 47.06 m across 80 targets. Full-support volume-jackknife means are 0.1348 {[}0.0884, 0.1659{]} for raw, 0.1177 {[}0.0489, 0.1699{]} for reread, and 0.0849 {[}0.0274, 0.1365{]} for risk-aware input. The overlap is more scientifically informative than the ordering of three full-data estimates. Figure~\ref{fig:spatial} contrasts the estimands, and Table~\ref{tab:spatial} reports the corresponding diagnostics.
 
 The controlled perturbation mechanism study is retained in Supplementary Methods S5 because its channels are synthetic rather than observed readers. It is used only to illustrate why a deployed risk policy should track both value confidence and the support cost of abstention.
 
 \begin{figure}
 \centering
 \includegraphics[width=0.94\textwidth,keepaspectratio,alt={Figure 4. Full-support versus matched-support downstream consequence of selective acceptance.}]{figures/Figure_4.pdf}
-\caption{Full-support and matched-support downstream consequences. Full-support and matched-support are distinct estimands; matched-support results use the identical 15 accepted documents.}
+\caption{Full-support and matched-support downstream consequences. Solid bars use each extraction policy's available observations, whereas hatched bars use the identical 15 accepted documents. These are distinct estimands, not a direct value-correction comparison. NN denotes nearest-neighbour distance; grid distance denotes grid-to-nearest-observation distance.}\label{fig:spatial}
 \end{figure}
+\FloatBarrier
+
+\begingroup
+\singlespacing
+\footnotesize
+\begin{longtable}{@{}lrrr@{}}
+\caption{Risk, coverage, and downstream support diagnostics.}\label{tab:spatial}\\
+\toprule
+Analysis & Raw & Reread & Risk-aware \\
+\midrule
+\endfirsthead
+\caption[]{Risk, coverage, and downstream support diagnostics (continued)}\\
+\toprule
+Analysis & Raw & Reread & Risk-aware \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Full-support volume discrepancy & 0.1387 & 0.1213 & 0.0821 \\
+Matched-subset volume discrepancy & 0.0326 & 0.0754 & 0.0754 \\
+First-boundary hull-area ratio & 1.000 & 1.000 & 0.636 \\
+Default LOO MAE (m) & 49.84 & 46.62 & 47.05 \\
+\end{longtable}
+\endgroup
+
 
 \section{Discussion}
 
@@ -370,77 +509,21 @@ The downstream analysis establishes the second half of the argument. Abstention 
 
 The resulting deployment principle is simple: use modern VLMs for high-recall visual proposals, require provenance-grounded independent evidence for automatic acceptance, preserve immutable raw outputs, abstain on unsupported structure, and report how acceptance changes downstream spatial support. High F1 is a useful capability indicator. It is not, by itself, a reliability argument for a geological database.
 
-
-\clearpage
-\section*{Main Results Tables}
-\addcontentsline{toc}{section}{Main Results Tables}
-
-\begin{table}
-\centering
-\scriptsize
-\caption{Reliability across cohorts and source families. Evidence tiers are not pooled.}
-\label{tab:reliability}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{@{}llllrrrr@{}}
-\toprule
-Cohort/source & Evidence & Documents & Intervals & System & F1 & Boundary-exact & Zero output \\
-\midrule
-California v001 & Published manual transcription Gold & 50 & 697 & Qwen direct & 0.932 & 0.740 & 0.000 \\
-California v002 & Published manual transcription Gold & 100 & 1,770 & Qwen direct & 0.896 & 0.700 & 0.000 \\
-California v003 & Published manual transcription Gold & 100 & 1,788 & Qwen direct & 0.918 & 0.720 & 0.000 \\
-California v004 & Published manual transcription Gold & 100 & 1,944 & Qwen direct & 0.917 & 0.740 & 0.050 \\
-California v005 & Published manual transcription Gold & 100 & 2,069 & Qwen direct & 0.903 & 0.690 & 0.010 \\
-Swissgeol Thurgau held-out & Source-agreement reference & 35 & 80 & Qwen direct & 0.577 & 0.000 & 0.000 \\
-BGS Offshore & Source-agreement reference & 26 & 341 & RapidOCR positioned & 0.038 & -- & -- \\
-\bottomrule
-\end{tabular}}
-\end{table}
-
-\begin{table}
-\centering
-\scriptsize
-\caption{Independent evidence and selective assurance. Endpoint-field and interval-level anchor coverage are distinct quantities.}
-\label{tab:assurance}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{@{}lrrrrrrr@{}}
-\toprule
-Cohort & Raw precision & Endpoint-field anchor & Both endpoints anchored & Owned/accepted & Accepted intervals & Selective precision (95\% CI) & Error documents \\
-\midrule
-California v001 development & 0.908 & 0.817 & 0.731 & 0.236 & 174 & 1.000 [1.000, 1.000] & 0 \\
-California v002 validation & 0.854 & 0.849 & 0.792 & 0.287 & 561 & 0.979 [0.951, 0.997] & 5 \\
-California v003 held-out & 0.907 & 0.845 & 0.791 & 0.244 & 447 & 0.993 [0.984, 1.000] & 3 \\
-\bottomrule
-\end{tabular}}
-\end{table}
-
-\begin{table}
-\centering
-\small
-\caption{Risk, coverage, and downstream support diagnostics.}
-\label{tab:spatial}
-\begin{tabular}{@{}lrrr@{}}
-\toprule
-Analysis & Raw & Reread & Risk-aware \\
-\midrule
-Full-support volume discrepancy & 0.1387 & 0.1213 & 0.0821 \\
-Matched-subset volume discrepancy & 0.0326 & 0.0754 & 0.0754 \\
-First-boundary hull-area ratio & 1.000 & 1.000 & 0.636 \\
-Default LOO MAE (m) & 49.84 & 46.62 & 47.05 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
 \section*{Computer Code Availability}
-The GeoLogParser repository contains versioned code/configuration, prompt hashes, metric bindings, and scripts that regenerate Paper 4 tables, figures, claim audits, and redistributable reanalysis assets.\par
-\textbf{Repository:} \url{https://github.com/Entropic-Silence/GeoLogParser}.\par
-\textbf{License:} MIT for source code.\par
-\textbf{Version:} final branch commit is recorded in the submission artifact manifest; no archival DOI has yet been minted.
+The GeoLogParser repository contains versioned code/configuration, prompt hashes, metric bindings, figure generators, claim audits, and recomputation scripts for this article. The source code is released under the MIT license at \url{https://github.com/Entropic-Silence/GeoLogParser}. The frozen article and reproducibility package is identified by the annotated release tag \texttt{paper4-cageo-v1.0.0}. An archival DOI will be added after the author deposits the tagged release.\par
 \section*{Data Availability}
-All public structured/reanalysis assets and materials needed to reproduce the reported analyses are available in the GeoLogParser repository, including manifests, hashes, source URLs, model configurations, and recomputation scripts. Source PDFs, rendered pages, raw OCR regions, and model weights are not redistributed where third-party terms apply; the repository preserves retrieval and attribution metadata for authorized access.\par
-\textbf{Persistent identifier:} The GitHub repository is the public data/code record; an archival DOI remains an author action before formal submission.
+Public structured/reanalysis assets and materials needed to reproduce the reported analyses are available in the GeoLogParser repository under the \texttt{paper4-cageo-v1.0.0} release tag. Source PDFs, rendered pages, raw OCR regions, model weights, and private credentials are not redistributed where third-party terms apply. The sole author reviewed and screened the release materials for public dissemination and confirmed the retained source attribution and linkage records. The archival DOI will be appended after deposit.
 \section*{Declarations}
 
-The authors should complete journal-specific authorship, funding, competing-interest, and data-rights declarations before submission. No claim in this manuscript relies on undisclosed human annotation, hidden reference-conditioned tuning, or a closed-model score that lacks a reproducible execution record.
+\textbf{Authorship and CRediT:} Yifan Du: Conceptualization; Data curation; Formal analysis; Investigation; Methodology; Project administration; Resources; Software; Validation; Visualization; Writing -- original draft; Writing -- review and editing.
+
+\textbf{Funding:} This research received no specific grant from any funding agency and was self-funded.
+
+\textbf{Competing interests:} The author declares no competing interests.
+
+\textbf{Rights and linkage sign-off:} Yifan Du, sole and corresponding author, confirms that the materials included in the tagged GeoLogParser release were reviewed and screened for public dissemination, that source-specific attribution and linkage information is retained in the repository manifests, and that the public package is sufficient to reproduce the reported analyses. This sign-off does not redistribute third-party source files whose terms prohibit redistribution.
+
+No claim in this manuscript relies on undisclosed human annotation, hidden reference-conditioned tuning, or a closed-model score that lacks a reproducible execution record.
 
 
 

@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
-"""Record final Paper 4 C&G artifact hashes and external-action status."""
+"""Record final Paper 4 C&G artifact hashes and release status."""
 
 from __future__ import annotations
 
 import hashlib
 import json
-import subprocess
-from datetime import datetime, timezone
 from pathlib import Path
 
 
@@ -14,6 +12,8 @@ ROOT = Path(__file__).resolve().parents[1]
 PAPER = ROOT / "papers" / "paper4"
 CAGEO = PAPER / "submission" / "cageo"
 OUT = CAGEO / "CAGEO_ARTIFACT_MANIFEST.json"
+DELIVERY_OUT = PAPER / "submission_bundle" / "Paper4_Final_Delivery_SHA256.json"
+RELEASE_TAG = "paper4-cageo-v1.0.0"
 
 
 FILES = [
@@ -22,25 +22,27 @@ FILES = [
     CAGEO / "manuscript.tex",
     CAGEO / "references_cageo.bib",
     CAGEO / "highlights.txt",
-    CAGEO / "manuscript_review_v2.pdf",
     CAGEO / "CAGEO_REQUIREMENTS.md",
     CAGEO / "FOCUS_AND_REVIEW_AUDIT.md",
     CAGEO / "REVIEW_VERSION_NOTES.md",
+    CAGEO / "RIGHTS_LINKAGE_SIGNOFF.md",
     PAPER / "submission_bundle" / "Paper4_Upload_Manifest.json",
     PAPER / "submission_bundle" / "Paper4_Final_Manuscript.md",
     PAPER / "submission_bundle" / "Paper4_Final_Manuscript.pdf",
-    PAPER / "figures" / "Figure_1.pdf",
-    PAPER / "figures" / "Figure_2.pdf",
-    PAPER / "figures" / "Figure_3.pdf",
-    PAPER / "figures" / "Figure_4.pdf",
-    PAPER / "figures" / "graphical_abstract.pdf",
+    PAPER / "submission_bundle" / "Paper4_Supplementary_Methods.md",
+    PAPER / "submission_bundle" / "Paper4_Supplementary_Figure_Captions.md",
+    PAPER / "submission_bundle" / "Paper4_Main_Tables.md",
+    PAPER / "submission_bundle" / "Paper4_Rights_Linkage_Signoff.md",
+    PAPER / "submission_bundle" / "Paper4_Figure_Manifest.json",
+    PAPER / "submission_bundle" / "Paper4_Figure_1.pdf",
+    PAPER / "submission_bundle" / "Paper4_Figure_2.pdf",
+    PAPER / "submission_bundle" / "Paper4_Figure_3.pdf",
+    PAPER / "submission_bundle" / "Paper4_Figure_4.pdf",
+    PAPER / "submission_bundle" / "Paper4_Graphical_Abstract.pdf",
+    PAPER / "submission_bundle" / "Paper4_Supplementary_Figure_S1.png",
+    PAPER / "submission_bundle" / "Paper4_Supplementary_Figure_S2.png",
+    PAPER / "submission_bundle" / "Paper4_Supplementary_Figure_S3.png",
 ]
-
-
-def git_head() -> str:
-    return subprocess.check_output(
-        ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True
-    ).strip()
 
 
 def sha256(path: Path) -> str:
@@ -57,11 +59,10 @@ def main() -> None:
         raise SystemExit(f"Missing artifact(s): {missing}")
     payload = {
         "schema": "paper4_cageo_artifact_manifest_v001",
-        "generated_utc": datetime.now(timezone.utc).isoformat(),
-        "branch": subprocess.check_output(
-            ["git", "branch", "--show-current"], cwd=ROOT, text=True
-        ).strip(),
-        "source_git_commit": git_head(),
+        "generated_on": "2026-08-20",
+        "branch": "agent/publication-evidence-bundle",
+        "release_tag": RELEASE_TAG,
+        "source_git_commit": f"resolve annotated tag {RELEASE_TAG}",
         "repository": "https://github.com/Entropic-Silence/GeoLogParser",
         "license": "MIT (source code)",
         "author": {
@@ -72,11 +73,12 @@ def main() -> None:
             "corresponding_author": True,
         },
         "doi": None,
-        "doi_status": "pending author-authorized Zenodo/DataCite archival deposit",
+        "doi_status": "pending author-created archival DOI for tagged release",
         "rights_status": (
-            "Programmatic figures and redistributable structured/reanalysis assets are included; "
-            "source PDFs, rendered pages, raw OCR regions, and model weights remain excluded "
-            "where third-party terms apply. Final item-level rights sign-off is an author action."
+            "Yifan Du, sole and corresponding author, reviewed and screened the tagged "
+            "release for public dissemination, confirmed retained source attribution and "
+            "linkage records, and confirmed result-level reproducibility. Third-party source "
+            "files remain excluded where their terms prohibit redistribution."
         ),
         "files": [
             {
@@ -88,8 +90,38 @@ def main() -> None:
         ],
     }
     OUT.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    delivery_files = [
+        path for path in FILES
+        if path.name.startswith("Paper4_Final_Manuscript")
+        or path.name.startswith("Paper4_Figure_")
+        or path.name == "Paper4_Graphical_Abstract.pdf"
+        or path.name.startswith("Paper4_Supplementary_")
+        or path.name == "Paper4_Main_Tables.md"
+    ]
+    delivery = {
+        "manifest_version": "paper4_final_delivery_v002",
+        "generated_on": "2026-08-20",
+        "scope": "Final manuscript, vector artwork, tables, and supplementary material",
+        "repository": "https://github.com/Entropic-Silence/GeoLogParser",
+        "release_tag": RELEASE_TAG,
+        "source_git_commit": f"resolve annotated tag {RELEASE_TAG}",
+        "doi": None,
+        "doi_status": "pending author-created archival DOI for tagged release",
+        "files": [
+            {
+                "name": path.name,
+                "bytes": path.stat().st_size,
+                "sha256": sha256(path),
+            }
+            for path in delivery_files
+        ],
+    }
+    DELIVERY_OUT.write_text(
+        json.dumps(delivery, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+    )
     print(OUT)
-    print(json.dumps({"source_git_commit": payload["source_git_commit"], "file_count": len(FILES)}))
+    print(DELIVERY_OUT)
+    print(json.dumps({"release_tag": RELEASE_TAG, "file_count": len(FILES)}))
 
 
 if __name__ == "__main__":

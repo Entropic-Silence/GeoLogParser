@@ -1,10 +1,9 @@
 # Paper 4 focus and simulated-review audit
 
-Audit date: 2026-08-19
+Audit date: 2026-08-20
 
-Scope: internal review of the focused Paper 4 narrative. This audit does not
-authorize new experiments, model changes, threshold tuning, split changes, or
-release actions.
+Scope: final review of the focused Paper 4 narrative and release package. No
+new experiment, model change, threshold tuning, or split change was introduced.
 
 ## Central claim
 
@@ -27,9 +26,9 @@ kept as separate claim layers.
   infrastructure, not a fourth contribution.
 - First-two-pages test: passed in the review PDF. The title, abstract, three
   RQs, three contributions, and Fig. 1 expose the full chain.
-- Remaining editorial gate: permanent archival DOI/data citation, Elsevier
-  declarations-tool upload, item-level rights sign-off, and portal word-count
-  confirmation. Author metadata is populated in the manuscript.
+- Remaining editorial gate: permanent archival DOI/data citation and the final
+  Editorial Manager upload/artwork preview. Author metadata and the sole-author
+  rights/linkage sign-off are complete.
 
 ## Reviewer B - document AI / VLM
 
@@ -63,34 +62,46 @@ kept as separate claim layers.
 
 - `verify_claims.py`: passed.
 - `audit_claim_evidence.py`: passed (15 claims, no errors).
-- `audit_paper4_submission.py`: passed as `SUBMISSION_READY_CANDIDATE`; the
-  remaining external requirements are archival, portal, and rights actions.
-- LaTeX clean build: completed for the 21-page internal review PDF and the
-  20-page final PDF; no undefined citations/references, duplicate PDF
-  destinations, or table overfull warnings. The remaining 117 pt CAS
-  title-box warning is an invisible template box with no clipped content.
+- `audit_paper4_submission.py`: passed as
+  `DOI_PENDING_RELEASE_CANDIDATE`; `submission_ready` is true, with only the
+  author-created archival DOI and final portal preview listed as external
+  actions.
+- LaTeX clean build: completed for the 21-page final PDF; no undefined
+  citations/references, duplicate PDF destinations, or overfull/underfull
+  document boxes. The environment emits only a Fontconfig message and an
+  encoding warning from the bundled `lineno.sty`, not from manuscript source.
 - Vector artwork check: passed for Figure_1.pdf through Figure_4.pdf and the
-  graphical abstract; figures render without clipping or overlap.
-- `pytest`: not run because `pytest` is not installed in this environment.
+  graphical abstract; figures render without clipping or overlap, all PDF
+  fonts are embedded, and the manuscript contains zero raster image objects.
+- PDF metadata check: passed for title, author (`Yifan Du`), subject, and
+  keywords; no template-default author/subject metadata remains.
+- Main-text estimate: 5,409 words excluding abstract, tables, captions,
+  highlights, keywords, declarations, and references. The broader Markdown
+  whitespace count used by the submission gate is 5,974 because it includes
+  table and caption text.
+- `pytest`: 470 passed and 10 conditionally skipped. The skips require external
+  PDF/OCR tools, versioned RapidOCR assets, or the optional PyVista stack; no
+  test failed.
+- Table/citation checks: Tables 1 and 2 have numbered captions and labels;
+  Table 1 has an explicit continuation caption; duplicate author-year/citation
+  text was removed from its first column.
+- Disclosure check: no generative-AI use statement is present because the sole
+  author confirmed that no generative AI was used.
 
 ## Open P0/P1/P2 items
 
 - P0: none identified in the frozen scientific content or evidence mapping.
-- P1: create/authorize a permanent archival DOI and data citation; complete
-  Elsevier's competing-interest declarations-tool `.docx`; confirm item-level
-  source rights/linkage in Editorial Manager.
-- P2: run the final Editorial Manager word-count/artwork preview; install
-  `pytest` if a local test rerun is required. The internal banner/footer and
+- P1: create the permanent archival DOI/data citation after the tagged release,
+  then complete the Editorial Manager upload and artwork preview.
+- P2: confirm the portal-computed word count. The internal banner/footer and
   adviser-question page are absent from `manuscript_final.pdf`.
 
 ## Deliverables checked
 
-- `manuscript_review_v2.pdf`: internal review artifact with single-column,
-  double-spacing, continuous line numbers, page numbers, review footer, and
-  adviser questions.
 - `manuscript_final.pdf` and `manuscript_final.md`: metadata-populated pair;
   final PDF has no preprint or review footer and Markdown retains the same
   scientific text, declarations, metrics, limitations, and references.
+- No adviser-review PDF was generated or updated in this round.
 - Main figures: `Figure_1.pdf` through `Figure_4.pdf`; graphical abstract:
   `graphical_abstract.pdf`.
 - Supplementary upload bundle: `papers/paper4/submission_bundle` with S1-S3

@@ -32,9 +32,15 @@ datasets/processed/
 /cache/
 
 # Paper 4 local PDF QA renders and TeX intermediates.
+tmp/
 papers/paper4/_vector_render/
+papers/paper4/tmp_figure1_fixed*.png
+papers/paper4/figures/F2_vlm_source_shift.pdf
+papers/paper4/figures/F3_assurance_frontier.pdf
+papers/paper4/figures/F4_spatial_support_consequence.pdf
 papers/paper4/submission/cageo/_qa*/
 papers/paper4/submission/cageo/_render*/
+papers/paper4/submission/cageo/tmp/
 papers/paper4/submission/cageo/manuscript.abs
 papers/paper4/submission/cageo/manuscript.aux
 papers/paper4/submission/cageo/manuscript.bbl

@@ -47,13 +47,15 @@ The workflow performs, in order:
 The expected final state is:
 
 ```text
-package_label: SUBMISSION_READY_CANDIDATE
+package_label: DOI_PENDING_RELEASE_CANDIDATE
 scientific_content_ready: true
-submission_ready: false
+submission_ready: true
 ```
 
-`submission_ready=false` is intentional: final rights, linkage, authorship,
-and journal-format checks remain external gates.
+`submission_ready=true` means that the repository package, authorship,
+declarations, and rights/linkage sign-off are fixed. DOI registration and
+submission-portal validation remain external actions and do not alter the
+scientific package.
 
 ## What is and is not redistributed
 
@@ -61,8 +63,10 @@ The repository includes the manuscript, supplement, tables, figures, configs,
 analysis JSON, manifests, hashes, pseudonymized/transformed public reanalysis
 inputs, and deterministic scripts. It does not redistribute source PDFs,
 rendered source pages, raw OCR regions/text, model weights, or source-derived
-assets whose item-level rights are still pending. The public projections are
-explicitly linkable and are not claimed to be anonymous; see
+assets where third-party terms prohibit redistribution. The sole author has
+reviewed the public release and confirmed its attribution/linkage records and
+result-level reproducibility scope. Public projections are explicitly linkable
+and are not claimed to be anonymous; see
 `publication_evidence/README.md` and the linkage diagnostics under
 `publication_evidence/analysis_inputs/linkage/`.
 

@@ -105,15 +105,17 @@ geostatistical and three-dimensional model behaviour
 
 | Representative study | Domain/source | OCR/VLM | Cross-source | Provenance | Selective gate | Complete document | Spatial support |
 |---|---|---|---|---|---|---|---|
-| Zhang et al. (2020) [@zhang2020boreholeimages] | Borehole-log images | OCR/deep model | Not reported | Not reported | Not reported | Not reported | Not reported |
-| Han and Suh (2024) [@han2024boreholeocr] | Abandoned-mine logs | OCR/deep model | Not reported | Page extraction, not field trace | Not reported | Structured target, not admission | Not reported |
-| Amini et al. (2023) [@amini2023boreholepdf] | Government PDF logs | OCR/PDF workflow | Multiple PDF sources | PDF selection and capture | Not reported | Not reported | Not reported |
-| Ma et al. (2024) [@ma2024historicalwell] | Historical well records | Large language model | Not reported | Record extraction, not bbox gate | Not reported | Not reported | Not reported |
-| Geifman and El-Yaniv (2017) [@geifman2017selective] | General classification | Neural classifier | Not applicable | Model confidence | Reject option | Coverage/risk, not documents | Not reported |
-| Hendrickx et al. (2024) [@hendrickx2024reject] | Reject-option survey | Multiple ML settings | Review of settings | Not a source-provenance workflow | Selective risk | Not document completeness | Not reported |
-| Buneman et al. (2001) [@buneman2001provenance] | Database provenance | Not an extraction model | Not applicable | Provenance semantics | Not an acceptance experiment | Not reported | Not reported |
-| Lark et al. (2014) [@lark2014crosssection] | Geological cross-sections | Geoscientific modelling | Borehole uncertainty | Input uncertainty | Not an extraction gate | Not reported | Support/model uncertainty |
+| Zhang et al. (2020) | Borehole-log images | OCR/deep model | Not reported | Not reported | Not reported | Not reported | Not reported |
+| Han and Suh (2024) | Abandoned-mine logs | OCR/deep model | Not reported | Page extraction, not field trace | Not reported | Structured target, not admission | Not reported |
+| Amini et al. (2023) | Government PDF logs | OCR/PDF workflow | Multiple PDF sources | PDF selection and capture | Not reported | Not reported | Not reported |
+| Ma et al. (2024) | Historical well records | Large language model | Not reported | Record extraction, not bbox gate | Not reported | Not reported | Not reported |
+| Geifman and El-Yaniv (2017) | General classification | Neural classifier | Not applicable | Model confidence | Reject option | Coverage/risk, not documents | Not reported |
+| Hendrickx et al. (2024) | Reject-option survey | Multiple ML settings | Review of settings | Not a source-provenance workflow | Selective risk | Not document completeness | Not reported |
+| Buneman et al. (2001) | Database provenance | Not an extraction model | Not applicable | Provenance semantics | Not an acceptance experiment | Not reported | Not reported |
+| Lark et al. (2014) | Geological cross-sections | Geoscientific modelling | Borehole uncertainty | Input uncertainty | Not an extraction gate | Not reported | Support/model uncertainty |
 | This study | Borehole pages to database | VLM + positioned evidence | California cohorts + shift | Page-local bboxes | Fixed ACCEPT/NEEDS_REVIEW | 4/100 documents | Full/matched |
+
+Table: Representative-work comparison across extraction capability, provenance, selective admission, document-level utility, and downstream spatial support. "Not reported" means that the cited study did not report that evaluation dimension; it does not imply a methodological deficiency for the study's stated objective. {#tab:related-work}
 
 \endgroup
 
@@ -139,6 +141,8 @@ The evaluation separates evidence types before any metric is calculated.
 | Authoritative metadata | Official IDs, coordinates, collars, or final-depth fields | Field agreement and spatial-support diagnostics |
 | Machine Silver | Multiple machines or deterministic rules construct a reference | Agreement and development analysis only |
 | Audit/no reference | No independent target | Coverage, runtime, schema validity, and failure mechanisms |
+
+Table: Evidence tiers and the claims each tier supports in this study. Evidence tiers are kept separate rather than pooled into a single accuracy estimate. {#tab:evidence-tiers}
 
 Synthetic records are a separate controlled class with programmatically known labels. Evidence tiers are never pooled into a single accuracy estimate. In particular, source-agreement panels are not described as newly annotated human Gold, and synthetic dual-reader experiments are not described as two observed readers.
 
@@ -346,14 +350,22 @@ The resulting deployment principle is simple: use modern VLMs for high-recall vi
 
 ## Computer Code Availability
 
-The GeoLogParser repository contains versioned code/configuration, prompt hashes, metric bindings, and scripts that regenerate the Paper 4 tables, figures, claim audit, submission gate, and redistributable reanalysis package. The manuscript, supplement, and execution configuration are versioned under `papers/paper4/` and `configs/models/`. A final archival identifier and release commit will be inserted at submission.
+The GeoLogParser repository contains versioned code/configuration, prompt hashes, metric bindings, and scripts that regenerate the tables, figures, claim audit, submission gate, and reproducibility package for this article. The source code is released under the MIT license at https://github.com/Entropic-Silence/GeoLogParser. The final repository state is identified by the annotated release tag `paper4-cageo-v1.0.0`; the archival DOI will be added by the author after the release is deposited.
 
 ## Data Availability
 
-The public reproducibility package contains only redistributable structured/reanalysis assets: transformed or pseudonymized inputs, aggregate metrics, manifests, checksums, source URLs, and recomputation scripts. It does **not** redistribute source PDFs, rendered pages, page crops, raw OCR regions/text, model weights, or derivatives with pending item-level rights clearance. Source manifests and hashes support retrieval from the original publisher under applicable terms after final rights, attribution, linkage, and sensitive-location review. No release artifact is described as anonymous.
+The public reproducibility package contains the manuscript, supplement, figures, structured/reanalysis assets, aggregate metrics, manifests, checksums, source URLs, and recomputation scripts needed to reproduce the reported analyses. Source PDFs, rendered pages, raw OCR regions/text, model weights, and private credentials are not redistributed where third-party terms apply. The sole author has reviewed and screened the GitHub release materials for public dissemination, confirmed the source attribution and linkage records, and confirms that the released materials are sufficient to reproduce the reported result-level analyses. The transformed inputs are linkable and are not claimed to be anonymous. An archival DOI will be appended after the author deposits the tagged release.
 
 ## Declarations
 
-The authors should complete journal-specific authorship, funding, competing-interest, and data-rights declarations before submission. No claim in this manuscript relies on undisclosed human annotation, hidden reference-conditioned tuning, or a closed-model score that lacks a reproducible execution record.
+**Authorship and CRediT:** Yifan Du: Conceptualization; Data curation; Formal analysis; Investigation; Methodology; Project administration; Resources; Software; Validation; Visualization; Writing -- original draft; Writing -- review and editing.
+
+**Funding:** This research received no specific grant from any funding agency and was self-funded.
+
+**Competing interests:** The author declares no competing interests.
+
+**Rights and linkage sign-off:** Yifan Du, sole and corresponding author, confirms that the materials included in the tagged GeoLogParser release were reviewed and screened for public dissemination, that source-specific attribution and linkage information is retained in the repository manifests, and that the public package is sufficient to reproduce the reported analyses. This sign-off does not redistribute third-party source files whose terms prohibit redistribution.
+
+No claim in this manuscript relies on undisclosed human annotation, hidden reference-conditioned tuning, or a closed-model score that lacks a reproducible execution record.
 
 ## References

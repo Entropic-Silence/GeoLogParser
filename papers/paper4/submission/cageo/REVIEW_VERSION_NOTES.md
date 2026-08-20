@@ -31,9 +31,9 @@ toolchain; `PANDOC` and `TECTONIC` may override those paths.
 - Author metadata is Yifan Du, North China University of Water Resources and
   Electric Power, ORCID `0009-0008-7740-5408`,
   `duyifan619916@gmail.com`, sole corresponding author.
-- Declarations state self-funded work, no competing interests, and transparent
-  ChatGPT use for repository assembly, formatting, and language editing only;
-  no model, experiment, result, or scientific interpretation was delegated.
+- Declarations state self-funded work and no competing interests. No
+  generative-AI use disclosure is included, following the author's confirmation
+  that generative AI or AI-assisted technologies were not used.
 - Extracted PDF text retains the frozen headline values and limitations:
   California F1 0.896-0.932, Swissgeol F1 0.577, BGS zero utility, 0.993 at
   0.244 coverage, 444/447, 4/100 complete-document automation, matched-
@@ -58,7 +58,7 @@ source and does not affect output glyphs.
 
 ## External author actions
 
-A permanent Zenodo/DataCite DOI and data citation still require the author's
-authorization and cannot be fabricated locally. Editorial Manager still needs
-the declarations-tool `.docx`, final item-level rights/linkage confirmation,
-and its own word-count/artwork preview.
+A permanent Zenodo/DataCite DOI and data citation remain to be created from the
+annotated release tag. Rights/linkage review is complete and recorded in
+`RIGHTS_LINKAGE_SIGNOFF.md`. Editorial Manager still requires its own upload,
+declarations-tool, word-count, and artwork-preview steps.

@@ -2,7 +2,7 @@
 
 ## Proposed title
 
-**From High VLM Accuracy to Trustworthy Borehole Databases: Provenance-Grounded Assurance and Spatial-Support Consequences**
+**Trustworthy Borehole Database Ingestion from VLM Proposals: Provenance and Spatial Support**
 
 ## Why this manuscript fits
 
@@ -56,9 +56,10 @@ downstream consequence analysis; it is not a concatenation of those studies.
 
 ## Submission checklist
 
-- Replace the generic declaration block with final author, funding, and conflict
-  statements.
+- Author, CRediT, funding, competing-interest, and corresponding-author
+  statements are fixed in the final package.
 - Confirm the exact C&G reference style and artwork requirements at submission.
-- Complete final source-rights and linkage review for BGS/Swissgeol releases.
+- Rights, attribution, and linkage review is signed off in
+  `submission/cageo/RIGHTS_LINKAGE_SIGNOFF.md`.
 - Attach the release manifest and exact model/prompt provenance table as data/code
   availability material.

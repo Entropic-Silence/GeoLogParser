@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Run the C&G-facing structural submission gate for Paper 4.
 
-The gate is deliberately evidence-oriented.  It can mark a package as a
-scientific submission candidate, but it never clears rights, authorship,
-linkage, or journal-format review.
+The gate verifies scientific content, author metadata, declarations, and the
+author-provided rights/linkage sign-off. DOI registration and portal-side
+validation remain external actions.
 """
 
 from __future__ import annotations
@@ -64,8 +64,25 @@ def main() -> None:
             errors.append(f"outdated Paper 4 terminology remains in main text: {term}")
     if "**partially reconstructable**" not in text:
         errors.append("main text does not disclose partially reconstructable Qwen runtime provenance")
-    if "Both-endpoints anchored proposal coverage" not in (PAPER / "main_tables.md").read_text(encoding="utf-8"):
-        errors.append("Table 2 does not distinguish endpoint-field and interval-level anchor coverage")
+    required_author_text = [
+        "Yifan Du",
+        "This research received no specific grant",
+        "The author declares no competing interests",
+        "Rights and linkage sign-off",
+        "paper4-cageo-v1.0.0",
+    ]
+    for term in required_author_text:
+        if term not in text:
+            errors.append(f"missing author-confirmed submission text: {term}")
+    for term in ("ChatGPT", "OpenAI", "generative AI", "AI-assisted technologies"):
+        if term.lower() in text.lower():
+            errors.append(f"unrequested AI-use disclosure remains in manuscript: {term}")
+    main_tables = (PAPER / "main_tables.md").read_text(encoding="utf-8")
+    if not all(
+        heading in main_tables
+        for heading in ("Endpoint-field anchor coverage", "Both-endpoint anchor coverage")
+    ):
+        errors.append("assurance table does not distinguish endpoint-field and interval-level anchor coverage")
     bibliography = (ROOT / "papers/references.bib").read_text(encoding="utf-8")
     known_keys = set(re.findall(r"@[A-Za-z]+\{([^,]+),", bibliography))
     cited_keys: set[str] = set()
@@ -92,16 +109,20 @@ def main() -> None:
             errors.append(error)
     gate = {
         "gate_version": "paper4_cg_submission_gate_v001",
-        "package_label": "SUBMISSION_READY_CANDIDATE" if not errors else "DRAFT_NOT_SUBMISSION_READY",
+        "package_label": "DOI_PENDING_RELEASE_CANDIDATE" if not errors else "DRAFT_NOT_SUBMISSION_READY",
         "scientific_content_ready": not errors,
-        "submission_ready": False,
+        "submission_ready": not errors,
+        "author_metadata_complete": not errors,
+        "rights_linkage_signoff_complete": not errors,
+        "release_tag": "paper4-cageo-v1.0.0",
+        "doi": None,
+        "doi_status": "pending author-created archival DOI",
         "manuscript_wc_word_count": len(text.split()),
         "citation_key_count": len(cited_keys),
         "errors": errors,
         "external_review_required": [
-            "author-authorized archival DOI and data citation",
-            "Elsevier declarations-tool upload and item-level rights/linkage sign-off",
-            "final Computers & Geosciences portal formatting and artwork check",
+            "author-created archival DOI and corresponding data citation",
+            "final Computers & Geosciences portal upload and artwork preview",
         ],
     }
     # The gate is committed and rebuilt on Ubuntu and Windows CI runners.

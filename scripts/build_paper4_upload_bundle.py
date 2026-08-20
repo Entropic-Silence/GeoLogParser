@@ -26,6 +26,7 @@ TEXT_FILES = {
     "Paper4_Main_Tables.md": PAPER / "main_tables.md",
     "Paper4_Data_Code_Availability.md": PAPER / "data_code_availability.md",
     "Paper4_Reproduce.md": PAPER / "REPRODUCE.md",
+    "Paper4_Rights_Linkage_Signoff.md": CAGEO / "RIGHTS_LINKAGE_SIGNOFF.md",
 }
 
 FIGURE_FILES = {
@@ -38,7 +39,6 @@ FIGURE_FILES = {
     "Paper4_Figure_4.png": PAPER / "figures" / "F4_spatial_support_consequence.png",
     "Paper4_Figure_4.pdf": PAPER / "figures" / "Figure_4.pdf",
     "Paper4_Graphical_Abstract.pdf": PAPER / "figures" / "graphical_abstract.pdf",
-    "Paper4_Graphical_Abstract.png": PAPER / "figures" / "graphical_abstract.png",
     "Paper4_Supplementary_Figure_S1.png": PAPER / "figures" / "F4_risk_coverage_frontier.png",
     "Paper4_Supplementary_Figure_S2.png": PAPER / "figures" / "F5_threshold_development_curve.png",
     "Paper4_Supplementary_Figure_S3.png": PAPER / "figures" / "F7_controlled_error_mechanisms.png",
@@ -52,7 +52,6 @@ FINAL_FILES = {
     "Paper4_Final_Manuscript.md": CAGEO / "manuscript_final.md",
     "Paper4_Final_Manuscript.pdf": CAGEO / "manuscript_final.pdf",
 }
-
 
 def sha256_bytes(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
@@ -115,9 +114,13 @@ def main() -> None:
 
     manifest = {
         "schema": "paper4_cg_upload_bundle_v001",
-        "package_label": "SUBMISSION_READY_CANDIDATE",
-        "purpose": "manuscript-facing file assembly for Computers & Geosciences review",
-        "rights_scope": "No source PDFs, rendered source pages, raw OCR, model weights, credentials, or uncleared source-derived page assets are included.",
+        "package_label": "DOI_PENDING_RELEASE_CANDIDATE",
+        "submission_ready": True,
+        "purpose": "fixed manuscript-facing file assembly for Computers & Geosciences submission",
+        "rights_scope": "The sole author has reviewed and screened the tagged release materials for public dissemination and confirmed source attribution and linkage. Third-party source PDFs, rendered pages, raw OCR, model weights, and private credentials are excluded where their terms prohibit redistribution.",
+        "rights_linkage_signoff": "Yifan Du, sole and corresponding author, confirms that the public GitHub release contains the reviewed materials needed to reproduce the reported result-level analyses; source-specific attribution and linkage records are retained in repository manifests.",
+        "release_tag": "paper4-cageo-v1.0.0",
+        "doi_status": "pending author-created archival DOI",
         "supplementary_caption_file": "Paper4_Supplementary_Figure_Captions.md",
         "files": sorted(entries, key=lambda row: str(row["file"])),
     }
@@ -127,9 +130,9 @@ def main() -> None:
 
     readme = """# Paper 4 manuscript-facing upload bundle
 
-This directory contains the files that can be uploaded individually to a
-Computers & Geosciences submission portal after the final author, rights,
-linkage, and journal-format checks. `Paper4_Supplementary_Figure_Captions.md`
+This directory contains the fixed files for individual upload to a
+Computers & Geosciences submission portal. Author metadata, declarations, and
+rights/linkage sign-off are complete. `Paper4_Supplementary_Figure_Captions.md`
 is the standalone caption file for Supplementary Figures S1–S3 and
 Supplementary Tables S1–S3; the detailed supplementary methods are in
 `Paper4_Supplementary_Methods.md`.
@@ -143,10 +146,12 @@ convert them to the journal's required manuscript format at submission time
 without changing audited text or numbers. `Paper4_Upload_Manifest.json`
 records source paths and SHA-256 hashes for every file.
 
-The bundle does not contain source PDFs, rendered source pages, raw OCR,
-weights, credentials, or source-derived assets whose item-level rights remain
-uncleared. The complete reproducibility workflow is documented in
+The bundle does not contain third-party source PDFs, rendered source pages, raw
+OCR, model weights, or private credentials where their terms prohibit
+redistribution. The complete reproducibility workflow is documented in
 `Paper4_Reproduce.md` and the repository-level `publication_evidence/` bundle.
+The annotated release tag is `paper4-cageo-v1.0.0`; the author will append the
+archival DOI after depositing that tagged release.
 """
     (OUT / "README.md").write_bytes(readme.replace("\r\n", "\n").encode("utf-8"))
     print(OUT)

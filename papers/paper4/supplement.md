@@ -28,7 +28,9 @@ v004, and v005 each contain 100 reports, and each freeze excludes every earlier
 record. The v004/v005 risk-policy confirmation labels were not used to change
 the direct-VLM prompt, positioned parser, candidate matcher, or threshold.
 
-The formal interval counts are:
+The formal interval counts are summarized in Supplementary Table S1.
+
+### Supplementary Table S1. California cohort selection and roles
 
 | Cohort | Reports | Pages | Reference intervals | Role |
 |---|---:|---:|---:|---|
@@ -163,7 +165,7 @@ rows (decoder output rate 0.0 and interval F1 0.0 for both). This is a
 recognized no table content; the specialist outputs were intentionally not
 converted through an unregistered heuristic decoder.
 
-**Supplementary Table S2. Exploratory modern-model transport roster**
+### Supplementary Table S2. Exploratory modern-model transport roster
 
 | Model/interface | Swissgeol pages | Interval output | Boundary-pair F1 | Complete documents | Interpretation |
 |---|---:|---:|---:|---:|---|
@@ -192,6 +194,8 @@ different, interval-level quantity. Owned/accepted coverage is stricter: both
 boundaries must agree with one positioned interval in the same semantic column
 and retain source regions. Acceptance additionally requires positive thickness,
 monotonic order, and no overlap. All unaccepted proposals remain review items.
+
+### Supplementary Table S3. Assurance components and evidence coverage
 
 | Component | Effect represented | Main evidence |
 |---|---|---|
@@ -270,15 +274,15 @@ claim registry preserve their exact status and hashes.
 
 ## S9. Reproducibility and release contents
 
-The Paper 4 public reproducibility package is deliberately narrower than the
-internal experiment store. It provides legally redistributable structured or
-reanalysis assets, transformed/pseudonymized inputs, aggregate metrics,
+The Paper 4 public reproducibility package provides the manuscript, supplement,
+figures, structured or reanalysis assets, transformed inputs, aggregate metrics,
 manifests, checksums, model configurations, prompt hashes, generated tables,
 and scripts that recompute the public analyses. Source PDFs, rendered pages,
-page crops, raw OCR regions/text, model weights, and source-derived assets whose
-item-level rights remain pending are not redistributed in this package. Source
-URLs, retrieval manifests, and checksums remain available so an authorized
-reader can retrieve original material from its publisher under the applicable
-terms. The released transformed inputs may remain linkable and are not claimed
-to be anonymous. Source-specific attribution, linkage, and rights status remain
-in the data registry and source-verification ledger.
+page crops, raw OCR regions/text, model weights, and private credentials are
+not redistributed where third-party terms apply. The sole author has reviewed
+and screened the GitHub release materials for public dissemination, confirmed
+the source attribution and linkage records, and confirms that the released
+materials are sufficient to reproduce the reported result-level analyses. The
+released transformed inputs may remain linkable and are not claimed to be
+anonymous. An archival DOI will be appended after the author deposits the
+tagged release.

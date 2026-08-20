@@ -5,6 +5,8 @@
 **Corresponding author:** Yifan Du (duyifan619916@gmail.com)\
 **ORCID:** 0009-0008-7740-5408
 
+**CRediT author statement:** Conceptualization; Data curation; Formal analysis; Investigation; Methodology; Project administration; Resources; Software; Validation; Visualization; Writing -- original draft; Writing -- review and editing.
+
 ## Abstract
 
 **Background:** High visual extraction accuracy does not by itself establish a trustworthy geological database. A database row also needs independently checkable page evidence, a decision state, and an account of what abstention removes from downstream spatial support. **Methods:** We evaluate the frozen `Qwen/Qwen3.8-27B-FP8` direct page-to-JSON reader on five record-disjoint California cohorts (450 reports; 8,268 published manual-transcription intervals) and source-shift panels. The headline metric is boundary-pair interval F1: both interval depths must match under an order-preserving tolerance. We then add an independently positioned reader, deterministic depth/column checks, and an accept-or-review policy; a separate legacy sequence-reconstruction analysis is reported only as a harm analysis. **Results:** Qwen reaches boundary-pair F1 0.896–0.932 on California, but falls to 0.577 on the Swissgeol source-agreement panel. On held-out California v003, independent evidence yields selective precision 0.993 (444/447 accepted intervals correct) at 0.244 proposal coverage. Only 4/100 documents satisfy complete-document auto-acceptance, which defines a conservative deployment boundary rather than a claim of full automation. A spatial diagnostic shows that full-support risk-aware volume discrepancy is 0.0821 versus 0.1387 for raw extraction, while retaining only 0.636 of the reference convex-hull area; on the identical 15-document accepted subset, risk and rereading are both 0.0754 versus 0.0326 for raw. **Conclusions:** Modern VLMs are strong proposal readers, not database authorities. Provenance-grounded selective decisions must report precision together with coverage, complete-document utility, review burden, and the spatial-support consequences of abstention.
@@ -110,15 +112,17 @@ geostatistical and three-dimensional model behaviour
 
 | Representative study | Domain/source | OCR/VLM | Cross-source | Provenance | Selective gate | Complete document | Spatial support |
 |---|---|---|---|---|---|---|---|
-| Zhang et al. (2020) [@zhang2020boreholeimages] | Borehole-log images | OCR/deep model | Not reported | Not reported | Not reported | Not reported | Not reported |
-| Han and Suh (2024) [@han2024boreholeocr] | Abandoned-mine logs | OCR/deep model | Not reported | Page extraction, not field trace | Not reported | Structured target, not admission | Not reported |
-| Amini et al. (2023) [@amini2023boreholepdf] | Government PDF logs | OCR/PDF workflow | Multiple PDF sources | PDF selection and capture | Not reported | Not reported | Not reported |
-| Ma et al. (2024) [@ma2024historicalwell] | Historical well records | Large language model | Not reported | Record extraction, not bbox gate | Not reported | Not reported | Not reported |
-| Geifman and El-Yaniv (2017) [@geifman2017selective] | General classification | Neural classifier | Not applicable | Model confidence | Reject option | Coverage/risk, not documents | Not reported |
-| Hendrickx et al. (2024) [@hendrickx2024reject] | Reject-option survey | Multiple ML settings | Review of settings | Not a source-provenance workflow | Selective risk | Not document completeness | Not reported |
-| Buneman et al. (2001) [@buneman2001provenance] | Database provenance | Not an extraction model | Not applicable | Provenance semantics | Not an acceptance experiment | Not reported | Not reported |
-| Lark et al. (2014) [@lark2014crosssection] | Geological cross-sections | Geoscientific modelling | Borehole uncertainty | Input uncertainty | Not an extraction gate | Not reported | Support/model uncertainty |
+| Zhang et al. (2020) | Borehole-log images | OCR/deep model | Not reported | Not reported | Not reported | Not reported | Not reported |
+| Han and Suh (2024) | Abandoned-mine logs | OCR/deep model | Not reported | Page extraction, not field trace | Not reported | Structured target, not admission | Not reported |
+| Amini et al. (2023) | Government PDF logs | OCR/PDF workflow | Multiple PDF sources | PDF selection and capture | Not reported | Not reported | Not reported |
+| Ma et al. (2024) | Historical well records | Large language model | Not reported | Record extraction, not bbox gate | Not reported | Not reported | Not reported |
+| Geifman and El-Yaniv (2017) | General classification | Neural classifier | Not applicable | Model confidence | Reject option | Coverage/risk, not documents | Not reported |
+| Hendrickx et al. (2024) | Reject-option survey | Multiple ML settings | Review of settings | Not a source-provenance workflow | Selective risk | Not document completeness | Not reported |
+| Buneman et al. (2001) | Database provenance | Not an extraction model | Not applicable | Provenance semantics | Not an acceptance experiment | Not reported | Not reported |
+| Lark et al. (2014) | Geological cross-sections | Geoscientific modelling | Borehole uncertainty | Input uncertainty | Not an extraction gate | Not reported | Support/model uncertainty |
 | This study | Borehole pages to database | VLM + positioned evidence | California cohorts + shift | Page-local bboxes | Fixed ACCEPT/NEEDS_REVIEW | 4/100 documents | Full/matched |
+
+Table: Representative-work comparison across extraction capability, provenance, selective admission, document-level utility, and downstream spatial support. "Not reported" means that the cited study did not report that evaluation dimension; it does not imply a methodological deficiency for the study's stated objective. {#tab:related-work}
 
 \endgroup
 
@@ -144,6 +148,8 @@ The evaluation separates evidence types before any metric is calculated.
 | Authoritative metadata | Official IDs, coordinates, collars, or final-depth fields | Field agreement and spatial-support diagnostics |
 | Machine Silver | Multiple machines or deterministic rules construct a reference | Agreement and development analysis only |
 | Audit/no reference | No independent target | Coverage, runtime, schema validity, and failure mechanisms |
+
+Table: Evidence tiers and the claims each tier supports in this study. Evidence tiers are kept separate rather than pooled into a single accuracy estimate. {#tab:evidence-tiers}
 
 Synthetic records are a separate controlled class with programmatically known labels. Evidence tiers are never pooled into a single accuracy estimate. In particular, source-agreement panels are not described as newly annotated human Gold, and synthetic dual-reader experiments are not described as two observed readers.
 
@@ -271,7 +277,29 @@ task/interface coverage, not visual recognition failure. The bounded
 interpretation is recurring transport or usable-output risk across model
 families and interfaces, not a universal capability estimate (Supplement S4.1).
 
-![Figure 2. Modern VLM reliability across California cohorts and source shift.](figures/F2_vlm_source_shift.png)
+![Figure 2. Modern VLM reliability across California cohorts and source shift. The familiar-source panel compares Qwen3.8-27B-FP8 with the positioned RapidOCR parser on five record-disjoint California cohorts with published manual-transcription Gold evidence. The source-shift panel reports Swissgeol, British Geological Survey (BGS), and Raft River transfer/stress outcomes with their declared evidence tiers; these values are not pooled with California Gold.](figures/F2_vlm_source_shift.png)
+
+**Table 3.** Boundary-pair interval F1 across cohorts, readers, and source-shift panels. These are the results shown in Figure 2; evidence tiers are declared separately and are not pooled.
+
+| Panel | Reader/interface | Evidence tier | Documents | Reference intervals | Boundary-pair interval F1 |
+|---|---|---|---:|---:|---:|
+| California v001 | Qwen direct | Published manual-transcription Gold | 50 | 697 | 0.932 |
+| California v001 | RapidOCR positioned | Published manual-transcription Gold | 50 | 697 | 0.390 |
+| California v002 | Qwen direct | Published manual-transcription Gold | 100 | 1,770 | 0.896 |
+| California v002 | RapidOCR positioned | Published manual-transcription Gold | 100 | 1,770 | 0.450 |
+| California v003 | Qwen direct | Published manual-transcription Gold | 100 | 1,788 | 0.918 |
+| California v003 | RapidOCR positioned | Published manual-transcription Gold | 100 | 1,788 | 0.383 |
+| California v004 | Qwen direct | Published manual-transcription Gold | 100 | 1,944 | 0.917 |
+| California v004 | RapidOCR positioned | Published manual-transcription Gold | 100 | 1,944 | 0.428 |
+| California v005 | Qwen direct | Published manual-transcription Gold | 100 | 2,069 | 0.903 |
+| California v005 | RapidOCR positioned | Published manual-transcription Gold | 100 | 2,069 | 0.389 |
+| Swissgeol held-out | Qwen direct | Source-agreement reference | 35 | 80 | 0.577 |
+| Swissgeol held-out | RapidOCR positioned | Source-agreement reference | 35 | 80 | 0.679 |
+| Swissgeol held-out | Tesseract positioned | Source-agreement reference | 35 | 80 | 0.857 |
+| BGS Offshore | RapidOCR positioned | Source-agreement reference | 26 | 341 | 0.038 |
+| BGS Offshore | Tesseract positioned | Source-agreement reference | 26 | 341 | 0.041 |
+| Raft River | RapidOCR positioned | Source-agreement reference | 2 | 62 | 1.000 |
+
 
 ### 6.2 Independent evidence creates a high-precision but selective operating point
 
@@ -279,7 +307,16 @@ The assurance experiment keeps the Qwen proposals unchanged and adds an independ
 
 The selective result is intentionally not reported as whole-document accuracy. Partial proposal acceptance cannot establish complete-record correctness, and non-accepted proposals remain in the review queue. Complete-document auto-acceptance is only 4/100 documents (4%) on held-out v003, even though interval-level accepted coverage is 24.4%. That gap is not a weakness hidden by the metric; it is the conservative deployment boundary. The method's benefit is a reliable subset with explicit provenance, not an assertion that the unaccepted 75.6% are correct. This distinction is operationally important when a database ingestion job must state which rows were automatically accepted and which require review.
 
-![Figure 3. Selective assurance viewed simultaneously as precision, proposal coverage, complete-document automation, and a held-out v003 evidence funnel. Numeric anchors are reported separately as endpoint-field coverage (3,099/3,666) and as both-endpoint interval coverage (1,450/1,833); only semantically owned intervals are accepted.](figures/F3_assurance_frontier.png)
+![Figure 3. Selective assurance operating point. Precision, proposal coverage, complete-document automation, and held-out v003 evidence are shown together. Endpoint-field anchors are 3,099/3,666, both-endpoint interval anchors are 1,450/1,833, and semantically owned accepted intervals are 447/1,833; endpoint-field coverage and interval-level coverage use different denominators. The raw point is an unselective proposal baseline, not another selective cohort operating point.](figures/F3_assurance_frontier.png)
+
+**Table 4.** Independent evidence and selective assurance. Raw proposal precision, endpoint-field anchor coverage, both-endpoint interval coverage, and accepted coverage use distinct quantities and denominators.
+
+| Cohort | Raw proposal precision | Endpoint-field anchor coverage | Both-endpoint anchor coverage | Accepted coverage | Accepted intervals (n) | Selective precision (95% CI) | Error docs |
+|---|---:|---:|---:|---:|---:|---|---:|
+| California v001 development | 0.908 | 0.817 | 0.731 | 0.236 | 174 | 1.000 [1.000, 1.000] | 0 |
+| California v002 validation | 0.854 | 0.849 | 0.792 | 0.287 | 561 | 0.979 [0.951, 0.997] | 5 |
+| California v003 held-out | 0.907 | 0.845 | 0.791 | 0.244 | 447 | 0.993 [0.984, 1.000] | 3 |
+
 
 ### 6.3 Unselective recovery illustrates why accuracy gains are not sufficient
 
@@ -300,7 +337,17 @@ The matched-subset estimand removes this selection difference. On the identical 
 
 The controlled perturbation mechanism study is retained in Supplementary Methods S5 because its channels are synthetic rather than observed readers. It is used only to illustrate why a deployed risk policy should track both value confidence and the support cost of abstention.
 
-![Figure 4. Full-support versus matched-support downstream consequence of selective acceptance.](figures/F4_spatial_support_consequence.png)
+![Figure 4. Full-support versus matched-support downstream consequence of selective acceptance. Solid bars use each policy's available observations; hatched bars use the identical 15 accepted documents. These are distinct estimands. NN means nearest-neighbour distance; grid distance means grid-to-nearest-observation distance.](figures/F4_spatial_support_consequence.png)
+
+**Table 5.** Risk, coverage, and downstream support diagnostics.
+
+| Analysis | Raw | Reread | Risk-aware |
+|---|---:|---:|---:|
+| Full-support volume discrepancy | 0.1387 | 0.1213 | 0.0821 |
+| Matched-subset volume discrepancy | 0.0326 | 0.0754 | 0.0754 |
+| First-boundary hull-area ratio | 1.000 | 1.000 | 0.636 |
+| Default LOO MAE (m) | 49.84 | 46.62 | 47.05 |
+
 
 ## 7. Discussion
 
@@ -351,22 +398,52 @@ The resulting deployment principle is simple: use modern VLMs for high-recall vi
 
 ## Computer Code Availability
 
-The GeoLogParser source code, configurations, manifests, figure generators, claim audits, and reproducibility scripts are publicly available at https://github.com/Entropic-Silence/GeoLogParser under the MIT license. The final branch commit is recorded in the submission artifact manifest; no archival DOI has yet been minted.
+The GeoLogParser repository contains versioned code/configuration, prompt hashes, metric bindings, figure generators, claim audits, and recomputation scripts for this article. The source code is released under the MIT license at https://github.com/Entropic-Silence/GeoLogParser. The frozen article and reproducibility package is identified by the annotated release tag paper4-cageo-v1.0.0. An archival DOI will be added after the author deposits the tagged release.
 
 ## Data Availability
 
-All public structured/reanalysis assets and materials needed to reproduce the reported analyses are available in the GeoLogParser repository. Source PDFs, rendered pages, raw OCR regions, and model weights are not redistributed where third-party terms apply; retrieval, attribution, and linkage metadata are retained. An archival DOI remains an author action before formal submission.
+Public structured/reanalysis assets and materials needed to reproduce the reported analyses are available in the GeoLogParser repository under the paper4-cageo-v1.0.0 release tag. Source PDFs, rendered pages, raw OCR regions, model weights, and private credentials are not redistributed where third-party terms apply. The sole author reviewed and screened the release materials for public dissemination and confirmed the retained source attribution and linkage records. The archival DOI will be appended after deposit.
 
 ## Declarations
-
-**Authorship and CRediT:** Yifan Du is the sole author and corresponding author. Roles: Conceptualization; Data curation; Formal analysis; Funding acquisition; Investigation; Methodology; Project administration; Resources; Software; Supervision; Validation; Visualization; Writing -- original draft; Writing -- review and editing.
 
 **Funding:** This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors; it was self-funded.
 
 **Competing interests:** The author declares no competing interests.
 
-**Declaration of generative AI and AI-assisted technologies in the manuscript preparation process:** During preparation of this manuscript, ChatGPT (OpenAI) was used to assist with repository assembly, formatting, and language editing. The author reviewed and takes full responsibility for the accuracy, originality, and integrity of the published work; no model, experiment, result, or scientific interpretation was delegated to the tool.
-
-**Rights and linkage:** Public and reproducibility materials are linked from the repository; source-specific attribution and redistribution restrictions are retained in the release ledger.
+**Rights and linkage:** Yifan Du, sole and corresponding author, confirms that the materials included in the tagged GeoLogParser release were reviewed and screened for public dissemination, that source-specific attribution and linkage information is retained in the repository manifests, and that the public package is sufficient to reproduce the reported analyses. This sign-off does not redistribute third-party source files whose terms prohibit redistribution.
 
 ## References
+
+The reference records below are the same cited entries used to build the PDF bibliography.
+
+- **amershi2014interactive.** Amershi, Saleema; Cakmak, Maya; Knox, W. Bradley; Kulesza, Todd (2014). Power to the People: The Role of Humans in Interactive Machine Learning. AI Magazine 35(4) pp. 105-120 https://doi.org/10.1609/aimag.v35i4.2513
+- **amini2023boreholepdf.** Amini, Afshin; Benoit, Nicolas; Russell, Howard A. J. (2023). Evaluation of Automatic Borehole-Log Identification, Selection, and Data Capture from PDF Files. Geological Survey of Canada pp. 17 https://doi.org/10.4095/332258
+- **angelopoulos2024crc.** Angelopoulos, Anastasios N.; Bates, Stephen; Fisch, Adam; Lei, Lihua; Schuster, Tal (2024). Conformal Risk Control. The Twelfth International Conference on Learning Representations https://openreview.net/forum?id=33XGfHLtZg
+- **borkovich2025californiawcr.** Borkovich, Joseph G.; Bennett, George L.; Arroyo-Lopez, Jose; Haugen, Emily A.; Stork, Sylvia V.; McGregor, Adelia M.; Balkan, Mariia; Luckett, Jaylen M.; Mitchell, Hannah M.; Koepke, James E.; Peng, Yu L.; Jasper, Monica R.; Lor, Vong; Soldavini, Angelica L.; Estrada, Carlos L.; McVey, Christopher J.; Grechkosey, Deanna P.; Oldham, Nicole A.; Vroman, Robert C.; Handley, Renee; Faulkner, Kendra E.; Wenrick, Sean L.; Tejeda, Eric; Kitterman, Emilie F.; Shelton, Jason L.; Lewis, James P.; Payne, Michael R.; Clark, David A. (2025). Attributed California Water Supply Well Completion Report Data for Selected Areas, Derived from CA WCR OSCWR Data (Version 6.0, December 2025). U.S. Geological Survey https://doi.org/10.5066/P93ICKAF
+- **buneman2001provenance.** Buneman, Peter; Khanna, Sanjeev; Wang-Chiew, Tan (2001). Why and Where: A Characterization of Data Provenance. Database Theory - ICDT 2001 pp. 316-330 https://doi.org/10.1007/3-540-44503-X_20
+- **chow1970reject.** Chow, C. K. (1970). On Optimum Recognition Error and Reject Tradeoff. IEEE Transactions on Information Theory 16(1) pp. 41-46 https://doi.org/10.1109/TIT.1970.1054406
+- **fuentes2020lithologicalmapping.** Fuentes, Ignacio; Padarian, Jose; Iwanaga, Taku; Vervoort, R. W. (2020). 3D Lithological Mapping of Borehole Descriptions Using Word Embeddings. Computers & Geosciences 141 pp. 104516 https://doi.org/10.1016/j.cageo.2020.104516
+- **garzon2026stratigraphicmetrics.** Garz\'on, Sebasti\'an; Dabekaussen, Willem; Busschers, Freek S.; De Boever, Eva; Mehrkanoon, Siamak; Karssenberg, Derek (2026). Assessment of Automated Stratigraphic Interpretations of Boreholes with Geology-Informed Metrics. Computers & Geosciences 207 pp. 106043 https://doi.org/10.1016/j.cageo.2025.106043
+- **geifman2017selective.** Geifman, Yonatan; El-Yaniv, Ran (2017). Selective Classification for Deep Neural Networks. Advances in Neural Information Processing Systems 30 https://papers.nips.cc/paper/7073-selective-classification-for-deep-neural-networks
+- **geifman2019selectivenet.** Geifman, Yonatan; El-Yaniv, Ran (2019). SelectiveNet: A Deep Neural Network with an Integrated Reject Option. Proceedings of the 36th International Conference on Machine Learning 97 pp. 2151-2159 https://proceedings.mlr.press/v97/geifman19a.html
+- **han2024boreholeocr.** Han, Hosang; Suh, Jangwon (2024). Application of Deep Learning and Optical Character Recognition Technology to Automate Classification and Database of Borehole Log for Ground Stability Investigation of Abandoned Mines. Economic and Environmental Geology 57(5) pp. 473-486 https://doi.org/10.9719/EEG.2024.57.5.473
+- **haugen2025californialithology.** Haugen, Emily A.; Bennett, George L.; Arroyo-Lopez, Jose A.; Mitchell, Hannah M.; Wenrick, Sean L.; Grechkosey, Deanna P.; Luckett, Jaylen M.; Sushch, Daryna; Peterson, Milissa F.; Oldham, Nicole A.; Kitterman, Emilie F.; Vroman, Robert C.; Benitez, Victoria D.; Koepke, James E.; Borkovich, Joseph G. (2025). Compilation of Lithologic Data from Public Supply Well Completion Reports Submitted to the California Department of Water Resources (Version 3.0, July 2025). U.S. Geological Survey https://doi.org/10.5066/P9M85U0T
+- **hendrickx2024reject.** Hendrickx, Kilian; Perini, Lorenzo; Van der Plas, Dries; Meert, Wannes; Davis, Jesse (2024). Machine Learning with a Reject Option: A Survey. Machine Learning 113(5) pp. 3073-3110 https://doi.org/10.1007/s10994-024-06534-x
+- **hu2024docowl2.** Hu, Anwen; Xu, Haiyang; Zhang, Liang; Ye, Jiabo; Yan, Ming; Zhang, Ji; Jin, Qin; Huang, Fei; Zhou, Jingren (2025). mPLUG-DocOwl2: High-resolution Compressing for OCR-free Multi-page Document Understanding. Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics https://doi.org/10.18653/v1/2025.acl-long.291
+- **kim2022donut.** Kim, Geewook; Hong, Teakgyu; Yim, Moonbin; Nam, Jeongyeon; Park, Jinyoung; Yim, Jinyeong; Hwang, Wonseok; Yun, Sangdoo; Han, Dongyoon; Park, Seunghyun (2022). OCR-free Document Understanding Transformer.
+- **lark2014crosssection.** Lark, R. M.; Thorpe, S.; Kessler, H.; Mathers, S. J. (2014). Interpretative Modelling of a Geological Cross Section from Boreholes: Sources of Uncertainty and Their Quantification. Solid Earth 5(2) pp. 1189-1203 https://doi.org/10.5194/se-5-1189-2014
+- **ma2024historicalwell.** Ma, Zhiwei; Santos, Javier E.; Lackey, Greg; Viswanathan, Hari; O'Malley, Daniel (2024). Information Extraction from Historical Well Records Using a Large Language Model. Scientific Reports 14 https://doi.org/10.1038/s41598-024-81846-5
+- **mccormick2023lithology.** McCormick, Tim; Heaven, Rachel E. (2023). The British Geological Survey Rock Classification Scheme, Its Representation as Linked Data, and a Comparison with Some Other Lithology Vocabularies. Applied Computing and Geosciences 20 pp. 100140 https://doi.org/10.1016/j.acags.2023.100140
+- **pakyuzcharrier2018drillhole.** Pakyuz-Charrier, Evren; Giraud, Jeremie; Ogarko, Vitaliy; Lindsay, Mark; Jessell, Mark (2018). Drillhole Uncertainty Propagation for Three-Dimensional Geological Modeling Using Monte Carlo. Tectonophysics 747-748 pp. 16-39 https://doi.org/10.1016/j.tecto.2018.09.005
+- **pfitzmann2022doclaynet.** Pfitzmann, Birgit; Auer, Christoph; Dolfi, Michele; Nassar, Ahmed S.; Staar, Peter (2022). DocLayNet: A Large Human-Annotated Dataset for Document-Layout Segmentation. Proceedings of the 28th ACM SIGKDD Conference on Knowledge Discovery and Data Mining pp. 3743-3751 https://doi.org/10.1145/3534678.3539043
+- **qwen2026qwen38.** Qwen Team (2026). Qwen3.8-27B-FP8 Model Card. https://huggingface.co/Qwen/Qwen3.8-27B-FP8
+- **shiga2026boreholevlm.** Shiga, Masataka (2026). Automatic Generation of Structured Data from Borehole Logs Using Vision-Language Models. Artificial Intelligence and Data Science 7(1) pp. 133-142 https://doi.org/10.11532/jsceiii.7.1_133
+- **simmhan2005provenance.** Simmhan, Yogesh L.; Plale, Beth; Gannon, Dennis (2005). A Survey of Data Provenance in E-Science. ACM SIGMOD Record 34(3) pp. 31-36 https://doi.org/10.1145/1084805.1084812
+- **smith2007tesseract.** Smith, Ray (2007). An Overview of the Tesseract OCR Engine. Ninth International Conference on Document Analysis and Recognition pp. 629-633 https://doi.org/10.1109/ICDAR.2007.4376991
+- **smock2022pubtables.** Smock, Brandon; Pesala, Rohith; Abraham, Robin (2022). PubTables-1M: Towards Comprehensive Table Extraction from Unstructured Documents. 2022 IEEE/CVF Conference on Computer Vision and Pattern Recognition pp. 4624-4632 https://doi.org/10.1109/CVPR52688.2022.00459
+- **tran2025boreholedensity.** Tran, Duc-Huy; Wang, Shih-Jung; Dong, Jia-Jyun (2025). Influence of Spatial Borehole Density on Estimation of Geostatistical Properties and Construction of Heterogeneous Hydrogeological Models. Engineering Geology 350 pp. 107991 https://doi.org/10.1016/j.enggeo.2025.107991
+- **wang2023interfaceuncertainty.** Wang, Lijing (2023). Unraveling the Uncertainty of Geological Interfaces through Data-Knowledge-Driven Trend Surface Analysis. Computers & Geosciences 178 pp. 105419 https://doi.org/10.1016/j.cageo.2023.105419
+- **wellmann2018uncertainty.** Wellmann, Florian; Caumon, Guillaume (2018). 3-D Structural Geological Models: Concepts, Methods, and Uncertainties. Advances in Geophysics 59 pp. 1-121 https://doi.org/10.1016/bs.agph.2018.09.001
+- **xu2020layoutlm.** Xu, Yiheng; Li, Minghao; Cui, Lei; Huang, Shaohan; Wei, Furu; Zhou, Ming (2020). LayoutLM: Pre-training of Text and Layout for Document Image Understanding. Proceedings of the 26th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining pp. 1192-1200 https://doi.org/10.1145/3394486.3403172
+- **zhang2020boreholeimages.** Zhang, Junqiang; Zhang, Yi; Tian, Yiping; Liu, Gang; Xu, Lirui; Hu, Yong (2020). A Rapid Method for Information Extraction from Borehole Log Images. Applied Sciences 10(16) pp. 5520 https://doi.org/10.3390/app10165520
+- **zhang2026boreholedensity.** Zhang, Ruifeng; Taherdangkoo, Reza; Butscher, Christoph (2026). Quantitative Evaluation of Borehole Density Impact on 3D Geological Modeling of Quaternary Structures. Environmental Earth Sciences https://doi.org/10.1007/s12665-026-12843-2

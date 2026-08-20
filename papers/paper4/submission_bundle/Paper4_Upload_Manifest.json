@@ -1,123 +1,124 @@
 {
+  "doi_status": "pending author-created archival DOI",
   "files": [
     {
-      "bytes": 1893,
+      "bytes": 2149,
       "file": "Paper4_Data_Code_Availability.md",
       "role": "supplementary/reproducibility document",
-      "sha256": "09e54baccee1f7a66b64527dd31743ef6a7e2cd4d4f98c4acbaa15520350ca02",
+      "sha256": "667dcc37311990278d5215397634dcf5801c1a1202fa65fb67c3dfe2de948b05",
       "source": "papers/paper4/data_code_availability.md"
     },
     {
-      "bytes": 3796,
+      "bytes": 44398,
       "file": "Paper4_Figure_1.pdf",
       "role": "main figure",
-      "sha256": "8de9eb27b5c9136fd9ed77050c407b1dbea3ba88788ca54bfcd2d3636d77330c",
+      "sha256": "d0ed87bd5eabd20d06dbad9374d1d1d7d8e00acf3af77f6c15d086aeaafe4dd0",
       "source": "papers/paper4/figures/Figure_1.pdf"
     },
     {
-      "bytes": 77927,
+      "bytes": 290136,
       "file": "Paper4_Figure_1.png",
       "role": "main figure",
-      "sha256": "6fdb0780ea142b16279bc0207ee868a2b288ba8f3e6d882ecdbd5527b5e91b5a",
+      "sha256": "e5574e1a9d00fd5ec926f8a054ff2c519c79117ca77cee33f16c64e8ea06f506",
       "source": "papers/paper4/figures/F1_trustworthy_framework.png"
     },
     {
-      "bytes": 6223,
+      "bytes": 44523,
       "file": "Paper4_Figure_2.pdf",
       "role": "main figure",
-      "sha256": "be17aa09cbe242479a2931b5ff5489b8f1859b0fb0a67d16a20b34be4fb1f140",
+      "sha256": "1a9f1194138a4304d4117af2f7886b364fd0f234a6d5bf045674f9dbfe0dceb2",
       "source": "papers/paper4/figures/Figure_2.pdf"
     },
     {
-      "bytes": 73700,
+      "bytes": 186942,
       "file": "Paper4_Figure_2.png",
       "role": "main figure",
-      "sha256": "d16b54c7c030b9753c4b97ff1e03f14365fa00a23ffd8c40fa25f2f1eedeebf7",
+      "sha256": "55b08674db213bb7b40d1310d7b7faf9dbd0659e72e302534c1e9e2873331535",
       "source": "papers/paper4/figures/F2_vlm_source_shift.png"
     },
     {
-      "bytes": 5950,
+      "bytes": 45182,
       "file": "Paper4_Figure_3.pdf",
       "role": "main figure",
-      "sha256": "8782edce00543230871a0a44b8a53815365237c297a3b62d88db9b046b8db637",
+      "sha256": "525e13fea8ba933688af4b070c5d5cab37566d38f074d48189c51520661708d7",
       "source": "papers/paper4/figures/Figure_3.pdf"
     },
     {
-      "bytes": 162995,
+      "bytes": 291122,
       "file": "Paper4_Figure_3.png",
       "role": "main figure",
-      "sha256": "45947d8b6defc542bcac55c330a6ce9366b987f3c938b60791aeda837c7c1dc2",
+      "sha256": "a1923b9cd2efb7fe87a694f0ebd396977bff096645476585eb3c33afb9883f17",
       "source": "papers/paper4/figures/F3_assurance_frontier.png"
     },
     {
-      "bytes": 6385,
+      "bytes": 45028,
       "file": "Paper4_Figure_4.pdf",
       "role": "main figure",
-      "sha256": "d85530f2bc4ed46771151817b1497fa2ea70a067725cc20acfc1ed18663e332e",
+      "sha256": "dd1797ac064cec4b01d9a25491956ba2261d6d118f712cc2c2a63a5ce5bac919",
       "source": "papers/paper4/figures/Figure_4.pdf"
     },
     {
-      "bytes": 85054,
+      "bytes": 217125,
       "file": "Paper4_Figure_4.png",
       "role": "main figure",
-      "sha256": "b52f4c6d5733aeada88faf05a45096dd444dbde7b0100fc0bdee8dc164017d69",
+      "sha256": "ad759416eb551ae90279cd3810e6054f90f14054dd3e3857707721991a776cb7",
       "source": "papers/paper4/figures/F4_spatial_support_consequence.png"
     },
     {
-      "bytes": 2172,
+      "bytes": 2976,
       "file": "Paper4_Figure_Manifest.json",
       "role": "figure manifest",
-      "sha256": "9047b5488210b0634e58734a09370023081e6b57b4399e7a7b1375366f6a896a",
+      "sha256": "0d5a933e56c867b410a579a6f52d3fb4015dc29f1053939dfc55873842ad1175",
       "source": "papers/paper4/figure_manifest.json"
     },
     {
-      "bytes": 44274,
+      "bytes": 57381,
       "file": "Paper4_Final_Manuscript.md",
       "role": "final manuscript",
-      "sha256": "60c02f64bf39f903d4f6915fdbb874723759e47dd5a621b84a03dbc85ae81658",
+      "sha256": "fca4f1076b67601e8d4cf87581013ad352fe773ab6acbf1f0209e24359506f42",
       "source": "papers/paper4/submission/cageo/manuscript_final.md"
     },
     {
-      "bytes": 129904,
+      "bytes": 284936,
       "file": "Paper4_Final_Manuscript.pdf",
       "role": "final manuscript",
-      "sha256": "cd5d6b81c1b406afe7f0d617e9ed2352be205983b70ce4c8a477d65ccb4f13d1",
+      "sha256": "e1f26b6cae3451e5a4cb704cd595d1f69b7f5aa3232c9fd8a44f3466014d9c77",
       "source": "papers/paper4/submission/cageo/manuscript_final.pdf"
     },
     {
-      "bytes": 3129,
+      "bytes": 44015,
       "file": "Paper4_Graphical_Abstract.pdf",
       "role": "supplementary figure",
-      "sha256": "4a01952a09a39ffb4ccea6d893c3606eddc3d9e350e807d5557a082c3e969e6f",
+      "sha256": "99f5258ffa5a5614c3840f4f5a0391d60c189ecbb849187f8744c970332cad57",
       "source": "papers/paper4/figures/graphical_abstract.pdf"
     },
     {
-      "bytes": 56090,
-      "file": "Paper4_Graphical_Abstract.png",
-      "role": "supplementary figure",
-      "sha256": "e4694df4d38f56b66fcf5798f303322e65461a8faf0e857ab4c319638e543a24",
-      "source": "papers/paper4/figures/graphical_abstract.png"
-    },
-    {
-      "bytes": 43467,
+      "bytes": 44819,
       "file": "Paper4_Main_Manuscript.md",
       "role": "main manuscript",
-      "sha256": "d5fd37848fdf5c9bc2721d18237f072482a126c35697e22b0800e0574ff42a7d",
+      "sha256": "096c7354c7519e336497b7949a4af7fc4284658fd6bd9b0e3ecf54a619261fee",
       "source": "papers/paper4/manuscript.md"
     },
     {
-      "bytes": 4323,
+      "bytes": 6165,
       "file": "Paper4_Main_Tables.md",
       "role": "supplementary/reproducibility document",
-      "sha256": "5fd51f7b50f3c0892c12e6bc8a5d890e007b34408b675c23a5a34011ec86cea0",
+      "sha256": "1593a3b0c2e7f3be42bb577a9ee75ed091c12610c22e35db925956a8d7b1d274",
       "source": "papers/paper4/main_tables.md"
     },
     {
-      "bytes": 3125,
+      "bytes": 3377,
       "file": "Paper4_Reproduce.md",
       "role": "supplementary/reproducibility document",
-      "sha256": "f6da784bce34ffedcfe358302b4add3143bbde70a749b68a570e07c8588e24a0",
+      "sha256": "dd4def5fcacb843a1e9a5815259e1aaae21fc7c68d14d766ebf4d850dd4ccbbc",
       "source": "papers/paper4/REPRODUCE.md"
+    },
+    {
+      "bytes": 2041,
+      "file": "Paper4_Rights_Linkage_Signoff.md",
+      "role": "supplementary/reproducibility document",
+      "sha256": "4e8536502d3b2dbccae510b2086179217573f02f796097c80b38115f548bea4a",
+      "source": "papers/paper4/submission/cageo/RIGHTS_LINKAGE_SIGNOFF.md"
     },
     {
       "bytes": 3964,
@@ -148,16 +149,19 @@
       "source": "papers/paper4/figures/F7_controlled_error_mechanisms.png"
     },
     {
-      "bytes": 17666,
+      "bytes": 17802,
       "file": "Paper4_Supplementary_Methods.md",
       "role": "supplementary/reproducibility document",
-      "sha256": "eb3505d7d4b096a1fa7fc976130b8ab259e6c663b395a3d03de35a522e3c082b",
+      "sha256": "c3221fbe2ee668e9e3b87a63d385f358c17bffaced8d320b3ee3426476354d97",
       "source": "papers/paper4/supplement.md"
     }
   ],
-  "package_label": "SUBMISSION_READY_CANDIDATE",
-  "purpose": "manuscript-facing file assembly for Computers & Geosciences review",
-  "rights_scope": "No source PDFs, rendered source pages, raw OCR, model weights, credentials, or uncleared source-derived page assets are included.",
+  "package_label": "DOI_PENDING_RELEASE_CANDIDATE",
+  "purpose": "fixed manuscript-facing file assembly for Computers & Geosciences submission",
+  "release_tag": "paper4-cageo-v1.0.0",
+  "rights_linkage_signoff": "Yifan Du, sole and corresponding author, confirms that the public GitHub release contains the reviewed materials needed to reproduce the reported result-level analyses; source-specific attribution and linkage records are retained in repository manifests.",
+  "rights_scope": "The sole author has reviewed and screened the tagged release materials for public dissemination and confirmed source attribution and linkage. Third-party source PDFs, rendered pages, raw OCR, model weights, and private credentials are excluded where their terms prohibit redistribution.",
   "schema": "paper4_cg_upload_bundle_v001",
+  "submission_ready": true,
   "supplementary_caption_file": "Paper4_Supplementary_Figure_Captions.md"
 }
