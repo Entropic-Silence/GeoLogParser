@@ -74,13 +74,27 @@ def git_value(*arguments: str) -> str | None:
     return value or None
 
 
+def git_status() -> str:
+    try:
+        result = subprocess.run(
+            ["git", "status", "--porcelain"],
+            cwd=ROOT,
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+    except (OSError, subprocess.CalledProcessError):
+        return ""
+    return result.stdout
+
+
 def manifest_git_metadata() -> dict[str, object]:
     head = os.environ.get("PAPER4_SOURCE_GIT_COMMIT") or git_value("rev-parse", "HEAD")
     branch = os.environ.get("PAPER4_SOURCE_GIT_BRANCH") or git_value(
         "symbolic-ref", "--quiet", "--short", "HEAD"
     )
     tag_commit = git_value("rev-parse", "--verify", f"refs/tags/{RELEASE_TAG}^{{}}")
-    status = git_value("status", "--porcelain") or ""
+    status = git_status()
     generated_paths = {
         OUT.relative_to(ROOT).as_posix(),
         DELIVERY_OUT.relative_to(ROOT).as_posix(),
