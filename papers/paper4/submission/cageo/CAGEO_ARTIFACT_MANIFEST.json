@@ -146,10 +146,10 @@
   "license": "MIT (source code)",
   "release_tag": "paper4-cageo-v1.0.6",
   "repository": "https://github.com/Entropic-Silence/GeoLogParser",
-  "resolved_release_tag_commit": null,
+  "resolved_release_tag_commit": "e43c06cc92d165e640ce4856f311184f3824b1be",
   "rights_status": "Yifan Du, sole and corresponding author, reviewed and screened the complete Paper 4 package and exact data-v002 selection for public dissemination. The data review covered source terms, item scope, privacy, sensitive locations, embedded content, attribution, and linkage. This sign-off supersedes earlier provisional ledger statuses for the named release scope; historical run metadata remains historical. Source-specific obligations remain.",
   "schema": "paper4_cageo_artifact_manifest_v001",
-  "source_git_commit": "94f252cc726d30a146ae1f21ee72558b3ca174d3",
+  "source_git_commit": "e43c06cc92d165e640ce4856f311184f3824b1be",
   "source_git_commit_scope": "commit checked out when this manifest was generated; if the release tag is created after generation, resolved_release_tag_commit records the tag target",
-  "working_tree_dirty": true
+  "working_tree_dirty": false
 }
