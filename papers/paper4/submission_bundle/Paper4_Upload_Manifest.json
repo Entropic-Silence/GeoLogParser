@@ -6,7 +6,7 @@
       "bytes": 2490,
       "file": "Paper4_Data_Code_Availability.md",
       "role": "supplementary/reproducibility document",
-      "sha256": "59f58b5c61a9efe0a94903297511ba856fcc2decbdc23c54f5861a665b2734bf",
+      "sha256": "0e1c99a0a8b8d7cb342bb16ac3019c2e478414a61814e4aafb3a4ff61e4fe1c4",
       "source": "papers/paper4/data_code_availability.md"
     },
     {
@@ -76,14 +76,14 @@
       "bytes": 58580,
       "file": "Paper4_Final_Manuscript.md",
       "role": "final manuscript",
-      "sha256": "6d19fb320e164260ea4e4ab92864796b07c394b9d6688c44dedd8cfbd17a0c08",
+      "sha256": "3e0e516ffe9c8b5cb9117b27cd884abe936596bde096d194f8ee3acf605345cf",
       "source": "papers/paper4/submission/cageo/manuscript_final.md"
     },
     {
-      "bytes": 286833,
+      "bytes": 286831,
       "file": "Paper4_Final_Manuscript.pdf",
       "role": "final manuscript",
-      "sha256": "844b3dc50e740e7591b168fba1d3f2d74dc4486d9d6a4a6c391eb3b47f72045b",
+      "sha256": "680d842840baf8525d7da9b4f81b56d330579c9fefa969382f3812befeb5785e",
       "source": "papers/paper4/submission/cageo/manuscript_final.pdf"
     },
     {
@@ -104,7 +104,7 @@
       "bytes": 45313,
       "file": "Paper4_Main_Manuscript.md",
       "role": "main manuscript",
-      "sha256": "acec0e4ff3b58508c06bf67e0bdafbe9e624748f98f812738415b6d49f33f74a",
+      "sha256": "950000d14b10a483efb42787c7342a3b2a3d0c6b2cd2aac1196a8681549f7876",
       "source": "papers/paper4/manuscript.md"
     },
     {
@@ -118,14 +118,14 @@
       "bytes": 3509,
       "file": "Paper4_Reproduce.md",
       "role": "supplementary/reproducibility document",
-      "sha256": "279d66240a419684c5deb38624cb900d8566f542fe6f9ce803705292207c8f13",
+      "sha256": "43f223628699e585a065db0352b1543e073a19b375290eab55ab18542fd592a8",
       "source": "papers/paper4/REPRODUCE.md"
     },
     {
       "bytes": 2582,
       "file": "Paper4_Rights_Linkage_Signoff.md",
       "role": "supplementary/reproducibility document",
-      "sha256": "8844a3b470573f597e292552a2b060e445671c599752b66ab8a58a17214902ff",
+      "sha256": "61ffb761428ac9cefcb4bfb580b36b071a3751a3452e242e3f739bdcfa9492c5",
       "source": "papers/paper4/submission/cageo/RIGHTS_LINKAGE_SIGNOFF.md"
     },
     {
@@ -166,8 +166,8 @@
   ],
   "package_label": "DOI_PENDING_RELEASE_CANDIDATE",
   "purpose": "fixed manuscript-facing file assembly for Computers & Geosciences submission",
-  "release_tag": "paper4-cageo-v1.0.4",
-  "rights_linkage_signoff": "Yifan Du, sole and corresponding author, confirms that paper4-cageo-v1.0.4 contains the complete result-reproduction package and data-v002 is its author-reviewed data companion.",
+  "release_tag": "paper4-cageo-v1.0.6",
+  "rights_linkage_signoff": "Yifan Du, sole and corresponding author, confirms that paper4-cageo-v1.0.6 contains the complete result-reproduction package and data-v002 is its author-reviewed data companion.",
   "rights_scope": "The sole author reviewed the complete Paper 4 package and exact data-v002 selection for public dissemination; the data review covered source terms, item scope, privacy, sensitive locations, embedded content, attribution, and linkage. The sign-off supersedes earlier provisional ledger statuses for this named release scope; historical experiment-run metadata remains historical. Source-specific obligations remain in the ledger.",
   "schema": "paper4_cg_upload_bundle_v001",
   "submission_ready": true,

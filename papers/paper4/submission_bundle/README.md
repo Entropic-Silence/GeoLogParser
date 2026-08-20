@@ -23,7 +23,7 @@ or include model weights or private credentials. The author-reviewed selected
 source files and structured datasets are published separately as `data-v002`.
 The complete result-reproduction workflow is documented in
 `Paper4_Reproduce.md` and the repository-level `publication_evidence/` bundle.
-    The complete Paper 4 release tag is `paper4-cageo-v1.0.4`; archival DOI fields
+    The complete Paper 4 release tag is `paper4-cageo-v1.0.6`; archival DOI fields
     remain intentionally pending until the author deposits and verifies the
     archive record. The unchanged `data-v002` companion was originally paired
     with v1.0.1 and is reused here without changing its contents.

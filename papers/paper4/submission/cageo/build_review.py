@@ -44,7 +44,7 @@ CODE_AVAILABILITY = (
     "https://github.com/Entropic-Silence/GeoLogParser. It is written primarily in "
     "Python and uses the frozen JSON/JSONL inputs; the deterministic result-level "
     "workflow requires Python 3.10 or newer and standard scientific Python packages. "
-    "The final tagged package is paper4-cageo-v1.0.4. The optional VLM/OCR execution "
+    "The final tagged package is paper4-cageo-v1.0.6. The optional VLM/OCR execution "
     "environment, weights, and private credentials are not redistributed; the package "
     "reproduces frozen predictions through the matcher, metrics, tables, figures, and "
     "audits. The public repository and release assets are the access method. An archival "
@@ -62,7 +62,7 @@ CODE_AVAILABILITY_TEX = (
     r"\\url{https://github.com/Entropic-Silence/GeoLogParser}. It is written primarily in "
     r"Python and uses frozen JSON/JSONL inputs; the deterministic result-level workflow "
     r"requires Python 3.10 or newer and standard scientific Python packages. The final "
-    r"tagged package is \\texttt{paper4-cageo-v1.0.4}. The optional VLM/OCR execution "
+    r"tagged package is \\texttt{paper4-cageo-v1.0.6}. The optional VLM/OCR execution "
     r"environment, weights, and private credentials are not redistributed; the package "
     r"reproduces frozen predictions through the matcher, metrics, tables, figures, and "
     r"audits. The public repository and release assets are the access method. An archival "
@@ -70,7 +70,7 @@ CODE_AVAILABILITY_TEX = (
 )
 
 DATA_AVAILABILITY = (
-    "The paper4-cageo-v1.0.4 package contains the manuscript, supplement, figures, "
+    "The paper4-cageo-v1.0.6 package contains the manuscript, supplement, figures, "
     "structured/reanalysis inputs, aggregate metrics, manifests, checksums, source URLs, "
     "and recomputation scripts needed to reproduce the reported result-level analyses. "
     "The separate data-v002 companion contains the author-reviewed selected source files "
@@ -87,7 +87,7 @@ DECLARATIONS = (
     "in the public, commercial, or not-for-profit sectors; it was self-funded.\n\n"
     "**Competing interests:** The author declares no competing interests.\n\n"
     "**Rights and linkage sign-off:** Yifan Du, sole and corresponding author, confirms that the "
-    "paper4-cageo-v1.0.4 package and exact data-v002 selection were reviewed for public "
+    "paper4-cageo-v1.0.6 package and exact data-v002 selection were reviewed for public "
     "dissemination; the data review covered source terms, selected item scope, privacy, "
     "sensitive locations, embedded third-party content, attribution, and linkage. "
     "This sign-off supersedes earlier provisional ledger statuses for the named release "
@@ -275,13 +275,13 @@ and the aggregate reference-relative volume discrepancy is
     )
     body = re.sub(
         r"\\section\*\{Data Availability\}.*?(?=\\section\*\{Declarations\})",
-        r"\\section*{Data Availability}\nThe \\texttt{paper4-cageo-v1.0.4} package contains the manuscript, supplement, figures, structured/reanalysis inputs, aggregate metrics, manifests, checksums, source URLs, and recomputation scripts needed to reproduce the reported result-level analyses. The separate \\texttt{data-v002} companion contains the author-reviewed selected source files and structured datasets used by the principal experiments; it is a data companion, not the complete Paper 4 package. Source-specific terms and attribution remain in the release ledger, and linkable spatial inputs are not represented as anonymous. Model weights and private credentials are not redistributed. Archival DOI fields will be added after deposit.\n",
+        r"\\section*{Data Availability}\nThe \\texttt{paper4-cageo-v1.0.6} package contains the manuscript, supplement, figures, structured/reanalysis inputs, aggregate metrics, manifests, checksums, source URLs, and recomputation scripts needed to reproduce the reported result-level analyses. The separate \\texttt{data-v002} companion contains the author-reviewed selected source files and structured datasets used by the principal experiments; it is a data companion, not the complete Paper 4 package. Source-specific terms and attribution remain in the release ledger, and linkable spatial inputs are not represented as anonymous. Model weights and private credentials are not redistributed. Archival DOI fields will be added after deposit.\n",
         body,
         flags=re.S,
     )
     body = re.sub(
         r"\\section\*\{Declarations\}.*?(?=\\section\*\{References\})",
-        r"\\section*{Declarations}\n\\textbf{Funding:} This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors; it was self-funded.\\par\n\\textbf{Competing interests:} The author declares no competing interests.\\par\n\\textbf{Rights and linkage sign-off:} Yifan Du, sole and corresponding author, confirms that the \\texttt{paper4-cageo-v1.0.4} package and exact \\texttt{data-v002} selection were reviewed for public dissemination; the data review covered source terms, selected item scope, privacy, sensitive locations, embedded third-party content, attribution, and linkage. This sign-off supersedes earlier provisional ledger statuses for the named release scope; historical experiment-run metadata remains historical. Source-specific obligations are retained in the manifests and ledger. This item-scoped sign-off does not grant a blanket licence to unrelated repository sources.\\par\n\\textbf{Reproducibility scope:} No claim in this manuscript relies on undisclosed human annotation, hidden reference-conditioned tuning, or a closed-model score that lacks a reproducible execution record.\n",
+        r"\\section*{Declarations}\n\\textbf{Funding:} This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors; it was self-funded.\\par\n\\textbf{Competing interests:} The author declares no competing interests.\\par\n\\textbf{Rights and linkage sign-off:} Yifan Du, sole and corresponding author, confirms that the \\texttt{paper4-cageo-v1.0.6} package and exact \\texttt{data-v002} selection were reviewed for public dissemination; the data review covered source terms, selected item scope, privacy, sensitive locations, embedded third-party content, attribution, and linkage. This sign-off supersedes earlier provisional ledger statuses for the named release scope; historical experiment-run metadata remains historical. Source-specific obligations are retained in the manifests and ledger. This item-scoped sign-off does not grant a blanket licence to unrelated repository sources.\\par\n\\textbf{Reproducibility scope:} No claim in this manuscript relies on undisclosed human annotation, hidden reference-conditioned tuning, or a closed-model score that lacks a reproducible execution record.\n",
         body,
         flags=re.S,
     )

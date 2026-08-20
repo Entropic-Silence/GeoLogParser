@@ -14,17 +14,17 @@
     {
       "bytes": 58580,
       "file": "papers/paper4/submission/cageo/manuscript_final.md",
-      "sha256": "6d19fb320e164260ea4e4ab92864796b07c394b9d6688c44dedd8cfbd17a0c08"
+      "sha256": "3e0e516ffe9c8b5cb9117b27cd884abe936596bde096d194f8ee3acf605345cf"
     },
     {
-      "bytes": 286833,
+      "bytes": 286831,
       "file": "papers/paper4/submission/cageo/manuscript_final.pdf",
-      "sha256": "844b3dc50e740e7591b168fba1d3f2d74dc4486d9d6a4a6c391eb3b47f72045b"
+      "sha256": "680d842840baf8525d7da9b4f81b56d330579c9fefa969382f3812befeb5785e"
     },
     {
       "bytes": 58635,
       "file": "papers/paper4/submission/cageo/manuscript.tex",
-      "sha256": "90d05829a31bf8f1833742336690b513852b1600e0fc0093b9f12f5275dc8823"
+      "sha256": "ed9970924760720e9ab342e8acb3bdb5d60d2a5dc93c125eed5dcafbed7429f2"
     },
     {
       "bytes": 11899,
@@ -39,7 +39,7 @@
     {
       "bytes": 18856,
       "file": "papers/paper4/submission/cageo/CAGEO_REQUIREMENTS.md",
-      "sha256": "ac84be408a1bbecec8f4994565a5d28a5c82456d8fdfa7e1698767436005e951"
+      "sha256": "84c2e9af65278a9201657dd7c294d8f845d21ee89a123435971290203b910856"
     },
     {
       "bytes": 6310,
@@ -54,22 +54,22 @@
     {
       "bytes": 2582,
       "file": "papers/paper4/submission/cageo/RIGHTS_LINKAGE_SIGNOFF.md",
-      "sha256": "8844a3b470573f597e292552a2b060e445671c599752b66ab8a58a17214902ff"
+      "sha256": "61ffb761428ac9cefcb4bfb580b36b071a3751a3452e242e3f739bdcfa9492c5"
     },
     {
       "bytes": 7127,
       "file": "papers/paper4/submission_bundle/Paper4_Upload_Manifest.json",
-      "sha256": "55a2ad3a8fe15539f47da10d8d73d5c2162df2e8b36c0381585488c2d4142ba5"
+      "sha256": "e79546db8ff0cc17cf4c34b5291cfe0894ba403b9d22407b426853f6263cb9a9"
     },
     {
       "bytes": 58580,
       "file": "papers/paper4/submission_bundle/Paper4_Final_Manuscript.md",
-      "sha256": "6d19fb320e164260ea4e4ab92864796b07c394b9d6688c44dedd8cfbd17a0c08"
+      "sha256": "3e0e516ffe9c8b5cb9117b27cd884abe936596bde096d194f8ee3acf605345cf"
     },
     {
-      "bytes": 286833,
+      "bytes": 286831,
       "file": "papers/paper4/submission_bundle/Paper4_Final_Manuscript.pdf",
-      "sha256": "844b3dc50e740e7591b168fba1d3f2d74dc4486d9d6a4a6c391eb3b47f72045b"
+      "sha256": "680d842840baf8525d7da9b4f81b56d330579c9fefa969382f3812befeb5785e"
     },
     {
       "bytes": 17802,
@@ -89,7 +89,7 @@
     {
       "bytes": 2582,
       "file": "papers/paper4/submission_bundle/Paper4_Rights_Linkage_Signoff.md",
-      "sha256": "8844a3b470573f597e292552a2b060e445671c599752b66ab8a58a17214902ff"
+      "sha256": "61ffb761428ac9cefcb4bfb580b36b071a3751a3452e242e3f739bdcfa9492c5"
     },
     {
       "bytes": 310,
@@ -144,12 +144,12 @@
   ],
   "generated_on": "2026-08-20",
   "license": "MIT (source code)",
-  "release_tag": "paper4-cageo-v1.0.4",
+  "release_tag": "paper4-cageo-v1.0.6",
   "repository": "https://github.com/Entropic-Silence/GeoLogParser",
   "resolved_release_tag_commit": null,
   "rights_status": "Yifan Du, sole and corresponding author, reviewed and screened the complete Paper 4 package and exact data-v002 selection for public dissemination. The data review covered source terms, item scope, privacy, sensitive locations, embedded content, attribution, and linkage. This sign-off supersedes earlier provisional ledger statuses for the named release scope; historical run metadata remains historical. Source-specific obligations remain.",
   "schema": "paper4_cageo_artifact_manifest_v001",
-  "source_git_commit": "1d026ff950cde89b117790fc4fbb38cfac49e9ec",
+  "source_git_commit": "94f252cc726d30a146ae1f21ee72558b3ca174d3",
   "source_git_commit_scope": "commit checked out when this manifest was generated; if the release tag is created after generation, resolved_release_tag_commit records the tag target",
-  "working_tree_dirty": false
+  "working_tree_dirty": true
 }

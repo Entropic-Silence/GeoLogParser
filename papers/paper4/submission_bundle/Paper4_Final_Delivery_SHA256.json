@@ -6,12 +6,12 @@
     {
       "bytes": 58580,
       "name": "Paper4_Final_Manuscript.md",
-      "sha256": "6d19fb320e164260ea4e4ab92864796b07c394b9d6688c44dedd8cfbd17a0c08"
+      "sha256": "3e0e516ffe9c8b5cb9117b27cd884abe936596bde096d194f8ee3acf605345cf"
     },
     {
-      "bytes": 286833,
+      "bytes": 286831,
       "name": "Paper4_Final_Manuscript.pdf",
-      "sha256": "844b3dc50e740e7591b168fba1d3f2d74dc4486d9d6a4a6c391eb3b47f72045b"
+      "sha256": "680d842840baf8525d7da9b4f81b56d330579c9fefa969382f3812befeb5785e"
     },
     {
       "bytes": 17802,
@@ -81,9 +81,9 @@
   ],
   "generated_on": "2026-08-20",
   "manifest_version": "paper4_final_delivery_v002",
-  "release_tag": "paper4-cageo-v1.0.4",
+  "release_tag": "paper4-cageo-v1.0.6",
   "repository": "https://github.com/Entropic-Silence/GeoLogParser",
   "resolved_release_tag_commit": null,
   "scope": "Final manuscript, vector artwork, tables, and supplementary material",
-  "source_git_commit": "1d026ff950cde89b117790fc4fbb38cfac49e9ec"
+  "source_git_commit": "94f252cc726d30a146ae1f21ee72558b3ca174d3"
 }
