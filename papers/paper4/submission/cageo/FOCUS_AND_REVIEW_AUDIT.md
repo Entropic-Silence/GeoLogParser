@@ -98,7 +98,7 @@ kept as separate claim layers.
 
 ## Archive-level qualification
 
-The v1.0.2 patch release fixes portable font discovery, package metadata, and
+The v1.0.3 patch release fixes portable font discovery, package metadata, and
 submission-material consistency. It does not turn the result-level workflow
 into an end-to-end replay of the historical Qwen runtime, and it does not
 claim byte-for-byte deterministic regeneration across operating systems.

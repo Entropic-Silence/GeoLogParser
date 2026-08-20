@@ -178,7 +178,7 @@ field therefore remains explicitly pending rather than being fabricated.
 
 Current Paper 4 status: **repository, reproducibility materials, data companion,
 and author rights/linkage sign-off supplied; archival DOI pending**. The
-complete article/result package is `paper4-cageo-v1.0.2`; the selected source
+complete article/result package is `paper4-cageo-v1.0.3`; the selected source
 and structured-data companion is `data-v002`. The latter passed the author's
 item-scoped rights, privacy, sensitive-location, embedded-content, attribution,
 and linkage review. Source-specific obligations remain explicit. The completed
@@ -273,7 +273,7 @@ python papers/paper4/verify_claims.py                 PASS
 python papers/paper4/audit_claim_evidence.py         PASS
 python scripts/audit_paper4_submission.py            PASS
 python -m pytest -q tests/test_paper4_submission.py tests/test_manuscript_metric_audit.py
-                                                    recorded with the v1.0.2 verification run
+                                                    recorded with the v1.0.3 verification run
 ```
 
 The passing gates verified the frozen headline values, including California

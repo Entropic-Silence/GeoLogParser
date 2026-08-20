@@ -24,7 +24,7 @@
     "publication_evidence/analysis_inputs/paper2/candidate_pool_v001.metadata.json": {
       "origin": "experiments/paper2/public/candidate_pool_v001.metadata.json",
       "scope": "candidate-pool schema and release limitations",
-      "sha256": "b977db1f4742d9eb5c17862d0311bfe546e495b635fff5941ee2484f11ef6462"
+      "sha256": "994570447f9b666f9953ea36fadf1bd37c32075a6cc30710fd0282a113fe61cc"
     },
     "publication_evidence/analysis_inputs/paper3/spatial_input_v001.jsonl": {
       "origin": "experiments/paper3/public/spatial_input_v001.jsonl",
@@ -34,7 +34,7 @@
     "publication_evidence/analysis_inputs/paper3/spatial_input_v001.metadata.json": {
       "origin": "experiments/paper3/public/spatial_input_v001.metadata.json",
       "scope": "spatial transform and release limitations",
-      "sha256": "6e41b1e7d53b0783afa1b8bf0ae934be7df76c48aded044749deae8b2dc14bc2"
+      "sha256": "c2d8fca1f77863725138be81ecdb7b2a136c6fbb54b2b6faf46b8abc45419a6a"
     },
     "publication_evidence/analysis_inputs/paper3/spatial_recomputed_v001.json": {
       "origin": "experiments/paper3/public/spatial_recomputed_v001.json",

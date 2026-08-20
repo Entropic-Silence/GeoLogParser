@@ -132,7 +132,11 @@ def main() -> None:
         "pseudonymization": ["stable salted record_key", "no source record ID", "no OCR text", "no absolute bbox", "no absolute path", "normalized page geometry"],
         "linkage_warning": "Ordered reference depth sequences may be unique and linkable to the public USGS transcription tables; this release is not anonymous.",
         "recomputation_scope": "candidate sequence ablation and boundary matching; no PDF or OCR rerun",
-        "rights_review": "PENDING_MANUAL_PRE_SUBMISSION_REVIEW",
+        "rights_review": "AUTHOR_VERIFIED_FOR_PUBLIC_PAPER4_PACKAGE",
+        "rights_review_supersedes": "PENDING_MANUAL_PRE_SUBMISSION_REVIEW",
+        "rights_reviewed_by": "Yifan Du",
+        "rights_reviewed_on": "2026-08-20",
+        "rights_review_scope": "Paper 4 result-reproduction package; transformed input remains linkable and is not anonymous",
     }
     args.output.with_suffix(".metadata.json").write_text(json.dumps(metadata, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(args.output)

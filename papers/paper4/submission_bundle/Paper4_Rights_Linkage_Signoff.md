@@ -8,7 +8,7 @@
 
 **Repository:** https://github.com/Entropic-Silence/GeoLogParser
 
-**Article/reproducibility tag:** `paper4-cageo-v1.0.2`
+**Article/reproducibility tag:** `paper4-cageo-v1.0.3`
 
 **Data companion tag:** `data-v002`
 
@@ -35,7 +35,7 @@ The sole author confirms the following for the two tagged public releases:
 6. This completed sign-off supersedes earlier provisional or pending ledger
    statuses for the exact files selected for the named releases; historical
    experiment-run metadata remains historical and is not rewritten.
-7. `paper4-cageo-v1.0.2` contains the complete manuscript, code, evidence,
+7. `paper4-cageo-v1.0.3` contains the complete manuscript, code, evidence,
    figures, audits, and result-reproduction workflow. `data-v002` is its data
    companion and is not described as the complete Paper 4 package.
 8. Model weights and private credentials are not included. The rights sign-off

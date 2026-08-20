@@ -60,7 +60,7 @@ scientific package.
 
 ## What is and is not redistributed
 
-The `paper4-cageo-v1.0.2` package includes the manuscript, supplement, tables,
+The `paper4-cageo-v1.0.3` package includes the manuscript, supplement, tables,
 figures, configs, analysis JSON, manifests, hashes, transformed public
 reanalysis inputs, and deterministic scripts. The separate `data-v002`
 companion contains the selected source files and structured datasets used by

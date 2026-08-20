@@ -13,7 +13,7 @@ PAPER = ROOT / "papers" / "paper4"
 CAGEO = PAPER / "submission" / "cageo"
 OUT = CAGEO / "CAGEO_ARTIFACT_MANIFEST.json"
 DELIVERY_OUT = PAPER / "submission_bundle" / "Paper4_Final_Delivery_SHA256.json"
-RELEASE_TAG = "paper4-cageo-v1.0.2"
+RELEASE_TAG = "paper4-cageo-v1.0.3"
 DATA_RELEASE_TAG = "data-v002"
 
 

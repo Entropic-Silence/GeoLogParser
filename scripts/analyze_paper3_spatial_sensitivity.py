@@ -417,7 +417,11 @@ def write_public_spatial_input(records: list[dict], destination: Path) -> dict:
         "linkage_warning": "The rigid transform preserves pairwise-distance fingerprints and may be linked to a matching public point set.",
         "excluded": ["source record ID", "absolute easting/northing", "absolute vertical datum origin", "source paths", "document text"],
         "evidence_tier": "SOURCE_AGREEMENT_REFERENCE_WITH_AUTHORITATIVE_SPATIAL_METADATA",
-        "rights_review": "PENDING_MANUAL_PRE_SUBMISSION_REVIEW",
+        "rights_review": "AUTHOR_VERIFIED_FOR_PUBLIC_PAPER4_PACKAGE",
+        "rights_review_supersedes": "PENDING_MANUAL_PRE_SUBMISSION_REVIEW",
+        "rights_reviewed_by": "Yifan Du",
+        "rights_reviewed_on": "2026-08-20",
+        "rights_review_scope": "Paper 4 result-reproduction package; transformed input remains linkable and is not anonymous",
     }
     destination.with_suffix(".metadata.json").write_text(json.dumps(metadata, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     return metadata

@@ -25,7 +25,7 @@ toolchain; `PANDOC` and `TECTONIC` may override those paths.
 ## Final QA
 
 - `manuscript_review_v2.pdf`: 21 pages; the current `manuscript_final.pdf` is
-  22 pages after the v1.0.2 rebuild. Page count is recorded from the emitted
+  22 pages after the v1.0.3 rebuild. Page count is recorded from the emitted
   PDF rather than copied from an earlier review note.
 - Both PDFs render with no clipped figures, missing glyph blocks, undefined
   citations/references, duplicate PDF destinations, or table overfull boxes.
