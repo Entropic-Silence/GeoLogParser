@@ -178,7 +178,7 @@ field therefore remains explicitly pending rather than being fabricated.
 
 Current Paper 4 status: **repository, reproducibility materials, data companion,
 and author rights/linkage sign-off supplied; archival DOI pending**. The
-complete article/result package is `paper4-cageo-v1.0.3`; the selected source
+complete article/result package is `paper4-cageo-v1.0.4`; the selected source
 and structured-data companion is `data-v002`. The latter passed the author's
 item-scoped rights, privacy, sensitive-location, embedded-content, attribution,
 and linkage review. Source-specific obligations remain explicit. The completed

@@ -61,6 +61,6 @@ python scripts/build_paper4_upload_bundle.py
 
 The resulting `submission_bundle/Paper4_Upload_Manifest.json` is the canonical
 file list and checksum record. The complete Paper 4 package is identified by
-`paper4-cageo-v1.0.3`; its portable source/data companion is `data-v002`.
+`paper4-cageo-v1.0.4`; its unchanged portable source/data companion is `data-v002`, originally paired with v1.0.1.
 Archival DOI fields remain intentionally pending until the author deposits
 and verifies the archive record.

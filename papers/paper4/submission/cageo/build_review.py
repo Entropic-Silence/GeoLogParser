@@ -44,7 +44,7 @@ CODE_AVAILABILITY = (
     "https://github.com/Entropic-Silence/GeoLogParser. It is written primarily in "
     "Python and uses the frozen JSON/JSONL inputs; the deterministic result-level "
     "workflow requires Python 3.10 or newer and standard scientific Python packages. "
-    "The final tagged package is paper4-cageo-v1.0.3. The optional VLM/OCR execution "
+    "The final tagged package is paper4-cageo-v1.0.4. The optional VLM/OCR execution "
     "environment, weights, and private credentials are not redistributed; the package "
     "reproduces frozen predictions through the matcher, metrics, tables, figures, and "
     "audits. The public repository and release assets are the access method. An archival "
@@ -62,7 +62,7 @@ CODE_AVAILABILITY_TEX = (
     r"\\url{https://github.com/Entropic-Silence/GeoLogParser}. It is written primarily in "
     r"Python and uses frozen JSON/JSONL inputs; the deterministic result-level workflow "
     r"requires Python 3.10 or newer and standard scientific Python packages. The final "
-    r"tagged package is \\texttt{paper4-cageo-v1.0.3}. The optional VLM/OCR execution "
+    r"tagged package is \\texttt{paper4-cageo-v1.0.4}. The optional VLM/OCR execution "
     r"environment, weights, and private credentials are not redistributed; the package "
     r"reproduces frozen predictions through the matcher, metrics, tables, figures, and "
     r"audits. The public repository and release assets are the access method. An archival "
@@ -70,7 +70,7 @@ CODE_AVAILABILITY_TEX = (
 )
 
 DATA_AVAILABILITY = (
-    "The paper4-cageo-v1.0.3 package contains the manuscript, supplement, figures, "
+    "The paper4-cageo-v1.0.4 package contains the manuscript, supplement, figures, "
     "structured/reanalysis inputs, aggregate metrics, manifests, checksums, source URLs, "
     "and recomputation scripts needed to reproduce the reported result-level analyses. "
     "The separate data-v002 companion contains the author-reviewed selected source files "
@@ -87,7 +87,7 @@ DECLARATIONS = (
     "in the public, commercial, or not-for-profit sectors; it was self-funded.\n\n"
     "**Competing interests:** The author declares no competing interests.\n\n"
     "**Rights and linkage sign-off:** Yifan Du, sole and corresponding author, confirms that the "
-    "paper4-cageo-v1.0.3 package and exact data-v002 selection were reviewed for public "
+    "paper4-cageo-v1.0.4 package and exact data-v002 selection were reviewed for public "
     "dissemination; the data review covered source terms, selected item scope, privacy, "
     "sensitive locations, embedded third-party content, attribution, and linkage. "
     "This sign-off supersedes earlier provisional ledger statuses for the named release "
@@ -168,6 +168,11 @@ def replace_sections(body: str) -> str:
 
 def repair_body(body: str) -> str:
     body = normalize_unicode(body)
+    # Pandoc 2.9 wraps every heading in a ``hypertarget`` block.  The section
+    # relabeling below intentionally replaces the inner heading line; remove
+    # the now-unpaired wrapper so Ubuntu's packaged Pandoc and the pinned
+    # publication toolchain produce valid LaTeX alike.
+    body = re.sub(r"\\hypertarget\{[^{}]+\}\{%\n", "", body)
     body = replace_sections(body)
     body = body.replace(
         r"Fixed ACCEPT/NEEDS\_REVIEW",
@@ -270,13 +275,13 @@ and the aggregate reference-relative volume discrepancy is
     )
     body = re.sub(
         r"\\section\*\{Data Availability\}.*?(?=\\section\*\{Declarations\})",
-        r"\\section*{Data Availability}\nThe \\texttt{paper4-cageo-v1.0.3} package contains the manuscript, supplement, figures, structured/reanalysis inputs, aggregate metrics, manifests, checksums, source URLs, and recomputation scripts needed to reproduce the reported result-level analyses. The separate \\texttt{data-v002} companion contains the author-reviewed selected source files and structured datasets used by the principal experiments; it is a data companion, not the complete Paper 4 package. Source-specific terms and attribution remain in the release ledger, and linkable spatial inputs are not represented as anonymous. Model weights and private credentials are not redistributed. Archival DOI fields will be added after deposit.\n",
+        r"\\section*{Data Availability}\nThe \\texttt{paper4-cageo-v1.0.4} package contains the manuscript, supplement, figures, structured/reanalysis inputs, aggregate metrics, manifests, checksums, source URLs, and recomputation scripts needed to reproduce the reported result-level analyses. The separate \\texttt{data-v002} companion contains the author-reviewed selected source files and structured datasets used by the principal experiments; it is a data companion, not the complete Paper 4 package. Source-specific terms and attribution remain in the release ledger, and linkable spatial inputs are not represented as anonymous. Model weights and private credentials are not redistributed. Archival DOI fields will be added after deposit.\n",
         body,
         flags=re.S,
     )
     body = re.sub(
         r"\\section\*\{Declarations\}.*?(?=\\section\*\{References\})",
-        r"\\section*{Declarations}\n\\textbf{Funding:} This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors; it was self-funded.\\par\n\\textbf{Competing interests:} The author declares no competing interests.\\par\n\\textbf{Rights and linkage sign-off:} Yifan Du, sole and corresponding author, confirms that the \\texttt{paper4-cageo-v1.0.3} package and exact \\texttt{data-v002} selection were reviewed for public dissemination; the data review covered source terms, selected item scope, privacy, sensitive locations, embedded third-party content, attribution, and linkage. This sign-off supersedes earlier provisional ledger statuses for the named release scope; historical experiment-run metadata remains historical. Source-specific obligations are retained in the manifests and ledger. This item-scoped sign-off does not grant a blanket licence to unrelated repository sources.\\par\n\\textbf{Reproducibility scope:} No claim in this manuscript relies on undisclosed human annotation, hidden reference-conditioned tuning, or a closed-model score that lacks a reproducible execution record.\n",
+        r"\\section*{Declarations}\n\\textbf{Funding:} This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors; it was self-funded.\\par\n\\textbf{Competing interests:} The author declares no competing interests.\\par\n\\textbf{Rights and linkage sign-off:} Yifan Du, sole and corresponding author, confirms that the \\texttt{paper4-cageo-v1.0.4} package and exact \\texttt{data-v002} selection were reviewed for public dissemination; the data review covered source terms, selected item scope, privacy, sensitive locations, embedded third-party content, attribution, and linkage. This sign-off supersedes earlier provisional ledger statuses for the named release scope; historical experiment-run metadata remains historical. Source-specific obligations are retained in the manifests and ledger. This item-scoped sign-off does not grant a blanket licence to unrelated repository sources.\\par\n\\textbf{Reproducibility scope:} No claim in this manuscript relies on undisclosed human annotation, hidden reference-conditioned tuning, or a closed-model score that lacks a reproducible execution record.\n",
         body,
         flags=re.S,
     )
@@ -439,6 +444,23 @@ def add_longtable_continuation_caption(body: str, label: str, caption: str) -> s
     """Add an unlisted continuation caption to a Pandoc-generated longtable."""
     table_marker = f"\\label{{{label}}}\\tabularnewline"
     table_start = body.find(table_marker)
+    if table_start < 0:
+        # Pandoc 2.9 serializes a table identifier inside the caption as
+        # ``\{\#tab:name\}`` instead of emitting a standalone ``\label``.
+        # Locate the nearest caption start so the same continuation-caption
+        # logic remains valid on the Ubuntu package toolchain.
+        token = r"\#" + label
+        token_pos = body.find(token)
+        if token_pos >= 0:
+            caption_start = body.rfind(r"\caption{", 0, token_pos)
+            caption_end = body.find(r"\tabularnewline", token_pos)
+            if caption_start >= 0 and caption_end >= 0:
+                caption_text = body[caption_start:caption_end]
+                caption_text = caption_text.replace(r"\{\#" + label + r"\}", "")
+                caption_text += f"\\label{{{label}}}"
+                body = body[:caption_start] + caption_text + body[caption_end:]
+                table_marker = f"\\label{{{label}}}\\tabularnewline"
+                table_start = body.find(table_marker)
     if table_start < 0:
         raise ValueError(f"Longtable label not found: {label}")
     first_head_end = body.find("\\endfirsthead", table_start)

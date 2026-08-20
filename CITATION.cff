@@ -6,11 +6,11 @@ authors:
   - family-names: Du
     given-names: Yifan
     orcid: "https://orcid.org/0009-0008-7740-5408"
-version: paper4-cageo-v1.0.3
+version: paper4-cageo-v1.0.4
 date-released: 2026-08-20
 license: MIT
 repository-code: "https://github.com/Entropic-Silence/GeoLogParser"
-url: "https://github.com/Entropic-Silence/GeoLogParser/releases/tag/paper4-cageo-v1.0.3"
+url: "https://github.com/Entropic-Silence/GeoLogParser/releases/tag/paper4-cageo-v1.0.4"
 abstract: >-
   Provenance-grounded selective assurance for borehole database ingestion.
   The package freezes the Paper 4 manuscript, supplementary methods, vector
@@ -32,6 +32,5 @@ preferred-citation:
       orcid: "https://orcid.org/0009-0008-7740-5408"
   journal: "Computers & Geosciences"
   year: 2026
-  version: paper4-cageo-v1.0.3
-  url: "https://github.com/Entropic-Silence/GeoLogParser/releases/tag/paper4-cageo-v1.0.3"
-
+  version: paper4-cageo-v1.0.4
+  url: "https://github.com/Entropic-Silence/GeoLogParser/releases/tag/paper4-cageo-v1.0.4"

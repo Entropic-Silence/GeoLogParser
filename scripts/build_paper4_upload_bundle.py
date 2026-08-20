@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PAPER = ROOT / "papers" / "paper4"
 OUT = PAPER / "submission_bundle"
 CAGEO = PAPER / "submission" / "cageo"
-RELEASE_TAG = "paper4-cageo-v1.0.3"
+RELEASE_TAG = "paper4-cageo-v1.0.4"
 DATA_RELEASE_TAG = "data-v002"
 
 
@@ -162,9 +162,10 @@ or include model weights or private credentials. The author-reviewed selected
 source files and structured datasets are published separately as `data-v002`.
 The complete result-reproduction workflow is documented in
 `Paper4_Reproduce.md` and the repository-level `publication_evidence/` bundle.
-The complete Paper 4 release tag is `paper4-cageo-v1.0.3`; archival DOI fields
-remain intentionally pending until the author deposits and verifies the
-archive record.
+    The complete Paper 4 release tag is `paper4-cageo-v1.0.4`; archival DOI fields
+    remain intentionally pending until the author deposits and verifies the
+    archive record. The unchanged `data-v002` companion was originally paired
+    with v1.0.1 and is reused here without changing its contents.
 """
     (OUT / "README.md").write_bytes(readme.replace("\r\n", "\n").encode("utf-8"))
     print(OUT)

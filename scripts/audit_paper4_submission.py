@@ -69,7 +69,7 @@ def main() -> None:
         "This research received no specific grant",
         "The author declares no competing interests",
         "Rights and linkage sign-off",
-        "paper4-cageo-v1.0.3",
+        "paper4-cageo-v1.0.4",
         "data-v002",
     ]
     for term in required_author_text:
@@ -115,7 +115,7 @@ def main() -> None:
         "submission_ready": not errors,
         "author_metadata_complete": not errors,
         "rights_linkage_signoff_complete": not errors,
-        "release_tag": "paper4-cageo-v1.0.3",
+        "release_tag": "paper4-cageo-v1.0.4",
         "data_release_tag": "data-v002",
         "doi": None,
         "doi_status": "pending author-created archival DOI",

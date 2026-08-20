@@ -61,7 +61,7 @@
       "package_label": "DOI_PENDING_RELEASE_CANDIDATE",
       "paper": "paper4",
       "review_bundle_path": "paper4/manuscript.md",
-      "review_bundle_sha256": "7b287a8f5763e0a58b68242dfda18a48e9f06b645f02cc7d5c7fea4d4f2241e7",
+      "review_bundle_sha256": "acec0e4ff3b58508c06bf67e0bdafbe9e624748f98f812738415b6d49f33f74a",
       "scientific_content_ready": true,
       "submission_gate_path": "docs/submission_blockers.md",
       "submission_ready": false,
@@ -71,7 +71,7 @@
       "supplementary_captions_sha256": "4a37dcaf524f5761ccc04132dd632a4168b1b0c6e2b2277f0451680701ababb9",
       "upload_bundle_path": "paper4/submission_bundle",
       "upload_manifest_path": "paper4/submission_bundle/Paper4_Upload_Manifest.json",
-      "upload_manifest_sha256": "84614d9dfbdef835f3ed76667c4400ca08ebc951fd3359f375fa6bd7745ff937"
+      "upload_manifest_sha256": "55a2ad3a8fe15539f47da10d8d73d5c2162df2e8b36c0381585488c2d4142ba5"
     }
   ],
   "scientific_content_ready": true,

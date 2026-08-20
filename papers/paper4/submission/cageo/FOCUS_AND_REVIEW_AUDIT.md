@@ -75,13 +75,17 @@ kept as separate claim layers.
   fonts are embedded, and the manuscript contains zero raster image objects.
 - PDF metadata check: passed for title, author (`Yifan Du`), subject, and
   keywords; no template-default author/subject metadata remains.
-- Main-text estimate: 5,409 words excluding abstract, tables, captions,
-  highlights, keywords, declarations, and references. The broader Markdown
-  whitespace count used by the submission gate is 5,974 because it includes
-  table and caption text.
-- Full repository test run: `474 passed, 10 skipped`; skips require unavailable
-  PDF/OCR fixtures or tools, versioned RapidOCR assets, or optional PyVista.
-  No test was represented as passed without being run.
+- Canonical source-Markdown estimate: 5,474 main-text words with tables and
+  captions excluded, and 5,859 article-body words when inline table text is
+  included; abstract, captions, keywords, highlights, declarations, and
+  references are excluded from both. The submission gate's broader
+  whitespace count is 6,030 and is retained only as a portal-oriented upper
+  bound, not as the article word-count claim.
+- Canonical full-repository test run: `484 passed, 1 skipped` after
+  `python -m pip install -e "[test]"`; the remaining skip is the optional
+  PyVista surface smoke test. Other historical environment counts are not
+  used as the release claim. No test was represented as passed without being
+  run.
 - Table/citation checks: Tables 1 and 2 have numbered captions and labels;
   Table 1 has an explicit continuation caption; duplicate author-year/citation
   text was removed from its first column.

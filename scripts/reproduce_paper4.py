@@ -45,6 +45,7 @@ def main() -> None:
     run("verify headline claims", "papers/paper4/verify_claims.py")
     run("verify claim-to-evidence map", "papers/paper4/audit_claim_evidence.py")
     run("run C&G submission gate", "scripts/audit_paper4_submission.py")
+    run("bind final C&G artifact hashes and release metadata", "scripts/build_cageo_artifact_manifest.py")
     run("verify generated UTF-8/LF artifacts", "scripts/audit_generated_text_format.py")
     if args.with_tests:
         run("run full test suite", "-m", "pytest", "-q")

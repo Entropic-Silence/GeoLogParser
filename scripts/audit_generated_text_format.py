@@ -24,6 +24,9 @@ GENERATED = (
     "papers/paper4/claim_evidence_audit.json",
     "papers/paper4/figure_manifest.json",
     "papers/paper4/submission_gate.json",
+    "papers/paper4/submission/cageo/CAGEO_ARTIFACT_MANIFEST.json",
+    "papers/paper4/submission_bundle/Paper4_Final_Delivery_SHA256.json",
+    "papers/paper4/submission_bundle/Paper4_Upload_Manifest.json",
     "publication_evidence/manifest.json",
 )
 

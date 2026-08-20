@@ -5,6 +5,8 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
+import subprocess
 from pathlib import Path
 
 
@@ -13,7 +15,7 @@ PAPER = ROOT / "papers" / "paper4"
 CAGEO = PAPER / "submission" / "cageo"
 OUT = CAGEO / "CAGEO_ARTIFACT_MANIFEST.json"
 DELIVERY_OUT = PAPER / "submission_bundle" / "Paper4_Final_Delivery_SHA256.json"
-RELEASE_TAG = "paper4-cageo-v1.0.3"
+RELEASE_TAG = os.environ.get("PAPER4_RELEASE_TAG", "paper4-cageo-v1.0.4")
 DATA_RELEASE_TAG = "data-v002"
 
 
@@ -55,17 +57,62 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def git_value(*arguments: str) -> str | None:
+    """Return a normalized git value without making generation depend on git."""
+
+    try:
+        result = subprocess.run(
+            ["git", *arguments],
+            cwd=ROOT,
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+    except (OSError, subprocess.CalledProcessError):
+        return None
+    value = result.stdout.strip()
+    return value or None
+
+
+def manifest_git_metadata() -> dict[str, object]:
+    head = os.environ.get("PAPER4_SOURCE_GIT_COMMIT") or git_value("rev-parse", "HEAD")
+    branch = os.environ.get("PAPER4_SOURCE_GIT_BRANCH") or git_value(
+        "symbolic-ref", "--quiet", "--short", "HEAD"
+    )
+    tag_commit = git_value("rev-parse", "--verify", f"refs/tags/{RELEASE_TAG}^{{}}")
+    status = git_value("status", "--porcelain") or ""
+    generated_paths = {
+        OUT.relative_to(ROOT).as_posix(),
+        DELIVERY_OUT.relative_to(ROOT).as_posix(),
+    }
+    dirty_entries = [
+        line[3:].strip()
+        for line in status.splitlines()
+        if len(line) >= 4 and line[3:].strip() not in generated_paths
+    ]
+    return {
+        "branch": branch or "detached-or-unavailable",
+        "source_git_commit": head or "unavailable",
+        "source_git_commit_scope": (
+            "commit checked out when this manifest was generated; if the release tag "
+            "is created after generation, resolved_release_tag_commit records the tag target"
+        ),
+        "resolved_release_tag_commit": tag_commit,
+        "working_tree_dirty": bool(dirty_entries),
+    }
+
+
 def main() -> None:
     missing = [str(path.relative_to(ROOT)) for path in FILES if not path.exists()]
     if missing:
         raise SystemExit(f"Missing artifact(s): {missing}")
+    git_metadata = manifest_git_metadata()
     payload = {
         "schema": "paper4_cageo_artifact_manifest_v001",
         "generated_on": "2026-08-20",
-        "branch": "agent/publication-evidence-bundle",
+        **git_metadata,
         "release_tag": RELEASE_TAG,
         "data_release_tag": DATA_RELEASE_TAG,
-        "source_git_commit": f"resolve annotated tag {RELEASE_TAG}",
         "repository": "https://github.com/Entropic-Silence/GeoLogParser",
         "license": "MIT (source code)",
         "author": {
@@ -94,7 +141,7 @@ def main() -> None:
             for path in FILES
         ],
     }
-    OUT.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    OUT.write_bytes((json.dumps(payload, indent=2, sort_keys=True) + "\n").encode("utf-8"))
     delivery_files = [
         path for path in FILES
         if path.name.startswith("Paper4_Final_Manuscript")
@@ -111,7 +158,8 @@ def main() -> None:
         "repository": "https://github.com/Entropic-Silence/GeoLogParser",
         "release_tag": RELEASE_TAG,
         "data_release_tag": DATA_RELEASE_TAG,
-        "source_git_commit": f"resolve annotated tag {RELEASE_TAG}",
+        "source_git_commit": git_metadata["source_git_commit"],
+        "resolved_release_tag_commit": git_metadata["resolved_release_tag_commit"],
         "doi": None,
         "doi_status": "pending author-created archival DOI for tagged release",
         "files": [
@@ -123,9 +171,28 @@ def main() -> None:
             for path in delivery_files
         ],
     }
-    DELIVERY_OUT.write_text(
-        json.dumps(delivery, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+    DELIVERY_OUT.write_bytes(
+        (json.dumps(delivery, indent=2, sort_keys=True) + "\n").encode("utf-8")
     )
+    # Fail immediately if generation or a later Windows checkout changed any
+    # path, byte count, or hash.  The manifest intentionally excludes itself
+    # and the delivery checksum file to avoid a self-referential hash cycle.
+    generated = json.loads(OUT.read_text(encoding="utf-8"))
+    for entry in generated["files"]:
+        path = ROOT / entry["file"]
+        if not path.is_file():
+            raise SystemExit(f"Generated manifest points to missing file: {entry['file']}")
+        observed = sha256(path)
+        if observed != entry["sha256"] or path.stat().st_size != entry["bytes"]:
+            raise SystemExit(f"Generated manifest self-check failed: {entry['file']}")
+    generated_delivery = json.loads(DELIVERY_OUT.read_text(encoding="utf-8"))
+    for entry in generated_delivery["files"]:
+        path = PAPER / "submission_bundle" / entry["name"]
+        if not path.is_file():
+            raise SystemExit(f"Generated delivery manifest points to missing file: {entry['name']}")
+        observed = sha256(path)
+        if observed != entry["sha256"] or path.stat().st_size != entry["bytes"]:
+            raise SystemExit(f"Generated delivery manifest self-check failed: {entry['name']}")
     print(OUT)
     print(DELIVERY_OUT)
     print(json.dumps({"release_tag": RELEASE_TAG, "file_count": len(FILES)}))
