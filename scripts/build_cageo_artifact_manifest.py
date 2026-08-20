@@ -13,7 +13,7 @@ PAPER = ROOT / "papers" / "paper4"
 CAGEO = PAPER / "submission" / "cageo"
 OUT = CAGEO / "CAGEO_ARTIFACT_MANIFEST.json"
 DELIVERY_OUT = PAPER / "submission_bundle" / "Paper4_Final_Delivery_SHA256.json"
-RELEASE_TAG = "paper4-cageo-v1.0.1"
+RELEASE_TAG = "paper4-cageo-v1.0.2"
 DATA_RELEASE_TAG = "data-v002"
 
 
@@ -34,6 +34,7 @@ FILES = [
     PAPER / "submission_bundle" / "Paper4_Supplementary_Figure_Captions.md",
     PAPER / "submission_bundle" / "Paper4_Main_Tables.md",
     PAPER / "submission_bundle" / "Paper4_Rights_Linkage_Signoff.md",
+    PAPER / "submission_bundle" / "Paper4_Highlights.txt",
     PAPER / "submission_bundle" / "Paper4_Figure_Manifest.json",
     PAPER / "submission_bundle" / "Paper4_Figure_1.pdf",
     PAPER / "submission_bundle" / "Paper4_Figure_2.pdf",
@@ -80,7 +81,9 @@ def main() -> None:
             "Yifan Du, sole and corresponding author, reviewed and screened the complete "
             "Paper 4 package and exact data-v002 selection for public dissemination. The "
             "data review covered source terms, item scope, privacy, sensitive locations, "
-            "embedded content, attribution, and linkage; source-specific obligations remain."
+            "embedded content, attribution, and linkage. This sign-off supersedes earlier "
+            "provisional ledger statuses for the named release scope; historical run "
+            "metadata remains historical. Source-specific obligations remain."
         ),
         "files": [
             {
@@ -97,6 +100,7 @@ def main() -> None:
         if path.name.startswith("Paper4_Final_Manuscript")
         or path.name.startswith("Paper4_Figure_")
         or path.name == "Paper4_Graphical_Abstract.pdf"
+        or path.name == "Paper4_Highlights.txt"
         or path.name.startswith("Paper4_Supplementary_")
         or path.name == "Paper4_Main_Tables.md"
     ]

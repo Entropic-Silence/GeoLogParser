@@ -24,7 +24,9 @@ toolchain; `PANDOC` and `TECTONIC` may override those paths.
 
 ## Final QA
 
-- `manuscript_review_v2.pdf`: 21 pages; `manuscript_final.pdf`: 20 pages.
+- `manuscript_review_v2.pdf`: 21 pages; the current `manuscript_final.pdf` is
+  22 pages after the v1.0.2 rebuild. Page count is recorded from the emitted
+  PDF rather than copied from an earlier review note.
 - Both PDFs render with no clipped figures, missing glyph blocks, undefined
   citations/references, duplicate PDF destinations, or table overfull boxes.
 - The final page footer contains page numbers only; no preprint or review text.
@@ -43,8 +45,24 @@ toolchain; `PANDOC` and `TECTONIC` may override those paths.
   Borkovich author list, protected acronym capitalization, and no `et al.` in
   the rendered reference list.
 - `verify_claims.py`, `audit_claim_evidence.py`, and
-  `audit_paper4_submission.py` pass. The requested pytest suites could not run
-  because `pytest` is not installed in this Python environment.
+  `audit_paper4_submission.py` pass. The full local test run reports
+  `474 passed, 10 skipped`; skips are limited to unavailable PDF/OCR fixtures,
+  RapidOCR assets, and optional PyVista. No test result is inferred from an
+  unrun command.
+
+## Reproducibility scope
+
+The package supports result-level reproduction from frozen predictions through
+matching, metrics, tables, figures, and audits. It does not claim byte-for-byte
+cross-platform regeneration or replay of the historical Qwen inference runtime;
+the manuscript discloses that the execution provenance is partially
+reconstructable. The artwork builder searches standard Linux, macOS-style user,
+and Windows font locations, so a normal Linux checkout no longer fails solely
+because DejaVu Sans is stored under `/usr/share/fonts/truetype/dejavu`.
+
+Cross-platform reruns may serialize PDF/PNG metadata or path separators
+differently while preserving numeric outputs and rendered pixels. The frozen
+release manifests remain the authoritative checksums for the published assets.
 
 ## Non-fatal template note
 

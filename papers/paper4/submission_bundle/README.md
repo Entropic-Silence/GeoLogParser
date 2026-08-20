@@ -12,6 +12,8 @@ The final manuscript pair is `Paper4_Final_Manuscript.md` and
 scientific content, declarations, metrics, limitations, and references. The
 PNG files are the four main figures and three supplementary figures. The other
 Markdown files are repository-native supplementary/reproducibility sources;
+`Paper4_Highlights.txt` is the separate editable highlights upload required by
+the journal;
 convert them to the journal's required manuscript format at submission time
 without changing audited text or numbers. `Paper4_Upload_Manifest.json`
 records source paths and SHA-256 hashes for every file.
@@ -21,5 +23,6 @@ or include model weights or private credentials. The author-reviewed selected
 source files and structured datasets are published separately as `data-v002`.
 The complete result-reproduction workflow is documented in
 `Paper4_Reproduce.md` and the repository-level `publication_evidence/` bundle.
-The complete Paper 4 release tag is `paper4-cageo-v1.0.1`; archival DOI fields
-will be appended after deposit.
+The complete Paper 4 release tag is `paper4-cageo-v1.0.2`; archival DOI fields
+remain intentionally pending until the author deposits and verifies the
+archive record.

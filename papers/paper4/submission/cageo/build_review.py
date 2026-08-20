@@ -36,16 +36,41 @@ HIGHLIGHTS = [
 
 
 CODE_AVAILABILITY = (
-    "The GeoLogParser repository contains versioned code/configuration, prompt hashes, "
-    "metric bindings, figure generators, claim audits, and recomputation scripts for "
-    "this article. The source code is released under the MIT license at "
-    "https://github.com/Entropic-Silence/GeoLogParser. The frozen article and "
-    "reproducibility package is identified by the annotated release tag "
-    "paper4-cageo-v1.0.1. An archival DOI will be added after deposit."
+    "Program title: GeoLogParser Paper 4 result-reproduction package. Developer and "
+    "contact: Yifan Du, duyifan619916@gmail.com. First public availability: 2026. "
+    "The package contains versioned code/configuration, prompt hashes, metric bindings, "
+    "figure generators, claim audits, and recomputation scripts for this article. "
+    "The source code is released under the MIT license at "
+    "https://github.com/Entropic-Silence/GeoLogParser. It is written primarily in "
+    "Python and uses the frozen JSON/JSONL inputs; the deterministic result-level "
+    "workflow requires Python 3.10 or newer and standard scientific Python packages. "
+    "The final tagged package is paper4-cageo-v1.0.2. The optional VLM/OCR execution "
+    "environment, weights, and private credentials are not redistributed; the package "
+    "reproduces frozen predictions through the matcher, metrics, tables, figures, and "
+    "audits. The public repository and release assets are the access method. An archival "
+    "DOI will be added after deposit."
+)
+
+
+CODE_AVAILABILITY_TEX = (
+    r"\\section*{Computer Code Availability}\n"
+    r"Program title: GeoLogParser Paper 4 result-reproduction package. "
+    r"Developer and contact: Yifan Du, \\href{mailto:duyifan619916@gmail.com}{duyifan619916@gmail.com}. "
+    r"First public availability: 2026. The package contains versioned code/configuration, "
+    r"prompt hashes, metric bindings, figure generators, claim audits, and recomputation "
+    r"scripts for this article. The source code is released under the MIT license at "
+    r"\\url{https://github.com/Entropic-Silence/GeoLogParser}. It is written primarily in "
+    r"Python and uses frozen JSON/JSONL inputs; the deterministic result-level workflow "
+    r"requires Python 3.10 or newer and standard scientific Python packages. The final "
+    r"tagged package is \\texttt{paper4-cageo-v1.0.2}. The optional VLM/OCR execution "
+    r"environment, weights, and private credentials are not redistributed; the package "
+    r"reproduces frozen predictions through the matcher, metrics, tables, figures, and "
+    r"audits. The public repository and release assets are the access method. An archival "
+    r"DOI will be added after deposit.\\par\n"
 )
 
 DATA_AVAILABILITY = (
-    "The paper4-cageo-v1.0.1 package contains the manuscript, supplement, figures, "
+    "The paper4-cageo-v1.0.2 package contains the manuscript, supplement, figures, "
     "structured/reanalysis inputs, aggregate metrics, manifests, checksums, source URLs, "
     "and recomputation scripts needed to reproduce the reported result-level analyses. "
     "The separate data-v002 companion contains the author-reviewed selected source files "
@@ -61,12 +86,17 @@ DECLARATIONS = (
     "**Funding:** This research did not receive any specific grant from funding agencies "
     "in the public, commercial, or not-for-profit sectors; it was self-funded.\n\n"
     "**Competing interests:** The author declares no competing interests.\n\n"
-    "**Rights and linkage:** Yifan Du, sole and corresponding author, confirms that the "
-    "paper4-cageo-v1.0.1 package and exact data-v002 selection were reviewed for public "
+    "**Rights and linkage sign-off:** Yifan Du, sole and corresponding author, confirms that the "
+    "paper4-cageo-v1.0.2 package and exact data-v002 selection were reviewed for public "
     "dissemination; the data review covered source terms, selected item scope, privacy, "
     "sensitive locations, embedded third-party content, attribution, and linkage. "
-    "Source-specific obligations are retained in the manifests and ledger. This item-"
-    "scoped sign-off does not grant a blanket licence to unrelated repository sources."
+    "This sign-off supersedes earlier provisional ledger statuses for the named release "
+    "scope; historical experiment-run metadata remains historical. Source-specific "
+    "obligations are retained in the manifests and ledger. This item-"
+    "scoped sign-off does not grant a blanket licence to unrelated repository sources.\n\n"
+    "No claim in this manuscript relies on undisclosed human annotation, hidden "
+    "reference-conditioned tuning, or a closed-model score that lacks a reproducible "
+    "execution record."
 )
 
 
@@ -234,19 +264,19 @@ and the aggregate reference-relative volume discrepancy is
     # author-confirmed submission statements.
     body = re.sub(
         r"\\section\*\{Computer Code Availability\}.*?(?=\\section\*\{Data Availability\})",
-        r"\\section*{Computer Code Availability}\nThe GeoLogParser repository contains versioned code/configuration, prompt hashes, metric bindings, figure generators, claim audits, and recomputation scripts for this article. The source code is released under the MIT license at \\url{https://github.com/Entropic-Silence/GeoLogParser}. The complete article and result-reproduction package is identified by the annotated release tag \\texttt{paper4-cageo-v1.0.1}. An archival DOI will be added after deposit.\\par\n",
+        CODE_AVAILABILITY_TEX,
         body,
         flags=re.S,
     )
     body = re.sub(
         r"\\section\*\{Data Availability\}.*?(?=\\section\*\{Declarations\})",
-        r"\\section*{Data Availability}\nThe \\texttt{paper4-cageo-v1.0.1} package contains the manuscript, supplement, figures, structured/reanalysis inputs, aggregate metrics, manifests, checksums, source URLs, and recomputation scripts needed to reproduce the reported result-level analyses. The separate \\texttt{data-v002} companion contains the author-reviewed selected source files and structured datasets used by the principal experiments; it is a data companion, not the complete Paper 4 package. Source-specific terms and attribution remain in the release ledger, and linkable spatial inputs are not represented as anonymous. Model weights and private credentials are not redistributed. Archival DOI fields will be added after deposit.\n",
+        r"\\section*{Data Availability}\nThe \\texttt{paper4-cageo-v1.0.2} package contains the manuscript, supplement, figures, structured/reanalysis inputs, aggregate metrics, manifests, checksums, source URLs, and recomputation scripts needed to reproduce the reported result-level analyses. The separate \\texttt{data-v002} companion contains the author-reviewed selected source files and structured datasets used by the principal experiments; it is a data companion, not the complete Paper 4 package. Source-specific terms and attribution remain in the release ledger, and linkable spatial inputs are not represented as anonymous. Model weights and private credentials are not redistributed. Archival DOI fields will be added after deposit.\n",
         body,
         flags=re.S,
     )
     body = re.sub(
         r"\\section\*\{Declarations\}.*?(?=\\section\*\{References\})",
-        r"\\section*{Declarations}\n\\textbf{Funding:} This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors; it was self-funded.\\par\n\\textbf{Competing interests:} The author declares no competing interests.\\par\n\\textbf{Rights and linkage:} Yifan Du, sole and corresponding author, confirms that the \\texttt{paper4-cageo-v1.0.1} package and exact \\texttt{data-v002} selection were reviewed for public dissemination; the data review covered source terms, selected item scope, privacy, sensitive locations, embedded third-party content, attribution, and linkage. Source-specific obligations are retained in the manifests and ledger. This item-scoped sign-off does not grant a blanket licence to unrelated repository sources.\n",
+        r"\\section*{Declarations}\n\\textbf{Funding:} This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors; it was self-funded.\\par\n\\textbf{Competing interests:} The author declares no competing interests.\\par\n\\textbf{Rights and linkage sign-off:} Yifan Du, sole and corresponding author, confirms that the \\texttt{paper4-cageo-v1.0.2} package and exact \\texttt{data-v002} selection were reviewed for public dissemination; the data review covered source terms, selected item scope, privacy, sensitive locations, embedded third-party content, attribution, and linkage. This sign-off supersedes earlier provisional ledger statuses for the named release scope; historical experiment-run metadata remains historical. Source-specific obligations are retained in the manifests and ledger. This item-scoped sign-off does not grant a blanket licence to unrelated repository sources.\\par\n\\textbf{Reproducibility scope:} No claim in this manuscript relies on undisclosed human annotation, hidden reference-conditioned tuning, or a closed-model score that lacks a reproducible execution record.\n",
         body,
         flags=re.S,
     )
@@ -541,7 +571,11 @@ def main() -> None:
         raise ValueError("Pandoc body does not contain the expected Introduction heading")
     body = repair_body(body[start:])
 
-    cited_keys = sorted(set(re.findall(r"@([A-Za-z0-9_:-]+)", source)))
+    # Citation keys occur as Markdown citation tokens; do not treat the
+    # author's email address (for example, ``@gmail``) as a bibliography key.
+    cited_keys = sorted(
+        set(re.findall(r"(?<![A-Za-z0-9._%+-])@([A-Za-z0-9_:-]+)", source))
+    )
     bibliography = extract_bibliography((PAPER.parent / "references.bib").read_text(encoding="utf-8"), cited_keys)
     (HERE / "references_cageo.bib").write_text(bibliography, encoding="utf-8", newline="\n")
 

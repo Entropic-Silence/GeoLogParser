@@ -8,6 +8,7 @@ images are used, and all values are copied from the frozen publication tables.
 from __future__ import annotations
 
 import math
+import os
 from pathlib import Path
 
 from reportlab.pdfbase import pdfmetrics
@@ -21,10 +22,18 @@ MIN_VECTOR_FONT = 0.0
 
 
 def register_fonts() -> None:
-    candidates = [
-        Path(r"C:\Windows\Fonts"),
-        Path(r"C:\Users\lenovo\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\poppler\Library\share\fonts"),
-    ]
+    configured = os.environ.get("GEOLOGPARSER_DEJAVU_FONT_DIR")
+    candidates = [Path(configured)] if configured else []
+    candidates.extend(
+        [
+            Path(r"C:\Windows\Fonts"),
+            Path(r"C:\Users\lenovo\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\poppler\Library\share\fonts"),
+            Path("/usr/share/fonts/truetype/dejavu"),
+            Path("/usr/local/share/fonts/truetype/dejavu"),
+            Path("/usr/share/fonts/dejavu"),
+            Path.home() / ".fonts",
+        ]
+    )
     regular = next((p / "DejaVuSans.ttf" for p in candidates if (p / "DejaVuSans.ttf").exists()), None)
     bold = next((p / "DejaVuSans-Bold.ttf" for p in candidates if (p / "DejaVuSans-Bold.ttf").exists()), None)
     if regular is None or bold is None:

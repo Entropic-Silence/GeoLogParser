@@ -1,6 +1,6 @@
 # Data and code availability
 
-The `paper4-cageo-v1.0.1` repository release contains the final article,
+The `paper4-cageo-v1.0.2` repository release contains the final article,
 supplementary methods, figure captions, source-manifest hashes, structured or
 reanalysis assets, transformed public-analysis inputs, aggregate metrics,
 model/runtime configuration records, and deterministic scripts for rebuilding
@@ -14,12 +14,15 @@ Model weights and private service credentials are not redistributed. The
 transformed public inputs may remain linkable; the releases make no claim of
 anonymity or non-reidentifiability.
 
-Yifan Du, sole and corresponding author, confirms that the two tagged packages
-were reviewed and screened for public dissemination. The `data-v002` review
+Yifan Du, sole and corresponding author, confirms that the `paper4-cageo-v1.0.2`
+package and the exact `data-v002` selection were reviewed and screened for
+public dissemination. The `data-v002` review
 covered source terms, selected item scope, privacy, sensitive locations,
 embedded third-party content, attribution, and linkage. Source-specific
-obligations remain in the release ledger. Archival DOI fields will be added
-after deposit.
+content review supersedes earlier provisional ledger statuses for the exact
+named release scope; historical experiment-run metadata remains historical.
+Source-specific obligations remain in the release ledger. Archival DOI fields remain pending
+until the author deposits and verifies the archive record.
 
 The reproducibility entry point is:
 

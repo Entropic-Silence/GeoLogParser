@@ -66,7 +66,7 @@ kept as separate claim layers.
   `DOI_PENDING_RELEASE_CANDIDATE`; `submission_ready` is true, with only the
   author-created archival DOI and final portal preview listed as external
   actions.
-- LaTeX clean build: completed for the 21-page final PDF; no undefined
+- LaTeX clean build: completed for the 22-page final PDF; no undefined
   citations/references, duplicate PDF destinations, or overfull/underfull
   document boxes. The environment emits only a Fontconfig message and an
   encoding warning from the bundled `lineno.sty`, not from manuscript source.
@@ -79,9 +79,9 @@ kept as separate claim layers.
   highlights, keywords, declarations, and references. The broader Markdown
   whitespace count used by the submission gate is 5,974 because it includes
   table and caption text.
-- `pytest`: 470 passed and 10 conditionally skipped. The skips require external
-  PDF/OCR tools, versioned RapidOCR assets, or the optional PyVista stack; no
-  test failed.
+- Full repository test run: `474 passed, 10 skipped`; skips require unavailable
+  PDF/OCR fixtures or tools, versioned RapidOCR assets, or optional PyVista.
+  No test was represented as passed without being run.
 - Table/citation checks: Tables 1 and 2 have numbered captions and labels;
   Table 1 has an explicit continuation caption; duplicate author-year/citation
   text was removed from its first column.
@@ -89,10 +89,19 @@ kept as separate claim layers.
 ## Open P0/P1/P2 items
 
 - P0: none identified in the frozen scientific content or evidence mapping.
-- P1: create the permanent archival DOI/data citation after the tagged release,
-  then complete the Editorial Manager upload and artwork preview.
+- P1: manually verify the Zenodo/DataCite metadata and that the separately
+  uploaded `data-v002` archive appears in the DOI record's Files list, then
+  create the permanent archival DOI/data citation and complete the Editorial
+  Manager upload/artwork preview.
 - P2: confirm the portal-computed word count. The internal banner/footer and
   adviser-question page are absent from `manuscript_final.pdf`.
+
+## Archive-level qualification
+
+The v1.0.2 patch release fixes portable font discovery, package metadata, and
+submission-material consistency. It does not turn the result-level workflow
+into an end-to-end replay of the historical Qwen runtime, and it does not
+claim byte-for-byte deterministic regeneration across operating systems.
 
 ## Deliverables checked
 

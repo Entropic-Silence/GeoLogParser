@@ -345,7 +345,7 @@ def main() -> None:
             {"id": "S3", "file": "figures/F7_controlled_error_mechanisms.png", "purpose": "controlled synthetic perturbation mechanisms", "caption": "Controlled error mechanisms and spatial response."},
         ],
         "source_manifests": {
-            str(p.relative_to(ROOT)): digest(p)
+            p.relative_to(ROOT).as_posix(): digest(p)
             for p in [
                 MODERN,
                 ASSURANCE,

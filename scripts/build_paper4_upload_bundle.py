@@ -17,6 +17,8 @@ ROOT = Path(__file__).resolve().parents[1]
 PAPER = ROOT / "papers" / "paper4"
 OUT = PAPER / "submission_bundle"
 CAGEO = PAPER / "submission" / "cageo"
+RELEASE_TAG = "paper4-cageo-v1.0.2"
+DATA_RELEASE_TAG = "data-v002"
 
 
 TEXT_FILES = {
@@ -27,6 +29,7 @@ TEXT_FILES = {
     "Paper4_Data_Code_Availability.md": PAPER / "data_code_availability.md",
     "Paper4_Reproduce.md": PAPER / "REPRODUCE.md",
     "Paper4_Rights_Linkage_Signoff.md": CAGEO / "RIGHTS_LINKAGE_SIGNOFF.md",
+    "Paper4_Highlights.txt": CAGEO / "highlights.txt",
 }
 
 FIGURE_FILES = {
@@ -93,7 +96,12 @@ def main() -> None:
     for name, source in TEXT_FILES.items():
         destination = OUT / name
         data = copy_text(source, destination)
-        role = "main manuscript" if name == "Paper4_Main_Manuscript.md" else "supplementary/reproducibility document"
+        if name == "Paper4_Main_Manuscript.md":
+            role = "main manuscript"
+        elif name == "Paper4_Highlights.txt":
+            role = "submission highlights"
+        else:
+            role = "supplementary/reproducibility document"
         entries.append(entry(name, source, data, role))
 
     for name, source in FIGURE_FILES.items():
@@ -117,10 +125,10 @@ def main() -> None:
         "package_label": "DOI_PENDING_RELEASE_CANDIDATE",
         "submission_ready": True,
         "purpose": "fixed manuscript-facing file assembly for Computers & Geosciences submission",
-        "rights_scope": "The sole author reviewed the complete Paper 4 package and exact data-v002 selection for public dissemination; the data review covered source terms, item scope, privacy, sensitive locations, embedded content, attribution, and linkage. Source-specific obligations remain in the ledger.",
-        "rights_linkage_signoff": "Yifan Du, sole and corresponding author, confirms that paper4-cageo-v1.0.1 contains the complete result-reproduction package and data-v002 is its author-reviewed data companion.",
-        "release_tag": "paper4-cageo-v1.0.1",
-        "data_release_tag": "data-v002",
+        "rights_scope": "The sole author reviewed the complete Paper 4 package and exact data-v002 selection for public dissemination; the data review covered source terms, item scope, privacy, sensitive locations, embedded content, attribution, and linkage. The sign-off supersedes earlier provisional ledger statuses for this named release scope; historical experiment-run metadata remains historical. Source-specific obligations remain in the ledger.",
+        "rights_linkage_signoff": f"Yifan Du, sole and corresponding author, confirms that {RELEASE_TAG} contains the complete result-reproduction package and {DATA_RELEASE_TAG} is its author-reviewed data companion.",
+        "release_tag": RELEASE_TAG,
+        "data_release_tag": DATA_RELEASE_TAG,
         "doi_status": "pending author-created archival DOI",
         "supplementary_caption_file": "Paper4_Supplementary_Figure_Captions.md",
         "files": sorted(entries, key=lambda row: str(row["file"])),
@@ -143,6 +151,8 @@ The final manuscript pair is `Paper4_Final_Manuscript.md` and
 scientific content, declarations, metrics, limitations, and references. The
 PNG files are the four main figures and three supplementary figures. The other
 Markdown files are repository-native supplementary/reproducibility sources;
+`Paper4_Highlights.txt` is the separate editable highlights upload required by
+the journal;
 convert them to the journal's required manuscript format at submission time
 without changing audited text or numbers. `Paper4_Upload_Manifest.json`
 records source paths and SHA-256 hashes for every file.
@@ -152,8 +162,9 @@ or include model weights or private credentials. The author-reviewed selected
 source files and structured datasets are published separately as `data-v002`.
 The complete result-reproduction workflow is documented in
 `Paper4_Reproduce.md` and the repository-level `publication_evidence/` bundle.
-The complete Paper 4 release tag is `paper4-cageo-v1.0.1`; archival DOI fields
-will be appended after deposit.
+The complete Paper 4 release tag is `paper4-cageo-v1.0.2`; archival DOI fields
+remain intentionally pending until the author deposits and verifies the
+archive record.
 """
     (OUT / "README.md").write_bytes(readme.replace("\r\n", "\n").encode("utf-8"))
     print(OUT)
