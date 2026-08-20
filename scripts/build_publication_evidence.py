@@ -101,9 +101,26 @@ def copy_exact(source: Path, destination: Path) -> None:
 
 
 def replace_tree(staging: Path, destination: Path) -> None:
+    if not staging.is_dir():
+        raise FileNotFoundError(f"staging directory is missing: {staging}")
+    backup = destination.with_name(f".{destination.name}.previous")
+    if backup.is_dir():
+        shutil.rmtree(backup)
     if destination.is_dir():
-        shutil.rmtree(destination)
-    staging.rename(destination)
+        destination.rename(backup)
+    try:
+        staging.rename(destination)
+    except Exception:
+        if backup.is_dir() and not destination.exists():
+            backup.rename(destination)
+        raise
+    if backup.is_dir():
+        shutil.rmtree(backup)
+
+
+def is_external_data_origin(path_text: str) -> bool:
+    """Recognize the frozen Linux data root on every host platform."""
+    return path_text.replace("\\", "/").startswith("/data/GeoLogParser/")
 
 
 def public_record_key(record_id: str) -> str:
@@ -271,7 +288,7 @@ def main() -> None:
     for claim_id, claim in registry["claims"].items():
         origin_text = claim.get("origin_source_path", claim["source_path"])
         origin = Path(origin_text)
-        if not origin.is_absolute() or not str(origin).startswith("/data/GeoLogParser/"):
+        if not is_external_data_origin(origin_text):
             continue
         claim.setdefault("origin_source_path", str(origin))
         relative = Path("publication_evidence/external") / claim_id / "claim_snapshot.json"

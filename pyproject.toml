@@ -39,6 +39,7 @@ test = [
   "pyogrio>=0.10,<1",
   "ezdxf==1.4.3",
   "CairoSVG==2.8.2",
+  "reportlab>=4,<5",
   "rapidocr_onnxruntime==1.4.4",
   "onnxruntime==1.23.2",
 ]
@@ -51,4 +52,5 @@ where = ["src"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = ["."]
 addopts = "-ra --strict-markers"

@@ -117,9 +117,10 @@ def main() -> None:
         "package_label": "DOI_PENDING_RELEASE_CANDIDATE",
         "submission_ready": True,
         "purpose": "fixed manuscript-facing file assembly for Computers & Geosciences submission",
-        "rights_scope": "The sole author has reviewed and screened the tagged release materials for public dissemination and confirmed source attribution and linkage. Third-party source PDFs, rendered pages, raw OCR, model weights, and private credentials are excluded where their terms prohibit redistribution.",
-        "rights_linkage_signoff": "Yifan Du, sole and corresponding author, confirms that the public GitHub release contains the reviewed materials needed to reproduce the reported result-level analyses; source-specific attribution and linkage records are retained in repository manifests.",
-        "release_tag": "paper4-cageo-v1.0.0",
+        "rights_scope": "The sole author reviewed the complete Paper 4 package and exact data-v002 selection for public dissemination; the data review covered source terms, item scope, privacy, sensitive locations, embedded content, attribution, and linkage. Source-specific obligations remain in the ledger.",
+        "rights_linkage_signoff": "Yifan Du, sole and corresponding author, confirms that paper4-cageo-v1.0.1 contains the complete result-reproduction package and data-v002 is its author-reviewed data companion.",
+        "release_tag": "paper4-cageo-v1.0.1",
+        "data_release_tag": "data-v002",
         "doi_status": "pending author-created archival DOI",
         "supplementary_caption_file": "Paper4_Supplementary_Figure_Captions.md",
         "files": sorted(entries, key=lambda row: str(row["file"])),
@@ -146,12 +147,13 @@ convert them to the journal's required manuscript format at submission time
 without changing audited text or numbers. `Paper4_Upload_Manifest.json`
 records source paths and SHA-256 hashes for every file.
 
-The bundle does not contain third-party source PDFs, rendered source pages, raw
-OCR, model weights, or private credentials where their terms prohibit
-redistribution. The complete reproducibility workflow is documented in
+The manuscript-facing bundle does not duplicate the large source/data archive
+or include model weights or private credentials. The author-reviewed selected
+source files and structured datasets are published separately as `data-v002`.
+The complete result-reproduction workflow is documented in
 `Paper4_Reproduce.md` and the repository-level `publication_evidence/` bundle.
-The annotated release tag is `paper4-cageo-v1.0.0`; the author will append the
-archival DOI after depositing that tagged release.
+The complete Paper 4 release tag is `paper4-cageo-v1.0.1`; archival DOI fields
+will be appended after deposit.
 """
     (OUT / "README.md").write_bytes(readme.replace("\r\n", "\n").encode("utf-8"))
     print(OUT)

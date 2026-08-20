@@ -69,7 +69,8 @@ def main() -> None:
         "This research received no specific grant",
         "The author declares no competing interests",
         "Rights and linkage sign-off",
-        "paper4-cageo-v1.0.0",
+        "paper4-cageo-v1.0.1",
+        "data-v002",
     ]
     for term in required_author_text:
         if term not in text:
@@ -114,14 +115,15 @@ def main() -> None:
         "submission_ready": not errors,
         "author_metadata_complete": not errors,
         "rights_linkage_signoff_complete": not errors,
-        "release_tag": "paper4-cageo-v1.0.0",
+        "release_tag": "paper4-cageo-v1.0.1",
+        "data_release_tag": "data-v002",
         "doi": None,
         "doi_status": "pending author-created archival DOI",
         "manuscript_wc_word_count": len(text.split()),
         "citation_key_count": len(cited_keys),
         "errors": errors,
         "external_review_required": [
-            "author-created archival DOI and corresponding data citation",
+            "author-created archival DOI field(s) and corresponding data citation",
             "final Computers & Geosciences portal upload and artwork preview",
         ],
     }

@@ -1,23 +1,26 @@
-# Public dataset metadata
+# Public dataset records
 
-This directory publishes lightweight dataset cards only. Formal interval
-manifests, split IDs, hashes, evidence tiers, and licence-review status are
-versioned in `datasets/manifests`, `datasets/splits`,
+This directory publishes lightweight dataset cards and versioned release
+metadata. Formal interval manifests, split IDs, hashes, evidence tiers, and
+rights-review status are versioned in `datasets/manifests`, `datasets/splits`,
 `datasets/data_registry.yaml`, and `datasets/source_verification_ledger.yaml`.
 
-The formal source files needed for the main paper experiments are published in
-the GitHub Release `data-v001` as
-`GeoLogParser-public-data-v001.tar.zst`. The release archive preserves
-repository-relative paths and is accompanied by a per-file SHA-256 manifest in
-`datasets/public/dataset_bundle_v001/manifest.json`.
+The source files selected for the principal paper experiments are published as
+the GitHub Release `data-v002` in
+`GeoLogParser-public-data-v002.tar.zst`. The archive uses repository-relative
+paths and has both a per-file manifest and a separately downloadable archive
+SHA-256 file. See `dataset_bundle_v002/README.md`.
 
-The release is a project-owner-authorized public research bundle. It keeps
-source-specific attribution and any remaining final-author rights checks
-explicit: California uses the published CC0 table/report pairing, BGS retains
-the OGL acknowledgement and scan-footer caveat, and Swissgeol remains marked
-for final source-term verification. The evidence tier in each manifest is not
-changed by publication.
+`data-v001` remains available as a historical prerelease only. It is superseded
+because its embedded metadata retained absolute host paths, an inconsistent
+synthetic v001/v002 identity, and pre-sign-off rights states. It should not be
+used for a DOI or described as the complete Paper 4 package.
 
-Large intermediate renders, duplicate freezes, failed experiments, model
-weights, and quarantine-only sources are intentionally not included. They are
-not required to reproduce the principal paper claims.
+Yifan Du manually reviewed the exact `data-v002` selection for source terms,
+item scope, privacy, sensitive locations, embedded third-party content,
+attribution, and linkage. The source-specific obligations remain in
+`dataset_bundle_v002/DATA_LICENSES.md`; the sign-off does not create a blanket
+licence for other repository sources. Evidence tiers are unchanged by release.
+
+The complete Paper 4 manuscript/code/evidence package is separately identified
+by `paper4-cageo-v1.0.1`.

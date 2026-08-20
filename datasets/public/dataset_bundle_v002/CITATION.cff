@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "Please cite this versioned data companion and the associated GeoLogParser article package."
+type: dataset
+title: "GeoLogParser public data companion v002"
+authors:
+  - family-names: Du
+    given-names: Yifan
+    orcid: "https://orcid.org/0009-0008-7740-5408"
+version: "data-v002"
+date-released: 2026-08-20
+repository-code: "https://github.com/Entropic-Silence/GeoLogParser"
+url: "https://github.com/Entropic-Silence/GeoLogParser/releases/tag/data-v002"
+abstract: >-
+  Versioned source and structured-data companion for the GeoLogParser Paper 4
+  provenance-grounded borehole database ingestion study. Source-specific terms
+  and attribution are recorded in DATA_LICENSES.md and the repository ledger.

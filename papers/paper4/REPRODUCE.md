@@ -3,8 +3,9 @@
 This workflow reproduces the committed Paper 4 manuscript, figures, tables,
 publication evidence projections, review-package manifest, and all scientific
 audits. It is intentionally a **result-reproduction** workflow: it does not
-rerun a VLM/OCR model, download model weights, access source PDFs, or require
-the restricted source-page archive.
+rerun a VLM/OCR model or download model weights. The author-reviewed selected
+source/data inputs are available separately in the portable `data-v002`
+companion when source-level inspection is required.
 
 ## Environment
 
@@ -59,14 +60,15 @@ scientific package.
 
 ## What is and is not redistributed
 
-The repository includes the manuscript, supplement, tables, figures, configs,
-analysis JSON, manifests, hashes, pseudonymized/transformed public reanalysis
-inputs, and deterministic scripts. It does not redistribute source PDFs,
-rendered source pages, raw OCR regions/text, model weights, or source-derived
-assets where third-party terms prohibit redistribution. The sole author has
-reviewed the public release and confirmed its attribution/linkage records and
-result-level reproducibility scope. Public projections are explicitly linkable
-and are not claimed to be anonymous; see
+The `paper4-cageo-v1.0.1` package includes the manuscript, supplement, tables,
+figures, configs, analysis JSON, manifests, hashes, transformed public
+reanalysis inputs, and deterministic scripts. The separate `data-v002`
+companion contains the selected source files and structured datasets used by
+the principal experiments. Its paths are repository relative and its item-
+scoped author sign-off covers rights, attribution, linkage, privacy, sensitive
+locations, and embedded content. Model weights and private credentials are not
+included. Public projections are explicitly linkable and are not claimed to be
+anonymous; see
 `publication_evidence/README.md` and the linkage diagnostics under
 `publication_evidence/analysis_inputs/linkage/`.
 

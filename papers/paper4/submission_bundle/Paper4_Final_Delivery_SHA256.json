@@ -1,16 +1,17 @@
 {
+  "data_release_tag": "data-v002",
   "doi": null,
   "doi_status": "pending author-created archival DOI for tagged release",
   "files": [
     {
-      "bytes": 57381,
+      "bytes": 57725,
       "name": "Paper4_Final_Manuscript.md",
-      "sha256": "fca4f1076b67601e8d4cf87581013ad352fe773ab6acbf1f0209e24359506f42"
+      "sha256": "5d41ab6f6072843656128510f0b4b867d5bc35feadeb5b72e71a73e0d50c597c"
     },
     {
-      "bytes": 284936,
+      "bytes": 285004,
       "name": "Paper4_Final_Manuscript.pdf",
-      "sha256": "e1f26b6cae3451e5a4cb704cd595d1f69b7f5aa3232c9fd8a44f3466014d9c77"
+      "sha256": "874dcb2eafe5e527d5571c7586819ccc08851956740a0837931e78417e558433"
     },
     {
       "bytes": 17802,
@@ -35,27 +36,27 @@
     {
       "bytes": 44398,
       "name": "Paper4_Figure_1.pdf",
-      "sha256": "d0ed87bd5eabd20d06dbad9374d1d1d7d8e00acf3af77f6c15d086aeaafe4dd0"
+      "sha256": "854f1d657683c602ecb20cd5d6d17f8d625545b67f754915a1c6005c5d316a81"
     },
     {
       "bytes": 44523,
       "name": "Paper4_Figure_2.pdf",
-      "sha256": "1a9f1194138a4304d4117af2f7886b364fd0f234a6d5bf045674f9dbfe0dceb2"
+      "sha256": "f19e8b92b86614a57efcdb6445f8d85459ee5199fc8f8853a6df386d8a83a20f"
     },
     {
       "bytes": 45182,
       "name": "Paper4_Figure_3.pdf",
-      "sha256": "525e13fea8ba933688af4b070c5d5cab37566d38f074d48189c51520661708d7"
+      "sha256": "c3cbca936693beca2fec39de28bede066032fa3b1a119eaf6039a56dd43f4458"
     },
     {
       "bytes": 45028,
       "name": "Paper4_Figure_4.pdf",
-      "sha256": "dd1797ac064cec4b01d9a25491956ba2261d6d118f712cc2c2a63a5ce5bac919"
+      "sha256": "7799e1f306119827779bf452b1e22f94af7ed8b087cd5d66b52988fc1cebda75"
     },
     {
       "bytes": 44015,
       "name": "Paper4_Graphical_Abstract.pdf",
-      "sha256": "99f5258ffa5a5614c3840f4f5a0391d60c189ecbb849187f8744c970332cad57"
+      "sha256": "7e8c049c084437d8cbc9a8b375ec5e63fd010246087dcfd704c6f8aeda4a46f6"
     },
     {
       "bytes": 89432,
@@ -75,8 +76,8 @@
   ],
   "generated_on": "2026-08-20",
   "manifest_version": "paper4_final_delivery_v002",
-  "release_tag": "paper4-cageo-v1.0.0",
+  "release_tag": "paper4-cageo-v1.0.1",
   "repository": "https://github.com/Entropic-Silence/GeoLogParser",
   "scope": "Final manuscript, vector artwork, tables, and supplementary material",
-  "source_git_commit": "resolve annotated tag paper4-cageo-v1.0.0"
+  "source_git_commit": "resolve annotated tag paper4-cageo-v1.0.1"
 }

@@ -41,18 +41,19 @@ CODE_AVAILABILITY = (
     "this article. The source code is released under the MIT license at "
     "https://github.com/Entropic-Silence/GeoLogParser. The frozen article and "
     "reproducibility package is identified by the annotated release tag "
-    "paper4-cageo-v1.0.0. An archival DOI will be added after the author deposits "
-    "the tagged release."
+    "paper4-cageo-v1.0.1. An archival DOI will be added after deposit."
 )
 
 DATA_AVAILABILITY = (
-    "Public structured/reanalysis assets and materials needed to reproduce the reported "
-    "analyses are available in the GeoLogParser repository under the "
-    "paper4-cageo-v1.0.0 release tag. Source PDFs, rendered pages, raw OCR regions, "
-    "model weights, and private credentials are not redistributed where third-party "
-    "terms apply. The sole author reviewed and screened the release materials for public "
-    "dissemination and confirmed the retained source attribution and linkage records. "
-    "The archival DOI will be appended after deposit."
+    "The paper4-cageo-v1.0.1 package contains the manuscript, supplement, figures, "
+    "structured/reanalysis inputs, aggregate metrics, manifests, checksums, source URLs, "
+    "and recomputation scripts needed to reproduce the reported result-level analyses. "
+    "The separate data-v002 companion contains the author-reviewed selected source files "
+    "and structured datasets used by the principal experiments; it is a data companion, "
+    "not the complete Paper 4 package. Source-specific terms and attribution remain in "
+    "the release ledger, and linkable spatial inputs are not represented as anonymous. "
+    "Model weights and private credentials are not redistributed. Archival DOI fields "
+    "will be added after deposit."
 )
 
 
@@ -61,11 +62,11 @@ DECLARATIONS = (
     "in the public, commercial, or not-for-profit sectors; it was self-funded.\n\n"
     "**Competing interests:** The author declares no competing interests.\n\n"
     "**Rights and linkage:** Yifan Du, sole and corresponding author, confirms that the "
-    "materials included in the tagged GeoLogParser release were reviewed and screened "
-    "for public dissemination, that source-specific attribution and linkage information "
-    "is retained in the repository manifests, and that the public package is sufficient "
-    "to reproduce the reported analyses. This sign-off does not redistribute third-party "
-    "source files whose terms prohibit redistribution."
+    "paper4-cageo-v1.0.1 package and exact data-v002 selection were reviewed for public "
+    "dissemination; the data review covered source terms, selected item scope, privacy, "
+    "sensitive locations, embedded third-party content, attribution, and linkage. "
+    "Source-specific obligations are retained in the manifests and ledger. This item-"
+    "scoped sign-off does not grant a blanket licence to unrelated repository sources."
 )
 
 
@@ -201,7 +202,7 @@ and the aggregate reference-relative volume discrepancy is
     )
     body = body.replace(
         "Source PDFs and transformed inputs are distributed under the project release policy; provenance and final rights checks remain explicit in the ledger.",
-        "Only redistributable structured/reanalysis assets, manifests, hashes, source URLs, and recomputation materials are released. Source PDFs and page-derived assets remain excluded where item-level redistribution rights are unresolved.",
+        "The article package releases structured/reanalysis assets, manifests, hashes, source URLs, and recomputation materials. The separately versioned data-v002 companion contains the selected source files and structured datasets that passed the author's item-level rights, attribution, linkage, privacy, sensitive-location, and embedded-content review. Model weights and private credentials are not redistributed.",
     )
     body = body.replace(
         "\\caption{Figure 1. Provenance-grounded assurance framework.}",
@@ -226,19 +227,19 @@ and the aggregate reference-relative volume discrepancy is
     # author-confirmed submission statements.
     body = re.sub(
         r"\\section\*\{Computer Code Availability\}.*?(?=\\section\*\{Data Availability\})",
-        r"\\section*{Computer Code Availability}\nThe GeoLogParser repository contains versioned code/configuration, prompt hashes, metric bindings, figure generators, claim audits, and recomputation scripts for this article. The source code is released under the MIT license at \\url{https://github.com/Entropic-Silence/GeoLogParser}. The frozen article and reproducibility package is identified by the annotated release tag \\texttt{paper4-cageo-v1.0.0}. An archival DOI will be added after the author deposits the tagged release.\\par\n",
+        r"\\section*{Computer Code Availability}\nThe GeoLogParser repository contains versioned code/configuration, prompt hashes, metric bindings, figure generators, claim audits, and recomputation scripts for this article. The source code is released under the MIT license at \\url{https://github.com/Entropic-Silence/GeoLogParser}. The complete article and result-reproduction package is identified by the annotated release tag \\texttt{paper4-cageo-v1.0.1}. An archival DOI will be added after deposit.\\par\n",
         body,
         flags=re.S,
     )
     body = re.sub(
         r"\\section\*\{Data Availability\}.*?(?=\\section\*\{Declarations\})",
-        r"\\section*{Data Availability}\nPublic structured/reanalysis assets and materials needed to reproduce the reported analyses are available in the GeoLogParser repository under the \\texttt{paper4-cageo-v1.0.0} release tag. Source PDFs, rendered pages, raw OCR regions, model weights, and private credentials are not redistributed where third-party terms apply. The sole author reviewed and screened the release materials for public dissemination and confirmed the retained source attribution and linkage records. The archival DOI will be appended after deposit.\n",
+        r"\\section*{Data Availability}\nThe \\texttt{paper4-cageo-v1.0.1} package contains the manuscript, supplement, figures, structured/reanalysis inputs, aggregate metrics, manifests, checksums, source URLs, and recomputation scripts needed to reproduce the reported result-level analyses. The separate \\texttt{data-v002} companion contains the author-reviewed selected source files and structured datasets used by the principal experiments; it is a data companion, not the complete Paper 4 package. Source-specific terms and attribution remain in the release ledger, and linkable spatial inputs are not represented as anonymous. Model weights and private credentials are not redistributed. Archival DOI fields will be added after deposit.\n",
         body,
         flags=re.S,
     )
     body = re.sub(
         r"\\section\*\{Declarations\}.*?(?=\\section\*\{References\})",
-        r"\\section*{Declarations}\n\\textbf{Funding:} This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors; it was self-funded.\\par\n\\textbf{Competing interests:} The author declares no competing interests.\\par\n\\textbf{Rights and linkage:} Yifan Du, sole and corresponding author, confirms that the materials included in the tagged GeoLogParser release were reviewed and screened for public dissemination, that source-specific attribution and linkage information is retained in the repository manifests, and that the public package is sufficient to reproduce the reported analyses. This sign-off does not redistribute third-party source files whose terms prohibit redistribution.\n",
+        r"\\section*{Declarations}\n\\textbf{Funding:} This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors; it was self-funded.\\par\n\\textbf{Competing interests:} The author declares no competing interests.\\par\n\\textbf{Rights and linkage:} Yifan Du, sole and corresponding author, confirms that the \\texttt{paper4-cageo-v1.0.1} package and exact \\texttt{data-v002} selection were reviewed for public dissemination; the data review covered source terms, selected item scope, privacy, sensitive locations, embedded third-party content, attribution, and linkage. Source-specific obligations are retained in the manifests and ledger. This item-scoped sign-off does not grant a blanket licence to unrelated repository sources.\n",
         body,
         flags=re.S,
     )

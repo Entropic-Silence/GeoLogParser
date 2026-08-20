@@ -206,7 +206,7 @@ The main assurance path is therefore a four-stage decision, shown in Fig. 1: (i)
 
 The policy accepts a proposal only when both endpoints agree with an independently positioned interval, both source bboxes are retained, the interval is non-overlapping and monotone, and no critical numerical or unit check fails. Partial agreement is recorded as a proposal for review. The protocol was frozen after California v001 development: the agreement and field-evidence tolerances are fixed at \(10^{-6}\) in their respective units, v002 is validation, and v003 is the reported held-out replication. Although v004 and v005 are held-out direct-reader cohorts in the broader protocol, no VLM assurance confirmation run is claimed for them here. The document is the primary risk unit because actions cluster within reports; action-level false-correction rates are secondary.
 
-The policy reports three different quantities rather than one automation score: proposal coverage (accepted intervals divided by VLM proposals), selective precision among accepted intervals, and complete-document automation (documents for which the full ordered record passes the acceptance gate). On held-out v003, complete-document auto-acceptance is 4/100 (4%). This is the intended conservative deployment boundary: it identifies a small set that can enter a database automatically and sends the remaining proposals to review, rather than treating partial acceptance as complete-record correctness. For (n) accepted documents and zero observed worsened documents, the one-sided 95% upper bound is (1-0.05^{1/n}); this finite-sample statement is not a safety certification.
+The policy reports three different quantities rather than one automation score: proposal coverage (accepted intervals divided by VLM proposals), selective precision among accepted intervals, and complete-document automation (documents for which the full ordered record passes the acceptance gate). On held-out v003, complete-document auto-acceptance is 4/100 (4%). This is the intended conservative deployment boundary: it identifies a small set that can enter a database automatically and sends the remaining proposals to review, rather than treating partial acceptance as complete-record correctness. For \(n\) accepted documents and zero observed worsened documents, the one-sided 95% upper bound is \(1 - 0.05^{1/n}\); this finite-sample statement is not a safety certification.
 
 ### 4.5 Secondary legacy sequence-reconstruction and harm analysis
 
@@ -237,10 +237,12 @@ reproducible given the frozen page renders, candidate pools, configuration
 files, and seeds; bitwise deterministic VLM execution is not claimed.
 Document-cluster bootstrap resamples whole reports. Public release metadata
 records source URLs, exact manifests, hashes, evidence tiers, and archive
-checksums. Only redistributable structured/reanalysis assets, manifests, hashes,
-source URLs, and recomputation materials are released; source PDFs and
-page-derived assets remain excluded where item-level redistribution rights are
-unresolved.
+checksums. The article package releases structured/reanalysis assets, manifests,
+hashes, source URLs, and recomputation materials. The separately versioned
+`data-v002` companion contains the selected source files and structured datasets
+that passed the author's item-level rights, attribution, linkage, privacy,
+sensitive-location, and embedded-content review. Model weights and private
+credentials are not redistributed.
 
 ## 6. Results
 
@@ -398,11 +400,11 @@ The resulting deployment principle is simple: use modern VLMs for high-recall vi
 
 ## Computer Code Availability
 
-The GeoLogParser repository contains versioned code/configuration, prompt hashes, metric bindings, figure generators, claim audits, and recomputation scripts for this article. The source code is released under the MIT license at https://github.com/Entropic-Silence/GeoLogParser. The frozen article and reproducibility package is identified by the annotated release tag paper4-cageo-v1.0.0. An archival DOI will be added after the author deposits the tagged release.
+The GeoLogParser repository contains versioned code/configuration, prompt hashes, metric bindings, figure generators, claim audits, and recomputation scripts for this article. The source code is released under the MIT license at https://github.com/Entropic-Silence/GeoLogParser. The frozen article and reproducibility package is identified by the annotated release tag paper4-cageo-v1.0.1. An archival DOI will be added after deposit.
 
 ## Data Availability
 
-Public structured/reanalysis assets and materials needed to reproduce the reported analyses are available in the GeoLogParser repository under the paper4-cageo-v1.0.0 release tag. Source PDFs, rendered pages, raw OCR regions, model weights, and private credentials are not redistributed where third-party terms apply. The sole author reviewed and screened the release materials for public dissemination and confirmed the retained source attribution and linkage records. The archival DOI will be appended after deposit.
+The paper4-cageo-v1.0.1 package contains the manuscript, supplement, figures, structured/reanalysis inputs, aggregate metrics, manifests, checksums, source URLs, and recomputation scripts needed to reproduce the reported result-level analyses. The separate data-v002 companion contains the author-reviewed selected source files and structured datasets used by the principal experiments; it is a data companion, not the complete Paper 4 package. Source-specific terms and attribution remain in the release ledger, and linkable spatial inputs are not represented as anonymous. Model weights and private credentials are not redistributed. Archival DOI fields will be added after deposit.
 
 ## Declarations
 
@@ -410,7 +412,7 @@ Public structured/reanalysis assets and materials needed to reproduce the report
 
 **Competing interests:** The author declares no competing interests.
 
-**Rights and linkage:** Yifan Du, sole and corresponding author, confirms that the materials included in the tagged GeoLogParser release were reviewed and screened for public dissemination, that source-specific attribution and linkage information is retained in the repository manifests, and that the public package is sufficient to reproduce the reported analyses. This sign-off does not redistribute third-party source files whose terms prohibit redistribution.
+**Rights and linkage:** Yifan Du, sole and corresponding author, confirms that the paper4-cageo-v1.0.1 package and exact data-v002 selection were reviewed for public dissemination; the data review covered source terms, selected item scope, privacy, sensitive locations, embedded third-party content, attribution, and linkage. Source-specific obligations are retained in the manifests and ledger. This item-scoped sign-off does not grant a blanket licence to unrelated repository sources.
 
 ## References
 

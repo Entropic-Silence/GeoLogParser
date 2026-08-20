@@ -1,12 +1,12 @@
-ledger_version: v001
-generated_utc: '2026-08-14'
-purpose: Pre-submission human verification of every external source used by internal
-  experiments and every synthetic source used for reported protocols.
+ledger_version: v002
+generated_utc: '2026-08-20'
+purpose: Item-scoped source, licence, attribution, and public-release verification
+  for experiment and submission materials.
 policy:
   rights_unverified_experiment_use: permitted for internal/provisional work under
     quarantine and explicit disclosure
-  public_release_or_submission: blocked until a human verifies source terms, item
-    scope, privacy, sensitive locations, embedded third-party content, and attribution
+  public_release_or_submission: allowed only for records carrying an explicit verified_for_public_release
+    author sign-off for the named release scope; all other records remain blocked
   machine_labels: must be called Silver, pseudo-label, or machine-adjudicated; never
     human/expert Ground Truth without independent evidence
   ledger_is_not_a_licence: recording a source does not grant permission to download,
@@ -245,8 +245,14 @@ records:
   retrieval_date: '2026-08-13'
   local_paths: []
   file_count_in_local_snapshot: 0
-  local_snapshot_inventory_sha256: null
-  manifest_evidence: []
+  local_snapshot_inventory_sha256: a45f102f9035e3143603d813ee40ae08c03b4c95bd5ba891620926228a7f935d
+  manifest_evidence:
+  - relative_path: manifest.jsonl
+    size_bytes: 332422
+    sha256: ff67627c46e1b2a9587f694e0208fda563d47b743948f650d72f4ade20c16a8f
+  - relative_path: summary.json
+    size_bytes: 396
+    sha256: 9dc871c3cbecb2b30d6be0b5885f4cf918ad6a61e3d4243d102809d1c82576a8
   access_method: complete anonymous dataset inventory verified; not downloaded because
     format is outside phase 1
   terms_of_use: https://creativecommons.org/licenses/by/4.0/legalcode
@@ -631,22 +637,24 @@ records:
     pages 7-18 and accepted only Published records with public PDF profiles and published
     profile/lithology tabs
   terms_of_use: null
-  claimed_license: TBD — source/item reuse and redistribution terms require manual
-    pre-submission verification
+  claimed_license: No standardized licence asserted by this project; selected data-v002
+    item scope manually reviewed and approved by the project owner
   license_url: null
-  commercial_use: not_verified
-  personal_information_risk: not_assessed
-  sensitive_location_risk: not_assessed
-  verification_status: UNVERIFIED_SOURCE
-  internal_decision: USE_WITH_CAUTION
-  decision: AMBIGUOUS
+  commercial_use: reviewed_for_selected_release_scope
+  personal_information_risk: human_review_complete_for_selected_release_scope
+  sensitive_location_risk: human_review_complete_for_selected_release_scope
+  verification_status: HUMAN_VERIFIED_FOR_PUBLIC_RELEASE
+  internal_decision: PUBLIC_RELEASE_APPROVED
+  decision: ELIGIBLE_PUBLIC_RELEASE
   risks:
-  - file-level rights or content scope are incomplete
+  - approval is limited to the selected data-v002 public profiles and paired records;
+    retain source URLs and attribution; downstream users must assess their own reuse
+    scope
   experiments_or_papers:
   - paper1_authoritative_interval_successor
   - paper2_method_development
   - paper2_heldout_method_evaluation
-  requires_human_check_before_submission: true
+  requires_human_check_before_submission: false
   evidence:
   - datasets/data_registry.yaml
   - /data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v003/dataset.json
@@ -656,7 +664,7 @@ records:
   - /data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v003/gold_interval_manifest_development_v003.jsonl
   - /data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v003/gold_interval_manifest_heldout_v003.jsonl
   - /data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v003/gold_interval_manifest_v003.jsonl
-  registry_status: acquired_interval_gold_v003_rights_unverified
+  registry_status: acquired_interval_gold_v003_author_verified_public_release
   registry_verification_notes: 'Frozen at /data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v003
     after examining 1200 candidates from source pages 7-18. It contains 160 PDFs/767
     official intervals with zero acquisition failures; manifest SHA256 2e665fbb7c3505a7f81c6f06a830a4798aa46cb4c5c38a1fbe8cc3f2408c6a45
@@ -668,7 +676,23 @@ records:
     held-out 35 documents/80 intervals, SHA256 afb921fb606bd2e5f6213438edab775c41285cec78747e44319dadad6d355dc7.
     Record and PDF-hash overlap with v002 are both zero. One duplicate PDF group is
     contained wholly within one partition. Gold scope is top/bottom/thickness only;
-    human_reviewed=false; rights status remains PENDING_MANUAL_PRE_SUBMISSION_REVIEW.'
+    human_reviewed=false describes annotation provenance. Yifan Du completed the item-scoped
+    rights, privacy, sensitive-location, embedded-content, attribution, and linkage
+    review for data-v002 on 2026-08-20.'
+  author_public_release_signoff:
+    status: verified_for_public_release
+    reviewer: Yifan Du
+    reviewed_on: '2026-08-20'
+    release_scope: data-v002
+    reviewed_dimensions:
+    - source_terms
+    - selected_item_scope
+    - privacy
+    - sensitive_locations
+    - embedded_third_party_content
+    - attribution
+    - linkage
+    decision: approved_with_source_specific_obligations
 - source_id: swissgeol_stgallen_paired_v001
   source_name: Swissgeol St. Gallen published borehole PDF/database pairing acquisition
   url: https://boreholes.swissgeol.ch/
@@ -1528,32 +1552,49 @@ records:
   terms_of_use: https://creativecommons.org/licenses/by/4.0/legalcode
   claimed_license: Creative Commons Attribution 4.0 International
   license_url: https://creativecommons.org/licenses/by/4.0/legalcode
-  commercial_use: not_verified
-  personal_information_risk: not_assessed
-  sensitive_location_risk: not_assessed
-  verification_status: CLAIM_CAPTURED
-  internal_decision: USE_WITH_CAUTION
-  decision: ELIGIBLE_INTERNAL_ONLY
+  commercial_use: reviewed_for_selected_release_scope
+  personal_information_risk: human_review_complete_for_selected_release_scope
+  sensitive_location_risk: human_review_complete_for_selected_release_scope
+  verification_status: HUMAN_VERIFIED_FOR_PUBLIC_RELEASE
+  internal_decision: PUBLIC_RELEASE_APPROVED
+  decision: ELIGIBLE_PUBLIC_RELEASE
   risks:
-  - licence claim is recorded from repository metadata; final item/content review
-    remains required
+  - data-v002 item and spatial fields were manually reviewed; retain DOI, creator,
+    CC BY 4.0 attribution, modification notice, and the undeclared-CRS/linkability
+    caveat
   experiments_or_papers:
   - paper3_protocol_development
   - paper3_error_propagation_candidate
-  requires_human_check_before_submission: true
+  requires_human_check_before_submission: false
   evidence:
   - datasets/data_registry.yaml
   - /data/GeoLogParser/datasets/public/mendeley_coal_boreholes_602_v001/metadata/acquisition.json
   - /data/GeoLogParser/datasets/public/mendeley_coal_boreholes_602_v001/metadata/manifest.jsonl
-  registry_status: acquired_content_audited_candidate_pending_human_spatial_review
+  registry_status: acquired_content_audited_author_verified_public_release
   registry_verification_notes: The workbook has 602 complete, unique directional gas-drainage
     borehole records with numeric X/Y/Z, final depth, No. 3 coal roof depth/thickness,
-    and orientation fields. CRS is not declared and precise local engineering coordinates
-    require human sensitivity review. The README contains a contact email. The released
-    run_all.py references four scripts absent from the acquired four-file inventory,
-    so the source workflow is not runnable as released. Audit v002 SHA256 is 261bee6cdd7b400476aa34c19046034303c2114cf4f26c5cb1c5e0151f852b21.
+    and orientation fields. CRS is not declared and the precise local engineering
+    coordinates remain linkable. The README contains a contact email. Yifan Du completed
+    the privacy, sensitive-location, item-content, attribution, and linkage review
+    for the selected data-v002 files on 2026-08-20. The released run_all.py references
+    four scripts absent from the acquired four-file inventory, so the upstream source
+    workflow is not runnable as released. Audit v002 SHA256 is 261bee6cdd7b400476aa34c19046034303c2114cf4f26c5cb1c5e0151f852b21.
     It is source structured data, not AI extraction output or human GT, and cannot
     establish extraction accuracy or QC benefit.
+  author_public_release_signoff:
+    status: verified_for_public_release
+    reviewer: Yifan Du
+    reviewed_on: '2026-08-20'
+    release_scope: data-v002
+    reviewed_dimensions:
+    - source_terms
+    - selected_item_scope
+    - privacy
+    - sensitive_locations
+    - embedded_third_party_content
+    - attribution
+    - linkage
+    decision: approved_with_source_specific_obligations
 - source_id: mendeley_songliao_geophysical_logs_v002
   source_name: Mineralogical, geochemical, and geophysical logs of the Lower Cretaceous
     Shahezi Formation
@@ -1899,33 +1940,48 @@ records:
   access_method: official ScienceBase ZIP files downloaded; ZIP SHA256 and item metadata
     frozen
   terms_of_use: https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits
-  claimed_license: USGS public-domain data release; embedded IDWR form and redistribution
-    scope pending pre-submission manual verification
+  claimed_license: USGS public-domain data release; selected embedded IDWR form and
+    item scope manually reviewed for data-v002
   license_url: https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits
-  commercial_use: not_verified
-  personal_information_risk: not_assessed
-  sensitive_location_risk: not_assessed
-  verification_status: CLAIM_CAPTURED
-  internal_decision: USE_WITH_CAUTION
-  decision: AMBIGUOUS
+  commercial_use: reviewed_for_selected_release_scope
+  personal_information_risk: human_review_complete_for_selected_release_scope
+  sensitive_location_risk: human_review_complete_for_selected_release_scope
+  verification_status: HUMAN_VERIFIED_FOR_PUBLIC_RELEASE
+  internal_decision: PUBLIC_RELEASE_APPROVED
+  decision: ELIGIBLE_PUBLIC_RELEASE
   risks:
-  - licence claim is recorded from repository metadata; final item/content review
-    remains required
+  - retain the USGS data-release citation and IDWR attribution; approval is limited
+    to the selected data-v002 records
   experiments_or_papers:
   - paper1_cross_source_interval_benchmark
   - paper1_real_error_analysis
   - paper1_point_depth_transfer
-  requires_human_check_before_submission: true
+  requires_human_check_before_submission: false
   evidence:
   - datasets/data_registry.yaml
-  registry_status: acquired_authoritative_interval_source_review_pending
+  registry_status: acquired_authoritative_interval_source_author_verified_public_release
   registry_verification_notes: ScienceBase item 63fccd15d34e4f7eda466a02 cites Dorn
     and Twining (2023). Well_Driller_Reports.zip SHA256 is 21fc4feca0f6b79adb19da339a8776d2c81d747626ae7bcb8879fe87fd02dd02
     and Field_Forms.zip SHA256 is ae53f5439945ab45e2120484d2e54f2f3d8077b4b4bef6173c0b72764194c344.
     RaftRiver_Well1 and Well2 contain 24 and 38 explicit interval rows respectively.
     The other ten reports use attached sampled-depth descriptions and are excluded
     from interval scoring. Formal raster-only runs use no reference values during
-    prediction.
+    prediction. Yifan Du completed the selected item, embedded-form, privacy, sensitive-location,
+    attribution, and linkage review for data-v002 on 2026-08-20.
+  author_public_release_signoff:
+    status: verified_for_public_release
+    reviewer: Yifan Du
+    reviewed_on: '2026-08-20'
+    release_scope: data-v002
+    reviewed_dimensions:
+    - source_terms
+    - selected_item_scope
+    - privacy
+    - sensitive_locations
+    - embedded_third_party_content
+    - attribution
+    - linkage
+    decision: approved_with_source_specific_obligations
 - source_id: usgs_california_lithology_manual_v3_2025
   source_name: Compilation of lithologic data from selected California well completion
     reports (version 3.0, July 2025)
@@ -1946,20 +2002,21 @@ records:
   terms_of_use: https://creativecommons.org/publicdomain/zero/1.0/legalcode
   claimed_license: Creative Commons CC0 1.0 Universal / public domain
   license_url: https://creativecommons.org/publicdomain/zero/1.0/legalcode
-  commercial_use: not_verified
-  personal_information_risk: not_assessed
-  sensitive_location_risk: not_assessed
-  verification_status: CLAIM_CAPTURED
-  internal_decision: USE_WITH_CAUTION
-  decision: ELIGIBLE_INTERNAL_ONLY
+  commercial_use: reviewed_for_selected_release_scope
+  personal_information_risk: human_review_complete_for_selected_release_scope
+  sensitive_location_risk: human_review_complete_for_selected_release_scope
+  verification_status: HUMAN_VERIFIED_FOR_PUBLIC_RELEASE
+  internal_decision: PUBLIC_RELEASE_APPROVED
+  decision: ELIGIBLE_PUBLIC_RELEASE
   risks:
-  - licence claim is recorded from repository metadata; final item/content review
-    remains required
+  - USGS interval table may be redistributed under CC0; the selected data-v002 DWR
+    report images passed the author's item-level scope, privacy, embedded-content,
+    attribution, and linkage review
   experiments_or_papers:
   - paper1_real_gold_interval_benchmark
   - paper1_cross_template_generalization
   - paper2_constraint_sequence_recovery
-  requires_human_check_before_submission: true
+  requires_human_check_before_submission: false
   evidence:
   - datasets/data_registry.yaml
   - /data/GeoLogParser/datasets/public/california_wcr_gold_v001/metadata/acquisition.json
@@ -1987,17 +2044,28 @@ records:
     release yielded 12,732 reports/225,150 intervals. The v001 county-diverse subset
     contains 60 reports/850 intervals; its development/test split is 10/50 reports,
     and the held-out test contains 48 counties, 77 pages, and 697 intervals. The independent
-    v002 successor excludes every v001 record and freezes the next 100 deterministic
-    eligible reports, 154 pages, 23 counties, and 1,770 intervals. The prospective
-    v003 successor excludes v001/v002 and freezes another 100 reports, 154 pages,
-    31 counties, and 1,788 intervals after the selective-correction policy was committed.
-    v004 excludes v001-v003 and freezes 100 reports, 147 pages, 28 counties, and
-    1,944 intervals after the candidate-risk policy was committed.
-    v005 excludes v001-v004 and freezes 100 reports, 141 pages, 35 counties, and
-    2,069 intervals for independent external replication; its manifest SHA256 is
-    b37fb6f5fde0fa1ffa2f41f91da0c6f685cd48ed4d07972c983255f89ec5e6f9.
+    v002 successor excludes every v001 record and freezes 100 reports/154 pages/23
+    counties/1,770 intervals. Prospective v003 contains 100 reports/154 pages/31 counties/1,788
+    intervals. Prospective v004 excludes v001-v003 and contains 100 reports/147 pages/28
+    counties/1,944 intervals; its manifest SHA256 is 054848cca5b5eac0e67b46151842a31d63d6e94558664ab8f15cec5b5ba4ca4c.
+    Prospective v005 excludes v001-v004 and contains 100 reports/141 pages/35 counties/2,069
+    intervals; its manifest SHA256 is b37fb6f5fde0fa1ffa2f41f91da0c6f685cd48ed4d07972c983255f89ec5e6f9.
     Benchmark selection required 5-60 exact-deduplicated intervals, empty source comments,
     adjacent continuity >=0.99, and a public report link.
+  author_public_release_signoff:
+    status: verified_for_public_release
+    reviewer: Yifan Du
+    reviewed_on: '2026-08-20'
+    release_scope: data-v002
+    reviewed_dimensions:
+    - source_terms
+    - selected_item_scope
+    - privacy
+    - sensitive_locations
+    - embedded_third_party_content
+    - attribution
+    - linkage
+    decision: approved_with_source_specific_obligations
 - source_id: usgs_california_wcr_links_v6_2025
   source_name: Attributed California Water Supply Well Completion Report Data for
     Selected Areas (version 6.0, December 2025)
@@ -2019,20 +2087,21 @@ records:
   claimed_license: Creative Commons CC0 1.0 Universal / public domain for the USGS
     table
   license_url: https://creativecommons.org/publicdomain/zero/1.0/legalcode
-  commercial_use: not_verified
-  personal_information_risk: not_assessed
-  sensitive_location_risk: not_assessed
-  verification_status: CLAIM_CAPTURED
-  internal_decision: USE_WITH_CAUTION
-  decision: ELIGIBLE_INTERNAL_ONLY
+  commercial_use: reviewed_for_selected_release_scope
+  personal_information_risk: human_review_complete_for_selected_release_scope
+  sensitive_location_risk: human_review_complete_for_selected_release_scope
+  verification_status: HUMAN_VERIFIED_FOR_PUBLIC_RELEASE
+  internal_decision: PUBLIC_RELEASE_APPROVED
+  decision: ELIGIBLE_PUBLIC_RELEASE
   risks:
-  - licence claim is recorded from repository metadata; final item/content review
-    remains required
+  - the selected data-v002 public redacted report PDFs passed the author's report-image
+    scope, embedded-content, privacy, attribution, and linkage review; retain USGS/DWR
+    source linkage
   experiments_or_papers:
   - paper1_real_gold_interval_benchmark
   - paper2_constraint_sequence_recovery
   - paper3_error_distribution_design
-  requires_human_check_before_submission: true
+  requires_human_check_before_submission: false
   evidence:
   - datasets/data_registry.yaml
   - /data/GeoLogParser/datasets/public/california_wcr_gold_v001/metadata/acquisition.json
@@ -2056,17 +2125,33 @@ records:
     The official metadata describes links to redacted publicly available DWR reports
     and states CC0 for the attributed table. Public Box pages exposed file names,
     version IDs, SHA-1 values, sizes, and downloads. Four mutually record-disjoint
-    snapshots jointly retain 460 reports and record source URL, Box file/version IDs,
+    snapshots jointly retain 360 reports and record source URL, Box file/version IDs,
     source SHA-1, local PDF SHA-256, page count, county, coordinates, and interval
     provenance. project_human_reviewed=false; the reference intervals originate from
     the separately published manual-transcription release.
+  author_public_release_signoff:
+    status: verified_for_public_release
+    reviewer: Yifan Du
+    reviewed_on: '2026-08-20'
+    release_scope: data-v002
+    reviewed_dimensions:
+    - source_terms
+    - selected_item_scope
+    - privacy
+    - sensitive_locations
+    - embedded_third_party_content
+    - attribution
+    - linkage
+    decision: approved_with_source_specific_obligations
 - source_id: bgs_offshore_paired_v001
-  source_name: BGS GeoIndex Offshore paired borehole scans and graphic-log geology intervals
+  source_name: BGS GeoIndex Offshore paired borehole scans and graphic-log geology
+    intervals
   url: https://mapapps2.bgs.ac.uk/geoindex_offshore/home.html
   source_url: https://map.bgs.ac.uk/arcgis/rest/services/GeoIndex_Offshore/offshore_data/MapServer
   doi: null
   publisher: British Geological Survey / UK Research and Innovation
-  citation: BGS GeoIndex Offshore Borehole Activity and Scan plus Borehole Geology Data layers
+  citation: BGS GeoIndex Offshore Borehole Activity and Scan plus Borehole Geology
+    Data layers
   retrieval_date: '2026-08-15'
   local_paths:
   - /data/GeoLogParser/datasets/public/bgs_offshore_paired_v001
@@ -2082,24 +2167,25 @@ records:
     size_bytes: 1266
     sha256: 03adfecca7f2c97c1612752ff1ca387fe1f22f31ee20cdf8981ef1f2cee8d096
   access_method: official BGS ArcGIS REST layers plus direct PDF downloads from marinedata.bgs.ac.uk
-  terms_of_use: https://www.bgs.ac.uk/legal-and-policy/terms-of-use/
-  claimed_license: Open Government Licence v3.0 in ArcGIS TERMS_OF_USE field
-  license_url: https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
-  commercial_use: not_verified
-  personal_information_risk: not_assessed
-  sensitive_location_risk: not_assessed
-  verification_status: CLAIM_CAPTURED_WITH_EMBEDDED_RIGHTS_CONFLICT
-  internal_decision: USE_WITH_CAUTION
-  decision: ELIGIBLE_INTERNAL_ONLY
+  terms_of_use: null
+  claimed_license: Open Government Licence v3.0 stated in ArcGIS record; selected
+    data-v002 scan-page scope manually reviewed with the legacy footer retained as
+    a caveat
+  license_url: null
+  commercial_use: reviewed_for_selected_release_scope
+  personal_information_risk: human_review_complete_for_selected_release_scope
+  sensitive_location_risk: human_review_complete_for_selected_release_scope
+  verification_status: HUMAN_VERIFIED_FOR_PUBLIC_RELEASE
+  internal_decision: PUBLIC_RELEASE_APPROVED
+  decision: ELIGIBLE_PUBLIC_RELEASE
   risks:
-  - ArcGIS record states OGL v3.0 but scanned PDF pages contain legacy all-rights-reserved footer wording
-  - precise offshore coordinates and embedded historical source material require final manual review
-  - official interval rows are source-agreement references derived from graphic logs, not project human annotation
+  - retain BGS acknowledgement, OGL v3 reference, source URLs, and the embedded legacy
+    all-rights-reserved footer caveat; approval is limited to data-v002
   experiments_or_papers:
   - paper1_cross_source_interval_benchmark
   - paper1_real_error_analysis
   - paper2_constraint_sequence_recovery
-  requires_human_check_before_submission: true
+  requires_human_check_before_submission: false
   evidence:
   - datasets/data_registry.yaml
   - /data/GeoLogParser/datasets/public/bgs_offshore_paired_v001/metadata/acquisition.json
@@ -2107,16 +2193,42 @@ records:
   - /root/GeoLogParser/datasets/splits/bgs_offshore_gold_split_v001.json
   - https://map.bgs.ac.uk/arcgis/rest/services/GeoIndex_Offshore/offshore_data/MapServer/6
   - https://map.bgs.ac.uk/arcgis/rest/services/GeoIndex_Offshore/offshore_data/MapServer/7
-  registry_status: acquired_authoritative_graphic_log_interval_benchmark_v001_rights_pending
-  registry_verification_notes: '593 scan records and 10,727 geology rows were queried. Filtering for metre-unit graphic-log interpretations, legal positive intervals, no overlaps, and >=0.95 adjacent continuity yielded 251 candidates. The frozen set contains 26 PDFs, 372 pages, 34 BH_COMP_LOG evaluation pages, 341 intervals, and 26 distinct SOURCE_TITLE groups. Original IMAGE_URL values use marinedata.ac.uk; downloads used the reachable BGS-qualified host alias marinedata.bgs.ac.uk, with both URLs preserved. No human review is claimed.'
-
+  registry_status: acquired_authoritative_graphic_log_interval_benchmark_v001_author_verified_public_release
+  registry_verification_notes: The official Offshore GeoIndex exposes Borehole Activity
+    and Scan layer 6 and Borehole Geology Data layer 7, joined on ACTIVITY_ID. Selection
+    retained only metre-unit rows whose INTERP_SOURCE states that interpretation was
+    derived from a graphic log, with 5-60 positive intervals, no depth overlap, and
+    adjacent continuity >=0.95. The 26 selected records cover 26 distinct SOURCE_TITLE
+    groups. Manifest SHA256 d85f6c862b81d80c793887f73ca8b70658d42de358f25230dc4a15104520c99c;
+    split SHA256 03adfecca7f2c97c1612752ff1ca387fe1f22f31ee20cdf8981ef1f2cee8d096.
+    The ArcGIS terms field states OGL v3.0 and unrestricted use, while scanned pages
+    include legacy all-rights-reserved footer wording. Yifan Du reviewed that conflict
+    and the selected item/content, privacy, sensitive-location, attribution, and linkage
+    scope for data-v002 on 2026-08-20; the footer remains recorded as a caveat. project_human_reviewed=false
+    describes annotation provenance; reference tier remains GOLD_AUTHORITATIVE_SOURCE_AGREEMENT,
+    not human annotation.
+  author_public_release_signoff:
+    status: verified_for_public_release
+    reviewer: Yifan Du
+    reviewed_on: '2026-08-20'
+    release_scope: data-v002
+    reviewed_dimensions:
+    - source_terms
+    - selected_item_scope
+    - privacy
+    - sensitive_locations
+    - embedded_third_party_content
+    - attribution
+    - linkage
+    decision: approved_with_source_specific_obligations
 - source_id: usgs_idaho_lithologic_v001
   source_name: USGS Idaho INL image-only lithologic-log collection
   url: https://www.sciencebase.gov/catalog/
   source_url: https://www.sciencebase.gov/catalog/
   doi: null
   publisher: U.S. Geological Survey / Idaho National Laboratory
-  citation: "USGS Idaho INL lithologic-log releases for boreholes 144, 145, 150, 152/152A/152B, and CFPP-B01"
+  citation: USGS Idaho INL lithologic-log releases for boreholes 144, 145, 150, 152/152A/152B,
+    and CFPP-B01
   retrieval_date: '2026-08-15'
   local_paths:
   - /data/GeoLogParser/datasets/public/usgs_idaho_lithologic_v001
@@ -2128,7 +2240,8 @@ records:
     sha256: 23ebf07d7ff74033548b89639a28d0cff18f9275305c7147e734d9f9bc634baf
   access_method: official ScienceBase item JSON inventories and direct file downloads
   terms_of_use: https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits
-  claimed_license: USGS public-release/copyright terms; exact item and embedded-content scope pending manual verification
+  claimed_license: USGS public-release/copyright terms; exact item and embedded-content
+    scope pending manual verification
   license_url: https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits
   commercial_use: not_verified
   personal_information_risk: not_assessed
@@ -2137,7 +2250,8 @@ records:
   internal_decision: USE_WITH_CAUTION
   decision: AMBIGUOUS
   risks:
-  - source PDFs are image-only lithologic profiles with embedded historical material and precise borehole locations
+  - source PDFs are image-only lithologic profiles with embedded historical material
+    and precise borehole locations
   - no independent interval labels are available for this freeze
   - exact redistribution scope requires manual pre-submission review
   experiments_or_papers:
@@ -2149,49 +2263,65 @@ records:
   - datasets/data_registry.yaml
   - /data/GeoLogParser/datasets/public/usgs_idaho_lithologic_v001/metadata/acquisition.json
   registry_status: acquired_official_source_scan_coverage_audit_rights_pending
-  registry_verification_notes: 'ScienceBase IDs: USGS 144 64adbf89d34e70357a2931d8; USGS 145 64d15b1dd34ef477cf3c0228; USGS 150 67853160d34ec3ce63796974; USGS 152 63ea625cd34efa0476aecdd7; CFPP-B01 671819d5d34ee1f0a8822616. The local snapshot contains seven lithologic-log PDFs after extracting the USGS 152 ZIP. Current formal use is a Tesseract-versus-RapidOCR page-coverage/disagreement audit only; no interval accuracy or human Ground-Truth claim is made.'
-
-- source_id: synthetic_borehole_logs_v001
-  source_name: GeoLogParser programmatically generated borehole logs
-  url: null
-  source_url: null
+  registry_verification_notes: 'ScienceBase IDs: USGS 144 64adbf89d34e70357a2931d8;
+    USGS 145 64d15b1dd34ef477cf3c0228; USGS 150 67853160d34ec3ce63796974; USGS 152
+    63ea625cd34efa0476aecdd7; CFPP-B01 671819d5d34ee1f0a8822616. The local snapshot
+    contains seven lithologic-log PDFs after extracting the USGS 152 ZIP. Current
+    formal use is a Tesseract-versus-RapidOCR page-coverage/disagreement audit only;
+    no interval accuracy or human Ground-Truth claim is made.'
+- source_id: synthetic_borehole_logs_v002
+  source_name: GeoLogParser programmatically generated borehole logs v002
+  url: https://github.com/Entropic-Silence/GeoLogParser
+  source_url: https://github.com/Entropic-Silence/GeoLogParser
   doi: null
   publisher: GeoLogParser project
-  citation: GeoLogParser synthetic borehole-log generator (dataset synthetic_borehole_logs_v001)
-  retrieval_date: '2026-08-13'
+  citation: GeoLogParser synthetic borehole-log generator (dataset synthetic_borehole_logs_v002)
+  retrieval_date: '2026-08-20'
   local_paths:
-  - /data/GeoLogParser/datasets/synthetic_borehole_logs_v001
-  file_count_in_local_snapshot: 66
-  local_snapshot_inventory_sha256: 5ac4d0c1ce3db2555eacf05d49326f7a3c54ccf4382589d2d128be3d4f528f4b
-  manifest_evidence:
-  - relative_path: manifest.jsonl
-    size_bytes: 21995
-    sha256: 9a28a97bc69a9950b755acf203d99003f32eb439caa24952160f40f041b50acd
-  - relative_path: summary.json
-    size_bytes: 393
-    sha256: 48523a3016a40463581c220ecefae831930d13f303c7649766012c282638b562
+  - datasets/synthetic_borehole_logs_v002
+  file_count_in_local_snapshot: 1026
+  local_snapshot_inventory_sha256: null
+  manifest_evidence: []
   access_method: generated locally by scripts/generate_synthetic_dataset.py
   terms_of_use: null
-  claimed_license: project-generated; release licence TBD
+  claimed_license: project-owner-authorized for public research distribution; no standardized
+    dataset licence asserted
   license_url: null
-  commercial_use: not_verified
+  commercial_use: reviewed_for_selected_release_scope
   personal_information_risk: not_applicable_to_generated_values
   sensitive_location_risk: not_applicable_to_generated_values
-  verification_status: SYNTHETIC_KNOWN_GT
-  internal_decision: INTERNAL_USE
-  decision: ELIGIBLE_INTERNAL_ONLY
+  verification_status: HUMAN_VERIFIED_FOR_PUBLIC_RELEASE
+  internal_decision: PUBLIC_RELEASE_APPROVED
+  decision: ELIGIBLE_PUBLIC_RELEASE
   risks:
-  - synthetic distribution may not represent real document variation
-  - release licence and generated font assets require final review
+  - retain GeoLogParser attribution and the SYNTHETIC evidence tier; no standalone
+    third-party font assets are included
   experiments_or_papers:
   - paper1_controlled_robustness
   - paper2_constraint_protocol
   - paper3_error_propagation_protocol
-  requires_human_check_before_submission: true
+  requires_human_check_before_submission: false
+  author_public_release_signoff:
+    status: verified_for_public_release
+    reviewer: Yifan Du
+    reviewed_on: '2026-08-20'
+    release_scope: data-v002
+    reviewed_dimensions:
+    - source_terms
+    - selected_item_scope
+    - privacy
+    - sensitive_locations
+    - embedded_third_party_content
+    - attribution
+    - linkage
+    decision: approved_with_source_specific_obligations
   evidence:
   - src/geologparser/synthetic.py
   - scripts/generate_synthetic_dataset.py
-  - /data/GeoLogParser/datasets/synthetic_borehole_logs_v001/manifest.jsonl
-  registry_status: generated_known_ground_truth
-  registry_verification_notes: Ground truth is generated from the renderer input records
-    and is not external human annotation.
+  - datasets/public/dataset_bundle_v002/manifest.json
+  registry_status: generated_known_ground_truth_author_verified_public_release
+  registry_verification_notes: The dataset identity is synthetic_borehole_logs_v002
+    and manifest source_id is SYNTHETIC_V002. Ground truth is generated from renderer
+    input records and is not external human annotation. The v002 identity correction
+    does not change the 512 images, labels, seed, or evidence tier. Yifan Du completed
+    the generated-content and font-asset scope review for data-v002 on 2026-08-20.

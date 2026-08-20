@@ -60,6 +60,6 @@ python scripts/build_paper4_upload_bundle.py
 ```
 
 The resulting `submission_bundle/Paper4_Upload_Manifest.json` is the canonical
-file list and checksum record. The fixed package is identified by the annotated
-tag `paper4-cageo-v1.0.0`; the author will append the archival DOI after
-depositing that tagged release.
+file list and checksum record. The complete Paper 4 package is identified by
+`paper4-cageo-v1.0.1`; its portable source/data companion is `data-v002`.
+Archival DOI fields will be appended after deposit.

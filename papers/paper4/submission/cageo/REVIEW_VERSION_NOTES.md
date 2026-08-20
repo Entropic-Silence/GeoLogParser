@@ -31,9 +31,7 @@ toolchain; `PANDOC` and `TECTONIC` may override those paths.
 - Author metadata is Yifan Du, North China University of Water Resources and
   Electric Power, ORCID `0009-0008-7740-5408`,
   `duyifan619916@gmail.com`, sole corresponding author.
-- Declarations state self-funded work and no competing interests. No
-  generative-AI use disclosure is included, following the author's confirmation
-  that generative AI or AI-assisted technologies were not used.
+- Declarations state self-funded work and no competing interests.
 - Extracted PDF text retains the frozen headline values and limitations:
   California F1 0.896-0.932, Swissgeol F1 0.577, BGS zero utility, 0.993 at
   0.244 coverage, 444/447, 4/100 complete-document automation, matched-

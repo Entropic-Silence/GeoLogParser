@@ -1,17 +1,18 @@
 {
   "author_metadata_complete": true,
   "citation_key_count": 31,
+  "data_release_tag": "data-v002",
   "doi": null,
   "doi_status": "pending author-created archival DOI",
   "errors": [],
   "external_review_required": [
-    "author-created archival DOI and corresponding data citation",
+    "author-created archival DOI field(s) and corresponding data citation",
     "final Computers & Geosciences portal upload and artwork preview"
   ],
   "gate_version": "paper4_cg_submission_gate_v001",
-  "manuscript_wc_word_count": 5974,
+  "manuscript_wc_word_count": 5951,
   "package_label": "DOI_PENDING_RELEASE_CANDIDATE",
-  "release_tag": "paper4-cageo-v1.0.0",
+  "release_tag": "paper4-cageo-v1.0.1",
   "rights_linkage_signoff_complete": true,
   "scientific_content_ready": true,
   "submission_ready": true

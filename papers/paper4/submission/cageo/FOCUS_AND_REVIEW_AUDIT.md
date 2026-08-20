@@ -85,8 +85,6 @@ kept as separate claim layers.
 - Table/citation checks: Tables 1 and 2 have numbered captions and labels;
   Table 1 has an explicit continuation caption; duplicate author-year/citation
   text was removed from its first column.
-- Disclosure check: no generative-AI use statement is present because the sole
-  author confirmed that no generative AI was used.
 
 ## Open P0/P1/P2 items
 

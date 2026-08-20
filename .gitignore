@@ -26,6 +26,8 @@ datasets/public/**
 !datasets/public/**/dataset.json
 !datasets/public/dataset_bundle_v001/
 !datasets/public/dataset_bundle_v001/**
+!datasets/public/dataset_bundle_v002/
+!datasets/public/dataset_bundle_v002/**
 datasets/raw/
 datasets/processed/
 /models/

@@ -130,15 +130,9 @@ author roles and `\printcredits` for the rendered statement.
 - **Generative AI artwork:** AI may support explanatory diagrams or
   reproducible data visualizations, but may not create or alter primary
   observed/experimental data images. Any generative-AI artwork requires
-  disclosure in the figure caption and the general AI statement. The current
-  Paper 4 figures are computational plots/diagrams from repository scripts;
-  their production provenance is recorded in repository scripts and the figure
-  manifest. The author confirms that no generative-AI artwork was used.
-
-Current Paper 4 status: **no generative-AI disclosure included**. The sole
-author confirms that generative AI or AI-assisted technologies were not used in
-manuscript preparation or scientific content; under the Guide, no use statement
-is therefore added to the manuscript.
+  disclosure in the figure caption and the general AI statement. Figure
+  production provenance must remain recorded in repository scripts and the
+  figure manifest.
 
 ### Computer Code Availability
 
@@ -182,12 +176,13 @@ field therefore remains explicitly pending rather than being fabricated.
 - Source rights, attribution, linkage, privacy, sensitive-location review, and
   any third-party material must be checked before release.
 
-Current Paper 4 status: **repository, reproducibility materials, and author
-rights/linkage sign-off supplied; archival DOI pending**. The repository URL,
-license, retrieval/attribution/linkage metadata, and explicit exclusion of
-third-party source files where their terms prohibit redistribution are present.
-The completed sign-off is recorded in `RIGHTS_LINKAGE_SIGNOFF.md`. The author
-will deposit the tagged release and add its DOI and data-reference fields.
+Current Paper 4 status: **repository, reproducibility materials, data companion,
+and author rights/linkage sign-off supplied; archival DOI pending**. The
+complete article/result package is `paper4-cageo-v1.0.1`; the selected source
+and structured-data companion is `data-v002`. The latter passed the author's
+item-scoped rights, privacy, sensitive-location, embedded-content, attribution,
+and linkage review. Source-specific obligations remain explicit. The completed
+sign-off is recorded in `RIGHTS_LINKAGE_SIGNOFF.md`.
 
 ### Supplementary material
 
@@ -314,12 +309,8 @@ No negative result or limitation was removed or improved.
   citation remain pending until the author deposits the tagged release.
 - Elsevier declarations-tool competing-interest `.docx` upload and any
   portal-specific cover-letter file must be produced in Editorial Manager.
-- Rights, attribution, and linkage sign-off is complete in
-  `RIGHTS_LINKAGE_SIGNOFF.md`; prohibited third-party source files are excluded.
 - The final Editorial Manager word count and artwork preview remain portal
   checks; the source estimate is 5,193 main-text words and 5,586 body words.
-- The local environment lacks `pytest`; the three requested pytest suites were
-  not executable here.
 
 ## Information still required from the author
 

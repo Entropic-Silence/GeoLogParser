@@ -3,13 +3,16 @@
 The repository includes formal manifests, record-disjoint splits, hashes,
 evidence tiers, and the source/licence ledger needed to audit every reported
 cohort. Lightweight cards for locally acquired public sources are under
-`datasets/public`. Original PDFs and page images remain excluded unless
-item-level redistribution permission and linkage/privacy review are complete;
-their omission does not remove the published interval manifests or public
-reanalysis inputs.
+`datasets/public`. The exact source/data selection in `data-v002` passed the
+sole author's item-level redistribution, attribution, linkage, privacy,
+sensitive-location, and embedded-content review. That sign-off is release
+scoped; all other original PDFs and page images remain excluded unless their
+own record carries an explicit public-release sign-off.
 
 `data_registry.yaml` records candidates and verified access/licensing facts.
-Listing a source is not permission to download or redistribute it.
+Listing a source is not permission to download or redistribute it. Public
+release requires `public_release_signoff.status=verified_for_public_release`
+for the named release scope.
 
 Large content belongs under `/data/GeoLogParser/datasets`. Repository folders
 contain only manifests, schemas, small legal metadata, and redistribution-safe

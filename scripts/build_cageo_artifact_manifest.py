@@ -13,7 +13,8 @@ PAPER = ROOT / "papers" / "paper4"
 CAGEO = PAPER / "submission" / "cageo"
 OUT = CAGEO / "CAGEO_ARTIFACT_MANIFEST.json"
 DELIVERY_OUT = PAPER / "submission_bundle" / "Paper4_Final_Delivery_SHA256.json"
-RELEASE_TAG = "paper4-cageo-v1.0.0"
+RELEASE_TAG = "paper4-cageo-v1.0.1"
+DATA_RELEASE_TAG = "data-v002"
 
 
 FILES = [
@@ -62,6 +63,7 @@ def main() -> None:
         "generated_on": "2026-08-20",
         "branch": "agent/publication-evidence-bundle",
         "release_tag": RELEASE_TAG,
+        "data_release_tag": DATA_RELEASE_TAG,
         "source_git_commit": f"resolve annotated tag {RELEASE_TAG}",
         "repository": "https://github.com/Entropic-Silence/GeoLogParser",
         "license": "MIT (source code)",
@@ -75,10 +77,10 @@ def main() -> None:
         "doi": None,
         "doi_status": "pending author-created archival DOI for tagged release",
         "rights_status": (
-            "Yifan Du, sole and corresponding author, reviewed and screened the tagged "
-            "release for public dissemination, confirmed retained source attribution and "
-            "linkage records, and confirmed result-level reproducibility. Third-party source "
-            "files remain excluded where their terms prohibit redistribution."
+            "Yifan Du, sole and corresponding author, reviewed and screened the complete "
+            "Paper 4 package and exact data-v002 selection for public dissemination. The "
+            "data review covered source terms, item scope, privacy, sensitive locations, "
+            "embedded content, attribution, and linkage; source-specific obligations remain."
         ),
         "files": [
             {
@@ -104,6 +106,7 @@ def main() -> None:
         "scope": "Final manuscript, vector artwork, tables, and supplementary material",
         "repository": "https://github.com/Entropic-Silence/GeoLogParser",
         "release_tag": RELEASE_TAG,
+        "data_release_tag": DATA_RELEASE_TAG,
         "source_git_commit": f"resolve annotated tag {RELEASE_TAG}",
         "doi": None,
         "doi_status": "pending author-created archival DOI for tagged release",
