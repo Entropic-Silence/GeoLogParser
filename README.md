@@ -62,7 +62,7 @@ Duplicate freezes, failed branches, model weights, and quarantine-only sources
 remain outside the release. The release manifest and source ledger preserve
 the evidence tier, attribution, and final-author rights-review status for every
 file. The complete Paper 4 code, manuscript, figures, evidence, and audits are
-fixed by `paper4-cageo-v1.0.1`; the data companion does not replace that tag.
+fixed by `paper4-cageo-v1.0.4`; the data companion does not replace that tag.
 
 ## Development
 
