@@ -165,10 +165,17 @@ def repair_body(body: str) -> str:
     body = body.replace(r"\\textgreater{}", "$>$")
     body = body.replace(r"(V=(v\_1,ldots,v\_n))", r"\(V=(v_1,\ldots,v_n)\)")
     body = body.replace(r"(C=(c\_1,ldots,c\_m))", r"\(C=(c_1,\ldots,c_m)\)")
-    body = body.replace(
-        r"For (n) accepted documents and zero observed worsened documents, the one-sided 95\% upper bound is (1-0.05\^{}\{1/n\});",
-        r"For \(n\) accepted documents and zero observed worsened documents, the one-sided 95\% upper bound is \(1 - 0.05^{1/n}\);",
+    zero_event_math = (
+        r"For \(n\) accepted documents and zero observed worsened documents, "
+        r"the one-sided 95\% upper bound is \(1 - 0.05^{1/n}\);"
     )
+    for zero_event_literal in (
+        r"For (n) accepted documents and zero observed worsened documents, "
+        r"the one-sided 95\% upper bound is (1 - 0.05\^{}\{1/n\});",
+        r"For (n) accepted documents and zero observed worsened documents, "
+        r"the one-sided 95\% upper bound is (1-0.05\^{}\{1/n\});",
+    ):
+        body = body.replace(zero_event_literal, zero_event_math)
     body = body.replace(r"(10\^{}\{-6\})", r"\(10^{-6}\)")
 
     # The Markdown math delimiters are intentionally rewritten explicitly so

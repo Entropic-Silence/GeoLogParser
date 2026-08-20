@@ -17,14 +17,14 @@
       "sha256": "5d41ab6f6072843656128510f0b4b867d5bc35feadeb5b72e71a73e0d50c597c"
     },
     {
-      "bytes": 285004,
+      "bytes": 284982,
       "file": "papers/paper4/submission/cageo/manuscript_final.pdf",
-      "sha256": "874dcb2eafe5e527d5571c7586819ccc08851956740a0837931e78417e558433"
+      "sha256": "5f2cd4c6e72b3d56f74c8b6145ba73af6c7824bab197ecb02ddf7e949adda7f8"
     },
     {
-      "bytes": 57935,
+      "bytes": 57934,
       "file": "papers/paper4/submission/cageo/manuscript.tex",
-      "sha256": "80753e7729fe6ab28a16c7e94e8973fb557f4ec6bae1adf90aaa1d9f08260f8f"
+      "sha256": "45ac8622e443f45a0fc001a85d9db2185171fbc00f15d2fbc568c2db6ad482e3"
     },
     {
       "bytes": 11899,
@@ -59,7 +59,7 @@
     {
       "bytes": 6723,
       "file": "papers/paper4/submission_bundle/Paper4_Upload_Manifest.json",
-      "sha256": "c6fe9bf6e4a18da7c1f19a010ae259c11b7bfe0a77bcfb1615d59aef2041c5f6"
+      "sha256": "df5beb1e611f398b4777338854b4e400619d171de0922a76f0a7c6125d6f256a"
     },
     {
       "bytes": 57725,
@@ -67,9 +67,9 @@
       "sha256": "5d41ab6f6072843656128510f0b4b867d5bc35feadeb5b72e71a73e0d50c597c"
     },
     {
-      "bytes": 285004,
+      "bytes": 284982,
       "file": "papers/paper4/submission_bundle/Paper4_Final_Manuscript.pdf",
-      "sha256": "874dcb2eafe5e527d5571c7586819ccc08851956740a0837931e78417e558433"
+      "sha256": "5f2cd4c6e72b3d56f74c8b6145ba73af6c7824bab197ecb02ddf7e949adda7f8"
     },
     {
       "bytes": 17802,
