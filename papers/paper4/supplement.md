@@ -284,5 +284,9 @@ and screened the GitHub release materials for public dissemination, confirmed
 the source attribution and linkage records, and confirms that the released
 materials are sufficient to reproduce the reported result-level analyses. The
 released transformed inputs may remain linkable and are not claimed to be
-anonymous. An archival DOI will be appended after the author deposits the
-tagged release.
+anonymous. The article/result package has reserved DOI
+https://doi.org/10.5281/zenodo.22030229 and the separate data companion has
+reserved DOI https://doi.org/10.5281/zenodo.22031703. The records remain
+unpublished until the author registers them. These identifiers refer to the two
+distinct release records; the data record has mixed source-specific rights and
+no blanket licence.

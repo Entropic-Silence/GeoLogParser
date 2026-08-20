@@ -63,9 +63,9 @@ kept as separate claim layers.
 - `verify_claims.py`: passed.
 - `audit_claim_evidence.py`: passed (15 claims, no errors).
 - `audit_paper4_submission.py`: passed as
-  `DOI_PENDING_RELEASE_CANDIDATE`; `submission_ready` is true, with only the
-  author-created archival DOI and final portal preview listed as external
-  actions.
+  `DOI_FINAL_RELEASE_CANDIDATE`; `submission_ready` is true. The two Zenodo
+  DOI records remain unpublished until final author verification, and the
+  final portal preview remains an external action.
 - LaTeX clean build: completed for the 22-page final PDF; no undefined
   citations/references, duplicate PDF destinations, or overfull/underfull
   document boxes. The environment emits only a Fontconfig message and an
@@ -93,11 +93,12 @@ kept as separate claim layers.
 ## Open P0/P1/P2 items
 
 - P0: none identified in the frozen scientific content or evidence mapping.
-- P1: manually verify the Zenodo/DataCite metadata and that the separately
-  uploaded `data-v002` archive appears in the DOI record's Files list, then
-  create the permanent archival DOI/data citation and complete the Editorial
-  Manager upload/artwork preview.
-- P2: confirm the portal-computed word count. The internal banner/footer and
+- P1: manually verify the reserved Zenodo metadata and that the separately
+  uploaded `data-v002` archive appears in each record's Files list, publish
+  the reserved records, and complete the Editorial Manager upload/artwork
+  preview.
+- P2: confirm the portal-computed word count (source estimate: 5,523 main-text
+  words; 5,908 body words). The internal banner/footer and
   adviser-question page are absent from `manuscript_final.pdf`.
 
 ## Archive-level qualification

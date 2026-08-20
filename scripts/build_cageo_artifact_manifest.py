@@ -15,8 +15,10 @@ PAPER = ROOT / "papers" / "paper4"
 CAGEO = PAPER / "submission" / "cageo"
 OUT = CAGEO / "CAGEO_ARTIFACT_MANIFEST.json"
 DELIVERY_OUT = PAPER / "submission_bundle" / "Paper4_Final_Delivery_SHA256.json"
-RELEASE_TAG = os.environ.get("PAPER4_RELEASE_TAG", "paper4-cageo-v1.0.6")
+RELEASE_TAG = os.environ.get("PAPER4_RELEASE_TAG", "paper4-cageo-v1.0.7")
 DATA_RELEASE_TAG = "data-v002"
+ARTICLE_DOI = os.environ.get("PAPER4_DOI", "10.5281/zenodo.22030229")
+DATA_DOI = os.environ.get("PAPER4_DATA_DOI", "10.5281/zenodo.22031703")
 
 
 FILES = [
@@ -136,8 +138,9 @@ def main() -> None:
             "email": "duyifan619916@gmail.com",
             "corresponding_author": True,
         },
-        "doi": None,
-        "doi_status": "pending author-created archival DOI for tagged release",
+        "doi": ARTICLE_DOI,
+        "data_doi": DATA_DOI,
+        "doi_status": "reserved Zenodo DOI; publish the records to register",
         "rights_status": (
             "Yifan Du, sole and corresponding author, reviewed and screened the complete "
             "Paper 4 package and exact data-v002 selection for public dissemination. The "
@@ -174,8 +177,9 @@ def main() -> None:
         "data_release_tag": DATA_RELEASE_TAG,
         "source_git_commit": git_metadata["source_git_commit"],
         "resolved_release_tag_commit": git_metadata["resolved_release_tag_commit"],
-        "doi": None,
-        "doi_status": "pending author-created archival DOI for tagged release",
+        "doi": ARTICLE_DOI,
+        "data_doi": DATA_DOI,
+        "doi_status": "reserved Zenodo DOI; publish the records to register",
         "files": [
             {
                 "name": path.name,

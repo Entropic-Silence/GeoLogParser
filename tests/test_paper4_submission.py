@@ -7,7 +7,7 @@ def test_paper4_cg_package_is_evidence_gated_and_complete():
     paper = root / "papers/paper4"
     gate = json.loads((paper / "submission_gate.json").read_text(encoding="utf-8"))
     claims = json.loads((paper / "claim_evidence_audit.json").read_text(encoding="utf-8"))
-    assert gate["package_label"] == "DOI_PENDING_RELEASE_CANDIDATE"
+    assert gate["package_label"] == "DOI_FINAL_RELEASE_CANDIDATE"
     assert gate["submission_ready"] is True
     assert gate["author_metadata_complete"] is True
     assert gate["rights_linkage_signoff_complete"] is True

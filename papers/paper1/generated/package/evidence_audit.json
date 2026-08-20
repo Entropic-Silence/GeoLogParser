@@ -101,7 +101,7 @@
     {
       "exists": true,
       "resolved_path": "papers/references.bib",
-      "sha256": "77325884dfec81297db01a3307ec04314697f212cb99e80a27a57d59b2888528",
+      "sha256": "1f4ad85b3df5271de37e9bf9e59d9b65cbf1e5cbb92423825fd2f05063a36f21",
       "target": "../references.bib"
     },
     {

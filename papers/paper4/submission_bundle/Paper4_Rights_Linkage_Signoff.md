@@ -8,7 +8,7 @@
 
 **Repository:** https://github.com/Entropic-Silence/GeoLogParser
 
-**Article/reproducibility tag:** `paper4-cageo-v1.0.6`
+**Article/reproducibility tag:** `paper4-cageo-v1.0.7`
 
 **Data companion tag:** `data-v002`
 
@@ -35,7 +35,7 @@ The sole author confirms the following for the two tagged public releases:
 6. This completed sign-off supersedes earlier provisional or pending ledger
    statuses for the exact files selected for the named releases; historical
    experiment-run metadata remains historical and is not rewritten.
-7. `paper4-cageo-v1.0.6` contains the complete manuscript, code, evidence,
+7. `paper4-cageo-v1.0.7` contains the complete manuscript, code, evidence,
    figures, audits, and result-reproduction workflow. `data-v002` is its data
    companion and is not described as the complete Paper 4 package.
 8. Model weights and private credentials are not included. The rights sign-off
@@ -44,5 +44,6 @@ The sole author confirms the following for the two tagged public releases:
 
 This sign-off records the author's completed review of the repository contents,
 attribution, linkage, redistribution scope, and reproducibility scope. The
-archival DOI is intentionally pending until the author deposits the tagged
-release; adding that DOI does not change the frozen scientific package.
+article DOI `10.5281/zenodo.22030229` and data DOI `10.5281/zenodo.22031703`
+are reserved but remain unpublished until the author deposits the tagged
+releases; publishing them does not change the frozen scientific package.

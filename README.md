@@ -62,7 +62,10 @@ Duplicate freezes, failed branches, model weights, and quarantine-only sources
 remain outside the release. The release manifest and source ledger preserve
 the evidence tier, attribution, and final-author rights-review status for every
 file. The complete Paper 4 code, manuscript, figures, evidence, and audits are
-fixed by `paper4-cageo-v1.0.6`; the data companion does not replace that tag.
+fixed by `paper4-cageo-v1.0.7`; the article DOI is reserved as
+`10.5281/zenodo.22030229` and the data companion DOI as
+`10.5281/zenodo.22031703`. The records must still be published in Zenodo to
+register the identifiers.
 
 ## Development
 

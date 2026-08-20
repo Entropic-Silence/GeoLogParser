@@ -69,7 +69,7 @@ def main() -> None:
         "This research received no specific grant",
         "The author declares no competing interests",
         "Rights and linkage sign-off",
-        "paper4-cageo-v1.0.6",
+        "paper4-cageo-v1.0.7",
         "data-v002",
     ]
     for term in required_author_text:
@@ -110,20 +110,21 @@ def main() -> None:
             errors.append(error)
     gate = {
         "gate_version": "paper4_cg_submission_gate_v001",
-        "package_label": "DOI_PENDING_RELEASE_CANDIDATE" if not errors else "DRAFT_NOT_SUBMISSION_READY",
+        "package_label": "DOI_FINAL_RELEASE_CANDIDATE" if not errors else "DRAFT_NOT_SUBMISSION_READY",
         "scientific_content_ready": not errors,
         "submission_ready": not errors,
         "author_metadata_complete": not errors,
         "rights_linkage_signoff_complete": not errors,
-        "release_tag": "paper4-cageo-v1.0.6",
+        "release_tag": "paper4-cageo-v1.0.7",
         "data_release_tag": "data-v002",
-        "doi": None,
-        "doi_status": "pending author-created archival DOI",
+        "doi": "10.5281/zenodo.22030229",
+        "data_doi": "10.5281/zenodo.22031703",
+        "doi_status": "reserved Zenodo DOI; publish the records to register",
         "manuscript_wc_word_count": len(text.split()),
         "citation_key_count": len(cited_keys),
         "errors": errors,
         "external_review_required": [
-            "author-created archival DOI field(s) and corresponding data citation",
+            "Zenodo records remain unpublished until final author verification",
             "final Computers & Geosciences portal upload and artwork preview",
         ],
     }

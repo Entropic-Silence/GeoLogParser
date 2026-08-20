@@ -1,22 +1,23 @@
 {
+  "data_doi": "10.5281/zenodo.22031703",
   "data_release_tag": "data-v002",
-  "doi": null,
-  "doi_status": "pending author-created archival DOI for tagged release",
+  "doi": "10.5281/zenodo.22030229",
+  "doi_status": "reserved Zenodo DOI; publish the records to register",
   "files": [
     {
-      "bytes": 58580,
+      "bytes": 59156,
       "name": "Paper4_Final_Manuscript.md",
-      "sha256": "3e0e516ffe9c8b5cb9117b27cd884abe936596bde096d194f8ee3acf605345cf"
+      "sha256": "632531675406f11733af889917bba87358942a497eed9e8fdb471f6b3bdaaabd"
     },
     {
-      "bytes": 286831,
+      "bytes": 287965,
       "name": "Paper4_Final_Manuscript.pdf",
-      "sha256": "680d842840baf8525d7da9b4f81b56d330579c9fefa969382f3812befeb5785e"
+      "sha256": "4ae680677fd6ff16468b9a1eee1068d51e363720823f13721320946723960094"
     },
     {
-      "bytes": 17802,
+      "bytes": 18095,
       "name": "Paper4_Supplementary_Methods.md",
-      "sha256": "c3221fbe2ee668e9e3b87a63d385f358c17bffaced8d320b3ee3426476354d97"
+      "sha256": "833468f5b9fbe7323d85a64dffa3e5fc8f47a4f674eb50bffae6ece33d9fc03b"
     },
     {
       "bytes": 3964,
@@ -81,9 +82,9 @@
   ],
   "generated_on": "2026-08-20",
   "manifest_version": "paper4_final_delivery_v002",
-  "release_tag": "paper4-cageo-v1.0.6",
+  "release_tag": "paper4-cageo-v1.0.7",
   "repository": "https://github.com/Entropic-Silence/GeoLogParser",
-  "resolved_release_tag_commit": "e43c06cc92d165e640ce4856f311184f3824b1be",
+  "resolved_release_tag_commit": null,
   "scope": "Final manuscript, vector artwork, tables, and supplementary material",
-  "source_git_commit": "e43c06cc92d165e640ce4856f311184f3824b1be"
+  "source_git_commit": "d7c7b380ac742d8b3a3b7da38057542d41369881"
 }

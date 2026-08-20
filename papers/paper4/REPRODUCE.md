@@ -48,19 +48,19 @@ The workflow performs, in order:
 The expected final state is:
 
 ```text
-package_label: DOI_PENDING_RELEASE_CANDIDATE
+package_label: DOI_FINAL_RELEASE_CANDIDATE
 scientific_content_ready: true
 submission_ready: true
 ```
 
 `submission_ready=true` means that the repository package, authorship,
-declarations, and rights/linkage sign-off are fixed. DOI registration and
-submission-portal validation remain external actions and do not alter the
-scientific package.
+declarations, rights/linkage sign-off, and reserved DOI metadata are fixed.
+The Zenodo records remain drafts until the author performs the final metadata
+check and clicks Publish.
 
 ## What is and is not redistributed
 
-The `paper4-cageo-v1.0.6` package includes the manuscript, supplement, tables,
+The `paper4-cageo-v1.0.7` package includes the manuscript, supplement, tables,
 figures, configs, analysis JSON, manifests, hashes, transformed public
 reanalysis inputs, and deterministic scripts. The separate `data-v002`
 companion contains the selected source files and structured datasets used by

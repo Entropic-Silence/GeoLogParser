@@ -1,7 +1,7 @@
 Paper 4 C&G manuscript word count
 Abstract: 243
-Main-text approximate C&G words (tables and captions excluded): 5474
-Article body including inline Markdown table text (captions excluded): 5859
+Main-text approximate C&G words (tables and captions excluded): 5523
+Article body including inline Markdown table text (captions excluded): 5908
 References excluded: yes
 Captions excluded: yes
 Keywords/highlights excluded: yes

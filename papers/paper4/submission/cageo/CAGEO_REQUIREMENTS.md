@@ -155,7 +155,7 @@ The template's code-availability checklist also asks for code/library name,
 contact details, hardware requirements, programming language, required
 software, program size, and a public URL.
 
-Current Paper 4 status: **satisfied; archival identifier pending**.
+Current Paper 4 status: **satisfied; DOI reserved, publication pending**.
 The manuscript names the public GeoLogParser URL, MIT source-code license,
 corresponding-author contact, and reproducibility scope. A local final Git
 commit is created for this package and recorded in
@@ -177,8 +177,8 @@ field therefore remains explicitly pending rather than being fabricated.
   any third-party material must be checked before release.
 
 Current Paper 4 status: **repository, reproducibility materials, data companion,
-and author rights/linkage sign-off supplied; archival DOI pending**. The
-complete article/result package is `paper4-cageo-v1.0.6`; the selected source
+and author rights/linkage sign-off supplied; DOI reserved, publication pending**.
+The complete article/result package is `paper4-cageo-v1.0.7`; the selected source
 and structured-data companion is `data-v002`. The latter passed the author's
 item-scoped rights, privacy, sensitive-location, embedded-content, attribution,
 and linkage review. Source-specific obligations remain explicit. The completed
@@ -289,7 +289,7 @@ No negative result or limitation was removed or improved.
 ### Satisfied or substantively satisfied
 
 - Scientific content/evidence gate is green
-  (`DOI_PENDING_RELEASE_CANDIDATE`); the repository package is fixed.
+  (`DOI_FINAL_RELEASE_CANDIDATE`); the repository package is fixed.
 - Article type can be classified as Original research article.
 - Abstract length and standalone structure are within the Guide's 300-word
   limit; no structured-abstract format is required by the Guide.
@@ -305,17 +305,17 @@ No negative result or limitation was removed or improved.
 
 ### Not satisfied or still pending
 
-- Permanent archival DOI/Zenodo or DataCite record and the corresponding data
-  citation remain pending until the author deposits the tagged release.
+- Reserved DOI records must be published in Zenodo and verified by the author
+  before the identifiers become registered permanent records.
 - Elsevier declarations-tool competing-interest `.docx` upload and any
   portal-specific cover-letter file must be produced in Editorial Manager.
 - The final Editorial Manager word count and artwork preview remain portal
-  checks; the source estimate is 5,193 main-text words and 5,586 body words.
+  checks; the source estimate is 5,523 main-text words and 5,908 body words.
 
 ## Information still required from the author
 
-1. Create or authorize a permanent Zenodo/DataCite archival record and provide
-   its DOI for the data/code statement and reference list.
+1. Publish and verify the reserved Zenodo records
+   `10.5281/zenodo.22030229` and `10.5281/zenodo.22031703`.
 2. Complete Elsevier's declarations-tool `.docx` upload and confirm the final
    cover-letter text in Editorial Manager.
 3. Run the final Editorial Manager word-count and artwork preview checks.

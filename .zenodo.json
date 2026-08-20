@@ -1,7 +1,7 @@
 {
   "upload_type": "software",
   "title": "Trustworthy Borehole Database Ingestion from VLM Proposals: Provenance and Spatial Support",
-  "version": "paper4-cageo-v1.0.6",
+  "version": "paper4-cageo-v1.0.7",
   "publication_date": "2026-08-20",
   "creators": [
     {
@@ -20,10 +20,10 @@
   ],
   "related_identifiers": [
     {
-      "identifier": "https://github.com/Entropic-Silence/GeoLogParser/releases/tag/data-v002",
+      "identifier": "10.5281/zenodo.22031703",
       "relation": "isSupplementTo",
       "resource_type": "dataset",
-      "scheme": "url"
+      "scheme": "doi"
     }
   ]
 }
