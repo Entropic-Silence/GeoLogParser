@@ -7,10 +7,13 @@ images are used, and all values are copied from the frozen publication tables.
 
 from __future__ import annotations
 
+import hashlib
 import math
-import os
+import shutil
 from pathlib import Path
 
+import pymupdf
+from PIL import Image
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfgen import canvas
@@ -18,26 +21,47 @@ from reportlab.pdfgen import canvas
 
 ROOT = Path(__file__).resolve().parent
 FIGURES = ROOT / "figures"
+FONT_DIR = ROOT / "fonts"
+FONT_FILES = {
+    "DejaVuSans.ttf": "7da195a74c55bef988d0d48f9508bd5d849425c1770dba5d7bfc6ce9ed848954",
+    "DejaVuSans-Bold.ttf": "e6476c1b80502924294eed40894c5b18e06c181444ca953e5334262df9c27724",
+}
 MIN_VECTOR_FONT = 0.0
+RASTER_DPI = 300
+
+# The PDF exports are the publication source of truth.  The descriptive PNG
+# names are retained for the Markdown manuscript and portal bundle, but are
+# always raster derivatives of these exact PDFs.
+PRIMARY_ARTWORK = {
+    "Figure_1.pdf": "F1_trustworthy_framework.png",
+    "Figure_2.pdf": "F2_vlm_source_shift.png",
+    "Figure_3.pdf": "F3_assurance_frontier.png",
+    "Figure_4.pdf": "F4_spatial_support_consequence.png",
+    "graphical_abstract.pdf": "graphical_abstract.png",
+}
+PRIMARY_PDF_ALIASES = {
+    "Figure_1.pdf": "F1_trustworthy_framework.pdf",
+    "Figure_2.pdf": "F2_vlm_source_shift.pdf",
+    "Figure_3.pdf": "F3_assurance_frontier.pdf",
+    "Figure_4.pdf": "F4_spatial_support_consequence.pdf",
+}
 
 
 def register_fonts() -> None:
-    configured = os.environ.get("GEOLOGPARSER_DEJAVU_FONT_DIR")
-    candidates = [Path(configured)] if configured else []
-    candidates.extend(
-        [
-            Path(r"C:\Windows\Fonts"),
-            Path(r"C:\Users\lenovo\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\poppler\Library\share\fonts"),
-            Path("/usr/share/fonts/truetype/dejavu"),
-            Path("/usr/local/share/fonts/truetype/dejavu"),
-            Path("/usr/share/fonts/dejavu"),
-            Path.home() / ".fonts",
-        ]
-    )
-    regular = next((p / "DejaVuSans.ttf" for p in candidates if (p / "DejaVuSans.ttf").exists()), None)
-    bold = next((p / "DejaVuSans-Bold.ttf" for p in candidates if (p / "DejaVuSans-Bold.ttf").exists()), None)
-    if regular is None or bold is None:
-        raise FileNotFoundError("DejaVu Sans fonts are required for embedded vector artwork")
+    paths: dict[str, Path] = {}
+    for name, expected_sha256 in FONT_FILES.items():
+        path = FONT_DIR / name
+        if not path.is_file():
+            raise FileNotFoundError(f"Canonical artwork font is missing: {path}")
+        actual_sha256 = hashlib.sha256(path.read_bytes()).hexdigest()
+        if actual_sha256 != expected_sha256:
+            raise ValueError(
+                f"Canonical artwork font hash mismatch for {path}: "
+                f"expected {expected_sha256}, found {actual_sha256}"
+            )
+        paths[name] = path
+    regular = paths["DejaVuSans.ttf"]
+    bold = paths["DejaVuSans-Bold.ttf"]
     pdfmetrics.registerFont(TTFont("PaperSans", str(regular)))
     pdfmetrics.registerFont(TTFont("PaperSans-Bold", str(bold)))
 
@@ -112,6 +136,7 @@ def new_page(path: Path, width: float, height: float) -> canvas.Canvas:
         str(path),
         pagesize=(width, height),
         pageCompression=1,
+        invariant=1,
         initialFontName="PaperSans",
         initialFontSize=10,
     )
@@ -348,6 +373,36 @@ def graphical_abstract() -> None:
     finish(c)
 
 
+def render_publication_rasters() -> None:
+    """Render the canonical vector pages to deterministic 300-DPI RGB PNGs."""
+
+    for pdf_name, png_name in PRIMARY_ARTWORK.items():
+        pdf_path = FIGURES / pdf_name
+        png_path = FIGURES / png_name
+        with pymupdf.open(pdf_path) as document:
+            if len(document) != 1:
+                raise ValueError(f"Expected one page in {pdf_path}")
+            pixmap = document[0].get_pixmap(
+                dpi=RASTER_DPI,
+                colorspace=pymupdf.csRGB,
+                alpha=False,
+            )
+        image = Image.frombytes("RGB", (pixmap.width, pixmap.height), pixmap.samples)
+        image.save(
+            png_path,
+            format="PNG",
+            dpi=(RASTER_DPI, RASTER_DPI),
+            optimize=False,
+            compress_level=9,
+        )
+
+    # Keep the historical descriptive PDF alias in lockstep with the source
+    # PDF.  F2--F4 aliases are ignored build products; F1 is tracked for
+    # backwards compatibility with older local manifests.
+    for source_name, alias_name in PRIMARY_PDF_ALIASES.items():
+        shutil.copyfile(FIGURES / source_name, FIGURES / alias_name)
+
+
 def main() -> None:
     FIGURES.mkdir(parents=True, exist_ok=True)
     register_fonts()
@@ -356,7 +411,11 @@ def main() -> None:
     fig3()
     fig4()
     graphical_abstract()
-    print("Wrote embedded-font vector PDFs for Figure_1 through Figure_4 and graphical abstract")
+    render_publication_rasters()
+    print(
+        "Wrote canonical embedded-font vector PDFs and 300-DPI raster derivatives "
+        "for Figure_1 through Figure_4 and graphical abstract"
+    )
 
 
 if __name__ == "__main__":

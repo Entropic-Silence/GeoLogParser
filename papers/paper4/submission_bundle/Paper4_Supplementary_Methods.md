@@ -99,7 +99,7 @@ The component hashes are recorded here and in the release configuration:
 `model.safetensors.index.json`
 `f0838c766951bdfe76d6afbdb2771a8f67aaa2231dedb3d33cebd817729843a2`.
 
-**Supplementary Table S4. Full execution provenance and unresolved fields.**
+**Supplementary Table S2. Full execution provenance and unresolved fields.**
 
 | Field | Frozen record |
 |---|---|
@@ -165,7 +165,7 @@ rows (decoder output rate 0.0 and interval F1 0.0 for both). This is a
 recognized no table content; the specialist outputs were intentionally not
 converted through an unregistered heuristic decoder.
 
-### Supplementary Table S2. Exploratory modern-model transport roster
+### Supplementary Table S3. Exploratory modern-model transport roster
 
 | Model/interface | Swissgeol pages | Interval output | Boundary-pair F1 | Complete documents | Interpretation |
 |---|---:|---:|---:|---:|---|
@@ -195,7 +195,7 @@ boundaries must agree with one positioned interval in the same semantic column
 and retain source regions. Acceptance additionally requires positive thickness,
 monotonic order, and no overlap. All unaccepted proposals remain review items.
 
-### Supplementary Table S3. Assurance components and evidence coverage
+### Supplementary Table S4. Assurance components and evidence coverage
 
 | Component | Effect represented | Main evidence |
 |---|---|---|
@@ -222,6 +222,57 @@ interval precision.
 
 ## S6. Candidate-graph and sequence ablation
 
+The legacy candidate graph operates on semantically eligible positioned OCR
+hypotheses. Candidate
+
+$$
+c_i=(t_i,b_i,p_i,y_i,x_i^t,x_i^b,e_i,q_i)
+$$
+
+retains top and bottom depth, page, vertical order, normalized top and bottom
+column positions, source evidence, and normalized OCR confidence. Construction
+requires $0\leq t_i<b_i\leq5000$ ft and a geological description. The frozen
+raw node score is
+
+$$
+r_i=1+q_i+\mathbf{1}[\text{geological term in }e_i].
+$$
+
+The shallow-start preference is applied only when a path begins,
+$I_i=r_i-0.0005t_i$; it is not included in the later risk threshold. An edge
+$i\rightarrow j$ is admissible only when document position increases,
+$t_j\geq t_i$, and $b_i-t_j\leq1$ ft. With $g_{ij}=|b_i-t_j|$, the complete
+edge score is
+
+$$
+e_{ij}=\operatorname{continuity}(g_{ij})
+-4(|x_i^t-x_j^t|+|x_i^b-x_j^b|)
+-0.15\max(0,p_j-p_i-1),
+$$
+
+where the continuity contribution is 5 for $g_{ij}\leq0.05$,
+$2-g_{ij}$ for $0.05<g_{ij}\leq1$, and
+$-\min(6,\log(1+g_{ij}))$ otherwise. Dynamic programming computes
+
+$$
+F(j)=\max\left(I_j,\max_{i<j:i\rightarrow j}\{F(i)+r_j+e_{ij}\}\right)
+$$
+
+and backtracks the highest-scoring path, breaking score ties by path length.
+Every earlier admissible candidate is considered; the published decoder has no
+predecessor-window truncation.
+
+The addition-only risk policy preserves the first-pass interval set $R$ and
+considers non-overlapping proposed additions in descending $r_i$. If $R$ is
+non-monotone, automatic modification is rejected before any addition is
+considered. Candidate
+$c$ is accepted only when $r_c\geq2.999$ and its open depth interval has no
+positive overlap with $R$ or an earlier accepted addition. The development
+grid used only v001/v002 and comprised every archived candidate score in
+$[1,3]$ together with 1.0, 2.0, 2.5, 2.9, 2.95, 2.975, 2.99, 2.995, 2.999,
+and 3.0. The threshold 2.999 was frozen before v004/v005 confirmation; the
+development-only curve is shown in Supplementary Figure S2.
+
 The same candidate pool, documents, source matcher, and interval tolerance are
 used for every v004/v005 variant. The eligible pool without sequence selection
 has F1 0.554/0.516 and FCR 0.324/0.322. Monotonic dynamic programming reaches
@@ -230,6 +281,7 @@ stability without the geological-term bonus gives 0.563/0.519; the complete
 score gives 0.566/0.530 with precision 0.953/0.914. The conclusion is not that
 every constraint adds F1: monotonic path selection provides the largest recovery,
 while additional terms change the precision/risk operating point.
+The full same-pool risk frontier is shown in Supplementary Figure S1.
 
 The shallow-start coefficient is a weak deterministic tie preference, not a
 fitted geological constant. A post-hoc sensitivity over 0, 0.0005, 0.001,
@@ -260,9 +312,15 @@ The 602-record protocol injects synthetic boundary/value errors into two channel
 on real structured-source coordinates. Agreement-based deletion retains 0.813–
 0.817 of points, while support-preserving mean fusion improves 26–29 of 30
 perturbation repetitions at each magnitude. The seed repetitions measure
-mechanism repeatability, not independent site-level inference.
+mechanism repeatability, not independent site-level inference. Supplementary
+Figure S3 shows the within-error-class spatial responses.
 
 ## S8. Additional source-shift and excluded experiments
+
+The one-time BGS v003 external gate contains a single five-page record. Four
+pages were classified as explicit depth-range tables but produced no accepted
+ranges, one page was classified as unsupported, and the record abstained
+completely with zero false positives and zero utility.
 
 The broader project contains five-canton Swissgeol transfer, BGS metadata-only
 scans, Raft River tabular diagnostics, USGS Idaho cross-engine checks, synthetic

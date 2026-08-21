@@ -3,9 +3,11 @@
 
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 import os
+import re
 import subprocess
 from pathlib import Path
 
@@ -38,6 +40,7 @@ FILES = [
     CAGEO / "REVIEW_VERSION_NOTES.md",
     CAGEO / "RIGHTS_LINKAGE_SIGNOFF.md",
     PAPER / "submission_bundle" / "Paper4_Upload_Manifest.json",
+    PAPER / "submission_bundle" / "Paper4_CAGEO_LaTeX_Source_v1.0.8.zip",
     PAPER / "submission_bundle" / "Paper4_Final_Manuscript.md",
     PAPER / "submission_bundle" / "Paper4_Final_Manuscript.pdf",
     PAPER / "submission_bundle" / "Paper4_Supplementary_Methods.md",
@@ -46,14 +49,22 @@ FILES = [
     PAPER / "submission_bundle" / "Paper4_Rights_Linkage_Signoff.md",
     PAPER / "submission_bundle" / "Paper4_Highlights.txt",
     PAPER / "submission_bundle" / "Paper4_Figure_Manifest.json",
+    PAPER / "submission_bundle" / "Paper4_Figure_1.png",
     PAPER / "submission_bundle" / "Paper4_Figure_1.pdf",
+    PAPER / "submission_bundle" / "Paper4_Figure_2.png",
     PAPER / "submission_bundle" / "Paper4_Figure_2.pdf",
+    PAPER / "submission_bundle" / "Paper4_Figure_3.png",
     PAPER / "submission_bundle" / "Paper4_Figure_3.pdf",
+    PAPER / "submission_bundle" / "Paper4_Figure_4.png",
     PAPER / "submission_bundle" / "Paper4_Figure_4.pdf",
+    PAPER / "submission_bundle" / "Paper4_Graphical_Abstract.png",
     PAPER / "submission_bundle" / "Paper4_Graphical_Abstract.pdf",
     PAPER / "submission_bundle" / "Paper4_Supplementary_Figure_S1.png",
+    PAPER / "submission_bundle" / "Paper4_Supplementary_Figure_S1.pdf",
     PAPER / "submission_bundle" / "Paper4_Supplementary_Figure_S2.png",
+    PAPER / "submission_bundle" / "Paper4_Supplementary_Figure_S2.pdf",
     PAPER / "submission_bundle" / "Paper4_Supplementary_Figure_S3.png",
+    PAPER / "submission_bundle" / "Paper4_Supplementary_Figure_S3.pdf",
 ]
 
 
@@ -116,15 +127,79 @@ def manifest_git_metadata() -> dict[str, object]:
         "branch": branch or "detached-or-unavailable",
         "source_git_commit": head or "unavailable",
         "source_git_commit_scope": (
-            "commit checked out when this manifest was generated; if the release tag "
-            "is created after generation, resolved_release_tag_commit records the tag target"
+            "commit checked out when this manifest was generated; a release tag created "
+            "after generation is intentionally unresolved here to avoid self-reference"
         ),
         "resolved_release_tag_commit": tag_commit,
         "working_tree_dirty": bool(dirty_entries),
     }
 
 
+def verify_generated_manifests(*, require_clean_provenance: bool) -> tuple[int, int]:
+    if not OUT.is_file() or not DELIVERY_OUT.is_file():
+        raise SystemExit("Paper 4 release manifests are missing")
+    generated = json.loads(OUT.read_text(encoding="utf-8"))
+    generated_delivery = json.loads(DELIVERY_OUT.read_text(encoding="utf-8"))
+    if require_clean_provenance:
+        if generated.get("working_tree_dirty") is not False:
+            raise SystemExit("Paper 4 artifact manifest does not record a clean source tree")
+        if generated.get("branch") != "main":
+            raise SystemExit("Paper 4 artifact manifest was not frozen from main")
+        if generated.get("resolved_release_tag_commit") is not None:
+            raise SystemExit("Paper 4 artifact manifest unexpectedly resolves its release tag")
+        source_commit = generated.get("source_git_commit")
+        if (
+            not isinstance(source_commit, str)
+            or re.fullmatch(r"[0-9a-f]{40}", source_commit) is None
+        ):
+            raise SystemExit("Paper 4 artifact manifest has an invalid source commit")
+        if generated_delivery.get("source_git_commit") != source_commit:
+            raise SystemExit(
+                "Paper 4 delivery and artifact manifests record different source commits"
+            )
+        if generated_delivery.get("resolved_release_tag_commit") is not None:
+            raise SystemExit("Paper 4 delivery manifest unexpectedly resolves its release tag")
+    for entry in generated["files"]:
+        path = ROOT / entry["file"]
+        if not path.is_file():
+            raise SystemExit(f"Generated manifest points to missing file: {entry['file']}")
+        observed = sha256(path)
+        if observed != entry["sha256"] or path.stat().st_size != entry["bytes"]:
+            raise SystemExit(f"Generated manifest self-check failed: {entry['file']}")
+    for entry in generated_delivery["files"]:
+        path = PAPER / "submission_bundle" / entry["name"]
+        if not path.is_file():
+            raise SystemExit(f"Generated delivery manifest points to missing file: {entry['name']}")
+        observed = sha256(path)
+        if observed != entry["sha256"] or path.stat().st_size != entry["bytes"]:
+            raise SystemExit(f"Generated delivery manifest self-check failed: {entry['name']}")
+    return len(generated["files"]), len(generated_delivery["files"])
+
+
 def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--verify-only",
+        action="store_true",
+        help="verify frozen release manifests without rewriting Git provenance",
+    )
+    args = parser.parse_args()
+    if args.verify_only:
+        artifact_count, delivery_count = verify_generated_manifests(
+            require_clean_provenance=True
+        )
+        print(
+            json.dumps(
+                {
+                    "release_tag": RELEASE_TAG,
+                    "artifact_file_count": artifact_count,
+                    "delivery_file_count": delivery_count,
+                    "verified_only": True,
+                }
+            )
+        )
+        return
+
     missing = [str(path.relative_to(ROOT)) for path in FILES if not path.exists()]
     if missing:
         raise SystemExit(f"Missing artifact(s): {missing}")
@@ -175,15 +250,16 @@ def main() -> None:
         path for path in FILES
         if path.name.startswith("Paper4_Final_Manuscript")
         or path.name.startswith("Paper4_Figure_")
-        or path.name == "Paper4_Graphical_Abstract.pdf"
+        or path.name.startswith("Paper4_Graphical_Abstract")
         or path.name == "Paper4_Highlights.txt"
+        or path.name == "Paper4_CAGEO_LaTeX_Source_v1.0.8.zip"
         or path.name.startswith("Paper4_Supplementary_")
         or path.name == "Paper4_Main_Tables.md"
     ]
     delivery = {
         "manifest_version": "paper4_final_delivery_v002",
         "generated_on": RELEASE_DATE,
-        "scope": "Final manuscript, vector artwork, tables, and supplementary material",
+        "scope": "Final manuscript, editable LaTeX source, vector artwork, tables, and supplementary material",
         "repository": "https://github.com/Entropic-Silence/GeoLogParser",
         "release_tag": RELEASE_TAG,
         "data_release_tag": DATA_RELEASE_TAG,
@@ -209,25 +285,10 @@ def main() -> None:
     DELIVERY_OUT.write_bytes(
         (json.dumps(delivery, indent=2, sort_keys=True) + "\n").encode("utf-8")
     )
-    # Fail immediately if generation or a later Windows checkout changed any
-    # path, byte count, or hash.  The manifest intentionally excludes itself
-    # and the delivery checksum file to avoid a self-referential hash cycle.
-    generated = json.loads(OUT.read_text(encoding="utf-8"))
-    for entry in generated["files"]:
-        path = ROOT / entry["file"]
-        if not path.is_file():
-            raise SystemExit(f"Generated manifest points to missing file: {entry['file']}")
-        observed = sha256(path)
-        if observed != entry["sha256"] or path.stat().st_size != entry["bytes"]:
-            raise SystemExit(f"Generated manifest self-check failed: {entry['file']}")
-    generated_delivery = json.loads(DELIVERY_OUT.read_text(encoding="utf-8"))
-    for entry in generated_delivery["files"]:
-        path = PAPER / "submission_bundle" / entry["name"]
-        if not path.is_file():
-            raise SystemExit(f"Generated delivery manifest points to missing file: {entry['name']}")
-        observed = sha256(path)
-        if observed != entry["sha256"] or path.stat().st_size != entry["bytes"]:
-            raise SystemExit(f"Generated delivery manifest self-check failed: {entry['name']}")
+    # Fail immediately if generation or a later checkout changed any path,
+    # byte count, or hash.  The two outputs remain excluded to avoid a
+    # self-referential hash cycle.
+    verify_generated_manifests(require_clean_provenance=False)
     print(OUT)
     print(DELIVERY_OUT)
     print(json.dumps({"release_tag": RELEASE_TAG, "file_count": len(FILES)}))

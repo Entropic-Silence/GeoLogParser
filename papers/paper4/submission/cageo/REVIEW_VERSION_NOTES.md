@@ -39,17 +39,19 @@ toolchain; `PANDOC` and `TECTONIC` may override those paths.
   0.244 coverage, 444/447, 4/100 complete-document automation, matched-
   support reversal, contamination, partially reconstructable runtime, and
   diagnostic-only IDW.
-- The canonical source estimate is 5,443 main-text words (5,828 including
+- The canonical source estimate is 5,507 main-text words (5,809 including
   inline Markdown table text; captions and references excluded by the
-  estimate). The separate submission gate reports a broader 5,976-word
-  whitespace count against the 6,050 working limit.
-- Bibliography contains 31 cited entries, corrected `Amini, A.` metadata, full
+  estimate). The submission gate uses the same 5,809-word article-body
+  measure against the 6,050 working limit.
+- Bibliography contains 33 cited entries, corrected `Amini, A.` metadata, full
   Borkovich author list, protected acronym capitalization, and no `et al.` in
   the rendered reference list.
 - `verify_claims.py`, `audit_claim_evidence.py`, and
   `audit_paper4_submission.py` pass. The canonical local test profile
-  (`pip install -e "[test]"`) reports `484 passed, 1 skipped`; the remaining
-  skip is optional PyVista. No test result is inferred from an unrun command.
+  (`pip install -e ".[test]"`) reports `478 passed, 10 skipped`; the skipped
+  tests require optional Ghostscript/Tesseract fixture tools, external
+  RapidOCR model assets, or PyVista. No test result is inferred from an unrun
+  command.
 
 ## Reproducibility scope
 

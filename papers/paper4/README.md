@@ -11,7 +11,7 @@ fallback analyses.
 - `supplement.md`: detailed provenance, split, ablation, source-shift, and
   spatial sensitivity material.
 - `supplementary_captions.md`: standalone captions for Supplementary Figures
-  S1–S3 and Supplementary Tables S1–S3.
+  S1–S3 and Supplementary Tables S1–S4.
 - `main_tables.md`: headline tables, including exact VLM runtime provenance.
 - `figure_manifest.json` and `figures/`: four integrated C&G main figures plus
   supplementary risk/threshold/error-mechanism figures.
@@ -31,8 +31,8 @@ fallback analyses.
   terms prohibit redistribution.
 - `../../experiments/paper1/analysis/modern_vlm_transport_comparison_v001.json`: exploratory open-model source-shift roster; specialist decoder/task coverage is kept separate from direct-JSON F1.
 - `REPRODUCE.md`: fresh-checkout commands for rebuilding the Paper 4 figures,
-  publication evidence, tables, package manifest, and audits without source
-  PDFs or model weights.
+  final manuscript, upload bundle, publication evidence, package manifest,
+  and audits without source PDFs or model weights.
 
 ## Scientific positioning
 

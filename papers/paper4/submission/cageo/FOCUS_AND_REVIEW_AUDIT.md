@@ -78,16 +78,17 @@ kept as separate claim layers.
   fonts are embedded, and the manuscript contains zero raster image objects.
 - PDF metadata check: passed for title, author (`Yifan Du`), subject, and
   keywords; no template-default author/subject metadata remains.
-- Canonical source-Markdown estimate: 5,443 main-text words with tables and
-  captions excluded, and 5,828 article-body words when inline table text is
+- Canonical source-Markdown estimate: 5,507 main-text words with tables and
+  captions excluded, and 5,809 article-body words when inline table text is
   included; abstract, captions, keywords, highlights, declarations, and
-  references are excluded from both. The submission gate's broader whitespace
-  count is 5,976 against a 6,050 working limit.
-- Canonical full-repository test run: `484 passed, 1 skipped` after
-  `python -m pip install -e "[test]"`; the remaining skip is the optional
-  PyVista surface smoke test. Other historical environment counts are not
-  used as the release claim. No test was represented as passed without being
-  run.
+  references are excluded from both. The submission gate uses the 5,809-word
+  article-body measure against a 6,050 working limit.
+- Canonical full-repository local test run: `478 passed, 10 skipped` after
+  `python -m pip install -e ".[test]"`. The skipped tests require optional
+  Ghostscript/Tesseract fixture tools, external RapidOCR model assets, or the
+  PyVista extra; both CI operating systems run the same collected test set.
+  Other historical environment counts are not used as the release claim. No
+  test was represented as passed without being run.
 - Table/citation checks: Tables 1 and 2 have numbered captions and labels;
   Table 1 has an explicit continuation caption; duplicate author-year/citation
   text was removed from its first column.
@@ -98,8 +99,8 @@ kept as separate claim layers.
 - P1: complete the Editorial Manager upload/artwork preview and, if desired,
   create a new Zenodo v1.0.8 software version. Do not relabel the published
   v1.0.6 software DOI as an article DOI.
-- P2: confirm the portal-computed word count (source estimate: 5,443 main-text
-  words; 5,828 body words). The internal banner/footer and
+- P2: confirm the portal-computed word count (source estimate: 5,507 main-text
+  words; 5,809 body words). The internal banner/footer and
   adviser-question page are absent from `manuscript_final.pdf`.
 
 ## Archive-level qualification
@@ -119,4 +120,4 @@ claim byte-for-byte deterministic regeneration across operating systems.
 - Main figures: `Figure_1.pdf` through `Figure_4.pdf`; graphical abstract:
   `graphical_abstract.pdf`.
 - Supplementary upload bundle: `papers/paper4/submission_bundle` with S1-S3
-  captions, methods, artwork, and SHA-256 manifest.
+  captions, methods, paired PDF/PNG artwork, and SHA-256 manifest.

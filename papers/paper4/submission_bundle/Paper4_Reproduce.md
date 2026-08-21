@@ -16,6 +16,13 @@ test extra:
 python -m pip install -e ".[test]"
 ```
 
+The final manuscript rebuild also requires PowerShell 7, Pandoc 3.10.2, and
+Tectonic 0.17.0. Put `pandoc` and `tectonic` on `PATH`, or set `PANDOC` and
+`TECTONIC` to their executable paths. The Elsevier C&G class/style files are
+tracked with the manuscript. The exact DejaVu 2.37 fonts used by the canonical
+artwork are tracked under `papers/paper4/fonts/` with their licence and
+SHA-256 values.
+
 The CI workflow additionally installs `ghostscript`, `poppler-utils`, and
 `tesseract-ocr` on Ubuntu. They are not needed for the committed Paper 4
 figure/table regeneration, but are required by the full repository test suite.
@@ -35,15 +42,19 @@ python scripts/reproduce_paper4.py --with-tests
 The workflow performs, in order:
 
 1. Rebuilds the four integrated C&G figures from committed Paper I–III
-   analysis JSON.
-2. Rebuilds `publication_evidence/` from committed result indexes and public
+   analysis JSON, plus the three supplementary figures.
+2. Rebuilds the final Markdown, LaTeX, and PDF manuscript from
+   `papers/paper4/manuscript.md`.
+3. Assembles the complete portal-facing manuscript bundle, including the
+   freshly built final PDF.
+4. Rebuilds `publication_evidence/` from committed result indexes and public
    reanalysis inputs.
-3. Regenerates publication-facing tables and the manuscript metric audit from
+5. Regenerates publication-facing tables and the manuscript metric audit from
    the publication evidence core.
-4. Rebuilds `papers/package_manifest.json`.
-5. Runs the Paper 4 claim, evidence-tier, submission, and UTF-8/LF audits.
-6. The portal-facing manuscript bundle can then be assembled with
-   `python scripts/build_paper4_upload_bundle.py`.
+6. Rebuilds `papers/package_manifest.json`.
+7. Runs the Paper 4 claim, evidence-tier, submission, and UTF-8/LF audits and
+   verifies the frozen release artifact manifests without rewriting their Git
+   provenance.
 
 The expected final state is:
 

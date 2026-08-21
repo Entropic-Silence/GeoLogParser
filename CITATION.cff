@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "Cite this software release and the data companion separately. The Zenodo identifier 10.5281/zenodo.22030229 is a software DOI, not a journal-article DOI."
-title: "GeoLogParser Paper 4 result-reproduction package"
+title: "GeoLogParser Paper 4 result-reproduction software"
 type: software
 authors:
   - family-names: Du
@@ -16,11 +16,15 @@ abstract: >-
   borehole database ingestion. The published Zenodo software archive at
   10.5281/zenodo.22030229 contains version paper4-cageo-v1.0.6; the corrected
   v1.0.8 GitHub release supersedes its submission artifacts without changing
-  frozen scientific results. The separately published data-v002 companion is
-  10.5281/zenodo.22031703 and remains subject to source-specific terms.
+  frozen scientific results. MIT applies to source code only. The manuscript,
+  author-created artwork, and third-party or source-derived materials remain
+  subject to their applicable terms. The separately published data-v002
+  companion is 10.5281/zenodo.22031703 and remains subject to source-specific
+  terms.
 keywords:
   - borehole logs
   - vision-language models
   - provenance
   - selective prediction
   - spatial support
+  - geoscience computing

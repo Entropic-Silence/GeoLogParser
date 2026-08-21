@@ -26,6 +26,8 @@ def test_paper4_outer_artifact_manifest_matches_committed_files() -> None:
     assert manifest["doi_type"] == "software"
     assert manifest["article_doi"] is None
     assert manifest["branch"]
+    assert manifest["working_tree_dirty"] is False
+    assert manifest["resolved_release_tag_commit"] is None
     assert re.fullmatch(r"[0-9a-f]{40}", str(manifest["source_git_commit"]))
     assert manifest["source_git_commit_scope"]
     assert manifest["files"]
@@ -41,3 +43,5 @@ def test_paper4_outer_artifact_manifest_matches_committed_files() -> None:
         assert path.is_file(), entry["name"]
         assert path.stat().st_size == entry["bytes"], entry["name"]
         assert sha256(path) == entry["sha256"], entry["name"]
+    assert delivery["source_git_commit"] == manifest["source_git_commit"]
+    assert delivery["resolved_release_tag_commit"] is None

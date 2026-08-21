@@ -4,13 +4,20 @@ This directory contains the fixed files for individual upload to a
 Computers & Geosciences submission portal. Author metadata, declarations, and
 rights/linkage sign-off are complete. `Paper4_Supplementary_Figure_Captions.md`
 is the standalone caption file for Supplementary Figures S1–S3 and
-Supplementary Tables S1–S3; the detailed supplementary methods are in
+Supplementary Tables S1–S4; the detailed supplementary methods are in
 `Paper4_Supplementary_Methods.md`.
 
 The final manuscript pair is `Paper4_Final_Manuscript.md` and
 `Paper4_Final_Manuscript.pdf`; the Markdown and PDF carry the same audited
 scientific content, declarations, metrics, limitations, and references. The
-PNG files are the four main figures and three supplementary figures. The other
+editable main-manuscript upload is
+`Paper4_CAGEO_LaTeX_Source_v1.0.8.zip`; it contains the final TeX, BibTeX,
+C&G class/style files, four canonical vector figures, and an internal source
+manifest. The
+artwork files are the four main figures, the graphical abstract, and three
+supplementary figures in paired PDF/PNG form. Each main PNG is rendered from
+the same canonical PDF page used in the final manuscript; each supplementary
+PNG is rendered at 600 DPI from its matching vector PDF. The other
 Markdown files are repository-native supplementary/reproducibility sources;
 `Paper4_Highlights.txt` is the separate editable highlights upload required by
 the journal;

@@ -1,4 +1,4 @@
-Qwen3.8-27B-FP8 reaches 0.896--0.932 boundary-pair F1 on 450 reports.
+Qwen3.8-27B-FP8 reaches 0.896–0.932 boundary-pair F1 on 450 reports.
 Independent positioned evidence reaches 0.993 precision at 24.4% proposal coverage.
 Only 4% of held-out documents qualify for complete automatic acceptance.
 Abstention changes spatial support and can reverse an apparent volume improvement.

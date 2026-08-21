@@ -54,7 +54,15 @@ held-out, or confirmation role assigned before analysis. Pooled interval totals
 are descriptive; confidence intervals in the main manuscript resample whole
 documents.
 
-### Supplementary Table S2. Exploratory modern-model transport roster
+### Supplementary Table S2. Full execution provenance and unresolved fields
+
+Frozen checkpoint, serving identifier, software environment, hardware,
+prompt, image-rendering, decoding, parsing, and component-hash records for the
+direct VLM evaluation. The table also identifies runtime fields that could not
+be reconstructed after evaluation; the missing fields are limitations on
+bitwise replay, not hidden tuning inputs.
+
+### Supplementary Table S3. Exploratory modern-model transport roster
 
 Source-disjoint Swissgeol Thurgau transport diagnostics for the listed model or
 interface. “Boundary-pair F1” is computed only when an auditable compatible
@@ -64,7 +72,7 @@ compatible with the study matcher; it is not interpreted as a universal model
 accuracy estimate. This table is exploratory and is not pooled with the
 California Gold headline results.
 
-### Supplementary Table S3. Assurance components and evidence coverage
+### Supplementary Table S4. Assurance components and evidence coverage
 
 Operational components of the provenance-grounded assurance layer, the
 evidence represented by each component, and the corresponding observed
@@ -72,4 +80,3 @@ coverage or validity check. Endpoint-field anchor coverage, both-endpoint
 interval coverage, semantic ownership, deterministic geometry, and selective
 risk acceptance are distinct quantities and must not be substituted for one
 another.
-

@@ -5,6 +5,13 @@ Repository: `GeoLogParser`
 Adviser-reviewed baseline commit: `0f4d2d5`
 Closure commit: `54587ae`
 
+Correction-release note (2026-08-21): the commit above records the historical
+closure baseline. The corrected Paper IV v1.0.8 package now has a 246-word
+abstract, 5,507 main-text words with inline tables and captions excluded, and
+5,809 article-body words when inline table text is included. Its prompt hash,
+DOI types, supplementary cross-references, declarations, and canonical artwork
+bindings were re-audited without changing frozen scientific results.
+
 ## Automated checks
 
 The following were run after the closure edits:
@@ -66,7 +73,8 @@ or production workflow is claimed.
 
 Status: `SUBMISSION_READY_CANDIDATE`
 
-The manuscript is a single 5,843-word narrative with three research questions,
+At the historical closure commit, the manuscript was counted as a single
+5,843-word narrative with three research questions,
 four integrated main figures, and a structured abstract. Its evidence chain is
 explicitly ordered as modern VLM proposal, independently positioned evidence,
 deterministic checks, selective accept/review, and downstream spatial-support

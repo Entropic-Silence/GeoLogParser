@@ -47,18 +47,18 @@ spatial diagnostic are supporting evidence for that interface.
   keywords, highlights, references, and captions.
 - **Revised submission limit:** 6,500 words, with the same 10% allowance for
   non-review articles.
-- **Current source estimate:** `manuscript.md` contains a 243-word abstract.
-  The build script estimates 5,443 main-text words with tables and captions
-  excluded and 5,828 article-body words when inline table text is included;
-  the repository submission gate reports 5,976 whitespace-delimited words
-  including excluded parts. All are below the 6,050-word initial
+- **Current source estimate:** `manuscript.md` contains a 246-word abstract.
+  The build script estimates 5,507 main-text words with tables and captions
+  excluded and 5,809 article-body words when inline table text is included;
+  the repository submission gate uses the same 5,809-word article-body
+  measure. Both body measures are below the 6,050-word initial
   allowance; a final Editorial Manager count remains required.
 
 ### Abstract, keywords, and highlights
 
 - **Abstract:** Maximum 300 words. It must be concise, factual, standalone,
   and normally contain no references. The Guide does not require a structured
-  abstract. The current source abstract is 243 words and uses Background,
+  abstract. The current source abstract is 246 words and uses Background,
   Methods, Results, and Conclusions labels; this is length-compliant and does
   not conflict with an explicit structure requirement.
 - **Keywords:** 1 to 6 English keywords. Avoid multiword phrases and
@@ -161,10 +161,9 @@ Current Paper 4 status: **scientific and release package complete; portal and ar
 The manuscript names the public GeoLogParser URL, MIT source-code license,
 corresponding-author contact, and reproducibility scope. A local final Git
 commit is created for this package and recorded in
-`CAGEO_ARTIFACT_MANIFEST.json`. No permanent archival DOI can be minted from
-this workspace without the author's Zenodo/DataCite authorization; the
-publisher-assigned article DOI therefore remains pending rather than being
-fabricated. The
+`CAGEO_ARTIFACT_MANIFEST.json`. Creating an optional corrected Zenodo v1.0.8
+version requires the author's Zenodo authorization; the publisher-assigned
+article DOI remains pending rather than being fabricated. The
 published Zenodo identifier `10.5281/zenodo.22030229` is a software DOI for
 `paper4-cageo-v1.0.6`, not a journal-article DOI; a corrected v1.0.8 archive
 would have to be created as a new version.
@@ -201,9 +200,9 @@ added/replaced during revision, and they are published exactly as supplied.
 The current `supplement.md` remains the scientific source. The
 `papers/paper4/submission_bundle` directory now contains normalized
 supplementary methods, standalone S1-S3 captions, S1-S3 artwork, main tables,
-and a SHA-256 upload manifest. A journal-specific editable supplementary
-conversion and portal upload remain a production step; no scientific text is
-changed by that conversion.
+an editable C&G LaTeX main-manuscript archive, and a SHA-256 upload manifest.
+A journal-specific editable supplementary conversion and portal upload remain
+a production step; no scientific text is changed by that conversion.
 
 ### Artwork, figures, and tables
 
@@ -244,7 +243,7 @@ changed by that conversion.
   `cas-model2-names.bst` for the final bibliography.
 
 Current Paper 4 status: **LaTeX conversion and bibliography audit passed**.
-The final build renders 31 author-date entries with full author lists and full
+The final build renders 33 author-date entries with full author lists and full
 journal titles; the Amini metadata is `Amini, A.` (Afshin), and the Borkovich
 entry is not truncated with `et al.`. No undefined citations or duplicate
 References heading was found. The published data and historical software
@@ -280,8 +279,7 @@ Commands run on the clean baseline:
 python papers/paper4/verify_claims.py                 PASS
 python papers/paper4/audit_claim_evidence.py         PASS
 python scripts/audit_paper4_submission.py            PASS
-python -m pytest -q tests/test_paper4_submission.py tests/test_manuscript_metric_audit.py
-                                                    recorded with the v1.0.3 verification run
+python -m pytest -q                                PASS (478 passed, 10 skipped)
 ```
 
 The passing gates verified the frozen headline values, including California
@@ -302,7 +300,8 @@ No negative result or limitation was removed or improved.
 - Abstract length and standalone structure are within the Guide's 300-word
   limit; no structured-abstract format is required by the Guide.
 - Keyword count is 6 (within 1-6).
-- Four highlights are present (required count 3-5), each 69-72 characters.
+- Four highlights are present (required count 3-5); their lengths are 68, 83,
+  72, and 82 characters.
 - The manuscript contains code-availability, data-availability, and
   declaration sections in the scientific source.
 - Four main figures are cited in order, have manifest entries, and have vector
@@ -319,8 +318,8 @@ No negative result or limitation was removed or improved.
 - Elsevier declarations-tool competing-interest `.docx` upload and any
   portal-specific cover-letter file must be produced in Editorial Manager.
 - The final Editorial Manager word count and artwork preview remain portal
-  checks; the source estimate is 5,443 main-text words and 5,828 body words,
-  with a 5,976-word whitespace gate count below the 6,050 working limit.
+  checks; the source estimate is 5,507 main-text words and 5,809 body words,
+  with the latter used by the repository gate against the 6,050 working limit.
 
 ## Information still required from the author
 

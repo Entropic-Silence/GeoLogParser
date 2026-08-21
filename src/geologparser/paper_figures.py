@@ -309,7 +309,12 @@ def save_california_selection_flow(analysis_path: Path, destination: Path) -> No
 
 
 def save_paper2_sequence_risk(
-    ablation_path: Path, risk_path: Path, destination: Path,
+    ablation_path: Path,
+    risk_path: Path,
+    destination: Path,
+    *,
+    dpi: int = 180,
+    metadata: Mapping[str, Any] | None = None,
 ) -> None:
     """Plot the recovery/harm frontier on California v004/v005."""
     ablation = json.loads(ablation_path.read_text(encoding="utf-8"))
@@ -356,11 +361,17 @@ def save_paper2_sequence_risk(
     fig.suptitle("Sequence recovery versus correction harm (fixed candidate pool)")
     fig.tight_layout(rect=(0, 0, 1, .94))
     destination.parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(destination, dpi=180, bbox_inches="tight")
+    fig.savefig(destination, dpi=dpi, bbox_inches="tight", metadata=metadata)
     plt.close(fig)
 
 
-def save_paper2_threshold_curve(analysis_path: Path, destination: Path) -> None:
+def save_paper2_threshold_curve(
+    analysis_path: Path,
+    destination: Path,
+    *,
+    dpi: int = 180,
+    metadata: Mapping[str, Any] | None = None,
+) -> None:
     """Plot development-only risk/coverage/utility versus the node threshold."""
     analysis = json.loads(analysis_path.read_text(encoding="utf-8"))
     rows = [row for row in analysis["curve"] if row["threshold"] >= 2.9]
@@ -382,7 +393,7 @@ def save_paper2_threshold_curve(analysis_path: Path, destination: Path) -> None:
     fig.suptitle("Addition-only threshold selection on v001/v002 development evidence")
     fig.tight_layout()
     destination.parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(destination, dpi=180, bbox_inches="tight")
+    fig.savefig(destination, dpi=dpi, bbox_inches="tight", metadata=metadata)
     plt.close(fig)
 
 
@@ -595,7 +606,12 @@ def save_image_multiboundary_surface(
 
 
 def save_controlled_error_class_propagation(
-    entries: Sequence[Mapping[str, Any]], repository_root: Path, destination: Path,
+    entries: Sequence[Mapping[str, Any]],
+    repository_root: Path,
+    destination: Path,
+    *,
+    dpi: int = 180,
+    metadata: Mapping[str, Any] | None = None,
 ) -> None:
     """Plot surface impact, support, and topology by controlled error class."""
     candidates = []
@@ -670,7 +686,7 @@ def save_controlled_error_class_propagation(
     fig.text(.99, .01, entry["experiment_id"], ha="right", fontsize=7)
     fig.tight_layout(rect=(0, .03, 1, .88))
     destination.parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(destination, dpi=180)
+    fig.savefig(destination, dpi=dpi, metadata=metadata)
     plt.close(fig)
 
 

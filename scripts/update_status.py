@@ -6,6 +6,7 @@ from __future__ import annotations
 from collections import Counter
 import json
 from pathlib import Path
+import re
 
 import yaml
 
@@ -243,6 +244,16 @@ def main() -> None:
     combined_risk = paper2_risk["combined_confirmatory"]
     full = paper3_spatial["full_support_comparison"]
     matched = paper3_spatial["matched_subset_comparison"]
+    paper4_gate = json.loads(
+        (ROOT / "papers/paper4/submission_gate.json").read_text(encoding="utf-8")
+    )
+    paper4_manuscript = (ROOT / "papers/paper4/manuscript.md").read_text(
+        encoding="utf-8"
+    )
+    paper4_abstract = paper4_manuscript.split("## Abstract", 1)[1].split(
+        "**Keywords:**", 1
+    )[0]
+    paper4_abstract_words = len(re.findall(r"\b[\w'-]+\b", paper4_abstract))
     replacement = [
         "## Paper status", "",
         "- Paper I: `SUBMISSION_READY_CANDIDATE` as a provenance-aware multi-cohort/cross-source evaluation, not a comprehensive multilingual benchmark. "
@@ -264,7 +275,7 @@ def main() -> None:
         f"on the identical 15-document subset it is {matched['raw']['aggregate']['relative_absolute_volume_error']:.4f}/"
         f"{matched['reread']['aggregate']['relative_absolute_volume_error']:.4f}/{matched['risk']['aggregate']['relative_absolute_volume_error']:.4f}, "
         "showing that the apparent full-support risk gain is principally a selection/spatial-support effect.",
-        "- Paper IV (C&G integrated): `SUBMISSION_READY_CANDIDATE` with a 5,843-word single narrative, 243-word structured abstract, four integrated main figures, and exactly three RQs. It foregrounds Qwen3.8-27B-FP8 California boundary-pair F1 0.896–0.932, held-out selective precision 0.993 at coverage 0.244, complete-document auto-acceptance 4/100, and the full-support versus matched-support spatial consequence. Paper 4 numeric bindings, claim-evidence audit, and C&G submission gate are green; rights, linkage, authorship, and final journal-format checks remain external gates.",
+        f"- Paper IV (C&G integrated): `SUBMISSION_READY_CANDIDATE` with a {paper4_gate['manuscript_wc_word_count']:,}-word article body, {paper4_abstract_words}-word structured abstract, four integrated main figures, and exactly three RQs. It foregrounds Qwen3.8-27B-FP8 California boundary-pair F1 0.896–0.932, held-out selective precision 0.993 at coverage 0.244, complete-document auto-acceptance 4/100, and the full-support versus matched-support spatial consequence. An exploratory open-model transport roster includes Qwen3-VL-4B (California page-20 F1 0.793; Swissgeol F1 0.619), PaddleOCR-VL-1.6 and MinerU2.5-Pro-2604-1.2B (35/35 page inference but zero auditable interval-decoder output). Paper 4 numeric bindings, claim-evidence audit, author metadata, and item-scoped rights/linkage checks are green; final portal artwork/format checks and the publisher-assigned article DOI remain external.",
         "", "## Boundary", "",
     ]
     lines = lines[:start] + replacement + lines[end + 2:]
