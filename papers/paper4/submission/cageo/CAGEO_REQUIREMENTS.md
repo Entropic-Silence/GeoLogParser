@@ -279,7 +279,7 @@ Commands run on the clean baseline:
 python papers/paper4/verify_claims.py                 PASS
 python papers/paper4/audit_claim_evidence.py         PASS
 python scripts/audit_paper4_submission.py            PASS
-python -m pytest -q                                PASS (478 passed, 10 skipped)
+python -m pytest -q                                PASS (480 passed, 10 skipped)
 ```
 
 The passing gates verified the frozen headline values, including California

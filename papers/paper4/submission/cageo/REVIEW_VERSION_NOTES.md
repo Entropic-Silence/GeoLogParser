@@ -48,7 +48,7 @@ toolchain; `PANDOC` and `TECTONIC` may override those paths.
   the rendered reference list.
 - `verify_claims.py`, `audit_claim_evidence.py`, and
   `audit_paper4_submission.py` pass. The canonical local test profile
-  (`pip install -e ".[test]"`) reports `478 passed, 10 skipped`; the skipped
+  (`pip install -e ".[test]"`) reports `480 passed, 10 skipped`; the skipped
   tests require optional Ghostscript/Tesseract fixture tools, external
   RapidOCR model assets, or PyVista. No test result is inferred from an unrun
   command.

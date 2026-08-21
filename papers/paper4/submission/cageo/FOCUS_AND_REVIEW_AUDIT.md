@@ -83,7 +83,7 @@ kept as separate claim layers.
   included; abstract, captions, keywords, highlights, declarations, and
   references are excluded from both. The submission gate uses the 5,809-word
   article-body measure against a 6,050 working limit.
-- Canonical full-repository local test run: `478 passed, 10 skipped` after
+- Canonical full-repository local test run: `480 passed, 10 skipped` after
   `python -m pip install -e ".[test]"`. The skipped tests require optional
   Ghostscript/Tesseract fixture tools, external RapidOCR model assets, or the
   PyVista extra; both CI operating systems run the same collected test set.
