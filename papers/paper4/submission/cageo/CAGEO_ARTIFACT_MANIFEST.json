@@ -152,7 +152,7 @@
   "resolved_release_tag_commit": null,
   "rights_status": "Yifan Du, sole and corresponding author, reviewed and screened the complete Paper 4 package and exact data-v002 selection for public dissemination. The data review covered source terms, item scope, privacy, sensitive locations, embedded content, attribution, and linkage. This item-scoped author attestation supersedes earlier provisional ledger statuses for the named release scope; it is not an independent legal opinion or blanket licence. Historical run metadata remains historical. Source-specific obligations remain.",
   "schema": "paper4_cageo_artifact_manifest_v001",
-  "source_git_commit": "fc95b37588232f12a680ecf4069edbbbdd0d0e8f",
+  "source_git_commit": "bb8bb6d25dc592a30f157e40858838e4393c9b64",
   "source_git_commit_scope": "commit checked out when this manifest was generated; if the release tag is created after generation, resolved_release_tag_commit records the tag target",
-  "working_tree_dirty": true
+  "working_tree_dirty": false
 }
