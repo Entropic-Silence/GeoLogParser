@@ -157,16 +157,16 @@ The template's code-availability checklist also asks for code/library name,
 contact details, hardware requirements, programming language, required
 software, program size, and a public URL.
 
-Current Paper 4 status: **scientific and release package complete; portal and archival follow-up pending**.
+Current Paper 4 status: **scientific and release package complete; portal and author-controlled archival follow-up pending**.
 The manuscript names the public GeoLogParser URL, MIT source-code license,
 corresponding-author contact, and reproducibility scope. A local final Git
 commit is created for this package and recorded in
-`CAGEO_ARTIFACT_MANIFEST.json`. Creating an optional corrected Zenodo v1.0.8
-version requires the author's Zenodo authorization; the publisher-assigned
-article DOI remains pending rather than being fabricated. The
-published Zenodo identifier `10.5281/zenodo.22030229` is a software DOI for
-`paper4-cageo-v1.0.6`, not a journal-article DOI; a corrected v1.0.8 archive
-would have to be created as a new version.
+`CAGEO_ARTIFACT_MANIFEST.json`. The published v1.0.9 software archive is
+available at the reserved Zenodo DOI; the publisher-assigned
+article DOI remains pending rather than being fabricated. The published Zenodo
+identifier `10.5281/zenodo.22043933` is a software DOI for
+`paper4-cageo-v1.0.9`, not a journal-article DOI; the author must complete
+the final upload and Publish action.
 
 ### Data Availability and research data
 
@@ -184,7 +184,7 @@ would have to be created as a new version.
 Current Paper 4 status: **repository, reproducibility materials, data companion,
 and author rights/linkage sign-off supplied; final portal and archival steps
 pending**. The complete article/result package candidate is
-`paper4-cageo-v1.0.8`; the selected source
+`paper4-cageo-v1.0.9`; the selected source
 and structured-data companion is `data-v002`. The latter passed the author's
 item-scoped rights, privacy, sensitive-location, embedded-content, attribution,
 and linkage review. Source-specific obligations remain explicit. The completed
@@ -312,9 +312,9 @@ No negative result or limitation was removed or improved.
 
 ### Not satisfied or still pending
 
-- A new Zenodo software version for v1.0.8 may be created after the GitHub
-  release; the published v1.0.6 software DOI must not be relabelled as v1.0.8
-  or as a journal-article DOI.
+- The prepared v1.0.9 software archive must be uploaded to the reserved Zenodo
+  record and published by the author; its DOI is a software DOI, not a
+  journal-article DOI.
 - Elsevier declarations-tool competing-interest `.docx` upload and any
   portal-specific cover-letter file must be produced in Editorial Manager.
 - The final Editorial Manager word count and artwork preview remain portal
@@ -323,8 +323,8 @@ No negative result or limitation was removed or improved.
 
 ## Information still required from the author
 
-1. If desired, create and publish a new Zenodo software version for v1.0.8;
-   retain the published software and data DOIs as historical identifiers.
+1. Upload the prepared v1.0.9 software archive to the reserved Zenodo record
+   and click Publish; retain the data DOI as the separate companion identifier.
 2. Complete Elsevier's declarations-tool `.docx` upload and confirm the final
    cover-letter text in Editorial Manager.
 3. Run the final Editorial Manager word-count and artwork preview checks.

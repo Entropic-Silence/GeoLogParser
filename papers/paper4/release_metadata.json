@@ -1,18 +1,18 @@
 {
   "schema": "paper4_release_metadata_v001",
   "release_date": "2026-08-21",
-  "release_tag": "paper4-cageo-v1.0.8",
-  "github_release_url": "https://github.com/Entropic-Silence/GeoLogParser/releases/tag/paper4-cageo-v1.0.8",
+  "release_tag": "paper4-cageo-v1.0.9",
+  "github_release_url": "https://github.com/Entropic-Silence/GeoLogParser/releases/tag/paper4-cageo-v1.0.9",
   "article": {
     "doi": null,
     "doi_status": "not assigned; obtain from Computers & Geosciences after acceptance"
   },
   "software_archive": {
     "concept_doi": "10.5281/zenodo.22030228",
-    "doi": "10.5281/zenodo.22030229",
+    "doi": "10.5281/zenodo.22043933",
     "resource_type": "software",
     "status": "published",
-    "version": "paper4-cageo-v1.0.6"
+    "version": "paper4-cageo-v1.0.9"
   },
   "data_archive": {
     "concept_doi": "10.5281/zenodo.22031702",

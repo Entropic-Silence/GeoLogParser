@@ -22,7 +22,7 @@ def test_paper4_outer_artifact_manifest_matches_committed_files() -> None:
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     delivery = json.loads(delivery_path.read_text(encoding="utf-8"))
 
-    assert manifest["release_tag"] == "paper4-cageo-v1.0.8"
+    assert manifest["release_tag"] == "paper4-cageo-v1.0.9"
     assert manifest["doi_type"] == "software"
     assert manifest["article_doi"] is None
     assert manifest["branch"]

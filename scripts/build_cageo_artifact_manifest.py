@@ -40,7 +40,7 @@ FILES = [
     CAGEO / "REVIEW_VERSION_NOTES.md",
     CAGEO / "RIGHTS_LINKAGE_SIGNOFF.md",
     PAPER / "submission_bundle" / "Paper4_Upload_Manifest.json",
-    PAPER / "submission_bundle" / "Paper4_CAGEO_LaTeX_Source_v1.0.8.zip",
+    PAPER / "submission_bundle" / "Paper4_CAGEO_LaTeX_Source_v1.0.9.zip",
     PAPER / "submission_bundle" / "Paper4_Final_Manuscript.md",
     PAPER / "submission_bundle" / "Paper4_Final_Manuscript.pdf",
     PAPER / "submission_bundle" / "Paper4_Supplementary_Methods.md",
@@ -252,7 +252,7 @@ def main() -> None:
         or path.name.startswith("Paper4_Figure_")
         or path.name.startswith("Paper4_Graphical_Abstract")
         or path.name == "Paper4_Highlights.txt"
-        or path.name == "Paper4_CAGEO_LaTeX_Source_v1.0.8.zip"
+        or path.name == "Paper4_CAGEO_LaTeX_Source_v1.0.9.zip"
         or path.name.startswith("Paper4_Supplementary_")
         or path.name == "Paper4_Main_Tables.md"
     ]

@@ -96,17 +96,17 @@ kept as separate claim layers.
 ## Open P0/P1/P2 items
 
 - P0: none identified in the frozen scientific content or evidence mapping.
-- P1: complete the Editorial Manager upload/artwork preview and, if desired,
-  create a new Zenodo v1.0.8 software version. Do not relabel the published
-  v1.0.6 software DOI as an article DOI.
+- P1: complete the Editorial Manager upload/artwork preview and the author's
+  Zenodo upload/Publish action for the prepared v1.0.9 software archive.
 - P2: confirm the portal-computed word count (source estimate: 5,507 main-text
   words; 5,809 body words). The internal banner/footer and
   adviser-question page are absent from `manuscript_final.pdf`.
 
 ## Archive-level qualification
 
-The v1.0.8 correction release fixes final-PDF hash rendering, publication
-metadata, deterministic figure PDFs, and submission-material consistency. It
+The v1.0.9 alignment release carries the published software DOI through the
+final-PDF metadata, deterministic figure PDFs, and submission-material
+consistency. It
 does not turn the result-level workflow
 into an end-to-end replay of the historical Qwen runtime, and it does not
 claim byte-for-byte deterministic regeneration across operating systems.

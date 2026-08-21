@@ -198,7 +198,7 @@ def audit_upload_bundle(errors: list[str]) -> None:
             expected = expected_upload_bytes(source, destination, entry, errors)
             if destination.read_bytes() != expected:
                 errors.append(f"upload artifact differs from canonical source: {entry['file']}")
-        elif entry.get("file") == "Paper4_CAGEO_LaTeX_Source_v1.0.8.zip":
+        elif entry.get("file") == "Paper4_CAGEO_LaTeX_Source_v1.0.9.zip":
             audit_latex_source_archive(errors, destination, entry)
         else:
             errors.append(f"upload manifest entry has no canonical source: {entry['file']}")
@@ -659,7 +659,7 @@ def main() -> None:
         "external_review_required": [
             "final Computers & Geosciences portal upload and artwork preview",
             "obtain and record the publisher-assigned C&G article DOI",
-            "optionally create a new Zenodo v1.0.8 software version; do not relabel v1.0.6 DOI",
+            "complete the author-controlled Zenodo upload and Publish action for v1.0.9",
         ],
     }
     # The gate is committed and rebuilt on Ubuntu and Windows CI runners.

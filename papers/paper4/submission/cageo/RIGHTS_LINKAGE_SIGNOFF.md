@@ -8,7 +8,7 @@
 
 **Repository:** https://github.com/Entropic-Silence/GeoLogParser
 
-**Article/reproducibility tag:** `paper4-cageo-v1.0.8`
+**Article/reproducibility tag:** `paper4-cageo-v1.0.9`
 
 **Data companion tag:** `data-v002`
 
@@ -35,7 +35,7 @@ The sole author confirms the following for the two tagged public releases:
 6. This completed sign-off supersedes earlier provisional or pending ledger
    statuses for the exact files selected for the named releases; historical
    experiment-run metadata remains historical and is not rewritten.
-7. `paper4-cageo-v1.0.8` contains the complete manuscript, code, evidence,
+7. `paper4-cageo-v1.0.9` contains the complete manuscript, code, evidence,
    figures, audits, and result-reproduction workflow. `data-v002` is its data
    companion and is not described as the complete Paper 4 package.
 8. Model weights and private credentials are not included. The rights sign-off
@@ -46,8 +46,7 @@ This sign-off records the author's completed review of the repository contents,
 attribution, linkage, redistribution scope, and reproducibility scope for the
 named release scope. It is an item-scoped author attestation, not an
 independent legal opinion and not a blanket licence for unrelated sources. The
-published Zenodo software archive is `paper4-cageo-v1.0.6` at DOI
-`10.5281/zenodo.22030229`; that identifier is a software DOI, not a
+published Zenodo software archive is `paper4-cageo-v1.0.9` at DOI
+`10.5281/zenodo.22043933`; that identifier is a software DOI, not a
 journal-article DOI. The published `data-v002` companion is at DOI
-`10.5281/zenodo.22031703`. A future Zenodo v1.0.8 archive, if deposited, must
-be created as a new version; these records do not assign a C&G article DOI.
+`10.5281/zenodo.22031703`. These records do not assign a C&G article DOI.

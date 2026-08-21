@@ -68,7 +68,7 @@ FINAL_FILES = {
     "Paper4_Final_Manuscript.md": CAGEO / "manuscript_final.md",
     "Paper4_Final_Manuscript.pdf": CAGEO / "manuscript_final.pdf",
 }
-LATEX_SOURCE_ARCHIVE = "Paper4_CAGEO_LaTeX_Source_v1.0.8.zip"
+LATEX_SOURCE_ARCHIVE = "Paper4_CAGEO_LaTeX_Source_v1.0.9.zip"
 LATEX_SOURCE_FILES = {
     "manuscript.tex": CAGEO / "manuscript.tex",
     "references_cageo.bib": CAGEO / "references_cageo.bib",
@@ -306,7 +306,7 @@ scientific content, declarations, metrics, limitations, and references. The
 two bundled manuscript Markdown files link to the flat `Paper4_Figure_*.png`
 assets in this directory, so their figure previews resolve offline. The
 editable main-manuscript upload is
-`Paper4_CAGEO_LaTeX_Source_v1.0.8.zip`; it contains the final TeX, BibTeX,
+`Paper4_CAGEO_LaTeX_Source_v1.0.9.zip`; it contains the final TeX, BibTeX,
 C&G class/style files, four canonical vector figures, and an internal source
 manifest. The
 artwork files are the four main figures, the graphical abstract, and three
@@ -325,12 +325,13 @@ or include model weights or private credentials. The author-reviewed selected
 source files and structured datasets are published separately as `data-v002`.
 The complete result-reproduction workflow is documented in
 `Paper4_Reproduce.md` and the repository-level `publication_evidence/` bundle.
-The corrected Paper 4 release is `paper4-cageo-v1.0.8`. The published
-Zenodo software archive is `paper4-cageo-v1.0.6` at
-`https://doi.org/10.5281/zenodo.22030229`; that is a software DOI, not a
+The Paper 4 release is `paper4-cageo-v1.0.9`. The published
+Zenodo software archive is `paper4-cageo-v1.0.9` at
+`https://doi.org/10.5281/zenodo.22043933`; that is a software DOI, not a
 journal-article DOI. The published `data-v002` companion is at
 `https://doi.org/10.5281/zenodo.22031703` and is reused without changing its
-contents. A future Zenodo v1.0.8 archive must be created as a new version.
+contents. The author must complete the reserved Zenodo upload and Publish
+action for the v1.0.9 archive.
 """
     (OUT / "README.md").write_bytes(readme.replace("\r\n", "\n").encode("utf-8"))
     print(OUT)

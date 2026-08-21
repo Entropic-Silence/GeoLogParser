@@ -62,7 +62,7 @@ def test_paper4_cg_package_is_evidence_gated_and_complete():
         for number in range(1, 5):
             assert f"](Paper4_Figure_{number}.png)" in bundled_manuscript
 
-    latex_archive = paper / "submission_bundle/Paper4_CAGEO_LaTeX_Source_v1.0.8.zip"
+    latex_archive = paper / "submission_bundle/Paper4_CAGEO_LaTeX_Source_v1.0.9.zip"
     with zipfile.ZipFile(latex_archive) as archive:
         source_manifest = json.loads(archive.read("SOURCE_MANIFEST.json"))
         assert source_manifest["entrypoint"] == "manuscript.tex"

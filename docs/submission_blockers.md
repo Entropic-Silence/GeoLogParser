@@ -1,11 +1,11 @@
 # Shared pre-submission blockers and release gates
 
 This is the repository-wide gate for Papers 1--3 and for quarantined or
-out-of-scope source material. The exact Paper 4 `paper4-cageo-v1.0.8` package
+out-of-scope source material. The exact Paper 4 `paper4-cageo-v1.0.9` package
 and exact `data-v002` selection have an item-scoped author review and sign-off;
 that sign-off does not grant a blanket licence or constitute an independent
 legal opinion. The published Zenodo software DOI
-`10.5281/zenodo.22030229` identifies `paper4-cageo-v1.0.6`, not a journal
+`10.5281/zenodo.22043933` identifies `paper4-cageo-v1.0.9`, not a journal
 article. The published `data-v002` companion is
 `10.5281/zenodo.22031703`.
 
@@ -30,11 +30,11 @@ article. The published `data-v002` companion is
 
 ## Paper 4 external steps
 
-- Upload the corrected v1.0.8 package to the Computers & Geosciences portal and
+- Upload the v1.0.9 package to the Computers & Geosciences portal and
   complete its final format, artwork, and metadata checks.
-- If a Zenodo archive for v1.0.8 is desired, create a new version from the
-  published v1.0.6 software record. Do not relabel DOI `22030229` as v1.0.8 or
-  as an article DOI.
+- Upload the prepared v1.0.9 source archive to the reserved Zenodo record
+  `10.5281/zenodo.22043933` and complete the author-controlled Publish action.
+  This DOI is a software DOI, not an article DOI.
 - Obtain the journal article DOI from the publisher; neither current Zenodo DOI
   is an article DOI.
 

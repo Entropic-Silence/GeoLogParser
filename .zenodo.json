@@ -1,7 +1,7 @@
 {
   "upload_type": "software",
   "title": "GeoLogParser Paper 4 result-reproduction software",
-  "version": "paper4-cageo-v1.0.8",
+  "version": "paper4-cageo-v1.0.9",
   "publication_date": "2026-08-21",
   "creators": [
     {
@@ -9,7 +9,7 @@
       "orcid": "0009-0008-7740-5408"
     }
   ],
-  "description": "Versioned Paper 4 result-reproduction software package containing the manuscript, supplementary methods, vector artwork, structured result-level inputs, claim-evidence audits, submission checks, rights/linkage sign-off, and deterministic recomputation scripts. Version v1.0.8 corrects final-PDF rendering and publication metadata without changing scientific claims or frozen results. MIT applies to original source code only; the manuscript, author-created artwork, and third-party or source-derived files remain subject to their applicable terms. The separately released data-v002 companion has mixed source-specific terms and is not covered by a blanket licence.",
+  "description": "Versioned Paper 4 result-reproduction software package containing the manuscript, supplementary methods, vector artwork, structured result-level inputs, claim-evidence audits, submission checks, rights/linkage sign-off, and deterministic recomputation scripts. Version v1.0.9 aligns the published software DOI, GitHub tag, manuscript citation, and upload artifacts without changing scientific claims or frozen results. MIT applies to original source code only; the manuscript, author-created artwork, and third-party or source-derived files remain subject to their applicable terms. The separately released data-v002 companion has mixed source-specific terms and is not covered by a blanket licence.",
   "keywords": [
     "borehole logs",
     "vision-language models",

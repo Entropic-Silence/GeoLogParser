@@ -1,22 +1,22 @@
 cff-version: 1.2.0
-message: "Cite this software release and the data companion separately. The Zenodo identifier 10.5281/zenodo.22030229 is a software DOI, not a journal-article DOI."
+message: "Cite this software release and the data companion separately. The published Zenodo identifier 10.5281/zenodo.22043933 is a software DOI, not a journal-article DOI."
 title: "GeoLogParser Paper 4 result-reproduction software"
 type: software
 authors:
   - family-names: Du
     given-names: Yifan
     orcid: "https://orcid.org/0009-0008-7740-5408"
-version: paper4-cageo-v1.0.8
+version: paper4-cageo-v1.0.9
 date-released: 2026-08-21
 license: MIT
 repository-code: "https://github.com/Entropic-Silence/GeoLogParser"
-url: "https://github.com/Entropic-Silence/GeoLogParser/releases/tag/paper4-cageo-v1.0.8"
+url: "https://github.com/Entropic-Silence/GeoLogParser/releases/tag/paper4-cageo-v1.0.9"
 abstract: >-
   Result-reproduction software for provenance-grounded selective assurance in
   borehole database ingestion. The published Zenodo software archive at
-  10.5281/zenodo.22030229 contains version paper4-cageo-v1.0.6; the corrected
-  v1.0.8 GitHub release supersedes its submission artifacts without changing
-  frozen scientific results. MIT applies to source code only. The manuscript,
+  10.5281/zenodo.22043933 contains version paper4-cageo-v1.0.9 and is aligned
+  with the v1.0.9 GitHub release without changing frozen scientific results.
+  MIT applies to source code only. The manuscript,
   author-created artwork, and third-party or source-derived materials remain
   subject to their applicable terms. The separately published data-v002
   companion is 10.5281/zenodo.22031703 and remains subject to source-specific

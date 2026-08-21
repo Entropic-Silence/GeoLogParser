@@ -22,7 +22,7 @@ fallback analyses.
   existence and evidence-tier audit.
 - `submission_gate.json`: C&G-facing package gate; author metadata,
   declarations, and rights/linkage sign-off are fixed, while final portal
-  checks and any new Zenodo version for v1.0.8 remain external.
+  checks and the author-controlled Zenodo Publish action remain external.
 - `cover_letter_points.md`: C&G-oriented submission framing and disclosure
   checklist.
 - `data_code_availability.md`: upload-facing data/code availability statement.
@@ -60,11 +60,11 @@ python scripts/build_paper4_upload_bundle.py
 ```
 
 The resulting `submission_bundle/Paper4_Upload_Manifest.json` is the canonical
-file list and checksum record. The corrected Paper 4 package is identified by
-the `paper4-cageo-v1.0.8` tag/release. The published Zenodo software
-archive at `https://doi.org/10.5281/zenodo.22030229` is version
-`paper4-cageo-v1.0.6`; it is a software DOI, not a journal-article DOI. Its
-unchanged portable source/data companion is the published `data-v002` archive;
+file list and checksum record. The Paper 4 package is identified by
+the `paper4-cageo-v1.0.9` tag/release. The published Zenodo software
+archive at `https://doi.org/10.5281/zenodo.22043933` is version
+`paper4-cageo-v1.0.9`; it is a software DOI, not a journal-article DOI. Its
+portable source/data companion is the published `data-v002` archive;
 that archive was originally paired with an earlier Paper 4 package and is
 reused unchanged here
 at `https://doi.org/10.5281/zenodo.22031703`. The data archive has mixed

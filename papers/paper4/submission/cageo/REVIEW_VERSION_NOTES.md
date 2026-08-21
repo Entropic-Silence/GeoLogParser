@@ -25,7 +25,7 @@ toolchain; `PANDOC` and `TECTONIC` may override those paths.
 ## Final QA
 
 - `manuscript_review_v2.pdf`: 21 pages; the current `manuscript_final.pdf` is
-  22 pages after the v1.0.8 rebuild. Page count is recorded from the emitted
+  22 pages after the v1.0.9 rebuild. Page count is recorded from the emitted
   PDF rather than copied from an earlier review note.
 - Both PDFs render with no clipped figures, missing glyph blocks, undefined
   citations/references, duplicate PDF destinations, or table overfull boxes.
@@ -79,9 +79,9 @@ test extracts the complete 64-character value.
 
 ## External author actions
 
-The published data DOI and historical software DOI are recorded with their
-actual resource types. The C&G article DOI is assigned by the publisher; an
-optional Zenodo v1.0.8 software record must be created as a new version.
+The published data DOI and v1.0.9 software DOI are recorded with their actual
+resource types. The C&G article DOI is assigned by the publisher; the author
+must complete the reserved Zenodo v1.0.9 upload and Publish action.
 Rights/linkage review is complete and recorded in `RIGHTS_LINKAGE_SIGNOFF.md`.
 Editorial Manager still requires its own upload, declarations-tool, word-count,
 and artwork-preview steps.

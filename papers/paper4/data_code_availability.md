@@ -1,6 +1,6 @@
 # Data and code availability
 
-The `paper4-cageo-v1.0.8` repository release contains the final article,
+The `paper4-cageo-v1.0.9` repository release contains the final article,
 supplementary methods, figure captions, source-manifest hashes, structured or
 reanalysis assets, transformed public-analysis inputs, aggregate metrics,
 model/runtime configuration records, and deterministic scripts for rebuilding
@@ -8,7 +8,7 @@ the figures, tables, audits, and public downstream recomputations.
 
 The separate published `data-v002` release is the portable data companion. It is
 unchanged from the companion archive first paired with the earlier Paper 4
-package and is reused by v1.0.8 without changing its contents. It contains
+package and is reused by v1.0.9 without changing its contents. It contains
 the author-reviewed selected source files and structured datasets used by the
 principal experiments, with repository-relative paths, source-specific rights
 records, and per-file SHA-256 hashes. It is not the complete Paper 4 package.
@@ -16,7 +16,7 @@ Model weights and private service credentials are not redistributed. The
 transformed public inputs may remain linkable; the releases make no claim of
 anonymity or non-reidentifiability.
 
-Yifan Du, sole and corresponding author, confirms that the `paper4-cageo-v1.0.8`
+Yifan Du, sole and corresponding author, confirms that the `paper4-cageo-v1.0.9`
 package and the exact `data-v002` selection were reviewed and screened for
 public dissemination. The `data-v002` review
 covered source terms, selected item scope, privacy, sensitive locations,
@@ -25,8 +25,8 @@ content review supersedes earlier provisional ledger statuses for the exact
 named release scope; historical experiment-run metadata remains historical.
 This is an item-scoped author attestation, not an independent legal opinion or
 a blanket licence. Source-specific obligations remain in the release ledger.
-The published Zenodo software archive is `paper4-cageo-v1.0.6`, DOI
-https://doi.org/10.5281/zenodo.22030229; this is a software DOI, not a journal-
+The published Zenodo software archive is `paper4-cageo-v1.0.9`, DOI
+https://doi.org/10.5281/zenodo.22043933; this is a software DOI, not a journal-
 article DOI. The published data companion is DOI
 https://doi.org/10.5281/zenodo.22031703.
 

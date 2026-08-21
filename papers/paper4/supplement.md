@@ -342,9 +342,9 @@ and screened the GitHub release materials for public dissemination, confirmed
 the source attribution and linkage records, and confirms that the released
 materials are sufficient to reproduce the reported result-level analyses. The
 released transformed inputs may remain linkable and are not claimed to be
-anonymous. The published software archive is version `paper4-cageo-v1.0.6`,
-https://doi.org/10.5281/zenodo.22030229; the corrected GitHub release is
-`paper4-cageo-v1.0.8`. The separate published data companion is `data-v002`,
+anonymous. The published software archive is version `paper4-cageo-v1.0.9`,
+https://doi.org/10.5281/zenodo.22043933; the published GitHub release is
+`paper4-cageo-v1.0.9`. The separate published data companion is `data-v002`,
 https://doi.org/10.5281/zenodo.22031703. The first identifier is a software DOI,
 not a journal-article DOI. The data record has mixed source-specific rights and
 no blanket licence.

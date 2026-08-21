@@ -65,9 +65,9 @@ Duplicate freezes, failed branches, model weights, and quarantine-only sources
 remain outside the release. The release manifest and source ledger preserve
 the evidence tier, attribution, and final-author rights-review status for every
 file. The corrected Paper 4 package is identified by the
-`paper4-cageo-v1.0.8` tag/release. Zenodo DOI
-`10.5281/zenodo.22030229` is a published software archive for
-`paper4-cageo-v1.0.6`, not a journal-article DOI; the published `data-v002`
+`paper4-cageo-v1.0.9` tag/release. The published Zenodo software DOI
+`10.5281/zenodo.22043933` identifies the `paper4-cageo-v1.0.9` archive and
+is not a journal-article DOI; the published `data-v002`
 companion is `10.5281/zenodo.22031703`. A C&G article DOI is not assigned by
 either archive record. The repository-wide manifest remains
 `all_submission_ready=false` while the other papers and final portal steps are
