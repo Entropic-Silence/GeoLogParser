@@ -1,0 +1,26 @@
+{
+  "experiment_id": "P1_B1_BGS_AUDIT_001",
+  "git_commit": "cc346c6d50613f3baa573fcec5b18ac8f45a9826",
+  "date": "2026-08-12",
+  "dataset_version": "bgs_opengeoscience_v001_fixed_ids_4_5_6_10",
+  "split_version": "audit_all_no_training",
+  "model": "B1_tesseract_ocr_regex",
+  "model_revision": "tesseract 4.1.1",
+  "prompt_version": "not_applicable",
+  "seed": null,
+  "hardware": {
+    "device": "cpu",
+    "processor": "x86_64",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "3.10.12",
+    "tesseract": "tesseract 4.1.1"
+  },
+  "config": {
+    "ocr_language": "eng",
+    "psm": 6,
+    "render_dpi": 300,
+    "constraint_tolerance_m": "0.05"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "scope": "public auto-proposal B3 engineering audit; no Ground Truth accuracy claim",
+  "items": 15,
+  "items_with_any_interval": 5,
+  "emitted_intervals": 46,
+  "constraint_evaluations": 367,
+  "constraint_violations": 3,
+  "latency_total_seconds": 0.5912485369917704,
+  "latency_mean_seconds_per_page": 0.03941656913278469,
+  "accuracy_metrics": null,
+  "accuracy_metrics_reason": "all source proposals remain auto; no human-validated Ground Truth"
+}

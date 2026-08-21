@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def fixtures():
-    reference = json.loads((ROOT / "examples/boreholes/synthetic_valid.json").read_text())
+    reference = json.loads((ROOT / "examples/boreholes/synthetic_valid.json").read_text(encoding="utf-8"))
     annotation = create_annotation("PANEL", {"panel_id": "PANEL"}, reference, "H1", "single_verified")
     prediction = copy.deepcopy(reference)
     prediction["document"]["document_id"] = "PANEL"

@@ -1,0 +1,286 @@
+{
+  "accepted_correction_actions": 188,
+  "accepted_correction_document_count": 23,
+  "accepted_correction_taxonomy": {
+    "constrained_correct_added": 140,
+    "constrained_incorrect_added": 25,
+    "raw_correct_kept": 136,
+    "raw_correct_removed": 12,
+    "raw_incorrect_removed": 11
+  },
+  "changed_document_count": 57,
+  "comparison": "raw_vs_unselective_constraint_vs_selective_constraint",
+  "correction_coverage": {
+    "denominator": 57,
+    "numerator": 23,
+    "value": 0.40350877192982454
+  },
+  "document_count": 100,
+  "document_outcomes": {
+    "improved": 19,
+    "unchanged": 80,
+    "worsened": 1
+  },
+  "harmful_accepted_correction_actions": 37,
+  "peak_process_rss_kib": 340108,
+  "policy_id": "california_selective_net_expansion_v001",
+  "prediction_reference_conditioning": "none",
+  "raw_interval_metrics": {
+    "interval_f1": {
+      "denominator": 1.0,
+      "details": {
+        "matched_count": 449,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 559,
+        "reference_count": 1788,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 110,
+        "unmatched_reference_count": 1339
+      },
+      "name": "interval_f1",
+      "numerator": 0.38261610566680876,
+      "unit": "ratio",
+      "value": 0.38261610566680876
+    },
+    "interval_precision": {
+      "denominator": 559,
+      "details": {
+        "matched_count": 449,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 559,
+        "reference_count": 1788,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 110,
+        "unmatched_reference_count": 1339
+      },
+      "name": "interval_precision",
+      "numerator": 449,
+      "unit": "ratio",
+      "value": 0.8032200357781754
+    },
+    "interval_recall": {
+      "denominator": 1788,
+      "details": {
+        "matched_count": 449,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 559,
+        "reference_count": 1788,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 110,
+        "unmatched_reference_count": 1339
+      },
+      "name": "interval_recall",
+      "numerator": 449,
+      "unit": "ratio",
+      "value": 0.2511185682326622
+    },
+    "matched_bottom_boundary_mae_m": {
+      "denominator": 449,
+      "details": {
+        "matched_count": 449,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 559,
+        "reference_count": 1788,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 110,
+        "unmatched_reference_count": 1339
+      },
+      "name": "matched_bottom_boundary_mae_m",
+      "numerator": 0.0,
+      "unit": "m",
+      "value": 0.0
+    },
+    "matched_top_boundary_mae_m": {
+      "denominator": 449,
+      "details": {
+        "matched_count": 449,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 559,
+        "reference_count": 1788,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 110,
+        "unmatched_reference_count": 1339
+      },
+      "name": "matched_top_boundary_mae_m",
+      "numerator": 0.0,
+      "unit": "m",
+      "value": 0.0
+    }
+  },
+  "reference_blinded_decision_policy": true,
+  "reference_ground_truth_tier": "GOLD_PUBLISHED_MANUAL_TRANSCRIPTION",
+  "reference_interval_count": 1788,
+  "retained_or_unchanged_document_count": 77,
+  "scope": "human-GT benchmark evaluation",
+  "selective_false_correction_rate": {
+    "definition": "harmful boundary actions / all accepted changed-boundary actions",
+    "denominator": 188,
+    "numerator": 37,
+    "value": 0.19680851063829788
+  },
+  "selective_interval_metrics": {
+    "interval_f1": {
+      "denominator": 1.0,
+      "details": {
+        "matched_count": 577,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 701,
+        "reference_count": 1788,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 124,
+        "unmatched_reference_count": 1211
+      },
+      "name": "interval_f1",
+      "numerator": 0.46364001607071115,
+      "unit": "ratio",
+      "value": 0.46364001607071115
+    },
+    "interval_precision": {
+      "denominator": 701,
+      "details": {
+        "matched_count": 577,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 701,
+        "reference_count": 1788,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 124,
+        "unmatched_reference_count": 1211
+      },
+      "name": "interval_precision",
+      "numerator": 577,
+      "unit": "ratio",
+      "value": 0.8231098430813124
+    },
+    "interval_recall": {
+      "denominator": 1788,
+      "details": {
+        "matched_count": 577,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 701,
+        "reference_count": 1788,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 124,
+        "unmatched_reference_count": 1211
+      },
+      "name": "interval_recall",
+      "numerator": 577,
+      "unit": "ratio",
+      "value": 0.3227069351230425
+    },
+    "matched_bottom_boundary_mae_m": {
+      "denominator": 577,
+      "details": {
+        "matched_count": 577,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 701,
+        "reference_count": 1788,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 124,
+        "unmatched_reference_count": 1211
+      },
+      "name": "matched_bottom_boundary_mae_m",
+      "numerator": 0.0,
+      "unit": "m",
+      "value": 0.0
+    },
+    "matched_top_boundary_mae_m": {
+      "denominator": 577,
+      "details": {
+        "matched_count": 577,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 701,
+        "reference_count": 1788,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 124,
+        "unmatched_reference_count": 1211
+      },
+      "name": "matched_top_boundary_mae_m",
+      "numerator": 0.0,
+      "unit": "m",
+      "value": 0.0
+    }
+  },
+  "unselective_constraint_interval_metrics": {
+    "interval_f1": {
+      "denominator": 1.0,
+      "details": {
+        "matched_count": 569,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 634,
+        "reference_count": 1788,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 65,
+        "unmatched_reference_count": 1219
+      },
+      "name": "interval_f1",
+      "numerator": 0.4698596201486375,
+      "unit": "ratio",
+      "value": 0.4698596201486375
+    },
+    "interval_precision": {
+      "denominator": 634,
+      "details": {
+        "matched_count": 569,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 634,
+        "reference_count": 1788,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 65,
+        "unmatched_reference_count": 1219
+      },
+      "name": "interval_precision",
+      "numerator": 569,
+      "unit": "ratio",
+      "value": 0.8974763406940063
+    },
+    "interval_recall": {
+      "denominator": 1788,
+      "details": {
+        "matched_count": 569,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 634,
+        "reference_count": 1788,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 65,
+        "unmatched_reference_count": 1219
+      },
+      "name": "interval_recall",
+      "numerator": 569,
+      "unit": "ratio",
+      "value": 0.3182326621923937
+    },
+    "matched_bottom_boundary_mae_m": {
+      "denominator": 569,
+      "details": {
+        "matched_count": 569,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 634,
+        "reference_count": 1788,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 65,
+        "unmatched_reference_count": 1219
+      },
+      "name": "matched_bottom_boundary_mae_m",
+      "numerator": 0.0,
+      "unit": "m",
+      "value": 0.0
+    },
+    "matched_top_boundary_mae_m": {
+      "denominator": 569,
+      "details": {
+        "matched_count": 569,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 634,
+        "reference_count": 1788,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 65,
+        "unmatched_reference_count": 1219
+      },
+      "name": "matched_top_boundary_mae_m",
+      "numerator": 0.0,
+      "unit": "m",
+      "value": 0.0
+    }
+  },
+  "wall_time_seconds": 0.16513407201273367
+}

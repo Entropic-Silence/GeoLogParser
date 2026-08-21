@@ -1,0 +1,123 @@
+{
+  "protocol": "paper2_closed_vlm_codex_internal_visual_baseline_v001",
+  "status": "COMPLETED_PILOT_FORMAL_BASELINE",
+  "evidence_tier": "GOLD_PUBLISHED_MANUAL_TRANSCRIPTION",
+  "scope": "one pre-registered geology-bearing page per California cohort; not a cohort-level estimate",
+  "sampling_rule": "first page in the frozen page manifest that visibly contains a populated lithology/depth log; reference intervals were not inspected before visual reading",
+  "model": {
+    "official_name": "OpenAI GPT-5.6-Sol",
+    "model_id": "gpt-5.6-sol",
+    "interface": "Codex internal visual component",
+    "reasoning_effort": "xhigh",
+    "checkpoint_or_api_snapshot": "HOST_MANAGED_NOT_EXPOSED",
+    "revision_hash": "HOST_MANAGED_NOT_EXPOSED",
+    "weight_precision": "HOST_MANAGED_NOT_EXPOSED",
+    "inference_framework": "Codex host visual runtime; version not exposed",
+    "closed_source": true,
+    "reproducible_outside_host": false
+  },
+  "prompt": {
+    "version": "codex_visual_interval_source_units_v001",
+    "sha256": "26d15300ef3e40e5deec990cbe2ed42456d0de076219512efce5795e704b5b56",
+    "path": "prompts/codex_visual_interval_source_units_v001.md"
+  },
+  "image_preprocessing": {
+    "render_dpi": 200,
+    "renderer": "PyMuPDF page raster supplied by frozen California VLM manifests",
+    "format": "PNG",
+    "crop": "none",
+    "rotation": "none",
+    "enhancement": "none"
+  },
+  "decoding": {
+    "temperature": "HOST_DEFAULT_NOT_EXPOSED",
+    "top_p": "HOST_DEFAULT_NOT_EXPOSED",
+    "max_tokens": "HOST_DEFAULT_NOT_EXPOSED",
+    "retries": 0,
+    "parsing": "strict JSON object normalized to source-unit intervals; no repair, completion, reordering, deduplication, or Gold-conditioned correction"
+  },
+  "testing_date_utc": "2026-08-18",
+  "pages": [
+    {
+      "cohort": "California v001",
+      "record_id": "WCR1998-000859",
+      "page_index": 2,
+      "image_path": "/data/GeoLogParser/datasets/public/california_wcr_vlm_v001/images/WCR1998-000859_p002.png",
+      "image_sha256": "46d7f33121cc1959a97374ff3a5fd5f1711cd5af2e6fa06478d5db1455c71979",
+      "reference_interval_count": 22,
+      "prediction_interval_count": 22,
+      "matched": 22,
+      "top_boundary_mae_m": 0.0,
+      "bottom_boundary_mae_m": 0.0,
+      "exact_boundary_sequence": true
+    },
+    {
+      "cohort": "California v002",
+      "record_id": "WCR0293438",
+      "page_index": 1,
+      "image_path": "/data/GeoLogParser/datasets/public/california_wcr_vlm_v002/images/WCR0293438_p001.png",
+      "image_sha256": "6b5d7bed6fe713032fd22b7b8e3b14df3f275bc8956ef90eb9b6fa60f68976a81",
+      "reference_interval_count": 13,
+      "prediction_interval_count": 13,
+      "matched": 13,
+      "top_boundary_mae_m": 0.0,
+      "bottom_boundary_mae_m": 0.0,
+      "exact_boundary_sequence": true
+    },
+    {
+      "cohort": "California v003",
+      "record_id": "WCR1997-007371",
+      "page_index": 1,
+      "image_path": "/data/GeoLogParser/datasets/public/california_wcr_vlm_v003/images/WCR1997-007371_p001.png",
+      "image_sha256": "fd32383a9fd18e42eb32c8fddf3f322bde67fedadbbf2bddd0838d2be09884df",
+      "reference_interval_count": 31,
+      "prediction_interval_count": 31,
+      "matched": 31,
+      "top_boundary_mae_m": 0.0,
+      "bottom_boundary_mae_m": 0.0,
+      "exact_boundary_sequence": true
+    },
+    {
+      "cohort": "California v004",
+      "record_id": "WCR1990-012974",
+      "page_index": 1,
+      "image_path": "/data/GeoLogParser/datasets/public/california_wcr_vlm_v004/images/WCR1990-012974_p001.png",
+      "image_sha256": "c5eb0781e14f47fad94113d2ea2f09569843e20144784a79176de11838534a19",
+      "reference_interval_count": 12,
+      "prediction_interval_count": 12,
+      "matched": 12,
+      "top_boundary_mae_m": 0.0,
+      "bottom_boundary_mae_m": 0.0,
+      "exact_boundary_sequence": true
+    },
+    {
+      "cohort": "California v005",
+      "record_id": "WCR1776-000528",
+      "page_index": 1,
+      "image_path": "/data/GeoLogParser/datasets/public/california_wcr_vlm_v005/images/WCR1776-000528_p001.png",
+      "image_sha256": "33180e9979ddb24a7491f9ab5ce9e1611ff6e4eaeb2cb2df6645bd79e5a1da59",
+      "reference_interval_count": 13,
+      "prediction_interval_count": 13,
+      "matched": 13,
+      "top_boundary_mae_m": 0.0,
+      "bottom_boundary_mae_m": 0.0,
+      "exact_boundary_sequence": true
+    }
+  ],
+  "aggregate": {
+    "documents": 5,
+    "pages": 5,
+    "reference_intervals": 91,
+    "predicted_intervals": 91,
+    "matched_intervals": 91,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "matched_boundary_mae_m": 0.0,
+    "boundary_exact_documents": 5,
+    "boundary_exact_rate": 1.0,
+    "critical_numerical_error_rate": 0.0,
+    "zero_output_rate": 0.0
+  },
+  "interpretation": "This is a closed, host-managed visual baseline pilot on five pages, not a full California-cohort benchmark. It demonstrates that the internal visual reader can recover visible depth/lithology sequences on these pages, but the unavailable checkpoint, runtime, response trace, and small fixed sample preclude a general performance or reproducibility claim."
+}

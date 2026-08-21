@@ -1,0 +1,18 @@
+{
+  "scope": "public auto-proposal ROI engineering audit; no Ground Truth accuracy claim",
+  "case_count": 2,
+  "completed_case_count": 2,
+  "failed_case_count": 0,
+  "vlm_schema_valid_count": 2,
+  "vlm_uncertain_count": 0,
+  "cross_reader_numeric_agreement_case_count": 2,
+  "accept_proposal_count": 0,
+  "needs_review_count": 2,
+  "vlm_latency_total_seconds": 7.019862009999997,
+  "vlm_latency_mean_seconds_per_roi": 3.5099310049999985,
+  "peak_gpu_memory_bytes": 9032973312,
+  "accuracy_metrics": null,
+  "accuracy_metrics_reason": "all source annotations remain auto; no human Ground Truth",
+  "false_correction_rate": null,
+  "false_correction_rate_reason": "requires human Ground Truth"
+}

@@ -13,7 +13,7 @@ from datetime import date, datetime, timezone
 import json
 import platform
 import re
-import resource
+from geologparser.runtime_resources import peak_process_rss_kib
 import shutil
 import subprocess
 import tempfile
@@ -184,7 +184,7 @@ def main() -> None:
         "selection_limitation": "single official PDF with explicit generalized-lithology legend; not a representative sample",
         "wall_time_seconds": time.perf_counter() - wall_started,
         "latency_seconds_per_document_wall": time.perf_counter() - wall_started,
-        "peak_process_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+        "peak_process_rss_kib": peak_process_rss_kib(),
     }
     prediction_row = {
         "record_id": row["record_id"], "pdf_path": row["pdf_path"], "pdf_sha256": row["pdf_sha256"],

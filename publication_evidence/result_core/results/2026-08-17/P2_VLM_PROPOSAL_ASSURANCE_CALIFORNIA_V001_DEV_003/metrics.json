@@ -1,0 +1,271 @@
+{
+  "accepted_document_action_coverage": {
+    "denominator": 50,
+    "numerator": 33,
+    "value": 0.66
+  },
+  "accepted_document_count": 33,
+  "accepted_document_error_rate": {
+    "denominator": 33,
+    "numerator": 0,
+    "value": 0.0
+  },
+  "accepted_error_document_count": 0,
+  "accepted_incorrect_interval_count": 0,
+  "accepted_interval_metrics": {
+    "interval_f1": {
+      "denominator": 1.0,
+      "details": {
+        "matched_count": 174,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 174,
+        "reference_count": 697,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 0,
+        "unmatched_reference_count": 523
+      },
+      "name": "interval_f1",
+      "numerator": 0.399540757749713,
+      "unit": "ratio",
+      "value": 0.399540757749713
+    },
+    "interval_precision": {
+      "denominator": 174,
+      "details": {
+        "matched_count": 174,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 174,
+        "reference_count": 697,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 0,
+        "unmatched_reference_count": 523
+      },
+      "name": "interval_precision",
+      "numerator": 174,
+      "unit": "ratio",
+      "value": 1.0
+    },
+    "interval_recall": {
+      "denominator": 697,
+      "details": {
+        "matched_count": 174,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 174,
+        "reference_count": 697,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 0,
+        "unmatched_reference_count": 523
+      },
+      "name": "interval_recall",
+      "numerator": 174,
+      "unit": "ratio",
+      "value": 0.24964131994261118
+    },
+    "matched_bottom_boundary_mae_m": {
+      "denominator": 174,
+      "details": {
+        "matched_count": 174,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 174,
+        "reference_count": 697,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 0,
+        "unmatched_reference_count": 523
+      },
+      "name": "matched_bottom_boundary_mae_m",
+      "numerator": 0.0,
+      "unit": "m",
+      "value": 0.0
+    },
+    "matched_top_boundary_mae_m": {
+      "denominator": 174,
+      "details": {
+        "matched_count": 174,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 174,
+        "reference_count": 697,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 0,
+        "unmatched_reference_count": 523
+      },
+      "name": "matched_top_boundary_mae_m",
+      "numerator": 0.0,
+      "unit": "m",
+      "value": 0.0
+    }
+  },
+  "accepted_interval_precision": {
+    "denominator": 174,
+    "numerator": 174,
+    "value": 1.0
+  },
+  "accepted_invalid_numeric_range_count": 0,
+  "accepted_invalid_numeric_rate": {
+    "denominator": 174,
+    "numerator": 0,
+    "value": 0.0
+  },
+  "accepted_proposal_coverage": {
+    "denominator": 736,
+    "numerator": 174,
+    "value": 0.23641304347826086
+  },
+  "bottom_numeric_anchor_coverage": {
+    "denominator": 736,
+    "numerator": 600,
+    "value": 0.8152173913043478
+  },
+  "complete_document_auto_acceptance": {
+    "denominator": 50,
+    "numerator": 2,
+    "value": 0.04
+  },
+  "complete_interval_numeric_anchor_coverage": {
+    "denominator": 736,
+    "numerator": 538,
+    "value": 0.7309782608695652
+  },
+  "component_latency_seconds": {
+    "assurance_postprocess": 0.5773764119949192,
+    "direct_vlm_total": 769.1483890099626,
+    "positioned_reader_total": 468.69660172899603
+  },
+  "correct_complete_document_auto_acceptance": {
+    "denominator": 2,
+    "numerator": 2,
+    "value": 1.0
+  },
+  "document_count": 50,
+  "evidence_definitions": {
+    "numeric_anchor": "the exact source-unit value occurs in a positioned OCR bbox on the same rendered page; it is a visual anchor candidate, not semantic ownership",
+    "semantically_owned_acceptance": "a complete interval agrees with an independently parsed positioned candidate whose source regions are retained"
+  },
+  "false_acceptance_rate": {
+    "denominator": 174,
+    "numerator": 0,
+    "value": 0.0
+  },
+  "finished_utc": "2026-08-17T15:17:37.114814+00:00",
+  "go_gate": {
+    "accepted_coverage_pass": true,
+    "accepted_invalid_numeric_rate_pass": true,
+    "accepted_precision_pass": true,
+    "overall_pass": true,
+    "same_page_numeric_anchor_coverage_pass": true,
+    "serialized_trace_pass": true
+  },
+  "limitations": [
+    "Agreement is between one direct VLM and one positioned OCR/parser; shared source ambiguity can still produce correlated errors.",
+    "Interval acceptance does not establish document completeness; partial documents remain in the review queue.",
+    "Gold is used only after the fixed decisions to estimate error, never to form an acceptance decision.",
+    "A same-page numeric anchor can be ambiguous; only complete positioned-candidate agreement is treated as semantic ownership for automatic acceptance."
+  ],
+  "one_sided_95_zero_error_upper_bound": {
+    "per_accepted_interval": 0.017069489069354238,
+    "per_document_with_accepted_action": 0.08678118929147494
+  },
+  "peak_process_rss_kib": 29652,
+  "prediction_reference_conditioning": "none",
+  "proposal_count": 736,
+  "raw_critical_numeric_invalidity_rate": 0.009421265141318977,
+  "raw_interval_metrics": {
+    "interval_f1": {
+      "denominator": 1.0,
+      "details": {
+        "matched_count": 668,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 736,
+        "reference_count": 697,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 68,
+        "unmatched_reference_count": 29
+      },
+      "name": "interval_f1",
+      "numerator": 0.9323098394975576,
+      "unit": "ratio",
+      "value": 0.9323098394975576
+    },
+    "interval_precision": {
+      "denominator": 736,
+      "details": {
+        "matched_count": 668,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 736,
+        "reference_count": 697,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 68,
+        "unmatched_reference_count": 29
+      },
+      "name": "interval_precision",
+      "numerator": 668,
+      "unit": "ratio",
+      "value": 0.907608695652174
+    },
+    "interval_recall": {
+      "denominator": 697,
+      "details": {
+        "matched_count": 668,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 736,
+        "reference_count": 697,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 68,
+        "unmatched_reference_count": 29
+      },
+      "name": "interval_recall",
+      "numerator": 668,
+      "unit": "ratio",
+      "value": 0.9583931133428981
+    },
+    "matched_bottom_boundary_mae_m": {
+      "denominator": 668,
+      "details": {
+        "matched_count": 668,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 736,
+        "reference_count": 697,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 68,
+        "unmatched_reference_count": 29
+      },
+      "name": "matched_bottom_boundary_mae_m",
+      "numerator": 0.0,
+      "unit": "m",
+      "value": 0.0
+    },
+    "matched_top_boundary_mae_m": {
+      "denominator": 668,
+      "details": {
+        "matched_count": 668,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 736,
+        "reference_count": 697,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 68,
+        "unmatched_reference_count": 29
+      },
+      "name": "matched_top_boundary_mae_m",
+      "numerator": 0.0,
+      "unit": "m",
+      "value": 0.0
+    }
+  },
+  "reference_ground_truth_tier": "GOLD_PUBLISHED_MANUAL_TRANSCRIPTION",
+  "same_page_numeric_anchor_coverage": {
+    "denominator": 1472,
+    "numerator": 1203,
+    "value": 0.8172554347826086
+  },
+  "scope": "development evidence-grounded assurance over frozen direct-VLM proposals",
+  "semantically_owned_accepted_field_coverage": {
+    "denominator": 1472,
+    "numerator": 348,
+    "value": 0.23641304347826086
+  },
+  "silent_repair": false,
+  "top_numeric_anchor_coverage": {
+    "denominator": 736,
+    "numerator": 603,
+    "value": 0.8192934782608695
+  }
+}

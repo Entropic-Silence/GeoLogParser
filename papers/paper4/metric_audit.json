@@ -1,0 +1,19 @@
+{
+  "checks": {
+    "assurance_v003": true,
+    "assurance_v003_anchor_units": true,
+    "complete_document_auto_acceptance_v003": true,
+    "qwen_boundary_exact_range": true,
+    "qwen_california_f1_range": true,
+    "qwen_swissgeol_f1": true,
+    "risk_actions": true,
+    "risk_documents": true,
+    "spatial_full_support": true,
+    "spatial_hull_ratio": true,
+    "spatial_loo_reference": true,
+    "spatial_matched_raw": true,
+    "spatial_matched_subset": true
+  },
+  "failed": [],
+  "passed": true
+}

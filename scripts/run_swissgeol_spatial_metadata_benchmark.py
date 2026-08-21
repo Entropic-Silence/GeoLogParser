@@ -7,7 +7,7 @@ import argparse
 import json
 import math
 import platform
-import resource
+from geologparser.runtime_resources import peak_process_rss_kib
 import subprocess
 import time
 from collections import Counter
@@ -214,7 +214,7 @@ def main() -> None:
         "rights_review": "PENDING_MANUAL_PRE_SUBMISSION_REVIEW",
         "wall_time_seconds": elapsed,
         "latency_seconds_per_document": elapsed / document_count,
-        "peak_process_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+        "peak_process_rss_kib": peak_process_rss_kib(),
     }
     (run / "metrics.json").write_text(
         json.dumps(metrics, ensure_ascii=False, indent=2, sort_keys=True) + "\n",

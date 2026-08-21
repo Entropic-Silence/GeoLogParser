@@ -1,0 +1,34 @@
+{
+  "experiment_id": "P3_SWISSGEOL_PAGE_SPATIAL_SURFACE_001",
+  "git_commit": "f9a85831f8d5edf1764be3f9f6bcc17b4d2e5822",
+  "date": "2026-08-14",
+  "dataset_version": "swissgeol_thurgau_v003_page_coordinate_surface",
+  "split_version": "v003_heldout_frozen_boundary_and_spatial_parsers",
+  "model": "direct_text_coordinate_plus_frozen_image_boundary_plus_idw",
+  "model_revision": "swissgeol_spatial_v002_and_frozen_p2_v2",
+  "prompt_version": "not_applicable",
+  "seed": 0,
+  "hardware": {
+    "device": "cpu",
+    "processor": "x86_64",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "3.10.12"
+  },
+  "config": {
+    "ground_truth_sha256": "afb921fb606bd2e5f6213438edab775c41285cec78747e44319dadad6d355dc7",
+    "boundary_prediction_sha256": "1fb1e909fb613cfd9211c983e96cc38a69c038e2524085758220840bb9c5eb63",
+    "boundary_prediction_run": "/root/GeoLogParser/results/2026-08-14/P2_SWISSGEOL_TG_CONSTRAINT_REREAD_HELDOUT_V003_001",
+    "prediction_reference_conditioning": "none",
+    "reference_blinded_decision_policy": true,
+    "coordinate_parser": "swissgeol_spatial_v002_strict_unambiguous",
+    "coordinate_multiple_candidate_policy": "abstain",
+    "collar_source": "authoritative_structured_record_due_zero_page_extraction_coverage",
+    "grid_size": 25,
+    "query_domain": "fixed_authoritative_first_boundary_convex_hull",
+    "interpolator": "IDW_power_2",
+    "rights_review": "PENDING_MANUAL_PRE_SUBMISSION_REVIEW"
+  },
+  "started_utc": "2026-08-14T07:14:48.577978+00:00"
+}

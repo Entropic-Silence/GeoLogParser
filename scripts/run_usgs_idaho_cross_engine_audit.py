@@ -11,7 +11,7 @@ import argparse
 import json
 import platform
 import re
-import resource
+from geologparser.runtime_resources import peak_process_rss_kib
 import subprocess
 import tempfile
 import time
@@ -182,7 +182,7 @@ def main() -> None:
         "rapidocr_total_depth_ranges": sum(row["rapidocr"]["depth_range_count"] for row in rows),
         "document_summary": document_summary,
         "wall_time_seconds": time.perf_counter() - started,
-        "peak_process_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+        "peak_process_rss_kib": peak_process_rss_kib(),
         "publication_use": "cross-source coverage and failure-event evidence only; no interval accuracy claim",
     }
     serialized_rows = "".join(json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n" for row in rows)

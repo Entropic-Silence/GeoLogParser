@@ -1,0 +1,35 @@
+{
+  "experiment_id": "P1_USGS_IDAHO_LITHOLOGIC_V001_CROSS_ENGINE_COVERAGE_001",
+  "git_commit": "8953111ae9444584caefdbb031bbbbb57dabaef5",
+  "date": "2026-08-15",
+  "dataset_version": "usgs_idaho_lithologic_v001",
+  "split_version": "source_document_disjoint_scan_audit_v001",
+  "model": "tesseract_psm11_vs_rapidocr_ppocrv4_page_coverage",
+  "model_revision": "tesseract 4.1.1",
+  "prompt_version": "not_applicable",
+  "seed": 0,
+  "hardware": {
+    "device": "cpu",
+    "processor": "x86_64",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "3.10.12",
+    "tesseract": "tesseract 4.1.1"
+  },
+  "config": {
+    "render_dpi": 180,
+    "tesseract_psm": 11,
+    "rapidocr_threads": 4,
+    "rapidocr_model_dir": "/data/GeoLogParser/models/rapidocr",
+    "rapidocr_model_sha256": {
+      "ch_PP-OCRv4_det_infer.onnx": "d2a7720d45a54257208b1e13e36a8479894cb74155a5efe29462512d42f49da9",
+      "ch_PP-OCRv4_rec_infer.onnx": "48fc40f24f6d2a207a2b1091d3437eb3cc3eb6b676dc3ef9c37384005483683b",
+      "ch_ppocr_mobile_v2.0_cls_infer.onnx": "e47acedf663230f8863ff1ab0e64dd2d82b838fceb5957146dab185a89d6215c"
+    },
+    "source_tier": "OFFICIAL_SOURCE_SCAN_COVERAGE_AUDIT",
+    "human_reviewed": false,
+    "accuracy_metrics": "not computed; no independent interval labels",
+    "dataset_manifest_sha256": "13a0ce49b6dfdc0fe93811158155244ff73edfc0e22d21f4ddde78c4a1e86794"
+  }
+}

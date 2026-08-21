@@ -1,0 +1,40 @@
+{
+  "experiment_id": "P1_CALIFORNIA_WCR_V002_TESSERACT_EXTERNAL_FORMAL_002",
+  "git_commit": "9cb77d22cc6698652d0e9d99ed3d0d1afbf84637",
+  "date": "2026-08-14",
+  "dataset_version": "california_wcr_gold_v002",
+  "split_version": "california_wcr_gold_split_v002_external_test",
+  "model": "tesseract_generic_positioned_interval_parser_v001",
+  "model_revision": "tesseract 4.1.1",
+  "prompt_version": "not_applicable",
+  "seed": 0,
+  "hardware": {
+    "device": "cpu",
+    "processor": "x86_64",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "3.10.12",
+    "tesseract": "tesseract 4.1.1"
+  },
+  "config": {
+    "ground_truth_sha256": "5cfbf20673bef235ae5b7d9c9e1d806898d9826511e1f6ffb4c0337b146ededc",
+    "split_sha256": "bb2363bc324d90404b1272ac30d2a7a652981511252b23ab995ca84f514014c1",
+    "partition": "test",
+    "prediction_reference_conditioning": "none",
+    "ground_truth_tier": "GOLD_PUBLISHED_MANUAL_TRANSCRIPTION",
+    "render_dpi": 300,
+    "tesseract_psm": 11,
+    "unit_conversion": "feet_bls_to_meters_multiply_0.3048",
+    "evaluated_fields": [
+      "interval.top_depth_m",
+      "interval.bottom_depth_m",
+      "interval.thickness_m",
+      "interval.lithology_normalized"
+    ],
+    "reference_scope": "USGS-published verbatim manual transcriptions from DWR WCR images",
+    "reference_doi": "10.5066/P9M85U0T",
+    "rights": "CC0-1.0 transcriptions; publicly released redacted DWR report images retained locally"
+  },
+  "started_utc": "2026-08-14T11:42:39.147891+00:00"
+}

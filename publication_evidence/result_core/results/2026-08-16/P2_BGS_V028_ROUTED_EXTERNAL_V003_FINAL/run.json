@@ -1,0 +1,24 @@
+{
+  "config": {
+    "ground_truth_sha256": "12f683ca0312740dbeb68ee3bebcd92b0a0644dce22de92115c46c8faf2236d4",
+    "post_external_policy": "no tuning; any method change demotes the set to validation",
+    "protocol_deviation": "hash_only_manifest_access_before_preregistered_freeze_commit; no semantic inspection or tuning",
+    "reference_blinding": "all routing decisions fixed before references were used for scoring"
+  },
+  "dataset_version": "bgs_offshore_gold_v003",
+  "date": "2026-08-16",
+  "experiment_id": "P2_BGS_V028_ROUTED_EXTERNAL_V003_FINAL",
+  "git_commit": "0c28eddf121c7e36925b13ada7f6043c2e9c3c23",
+  "hardware": {
+    "device": "cpu",
+    "gpu_used": false
+  },
+  "model": "bgs_page_family_role_moe_v027",
+  "model_revision": "v028",
+  "prompt_version": "not_applicable",
+  "seed": 0,
+  "software": {
+    "python": "3.10.12"
+  },
+  "split_version": "one_time_frozen_external_v003"
+}

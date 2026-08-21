@@ -1,0 +1,60 @@
+{
+  "experiment_id": "P2_SYNTHETIC_ABLATION_002",
+  "git_commit": "b88e5c13cf451cd225b713a6d3f5cd7d429ea1e3",
+  "date": "2026-08-13",
+  "dataset_version": "synthetic_paper2_cases_v001",
+  "split_version": "synthetic_project_disjoint_v001",
+  "model": "controlled-candidate-ranker",
+  "model_revision": "geologparser_v001",
+  "prompt_version": "constraint_reread_v001",
+  "seed": null,
+  "hardware": {
+    "device": "cpu_evaluation",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "3.10.12"
+  },
+  "config": {
+    "matrix_config_path": "/data/GeoLogParser/artifacts/paper2/synthetic_cases_v001/matrix_config.json",
+    "matrix_config_sha256": "52c711625055ca36853c5f0a5bb71948db7dc5d6c7acbf2b6607df233e2d403c",
+    "case_files": {
+      "full": {
+        "path": "/data/GeoLogParser/artifacts/paper2/synthetic_cases_v001/full.jsonl",
+        "sha256": "686114dc17e8abcde391dc117ae4d282975414d05005d77e5876a738e6b096f8"
+      },
+      "minus_calibration": {
+        "path": "/data/GeoLogParser/artifacts/paper2/synthetic_cases_v001/minus_calibration.jsonl",
+        "sha256": "686114dc17e8abcde391dc117ae4d282975414d05005d77e5876a738e6b096f8"
+      },
+      "minus_constraints": {
+        "path": "/data/GeoLogParser/artifacts/paper2/synthetic_cases_v001/minus_constraints.jsonl",
+        "sha256": "73e87fe2680561b0b852302cfc9dc05af3761430f7cd6dd2f1f5fa921a55b244"
+      },
+      "minus_layout": {
+        "path": "/data/GeoLogParser/artifacts/paper2/synthetic_cases_v001/minus_layout.jsonl",
+        "sha256": "2ff9447fd772c6173e82d63b47660f822e455e2a5cf3922c50ccbe2c091c4d1b"
+      },
+      "minus_normalization": {
+        "path": "/data/GeoLogParser/artifacts/paper2/synthetic_cases_v001/minus_normalization.jsonl",
+        "sha256": "686114dc17e8abcde391dc117ae4d282975414d05005d77e5876a738e6b096f8"
+      },
+      "minus_ocr": {
+        "path": "/data/GeoLogParser/artifacts/paper2/synthetic_cases_v001/minus_ocr.jsonl",
+        "sha256": "f946ea68470f0225ab4d3a2885a4db20e6bd1425110abd525e630907691919b7"
+      },
+      "minus_rereading": {
+        "path": "/data/GeoLogParser/artifacts/paper2/synthetic_cases_v001/minus_rereading.jsonl",
+        "sha256": "2e1fa45a23dd2754e7d78893e41d9e621d6a84e83259a089e2a69f512ebfcdf9"
+      },
+      "minus_vlm": {
+        "path": "/data/GeoLogParser/artifacts/paper2/synthetic_cases_v001/minus_vlm.jsonl",
+        "sha256": "d827b608eb2669834052cd8e48792b8b60660d58fd393c89904f441d732d6c5b"
+      }
+    },
+    "calibration_bins": 10,
+    "requirement": "identical synthetic cases; zero or one disabled module per variant",
+    "ground_truth_policy": "synthetic",
+    "ground_truth_sha256": "d2c44a18d450aec980a43581260043a9ddc1effc0bdba991c979534acc2e032c"
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "automatic_correction_actions": 109,
+  "candidate_count": 353,
+  "comparison": "single_pass_vs_constraint_guided_sequence_recovery",
+  "constrained_interval_metrics": {
+    "interval_f1": {
+      "denominator": 1.0,
+      "details": {
+        "matched_count": 249,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 272,
+        "reference_count": 697,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 23,
+        "unmatched_reference_count": 448
+      },
+      "name": "interval_f1",
+      "numerator": 0.5139318885448916,
+      "unit": "ratio",
+      "value": 0.5139318885448916
+    },
+    "interval_precision": {
+      "denominator": 272,
+      "details": {
+        "matched_count": 249,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 272,
+        "reference_count": 697,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 23,
+        "unmatched_reference_count": 448
+      },
+      "name": "interval_precision",
+      "numerator": 249,
+      "unit": "ratio",
+      "value": 0.9154411764705882
+    },
+    "interval_recall": {
+      "denominator": 697,
+      "details": {
+        "matched_count": 249,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 272,
+        "reference_count": 697,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 23,
+        "unmatched_reference_count": 448
+      },
+      "name": "interval_recall",
+      "numerator": 249,
+      "unit": "ratio",
+      "value": 0.35724533715925394
+    },
+    "matched_bottom_boundary_mae_m": {
+      "denominator": 249,
+      "details": {
+        "matched_count": 249,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 272,
+        "reference_count": 697,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 23,
+        "unmatched_reference_count": 448
+      },
+      "name": "matched_bottom_boundary_mae_m",
+      "numerator": 0.0,
+      "unit": "m",
+      "value": 0.0
+    },
+    "matched_top_boundary_mae_m": {
+      "denominator": 249,
+      "details": {
+        "matched_count": 249,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 272,
+        "reference_count": 697,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 23,
+        "unmatched_reference_count": 448
+      },
+      "name": "matched_top_boundary_mae_m",
+      "numerator": 0.0,
+      "unit": "m",
+      "value": 0.0
+    }
+  },
+  "constrained_prediction_count": 272,
+  "correction_taxonomy": {
+    "constrained_correct_added": 81,
+    "constrained_incorrect_added": 12,
+    "raw_correct_kept": 168,
+    "raw_correct_removed": 6,
+    "raw_incorrect_removed": 10
+  },
+  "county_count": 48,
+  "document_count": 50,
+  "false_correction_rate": {
+    "definition": "(removed correct raw boundaries + added incorrect constrained boundaries) / all added or removed boundaries",
+    "denominator": 109,
+    "numerator": 18,
+    "value": 0.1651376146788991
+  },
+  "harmful_correction_actions": 18,
+  "latency_seconds_per_document_wall": 2.412628009499749,
+  "partition": "test",
+  "peak_process_rss_kib": 228992,
+  "prediction_reference_conditioning": "none",
+  "raw_interval_metrics": {
+    "interval_f1": {
+      "denominator": 1.0,
+      "details": {
+        "matched_count": 174,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 195,
+        "reference_count": 697,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 21,
+        "unmatched_reference_count": 523
+      },
+      "name": "interval_f1",
+      "numerator": 0.390134529147982,
+      "unit": "ratio",
+      "value": 0.390134529147982
+    },
+    "interval_precision": {
+      "denominator": 195,
+      "details": {
+        "matched_count": 174,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 195,
+        "reference_count": 697,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 21,
+        "unmatched_reference_count": 523
+      },
+      "name": "interval_precision",
+      "numerator": 174,
+      "unit": "ratio",
+      "value": 0.8923076923076924
+    },
+    "interval_recall": {
+      "denominator": 697,
+      "details": {
+        "matched_count": 174,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 195,
+        "reference_count": 697,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 21,
+        "unmatched_reference_count": 523
+      },
+      "name": "interval_recall",
+      "numerator": 174,
+      "unit": "ratio",
+      "value": 0.24964131994261118
+    },
+    "matched_bottom_boundary_mae_m": {
+      "denominator": 174,
+      "details": {
+        "matched_count": 174,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 195,
+        "reference_count": 697,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 21,
+        "unmatched_reference_count": 523
+      },
+      "name": "matched_bottom_boundary_mae_m",
+      "numerator": 0.0,
+      "unit": "m",
+      "value": 0.0
+    },
+    "matched_top_boundary_mae_m": {
+      "denominator": 174,
+      "details": {
+        "matched_count": 174,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 195,
+        "reference_count": 697,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 21,
+        "unmatched_reference_count": 523
+      },
+      "name": "matched_top_boundary_mae_m",
+      "numerator": 0.0,
+      "unit": "m",
+      "value": 0.0
+    }
+  },
+  "raw_prediction_count": 195,
+  "reference_blinded_decision_policy": true,
+  "reference_ground_truth_tier": "GOLD_PUBLISHED_MANUAL_TRANSCRIPTION",
+  "reference_interval_count": 697,
+  "scope": "human-GT benchmark evaluation",
+  "wall_time_seconds": 120.63139987399336
+}

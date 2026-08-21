@@ -1,0 +1,48 @@
+{
+  "experiment_id": "P1_BGS_METADATA_ROBUSTNESS_RAPIDOCR_001",
+  "git_commit": "fa194e67e98c5e7ca0ddce7406f4419ea7f3dc99",
+  "date": "2026-08-13",
+  "dataset_version": "bgs_metadata_robustness_v001",
+  "split_version": "same_31_documents_controlled_degradation_profiles_v001",
+  "model": "B1_rapidocr_onnxruntime_ppocrv4_regex",
+  "model_revision": "rapidocr_onnxruntime 1.4.4 / onnxruntime 1.23.2",
+  "prompt_version": "not_applicable",
+  "seed": 20260813,
+  "hardware": {
+    "device": "cpu",
+    "processor": "x86_64",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "3.10.12",
+    "rapidocr_onnxruntime": "1.4.4",
+    "onnxruntime": "1.23.2"
+  },
+  "config": {
+    "intra_op_num_threads": 1,
+    "inter_op_num_threads": 1,
+    "model_dir": "/data/GeoLogParser/models/rapidocr",
+    "model_sha256": {
+      "ch_PP-OCRv4_det_infer.onnx": "d2a7720d45a54257208b1e13e36a8479894cb74155a5efe29462512d42f49da9",
+      "ch_PP-OCRv4_rec_infer.onnx": "48fc40f24f6d2a207a2b1091d3437eb3cc3eb6b676dc3ef9c37384005483683b",
+      "ch_ppocr_mobile_v2.0_cls_infer.onnx": "e47acedf663230f8863ff1ab0e64dd2d82b838fceb5957146dab185a89d6215c"
+    },
+    "execution_provider": "CPUExecutionProvider",
+    "workers": 8,
+    "ground_truth_sha256": "5a1205c944a5cb652967b99e6478169805db35f749dffe44124076eafd766628",
+    "ground_truth_tier": "AUTHORITATIVE_METADATA",
+    "source_manifest_sha256": "dd48dcaa71ab25326ff445c570e90d3713f430b467ff99b1095c8e7e61ddc26e",
+    "dataset_summary_sha256": "d61d902b93f28363d2c1c45d3a557371689c82bd25c0cfafd39d529135bc4621",
+    "render_dpi": 300,
+    "evaluated_fields": [
+      "borehole_id",
+      "x_coordinate",
+      "y_coordinate"
+    ],
+    "excluded_fields": [
+      "final_depth_m",
+      "intervals",
+      "lithology"
+    ]
+  }
+}

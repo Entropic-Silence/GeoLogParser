@@ -34,7 +34,7 @@ def test_sedlog_manifest_preserves_non_gt_boundary(monkeypatch, tmp_path: Path):
 
     result = MODULE.build_manifest(tmp_path)
 
-    rows = [json.loads(line) for line in (tmp_path / "metadata/manifest.jsonl").read_text().splitlines()]
+    rows = [json.loads(line) for line in (tmp_path / "metadata/manifest.jsonl").read_text(encoding="utf-8").splitlines()]
     assert len(rows) == 18
     assert all(row["benchmark_eligible"] is False for row in rows)
     assert all(row["annotation_status"] == "unannotated" for row in rows)

@@ -1,0 +1,16 @@
+{
+  "dataset_version": "openei_usgs142_interval_gold_v001",
+  "source_name": "USGS-142 borehole geophysical log and generalized lithology legend",
+  "source_url": "https://gdr.openei.org/submissions/790",
+  "publisher": "U.S. Geological Survey / Idaho National Laboratory project data release",
+  "retrieval_date": "2026-08-14",
+  "file_count": 1,
+  "document_count": 1,
+  "interval_count": 12,
+  "ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+  "ground_truth_basis": "official PDF explicit generalized lithology legend, used only after raster extraction decisions are frozen",
+  "license_claim": "CC BY 4.0; manual pre-submission verification pending",
+  "redistribution_status": "pending_manual_pre_submission_review",
+  "coordinate_status": "source PDF reports latitude/longitude in NAD27; not used in Paper I interval scoring",
+  "pdf_sha256": "4eea58daf59f014b5cd71172bc80e0a3a360b8b44fbe2a8494a90b693fcf50d4"
+}

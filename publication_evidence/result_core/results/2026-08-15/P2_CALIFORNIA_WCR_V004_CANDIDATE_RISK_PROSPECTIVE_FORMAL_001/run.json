@@ -1,0 +1,32 @@
+{
+  "experiment_id": "P2_CALIFORNIA_WCR_V004_CANDIDATE_RISK_PROSPECTIVE_FORMAL_001",
+  "git_commit": "e8754cdd3edbdebd4602d35b3d5fd6beea723edb",
+  "date": "2026-08-15",
+  "dataset_version": "california_wcr_gold_v004",
+  "split_version": "california_wcr_gold_split_v004_prospective_candidate_risk_test",
+  "model": "california_addition_only_high_confidence_v002",
+  "model_revision": "addition_only_node_score_nonoverlap_v002",
+  "prompt_version": "not_applicable",
+  "seed": 0,
+  "hardware": {
+    "device": "cpu",
+    "processor": "x86_64",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "3.10.12"
+  },
+  "config": {
+    "policy_config": "configs/experiments/paper2/california_candidate_risk_policy_v002.yaml",
+    "policy_config_sha256": "8bb76533fc7c0f49b0f9f4df21260061d3b988b086dd84948fd7c3272be4b0bf",
+    "constraint_run_id": "P2_CALIFORNIA_WCR_V004_CONSTRAINT_PROSPECTIVE_FORMAL_001",
+    "constraint_artifact_manifest_sha256": "035a5eaab6cd8a64ce3a14c3b1d3767a380ff9d2ba943a248ff45d45c097592e",
+    "ground_truth_sha256": "054848cca5b5eac0e67b46151842a31d63d6e94558664ab8f15cec5b5ba4ca4c",
+    "prediction_reference_conditioning": "none",
+    "reference_blinded_decision_policy": true,
+    "minimum_node_score": 2.999,
+    "preserve_all_raw_intervals": true,
+    "reject_if_positive_overlap_with_selected": true
+  },
+  "started_utc": "2026-08-15T02:35:56.144990+00:00"
+}

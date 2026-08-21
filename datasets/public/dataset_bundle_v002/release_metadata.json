@@ -1,0 +1,26 @@
+{
+  "bundle_id": "GeoLogParser-public-data-v002",
+  "creators": [
+    {
+      "family_name": "Du",
+      "given_name": "Yifan",
+      "orcid": "0009-0008-7740-5408"
+    }
+  ],
+  "date_released": "2026-08-20",
+  "doi": "10.5281/zenodo.22031703",
+  "doi_status": "published",
+  "doi_url": "https://doi.org/10.5281/zenodo.22031703",
+  "zenodo_concept_doi": "10.5281/zenodo.22031702",
+  "paper4_reproducibility_tag": "paper4-cageo-v1.0.1",
+  "paper4_current_reproducibility_tag": "paper4-cageo-v1.0.8",
+  "paper4_package_relationship": "data-v002 was originally paired with paper4-cageo-v1.0.1 and is reused unchanged by later Paper 4 releases",
+  "release_role": "data companion",
+  "release_tag": "data-v002",
+  "repository": "https://github.com/Entropic-Silence/GeoLogParser",
+  "repository_release_url": "https://github.com/Entropic-Silence/GeoLogParser/releases/tag/data-v002",
+  "rights_model": "mixed source-specific terms; see DATA_LICENSES.md",
+  "title": "GeoLogParser public data companion v002",
+  "type": "dataset",
+  "version": "v002"
+}

@@ -7,7 +7,7 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
-import resource
+from geologparser.runtime_resources import peak_process_rss_kib
 import time
 
 import numpy as np
@@ -229,7 +229,7 @@ def main() -> None:
         "post_external_policy": "no tuning; any method change demotes the set to validation" if args.evaluation_role == "external" else "validation evidence may support subsequent development",
         "wall_time_seconds": time.perf_counter() - started,
         "latency_seconds_per_page": (time.perf_counter() - started) / sum(len(source["evaluation_pages"]) for source in sources),
-        "peak_process_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+        "peak_process_rss_kib": peak_process_rss_kib(),
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n")

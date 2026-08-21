@@ -1,0 +1,559 @@
+{
+  "degradation_origin": "synthetic controlled transformations of real source scans",
+  "derived_image_count": 217,
+  "document_count": 31,
+  "evaluated_reference_fields": [
+    "borehole_id",
+    "x_coordinate",
+    "y_coordinate"
+  ],
+  "final_depth_ground_truth_evaluated": false,
+  "interval_ground_truth_available": false,
+  "latency_seconds_per_image_wall": 1.9521525207926274,
+  "peak_process_rss_kib": 377452,
+  "profile_count": 7,
+  "profiles": {
+    "blur_20": {
+      "borehole_id_exact_match": {
+        "denominator": 31,
+        "details": {},
+        "name": "borehole_id_exact_match",
+        "numerator": 16,
+        "unit": "ratio",
+        "value": 0.5161290322580645
+      },
+      "clean_correct_field_retention": {
+        "denominator": 86,
+        "numerator": 70,
+        "value": 0.813953488372093
+      },
+      "complete_three_field_exact": {
+        "denominator": 31,
+        "numerator": 15,
+        "value": 0.4838709677419355
+      },
+      "document_count": 31,
+      "field_omissions": 15,
+      "latency_mean_seconds_per_image": 1.9877664494511742,
+      "latency_total_seconds": 61.6207599329864,
+      "wrong_nonmissing_numeric_predictions": 0,
+      "x_coordinate": {
+        "x_coordinate_mae": {
+          "denominator": 29,
+          "details": {},
+          "name": "x_coordinate_mae",
+          "numerator": 0.0,
+          "unit": "same_as_input",
+          "value": 0.0
+        },
+        "x_coordinate_mae_coverage": {
+          "denominator": 31,
+          "details": {},
+          "name": "x_coordinate_mae_coverage",
+          "numerator": 29,
+          "unit": "ratio",
+          "value": 0.9354838709677419
+        },
+        "x_coordinate_mae_reference_count": {
+          "denominator": 1.0,
+          "details": {},
+          "name": "x_coordinate_mae_reference_count",
+          "numerator": 31,
+          "unit": "count",
+          "value": 31.0
+        }
+      },
+      "y_coordinate": {
+        "y_coordinate_mae": {
+          "denominator": 29,
+          "details": {},
+          "name": "y_coordinate_mae",
+          "numerator": 0.0,
+          "unit": "same_as_input",
+          "value": 0.0
+        },
+        "y_coordinate_mae_coverage": {
+          "denominator": 31,
+          "details": {},
+          "name": "y_coordinate_mae_coverage",
+          "numerator": 29,
+          "unit": "ratio",
+          "value": 0.9354838709677419
+        },
+        "y_coordinate_mae_reference_count": {
+          "denominator": 1.0,
+          "details": {},
+          "name": "y_coordinate_mae_reference_count",
+          "numerator": 31,
+          "unit": "count",
+          "value": 31.0
+        }
+      }
+    },
+    "clean": {
+      "borehole_id_exact_match": {
+        "denominator": 31,
+        "details": {},
+        "name": "borehole_id_exact_match",
+        "numerator": 24,
+        "unit": "ratio",
+        "value": 0.7741935483870968
+      },
+      "clean_correct_field_retention": {
+        "denominator": 86,
+        "numerator": 86,
+        "value": 1.0
+      },
+      "complete_three_field_exact": {
+        "denominator": 31,
+        "numerator": 24,
+        "value": 0.7741935483870968
+      },
+      "document_count": 31,
+      "field_omissions": 1,
+      "latency_mean_seconds_per_image": 1.8058738093872484,
+      "latency_total_seconds": 55.9820880910047,
+      "wrong_nonmissing_numeric_predictions": 0,
+      "x_coordinate": {
+        "x_coordinate_mae": {
+          "denominator": 31,
+          "details": {},
+          "name": "x_coordinate_mae",
+          "numerator": 0.0,
+          "unit": "same_as_input",
+          "value": 0.0
+        },
+        "x_coordinate_mae_coverage": {
+          "denominator": 31,
+          "details": {},
+          "name": "x_coordinate_mae_coverage",
+          "numerator": 31,
+          "unit": "ratio",
+          "value": 1.0
+        },
+        "x_coordinate_mae_reference_count": {
+          "denominator": 1.0,
+          "details": {},
+          "name": "x_coordinate_mae_reference_count",
+          "numerator": 31,
+          "unit": "count",
+          "value": 31.0
+        }
+      },
+      "y_coordinate": {
+        "y_coordinate_mae": {
+          "denominator": 31,
+          "details": {},
+          "name": "y_coordinate_mae",
+          "numerator": 0.0,
+          "unit": "same_as_input",
+          "value": 0.0
+        },
+        "y_coordinate_mae_coverage": {
+          "denominator": 31,
+          "details": {},
+          "name": "y_coordinate_mae_coverage",
+          "numerator": 31,
+          "unit": "ratio",
+          "value": 1.0
+        },
+        "y_coordinate_mae_reference_count": {
+          "denominator": 1.0,
+          "details": {},
+          "name": "y_coordinate_mae_reference_count",
+          "numerator": 31,
+          "unit": "count",
+          "value": 31.0
+        }
+      }
+    },
+    "contrast_040": {
+      "borehole_id_exact_match": {
+        "denominator": 31,
+        "details": {},
+        "name": "borehole_id_exact_match",
+        "numerator": 26,
+        "unit": "ratio",
+        "value": 0.8387096774193549
+      },
+      "clean_correct_field_retention": {
+        "denominator": 86,
+        "numerator": 86,
+        "value": 1.0
+      },
+      "complete_three_field_exact": {
+        "denominator": 31,
+        "numerator": 26,
+        "value": 0.8387096774193549
+      },
+      "document_count": 31,
+      "field_omissions": 2,
+      "latency_mean_seconds_per_image": 1.8127741283542784,
+      "latency_total_seconds": 56.19599797898263,
+      "wrong_nonmissing_numeric_predictions": 0,
+      "x_coordinate": {
+        "x_coordinate_mae": {
+          "denominator": 31,
+          "details": {},
+          "name": "x_coordinate_mae",
+          "numerator": 0.0,
+          "unit": "same_as_input",
+          "value": 0.0
+        },
+        "x_coordinate_mae_coverage": {
+          "denominator": 31,
+          "details": {},
+          "name": "x_coordinate_mae_coverage",
+          "numerator": 31,
+          "unit": "ratio",
+          "value": 1.0
+        },
+        "x_coordinate_mae_reference_count": {
+          "denominator": 1.0,
+          "details": {},
+          "name": "x_coordinate_mae_reference_count",
+          "numerator": 31,
+          "unit": "count",
+          "value": 31.0
+        }
+      },
+      "y_coordinate": {
+        "y_coordinate_mae": {
+          "denominator": 31,
+          "details": {},
+          "name": "y_coordinate_mae",
+          "numerator": 0.0,
+          "unit": "same_as_input",
+          "value": 0.0
+        },
+        "y_coordinate_mae_coverage": {
+          "denominator": 31,
+          "details": {},
+          "name": "y_coordinate_mae_coverage",
+          "numerator": 31,
+          "unit": "ratio",
+          "value": 1.0
+        },
+        "y_coordinate_mae_reference_count": {
+          "denominator": 1.0,
+          "details": {},
+          "name": "y_coordinate_mae_reference_count",
+          "numerator": 31,
+          "unit": "count",
+          "value": 31.0
+        }
+      }
+    },
+    "jpeg_30": {
+      "borehole_id_exact_match": {
+        "denominator": 31,
+        "details": {},
+        "name": "borehole_id_exact_match",
+        "numerator": 26,
+        "unit": "ratio",
+        "value": 0.8387096774193549
+      },
+      "clean_correct_field_retention": {
+        "denominator": 86,
+        "numerator": 82,
+        "value": 0.9534883720930233
+      },
+      "complete_three_field_exact": {
+        "denominator": 31,
+        "numerator": 26,
+        "value": 0.8387096774193549
+      },
+      "document_count": 31,
+      "field_omissions": 2,
+      "latency_mean_seconds_per_image": 1.8542571633558012,
+      "latency_total_seconds": 57.48197206402983,
+      "wrong_nonmissing_numeric_predictions": 0,
+      "x_coordinate": {
+        "x_coordinate_mae": {
+          "denominator": 31,
+          "details": {},
+          "name": "x_coordinate_mae",
+          "numerator": 0.0,
+          "unit": "same_as_input",
+          "value": 0.0
+        },
+        "x_coordinate_mae_coverage": {
+          "denominator": 31,
+          "details": {},
+          "name": "x_coordinate_mae_coverage",
+          "numerator": 31,
+          "unit": "ratio",
+          "value": 1.0
+        },
+        "x_coordinate_mae_reference_count": {
+          "denominator": 1.0,
+          "details": {},
+          "name": "x_coordinate_mae_reference_count",
+          "numerator": 31,
+          "unit": "count",
+          "value": 31.0
+        }
+      },
+      "y_coordinate": {
+        "y_coordinate_mae": {
+          "denominator": 31,
+          "details": {},
+          "name": "y_coordinate_mae",
+          "numerator": 0.0,
+          "unit": "same_as_input",
+          "value": 0.0
+        },
+        "y_coordinate_mae_coverage": {
+          "denominator": 31,
+          "details": {},
+          "name": "y_coordinate_mae_coverage",
+          "numerator": 31,
+          "unit": "ratio",
+          "value": 1.0
+        },
+        "y_coordinate_mae_reference_count": {
+          "denominator": 1.0,
+          "details": {},
+          "name": "y_coordinate_mae_reference_count",
+          "numerator": 31,
+          "unit": "count",
+          "value": 31.0
+        }
+      }
+    },
+    "noise_16": {
+      "borehole_id_exact_match": {
+        "denominator": 31,
+        "details": {},
+        "name": "borehole_id_exact_match",
+        "numerator": 23,
+        "unit": "ratio",
+        "value": 0.7419354838709677
+      },
+      "clean_correct_field_retention": {
+        "denominator": 86,
+        "numerator": 80,
+        "value": 0.9302325581395349
+      },
+      "complete_three_field_exact": {
+        "denominator": 31,
+        "numerator": 22,
+        "value": 0.7096774193548387
+      },
+      "document_count": 31,
+      "field_omissions": 5,
+      "latency_mean_seconds_per_image": 2.324847927096867,
+      "latency_total_seconds": 72.07028574000287,
+      "wrong_nonmissing_numeric_predictions": 0,
+      "x_coordinate": {
+        "x_coordinate_mae": {
+          "denominator": 30,
+          "details": {},
+          "name": "x_coordinate_mae",
+          "numerator": 0.0,
+          "unit": "same_as_input",
+          "value": 0.0
+        },
+        "x_coordinate_mae_coverage": {
+          "denominator": 31,
+          "details": {},
+          "name": "x_coordinate_mae_coverage",
+          "numerator": 30,
+          "unit": "ratio",
+          "value": 0.967741935483871
+        },
+        "x_coordinate_mae_reference_count": {
+          "denominator": 1.0,
+          "details": {},
+          "name": "x_coordinate_mae_reference_count",
+          "numerator": 31,
+          "unit": "count",
+          "value": 31.0
+        }
+      },
+      "y_coordinate": {
+        "y_coordinate_mae": {
+          "denominator": 30,
+          "details": {},
+          "name": "y_coordinate_mae",
+          "numerator": 0.0,
+          "unit": "same_as_input",
+          "value": 0.0
+        },
+        "y_coordinate_mae_coverage": {
+          "denominator": 31,
+          "details": {},
+          "name": "y_coordinate_mae_coverage",
+          "numerator": 30,
+          "unit": "ratio",
+          "value": 0.967741935483871
+        },
+        "y_coordinate_mae_reference_count": {
+          "denominator": 1.0,
+          "details": {},
+          "name": "y_coordinate_mae_reference_count",
+          "numerator": 31,
+          "unit": "count",
+          "value": 31.0
+        }
+      }
+    },
+    "resolution_050": {
+      "borehole_id_exact_match": {
+        "denominator": 31,
+        "details": {},
+        "name": "borehole_id_exact_match",
+        "numerator": 29,
+        "unit": "ratio",
+        "value": 0.9354838709677419
+      },
+      "clean_correct_field_retention": {
+        "denominator": 86,
+        "numerator": 83,
+        "value": 0.9651162790697675
+      },
+      "complete_three_field_exact": {
+        "denominator": 31,
+        "numerator": 29,
+        "value": 0.9354838709677419
+      },
+      "document_count": 31,
+      "field_omissions": 4,
+      "latency_mean_seconds_per_image": 1.9757634367415449,
+      "latency_total_seconds": 61.24866653898789,
+      "wrong_nonmissing_numeric_predictions": 0,
+      "x_coordinate": {
+        "x_coordinate_mae": {
+          "denominator": 30,
+          "details": {},
+          "name": "x_coordinate_mae",
+          "numerator": 0.0,
+          "unit": "same_as_input",
+          "value": 0.0
+        },
+        "x_coordinate_mae_coverage": {
+          "denominator": 31,
+          "details": {},
+          "name": "x_coordinate_mae_coverage",
+          "numerator": 30,
+          "unit": "ratio",
+          "value": 0.967741935483871
+        },
+        "x_coordinate_mae_reference_count": {
+          "denominator": 1.0,
+          "details": {},
+          "name": "x_coordinate_mae_reference_count",
+          "numerator": 31,
+          "unit": "count",
+          "value": 31.0
+        }
+      },
+      "y_coordinate": {
+        "y_coordinate_mae": {
+          "denominator": 30,
+          "details": {},
+          "name": "y_coordinate_mae",
+          "numerator": 0.0,
+          "unit": "same_as_input",
+          "value": 0.0
+        },
+        "y_coordinate_mae_coverage": {
+          "denominator": 31,
+          "details": {},
+          "name": "y_coordinate_mae_coverage",
+          "numerator": 30,
+          "unit": "ratio",
+          "value": 0.967741935483871
+        },
+        "y_coordinate_mae_reference_count": {
+          "denominator": 1.0,
+          "details": {},
+          "name": "y_coordinate_mae_reference_count",
+          "numerator": 31,
+          "unit": "count",
+          "value": 31.0
+        }
+      }
+    },
+    "skew_30": {
+      "borehole_id_exact_match": {
+        "denominator": 31,
+        "details": {},
+        "name": "borehole_id_exact_match",
+        "numerator": 17,
+        "unit": "ratio",
+        "value": 0.5483870967741935
+      },
+      "clean_correct_field_retention": {
+        "denominator": 86,
+        "numerator": 41,
+        "value": 0.47674418604651164
+      },
+      "complete_three_field_exact": {
+        "denominator": 31,
+        "numerator": 9,
+        "value": 0.2903225806451613
+      },
+      "document_count": 31,
+      "field_omissions": 44,
+      "latency_mean_seconds_per_image": 1.8528622497094236,
+      "latency_total_seconds": 57.43872974099213,
+      "wrong_nonmissing_numeric_predictions": 2,
+      "x_coordinate": {
+        "x_coordinate_mae": {
+          "denominator": 15,
+          "details": {},
+          "name": "x_coordinate_mae",
+          "numerator": 0.0,
+          "unit": "same_as_input",
+          "value": 0.0
+        },
+        "x_coordinate_mae_coverage": {
+          "denominator": 31,
+          "details": {},
+          "name": "x_coordinate_mae_coverage",
+          "numerator": 15,
+          "unit": "ratio",
+          "value": 0.4838709677419355
+        },
+        "x_coordinate_mae_reference_count": {
+          "denominator": 1.0,
+          "details": {},
+          "name": "x_coordinate_mae_reference_count",
+          "numerator": 31,
+          "unit": "count",
+          "value": 31.0
+        }
+      },
+      "y_coordinate": {
+        "y_coordinate_mae": {
+          "denominator": 15,
+          "details": {},
+          "name": "y_coordinate_mae",
+          "numerator": 812436.0,
+          "unit": "same_as_input",
+          "value": 54162.4
+        },
+        "y_coordinate_mae_coverage": {
+          "denominator": 31,
+          "details": {},
+          "name": "y_coordinate_mae_coverage",
+          "numerator": 15,
+          "unit": "ratio",
+          "value": 0.4838709677419355
+        },
+        "y_coordinate_mae_reference_count": {
+          "denominator": 1.0,
+          "details": {},
+          "name": "y_coordinate_mae_reference_count",
+          "numerator": 31,
+          "unit": "count",
+          "value": 31.0
+        }
+      }
+    }
+  },
+  "reference_ground_truth_tier": "AUTHORITATIVE_METADATA",
+  "scope": "authoritative-metadata controlled-degradation evaluation",
+  "wall_time_seconds": 423.61709701200016
+}

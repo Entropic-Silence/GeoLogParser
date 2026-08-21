@@ -1,0 +1,57 @@
+{
+  "experiment_id": "P2_CALIFORNIA_CANDIDATE_RISK_CERTIFICATE_001",
+  "git_commit": "ac7c86b69a6cde8ab6dfaf415194cdbbe02147d1",
+  "date": "2026-08-17",
+  "dataset_version": "california_wcr_gold_v001_v002_v004_v005_frozen_policy_outcomes",
+  "split_version": "secondary_action_risk_analysis_no_threshold_selection",
+  "model": "california_addition_only_high_confidence_v002",
+  "model_revision": "risk_certificate_v001",
+  "prompt_version": "not_applicable",
+  "seed": 0,
+  "hardware": {
+    "device": "cpu",
+    "processor": "x86_64",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "3.10.12"
+  },
+  "config": {
+    "policy_config_sha256_by_source": {
+      "development_v001": "7e6d612cec1c4f325a3b426c131f8228fde40a74b27b1fef676ba853a6652d6e",
+      "development_v002": "7e6d612cec1c4f325a3b426c131f8228fde40a74b27b1fef676ba853a6652d6e",
+      "external_v004": "8bb76533fc7c0f49b0f9f4df21260061d3b988b086dd84948fd7c3272be4b0bf",
+      "external_v005": "8bb76533fc7c0f49b0f9f4df21260061d3b988b086dd84948fd7c3272be4b0bf"
+    },
+    "policy_semantic_rule": {
+      "model": "california_addition_only_high_confidence_v002",
+      "model_revision": "addition_only_node_score_nonoverlap_v002",
+      "minimum_node_score": 2.999,
+      "preserve_all_raw_intervals": true,
+      "reject_if_positive_overlap_with_selected": true
+    },
+    "policy_hash_note": "v004/v005 use a later config-file hash, but every evaluated run has identical policy id, model revision, threshold, preserve-raw and non-overlap rule semantics",
+    "source_runs": {
+      "development_v001": "results/2026-08-15/P2_CALIFORNIA_CANDIDATE_RISK_V002_DEV_V001_001",
+      "development_v002": "results/2026-08-15/P2_CALIFORNIA_CANDIDATE_RISK_V002_DEV_V002_001",
+      "external_v004": "results/2026-08-15/P2_CALIFORNIA_WCR_V004_CANDIDATE_RISK_PROSPECTIVE_FORMAL_001",
+      "external_v005": "results/2026-08-15/P2_CALIFORNIA_WCR_V005_CANDIDATE_RISK_EXTERNAL_FORMAL_001"
+    },
+    "source_metric_sha256": {
+      "development_v001": "a8bc8aae1fdef971ccdfe76422cb1efde70023b5027cdaf80c57fe6c26148217",
+      "development_v002": "182b801547f788a955fcd415ef0a52bc923eba48810d588f4128d2fbedef1a47",
+      "external_v004": "da49a75adc0e737a703ddcc7c928aeeeee678a438908f8aa8702c4a143a3e6a4",
+      "external_v005": "0c476c6e3dabc3a13754329a86c18df330ea39043098cce93215529c496f29b5"
+    },
+    "source_run_sha256": {
+      "development_v001": "ffcae2a092b27d463bcba3bd1f69d725cf6d47b819fdc9175ae66e23f6219b2f",
+      "development_v002": "455d08f84d24f94d88a80a25b13c195210780672d15310a0102a76f7eef66be4",
+      "external_v004": "dcb560576ebd5cd98ea3c8a8906aa7838be0d49530d148b9cffbca39f9936b58",
+      "external_v005": "2d8f753112c6742a0f5d29553ec314a4b19656e037545fb43ea0be52b7455ea7"
+    },
+    "reference_blinded_policy_decisions": true,
+    "statistical_method": "exact one-sided Clopper-Pearson zero-error upper bound",
+    "assumption": "iid Bernoulli actions/documents within reported cohort; clustering and source shift are not eliminated"
+  },
+  "started_utc": "2026-08-17T01:15:05.826497+00:00"
+}

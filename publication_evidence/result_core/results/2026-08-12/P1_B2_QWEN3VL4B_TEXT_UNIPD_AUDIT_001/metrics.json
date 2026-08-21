@@ -1,0 +1,1 @@
+{"status":"failed_before_model_load","items_attempted":0,"accuracy_metrics":null,"failure":"OCRBackendUnavailable: Native panel extraction requires PyMuPDF; install geologparser[pdf]."}

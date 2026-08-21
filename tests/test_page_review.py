@@ -85,7 +85,7 @@ def test_review_pack_is_immutable(tmp_path: Path):
 
 def test_review_pack_rejects_unsafe_record_id(tmp_path: Path):
     manifest = _content_manifest(tmp_path)
-    row = json.loads(manifest.read_text())
+    row = json.loads(manifest.read_text(encoding="utf-8"))
     row["record_id"] = "../escape"
     manifest.write_text(json.dumps(row) + "\n")
     with pytest.raises(ValueError, match="unsafe or duplicate content record_id"):
@@ -130,7 +130,7 @@ def test_revisioned_review_save_archives_prior(tmp_path: Path):
     save_page_review(first, tmp_path)
     second = build_page_review(_payload("exclude"), _item(), 2)
     save_page_review(second, tmp_path)
-    assert json.loads((tmp_path / "CANDIDATE_001.json").read_text())["revision"] == 2
+    assert json.loads((tmp_path / "CANDIDATE_001.json").read_text(encoding="utf-8"))["revision"] == 2
     assert (tmp_path / "history/CANDIDATE_001/revision_0001.json").is_file()
 
 
@@ -187,14 +187,14 @@ def test_page_review_api_status_and_fixed_reviewer(tmp_path: Path):
     response = client.put("/api/items/CANDIDATE_001/review", json=payload)
     assert response.status_code == 200
     assert response.json()["review"]["reviewer_id"] == "human-a"
-    assert json.loads(status_output.read_text())["reviewed_item_count"] == 1
+    assert json.loads(status_output.read_text(encoding="utf-8"))["reviewed_item_count"] == 1
 
 
 def test_page_review_api_rejects_tampered_stored_review(tmp_path: Path):
     manifest = _content_manifest(tmp_path)
     pack = tmp_path / "pack"
     build_page_review_pack([manifest], pack, dpi=72)
-    item = json.loads((pack / "review_pack_manifest.jsonl").read_text())
+    item = json.loads((pack / "review_pack_manifest.jsonl").read_text(encoding="utf-8"))
     reviews = tmp_path / "reviews"
     review = build_page_review(_payload(), item, 1)
     review["source_file_sha256"] = "f" * 64
@@ -215,7 +215,7 @@ def test_review_audit_exports_only_bound_annotation_eligible_items(tmp_path: Pat
     manifest = _content_manifest(tmp_path)
     pack = tmp_path / "pack"
     build_page_review_pack([manifest], pack, dpi=72)
-    item = json.loads((pack / "review_pack_manifest.jsonl").read_text())
+    item = json.loads((pack / "review_pack_manifest.jsonl").read_text(encoding="utf-8"))
     review = build_page_review(_payload("eligible_for_annotation"), item, 1)
     reviews = tmp_path / "reviews"
     save_page_review(review, reviews)
@@ -224,7 +224,7 @@ def test_review_audit_exports_only_bound_annotation_eligible_items(tmp_path: Pat
         pack, reviews, ROOT / "schemas/page_content_review_v001.schema.json",
         eligible_manifest=eligible,
     )
-    row = json.loads(eligible.read_text())
+    row = json.loads(eligible.read_text(encoding="utf-8"))
     assert result["review_complete"] is True
     assert result["annotation_eligible_count"] == 1
     assert result["human_ground_truth_count"] == 0
@@ -261,6 +261,6 @@ def test_write_page_review_status_is_current_and_non_gt(tmp_path: Path):
         pack, tmp_path / "reviews",
         ROOT / "schemas/page_content_review_v001.schema.json", output,
     )
-    assert json.loads(output.read_text()) == result
+    assert json.loads(output.read_text(encoding="utf-8")) == result
     assert result["reviewed_item_count"] == 0
     assert result["human_ground_truth_count"] == 0

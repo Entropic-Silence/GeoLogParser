@@ -1,0 +1,31 @@
+{
+  "experiment_id": "P1_METADATA_BGS_TESSERACT_FORMAL_003",
+  "git_commit": "d8fdc79c8d2973e9ff74ba3853f305ecae1be7d6",
+  "date": "2026-08-13",
+  "dataset_version": "bgs_authoritative_metadata_v001_downloaded31",
+  "split_version": "source_record_disjoint_authoritative_metadata_v001",
+  "model": "B1_tesseract_ocr_regex",
+  "model_revision": "tesseract 4.1.1",
+  "prompt_version": "not_applicable",
+  "seed": null,
+  "hardware": {
+    "device": "cpu",
+    "processor": "x86_64",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "3.10.12",
+    "tesseract": "tesseract 4.1.1"
+  },
+  "config": {
+    "ocr_language": "eng",
+    "psm": 6,
+    "render_dpi": 150,
+    "constraint_tolerance_m": "0.05",
+    "constraint_config_path": "/root/GeoLogParser/configs/constraints/default_v001.yaml",
+    "constraint_config_sha256": "09b560194d03d70620c090f40dc00f86d1883eaf96e3c0680be5f9bebd28ed29",
+    "ground_truth_sha256": "dd48dcaa71ab25326ff445c570e90d3713f430b467ff99b1095c8e7e61ddc26e",
+    "ground_truth_tier": "AUTHORITATIVE_METADATA",
+    "ground_truth_provenance": "BGS official index metadata paired by source_record_id with official scan PDF; interval labels are absent"
+  }
+}

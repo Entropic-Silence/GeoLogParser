@@ -1,0 +1,43 @@
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,positioning}
+\usepackage{xcolor}
+\definecolor{ink}{HTML}{0F172A}
+\definecolor{muted}{HTML}{475569}
+\definecolor{blue}{HTML}{2563EB}
+\definecolor{green}{HTML}{16A34A}
+\definecolor{slate}{HTML}{64748B}
+\definecolor{red}{HTML}{DC2626}
+\definecolor{amber}{HTML}{F59E0B}
+\pagestyle{empty}
+\begin{document}
+
+\begin{tikzpicture}[font=\sffamily,>=Latex]
+  \node[font=\bfseries\large,text=ink] at (7.5,4.55)
+    {One chain: capability $\rightarrow$ evidence $\rightarrow$ decision $\rightarrow$ support consequence};
+  \node[font=\bfseries\small,text=blue,anchor=west] at (0,3.85) {RQ1 / CAPABILITY};
+  \node[font=\bfseries\small,text=green,anchor=west] at (4.1,3.85) {RQ2 / ASSURANCE};
+  \node[font=\bfseries\small,text=ink,anchor=west] at (12.1,3.85) {RQ3 / CONSEQUENCE};
+  \node[draw=ink,fill=blue!12,rounded corners=2pt,minimum width=2.75cm,minimum height=1.05cm,align=center] (vlm) at (1.35,2.65)
+    {\bfseries Modern VLM proposal\\[-1pt]\scriptsize high-recall image $\rightarrow$ intervals};
+  \node[draw=ink,fill=green!12,rounded corners=2pt,minimum width=2.75cm,minimum height=1.05cm,align=center] (evidence) at (4.55,2.65)
+    {\bfseries Independent evidence\\[-1pt]\scriptsize positioned values; page + bbox};
+  \node[draw=ink,fill=amber!18,rounded corners=2pt,minimum width=2.75cm,minimum height=1.05cm,align=center] (checks) at (7.75,2.65)
+    {\bfseries Deterministic checks\\[-1pt]\scriptsize units; order; ownership};
+  \node[draw=ink,fill=green!25,rounded corners=2pt,minimum width=2.15cm,minimum height=.9cm,align=center] (accept) at (10.45,3.15)
+    {\bfseries ACCEPT\\[-1pt]\scriptsize auditable row};
+  \node[draw=ink,fill=red!12,rounded corners=2pt,minimum width=2.15cm,minimum height=.9cm,align=center] (review) at (10.45,2.05)
+    {\bfseries NEEDS REVIEW\\[-1pt]\scriptsize proposal + reason};
+  \node[draw=ink,fill=blue!10,rounded corners=2pt,minimum width=2.8cm,minimum height=1.05cm,align=center] (db) at (13.6,2.65)
+    {\bfseries Database + support\\[-1pt]\scriptsize accepted rows $\rightarrow$ support mask};
+  \draw[->,thick,muted] (vlm) -- (evidence);
+  \draw[->,thick,muted] (evidence) -- (checks);
+  \draw[->,thick,muted] (checks.east) -- (accept.west);
+  \draw[->,thick,muted] (checks.east) -- (review.west);
+  \draw[->,thick,muted] (accept.east) -- (db.west);
+  \draw[->,thick,muted] (review.east) -- (db.west);
+  \node[draw=muted,dashed,fill=slate!8,rounded corners=2pt,minimum width=3.05cm,minimum height=.72cm,align=center] (legacy) at (7.75,.75)
+    {\bfseries Legacy recovery\\[-1pt]\scriptsize secondary harm analysis only};
+  \draw[->,thick,dashed,muted] (checks.south) -- (legacy.north);
+\end{tikzpicture}
+\end{document}

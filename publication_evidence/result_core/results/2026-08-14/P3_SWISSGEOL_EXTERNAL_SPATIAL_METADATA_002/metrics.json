@@ -1,0 +1,83 @@
+{
+  "collar_coverage": {
+    "denominator": 88,
+    "numerator": 0,
+    "value": 0.0
+  },
+  "collar_error_m": {
+    "count": 0,
+    "mae": null,
+    "max_abs_error": null,
+    "rmse": null
+  },
+  "collar_exact_when_predicted": {
+    "denominator": 0,
+    "numerator": 0,
+    "value": null
+  },
+  "collar_prediction_count": 0,
+  "collar_reference_count": 88,
+  "collar_status_counts": {
+    "ABSTAIN_NO_EXPLICIT_ELEVATION": 88
+  },
+  "comparison": "page_explicit_spatial_values_vs_authoritative_database",
+  "coordinate_pair_coverage": {
+    "denominator": 88,
+    "numerator": 53,
+    "value": 0.6022727272727273
+  },
+  "coordinate_pair_exact_over_all": {
+    "denominator": 88,
+    "numerator": 51,
+    "value": 0.5795454545454546
+  },
+  "coordinate_pair_exact_when_predicted": {
+    "denominator": 53,
+    "numerator": 51,
+    "value": 0.9622641509433962
+  },
+  "coordinate_prediction_count": 53,
+  "coordinate_reference_count": 88,
+  "coordinate_status_counts": {
+    "ABSTAIN_AMBIGUOUS_MULTIPLE_COORDINATES": 2,
+    "ABSTAIN_NO_COORDINATE_PAIR": 33,
+    "EXTRACTED_UNAMBIGUOUS": 53
+  },
+  "coordinate_system_accuracy_evaluated": false,
+  "coordinate_system_note": "LV95 is inferred from numeric shape; the page line generally does not state a CRS",
+  "data_status": "native_pdf_direct_text_vs_authoritative_spatial_record",
+  "development_evaluation_overlap_count": 0,
+  "document_count": 88,
+  "evaluation_semantics": "database disagreement is not automatically attributed to recognition because page and database values can differ",
+  "human_ground_truth_evidence": false,
+  "latency_seconds_per_document": 0.011616103954524575,
+  "page_database_coordinate_disagreement_count": 2,
+  "peak_process_rss_kib": 138904,
+  "prediction_reference_conditioning": "none",
+  "reference_ground_truth_tier": "AUTHORITATIVE_METADATA",
+  "rights_review": "PENDING_MANUAL_PRE_SUBMISSION_REVIEW",
+  "scope": "authoritative heldout spatial-metadata extraction evaluation",
+  "wall_time_seconds": 1.0222171479981625,
+  "x_error_m": {
+    "count": 53,
+    "mae": 94.45283018867924,
+    "max_abs_error": 5000.0,
+    "rmse": 686.8033142412974
+  },
+  "x_exact_when_predicted": {
+    "denominator": 53,
+    "numerator": 51,
+    "value": 0.9622641509433962
+  },
+  "y_error_m": {
+    "count": 53,
+    "mae": 132.0754716981132,
+    "max_abs_error": 7000.0,
+    "rmse": 961.5239476408232
+  },
+  "y_exact_when_predicted": {
+    "denominator": 53,
+    "numerator": 52,
+    "value": 0.9811320754716981
+  }
+}

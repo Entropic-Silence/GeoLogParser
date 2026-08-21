@@ -1,0 +1,27 @@
+{
+  "experiment_id": "P1_B6_QWEN3VL4B_UNIPD_AUDIT_002",
+  "git_commit": "d67a2e248353c44a9555bc7c93ed737f5b21cbbf",
+  "date": "2026-08-12",
+  "dataset_version": "unipd_levee_geotech_v001_auto_proposals",
+  "split_version": "engineering_audit_no_training_no_ground_truth",
+  "model": "B6_conservative_direct_text_plus_Qwen3-VL-4B",
+  "model_revision": "conservative_field_fusion_v001",
+  "prompt_version": "inherits_vlm_input_run",
+  "seed": null,
+  "hardware": {
+    "device": "cpu_postprocessing",
+    "processor": "x86_64",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "3.10.12"
+  },
+  "config": {
+    "annotation_root": "/data/GeoLogParser/artifacts/annotation/unipd_levee_geotech_v001/annotations",
+    "vlm_predictions_path": "results/2026-08-12/P1_B4_QWEN3VL4B_UNIPD_AUDIT_001/predictions.jsonl",
+    "vlm_predictions_sha256": "81ffd43db5adacd2f1755a20455cb7dcb6e881f687234e5ef9bcfca43eed3903",
+    "dataset_manifest_path": "/data/GeoLogParser/artifacts/annotation/unipd_levee_geotech_v001/panel_manifest.jsonl",
+    "dataset_manifest_sha256": "2ee38b8da430075df80a4b3c16a4739838b4320ecbc73ce18dcfcbcb1ac79e2a",
+    "scope": "public unannotated B6 engineering audit; no accuracy claim"
+  }
+}

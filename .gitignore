@@ -21,7 +21,34 @@ results/**
 # Large or restricted data belong on /data/GeoLogParser.
 datasets/public/**
 !datasets/public/.gitkeep
+!datasets/public/README.md
+!datasets/public/**/
+!datasets/public/**/dataset.json
+!datasets/public/dataset_bundle_v001/
+!datasets/public/dataset_bundle_v001/**
+!datasets/public/dataset_bundle_v002/
+!datasets/public/dataset_bundle_v002/**
 datasets/raw/
 datasets/processed/
 /models/
 /cache/
+
+# Paper 4 local PDF QA renders and TeX intermediates.
+tmp/
+papers/paper4/_vector_render/
+papers/paper4/tmp_figure1_fixed*.png
+papers/paper4/figures/F2_vlm_source_shift.pdf
+papers/paper4/figures/F3_assurance_frontier.pdf
+papers/paper4/figures/F4_spatial_support_consequence.pdf
+papers/paper4/submission/cageo/_qa*/
+papers/paper4/submission/cageo/_render*/
+papers/paper4/submission/cageo/tmp/
+papers/paper4/submission/cageo/manuscript.abs
+papers/paper4/submission/cageo/manuscript.aux
+papers/paper4/submission/cageo/manuscript.bbl
+papers/paper4/submission/cageo/manuscript.blg
+papers/paper4/submission/cageo/manuscript.log
+papers/paper4/submission/cageo/manuscript.pdf
+papers/paper4/submission/cageo/manuscript_zh.*
+papers/paper4/submission/cageo/zh_page-*.png
+papers/paper4/submission/cageo/*审阅说明*.md

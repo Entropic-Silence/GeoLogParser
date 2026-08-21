@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "Please cite this published data companion separately from the GeoLogParser software package; the software DOI is not a journal-article DOI."
+type: dataset
+title: "GeoLogParser public data companion v002"
+authors:
+  - family-names: Du
+    given-names: Yifan
+    orcid: "https://orcid.org/0009-0008-7740-5408"
+version: "data-v002"
+date-released: 2026-08-20
+doi: "10.5281/zenodo.22031703"
+repository-code: "https://github.com/Entropic-Silence/GeoLogParser"
+url: "https://github.com/Entropic-Silence/GeoLogParser/releases/tag/data-v002"
+abstract: >-
+  Versioned source and structured-data companion for the GeoLogParser Paper 4
+  provenance-grounded borehole database ingestion study. Source-specific terms
+  and attribution are recorded in DATA_LICENSES.md and the repository ledger.
+  The associated published software archive is version paper4-cageo-v1.0.6 at
+  DOI 10.5281/zenodo.22030229; that identifier is not a journal-article DOI.

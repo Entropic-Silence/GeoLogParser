@@ -24,7 +24,7 @@ def test_paper1_table_marks_null_metric_tbd(tmp_path: Path, monkeypatch):
     }
     write_run(tmp_path, metrics, {"model": "test"})
     table = paper1_table([{"experiment_id": "E", "result_path": "result", "paper_eligibility": "audit"}], tmp_path)
-    assert "TBD" in table
+    assert "N/A" in table
     assert "0/2 (0.000)" in table
 
 
@@ -299,7 +299,7 @@ def test_paper2_table_reports_heldout_interval_negative_result_without_zero_fcr(
     assert "Held-out authoritative-interval" in table
     assert "P2_HELDOUT" in table
     assert "0/3 (0.000)" in table
-    assert "TBD" in table
+    assert "N/A" in table
     assert "null FCR means no automatic correction occurred" in table
 
 

@@ -1,0 +1,127 @@
+{
+  "experiment_family": "PaperI-ModernVLM",
+  "protocol": "paper1_modern_vlm_v002",
+  "interpretation": "A registered entry is not a completed result. Direct JSON generation and document-specialist table parsing are reported as distinct interfaces.",
+  "runs": [
+    {
+      "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V001_FORMAL_002",
+      "group": "Open",
+      "model": "Qwen3.8-27B-FP8",
+      "interface": "generalist_direct_json",
+      "cohort": "California v001",
+      "evidence_tier": "GOLD_PUBLISHED_MANUAL_TRANSCRIPTION",
+      "status": "COMPLETED",
+      "result_path": "results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V001_FORMAL_002"
+    },
+    {
+      "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V002_FORMAL_002",
+      "group": "Open",
+      "model": "Qwen3.8-27B-FP8",
+      "interface": "generalist_direct_json",
+      "cohort": "California v002",
+      "evidence_tier": "GOLD_PUBLISHED_MANUAL_TRANSCRIPTION",
+      "status": "COMPLETED",
+      "result_path": "results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V002_FORMAL_002"
+    },
+    {
+      "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V003_FORMAL_003",
+      "group": "Open",
+      "model": "Qwen3.8-27B-FP8",
+      "interface": "generalist_direct_json",
+      "cohort": "California v003",
+      "evidence_tier": "GOLD_PUBLISHED_MANUAL_TRANSCRIPTION",
+      "status": "COMPLETED",
+      "result_path": "results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V003_FORMAL_003"
+    },
+    {
+      "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V004_FORMAL_001",
+      "group": "Open",
+      "model": "Qwen3.8-27B-FP8",
+      "interface": "generalist_direct_json",
+      "cohort": "California v004",
+      "evidence_tier": "GOLD_PUBLISHED_MANUAL_TRANSCRIPTION",
+      "status": "TRANSPORT_INTERRUPTED_BEFORE_PAGE_REQUEST",
+      "result_path": "results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V004_FORMAL_001"
+    },
+  {
+    "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V004_FORMAL_002",
+      "group": "Open",
+      "model": "Qwen3.8-27B-FP8",
+      "interface": "generalist_direct_json",
+      "cohort": "California v004",
+      "evidence_tier": "GOLD_PUBLISHED_MANUAL_TRANSCRIPTION",
+    "status": "TRANSPORT_INTERRUPTED_AFTER_98_PAGE_REQUESTS",
+    "result_path": "results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V004_FORMAL_002"
+  },
+  {
+    "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V004_FORMAL_003",
+    "group": "Open",
+    "model": "Qwen3.8-27B-FP8",
+    "interface": "generalist_direct_json",
+    "cohort": "California v004",
+    "evidence_tier": "GOLD_PUBLISHED_MANUAL_TRANSCRIPTION",
+    "status": "COMPLETED",
+    "result_path": "results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V004_FORMAL_003"
+  },
+    {
+      "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V005_FORMAL_001",
+      "group": "Open",
+      "model": "Qwen3.8-27B-FP8",
+      "interface": "generalist_direct_json",
+      "cohort": "California v005",
+      "evidence_tier": "GOLD_PUBLISHED_MANUAL_TRANSCRIPTION",
+      "status": "COMPLETED",
+      "result_path": "results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V005_FORMAL_001"
+    },
+    {
+      "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_SWISSGEOL_HELDOUT_001",
+      "group": "Open",
+      "model": "Qwen3.8-27B-FP8",
+      "interface": "generalist_direct_json",
+      "cohort": "Swissgeol held-out",
+      "evidence_tier": "SOURCE_AGREEMENT_REFERENCE",
+      "status": "COMPLETED",
+      "result_path": "results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_SWISSGEOL_HELDOUT_001"
+    },
+    {
+      "experiment_id": "P1_MODERN_VLM_MINERU25_CALIFORNIA_V001_FORMAL_001",
+      "group": "Open",
+      "model": "MinerU2.5-Pro-2604-1.2B",
+      "interface": "official_document_parser_plus_fixed_decoder",
+      "cohort": "California v001",
+      "evidence_tier": "GOLD_PUBLISHED_MANUAL_TRANSCRIPTION",
+      "status": "NO_GO_BOUNDED_SMOKE_ZERO_INTERVALS",
+      "result_path": "results/2026-08-17/P1_MODERN_VLM_MINERU25_CALIFORNIA_V001_FORMAL_001"
+    },
+    {
+      "experiment_id": "P1_MODERN_VLM_PADDLEOCR16_CALIFORNIA_V001_FORMAL_001",
+      "group": "Open",
+      "model": "PaddleOCR-VL-1.6",
+      "interface": "official_table_recognition_plus_fixed_decoder",
+      "cohort": "California v001",
+      "evidence_tier": "GOLD_PUBLISHED_MANUAL_TRANSCRIPTION",
+      "status": "NO_GO_PAGE_LEVEL_TABLE_TASK_ZERO_INTERVALS",
+      "result_path": "results/2026-08-17/P1_MODERN_VLM_PADDLEOCR16_CALIFORNIA_V001_FORMAL_001"
+    },
+    {
+      "experiment_id": "P1_MODERN_VLM_GPT56_SOL_CALIFORNIA_EXTENSION_001",
+      "group": "Closed",
+      "model": "requested chatgpt5.6-sol-high / served gpt-5.6-sol",
+      "interface": "user_endpoint_openai_responses_direct_json",
+      "cohort": "California v001-v005",
+      "evidence_tier": "GOLD_PUBLISHED_MANUAL_TRANSCRIPTION",
+      "status": "NO_GO_SYNTHETIC_VISUAL_PREFLIGHT_UPSTREAM_502_NO_GOLD_REQUEST",
+      "result_path": null
+    },
+    {
+      "experiment_id": "P1_MODERN_VLM_CLAUDE_OPUS46_CALIFORNIA_EXTENSION_001",
+      "group": "Closed",
+      "model": "Claude Opus 4.6",
+      "interface": "official_anthropic_direct_json",
+      "cohort": "California v001-v005",
+      "evidence_tier": "GOLD_PUBLISHED_MANUAL_TRANSCRIPTION",
+      "status": "NOT_RUN_REQUIRES_VALID_OFFICIAL_API_CREDENTIAL",
+      "result_path": null
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "experiment_id": "P3_EXECUTED_SYNTHETIC_RAW_QC_REFERENCE_001",
+  "git_commit": "e5dce3bb50c785a22ef7c22594584f21df2bf07a",
+  "date": "2026-08-13",
+  "dataset_version": "executed_synthetic_downstream_v001",
+  "split_version": "synthetic_controlled_no_training",
+  "model": "idw_power_2_plus_geologparser_reread",
+  "model_revision": "rereading_core_v001",
+  "prompt_version": "not_applicable",
+  "seed": 20260813,
+  "hardware": {
+    "device": "cpu",
+    "processor": "x86_64",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "3.10.12"
+  },
+  "config": {
+    "ground_truth_sha256": "21bc647affd159b127bfd0b5f3f4e3826903ada0df8f1d062eef94bfd534591d",
+    "repetitions": 30,
+    "boundary": "intervals[0].bottom_depth_m",
+    "magnitudes_m": [
+      0.01,
+      0.05,
+      0.1,
+      0.5,
+      1.0
+    ],
+    "idw_power": 2,
+    "comparison": "raw_vs_constrained_vs_synthetic_reference"
+  }
+}

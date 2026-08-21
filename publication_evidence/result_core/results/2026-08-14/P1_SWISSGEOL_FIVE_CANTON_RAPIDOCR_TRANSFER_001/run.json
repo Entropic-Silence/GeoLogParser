@@ -1,0 +1,60 @@
+{
+  "experiment_id": "P1_SWISSGEOL_FIVE_CANTON_RAPIDOCR_TRANSFER_001",
+  "git_commit": "f1feac17e34a7d43c047e6217ec8010d0a2d0c54",
+  "date": "2026-08-14",
+  "dataset_version": "swissgeol_cross_canton_transfer_v002__interval_transfer",
+  "split_version": "non_thurgau_5_source_disjoint_transfer_swissgeol_cross_canton_transfer_v002",
+  "model": "B1_rapidocr_onnx_ocr_conservative_interval_parser",
+  "model_revision": "rapidocr_onnxruntime=1.4.4;onnxruntime=1.23.2",
+  "prompt_version": "not_applicable",
+  "seed": 0,
+  "hardware": {
+    "device": "cpu",
+    "processor": "x86_64",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "3.10.12",
+    "poppler_pdftoppm": "pdftoppm version 22.02.0",
+    "rapidocr_onnxruntime": "1.4.4",
+    "onnxruntime": "1.23.2"
+  },
+  "config": {
+    "render_dpi": 250,
+    "ocr_backend": "rapidocr",
+    "rapidocr_model_dir": "/data/GeoLogParser/models/rapidocr",
+    "rapidocr_model_sha256": {
+      "ch_PP-OCRv4_det_infer.onnx": "d2a7720d45a54257208b1e13e36a8479894cb74155a5efe29462512d42f49da9",
+      "ch_PP-OCRv4_rec_infer.onnx": "48fc40f24f6d2a207a2b1091d3437eb3cc3eb6b676dc3ef9c37384005483683b",
+      "ch_ppocr_mobile_v2.0_cls_infer.onnx": "e47acedf663230f8863ff1ab0e64dd2d82b838fceb5957146dab185a89d6215c"
+    },
+    "rapidocr_threads": 4,
+    "region_serialization": "stable_approximate_top_left_v001",
+    "parser": "choose_interval_section_v2",
+    "interval_match_tolerance_m": 0.05,
+    "ground_truth_sha256": "43f3ab2f1779fc3d32328690fd6fe53c79475f8c1130cb4b3892b1505f587dbb",
+    "ground_truth_tier": "AUTHORITATIVE_STRUCTURED_SOURCE",
+    "prediction_reference_conditioning": "none",
+    "pairing_audit_summary_sha256": null,
+    "dataset_summary_sha256": "20b1fbcfc53ffe8bb1b042f2e42f53c5bba0a34fac21bf5d4acd6a847501d029",
+    "evaluated_fields": [
+      "interval.top_depth_m",
+      "interval.bottom_depth_m",
+      "interval.thickness_m"
+    ],
+    "excluded_fields": [
+      "lithology",
+      "description",
+      "material_semantics",
+      "source_bbox"
+    ],
+    "selection_limitation": "all acquired paired documents from 5 non-Thurgau cantons; official database intervals are not verified as complete page-visible Ground Truth",
+    "reference_mode": "official_database_transfer",
+    "ocr_cache_key": "visual_content_sha256_36dpi_grayscale",
+    "prediction_input": "250-DPI page raster rapidocr OCR only; native PDF text not used for prediction",
+    "rights_review": "PENDING_MANUAL_PRE_SUBMISSION_REVIEW",
+    "resume_ocr_run": "results/2026-08-14/P1_SWISSGEOL_CROSS_CANTON_RAPIDOCR_TRANSFER_002",
+    "resume_ocr_run_json_sha256": "3aa99c92acc661e0821f0d69ccc4c7d8b8cfa56a8990948ac08d8d79e403438a"
+  },
+  "started_utc": "2026-08-14T08:57:27.991078+00:00"
+}

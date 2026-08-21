@@ -1,0 +1,52 @@
+{
+  "scope": "real surface visualization artifact",
+  "document_count": 35,
+  "boundary_index": 0,
+  "reference_point_count": 35,
+  "final_point_count": 34,
+  "exports": {
+    "reference": {
+      "mesh_path": "/root/GeoLogParser/results/2026-08-15/P3_SWISSGEOL_REAL_SURFACE_VTP_001/reference_surface.vtp",
+      "point_count": 625,
+      "cell_count": 1152,
+      "bounds": [
+        2707860.0,
+        2745932.0,
+        1261553.0,
+        1277798.0,
+        395.00429218696297,
+        548.2253908780648
+      ],
+      "array_names": [
+        "elevation_m"
+      ],
+      "screenshot_path": "/root/GeoLogParser/results/2026-08-15/P3_SWISSGEOL_REAL_SURFACE_VTP_001/reference_surface.png"
+    },
+    "final": {
+      "mesh_path": "/root/GeoLogParser/results/2026-08-15/P3_SWISSGEOL_REAL_SURFACE_VTP_001/final_surface.vtp",
+      "point_count": 625,
+      "cell_count": 1152,
+      "bounds": [
+        2707860.0,
+        2745932.0,
+        1261553.0,
+        1277798.0,
+        395.00423656524475,
+        555.817963457442
+      ],
+      "array_names": [
+        "elevation_m"
+      ],
+      "screenshot_path": "/root/GeoLogParser/results/2026-08-15/P3_SWISSGEOL_REAL_SURFACE_VTP_001/final_surface.png"
+    }
+  },
+  "surface_vtp_sha256": {
+    "reference": "912dcf078822fe70f5a0d8aa54a8f1557449f4bf63c688dcb8b086f8ab238f52",
+    "final": "28c06a4938527332b9094257f8307eb0b64ee347fe0a61e1e3a28075079d7478"
+  },
+  "surface_png_sha256": {
+    "reference": "86705aee2b57aec8413841fd64701646847d938a9f7555a03b2776f3c31c8915",
+    "final": "39e48057231abf1372051b37df221f0249a7dc6ad6265587e8f79f23813ca6f4"
+  },
+  "interpretation": "visualization and interoperability evidence only; no geological validity claim"
+}

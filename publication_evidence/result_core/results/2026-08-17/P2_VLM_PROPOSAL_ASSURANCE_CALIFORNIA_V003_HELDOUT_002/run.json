@@ -1,0 +1,30 @@
+{
+  "experiment_id": "P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V003_HELDOUT_002",
+  "git_commit": "c149356a4ceb9d8fbfd0446a44915b9ac6ff03f6",
+  "date": "2026-08-17",
+  "dataset_version": "frozen direct-VLM California Gold benchmark evaluation",
+  "split_version": "heldout",
+  "model": "frozen_direct_vlm_plus_frozen_positioned_reader_assurance",
+  "model_revision": "paper2_vlm_proposal_assurance_v001",
+  "prompt_version": "inherited_frozen_direct_vlm_prompt",
+  "seed": 0,
+  "hardware": {
+    "device": "CPU post-processing over archived readers",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "3.10.12"
+  },
+  "config": {
+    "protocol_config_sha256": "142d6b8771b5bbb38b1362fe283926deedf612a071486c458204a987022d236c",
+    "vlm_metrics_sha256": "93493671998cf92fc4365c6e7773facdccc2d3658cb6c38edf7950f72044891d",
+    "vlm_predictions_sha256": "43ea405cf942698ff22480184aed2b62e06c2324de1c1622a4626ecd1f2ef0a3",
+    "positioned_metrics_sha256": "bd9fe77c667a36ba4c49fbf95124e4849c4cd1342513e7e6d20f971c4e4f6311",
+    "positioned_predictions_sha256": "260c910b92528fdbd3b852b0208512d5a83ea52d4268d48254676fb664c7d2a4",
+    "agreement_tolerance_m": 1e-06,
+    "metres_per_source_unit": 0.3048,
+    "prediction_reference_conditioning": "none",
+    "silent_repair": false
+  },
+  "started_utc": "2026-08-17T15:17:39.041001+00:00"
+}

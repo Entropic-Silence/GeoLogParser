@@ -1,0 +1,56 @@
+{
+  "claim_id": "p3.coal602_source_audit",
+  "observations": [
+    {
+      "assertion": {
+        "expected": 602,
+        "pointer": "/content_audit/record_count",
+        "type": "json_pointer_equals"
+      },
+      "observed": 602
+    },
+    {
+      "assertion": {
+        "expected": 602,
+        "pointer": "/content_audit/unique_borehole_id_count",
+        "type": "json_pointer_equals"
+      },
+      "observed": 602
+    },
+    {
+      "assertion": {
+        "expected": "source_structured_data",
+        "pointer": "/content_audit/source_data_role",
+        "type": "json_pointer_equals"
+      },
+      "observed": "source_structured_data"
+    },
+    {
+      "assertion": {
+        "expected": false,
+        "pointer": "/content_audit/spatial_metadata/coordinate_reference_system_declared_in_released_files",
+        "type": "json_pointer_equals"
+      },
+      "observed": false
+    },
+    {
+      "assertion": {
+        "expected": "pending_human_review",
+        "pointer": "/content_audit/spatial_metadata/privacy_and_sensitive_location_review",
+        "type": "json_pointer_equals"
+      },
+      "observed": "pending_human_review"
+    },
+    {
+      "assertion": {
+        "expected": "candidate_pending_human_and_spatial_review",
+        "pointer": "/content_audit/formal_use_status",
+        "type": "json_pointer_equals"
+      },
+      "observed": "candidate_pending_human_and_spatial_review"
+    }
+  ],
+  "origin_source_sha256": "261bee6cdd7b400476aa34c19046034303c2114cf4f26c5cb1c5e0151f852b21",
+  "publication_evidence_schema_version": "claim_assertion_projection_v001",
+  "scope": "licensed structured-source content audit; not AI output, Ground Truth, privacy clearance, or a formal experiment"
+}

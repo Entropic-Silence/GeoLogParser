@@ -1,0 +1,109 @@
+{
+  "critical_numeric_invalidity_rate": 0.05,
+  "document_boundary_exact": {
+    "denominator": 35,
+    "numerator": 0,
+    "value": 0.0
+  },
+  "document_count": 35,
+  "documents_with_predictions": 35,
+  "interval_metrics": {
+    "interval_f1": {
+      "denominator": 1.0,
+      "details": {
+        "matched_count": 45,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 76,
+        "reference_count": 80,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 31,
+        "unmatched_reference_count": 35
+      },
+      "name": "interval_f1",
+      "numerator": 0.5769230769230769,
+      "unit": "ratio",
+      "value": 0.5769230769230769
+    },
+    "interval_precision": {
+      "denominator": 76,
+      "details": {
+        "matched_count": 45,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 76,
+        "reference_count": 80,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 31,
+        "unmatched_reference_count": 35
+      },
+      "name": "interval_precision",
+      "numerator": 45,
+      "unit": "ratio",
+      "value": 0.5921052631578947
+    },
+    "interval_recall": {
+      "denominator": 80,
+      "details": {
+        "matched_count": 45,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 76,
+        "reference_count": 80,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 31,
+        "unmatched_reference_count": 35
+      },
+      "name": "interval_recall",
+      "numerator": 45,
+      "unit": "ratio",
+      "value": 0.5625
+    },
+    "matched_bottom_boundary_mae_m": {
+      "denominator": 45,
+      "details": {
+        "matched_count": 45,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 76,
+        "reference_count": 80,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 31,
+        "unmatched_reference_count": 35
+      },
+      "name": "matched_bottom_boundary_mae_m",
+      "numerator": 0.0,
+      "unit": "m",
+      "value": 0.0
+    },
+    "matched_top_boundary_mae_m": {
+      "denominator": 45,
+      "details": {
+        "matched_count": 45,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 76,
+        "reference_count": 80,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 31,
+        "unmatched_reference_count": 35
+      },
+      "name": "matched_top_boundary_mae_m",
+      "numerator": 0.0,
+      "unit": "m",
+      "value": 0.0
+    }
+  },
+  "invalid_numeric_interval_count": 4,
+  "json_valid_page_count": 35,
+  "json_valid_page_rate": 1.0,
+  "latency_seconds_per_page": 4.5399558095444394,
+  "latency_seconds_total": 158.89845333405538,
+  "limitations": [
+    "Direct VLM output is normalized only by deterministic source-unit conversion and range validation.",
+    "No OCR candidate, reference interval, post-hoc repair, or deduplication is supplied to the model."
+  ],
+  "page_count": 35,
+  "predicted_interval_count": 76,
+  "prediction_reference_conditioning": "none",
+  "reference_ground_truth_tier": "SOURCE_AGREEMENT_REFERENCE",
+  "reference_interval_count": 80,
+  "responses_hitting_max_new_tokens": 0,
+  "scope": "frozen Qwen3.8-27B-FP8 Swissgeol held-out source-agreement evaluation",
+  "zero_output_document_rate": 0.0
+}

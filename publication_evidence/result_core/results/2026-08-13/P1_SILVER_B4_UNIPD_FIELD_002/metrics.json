@@ -1,0 +1,536 @@
+{
+  "scope": "machine-adjudicated-silver-agreement evaluation",
+  "reference_policy": "silver",
+  "reference_ground_truth_tier": "SILVER",
+  "document_count": 10,
+  "interval_matching": {
+    "strategy": "order_preserving_max_cardinality_then_min_error_v001",
+    "tolerance_m": 0.05
+  },
+  "borehole_fields": {
+    "borehole_id": {
+      "name": "borehole_id_exact_match",
+      "value": 0.9,
+      "numerator": 9,
+      "denominator": 10,
+      "unit": "ratio",
+      "details": {}
+    },
+    "project_name": {
+      "name": "project_name_exact_match",
+      "value": 1.0,
+      "numerator": 10,
+      "denominator": 10,
+      "unit": "ratio",
+      "details": {}
+    },
+    "coordinate_system": {
+      "name": "coordinate_system_exact_match",
+      "value": 1.0,
+      "numerator": 10,
+      "denominator": 10,
+      "unit": "ratio",
+      "details": {}
+    },
+    "x_coordinate": {
+      "x_coordinate_mae": {
+        "name": "x_coordinate_mae",
+        "value": null,
+        "numerator": 0,
+        "denominator": 0,
+        "unit": "same_as_input",
+        "details": {}
+      },
+      "x_coordinate_mae_coverage": {
+        "name": "x_coordinate_mae_coverage",
+        "value": null,
+        "numerator": 0,
+        "denominator": 0,
+        "unit": "ratio",
+        "details": {}
+      },
+      "x_coordinate_mae_reference_count": {
+        "name": "x_coordinate_mae_reference_count",
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 1.0,
+        "unit": "count",
+        "details": {}
+      }
+    },
+    "y_coordinate": {
+      "y_coordinate_mae": {
+        "name": "y_coordinate_mae",
+        "value": null,
+        "numerator": 0,
+        "denominator": 0,
+        "unit": "same_as_input",
+        "details": {}
+      },
+      "y_coordinate_mae_coverage": {
+        "name": "y_coordinate_mae_coverage",
+        "value": null,
+        "numerator": 0,
+        "denominator": 0,
+        "unit": "ratio",
+        "details": {}
+      },
+      "y_coordinate_mae_reference_count": {
+        "name": "y_coordinate_mae_reference_count",
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 1.0,
+        "unit": "count",
+        "details": {}
+      }
+    },
+    "collar_elevation_m": {
+      "collar_elevation_m_mae": {
+        "name": "collar_elevation_m_mae",
+        "value": 0.0,
+        "numerator": 0.0,
+        "denominator": 5,
+        "unit": "same_as_input",
+        "details": {}
+      },
+      "collar_elevation_m_mae_coverage": {
+        "name": "collar_elevation_m_mae_coverage",
+        "value": 1.0,
+        "numerator": 5,
+        "denominator": 5,
+        "unit": "ratio",
+        "details": {}
+      },
+      "collar_elevation_m_mae_reference_count": {
+        "name": "collar_elevation_m_mae_reference_count",
+        "value": 5.0,
+        "numerator": 5,
+        "denominator": 1.0,
+        "unit": "count",
+        "details": {}
+      }
+    },
+    "final_depth_m": {
+      "final_depth_m_mae": {
+        "name": "final_depth_m_mae",
+        "value": 0.0,
+        "numerator": 0.0,
+        "denominator": 7,
+        "unit": "same_as_input",
+        "details": {}
+      },
+      "final_depth_m_mae_coverage": {
+        "name": "final_depth_m_mae_coverage",
+        "value": 0.875,
+        "numerator": 7,
+        "denominator": 8,
+        "unit": "ratio",
+        "details": {}
+      },
+      "final_depth_m_mae_reference_count": {
+        "name": "final_depth_m_mae_reference_count",
+        "value": 8.0,
+        "numerator": 8,
+        "denominator": 1.0,
+        "unit": "count",
+        "details": {}
+      }
+    },
+    "groundwater_depth_m": {
+      "groundwater_depth_m_mae": {
+        "name": "groundwater_depth_m_mae",
+        "value": 0.0,
+        "numerator": 0.0,
+        "denominator": 5,
+        "unit": "same_as_input",
+        "details": {}
+      },
+      "groundwater_depth_m_mae_coverage": {
+        "name": "groundwater_depth_m_mae_coverage",
+        "value": 1.0,
+        "numerator": 5,
+        "denominator": 5,
+        "unit": "ratio",
+        "details": {}
+      },
+      "groundwater_depth_m_mae_reference_count": {
+        "name": "groundwater_depth_m_mae_reference_count",
+        "value": 5.0,
+        "numerator": 5,
+        "denominator": 1.0,
+        "unit": "count",
+        "details": {}
+      }
+    },
+    "groundwater_elevation_m": {
+      "groundwater_elevation_m_mae": {
+        "name": "groundwater_elevation_m_mae",
+        "value": 0.0,
+        "numerator": 0.0,
+        "denominator": 2,
+        "unit": "same_as_input",
+        "details": {}
+      },
+      "groundwater_elevation_m_mae_coverage": {
+        "name": "groundwater_elevation_m_mae_coverage",
+        "value": 1.0,
+        "numerator": 2,
+        "denominator": 2,
+        "unit": "ratio",
+        "details": {}
+      },
+      "groundwater_elevation_m_mae_reference_count": {
+        "name": "groundwater_elevation_m_mae_reference_count",
+        "value": 2.0,
+        "numerator": 2,
+        "denominator": 1.0,
+        "unit": "count",
+        "details": {}
+      }
+    }
+  },
+  "intervals": {
+    "interval_precision": {
+      "name": "interval_precision",
+      "value": 0.7142857142857143,
+      "numerator": 55,
+      "denominator": 77,
+      "unit": "ratio",
+      "details": {
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "tolerance_m": 0.05,
+        "reference_count": 83,
+        "prediction_count": 77,
+        "matched_count": 55,
+        "unmatched_reference_count": 28,
+        "unmatched_prediction_count": 22
+      }
+    },
+    "interval_recall": {
+      "name": "interval_recall",
+      "value": 0.6626506024096386,
+      "numerator": 55,
+      "denominator": 83,
+      "unit": "ratio",
+      "details": {
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "tolerance_m": 0.05,
+        "reference_count": 83,
+        "prediction_count": 77,
+        "matched_count": 55,
+        "unmatched_reference_count": 28,
+        "unmatched_prediction_count": 22
+      }
+    },
+    "interval_f1": {
+      "name": "interval_f1",
+      "value": 0.6875000000000001,
+      "numerator": 0.6875000000000001,
+      "denominator": 1.0,
+      "unit": "ratio",
+      "details": {
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "tolerance_m": 0.05,
+        "reference_count": 83,
+        "prediction_count": 77,
+        "matched_count": 55,
+        "unmatched_reference_count": 28,
+        "unmatched_prediction_count": 22
+      }
+    },
+    "matched_top_boundary_mae_m": {
+      "name": "matched_top_boundary_mae_m",
+      "value": 0.0,
+      "numerator": 0.0,
+      "denominator": 55,
+      "unit": "m",
+      "details": {
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "tolerance_m": 0.05,
+        "reference_count": 83,
+        "prediction_count": 77,
+        "matched_count": 55,
+        "unmatched_reference_count": 28,
+        "unmatched_prediction_count": 22
+      }
+    },
+    "matched_bottom_boundary_mae_m": {
+      "name": "matched_bottom_boundary_mae_m",
+      "value": 0.0,
+      "numerator": 0.0,
+      "denominator": 55,
+      "unit": "m",
+      "details": {
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "tolerance_m": 0.05,
+        "reference_count": 83,
+        "prediction_count": 77,
+        "matched_count": 55,
+        "unmatched_reference_count": 28,
+        "unmatched_prediction_count": 22
+      }
+    },
+    "top_depth_m": {
+      "matched_top_depth_m_mae": {
+        "name": "matched_top_depth_m_mae",
+        "value": 0.0,
+        "numerator": 0.0,
+        "denominator": 55,
+        "unit": "same_as_input",
+        "details": {}
+      },
+      "matched_top_depth_m_mae_coverage": {
+        "name": "matched_top_depth_m_mae_coverage",
+        "value": 1.0,
+        "numerator": 55,
+        "denominator": 55,
+        "unit": "ratio",
+        "details": {}
+      },
+      "matched_top_depth_m_mae_reference_count": {
+        "name": "matched_top_depth_m_mae_reference_count",
+        "value": 55.0,
+        "numerator": 55,
+        "denominator": 1.0,
+        "unit": "count",
+        "details": {}
+      },
+      "boundary_accuracy": {
+        "at_0.01m": {
+          "name": "boundary_accuracy_at_0.01",
+          "value": 1.0,
+          "numerator": 55,
+          "denominator": 55,
+          "unit": "ratio",
+          "details": {
+            "tolerance": 0.01
+          }
+        },
+        "at_0.05m": {
+          "name": "boundary_accuracy_at_0.05",
+          "value": 1.0,
+          "numerator": 55,
+          "denominator": 55,
+          "unit": "ratio",
+          "details": {
+            "tolerance": 0.05
+          }
+        },
+        "at_0.1m": {
+          "name": "boundary_accuracy_at_0.1",
+          "value": 1.0,
+          "numerator": 55,
+          "denominator": 55,
+          "unit": "ratio",
+          "details": {
+            "tolerance": 0.1
+          }
+        }
+      }
+    },
+    "bottom_depth_m": {
+      "matched_bottom_depth_m_mae": {
+        "name": "matched_bottom_depth_m_mae",
+        "value": 0.0,
+        "numerator": 0.0,
+        "denominator": 55,
+        "unit": "same_as_input",
+        "details": {}
+      },
+      "matched_bottom_depth_m_mae_coverage": {
+        "name": "matched_bottom_depth_m_mae_coverage",
+        "value": 1.0,
+        "numerator": 55,
+        "denominator": 55,
+        "unit": "ratio",
+        "details": {}
+      },
+      "matched_bottom_depth_m_mae_reference_count": {
+        "name": "matched_bottom_depth_m_mae_reference_count",
+        "value": 55.0,
+        "numerator": 55,
+        "denominator": 1.0,
+        "unit": "count",
+        "details": {}
+      },
+      "boundary_accuracy": {
+        "at_0.01m": {
+          "name": "boundary_accuracy_at_0.01",
+          "value": 1.0,
+          "numerator": 55,
+          "denominator": 55,
+          "unit": "ratio",
+          "details": {
+            "tolerance": 0.01
+          }
+        },
+        "at_0.05m": {
+          "name": "boundary_accuracy_at_0.05",
+          "value": 1.0,
+          "numerator": 55,
+          "denominator": 55,
+          "unit": "ratio",
+          "details": {
+            "tolerance": 0.05
+          }
+        },
+        "at_0.1m": {
+          "name": "boundary_accuracy_at_0.1",
+          "value": 1.0,
+          "numerator": 55,
+          "denominator": 55,
+          "unit": "ratio",
+          "details": {
+            "tolerance": 0.1
+          }
+        }
+      }
+    },
+    "thickness_m": {
+      "matched_thickness_m_mae": {
+        "name": "matched_thickness_m_mae",
+        "value": 0.0,
+        "numerator": 0.0,
+        "denominator": 55,
+        "unit": "same_as_input",
+        "details": {}
+      },
+      "matched_thickness_m_mae_coverage": {
+        "name": "matched_thickness_m_mae_coverage",
+        "value": 1.0,
+        "numerator": 55,
+        "denominator": 55,
+        "unit": "ratio",
+        "details": {}
+      },
+      "matched_thickness_m_mae_reference_count": {
+        "name": "matched_thickness_m_mae_reference_count",
+        "value": 55.0,
+        "numerator": 55,
+        "denominator": 1.0,
+        "unit": "count",
+        "details": {}
+      },
+      "boundary_accuracy": {
+        "at_0.01m": {
+          "name": "boundary_accuracy_at_0.01",
+          "value": 1.0,
+          "numerator": 55,
+          "denominator": 55,
+          "unit": "ratio",
+          "details": {
+            "tolerance": 0.01
+          }
+        },
+        "at_0.05m": {
+          "name": "boundary_accuracy_at_0.05",
+          "value": 1.0,
+          "numerator": 55,
+          "denominator": 55,
+          "unit": "ratio",
+          "details": {
+            "tolerance": 0.05
+          }
+        },
+        "at_0.1m": {
+          "name": "boundary_accuracy_at_0.1",
+          "value": 1.0,
+          "numerator": 55,
+          "denominator": 55,
+          "unit": "ratio",
+          "details": {
+            "tolerance": 0.1
+          }
+        }
+      }
+    },
+    "lithology_raw_exact_match": {
+      "name": "lithology_raw_exact_match",
+      "value": 0.6363636363636364,
+      "numerator": 35,
+      "denominator": 55,
+      "unit": "ratio",
+      "details": {}
+    }
+  },
+  "text": {
+    "description_cer": {
+      "name": "cer",
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 2780,
+      "unit": "error_rate",
+      "details": {
+        "unit": "character",
+        "empty_reference_insertions": 0
+      }
+    },
+    "description_numeric_cer": {
+      "name": "numeric_cer",
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 240,
+      "unit": "error_rate",
+      "details": {
+        "unit": "character",
+        "empty_reference_insertions": 0,
+        "include_signs": true,
+        "filtered_alphabet": "0-9.-+"
+      }
+    },
+    "description_normalized_edit_similarity": {
+      "name": "description_normalized_edit_similarity",
+      "value": 1.0,
+      "numerator": 32.0,
+      "denominator": 32,
+      "unit": "similarity",
+      "details": {
+        "aggregation": "macro",
+        "unit": "character",
+        "normalizer": "max_reference_prediction_length"
+      }
+    }
+  },
+  "error_distribution": {
+    "total": 83,
+    "known_total": 83,
+    "known_coverage": 1.0,
+    "counts": {
+      "OCR_digit_error": 1,
+      "OCR_character_error": 1,
+      "decimal_point_error": 0,
+      "column_misalignment": 0,
+      "row_merge": 0,
+      "row_split": 0,
+      "interval_boundary_error": 0,
+      "missing_interval": 28,
+      "duplicate_interval": 0,
+      "lithology_semantic_error": 8,
+      "normalization_error": 0,
+      "hallucination": 45,
+      "layout_error": 0,
+      "constraint_false_positive": 0,
+      "constraint_false_negative": 0,
+      "re_read_failure": 0
+    },
+    "rates": {
+      "OCR_digit_error": 0.012048192771084338,
+      "OCR_character_error": 0.012048192771084338,
+      "decimal_point_error": 0.0,
+      "column_misalignment": 0.0,
+      "row_merge": 0.0,
+      "row_split": 0.0,
+      "interval_boundary_error": 0.0,
+      "missing_interval": 0.3373493975903614,
+      "duplicate_interval": 0.0,
+      "lithology_semantic_error": 0.0963855421686747,
+      "normalization_error": 0.0,
+      "hallucination": 0.5421686746987951,
+      "layout_error": 0.0,
+      "constraint_false_positive": 0.0,
+      "constraint_false_negative": 0.0,
+      "re_read_failure": 0.0
+    },
+    "unknown": {}
+  }
+}

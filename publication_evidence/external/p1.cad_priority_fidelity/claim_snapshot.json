@@ -1,0 +1,63 @@
+{
+  "claim_id": "p1.cad_priority_fidelity",
+  "observations": [
+    {
+      "assertion": {
+        "expected": 3,
+        "type": "jsonl_row_count"
+      },
+      "observed": 3
+    },
+    {
+      "assertion": {
+        "expected": [
+          1244,
+          1905,
+          7173
+        ],
+        "pointer": "/comparison/source_entity_count",
+        "type": "jsonl_pointer_sequence_equals"
+      },
+      "observed": [
+        1244,
+        1905,
+        7173
+      ]
+    },
+    {
+      "assertion": {
+        "expected": [
+          363,
+          537,
+          611
+        ],
+        "pointer": "/comparison/source_text_entity_count",
+        "type": "jsonl_pointer_sequence_equals"
+      },
+      "observed": [
+        363,
+        537,
+        611
+      ]
+    },
+    {
+      "assertion": {
+        "expected": [
+          false,
+          false,
+          false
+        ],
+        "pointer": "/benchmark_eligible",
+        "type": "jsonl_pointer_sequence_equals"
+      },
+      "observed": [
+        false,
+        false,
+        false
+      ]
+    }
+  ],
+  "origin_source_sha256": "0a5af970a16bbec9bd5dc8cdb849d529eeec4e67e817cce85c9a74454b4371cb",
+  "publication_evidence_schema_version": "claim_assertion_projection_v001",
+  "scope": "three-item structural/text inventory reconciliation; not pixel fidelity"
+}

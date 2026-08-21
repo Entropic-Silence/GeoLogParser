@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def test_proposal_keeps_auto_status_and_experiment_lineage():
-    record = json.loads((ROOT / "examples/boreholes/synthetic_valid.json").read_text())
+    record = json.loads((ROOT / "examples/boreholes/synthetic_valid.json").read_text(encoding="utf-8"))
     record["document"]["document_id"] = "PANEL"
     record["intervals"][0]["top_depth_m"]["source_bbox"] = [10, 20, 30, 40]
     record["intervals"][0]["top_depth_m"]["display_bbox"] = None
@@ -32,6 +32,6 @@ def test_proposal_keeps_auto_status_and_experiment_lineage():
 
 
 def test_proposal_rejects_mismatched_panel_identity():
-    record = json.loads((ROOT / "examples/boreholes/synthetic_valid.json").read_text())
+    record = json.loads((ROOT / "examples/boreholes/synthetic_valid.json").read_text(encoding="utf-8"))
     with pytest.raises(ValueError, match="item_id"):
         proposal_from_prediction({"item_id": "A", "record": copy.deepcopy(record)}, {"panel_id": "B"}, "E")

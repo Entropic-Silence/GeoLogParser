@@ -1,0 +1,164 @@
+{
+  "accepted_reread_count": 4,
+  "aggregate": {
+    "final": {
+      "boundary_mae_m": 2.788732394366197,
+      "boundary_observation_count": 71,
+      "surface_error": {
+        "count": 1265,
+        "mae_m": 20.6153593877386,
+        "max_abs_error_m": 153.40880291691593,
+        "rmse_m": 32.796452341916556
+      },
+      "surface_query_count": 1265
+    },
+    "raw": {
+      "boundary_mae_m": 11.17142857142857,
+      "boundary_observation_count": 70,
+      "surface_error": {
+        "count": 1265,
+        "mae_m": 21.396863259832898,
+        "max_abs_error_m": 172.78740896570503,
+        "rmse_m": 33.655963056686325
+      },
+      "surface_query_count": 1265
+    }
+  },
+  "alignment_limitation": "ordered interval index is used without reference-guided repair; a missing or spurious upstream interval can shift deeper positional correspondence",
+  "boundary_count": 4,
+  "comparison": "raw_image_boundary_vs_constraint_reread_boundary_vs_authoritative_reference_surface",
+  "data_status": "real_image_pdf_with_authoritative_structured_spatial_metadata",
+  "document_count": 35,
+  "minimum_reference_points_per_boundary": 3,
+  "needs_review_count": 5,
+  "peak_process_rss_kib": 122740,
+  "per_boundary": [
+    {
+      "boundary_index": 1,
+      "query_count": 423,
+      "reference_point_count": 35,
+      "variants": {
+        "final": {
+          "boundary_mae_m": 0.9411764705882353,
+          "coverage": 0.9714285714285714,
+          "point_count": 34,
+          "surface_error": {
+            "count": 423,
+            "mae_m": 3.049676982776966,
+            "max_abs_error_m": 29.590358768901638,
+            "rmse_m": 5.013950010449702
+          }
+        },
+        "raw": {
+          "boundary_mae_m": 1.4705882352941178,
+          "coverage": 0.9714285714285714,
+          "point_count": 34,
+          "surface_error": {
+            "count": 423,
+            "mae_m": 3.40159655679205,
+            "max_abs_error_m": 29.595211517113626,
+            "rmse_m": 5.2142076648649045
+          }
+        }
+      }
+    },
+    {
+      "boundary_index": 2,
+      "query_count": 423,
+      "reference_point_count": 35,
+      "variants": {
+        "final": {
+          "boundary_mae_m": 5.354838709677419,
+          "coverage": 0.8857142857142857,
+          "point_count": 31,
+          "surface_error": {
+            "count": 423,
+            "mae_m": 17.974481429783896,
+            "max_abs_error_m": 153.40880291691593,
+            "rmse_m": 29.931689690827014
+          }
+        },
+        "raw": {
+          "boundary_mae_m": 24.4,
+          "coverage": 0.8571428571428571,
+          "point_count": 30,
+          "surface_error": {
+            "count": 423,
+            "mae_m": 19.959683364514166,
+            "max_abs_error_m": 172.78740896570503,
+            "rmse_m": 32.62924088470143
+          }
+        }
+      }
+    },
+    {
+      "boundary_index": 3,
+      "query_count": 289,
+      "reference_point_count": 7,
+      "variants": {
+        "final": {
+          "boundary_mae_m": 0.0,
+          "coverage": 0.5714285714285714,
+          "point_count": 4,
+          "surface_error": {
+            "count": 289,
+            "mae_m": 50.65063222255518,
+            "max_abs_error_m": 152.04855600138106,
+            "rmse_m": 55.97001869717476
+          }
+        },
+        "raw": {
+          "boundary_mae_m": 0.0,
+          "coverage": 0.5714285714285714,
+          "point_count": 4,
+          "surface_error": {
+            "count": 289,
+            "mae_m": 50.65063222255518,
+            "max_abs_error_m": 152.04855600138106,
+            "rmse_m": 55.97001869717476
+          }
+        }
+      }
+    },
+    {
+      "boundary_index": 4,
+      "query_count": 130,
+      "reference_point_count": 3,
+      "variants": {
+        "final": {
+          "boundary_mae_m": 0.0,
+          "coverage": 0.6666666666666666,
+          "point_count": 2,
+          "surface_error": {
+            "count": 130,
+            "mae_m": 19.59367618967414,
+            "max_abs_error_m": 37.709883228083186,
+            "rmse_m": 22.481965941637696
+          }
+        },
+        "raw": {
+          "boundary_mae_m": 0.0,
+          "coverage": 0.6666666666666666,
+          "point_count": 2,
+          "surface_error": {
+            "count": 130,
+            "mae_m": 19.59367618967414,
+            "max_abs_error_m": 37.709883228083186,
+            "rmse_m": 22.481965941637696
+          }
+        }
+      }
+    }
+  ],
+  "prediction_reference_conditioning": "none",
+  "reference_blinded_decision_policy": true,
+  "reference_ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+  "reference_point_count": 80,
+  "rights_review": "PENDING_MANUAL_PRE_SUBMISSION_REVIEW",
+  "scope": "real image-derived multi-boundary downstream surface diagnostic",
+  "selection_limitation": "one canton/source family and at most four ordered boundaries per record",
+  "spatial_metadata_limitation": "coordinates and collar elevations come from authoritative structured records rather than image extraction",
+  "triggered_document_count": 9,
+  "upstream_prediction_run": "results/2026-08-14/P2_SWISSGEOL_TG_CONSTRAINT_REREAD_HELDOUT_V003_001",
+  "wall_time_seconds": 0.06739399200887419
+}

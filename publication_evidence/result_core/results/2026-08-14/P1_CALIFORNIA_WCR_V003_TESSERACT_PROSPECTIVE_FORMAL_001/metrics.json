@@ -1,0 +1,116 @@
+{
+  "county_count": 31,
+  "document_boundary_exact": {
+    "denominator": 100,
+    "numerator": 4,
+    "value": 0.04
+  },
+  "document_count": 100,
+  "document_full_exact": {
+    "denominator": 100,
+    "numerator": 0,
+    "value": 0.0
+  },
+  "documents_with_predictions": 85,
+  "interval_metrics": {
+    "interval_f1": {
+      "denominator": 1.0,
+      "details": {
+        "matched_count": 379,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 507,
+        "reference_count": 1788,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 128,
+        "unmatched_reference_count": 1409
+      },
+      "name": "interval_f1",
+      "numerator": 0.3302832244008715,
+      "unit": "ratio",
+      "value": 0.3302832244008715
+    },
+    "interval_precision": {
+      "denominator": 507,
+      "details": {
+        "matched_count": 379,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 507,
+        "reference_count": 1788,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 128,
+        "unmatched_reference_count": 1409
+      },
+      "name": "interval_precision",
+      "numerator": 379,
+      "unit": "ratio",
+      "value": 0.747534516765286
+    },
+    "interval_recall": {
+      "denominator": 1788,
+      "details": {
+        "matched_count": 379,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 507,
+        "reference_count": 1788,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 128,
+        "unmatched_reference_count": 1409
+      },
+      "name": "interval_recall",
+      "numerator": 379,
+      "unit": "ratio",
+      "value": 0.21196868008948547
+    },
+    "matched_bottom_boundary_mae_m": {
+      "denominator": 379,
+      "details": {
+        "matched_count": 379,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 507,
+        "reference_count": 1788,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 128,
+        "unmatched_reference_count": 1409
+      },
+      "name": "matched_bottom_boundary_mae_m",
+      "numerator": 0.0,
+      "unit": "m",
+      "value": 0.0
+    },
+    "matched_top_boundary_mae_m": {
+      "denominator": 379,
+      "details": {
+        "matched_count": 379,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 507,
+        "reference_count": 1788,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 128,
+        "unmatched_reference_count": 1409
+      },
+      "name": "matched_top_boundary_mae_m",
+      "numerator": 0.0,
+      "unit": "m",
+      "value": 0.0
+    }
+  },
+  "latency_seconds_per_document_wall": 8.45444810658999,
+  "matched_lithology_exact": {
+    "denominator": 379,
+    "numerator": 132,
+    "value": 0.3482849604221636
+  },
+  "page_count": 154,
+  "partition": "test",
+  "peak_process_rss_kib": 327328,
+  "predicted_interval_count": 507,
+  "prediction_reference_conditioning": "none",
+  "project_human_reviewed": false,
+  "reference_ground_truth_tier": "GOLD_PUBLISHED_MANUAL_TRANSCRIPTION",
+  "reference_interval_count": 1788,
+  "reference_production": "USGS staff manually transcribed WCR images and applied published depth-logic and completeness QC",
+  "scope": "human-GT benchmark evaluation",
+  "selection_limitation": "Next deterministic clean candidates after excluding v001 and v002; prospective validation only for the already frozen selective-correction policy; no method development.",
+  "source_domain": "California DWR Well Completion Reports / USGS published manual lithology transcriptions",
+  "wall_time_seconds": 845.444810039
+}

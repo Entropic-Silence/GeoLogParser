@@ -1,0 +1,24 @@
+{
+  "experiment_id": "P2_SWISSGEOL_TG_V2_SECONDARY_ABLATION_001",
+  "git_commit": "d10c6a306f8814efe61fe27ba0bad32c8e02e1e1",
+  "date": "2026-08-14",
+  "dataset_version": "swissgeol_thurgau_paired_v003_heldout",
+  "split_version": "v003_content_group_heldout",
+  "model": "frozen_v2_artifact_secondary_ablation",
+  "model_revision": "d10c6a306f8814efe61fe27ba0bad32c8e02e1e1",
+  "prompt_version": "not_applicable",
+  "seed": 0,
+  "hardware": {
+    "device": "cpu",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "Python 3.10.12"
+  },
+  "config": {
+    "source_run": "results/2026-08-14/P2_SWISSGEOL_TG_CONSTRAINT_REREAD_HELDOUT_V003_001",
+    "analysis_role": "secondary_descriptive_post_result_ablation",
+    "no_policy_retuning": true
+  },
+  "started_utc": "2026-08-14T04:14:09.855506+00:00"
+}

@@ -1,0 +1,124 @@
+{
+  "borehole_id_exact_match": {
+    "denominator": 32,
+    "details": {},
+    "name": "borehole_id_exact_match",
+    "numerator": 23,
+    "unit": "ratio",
+    "value": 0.71875
+  },
+  "document_count": 32,
+  "elapsed_seconds": 12.11984681100148,
+  "final_depth": {
+    "final_depth_m_mae": {
+      "denominator": 32,
+      "details": {},
+      "name": "final_depth_m_mae",
+      "numerator": 0.0,
+      "unit": "same_as_input",
+      "value": 0.0
+    },
+    "final_depth_m_mae_coverage": {
+      "denominator": 32,
+      "details": {},
+      "name": "final_depth_m_mae_coverage",
+      "numerator": 32,
+      "unit": "ratio",
+      "value": 1.0
+    },
+    "final_depth_m_mae_reference_count": {
+      "denominator": 1.0,
+      "details": {},
+      "name": "final_depth_m_mae_reference_count",
+      "numerator": 32,
+      "unit": "count",
+      "value": 32.0
+    }
+  },
+  "formal_benchmark_eligible": false,
+  "ground_truth_tier": "SYNTHETIC",
+  "intervals": {
+    "interval_f1": {
+      "denominator": 1.0,
+      "details": {
+        "matched_count": 90,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 90,
+        "reference_count": 127,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 0,
+        "unmatched_reference_count": 37
+      },
+      "name": "interval_f1",
+      "numerator": 0.8294930875576036,
+      "unit": "ratio",
+      "value": 0.8294930875576036
+    },
+    "interval_precision": {
+      "denominator": 90,
+      "details": {
+        "matched_count": 90,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 90,
+        "reference_count": 127,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 0,
+        "unmatched_reference_count": 37
+      },
+      "name": "interval_precision",
+      "numerator": 90,
+      "unit": "ratio",
+      "value": 1.0
+    },
+    "interval_recall": {
+      "denominator": 127,
+      "details": {
+        "matched_count": 90,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 90,
+        "reference_count": 127,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 0,
+        "unmatched_reference_count": 37
+      },
+      "name": "interval_recall",
+      "numerator": 90,
+      "unit": "ratio",
+      "value": 0.7086614173228346
+    },
+    "matched_bottom_boundary_mae_m": {
+      "denominator": 90,
+      "details": {
+        "matched_count": 90,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 90,
+        "reference_count": 127,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 0,
+        "unmatched_reference_count": 37
+      },
+      "name": "matched_bottom_boundary_mae_m",
+      "numerator": 0.0,
+      "unit": "m",
+      "value": 0.0
+    },
+    "matched_top_boundary_mae_m": {
+      "denominator": 90,
+      "details": {
+        "matched_count": 90,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 90,
+        "reference_count": 127,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 0,
+        "unmatched_reference_count": 37
+      },
+      "name": "matched_top_boundary_mae_m",
+      "numerator": 0.0,
+      "unit": "m",
+      "value": 0.0
+    }
+  },
+  "latency_seconds_per_page": 0.37874521284379625,
+  "scope": "synthetic controlled evaluation; not real or human-GT benchmark evidence"
+}

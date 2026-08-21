@@ -109,6 +109,8 @@ def test_controlled_error_class_figure(tmp_path: Path):
         for severity in (1, 2, 3):
             conditions.append({
                 "error_type": error_type, "severity_index": severity,
+                "parameter": severity * (10 if error_type == "coordinate_shift" else .1),
+                "parameter_unit": "m" if error_type in {"boundary_shift", "coordinate_shift"} else "affected_document_fraction",
                 "surface_error": {"mae_m": {"mean": severity * .5}},
                 "spatial_support_coverage": {"mean": 1 - severity * .05},
                 "topological_mismatch_document_rate": {"mean": severity * .1},

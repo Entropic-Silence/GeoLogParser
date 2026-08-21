@@ -1,0 +1,67 @@
+name: test-and-paper-audit
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  ubuntu-full:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install system document tools
+        run: sudo apt-get update && sudo apt-get install -y ghostscript poppler-utils tesseract-ocr
+      - name: Install test environment
+        run: python -m pip install --upgrade pip && pip install -e '.[test]'
+      - name: Unit and integration tests
+        run: pytest
+      - name: Manuscript numeric bindings
+        run: python scripts/audit_manuscript_metrics.py
+      - name: Paper 4 claim and submission gates
+        run: |
+          python papers/paper4/verify_claims.py
+          python papers/paper4/audit_claim_evidence.py
+          python scripts/audit_paper4_submission.py
+          python papers/paper4/build_cg_figures.py
+      - name: Rebuild redistributable evidence core
+        run: python scripts/build_publication_evidence.py
+      - name: Rebuild publication-facing artifacts
+        run: python scripts/regenerate_publication_artifacts.py --publication-core
+      - name: Rebuild manuscript review packages
+        run: python scripts/build_paper_packages.py
+      - name: Verify UTF-8 + LF publication artifacts
+        run: python scripts/audit_generated_text_format.py
+      - name: Generated artifacts are committed
+        run: git diff --exit-code
+
+  windows-core:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install core test environment
+        run: python -m pip install --upgrade pip; pip install -e ".[test]"
+      - name: Full cross-platform test suite
+        run: pytest
+      - name: Manuscript numeric bindings
+        run: python scripts/audit_manuscript_metrics.py
+      - name: Paper 4 claim and submission gates
+        run: |
+          python papers/paper4/verify_claims.py
+          python papers/paper4/audit_claim_evidence.py
+          python scripts/audit_paper4_submission.py
+      - name: Rebuild publication-facing artifacts
+        run: python scripts/regenerate_publication_artifacts.py --publication-core --skip-figures
+      - name: Rebuild manuscript review packages
+        run: python scripts/build_paper_packages.py
+      - name: Verify UTF-8 + LF publication artifacts
+        run: python scripts/audit_generated_text_format.py
+      - name: Generated artifacts are committed
+        run: git diff --exit-code

@@ -1,0 +1,108 @@
+{
+  "document_count": 2,
+  "document_full_exact": {
+    "denominator": 2,
+    "numerator": 0,
+    "value": 0.0
+  },
+  "documents_with_predictions": 2,
+  "human_reviewed": false,
+  "interval_metrics": {
+    "interval_f1": {
+      "denominator": 1.0,
+      "details": {
+        "matched_count": 49,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 56,
+        "reference_count": 62,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 7,
+        "unmatched_reference_count": 13
+      },
+      "name": "interval_f1",
+      "numerator": 0.8305084745762712,
+      "unit": "ratio",
+      "value": 0.8305084745762712
+    },
+    "interval_precision": {
+      "denominator": 56,
+      "details": {
+        "matched_count": 49,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 56,
+        "reference_count": 62,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 7,
+        "unmatched_reference_count": 13
+      },
+      "name": "interval_precision",
+      "numerator": 49,
+      "unit": "ratio",
+      "value": 0.875
+    },
+    "interval_recall": {
+      "denominator": 62,
+      "details": {
+        "matched_count": 49,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 56,
+        "reference_count": 62,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 7,
+        "unmatched_reference_count": 13
+      },
+      "name": "interval_recall",
+      "numerator": 49,
+      "unit": "ratio",
+      "value": 0.7903225806451613
+    },
+    "matched_bottom_boundary_mae_m": {
+      "denominator": 49,
+      "details": {
+        "matched_count": 49,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 56,
+        "reference_count": 62,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 7,
+        "unmatched_reference_count": 13
+      },
+      "name": "matched_bottom_boundary_mae_m",
+      "numerator": 0.0,
+      "unit": "m",
+      "value": 0.0
+    },
+    "matched_top_boundary_mae_m": {
+      "denominator": 49,
+      "details": {
+        "matched_count": 49,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 56,
+        "reference_count": 62,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 7,
+        "unmatched_reference_count": 13
+      },
+      "name": "matched_top_boundary_mae_m",
+      "numerator": 0.0,
+      "unit": "m",
+      "value": 0.0
+    }
+  },
+  "latency_seconds_per_document_wall": 6.354211844998645,
+  "matched_lithology_exact": {
+    "denominator": 49,
+    "numerator": 4,
+    "value": 0.08163265306122448
+  },
+  "page_count": 3,
+  "peak_process_rss_kib": 200528,
+  "predicted_interval_count": 56,
+  "prediction_reference_conditioning": "none",
+  "reference_ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+  "reference_interval_count": 62,
+  "scope": "authoritative-interval benchmark evaluation",
+  "selection_limitation": "two of twelve released reports contain explicit interval tables; ten attached lithology sequences are point-depth observations and are excluded from interval scoring",
+  "source_domain": "USGS Raft River release / Idaho Department of Water Resources driller reports",
+  "wall_time_seconds": 12.70842313299363
+}

@@ -1,0 +1,904 @@
+{
+  "brier_score": 0.1261290233686067,
+  "calibration_bins": [
+    {
+      "absolute_gap": 0.0092592592592593,
+      "accuracy": 0.6666666666666666,
+      "count": 9,
+      "lower": 0.6,
+      "mean_confidence": 0.6574074074074073,
+      "upper": 0.8
+    },
+    {
+      "absolute_gap": 0.05635683760683741,
+      "accuracy": 0.8846153846153846,
+      "count": 26,
+      "lower": 0.8,
+      "mean_confidence": 0.940972222222222,
+      "upper": 1.0
+    }
+  ],
+  "coverage_accuracy_curve": [
+    {
+      "accepted_documents": 13,
+      "coverage": 0.37142857142857144,
+      "document_exact": {
+        "denominator": 13,
+        "numerator": 13,
+        "value": 1.0
+      },
+      "interval_metrics": {
+        "interval_f1": {
+          "denominator": 1.0,
+          "details": {
+            "matched_count": 30,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 30,
+            "reference_count": 30,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 0,
+            "unmatched_reference_count": 0
+          },
+          "name": "interval_f1",
+          "numerator": 1.0,
+          "unit": "ratio",
+          "value": 1.0
+        },
+        "interval_precision": {
+          "denominator": 30,
+          "details": {
+            "matched_count": 30,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 30,
+            "reference_count": 30,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 0,
+            "unmatched_reference_count": 0
+          },
+          "name": "interval_precision",
+          "numerator": 30,
+          "unit": "ratio",
+          "value": 1.0
+        },
+        "interval_recall": {
+          "denominator": 30,
+          "details": {
+            "matched_count": 30,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 30,
+            "reference_count": 30,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 0,
+            "unmatched_reference_count": 0
+          },
+          "name": "interval_recall",
+          "numerator": 30,
+          "unit": "ratio",
+          "value": 1.0
+        },
+        "matched_bottom_boundary_mae_m": {
+          "denominator": 30,
+          "details": {
+            "matched_count": 30,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 30,
+            "reference_count": 30,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 0,
+            "unmatched_reference_count": 0
+          },
+          "name": "matched_bottom_boundary_mae_m",
+          "numerator": 0.0,
+          "unit": "m",
+          "value": 0.0
+        },
+        "matched_top_boundary_mae_m": {
+          "denominator": 30,
+          "details": {
+            "matched_count": 30,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 30,
+            "reference_count": 30,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 0,
+            "unmatched_reference_count": 0
+          },
+          "name": "matched_top_boundary_mae_m",
+          "numerator": 0.0,
+          "unit": "m",
+          "value": 0.0
+        }
+      },
+      "threshold": 0.9444444444444444,
+      "total_documents": 35
+    },
+    {
+      "accepted_documents": 26,
+      "coverage": 0.7428571428571429,
+      "document_exact": {
+        "denominator": 26,
+        "numerator": 23,
+        "value": 0.8846153846153846
+      },
+      "interval_metrics": {
+        "interval_f1": {
+          "denominator": 1.0,
+          "details": {
+            "matched_count": 56,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 58,
+            "reference_count": 61,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 2,
+            "unmatched_reference_count": 5
+          },
+          "name": "interval_f1",
+          "numerator": 0.9411764705882353,
+          "unit": "ratio",
+          "value": 0.9411764705882353
+        },
+        "interval_precision": {
+          "denominator": 58,
+          "details": {
+            "matched_count": 56,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 58,
+            "reference_count": 61,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 2,
+            "unmatched_reference_count": 5
+          },
+          "name": "interval_precision",
+          "numerator": 56,
+          "unit": "ratio",
+          "value": 0.9655172413793104
+        },
+        "interval_recall": {
+          "denominator": 61,
+          "details": {
+            "matched_count": 56,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 58,
+            "reference_count": 61,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 2,
+            "unmatched_reference_count": 5
+          },
+          "name": "interval_recall",
+          "numerator": 56,
+          "unit": "ratio",
+          "value": 0.9180327868852459
+        },
+        "matched_bottom_boundary_mae_m": {
+          "denominator": 56,
+          "details": {
+            "matched_count": 56,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 58,
+            "reference_count": 61,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 2,
+            "unmatched_reference_count": 5
+          },
+          "name": "matched_bottom_boundary_mae_m",
+          "numerator": 0.0,
+          "unit": "m",
+          "value": 0.0
+        },
+        "matched_top_boundary_mae_m": {
+          "denominator": 56,
+          "details": {
+            "matched_count": 56,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 58,
+            "reference_count": 61,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 2,
+            "unmatched_reference_count": 5
+          },
+          "name": "matched_top_boundary_mae_m",
+          "numerator": 0.0,
+          "unit": "m",
+          "value": 0.0
+        }
+      },
+      "threshold": 0.9375,
+      "total_documents": 35
+    },
+    {
+      "accepted_documents": 29,
+      "coverage": 0.8285714285714286,
+      "document_exact": {
+        "denominator": 29,
+        "numerator": 26,
+        "value": 0.896551724137931
+      },
+      "interval_metrics": {
+        "interval_f1": {
+          "denominator": 1.0,
+          "details": {
+            "matched_count": 62,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 64,
+            "reference_count": 67,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 2,
+            "unmatched_reference_count": 5
+          },
+          "name": "interval_f1",
+          "numerator": 0.9465648854961832,
+          "unit": "ratio",
+          "value": 0.9465648854961832
+        },
+        "interval_precision": {
+          "denominator": 64,
+          "details": {
+            "matched_count": 62,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 64,
+            "reference_count": 67,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 2,
+            "unmatched_reference_count": 5
+          },
+          "name": "interval_precision",
+          "numerator": 62,
+          "unit": "ratio",
+          "value": 0.96875
+        },
+        "interval_recall": {
+          "denominator": 67,
+          "details": {
+            "matched_count": 62,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 64,
+            "reference_count": 67,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 2,
+            "unmatched_reference_count": 5
+          },
+          "name": "interval_recall",
+          "numerator": 62,
+          "unit": "ratio",
+          "value": 0.9253731343283582
+        },
+        "matched_bottom_boundary_mae_m": {
+          "denominator": 62,
+          "details": {
+            "matched_count": 62,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 64,
+            "reference_count": 67,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 2,
+            "unmatched_reference_count": 5
+          },
+          "name": "matched_bottom_boundary_mae_m",
+          "numerator": 0.0,
+          "unit": "m",
+          "value": 0.0
+        },
+        "matched_top_boundary_mae_m": {
+          "denominator": 62,
+          "details": {
+            "matched_count": 62,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 64,
+            "reference_count": 67,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 2,
+            "unmatched_reference_count": 5
+          },
+          "name": "matched_top_boundary_mae_m",
+          "numerator": 0.0,
+          "unit": "m",
+          "value": 0.0
+        }
+      },
+      "threshold": 0.75,
+      "total_documents": 35
+    },
+    {
+      "accepted_documents": 30,
+      "coverage": 0.8571428571428571,
+      "document_exact": {
+        "denominator": 30,
+        "numerator": 27,
+        "value": 0.9
+      },
+      "interval_metrics": {
+        "interval_f1": {
+          "denominator": 1.0,
+          "details": {
+            "matched_count": 64,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 66,
+            "reference_count": 69,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 2,
+            "unmatched_reference_count": 5
+          },
+          "name": "interval_f1",
+          "numerator": 0.9481481481481481,
+          "unit": "ratio",
+          "value": 0.9481481481481481
+        },
+        "interval_precision": {
+          "denominator": 66,
+          "details": {
+            "matched_count": 64,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 66,
+            "reference_count": 69,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 2,
+            "unmatched_reference_count": 5
+          },
+          "name": "interval_precision",
+          "numerator": 64,
+          "unit": "ratio",
+          "value": 0.9696969696969697
+        },
+        "interval_recall": {
+          "denominator": 69,
+          "details": {
+            "matched_count": 64,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 66,
+            "reference_count": 69,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 2,
+            "unmatched_reference_count": 5
+          },
+          "name": "interval_recall",
+          "numerator": 64,
+          "unit": "ratio",
+          "value": 0.927536231884058
+        },
+        "matched_bottom_boundary_mae_m": {
+          "denominator": 64,
+          "details": {
+            "matched_count": 64,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 66,
+            "reference_count": 69,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 2,
+            "unmatched_reference_count": 5
+          },
+          "name": "matched_bottom_boundary_mae_m",
+          "numerator": 0.0,
+          "unit": "m",
+          "value": 0.0
+        },
+        "matched_top_boundary_mae_m": {
+          "denominator": 64,
+          "details": {
+            "matched_count": 64,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 66,
+            "reference_count": 69,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 2,
+            "unmatched_reference_count": 5
+          },
+          "name": "matched_top_boundary_mae_m",
+          "numerator": 0.0,
+          "unit": "m",
+          "value": 0.0
+        }
+      },
+      "threshold": 0.6666666666666666,
+      "total_documents": 35
+    },
+    {
+      "accepted_documents": 35,
+      "coverage": 1.0,
+      "document_exact": {
+        "denominator": 35,
+        "numerator": 29,
+        "value": 0.8285714285714286
+      },
+      "interval_metrics": {
+        "interval_f1": {
+          "denominator": 1.0,
+          "details": {
+            "matched_count": 70,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 72,
+            "reference_count": 80,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 2,
+            "unmatched_reference_count": 10
+          },
+          "name": "interval_f1",
+          "numerator": 0.9210526315789473,
+          "unit": "ratio",
+          "value": 0.9210526315789473
+        },
+        "interval_precision": {
+          "denominator": 72,
+          "details": {
+            "matched_count": 70,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 72,
+            "reference_count": 80,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 2,
+            "unmatched_reference_count": 10
+          },
+          "name": "interval_precision",
+          "numerator": 70,
+          "unit": "ratio",
+          "value": 0.9722222222222222
+        },
+        "interval_recall": {
+          "denominator": 80,
+          "details": {
+            "matched_count": 70,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 72,
+            "reference_count": 80,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 2,
+            "unmatched_reference_count": 10
+          },
+          "name": "interval_recall",
+          "numerator": 70,
+          "unit": "ratio",
+          "value": 0.875
+        },
+        "matched_bottom_boundary_mae_m": {
+          "denominator": 70,
+          "details": {
+            "matched_count": 70,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 72,
+            "reference_count": 80,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 2,
+            "unmatched_reference_count": 10
+          },
+          "name": "matched_bottom_boundary_mae_m",
+          "numerator": 0.0,
+          "unit": "m",
+          "value": 0.0
+        },
+        "matched_top_boundary_mae_m": {
+          "denominator": 70,
+          "details": {
+            "matched_count": 70,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 72,
+            "reference_count": 80,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 2,
+            "unmatched_reference_count": 10
+          },
+          "name": "matched_top_boundary_mae_m",
+          "numerator": 0.0,
+          "unit": "m",
+          "value": 0.0
+        }
+      },
+      "threshold": 0.6,
+      "total_documents": 35
+    }
+  ],
+  "development_document_count": 37,
+  "development_heldout_overlap_count": 0,
+  "evaluation_role": "secondary_descriptive_post_result_calibration",
+  "expected_calibration_error_5_bin": 0.04424603174603161,
+  "fitted_lookup": {
+    "ACCEPT_REREAD|trigger=1|peer_exact=0": {
+      "correct": 2,
+      "documents": 2,
+      "probability": 0.75
+    },
+    "ACCEPT_REREAD|trigger=1|peer_exact=1": {
+      "correct": 1,
+      "documents": 1,
+      "probability": 0.6666666666666666
+    },
+    "KEEP_FIRST_PASS|trigger=0|peer_exact=0": {
+      "correct": 14,
+      "documents": 14,
+      "probability": 0.9375
+    },
+    "KEEP_FIRST_PASS|trigger=0|peer_exact=1": {
+      "correct": 16,
+      "documents": 16,
+      "probability": 0.9444444444444444
+    },
+    "NEEDS_REVIEW|trigger=1|peer_exact=0": {
+      "correct": 2,
+      "documents": 3,
+      "probability": 0.6
+    },
+    "NEEDS_REVIEW|trigger=1|peer_exact=1": {
+      "correct": 1,
+      "documents": 1,
+      "probability": 0.6666666666666666
+    }
+  },
+  "heldout_document_count": 35,
+  "limitations": [
+    "secondary analysis specified after the primary held-out method result was observed",
+    "only 37 development and 35 held-out documents",
+    "document exactness is stricter than field-level calibration but yields a small denominator",
+    "source-agreement-selected interval tables are not a representative cross-source sample"
+  ],
+  "negative_log_likelihood": 0.42129272933235246,
+  "operational_policies": {
+    "abstain_needs_review": {
+      "accepted_documents": 30,
+      "coverage": 0.8571428571428571,
+      "document_exact": {
+        "denominator": 30,
+        "numerator": 27,
+        "value": 0.9
+      },
+      "interval_metrics": {
+        "interval_f1": {
+          "denominator": 1.0,
+          "details": {
+            "matched_count": 64,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 66,
+            "reference_count": 69,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 2,
+            "unmatched_reference_count": 5
+          },
+          "name": "interval_f1",
+          "numerator": 0.9481481481481481,
+          "unit": "ratio",
+          "value": 0.9481481481481481
+        },
+        "interval_precision": {
+          "denominator": 66,
+          "details": {
+            "matched_count": 64,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 66,
+            "reference_count": 69,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 2,
+            "unmatched_reference_count": 5
+          },
+          "name": "interval_precision",
+          "numerator": 64,
+          "unit": "ratio",
+          "value": 0.9696969696969697
+        },
+        "interval_recall": {
+          "denominator": 69,
+          "details": {
+            "matched_count": 64,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 66,
+            "reference_count": 69,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 2,
+            "unmatched_reference_count": 5
+          },
+          "name": "interval_recall",
+          "numerator": 64,
+          "unit": "ratio",
+          "value": 0.927536231884058
+        },
+        "matched_bottom_boundary_mae_m": {
+          "denominator": 64,
+          "details": {
+            "matched_count": 64,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 66,
+            "reference_count": 69,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 2,
+            "unmatched_reference_count": 5
+          },
+          "name": "matched_bottom_boundary_mae_m",
+          "numerator": 0.0,
+          "unit": "m",
+          "value": 0.0
+        },
+        "matched_top_boundary_mae_m": {
+          "denominator": 64,
+          "details": {
+            "matched_count": 64,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 66,
+            "reference_count": 69,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 2,
+            "unmatched_reference_count": 5
+          },
+          "name": "matched_top_boundary_mae_m",
+          "numerator": 0.0,
+          "unit": "m",
+          "value": 0.0
+        }
+      },
+      "total_documents": 35
+    },
+    "accept_all": {
+      "accepted_documents": 35,
+      "coverage": 1.0,
+      "document_exact": {
+        "denominator": 35,
+        "numerator": 29,
+        "value": 0.8285714285714286
+      },
+      "interval_metrics": {
+        "interval_f1": {
+          "denominator": 1.0,
+          "details": {
+            "matched_count": 70,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 72,
+            "reference_count": 80,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 2,
+            "unmatched_reference_count": 10
+          },
+          "name": "interval_f1",
+          "numerator": 0.9210526315789473,
+          "unit": "ratio",
+          "value": 0.9210526315789473
+        },
+        "interval_precision": {
+          "denominator": 72,
+          "details": {
+            "matched_count": 70,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 72,
+            "reference_count": 80,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 2,
+            "unmatched_reference_count": 10
+          },
+          "name": "interval_precision",
+          "numerator": 70,
+          "unit": "ratio",
+          "value": 0.9722222222222222
+        },
+        "interval_recall": {
+          "denominator": 80,
+          "details": {
+            "matched_count": 70,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 72,
+            "reference_count": 80,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 2,
+            "unmatched_reference_count": 10
+          },
+          "name": "interval_recall",
+          "numerator": 70,
+          "unit": "ratio",
+          "value": 0.875
+        },
+        "matched_bottom_boundary_mae_m": {
+          "denominator": 70,
+          "details": {
+            "matched_count": 70,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 72,
+            "reference_count": 80,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 2,
+            "unmatched_reference_count": 10
+          },
+          "name": "matched_bottom_boundary_mae_m",
+          "numerator": 0.0,
+          "unit": "m",
+          "value": 0.0
+        },
+        "matched_top_boundary_mae_m": {
+          "denominator": 70,
+          "details": {
+            "matched_count": 70,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 72,
+            "reference_count": 80,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 2,
+            "unmatched_reference_count": 10
+          },
+          "name": "matched_top_boundary_mae_m",
+          "numerator": 0.0,
+          "unit": "m",
+          "value": 0.0
+        }
+      },
+      "total_documents": 35
+    },
+    "require_peer_exact_agreement": {
+      "accepted_documents": 14,
+      "coverage": 0.4,
+      "document_exact": {
+        "denominator": 14,
+        "numerator": 14,
+        "value": 1.0
+      },
+      "interval_metrics": {
+        "interval_f1": {
+          "denominator": 1.0,
+          "details": {
+            "matched_count": 32,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 32,
+            "reference_count": 32,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 0,
+            "unmatched_reference_count": 0
+          },
+          "name": "interval_f1",
+          "numerator": 1.0,
+          "unit": "ratio",
+          "value": 1.0
+        },
+        "interval_precision": {
+          "denominator": 32,
+          "details": {
+            "matched_count": 32,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 32,
+            "reference_count": 32,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 0,
+            "unmatched_reference_count": 0
+          },
+          "name": "interval_precision",
+          "numerator": 32,
+          "unit": "ratio",
+          "value": 1.0
+        },
+        "interval_recall": {
+          "denominator": 32,
+          "details": {
+            "matched_count": 32,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 32,
+            "reference_count": 32,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 0,
+            "unmatched_reference_count": 0
+          },
+          "name": "interval_recall",
+          "numerator": 32,
+          "unit": "ratio",
+          "value": 1.0
+        },
+        "matched_bottom_boundary_mae_m": {
+          "denominator": 32,
+          "details": {
+            "matched_count": 32,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 32,
+            "reference_count": 32,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 0,
+            "unmatched_reference_count": 0
+          },
+          "name": "matched_bottom_boundary_mae_m",
+          "numerator": 0.0,
+          "unit": "m",
+          "value": 0.0
+        },
+        "matched_top_boundary_mae_m": {
+          "denominator": 32,
+          "details": {
+            "matched_count": 32,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 32,
+            "reference_count": 32,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 0,
+            "unmatched_reference_count": 0
+          },
+          "name": "matched_top_boundary_mae_m",
+          "numerator": 0.0,
+          "unit": "m",
+          "value": 0.0
+        }
+      },
+      "total_documents": 35
+    },
+    "require_peer_exact_and_no_review": {
+      "accepted_documents": 14,
+      "coverage": 0.4,
+      "document_exact": {
+        "denominator": 14,
+        "numerator": 14,
+        "value": 1.0
+      },
+      "interval_metrics": {
+        "interval_f1": {
+          "denominator": 1.0,
+          "details": {
+            "matched_count": 32,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 32,
+            "reference_count": 32,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 0,
+            "unmatched_reference_count": 0
+          },
+          "name": "interval_f1",
+          "numerator": 1.0,
+          "unit": "ratio",
+          "value": 1.0
+        },
+        "interval_precision": {
+          "denominator": 32,
+          "details": {
+            "matched_count": 32,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 32,
+            "reference_count": 32,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 0,
+            "unmatched_reference_count": 0
+          },
+          "name": "interval_precision",
+          "numerator": 32,
+          "unit": "ratio",
+          "value": 1.0
+        },
+        "interval_recall": {
+          "denominator": 32,
+          "details": {
+            "matched_count": 32,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 32,
+            "reference_count": 32,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 0,
+            "unmatched_reference_count": 0
+          },
+          "name": "interval_recall",
+          "numerator": 32,
+          "unit": "ratio",
+          "value": 1.0
+        },
+        "matched_bottom_boundary_mae_m": {
+          "denominator": 32,
+          "details": {
+            "matched_count": 32,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 32,
+            "reference_count": 32,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 0,
+            "unmatched_reference_count": 0
+          },
+          "name": "matched_bottom_boundary_mae_m",
+          "numerator": 0.0,
+          "unit": "m",
+          "value": 0.0
+        },
+        "matched_top_boundary_mae_m": {
+          "denominator": 32,
+          "details": {
+            "matched_count": 32,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 32,
+            "reference_count": 32,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 0,
+            "unmatched_reference_count": 0
+          },
+          "name": "matched_top_boundary_mae_m",
+          "numerator": 0.0,
+          "unit": "m",
+          "value": 0.0
+        }
+      },
+      "total_documents": 35
+    }
+  },
+  "reference_ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+  "scope": "authoritative-interval selective-confidence secondary analysis"
+}

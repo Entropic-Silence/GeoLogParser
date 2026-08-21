@@ -1,5 +1,38 @@
 # Research log
 
+## 2026-08-18 — Closed GPT-5.6-Sol internal-visual baseline pilot
+
+- Experiment: `P2_CODEX_INTERNAL_VISUAL_CALIFORNIA_STRATIFIED_PILOT_001`.
+  The Codex host visual runtime identified itself as `OpenAI GPT-5.6-Sol`,
+  model ID `gpt-5.6-sol`, with requested reasoning effort `xhigh`.
+- Protocol: one geology-bearing page from each frozen California cohort,
+  selected before reference inspection; 200-DPI PNG inputs; frozen prompt and
+  output JSONL; no parser, threshold, or risk-policy tuning.
+- Result: 5 pages, 91 published Gold intervals, 91 matched; precision 1.000,
+  recall 1.000, F1 1.000, matched-boundary MAE 0.000 m, and 5/5 exact boundary
+  sequences.
+- Limitation: checkpoint/API snapshot, revision hash, precision, host runtime
+  version, provider response trace, and sampling defaults are not exposed. This
+  is therefore a closed baseline pilot, not a full-cohort estimate or an
+  independently reproducible model run. It is not pooled with Qwen's 450-report
+  benchmark and cannot support a general superiority claim.
+- Decision: include the pilot in Paper II's modern-VLM complementarity section;
+  retain the separate endpoint HTTP-502 record as a transport failure and keep
+  the two-page fallback audit explicitly exploratory.
+
+## 2026-08-18 — Codex internal-vision fallback audit
+
+- The user-provided closed visual endpoint continued to fail image requests,
+  despite a responsive text/model-list interface. Two California Gold pages were
+  inspected with the local Codex visual component as an exploratory fallback.
+- The manually structured outputs matched 12/12 published Gold intervals across
+  two documents (precision/recall/F1 1.000; matched-boundary MAE 0.000 m).
+- The second page required semantic exclusion of a visible well-deepening row
+  that is not part of the authoritative lithology interval sequence.
+- Decision: retain the result as `internal_visual_exploratory`, exclude it from
+  formal Paper I/II metrics, and do not present it as a reproducible closed-model
+  baseline. It lacks stable model/checkpoint identity and provider traces.
+
 ## 2026-08-13 — Human-gated page source-review queue
 
 - Experiment: source-review workflow construction, not a human review or
@@ -2911,3 +2944,147 @@
 - Decision: report the result as a conditional action-level safety bound, not
   as a cross-source or document-level deployment certificate. This resolves a
   paper-level overclaim risk but does not solve unseen-template coverage.
+
+## 2026-08-17 — GitHub publication-core evidence bundle
+
+- Built a compact publication evidence bundle containing the exact
+  `run.json` and `metrics.json` bytes required by all three versioned result
+  indexes, plus privacy-minimized assertion projections used by manuscript
+  claims.
+- Kept source PDFs/images, model weights, record-level predictions and errors,
+  OCR text, logs, ROI artifacts, and complete databases outside the repository.
+  Their hashes and controlled-store provenance remain recorded.
+- Replaced external source-artifact claim inputs with assertion-only
+  projections bound to each original SHA-256. The Sanming projection contains
+  three table counts only; no database records are redistributed.
+- Added a publication-core verifier so a fresh clone can rebuild all three
+  manuscript evidence audits without mounting `/data/GeoLogParser`. Full
+  immutable-result verification remains a separate controlled-store check.
+
+## 2026-08-17 — Adviser-driven major revision and statistical reanalysis
+
+- Reclassified the three papers by evidential strength: Paper I is a multi-
+  cohort/cross-source evaluation; Paper II centers risk-aware sequence
+  reconstruction and correction harm; Paper III is a surface/volume
+  sensitivity diagnostic rather than a complete geological-model workflow.
+- Corrected California v005 to 741 predictions, 546 matches, precision
+  `0.736842`, one fully exact document, four boundary-exact documents, and 15
+  zero-output documents. Added a prose-to-JSON numeric binding audit.
+- Recomputed five California cohorts with 20,000-repetition document-cluster
+  bootstrap intervals, zero-output rates, exact-record rates, and per-document
+  recall distributions. Pooled interval counts are now explicitly descriptive.
+- Reconstructed the v004/v005 Paper II ablation from identical archived
+  positioned candidate pools. Monotonic decoding achieved the highest F1;
+  continuity/column/semantic scoring moved the operating point toward
+  precision rather than uniformly improving F1.
+- Reanalysed addition-only risk at document level: 82 accepted additions occur
+  in 19 documents, 145/164 changed-sequence documents remain for review or
+  abstention, and the primary one-sided 95% zero-event upper bound is
+  `0.145869` per accepted document.
+- Added Paper III full-support versus identical-15-document matched-subset
+  estimands, spatial hull/spacing diagnostics, 54-setting IDW sensitivity, and
+  leave-one-borehole-out interpolation error. The lower full-support risk error
+  is primarily a selection/support effect; it does not persist as an accepted-
+  record correction advantage on the matched subset.
+- Expanded the publication bundle with 19 deidentified document-level
+  prediction/error files. Source paths, county, raw page text, OCR regions,
+  bboxes, and sensitive identifiers are removed; stable record keys and
+  reference/prediction/error structures are retained.
+- Validation: 454/454 tests passed in the working environment. A fresh
+  `pip install -e '.[test]'` environment passed 453 tests with one optional
+  PyVista test skipped; the missing CAD/SVG/RapidOCR dependencies found by the
+  first clean-install attempt were added to the test extra.
+
+## 2026-08-17 — Major-revision closure and public reanalysis
+
+- Experiment: reconciled the Paper II equations with the frozen implementation,
+  regenerated the California same-pool and document-risk analyses, and released
+  a deidentified 200-document/2,225-candidate recomputation input.
+- Observation: the raw node score excludes the shallow-start penalty; the
+  penalty is applied only at path initialization, and the 2.999 risk threshold
+  applies to raw score. The confirmatory policy accepts 82 actions in 19
+  documents spanning 14 counties, with a document-level one-sided 95% upper
+  bound of 0.145869.
+- Experiment: released a rigidly transformed 35-document Paper III spatial
+  input and recomputed full-support, matched-subset, spatial-support, IDW, LOO,
+  and volume-jackknife diagnostics.
+- Failure: the first public recomputation differed by approximately 9.7e-5 in
+  relative volume error. The cause was floating cancellation in hull boundary
+  tests at million-metre projected coordinates, not loss of released values.
+- Decision: polygon and grid geometry now use local coordinates with
+  scale-aware edge tolerance. Stabilized full-support relative volume error is
+  0.1387/0.1213/0.0821 for raw/reread/risk; the matched-subset result remains
+  0.0326/0.0754/0.0754 and continues to attribute the apparent risk advantage
+  to selection and spatial support.
+- Experiment: rewrote the three main manuscripts around their non-overlapping
+  claims, moved development histories to supplements, added two verified direct
+  2026 studies, and regenerated all tables, figures, evidence audits, and
+  review bundles.
+- Validation: 461 tests passed on Linux; manuscript numeric bindings,
+  deidentification tests, public-input recomputations, and generated-package
+  audits all passed. Packages are labelled SUBMISSION_READY_CANDIDATE while
+  submission_ready remains false pending final rights and author review.
+- Next step: inspect the complete diff, commit in focused units, push the
+  existing review branch, verify GitHub CI, and perform a fresh-clone
+  regeneration check.
+
+## 2026-08-17 — Final adviser-response precision and linkage audit
+
+- Corrected the Paper I conclusion F1 range to `0.383–0.450` and added a
+  dedicated prose-to-result binding. Expanded the frozen RapidOCR and
+  Qwen3-VL-4B reference configurations without changing baseline claims.
+- Reclassified California v001/v002 as risk-policy development evidence after
+  their initial parser evaluations; v004/v005 remain the policy confirmation
+  cohorts. The v004/v005 candidate-pool ablation is explicitly post-hoc and
+  explanatory.
+- Removed the sequence decoder's default 400-predecessor truncation and
+  recomputed the shallow-start sensitivity from the public candidate pool.
+  v004 F1 remained `0.5662` for coefficients 0–0.005/ft; v005 ranged only from
+  `0.5310` to `0.5297`.
+- Rewrote the Paper III 602-record track as two synthetically perturbed reader
+  channels on real structured-source records. Added full-support volume
+  jackknife ranges and clarified that risk LOO uses accepted support to predict
+  reference target locations rather than emitting rejected-document outputs.
+- Executed aggregate linkage attacks. Exact depth sequences linked 200/200
+  Paper II rows and uniquely linked 198/200; rigid pairwise-distance
+  fingerprints uniquely linked 35/35 Paper III points. Public projections are
+  now described as pseudonymized/transformed and linkable, never anonymous.
+- Redesigned the Paper I flow/forest plots, Paper II candidate-graph/risk
+  figures, and Paper III six-panel controlled-error and jackknife figures to
+  match the revised scientific claims.
+## 2026-08-17 — Closed GPT-5.6 Sol visual baseline preflight
+
+- Registered the user-provided OpenAI-compatible deployment as an exploratory
+  closed VLM slot with requested label `chatgpt5.6-sol-high` and served model ID
+  `gpt-5.6-sol` returned by `/v1/models`.
+- Archived the exact frozen prompt hash, 200-DPI PyMuPDF PNG preprocessing,
+  reasoning effort, token budget, parsing policy, retry policy, and endpoint
+  metadata without storing the credential.
+- A synthetic image request reached `/v1/responses` but returned HTTP 502
+  `upstream_error` twice. No real California, Swissgeol, BGS, or other page was
+  sent. No closed-model accuracy, risk-layer, or comparative score exists.
+- Decision: `NO_GO_SYNTHETIC_VISUAL_PREFLIGHT_UPSTREAM_502_NO_GOLD_REQUEST`.
+  Qwen3.8-27B-FP8 remains the completed modern VLM baseline; Paper II uses its
+  verified proposal-assurance result to quantify complementarity rather than
+  claiming a closed-model result.
+
+## 2026-08-19 — Open-model transport roster extension
+
+- Stopped only the RTX 5090 mining container for the controlled experiments;
+  the historical Qwen3.8 run on four RTX 2080 Ti GPUs was not altered.
+- Added a fixed, post-hoc source-shift roster under
+  `paper1_modern_vlm_transport_v001`, with no prompt, threshold, parser, or
+  BGS v003 changes. The direct Qwen3-VL-4B run reached boundary-pair F1 `0.793`
+  on the fixed 20-page California v003 exploratory panel and `0.619` on the
+  complete 35-page Swissgeol panel; complete Swissgeol exactness was `0/35`.
+- PaddleOCR-VL-1.6 and MinerU2.5-Pro completed page inference on all 35
+  Swissgeol pages, but the fixed explicit-header interval decoder produced zero
+  auditable interval rows. These are task/interface coverage diagnostics, not
+  direct-JSON F1 claims.
+- Updated Paper 4, the supplement, provenance configs, claim map, model roster,
+  and transport aggregate. Qwen3.8 provenance now explicitly records the
+  modified/non-reference 2080 Ti hardware and non-official runtime path as
+  partially reconstructable; no unrecoverable detail was guessed.
+- Decision: retain the roster as exploratory transport evidence. It supports a
+  recurring source-shift/usable-output risk across open model families and
+  interfaces, but not a universal capability estimate.

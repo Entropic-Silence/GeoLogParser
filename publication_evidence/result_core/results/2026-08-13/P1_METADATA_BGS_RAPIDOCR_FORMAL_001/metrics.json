@@ -1,0 +1,107 @@
+{
+  "sample_documents": 31,
+  "sample_pages": 106,
+  "benchmark_scope": "small public audit sample; not representative BGS performance",
+  "scope": "authoritative-metadata benchmark evaluation",
+  "reference_ground_truth_tier": "AUTHORITATIVE_METADATA",
+  "document_count": 31,
+  "interval_ground_truth_available": false,
+  "metadata_reference_fields": [
+    "borehole_id",
+    "x_coordinate",
+    "y_coordinate",
+    "final_depth_m"
+  ],
+  "borehole_id_exact_match": {
+    "name": "borehole_id_exact_match",
+    "value": 1.0,
+    "numerator": 31,
+    "denominator": 31,
+    "unit": "ratio",
+    "details": {}
+  },
+  "x_coordinate": {
+    "x_coordinate_mae": {
+      "name": "x_coordinate_mae",
+      "value": 0.0,
+      "numerator": 0.0,
+      "denominator": 31,
+      "unit": "same_as_input",
+      "details": {}
+    },
+    "x_coordinate_mae_coverage": {
+      "name": "x_coordinate_mae_coverage",
+      "value": 1.0,
+      "numerator": 31,
+      "denominator": 31,
+      "unit": "ratio",
+      "details": {}
+    },
+    "x_coordinate_mae_reference_count": {
+      "name": "x_coordinate_mae_reference_count",
+      "value": 31.0,
+      "numerator": 31,
+      "denominator": 1.0,
+      "unit": "count",
+      "details": {}
+    }
+  },
+  "y_coordinate": {
+    "y_coordinate_mae": {
+      "name": "y_coordinate_mae",
+      "value": 0.0,
+      "numerator": 0.0,
+      "denominator": 31,
+      "unit": "same_as_input",
+      "details": {}
+    },
+    "y_coordinate_mae_coverage": {
+      "name": "y_coordinate_mae_coverage",
+      "value": 1.0,
+      "numerator": 31,
+      "denominator": 31,
+      "unit": "ratio",
+      "details": {}
+    },
+    "y_coordinate_mae_reference_count": {
+      "name": "y_coordinate_mae_reference_count",
+      "value": 31.0,
+      "numerator": 31,
+      "denominator": 1.0,
+      "unit": "count",
+      "details": {}
+    }
+  },
+  "final_depth": {
+    "final_depth_mae_m": {
+      "name": "final_depth_mae_m",
+      "value": 133.48,
+      "numerator": 133.48,
+      "denominator": 1,
+      "unit": "same_as_input",
+      "details": {}
+    },
+    "final_depth_mae_m_coverage": {
+      "name": "final_depth_mae_m_coverage",
+      "value": 0.03225806451612903,
+      "numerator": 1,
+      "denominator": 31,
+      "unit": "ratio",
+      "details": {}
+    },
+    "final_depth_mae_m_reference_count": {
+      "name": "final_depth_mae_m_reference_count",
+      "value": 31.0,
+      "numerator": 31,
+      "denominator": 1.0,
+      "unit": "count",
+      "details": {}
+    }
+  },
+  "documents_with_any_interval": 0,
+  "total_intervals_emitted": 0,
+  "latency_total_seconds": 404.39839239799767,
+  "latency_seconds_per_document": 13.045109432193474,
+  "latency_seconds_per_page": 3.8150791735660157,
+  "peak_process_rss_kib": 1056696
+}

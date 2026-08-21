@@ -1,0 +1,54 @@
+{
+  "analysis_version": "california_selection_flow_v001",
+  "evidence_tier": "PUBLISHED_MANUAL_TRANSCRIPTION_GOLD",
+  "sampling_note": "The eligible pool after continuity filtering exceeded fixed cohort budgets; deterministic county-first/seeded acquisition selected 460 records, of which 450 were formal evaluation records.",
+  "selection_unit": "document",
+  "stages": [
+    {
+      "document_count": 12732,
+      "interval_count": 225150,
+      "label": "Public-link records joined to manual transcriptions",
+      "stage_id": "joined"
+    },
+    {
+      "document_count": 10961,
+      "documents_removed_from_previous": 1771,
+      "interval_count": 201358,
+      "intervals_removed_from_previous": 23792,
+      "label": "Five to sixty valid deduplicated intervals",
+      "stage_id": "interval_count"
+    },
+    {
+      "document_count": 10324,
+      "documents_removed_from_previous": 637,
+      "interval_count": 188860,
+      "intervals_removed_from_previous": 12498,
+      "label": "Empty source comments",
+      "stage_id": "empty_comments"
+    },
+    {
+      "document_count": 10085,
+      "documents_removed_from_previous": 239,
+      "interval_count": 184191,
+      "intervals_removed_from_previous": 4669,
+      "label": "Adjacent continuity at least 0.99",
+      "stage_id": "continuity"
+    },
+    {
+      "document_count": 460,
+      "documents_removed_from_previous": 9625,
+      "interval_count": 8421,
+      "intervals_removed_from_previous": 175770,
+      "label": "Deterministically acquired across v001\u2013v005",
+      "stage_id": "acquired"
+    },
+    {
+      "document_count": 450,
+      "documents_removed_from_previous": 10,
+      "interval_count": 8268,
+      "intervals_removed_from_previous": 153,
+      "label": "Formal evaluated cohorts; ten v001 development records excluded",
+      "stage_id": "formal"
+    }
+  ]
+}

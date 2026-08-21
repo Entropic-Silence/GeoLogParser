@@ -1,0 +1,52 @@
+{
+  "experiment_id": "P3_SYNTHETIC_ERROR_PROPAGATION_MULTISEED_001",
+  "git_commit": "6433bf8cec49faeff44b9896d1840c7e50c4fb2b",
+  "date": "2026-08-12",
+  "dataset_version": "synthetic_four_borehole_protocol_fixture_v001",
+  "split_version": "not_applicable_multiseed_protocol",
+  "model": "idw_power_2",
+  "model_revision": "geologparser_idw_v001",
+  "prompt_version": "not_applicable",
+  "seed": 20260812,
+  "hardware": {
+    "device": "cpu",
+    "processor": "x86_64",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "3.10.12"
+  },
+  "config": {
+    "magnitudes_m": [
+      0.01,
+      0.05,
+      0.1,
+      0.5,
+      1.0
+    ],
+    "repetitions": 30,
+    "interval_index": 0,
+    "boundary": "bottom_depth_m",
+    "idw_power": 2,
+    "query_grid": {
+      "x": [
+        0,
+        2,
+        4,
+        6,
+        8,
+        10
+      ],
+      "y": [
+        0,
+        2,
+        4,
+        6,
+        8,
+        10
+      ]
+    },
+    "confidence_interval": "mean +/- 1.96 * sample_std / sqrt(n); protocol only",
+    "scope": "synthetic multi-seed protocol validation; not real-world evidence"
+  }
+}

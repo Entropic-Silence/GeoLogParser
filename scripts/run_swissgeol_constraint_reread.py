@@ -15,7 +15,7 @@ from datetime import date, datetime, timezone
 import json
 import platform
 import re
-import resource
+from geologparser.runtime_resources import peak_process_rss_kib
 import shutil
 import subprocess
 import tempfile
@@ -459,7 +459,7 @@ def main() -> None:
         },
         "wall_time_seconds": wall_seconds,
         "latency_seconds_per_document_wall": wall_seconds / len(frozen_predictions),
-        "peak_process_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+        "peak_process_rss_kib": peak_process_rss_kib(),
         "evaluation_role": arguments.evaluation_role,
         "policy_version": arguments.policy_version,
         "selection_limitation": (

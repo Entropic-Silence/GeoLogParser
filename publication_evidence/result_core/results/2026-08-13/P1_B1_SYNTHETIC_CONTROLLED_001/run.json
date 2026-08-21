@@ -1,0 +1,24 @@
+{
+  "experiment_id": "P1_B1_SYNTHETIC_CONTROLLED_001",
+  "git_commit": "749a6e6e4461aef448e0e5a2c8a516eb104ed0e8",
+  "date": "2026-08-13",
+  "dataset_version": "synthetic_borehole_logs_v001",
+  "split_version": "all_synthetic_controlled_no_training",
+  "model": "tesseract_eng_regex",
+  "model_revision": "tesseract 4.1.1",
+  "prompt_version": "not_applicable",
+  "seed": 20260813,
+  "hardware": {
+    "device": "cpu",
+    "gpu_used": false
+  },
+  "software": {
+    "pipeline": "geologparser_0.0.1",
+    "tesseract": "tesseract 4.1.1"
+  },
+  "config": {
+    "manifest_sha256": "9a28a97bc69a9950b755acf203d99003f32eb439caa24952160f40f041b50acd",
+    "ocr_language": "eng",
+    "psm": 6
+  }
+}

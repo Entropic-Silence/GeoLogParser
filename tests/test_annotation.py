@@ -51,9 +51,9 @@ def test_revisioned_annotation_preserves_history(tmp_path: Path):
     record["borehole"]["borehole_id"]["value"] = "CORRECTED"
     second = revise_annotation(first, record, "annotator-A", "single_verified")
     save_annotation(second, destination)
-    assert json.loads(destination.read_text())["revision"] == 2
+    assert json.loads(destination.read_text(encoding="utf-8"))["revision"] == 2
     history = tmp_path / "history/a1/revision_0001.json"
-    assert json.loads(history.read_text())["revision"] == 1
+    assert json.loads(history.read_text(encoding="utf-8"))["revision"] == 1
 
 
 def test_revision_conflict_is_rejected(tmp_path: Path):

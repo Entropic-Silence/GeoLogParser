@@ -1,0 +1,48 @@
+{
+  "experiment_id": "P1_SWISSGEOL_TG_CONTENT_HELDOUT_TESSERACT_FORMAL_004",
+  "git_commit": "2fd034a433b1f25933ae705eb30167951ae6b39c",
+  "date": "2026-08-14",
+  "dataset_version": "swissgeol_thurgau_paired_v003__interval_gold",
+  "split_version": "v003_content_group_heldout",
+  "model": "B1_tesseract_ocr_conservative_interval_parser",
+  "model_revision": "tesseract 4.1.1",
+  "prompt_version": "not_applicable",
+  "seed": 0,
+  "hardware": {
+    "device": "cpu",
+    "processor": "x86_64",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "3.10.12",
+    "tesseract": "tesseract 4.1.1",
+    "poppler_pdftoppm": "pdftoppm version 22.02.0"
+  },
+  "config": {
+    "render_dpi": 250,
+    "ocr_language": "eng",
+    "tesseract_psm": 3,
+    "parser": "choose_interval_section_v2",
+    "interval_match_tolerance_m": 0.05,
+    "ground_truth_sha256": "afb921fb606bd2e5f6213438edab775c41285cec78747e44319dadad6d355dc7",
+    "ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+    "prediction_reference_conditioning": "none",
+    "pairing_audit_summary_sha256": "d1ecf9d05b9e77fb703a5e6581a4c1eef8f6ead39cb385bfd811e7c93937b5b0",
+    "dataset_summary_sha256": "7d3b0d6c1c4f7dcc3a8c0403250698cbb18f144b5beb17b8547686bd5a734459",
+    "evaluated_fields": [
+      "interval.top_depth_m",
+      "interval.bottom_depth_m",
+      "interval.thickness_m"
+    ],
+    "excluded_fields": [
+      "lithology",
+      "description",
+      "material_semantics",
+      "source_bbox"
+    ],
+    "selection_limitation": "source-agreement explicit-table pilot; documents were selected because the complete visible interval table agreed with the official database and are not a representative random sample",
+    "prediction_input": "250-DPI page raster OCR only; native PDF text not used for prediction",
+    "rights_review": "PENDING_MANUAL_PRE_SUBMISSION_REVIEW"
+  },
+  "started_utc": "2026-08-14T04:18:46.844883+00:00"
+}

@@ -21,7 +21,7 @@ def _plt():
 def save_audit_coverage(entries: Sequence[Mapping[str, Any]], repository_root: Path, destination: Path) -> None:
     labels, ratios, counts = [], [], []
     for entry in entries:
-        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
+        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text(encoding="utf-8"))
         if metrics.get("ground_truth_tier") == "SYNTHETIC":
             continue
         numerator = denominator = None
@@ -82,7 +82,7 @@ def save_authoritative_interval_pilot(
     candidates = []
     for entry in entries:
         metrics = json.loads(
-            (repository_root / entry["result_path"] / "metrics.json").read_text()
+            (repository_root / entry["result_path"] / "metrics.json").read_text(encoding="utf-8")
         )
         if metrics.get("scope") == "authoritative-interval benchmark evaluation":
             candidates.append((entry, metrics))
@@ -132,10 +132,10 @@ def save_source_disjoint_transfer(
     values: dict[tuple[str, str], tuple[float, float]] = {}
     for entry in entries:
         metrics = json.loads(
-            (repository_root / entry["result_path"] / "metrics.json").read_text()
+            (repository_root / entry["result_path"] / "metrics.json").read_text(encoding="utf-8")
         )
         model = json.loads(
-            (repository_root / entry["result_path"] / "run.json").read_text()
+            (repository_root / entry["result_path"] / "run.json").read_text(encoding="utf-8")
         )["model"].lower()
         backend = "Tesseract" if "tesseract" in model else "RapidOCR" if "rapidocr" in model else None
         if backend is None:
@@ -236,6 +236,193 @@ def save_california_replication(analysis_path: Path, destination: Path) -> None:
     plt.close(fig)
 
 
+def save_california_cohort_forest(analysis_path: Path, destination: Path) -> None:
+    """Plot per-cohort RapidOCR F1 with document-cluster bootstrap intervals."""
+    analysis = json.loads(analysis_path.read_text(encoding="utf-8"))
+    order = [
+        ("v001", "v001"),
+        ("v002", "v002_external"),
+        ("v003", "v003_prospective"),
+        ("v004", "v004_prospective"),
+        ("v005", "v005_external"),
+        ("Pooled*", None),
+    ]
+    rows = []
+    for label, key in order:
+        source = analysis["combined_descriptive"] if key is None else analysis["freezes"][key]
+        metric = source["rapidocr_document_cluster_metrics"]
+        rows.append((label, metric["f1"], metric["bootstrap_percentile_95_ci"]["f1"]))
+    plt = _plt()
+    fig, axis = plt.subplots(figsize=(8.5, 5.4))
+    y = list(reversed(range(len(rows))))
+    values = [row[1] for row in rows]
+    lower = [value - row[2][0] for value, row in zip(values, rows)]
+    upper = [row[2][1] - value for value, row in zip(values, rows)]
+    colors = ["#2f6f8f"] * 5 + ["#777777"]
+    for index, (position, value, low, high, color) in enumerate(zip(y, values, lower, upper, colors)):
+        marker = "s" if index == len(rows) - 1 else "o"
+        axis.errorbar(value, position, xerr=[[low], [high]], fmt=marker, capsize=4, color=color)
+        axis.text(value + high + .008, position, f"{value:.3f}", va="center", fontsize=8)
+    axis.set_yticks(y, [row[0] for row in rows])
+    axis.set_xlim(0.2, 0.61)
+    axis.set_xlabel("Interval F1 (document-cluster percentile 95% interval)")
+    axis.set_title("California multi-cohort extraction stability")
+    axis.grid(axis="x", alpha=.2)
+    axis.axhline(.5, color="#bbbbbb", linewidth=.8)
+    fig.text(
+        .5, .025,
+        "*Pooled estimate is descriptive; cohorts have no population sampling weights.",
+        ha="center", fontsize=8,
+    )
+    fig.tight_layout(rect=(0, .07, 1, 1))
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(destination, dpi=180, bbox_inches="tight")
+    plt.close(fig)
+
+
+def save_california_selection_flow(analysis_path: Path, destination: Path) -> None:
+    """Render the deterministic California eligibility and acquisition flow."""
+    analysis = json.loads(analysis_path.read_text(encoding="utf-8"))
+    stages = analysis["stages"]
+    plt = _plt()
+    fig, axis = plt.subplots(figsize=(10.5, 7.2))
+    axis.axis("off")
+    y_positions = [0.88 - index * (0.72 / max(1, len(stages) - 1)) for index in range(len(stages))]
+    for index, (stage, y) in enumerate(zip(stages, y_positions)):
+        label = f"{stage['label']}\n{stage['document_count']:,} documents / {stage['interval_count']:,} intervals"
+        axis.text(0.58, y, label, ha="center", va="center", fontsize=9, bbox={"boxstyle": "round,pad=0.5", "facecolor": "#eef4f7", "edgecolor": "#2f6f8f"})
+        if index:
+            previous_y = y_positions[index - 1]
+            removed = stage.get("documents_removed_from_previous", 0)
+            annotation = f"-{removed:,} documents" if removed >= 0 else "fixed acquisition budget"
+            axis.annotate(
+                "", xy=(0.58, y + .048), xytext=(0.58, previous_y - .048),
+                arrowprops={"arrowstyle": "->", "color": "#555555"},
+            )
+            axis.text(0.20, (previous_y + y) / 2, annotation, ha="left", va="center", fontsize=8, color="#444444")
+    axis.set_xlim(0, 1)
+    axis.set_ylim(0, 1)
+    axis.set_title("California eligibility, acquisition, and formal-evaluation flow", fontsize=12)
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(destination, dpi=180, bbox_inches="tight")
+    plt.close(fig)
+
+
+def save_paper2_sequence_risk(
+    ablation_path: Path, risk_path: Path, destination: Path,
+) -> None:
+    """Plot the recovery/harm frontier on California v004/v005."""
+    ablation = json.loads(ablation_path.read_text(encoding="utf-8"))
+    risk = json.loads(risk_path.read_text(encoding="utf-8"))
+    labels = {
+        "candidate_pool_without_sequence": "All candidates",
+        "monotonic_sequence": "Monotonic",
+        "continuity_sequence": "+ continuity",
+        "complete_sequence": "Complete",
+    }
+    offsets = {
+        "v004": {
+            "candidate_pool_without_sequence": (6, -12),
+            "monotonic_sequence": (6, 5),
+            "continuity_sequence": (6, -14),
+            "complete_sequence": (6, 6),
+        },
+        "v005": {
+            "candidate_pool_without_sequence": (6, -12),
+            "monotonic_sequence": (6, 5),
+            "continuity_sequence": (6, -15),
+            "complete_sequence": (6, 7),
+        },
+    }
+    plt = _plt()
+    fig, axes = plt.subplots(1, 2, figsize=(11, 4.8), sharey=True)
+    for axis, freeze in zip(axes, ("v004", "v005")):
+        data = ablation["freezes"][freeze]
+        for variant, label in labels.items():
+            f1 = data["metrics"][variant]["interval_f1"]["value"]
+            fcr = data["correction_safety"][variant]["false_correction_rate"]
+            axis.scatter(fcr, f1, s=55)
+            axis.annotate(label, (fcr, f1), xytext=offsets[freeze][variant], textcoords="offset points", fontsize=8)
+        risk_f1 = risk["freezes"][freeze]["addition_only_risk"]["f1"]
+        axis.scatter(0, risk_f1, marker="*", s=130, color="#2ca02c", label="Addition-only")
+        axis.annotate("Addition-only", (0, risk_f1), xytext=(8, -3), textcoords="offset points", fontsize=8, color="#206d20")
+        axis.set_title(freeze)
+        axis.set_xlabel("False-correction rate")
+        axis.grid(alpha=.2)
+        axis.set_xlim(-.025, .38)
+        axis.set_ylim(.39, .60)
+    axes[0].set_ylabel("Interval F1")
+    axes[0].legend(loc="lower right", fontsize=8)
+    fig.suptitle("Sequence recovery versus correction harm (fixed candidate pool)")
+    fig.tight_layout(rect=(0, 0, 1, .94))
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(destination, dpi=180, bbox_inches="tight")
+    plt.close(fig)
+
+
+def save_paper2_threshold_curve(analysis_path: Path, destination: Path) -> None:
+    """Plot development-only risk/coverage/utility versus the node threshold."""
+    analysis = json.loads(analysis_path.read_text(encoding="utf-8"))
+    rows = [row for row in analysis["curve"] if row["threshold"] >= 2.9]
+    thresholds = [row["threshold"] for row in rows]
+    plt = _plt()
+    fig, axes = plt.subplots(1, 2, figsize=(10.5, 4.6))
+    axes[0].plot(thresholds, [row["coverage_all_documents"] for row in rows], label="Document coverage")
+    axes[0].plot(thresholds, [row["interval_f1"] for row in rows], label="Interval F1")
+    axes[0].set_ylabel("Ratio")
+    axes[0].legend()
+    axes[1].plot(thresholds, [0.0 if row["action_fcr"] is None else row["action_fcr"] for row in rows], label="Action FCR")
+    axes[1].plot(thresholds, [row["worsened_documents"] / analysis["document_count"] for row in rows], label="Worsened-document rate")
+    axes[1].set_ylabel("Observed development risk")
+    axes[1].legend()
+    for axis in axes:
+        axis.axvline(analysis["chosen_threshold"], color="#b76e3b", linestyle="--", linewidth=1)
+        axis.set_xlabel("Raw node-score threshold")
+        axis.grid(alpha=.2)
+    fig.suptitle("Addition-only threshold selection on v001/v002 development evidence")
+    fig.tight_layout()
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(destination, dpi=180, bbox_inches="tight")
+    plt.close(fig)
+
+
+def save_paper3_spatial_support(analysis_path: Path, destination: Path) -> None:
+    """Plot full-support/matched-subset results and boundary support."""
+    analysis = json.loads(analysis_path.read_text(encoding="utf-8"))
+    variants = ["raw", "reread", "risk"]
+    labels = ["Raw", "Reread", "Risk-aware"]
+    colors = ["#e15759", "#4e79a7", "#59a14f"]
+    full = analysis["full_support_comparison"]
+    matched = analysis["matched_subset_comparison"]
+    support = {
+        row["variant"]: row for row in analysis["spatial_support"]
+        if row["boundary_index"] == 1
+    }
+    plt = _plt()
+    fig, axes = plt.subplots(1, 3, figsize=(13, 4.5))
+    x = list(range(3))
+    full_values = [full[v]["aggregate"]["relative_absolute_volume_error"] for v in variants]
+    jackknife = analysis["volume_jackknife"]["full_support"]["variants"]
+    lower = [value - jackknife[variant]["relative_absolute_volume_error"]["minimum"] for variant, value in zip(variants, full_values)]
+    upper = [jackknife[variant]["relative_absolute_volume_error"]["maximum"] - value for variant, value in zip(variants, full_values)]
+    axes[0].bar(x, full_values, yerr=[lower, upper], capsize=5, color=colors)
+    axes[0].set_title("Full-support volume diagnostic\n(error bars: borehole jackknife range)")
+    axes[0].set_ylabel("Relative absolute volume error")
+    axes[1].bar(x, [matched[v]["aggregate"]["relative_absolute_volume_error"] for v in variants], color=colors)
+    axes[1].set_title("Matched 15-document subset")
+    axes[2].bar(x, [support[v]["convex_hull_area_ratio"] for v in variants], color=colors)
+    axes[2].set_title("Boundary 1 hull-area support")
+    axes[2].set_ylabel("Accepted/reference hull area")
+    for axis in axes:
+        axis.set_xticks(x, labels, rotation=18)
+        axis.grid(axis="y", alpha=.2)
+    fig.suptitle("Selection changes both error and spatial support")
+    fig.tight_layout(rect=(0, 0, 1, .94))
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(destination, dpi=180, bbox_inches="tight")
+    plt.close(fig)
+
+
 def save_padova_locations(location_manifest: Path, destination: Path) -> None:
     rows = [json.loads(line) for line in location_manifest.read_text(encoding="utf-8").splitlines() if line]
     groups = {
@@ -263,7 +450,7 @@ def save_padova_locations(location_manifest: Path, destination: Path) -> None:
 def save_error_propagation(entries: Sequence[Mapping[str, Any]], repository_root: Path, destination: Path) -> None:
     candidates = []
     for entry in entries:
-        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
+        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text(encoding="utf-8"))
         conditions = metrics.get("conditions", [])
         if (
             conditions
@@ -298,7 +485,7 @@ def save_source_field_propagation(
 
     candidates = []
     for entry in entries:
-        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
+        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text(encoding="utf-8"))
         if metrics.get("data_status") != "licensed_source_structured_data_pending_human_spatial_review":
             continue
         conditions = metrics.get("conditions", [])
@@ -334,7 +521,7 @@ def save_image_boundary_surface(
     """Plot the frozen real image-boundary downstream diagnostic."""
     candidates = []
     for entry in entries:
-        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
+        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text(encoding="utf-8"))
         if (
             metrics.get("comparison") == "raw_image_boundary_vs_constraint_reread_boundary_vs_authoritative_reference_surface"
             and "surface" in metrics
@@ -371,7 +558,7 @@ def save_image_multiboundary_surface(
     """Plot per-boundary MAE and support for the real multi-boundary diagnostic."""
     candidates = []
     for entry in entries:
-        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
+        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text(encoding="utf-8"))
         if metrics.get("scope") == "real image-derived multi-boundary downstream surface diagnostic":
             candidates.append((entry, metrics))
     if not candidates:
@@ -413,7 +600,7 @@ def save_controlled_error_class_propagation(
     """Plot surface impact, support, and topology by controlled error class."""
     candidates = []
     for entry in entries:
-        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
+        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text(encoding="utf-8"))
         if metrics.get("scope") == "authoritative controlled multi-error downstream propagation evaluation":
             candidates.append((entry, metrics))
     if not candidates:
@@ -422,39 +609,66 @@ def save_controlled_error_class_propagation(
     grouped: dict[str, list[dict[str, Any]]] = {}
     for condition in metrics["conditions"]:
         grouped.setdefault(condition["error_type"], []).append(condition)
-    labels = list(grouped)
-    colors = ["#4e79a7", "#f28e2b", "#e15759", "#76b7b2", "#59a14f", "#af7aa1"]
+    labels = [
+        "boundary_shift", "coordinate_shift", "missing_boundary",
+        "merged_layer", "split_layer", "duplicate_boundary",
+    ]
+    titles = {
+        "boundary_shift": "Boundary displacement",
+        "coordinate_shift": "Coordinate displacement",
+        "missing_boundary": "Missing boundary",
+        "merged_layer": "Merged layer",
+        "split_layer": "Split layer",
+        "duplicate_boundary": "Duplicate boundary",
+    }
+    x_labels = {
+        "boundary_shift": "Displacement (m)",
+        "coordinate_shift": "Displacement (m)",
+        "missing_boundary": "Affected documents",
+        "merged_layer": "Affected documents",
+        "split_layer": "Affected documents",
+        "duplicate_boundary": "Affected documents",
+    }
     plt = _plt()
-    fig, axes = plt.subplots(2, 1, figsize=(9, 8), sharex=True)
-    for label, color in zip(labels, colors):
+    from matplotlib.lines import Line2D
+    fig, axes = plt.subplots(2, 3, figsize=(14, 8))
+    for axis, label in zip(axes.flat, labels):
         rows = sorted(grouped[label], key=lambda row: row["severity_index"])
-        axes[0].plot(
-            [row["severity_index"] for row in rows],
+        x = [float(row["parameter"]) for row in rows]
+        if rows[0]["parameter_unit"] == "affected_document_fraction":
+            x = [value * 100 for value in x]
+        axis.plot(
+            x,
             [row["surface_error"]["mae_m"]["mean"] for row in rows],
-            marker="o", label=label.replace("_", " "), color=color,
+            marker="o", color="#4e79a7", label="Surface MAE",
         )
-        axes[1].plot(
-            [row["severity_index"] for row in rows],
+        rate_axis = axis.twinx()
+        rate_axis.plot(
+            x,
             [1 - row["spatial_support_coverage"]["mean"] for row in rows],
-            marker="o", linestyle="--", color=color,
+            marker="o", linestyle="--", color="#e15759", label="Support loss",
         )
-        axes[1].plot(
-            [row["severity_index"] for row in rows],
+        rate_axis.plot(
+            x,
             [row["topological_mismatch_document_rate"]["mean"] for row in rows],
-            marker="s", linestyle="-", color=color,
+            marker="s", linestyle=":", color="#59a14f", label="Topology mismatch",
         )
-    axes[0].set_ylabel("Surface MAE (m)")
-    axes[0].set_title("Controlled error-class propagation on authoritative records")
-    axes[0].grid(alpha=.2)
-    axes[0].legend(ncol=2, fontsize=8)
-    axes[1].set_xlabel("Within-class severity level (class-specific parameter)")
-    axes[1].set_ylabel("Rate")
-    axes[1].set_xticks([1, 2, 3])
-    axes[1].set_ylim(-.02, .6)
-    axes[1].grid(alpha=.2)
-    axes[1].text(.01, .95, "solid squares: topology mismatch; dashed circles: support loss", transform=axes[1].transAxes, va="top", fontsize=8)
-    axes[1].text(.99, .04, entry["experiment_id"], transform=axes[1].transAxes, ha="right", fontsize=7)
-    fig.tight_layout()
+        axis.set_title(titles[label])
+        axis.set_xlabel(x_labels[label] + (" (%)" if rows[0]["parameter_unit"] == "affected_document_fraction" else ""))
+        axis.set_ylabel("Surface MAE (m)")
+        rate_axis.set_ylabel("Rate")
+        rate_axis.set_ylim(-.03, 1.03)
+        axis.set_xticks(x)
+        axis.grid(alpha=.2)
+    handles = [
+        Line2D([], [], color="#4e79a7", marker="o", label="Surface MAE"),
+        Line2D([], [], color="#e15759", marker="o", linestyle="--", label="Support loss"),
+        Line2D([], [], color="#59a14f", marker="s", linestyle=":", label="Topology mismatch"),
+    ]
+    fig.suptitle("Within-class dose-response on authoritative records; x-axes are not comparable", y=.995)
+    fig.legend(handles=handles, loc="upper center", bbox_to_anchor=(.5, .955), ncol=3, frameon=False)
+    fig.text(.99, .01, entry["experiment_id"], ha="right", fontsize=7)
+    fig.tight_layout(rect=(0, .03, 1, .88))
     destination.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(destination, dpi=180)
     plt.close(fig)
@@ -466,7 +680,7 @@ def save_page_spatial_surface(
     """Plot the partial page-coordinate downstream comparison."""
     candidates = []
     for entry in entries:
-        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text())
+        metrics = json.loads((repository_root / entry["result_path"] / "metrics.json").read_text(encoding="utf-8"))
         if metrics.get("scope") == "real page-coordinate image-boundary downstream surface diagnostic":
             candidates.append((entry, metrics))
     if not candidates:
@@ -501,23 +715,37 @@ def save_page_spatial_surface(
 
 def save_method_schematic(destination: Path) -> None:
     plt = _plt()
-    fig, axis = plt.subplots(figsize=(12, 4))
+    fig, axis = plt.subplots(figsize=(12, 5.2))
     axis.axis("off")
-    boxes = [
-        ("OCR + layout\n+ VLM", .03), ("Initial\nrecord", .21),
-        ("C1–C10\nconstraints", .39), ("ROI reread\n+ candidates", .57),
-        ("Ranking +\ncalibration", .75), ("Accept or\nreview", .91),
-    ]
-    for index, (label, x) in enumerate(boxes):
-        axis.text(x, .55, label, ha="center", va="center", transform=axis.transAxes,
+    boxes = {
+        "raw": (.08, .68, "First pass R"),
+        "candidates": (.08, .34, "Positioned candidates C\n(field + geometry evidence)"),
+        "graph": (.36, .51, "Candidate graph\nnode + admissible-edge scores"),
+        "sequence": (.62, .51, "Dynamic programming\nsequence S"),
+        "unselective": (.88, .70, "Unselective output\nS"),
+        "risk": (.88, .31, "Addition-only policy\nR + accepted A / abstain"),
+    }
+    for _, (x, y, label) in boxes.items():
+        axis.text(x, y, label, ha="center", va="center", transform=axis.transAxes,
                   bbox={"boxstyle": "round,pad=.5", "facecolor": "#e7f0f5", "edgecolor": "#285f78"})
-        if index < len(boxes) - 1:
-            axis.annotate("", xy=(boxes[index + 1][1] - .07, .55), xytext=(x + .07, .55),
-                          xycoords=axis.transAxes, textcoords=axis.transAxes,
-                          arrowprops={"arrowstyle": "->", "color": "#333"})
-    axis.text(.5, .12, "Constraints diagnose and trigger evidence re-reading; they never overwrite values without evidence.",
-              transform=axis.transAxes, ha="center", fontsize=10)
-    axis.set_title("GeoLogParser proposed method schematic (design, not an empirical result)")
+
+    def arrow(source: str, target: str) -> None:
+        left = boxes[source]
+        right = boxes[target]
+        axis.annotate(
+            "", xy=(right[0] - .09, right[1]), xytext=(left[0] + .09, left[1]),
+            xycoords=axis.transAxes, textcoords=axis.transAxes,
+            arrowprops={"arrowstyle": "->", "color": "#333"},
+        )
+
+    arrow("raw", "graph")
+    arrow("candidates", "graph")
+    arrow("graph", "sequence")
+    arrow("sequence", "unselective")
+    arrow("sequence", "risk")
+    axis.text(.5, .10, "Deterministic geometry reconstructs depths; the risk branch preserves R and accepts only non-overlapping high-score additions.",
+              transform=axis.transAxes, ha="center", fontsize=9)
+    axis.set_title("Risk-aware sequence reconstruction (method schematic, not an empirical result)")
     fig.tight_layout()
     destination.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(destination, dpi=180)

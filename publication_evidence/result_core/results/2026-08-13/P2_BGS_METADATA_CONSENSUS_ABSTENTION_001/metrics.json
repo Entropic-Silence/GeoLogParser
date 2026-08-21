@@ -1,0 +1,62 @@
+{
+  "scope": "authoritative-metadata consensus/abstention evaluation",
+  "reference_ground_truth_tier": "AUTHORITATIVE_METADATA",
+  "document_count": 31,
+  "field_decision_count": 124,
+  "interval_ground_truth_available": false,
+  "decision_policy": "exact non-null cross-reader consensus else NEEDS_REVIEW",
+  "by_field": {
+    "borehole_id": {
+      "reference_count": 31,
+      "accepted_count": 25,
+      "review_count": 6,
+      "coverage": 0.8064516129032258,
+      "accepted_accuracy": 1.0,
+      "accepted_error_count": 0,
+      "review_needed_count": 6,
+      "manual_review_recall": 1.0
+    },
+    "x_coordinate": {
+      "reference_count": 31,
+      "accepted_count": 31,
+      "review_count": 0,
+      "coverage": 1.0,
+      "accepted_accuracy": 1.0,
+      "accepted_error_count": 0,
+      "review_needed_count": 0,
+      "manual_review_recall": null
+    },
+    "y_coordinate": {
+      "reference_count": 31,
+      "accepted_count": 31,
+      "review_count": 0,
+      "coverage": 1.0,
+      "accepted_accuracy": 1.0,
+      "accepted_error_count": 0,
+      "review_needed_count": 0,
+      "manual_review_recall": null
+    },
+    "final_depth_m": {
+      "reference_count": 31,
+      "accepted_count": 0,
+      "review_count": 31,
+      "coverage": 0.0,
+      "accepted_accuracy": null,
+      "accepted_error_count": 0,
+      "review_needed_count": 31,
+      "manual_review_recall": 1.0
+    }
+  },
+  "overall": {
+    "reference_count": 124,
+    "accepted_count": 87,
+    "review_count": 37,
+    "coverage": 0.7016129032258065,
+    "accepted_accuracy": 1.0,
+    "accepted_error_count": 0,
+    "review_needed_count": 37,
+    "manual_review_recall": 1.0
+  },
+  "latency_seconds_policy_only": 0.012405282002873719,
+  "source_first_pass_latency_excluded": true
+}

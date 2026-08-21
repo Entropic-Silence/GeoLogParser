@@ -67,7 +67,7 @@ def _metadata() -> dict:
 
 def test_rendered_bbox_does_not_masquerade_as_pdf_bbox(tmp_path: Path):
     root = _pack(tmp_path)
-    item = json.loads((root / "review_pack_manifest.jsonl").read_text())
+    item = json.loads((root / "review_pack_manifest.jsonl").read_text(encoding="utf-8"))
     from geologparser.extraction import extract_structured
     regions = FakeOCR().extract(root / "images/ITEM_001.png")
     record = bind_rendered_evidence(
@@ -88,7 +88,7 @@ def test_audit_serializes_presence_and_hash_not_ocr_text_or_values(tmp_path: Pat
         run_metadata=_metadata(), adapter=FakeOCR(), constraint_engine=default_engine(),
         dataset_id="dataset", content_class="engineering_borehole_log",
     )
-    output = (run / "predictions.jsonl").read_text()
+    output = (run / "predictions.jsonl").read_text(encoding="utf-8")
     row = json.loads(output)
     assert "SECRET-01" not in output
     assert "4.50" not in output
@@ -115,7 +115,7 @@ def test_audit_rejects_review_image_hash_drift_before_ocr(tmp_path: Path):
 
 def test_audit_rejects_source_hash_drift_before_ocr(tmp_path: Path):
     root = _pack(tmp_path)
-    item = json.loads((root / "review_pack_manifest.jsonl").read_text())
+    item = json.loads((root / "review_pack_manifest.jsonl").read_text(encoding="utf-8"))
     Path(item["source_path"]).write_bytes(b"tampered")
     adapter = FakeOCR()
     with pytest.raises(ValueError, match="review source hash mismatch"):

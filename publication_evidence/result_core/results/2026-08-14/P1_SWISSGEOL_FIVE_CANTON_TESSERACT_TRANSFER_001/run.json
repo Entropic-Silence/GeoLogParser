@@ -1,0 +1,53 @@
+{
+  "experiment_id": "P1_SWISSGEOL_FIVE_CANTON_TESSERACT_TRANSFER_001",
+  "git_commit": "f1feac17e34a7d43c047e6217ec8010d0a2d0c54",
+  "date": "2026-08-14",
+  "dataset_version": "swissgeol_cross_canton_transfer_v002__interval_transfer",
+  "split_version": "non_thurgau_5_source_disjoint_transfer_swissgeol_cross_canton_transfer_v002",
+  "model": "B1_tesseract_ocr_conservative_interval_parser",
+  "model_revision": "tesseract 4.1.1",
+  "prompt_version": "not_applicable",
+  "seed": 0,
+  "hardware": {
+    "device": "cpu",
+    "processor": "x86_64",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "3.10.12",
+    "poppler_pdftoppm": "pdftoppm version 22.02.0",
+    "tesseract": "tesseract 4.1.1"
+  },
+  "config": {
+    "render_dpi": 250,
+    "ocr_backend": "tesseract",
+    "ocr_language": "eng",
+    "tesseract_psm": 3,
+    "parser": "choose_interval_section_v2",
+    "interval_match_tolerance_m": 0.05,
+    "ground_truth_sha256": "43f3ab2f1779fc3d32328690fd6fe53c79475f8c1130cb4b3892b1505f587dbb",
+    "ground_truth_tier": "AUTHORITATIVE_STRUCTURED_SOURCE",
+    "prediction_reference_conditioning": "none",
+    "pairing_audit_summary_sha256": null,
+    "dataset_summary_sha256": "20b1fbcfc53ffe8bb1b042f2e42f53c5bba0a34fac21bf5d4acd6a847501d029",
+    "evaluated_fields": [
+      "interval.top_depth_m",
+      "interval.bottom_depth_m",
+      "interval.thickness_m"
+    ],
+    "excluded_fields": [
+      "lithology",
+      "description",
+      "material_semantics",
+      "source_bbox"
+    ],
+    "selection_limitation": "all acquired paired documents from 5 non-Thurgau cantons; official database intervals are not verified as complete page-visible Ground Truth",
+    "reference_mode": "official_database_transfer",
+    "ocr_cache_key": "visual_content_sha256_36dpi_grayscale",
+    "prediction_input": "250-DPI page raster tesseract OCR only; native PDF text not used for prediction",
+    "rights_review": "PENDING_MANUAL_PRE_SUBMISSION_REVIEW",
+    "resume_ocr_run": "results/2026-08-14/P1_SWISSGEOL_CROSS_CANTON_TESSERACT_TRANSFER_003",
+    "resume_ocr_run_json_sha256": "29e3f20e0528f5aedfaa7696865f85898b766ffa752f251f24998d63dc0ae344"
+  },
+  "started_utc": "2026-08-14T08:37:24.377297+00:00"
+}

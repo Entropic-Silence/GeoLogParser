@@ -8,7 +8,7 @@ from geologparser.silver import build_silver_dataset, run_silver_case
 
 
 def _record(item_id: str, value: str):
-    record = json.loads(Path("examples/boreholes/synthetic_valid.json").read_text())
+    record = json.loads(Path("examples/boreholes/synthetic_valid.json").read_text(encoding="utf-8"))
     record["document"]["document_id"] = item_id
     record["borehole"]["borehole_id"]["value"] = value
     return record

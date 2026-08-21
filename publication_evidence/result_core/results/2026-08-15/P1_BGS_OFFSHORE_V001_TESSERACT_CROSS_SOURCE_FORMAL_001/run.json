@@ -1,0 +1,37 @@
+{
+  "experiment_id": "P1_BGS_OFFSHORE_V001_TESSERACT_CROSS_SOURCE_FORMAL_001",
+  "git_commit": "b6cff72f378015f3d4d7d54743b015a4f5eb0d55",
+  "date": "2026-08-15",
+  "dataset_version": "bgs_offshore_paired_v001",
+  "split_version": "bgs_offshore_gold_split_v001_test",
+  "model": "tesseract_bgs_composite_interval_parser_v001",
+  "model_revision": "tesseract 4.1.1",
+  "prompt_version": "not_applicable",
+  "seed": 0,
+  "hardware": {
+    "device": "cpu",
+    "processor": "x86_64",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "3.10.12",
+    "tesseract": "tesseract 4.1.1"
+  },
+  "config": {
+    "ground_truth_sha256": "d85f6c862b81d80c793887f73ca8b70658d42de358f25230dc4a15104520c99c",
+    "prediction_reference_conditioning": "none",
+    "ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+    "render_dpi": 300,
+    "tesseract_psm": 11,
+    "evaluation_pages_only": true,
+    "evaluated_fields": [
+      "interval.top_depth_m",
+      "interval.bottom_depth_m",
+      "interval.thickness_m",
+      "interval.lithology_normalized"
+    ],
+    "reference_scope": "BGS official Borehole Geology Data rows explicitly interpreted from graphic logs",
+    "rights_review": "PENDING_MANUAL_PRE_SUBMISSION_REVIEW"
+  },
+  "started_utc": "2026-08-15T00:57:26.937371+00:00"
+}

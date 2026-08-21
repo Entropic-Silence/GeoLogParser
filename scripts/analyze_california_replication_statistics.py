@@ -88,6 +88,58 @@ def bootstrap_delta(
     }
 
 
+def bootstrap_metric_intervals(
+    items: list[tuple[int, int, int]],
+    repetitions: int,
+    rng: random.Random,
+) -> dict:
+    """Return document-cluster percentile intervals for pooled P/R/F1."""
+    observed = metrics(items)
+    distributions = {"precision": [], "recall": [], "f1": []}
+    n = len(items)
+    for _ in range(repetitions):
+        sampled = metrics(items[rng.randrange(n)] for _ in range(n))
+        for key in distributions:
+            distributions[key].append(float(sampled[key]))
+    return {
+        **observed,
+        "bootstrap_percentile_95_ci": {
+            key: [percentile(values, 0.025), percentile(values, 0.975)]
+            for key, values in distributions.items()
+        },
+        "bootstrap_repetitions": repetitions,
+        "bootstrap_unit": "document",
+    }
+
+
+def document_diagnostics(rows: dict[str, dict]) -> dict:
+    per_document_recall = []
+    for row in rows.values():
+        reference_count = len(row["reference_intervals"])
+        recall = row["matched_interval_count"] / reference_count if reference_count else 0.0
+        per_document_recall.append(recall)
+    ordered = sorted(per_document_recall)
+    count = len(rows)
+    return {
+        "document_count": count,
+        "zero_output_document_count": sum(not row["predicted_intervals"] for row in rows.values()),
+        "zero_output_document_rate": sum(not row["predicted_intervals"] for row in rows.values()) / count,
+        "boundary_exact_document_count": sum(bool(row.get("document_boundary_exact")) for row in rows.values()),
+        "boundary_exact_document_rate": sum(bool(row.get("document_boundary_exact")) for row in rows.values()) / count,
+        "full_exact_document_count": sum(bool(row.get("document_full_exact")) for row in rows.values()),
+        "full_exact_document_rate": sum(bool(row.get("document_full_exact")) for row in rows.values()) / count,
+        "per_document_recall": {
+            "mean": sum(ordered) / len(ordered),
+            "median": percentile(ordered, 0.5),
+            "q1": percentile(ordered, 0.25),
+            "q3": percentile(ordered, 0.75),
+            "minimum": ordered[0],
+            "maximum": ordered[-1],
+            "zero_recall_document_count": sum(value == 0 for value in ordered),
+        },
+    }
+
+
 def stratum(reference_count: int) -> str:
     if reference_count <= 12:
         return "5_to_12_intervals"
@@ -109,30 +161,29 @@ def stratified_metrics(rows: dict[str, dict], prediction_key: str, match_key: st
 
 def freeze_analysis(
     rapid: dict[str, dict],
-    tesseract: dict[str, dict],
+    tesseract: dict[str, dict] | None,
     constrained: dict[str, dict],
     repetitions: int,
     rng: random.Random,
     selective: dict[str, dict] | None = None,
 ) -> dict:
     ids = sorted(rapid)
-    if set(tesseract) != set(ids) or set(constrained) != set(ids):
+    if set(constrained) != set(ids) or (tesseract is not None and set(tesseract) != set(ids)):
         raise ValueError("freeze result documents do not align")
     rapid_items = [counts(rapid[item], "predicted_intervals", "matched_interval_count") for item in ids]
-    tess_items = [counts(tesseract[item], "predicted_intervals", "matched_interval_count") for item in ids]
     raw_items = [counts(constrained[item], "raw_predictions", "raw_match_count") for item in ids]
     constrained_items = [
         counts(constrained[item], "constrained_predictions", "constrained_match_count") for item in ids
     ]
     output = {
         "document_count": len(ids),
-        "ocr_paired_bootstrap": bootstrap_delta(rapid_items, tess_items, repetitions, rng),
+        "rapidocr_document_cluster_metrics": bootstrap_metric_intervals(
+            rapid_items, repetitions, rng
+        ),
+        "rapidocr_document_diagnostics": document_diagnostics(rapid),
         "constraint_paired_bootstrap": bootstrap_delta(constrained_items, raw_items, repetitions, rng),
         "rapidocr_by_reference_interval_count": stratified_metrics(
             rapid, "predicted_intervals", "matched_interval_count"
-        ),
-        "tesseract_by_reference_interval_count": stratified_metrics(
-            tesseract, "predicted_intervals", "matched_interval_count"
         ),
         "raw_by_reference_interval_count": stratified_metrics(
             constrained, "raw_predictions", "raw_match_count"
@@ -141,6 +192,18 @@ def freeze_analysis(
             constrained, "constrained_predictions", "constrained_match_count"
         ),
     }
+    if tesseract is not None:
+        tess_items = [counts(tesseract[item], "predicted_intervals", "matched_interval_count") for item in ids]
+        output["ocr_paired_bootstrap"] = bootstrap_delta(
+            rapid_items, tess_items, repetitions, rng
+        )
+        output["tesseract_document_cluster_metrics"] = bootstrap_metric_intervals(
+            tess_items, repetitions, rng
+        )
+        output["tesseract_document_diagnostics"] = document_diagnostics(tesseract)
+        output["tesseract_by_reference_interval_count"] = stratified_metrics(
+            tesseract, "predicted_intervals", "matched_interval_count"
+        )
     if selective is not None:
         if set(selective) != set(ids):
             raise ValueError("selective result documents do not align")
@@ -184,6 +247,16 @@ def main() -> None:
             "constraint": ROOT / "results/2026-08-14/P2_CALIFORNIA_WCR_V003_CONSTRAINT_PROSPECTIVE_FORMAL_001/predictions.jsonl",
             "selective": ROOT / "results/2026-08-14/P2_CALIFORNIA_WCR_V003_SELECTIVE_PROSPECTIVE_FORMAL_001/predictions.jsonl",
         },
+        "v004_prospective": {
+            "rapid": ROOT / "results/2026-08-15/P1_CALIFORNIA_WCR_V004_RAPIDOCR_PROSPECTIVE_FORMAL_001/predictions.jsonl",
+            "constraint": ROOT / "results/2026-08-15/P2_CALIFORNIA_WCR_V004_CONSTRAINT_PROSPECTIVE_FORMAL_001/predictions.jsonl",
+            "risk": ROOT / "results/2026-08-15/P2_CALIFORNIA_WCR_V004_CANDIDATE_RISK_PROSPECTIVE_FORMAL_001/predictions.jsonl",
+        },
+        "v005_external": {
+            "rapid": ROOT / "results/2026-08-15/P1_CALIFORNIA_WCR_V005_RAPIDOCR_EXTERNAL_FORMAL_001/predictions.jsonl",
+            "constraint": ROOT / "results/2026-08-15/P2_CALIFORNIA_WCR_V005_CONSTRAINT_EXTERNAL_FORMAL_001/predictions.jsonl",
+            "risk": ROOT / "results/2026-08-15/P2_CALIFORNIA_WCR_V005_CANDIDATE_RISK_EXTERNAL_FORMAL_001/predictions.jsonl",
+        },
     }
     rng = random.Random(args.seed)
     loaded = {
@@ -192,20 +265,18 @@ def main() -> None:
     }
     freezes = {
         name: freeze_analysis(
-            values["rapid"], values["tesseract"], values["constraint"], args.repetitions, rng,
+            values["rapid"], values.get("tesseract"), values["constraint"], args.repetitions, rng,
             values.get("selective"),
         )
         for name, values in loaded.items()
     }
 
     combined_rapid: list[tuple[int, int, int]] = []
-    combined_tess: list[tuple[int, int, int]] = []
     combined_raw: list[tuple[int, int, int]] = []
     combined_constrained: list[tuple[int, int, int]] = []
     for values in loaded.values():
         for record_id in sorted(values["rapid"]):
             combined_rapid.append(counts(values["rapid"][record_id], "predicted_intervals", "matched_interval_count"))
-            combined_tess.append(counts(values["tesseract"][record_id], "predicted_intervals", "matched_interval_count"))
             combined_raw.append(counts(values["constraint"][record_id], "raw_predictions", "raw_match_count"))
             combined_constrained.append(
                 counts(values["constraint"][record_id], "constrained_predictions", "constrained_match_count")
@@ -218,13 +289,13 @@ def main() -> None:
         "freezes": freezes,
         "combined_descriptive": {
             "document_count": len(combined_rapid),
-            "ocr_paired_bootstrap": bootstrap_delta(
-                combined_rapid, combined_tess, args.repetitions, rng
+            "rapidocr_document_cluster_metrics": bootstrap_metric_intervals(
+                combined_rapid, args.repetitions, rng
             ),
             "constraint_paired_bootstrap": bootstrap_delta(
                 combined_constrained, combined_raw, args.repetitions, rng
             ),
-            "interpretation_boundary": "Combined analysis is descriptive because v002 is an external successor selected by the same eligibility policy, not a new population sample with known sampling probabilities.",
+            "interpretation_boundary": "The pooled five-cohort result is descriptive because records are clustered within reports and the deterministic cohort construction has no population sampling weights.",
         },
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)

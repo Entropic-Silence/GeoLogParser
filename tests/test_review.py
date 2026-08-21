@@ -37,7 +37,7 @@ def test_timing_store_writes_append_only_real_duration(tmp_path: Path, monkeypat
     completed = store.complete(started["session_id"], 4)
     assert completed["duration_seconds"] == 120
     assert completed["fields_corrected_per_minute"] == 2
-    assert len((tmp_path / "timing.jsonl").read_text().splitlines()) == 2
+    assert len((tmp_path / "timing.jsonl").read_text(encoding="utf-8").splitlines()) == 2
 
 
 def test_timing_store_rejects_invalid_completion(tmp_path: Path):

@@ -6,7 +6,7 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
-import resource
+from geologparser.runtime_resources import peak_process_rss_kib
 import time
 
 import cv2
@@ -135,7 +135,7 @@ def main() -> None:
         "frozen_external_policy": "BGS v002 is consumed validation; BGS v003 remains unopened and was not used",
         "wall_time_seconds": time.perf_counter() - started,
         "latency_seconds_per_page": (time.perf_counter() - started) / sum(len(row["evaluation_pages"]) for row in sources),
-        "peak_process_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+        "peak_process_rss_kib": peak_process_rss_kib(),
         "limitations": [
             "This is a development diagnostic, not untouched external confirmation.",
             "Line grounding alone does not determine lithology or description semantics.",

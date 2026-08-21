@@ -81,7 +81,7 @@ def test_builds_native_pdf_auto_proposal_with_two_coordinate_spaces(tmp_path: Pa
     result = build_eligible_annotation_pack(
         pack, reviews, eligible, output, SCHEMA, ocr_adapter=FakeOCR(),
     )
-    annotation = json.loads((output / "annotations/CANDIDATE_001.json").read_text())
+    annotation = json.loads((output / "annotations/CANDIDATE_001.json").read_text(encoding="utf-8"))
     field = annotation["record"]["borehole"]["borehole_id"]
     assert result["proposal_count"] == 1
     assert result["source_review_audit"]["eligible_manifest_path"] == str(eligible.resolve())
@@ -102,7 +102,7 @@ def test_image_ocr_bbox_is_display_only(tmp_path: Path):
     build_eligible_annotation_pack(
         pack, reviews, eligible, output, SCHEMA, ocr_adapter=FakeOCR(),
     )
-    annotation = json.loads((output / "annotations/CANDIDATE_001.json").read_text())
+    annotation = json.loads((output / "annotations/CANDIDATE_001.json").read_text(encoding="utf-8"))
     field = annotation["record"]["borehole"]["borehole_id"]
     assert field["value"] == "BH-IMG-01"
     assert field["source_bbox"] is None
@@ -117,7 +117,7 @@ def test_rejects_incomplete_review_even_with_forged_manifest(tmp_path: Path):
     reviews = tmp_path / "reviews"
     build_page_review_pack([manifest], pack, dpi=72)
     forged = tmp_path / "eligible.jsonl"
-    row = json.loads((pack / "review_pack_manifest.jsonl").read_text())
+    row = json.loads((pack / "review_pack_manifest.jsonl").read_text(encoding="utf-8"))
     row.update({
         "annotation_eligible": True, "human_content_review": True,
         "human_privacy_review": True, "benchmark_eligible": False,
@@ -133,7 +133,7 @@ def test_rejects_incomplete_review_even_with_forged_manifest(tmp_path: Path):
 @pytest.mark.parametrize("target", ["manifest", "review", "source", "render"])
 def test_rejects_tampered_gate_evidence(tmp_path: Path, target: str):
     pack, reviews, eligible = _complete_gate(tmp_path)
-    row = json.loads(eligible.read_text())
+    row = json.loads(eligible.read_text(encoding="utf-8"))
     paths = {
         "manifest": eligible,
         "review": reviews / "CANDIDATE_001.json",

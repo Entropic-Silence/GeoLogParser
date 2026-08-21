@@ -16,12 +16,12 @@ import json
 import math
 from pathlib import Path
 import platform
-import resource
 import subprocess
 import time
 
 from geologparser.experiment import create_run_directory
 from geologparser.result_index import file_sha256, write_artifact_manifest
+from geologparser.runtime_resources import peak_process_rss_kib
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -195,7 +195,7 @@ def main() -> None:
             "this analysis does not improve extraction recall or unseen-template coverage",
         ],
         "wall_time_seconds": time.perf_counter() - wall,
-        "peak_process_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+        "peak_process_rss_kib": peak_process_rss_kib(),
     }
     (run / "predictions.jsonl").write_text(
         "".join(json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n" for row in cohorts),

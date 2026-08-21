@@ -1,0 +1,59 @@
+{
+  "experiment_family": "PaperI-ModernVLM",
+  "status": "FROZEN_BEFORE_GOLD_EVALUATION",
+  "primary_question": "How do direct modern VLM page-to-interval systems compare with an auditable routed parser under the same source-unit extraction protocol?",
+  "gold_cohorts": [
+    "california_wcr_gold_v001",
+    "california_wcr_gold_v002",
+    "california_wcr_gold_v003",
+    "california_wcr_gold_v004",
+    "california_wcr_gold_v005"
+  ],
+  "prompt": "vlm_interval_source_units_v002",
+  "decoding": {
+    "temperature": 0.0,
+    "max_tokens": 1024,
+    "images_per_request": 1,
+    "page_aggregation": "concatenate-page-ordered-intervals-without-repair-or-deduplication"
+  },
+  "normalization": {
+    "printed_depth_unit": "ft",
+    "metres_per_printed_unit": 0.3048,
+    "matcher": "order_preserving_max_cardinality_then_min_error_v001",
+    "boundary_tolerance_m": 0.05
+  },
+  "open_models": [
+    {
+      "id": "qwen38_fp8_27b",
+      "role": "large_generalist_vlm",
+      "served_model": "qwen38-fp8-tp4-mtp4-long",
+      "checkpoint": "/data/LLM/Qwen/Qwen3.8-27B-FP8",
+      "status": "READY_FOR_FROZEN_EVALUATION"
+    },
+    {
+      "id": "paddleocr_vl_1_6",
+      "role": "document_specialist_vlm",
+      "checkpoint": "/data/GeoLogParser/models/huggingface/PaddleOCR-VL-1.6",
+      "status": "PENDING_LOCAL_SMOKE"
+    },
+    {
+      "id": "mineru_2_5_pro_1_2b",
+      "role": "document_parsing_vlm",
+      "checkpoint": "/data/GeoLogParser/models/huggingface/MinerU2.5-Pro-2604-1.2B",
+      "status": "PENDING_LOCAL_SMOKE"
+    }
+  ],
+  "closed_models": [
+    {
+      "id": "openai_gpt_5_6",
+      "role": "official_closed_frontier_vlm",
+      "endpoint": "https://api.openai.com",
+      "status": "BLOCKED_NO_VALID_OFFICIAL_API_CREDENTIAL"
+    }
+  ],
+  "anti_leakage": [
+    "No Gold cohort is used to alter the prompt, parser, threshold, or model selection.",
+    "The same frozen prompt, source-unit decoder, image rendering, and boundary matcher apply to every VLM.",
+    "BGS v003 is excluded from this protocol."
+  ]
+}

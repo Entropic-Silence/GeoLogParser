@@ -1,0 +1,31 @@
+{
+  "experiment_id": "P1_B4_QWEN3VL4B_CALIFORNIA_TEST_FORMAL_001R",
+  "git_commit": "be6b47c4aece2ae9561fbcbefb0952258c61cb8d",
+  "date": "2026-08-15",
+  "dataset_version": "california_wcr_gold_v001",
+  "split_version": "california_wcr_gold_split_v001_test",
+  "model": "Qwen3-VL-4B-Instruct_page_aggregate",
+  "model_revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+  "prompt_version": "vlm_extract_v001",
+  "seed": 0,
+  "hardware": {
+    "device": "cuda_multi_gpu",
+    "gpu_used": true
+  },
+  "software": {
+    "python": "3.10.12"
+  },
+  "config": {
+    "ground_truth_sha256": "62840605320933d70daf2a601dcc800a1d42f8059c329cc03c84e2fde3fb4b73",
+    "prediction_runs": [
+      "results/2026-08-15/P1_B4_QWEN3VL4B_CALIFORNIA_TEST_FORMAL_GPU1_COMPACT_002",
+      "results/2026-08-15/P1_B4_QWEN3VL4B_CALIFORNIA_TEST_FORMAL_GPU2_COMPACT_002",
+      "results/2026-08-15/P1_B4_QWEN3VL4B_CALIFORNIA_TEST_FORMAL_GPU3_COMPACT_001",
+      "results/2026-08-15/P1_B4_QWEN3VL4B_CALIFORNIA_TEST_FORMAL_GPU4_COMPACT_001"
+    ],
+    "prediction_reference_conditioning": "none",
+    "aggregation": "concatenate_schema_valid_page_intervals_by_record_in_page_order",
+    "unit_conversion": "published_feet_bls_to_meters_multiply_0.3048",
+    "reference_scope": "USGS-published verbatim manual transcriptions from DWR WCR images"
+  }
+}

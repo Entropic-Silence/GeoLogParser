@@ -1,0 +1,55 @@
+{
+  "experiment_id": "P3_SYNTHETIC_PYVISTA_INTEROP_001",
+  "git_commit": "6cc5d4b0955ce0c5b9e1354510cb731876f2c1ed",
+  "date": "2026-08-12",
+  "dataset_version": "synthetic_four_borehole_protocol_fixture_v001",
+  "split_version": "not_applicable_protocol_smoke",
+  "model": "idw_power_2_to_pyvista_polydata",
+  "model_revision": "geologparser_surface3d_v001",
+  "prompt_version": "not_applicable",
+  "seed": 20260812,
+  "hardware": {
+    "device": "cpu",
+    "processor": "x86_64",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "3.10.12",
+    "pyvista": "0.48.4",
+    "vtk": "9.6.2"
+  },
+  "config": {
+    "interval_index": 0,
+    "boundary": "bottom_depth_m",
+    "idw_power": 2,
+    "grid": {
+      "x": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "y": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    "scope": "synthetic interoperability protocol; not real-world evidence"
+  }
+}

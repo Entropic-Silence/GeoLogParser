@@ -1,0 +1,114 @@
+{
+  "document_count": 35,
+  "document_full_exact": {
+    "denominator": 35,
+    "numerator": 17,
+    "value": 0.4857142857142857
+  },
+  "documents_with_predictions": 35,
+  "evaluated_fields": [
+    "interval.top_depth_m",
+    "interval.bottom_depth_m",
+    "interval.thickness_m"
+  ],
+  "excluded_reference_fields": [
+    "lithology",
+    "description",
+    "material_semantics",
+    "source_bbox"
+  ],
+  "human_reviewed": false,
+  "interval_metrics": {
+    "interval_f1": {
+      "denominator": 1.0,
+      "details": {
+        "matched_count": 54,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 79,
+        "reference_count": 80,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 25,
+        "unmatched_reference_count": 26
+      },
+      "name": "interval_f1",
+      "numerator": 0.679245283018868,
+      "unit": "ratio",
+      "value": 0.679245283018868
+    },
+    "interval_precision": {
+      "denominator": 79,
+      "details": {
+        "matched_count": 54,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 79,
+        "reference_count": 80,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 25,
+        "unmatched_reference_count": 26
+      },
+      "name": "interval_precision",
+      "numerator": 54,
+      "unit": "ratio",
+      "value": 0.6835443037974683
+    },
+    "interval_recall": {
+      "denominator": 80,
+      "details": {
+        "matched_count": 54,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 79,
+        "reference_count": 80,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 25,
+        "unmatched_reference_count": 26
+      },
+      "name": "interval_recall",
+      "numerator": 54,
+      "unit": "ratio",
+      "value": 0.675
+    },
+    "matched_bottom_boundary_mae_m": {
+      "denominator": 54,
+      "details": {
+        "matched_count": 54,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 79,
+        "reference_count": 80,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 25,
+        "unmatched_reference_count": 26
+      },
+      "name": "matched_bottom_boundary_mae_m",
+      "numerator": 0.0,
+      "unit": "m",
+      "value": 0.0
+    },
+    "matched_top_boundary_mae_m": {
+      "denominator": 54,
+      "details": {
+        "matched_count": 54,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 79,
+        "reference_count": 80,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 25,
+        "unmatched_reference_count": 26
+      },
+      "name": "matched_top_boundary_mae_m",
+      "numerator": 0.0,
+      "unit": "m",
+      "value": 0.0
+    }
+  },
+  "latency_seconds_per_document_wall": 4.116770165485546,
+  "page_count": 35,
+  "peak_process_rss_kib": 970764,
+  "predicted_interval_count": 79,
+  "prediction_reference_conditioning": "none",
+  "reference_definition": "official database interval boundaries with exact complete agreement to an explicit interval table in the paired official PDF",
+  "reference_ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+  "reference_interval_count": 80,
+  "scope": "authoritative-interval benchmark evaluation",
+  "selection_limitation": "source-agreement explicit-table pilot; not a representative random sample of the Swissgeol candidate pool",
+  "wall_time_seconds": 144.08695579199411
+}

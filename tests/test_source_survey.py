@@ -90,15 +90,15 @@ def test_survey_freezes_metadata_without_promoting_non_image_candidate(tmp_path:
     assert summary["phase1_content_review_candidate_count"] == 0
     assert summary["benchmark_eligible_candidate_count"] == 0
     assert summary["failed_request_ids"] == ["repository_figshare"]
-    reviewed = json.loads((destination / "reviewed_candidates.jsonl").read_text())
+    reviewed = json.loads((destination / "reviewed_candidates.jsonl").read_text(encoding="utf-8"))
     assert reviewed["metadata_found"] is True
     assert reviewed["phase1_content_review_candidate"] is False
     assert reviewed["benchmark_eligible"] is False
     assert reviewed["file_inventory"]["file_count"] == 1
-    request = json.loads((destination / "requests/datacite_query_chinese.json").read_text())
+    request = json.loads((destination / "requests/datacite_query_chinese.json").read_text(encoding="utf-8"))
     assert request["request_headers"]["User-Agent"] == SURVEY_USER_AGENT
     assert set(observed_user_agents) == {SURVEY_USER_AGENT}
-    manifest = json.loads((destination / "manifest.json").read_text())
+    manifest = json.loads((destination / "manifest.json").read_text(encoding="utf-8"))
     assert any(item["path"] == "raw/datacite_query_chinese.body" for item in manifest["artifacts"])
     assert verify_open_metadata_survey(destination)["verified"] is True
 
@@ -135,7 +135,7 @@ def test_survey_only_marks_open_pdf_inventory_for_content_review(tmp_path: Path)
     destination = tmp_path / "survey"
     summary = run_open_metadata_survey(config, destination, fetcher=fetcher)
     assert summary["phase1_content_review_candidate_count"] == 1
-    reviewed = json.loads((destination / "reviewed_candidates.jsonl").read_text())
+    reviewed = json.loads((destination / "reviewed_candidates.jsonl").read_text(encoding="utf-8"))
     assert reviewed["phase1_content_review_candidate"] is True
     assert reviewed["benchmark_eligible"] is False
 
@@ -185,7 +185,7 @@ def test_survey_prefers_complete_mendeley_dataset_inventory_over_empty_root(tmp_
     }
     destination = tmp_path / "survey"
     summary = run_open_metadata_survey(config, destination, fetcher=fetcher)
-    reviewed = json.loads((destination / "reviewed_candidates.jsonl").read_text())
+    reviewed = json.loads((destination / "reviewed_candidates.jsonl").read_text(encoding="utf-8"))
     assert summary["mendeley_file_inventory_count"] == 2
     assert reviewed["file_inventory_count"] == 2
     assert reviewed["file_inventory"]["inventory_source"] == "mendeley_public_dataset_api"

@@ -1,0 +1,651 @@
+{
+  "content_group_count": 39,
+  "content_group_full_exact": {
+    "denominator": 39,
+    "numerator": 0,
+    "value": 0.0
+  },
+  "content_group_macro_interval_f1": 0.0,
+  "development_evaluation_overlap_count": 0,
+  "development_source": "Thurgau",
+  "document_count": 46,
+  "document_full_exact": {
+    "denominator": 46,
+    "numerator": 0,
+    "value": 0.0
+  },
+  "documents_with_predictions": 2,
+  "duplicate_record_count": 7,
+  "evaluated_fields": [
+    "interval.top_depth_m",
+    "interval.bottom_depth_m",
+    "interval.thickness_m"
+  ],
+  "excluded_reference_fields": [
+    "lithology",
+    "description",
+    "material_semantics",
+    "source_bbox"
+  ],
+  "groups_with_predictions": 2,
+  "human_ground_truth_evidence": false,
+  "human_reviewed": false,
+  "interval_metrics": {
+    "interval_f1": {
+      "denominator": 1.0,
+      "details": {
+        "matched_count": 0,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 7,
+        "reference_count": 3332,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 7,
+        "unmatched_reference_count": 3332
+      },
+      "name": "interval_f1",
+      "numerator": 0.0,
+      "unit": "ratio",
+      "value": 0.0
+    },
+    "interval_precision": {
+      "denominator": 7,
+      "details": {
+        "matched_count": 0,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 7,
+        "reference_count": 3332,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 7,
+        "unmatched_reference_count": 3332
+      },
+      "name": "interval_precision",
+      "numerator": 0,
+      "unit": "ratio",
+      "value": 0.0
+    },
+    "interval_recall": {
+      "denominator": 3332,
+      "details": {
+        "matched_count": 0,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 7,
+        "reference_count": 3332,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 7,
+        "unmatched_reference_count": 3332
+      },
+      "name": "interval_recall",
+      "numerator": 0,
+      "unit": "ratio",
+      "value": 0.0
+    },
+    "matched_bottom_boundary_mae_m": {
+      "denominator": 0,
+      "details": {
+        "matched_count": 0,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 7,
+        "reference_count": 3332,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 7,
+        "unmatched_reference_count": 3332
+      },
+      "name": "matched_bottom_boundary_mae_m",
+      "numerator": 0,
+      "unit": "m",
+      "value": null
+    },
+    "matched_top_boundary_mae_m": {
+      "denominator": 0,
+      "details": {
+        "matched_count": 0,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 7,
+        "reference_count": 3332,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 7,
+        "unmatched_reference_count": 3332
+      },
+      "name": "matched_top_boundary_mae_m",
+      "numerator": 0,
+      "unit": "m",
+      "value": null
+    }
+  },
+  "latency_exclusion_reason": "OCR artifacts resumed from a prior run; recompute wall time is not end-to-end latency",
+  "latency_seconds_per_document_wall": null,
+  "maximum_records_per_content_group": 8,
+  "ocr_cache_hit_count": 7,
+  "ocr_resume_hit_count": 35,
+  "ocr_unique_execution_count": 39,
+  "page_count": 244,
+  "page_database_interval_agreement_verified": false,
+  "peak_process_rss_kib": 1975628,
+  "pipeline_recompute_wall_time_seconds": 89.0452674900007,
+  "predicted_interval_count": 7,
+  "prediction_reference_conditioning": "none",
+  "reference_definition": "official database interval sequence paired to the same borehole object; page/database completeness agreement is unverified",
+  "reference_ground_truth_tier": "AUTHORITATIVE_STRUCTURED_SOURCE",
+  "reference_interval_count": 3332,
+  "scope": "source-disjoint authoritative-database interval transfer evaluation",
+  "selection_limitation": "5 acquired non-Thurgau canton collections; agreement includes document extraction error plus possible page/database source mismatch",
+  "source_count": 5,
+  "source_metrics": {
+    "swissgeol_aargau": {
+      "content_group_count": 4,
+      "content_group_full_exact": {
+        "denominator": 4,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "content_group_macro_interval_f1": 0.0,
+      "document_count": 4,
+      "document_full_exact": {
+        "denominator": 4,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "documents_with_predictions": 0,
+      "duplicate_record_count": 0,
+      "groups_with_predictions": 0,
+      "interval_metrics": {
+        "interval_f1": {
+          "denominator": 1.0,
+          "details": {
+            "matched_count": 0,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 0,
+            "reference_count": 2545,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 0,
+            "unmatched_reference_count": 2545
+          },
+          "name": "interval_f1",
+          "numerator": 0.0,
+          "unit": "ratio",
+          "value": 0.0
+        },
+        "interval_precision": {
+          "denominator": 0,
+          "details": {
+            "matched_count": 0,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 0,
+            "reference_count": 2545,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 0,
+            "unmatched_reference_count": 2545
+          },
+          "name": "interval_precision",
+          "numerator": 0,
+          "unit": "ratio",
+          "value": null
+        },
+        "interval_recall": {
+          "denominator": 2545,
+          "details": {
+            "matched_count": 0,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 0,
+            "reference_count": 2545,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 0,
+            "unmatched_reference_count": 2545
+          },
+          "name": "interval_recall",
+          "numerator": 0,
+          "unit": "ratio",
+          "value": 0.0
+        },
+        "matched_bottom_boundary_mae_m": {
+          "denominator": 0,
+          "details": {
+            "matched_count": 0,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 0,
+            "reference_count": 2545,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 0,
+            "unmatched_reference_count": 2545
+          },
+          "name": "matched_bottom_boundary_mae_m",
+          "numerator": 0,
+          "unit": "m",
+          "value": null
+        },
+        "matched_top_boundary_mae_m": {
+          "denominator": 0,
+          "details": {
+            "matched_count": 0,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 0,
+            "reference_count": 2545,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 0,
+            "unmatched_reference_count": 2545
+          },
+          "name": "matched_top_boundary_mae_m",
+          "numerator": 0,
+          "unit": "m",
+          "value": null
+        }
+      },
+      "maximum_records_per_content_group": 1,
+      "predicted_interval_count": 0,
+      "reference_interval_count": 2545
+    },
+    "swissgeol_bern": {
+      "content_group_count": 7,
+      "content_group_full_exact": {
+        "denominator": 7,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "content_group_macro_interval_f1": 0.0,
+      "document_count": 7,
+      "document_full_exact": {
+        "denominator": 7,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "documents_with_predictions": 0,
+      "duplicate_record_count": 0,
+      "groups_with_predictions": 0,
+      "interval_metrics": {
+        "interval_f1": {
+          "denominator": 1.0,
+          "details": {
+            "matched_count": 0,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 0,
+            "reference_count": 77,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 0,
+            "unmatched_reference_count": 77
+          },
+          "name": "interval_f1",
+          "numerator": 0.0,
+          "unit": "ratio",
+          "value": 0.0
+        },
+        "interval_precision": {
+          "denominator": 0,
+          "details": {
+            "matched_count": 0,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 0,
+            "reference_count": 77,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 0,
+            "unmatched_reference_count": 77
+          },
+          "name": "interval_precision",
+          "numerator": 0,
+          "unit": "ratio",
+          "value": null
+        },
+        "interval_recall": {
+          "denominator": 77,
+          "details": {
+            "matched_count": 0,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 0,
+            "reference_count": 77,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 0,
+            "unmatched_reference_count": 77
+          },
+          "name": "interval_recall",
+          "numerator": 0,
+          "unit": "ratio",
+          "value": 0.0
+        },
+        "matched_bottom_boundary_mae_m": {
+          "denominator": 0,
+          "details": {
+            "matched_count": 0,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 0,
+            "reference_count": 77,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 0,
+            "unmatched_reference_count": 77
+          },
+          "name": "matched_bottom_boundary_mae_m",
+          "numerator": 0,
+          "unit": "m",
+          "value": null
+        },
+        "matched_top_boundary_mae_m": {
+          "denominator": 0,
+          "details": {
+            "matched_count": 0,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 0,
+            "reference_count": 77,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 0,
+            "unmatched_reference_count": 77
+          },
+          "name": "matched_top_boundary_mae_m",
+          "numerator": 0,
+          "unit": "m",
+          "value": null
+        }
+      },
+      "maximum_records_per_content_group": 1,
+      "predicted_interval_count": 0,
+      "reference_interval_count": 77
+    },
+    "swissgeol_solothurn": {
+      "content_group_count": 3,
+      "content_group_full_exact": {
+        "denominator": 3,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "content_group_macro_interval_f1": 0.0,
+      "document_count": 3,
+      "document_full_exact": {
+        "denominator": 3,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "documents_with_predictions": 0,
+      "duplicate_record_count": 0,
+      "groups_with_predictions": 0,
+      "interval_metrics": {
+        "interval_f1": {
+          "denominator": 1.0,
+          "details": {
+            "matched_count": 0,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 0,
+            "reference_count": 45,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 0,
+            "unmatched_reference_count": 45
+          },
+          "name": "interval_f1",
+          "numerator": 0.0,
+          "unit": "ratio",
+          "value": 0.0
+        },
+        "interval_precision": {
+          "denominator": 0,
+          "details": {
+            "matched_count": 0,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 0,
+            "reference_count": 45,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 0,
+            "unmatched_reference_count": 45
+          },
+          "name": "interval_precision",
+          "numerator": 0,
+          "unit": "ratio",
+          "value": null
+        },
+        "interval_recall": {
+          "denominator": 45,
+          "details": {
+            "matched_count": 0,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 0,
+            "reference_count": 45,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 0,
+            "unmatched_reference_count": 45
+          },
+          "name": "interval_recall",
+          "numerator": 0,
+          "unit": "ratio",
+          "value": 0.0
+        },
+        "matched_bottom_boundary_mae_m": {
+          "denominator": 0,
+          "details": {
+            "matched_count": 0,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 0,
+            "reference_count": 45,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 0,
+            "unmatched_reference_count": 45
+          },
+          "name": "matched_bottom_boundary_mae_m",
+          "numerator": 0,
+          "unit": "m",
+          "value": null
+        },
+        "matched_top_boundary_mae_m": {
+          "denominator": 0,
+          "details": {
+            "matched_count": 0,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 0,
+            "reference_count": 45,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 0,
+            "unmatched_reference_count": 45
+          },
+          "name": "matched_top_boundary_mae_m",
+          "numerator": 0,
+          "unit": "m",
+          "value": null
+        }
+      },
+      "maximum_records_per_content_group": 1,
+      "predicted_interval_count": 0,
+      "reference_interval_count": 45
+    },
+    "swissgeol_st_gallen": {
+      "content_group_count": 19,
+      "content_group_full_exact": {
+        "denominator": 19,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "content_group_macro_interval_f1": 0.0,
+      "document_count": 26,
+      "document_full_exact": {
+        "denominator": 26,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "documents_with_predictions": 2,
+      "duplicate_record_count": 7,
+      "groups_with_predictions": 2,
+      "interval_metrics": {
+        "interval_f1": {
+          "denominator": 1.0,
+          "details": {
+            "matched_count": 0,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 7,
+            "reference_count": 373,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 7,
+            "unmatched_reference_count": 373
+          },
+          "name": "interval_f1",
+          "numerator": 0.0,
+          "unit": "ratio",
+          "value": 0.0
+        },
+        "interval_precision": {
+          "denominator": 7,
+          "details": {
+            "matched_count": 0,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 7,
+            "reference_count": 373,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 7,
+            "unmatched_reference_count": 373
+          },
+          "name": "interval_precision",
+          "numerator": 0,
+          "unit": "ratio",
+          "value": 0.0
+        },
+        "interval_recall": {
+          "denominator": 373,
+          "details": {
+            "matched_count": 0,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 7,
+            "reference_count": 373,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 7,
+            "unmatched_reference_count": 373
+          },
+          "name": "interval_recall",
+          "numerator": 0,
+          "unit": "ratio",
+          "value": 0.0
+        },
+        "matched_bottom_boundary_mae_m": {
+          "denominator": 0,
+          "details": {
+            "matched_count": 0,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 7,
+            "reference_count": 373,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 7,
+            "unmatched_reference_count": 373
+          },
+          "name": "matched_bottom_boundary_mae_m",
+          "numerator": 0,
+          "unit": "m",
+          "value": null
+        },
+        "matched_top_boundary_mae_m": {
+          "denominator": 0,
+          "details": {
+            "matched_count": 0,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 7,
+            "reference_count": 373,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 7,
+            "unmatched_reference_count": 373
+          },
+          "name": "matched_top_boundary_mae_m",
+          "numerator": 0,
+          "unit": "m",
+          "value": null
+        }
+      },
+      "maximum_records_per_content_group": 8,
+      "predicted_interval_count": 7,
+      "reference_interval_count": 373
+    },
+    "swissgeol_vaud": {
+      "content_group_count": 6,
+      "content_group_full_exact": {
+        "denominator": 6,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "content_group_macro_interval_f1": 0.0,
+      "document_count": 6,
+      "document_full_exact": {
+        "denominator": 6,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "documents_with_predictions": 0,
+      "duplicate_record_count": 0,
+      "groups_with_predictions": 0,
+      "interval_metrics": {
+        "interval_f1": {
+          "denominator": 1.0,
+          "details": {
+            "matched_count": 0,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 0,
+            "reference_count": 292,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 0,
+            "unmatched_reference_count": 292
+          },
+          "name": "interval_f1",
+          "numerator": 0.0,
+          "unit": "ratio",
+          "value": 0.0
+        },
+        "interval_precision": {
+          "denominator": 0,
+          "details": {
+            "matched_count": 0,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 0,
+            "reference_count": 292,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 0,
+            "unmatched_reference_count": 292
+          },
+          "name": "interval_precision",
+          "numerator": 0,
+          "unit": "ratio",
+          "value": null
+        },
+        "interval_recall": {
+          "denominator": 292,
+          "details": {
+            "matched_count": 0,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 0,
+            "reference_count": 292,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 0,
+            "unmatched_reference_count": 292
+          },
+          "name": "interval_recall",
+          "numerator": 0,
+          "unit": "ratio",
+          "value": 0.0
+        },
+        "matched_bottom_boundary_mae_m": {
+          "denominator": 0,
+          "details": {
+            "matched_count": 0,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 0,
+            "reference_count": 292,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 0,
+            "unmatched_reference_count": 292
+          },
+          "name": "matched_bottom_boundary_mae_m",
+          "numerator": 0,
+          "unit": "m",
+          "value": null
+        },
+        "matched_top_boundary_mae_m": {
+          "denominator": 0,
+          "details": {
+            "matched_count": 0,
+            "matching": "order_preserving_max_cardinality_then_min_error_v001",
+            "prediction_count": 0,
+            "reference_count": 292,
+            "tolerance_m": 0.05,
+            "unmatched_prediction_count": 0,
+            "unmatched_reference_count": 292
+          },
+          "name": "matched_top_boundary_mae_m",
+          "numerator": 0,
+          "unit": "m",
+          "value": null
+        }
+      },
+      "maximum_records_per_content_group": 1,
+      "predicted_interval_count": 0,
+      "reference_interval_count": 292
+    }
+  },
+  "wall_time_seconds": 89.0452674900007
+}

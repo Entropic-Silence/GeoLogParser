@@ -5,40 +5,52 @@
       "sha256": "8e9e29bf465e6468e8fbdb8e63b395b82c9695f868346dadfdbfe05f082a6427"
     },
     {
-      "path": "paper1/generated/figures/degradation_inputs.png",
-      "sha256": "96ba230d3c91970c8cb2a874083fd045b2f3b933002d050012811ab43dabf149"
-    },
-    {
       "path": "paper1/generated/figures/authoritative_interval_pilot.png",
       "sha256": "1dc909717018ad132a2b7c50c8cbe8ca5207d86340149b1c15da26171de23034"
     },
     {
-      "path": "paper1/generated/figures/source_disjoint_transfer.png",
-      "sha256": "b9c6157f2effd77dd648f13bbece0bf12f6155fb04bd2caf8d93a9efc5add563"
+      "path": "paper1/generated/figures/california_cohort_forest.png",
+      "sha256": "fd5b23e61a8cf975183712f5b3743bf6c3e4d9d532faa6d68de9d53a58159991"
     },
     {
       "path": "paper1/generated/figures/california_replication.png",
       "sha256": "d04f249c8db34d7aaa71a5eb0cdd2d45ca0bcedc9e7f19570a82e3a2a62a221b"
     },
     {
-      "path": "paper2/generated/figures/method_schematic.png",
-      "sha256": "608d92634c9ea7787d57bdee184554a54e8aa745bf18d52bd32fc7b1b11a1457"
+      "path": "paper1/generated/figures/california_selection_flow.png",
+      "sha256": "6a44f50f55c1c45c329a3ffa21a09ec188abd7ce8de38553c7da240005ef030f"
+    },
+    {
+      "path": "paper1/generated/figures/degradation_inputs.png",
+      "sha256": "96ba230d3c91970c8cb2a874083fd045b2f3b933002d050012811ab43dabf149"
+    },
+    {
+      "path": "paper1/generated/figures/source_disjoint_transfer.png",
+      "sha256": "b9c6157f2effd77dd648f13bbece0bf12f6155fb04bd2caf8d93a9efc5add563"
     },
     {
       "path": "paper2/generated/figures/california_replication.png",
       "sha256": "d04f249c8db34d7aaa71a5eb0cdd2d45ca0bcedc9e7f19570a82e3a2a62a221b"
     },
     {
-      "path": "paper3/generated/figures/padova_locations.png",
-      "sha256": "354c3ebb82ae7a1d735d2bfa158f8fddf8fa01969ac688d0fb3debbb6635fb3d"
+      "path": "paper2/generated/figures/method_schematic.png",
+      "sha256": "8f3b9b5bc6e4f364f07b07542d248b98f7e5e6cbcb14f87a02f613ceaa4a1f6d"
     },
     {
-      "path": "paper3/generated/figures/synthetic_error_propagation.png",
-      "sha256": "664d69bc34b7f5d3aef919ca06e1ce9aee153aaadab48e1fa144c78406c13d8a"
+      "path": "paper2/generated/figures/risk_threshold_curve.png",
+      "sha256": "15909171aa7e44239d9aa5e3c5a1316c69bbfd863810892b90a4165266a956a3"
+    },
+    {
+      "path": "paper2/generated/figures/sequence_risk_frontier.png",
+      "sha256": "39c3ecdb57440992326a4e154ab5bd63d876c600f729a37e0e0520f667941d25"
     },
     {
       "path": "paper3/generated/figures/coal602_source_proxy.png",
       "sha256": "1677211e892782771aa99c52dca98fc154130eef04f5c14690fb71539791cc04"
+    },
+    {
+      "path": "paper3/generated/figures/controlled_error_classes.png",
+      "sha256": "5aa64a60fd82ed56ba6efbb20feca4c30810cef087d192cf6d0ef58e8fdac0ff"
     },
     {
       "path": "paper3/generated/figures/image_boundary_surface.png",
@@ -49,19 +61,31 @@
       "sha256": "1f480502d7e3a8c980f682562b4ac627e51232906c8f07cf3fa528c1f66981e3"
     },
     {
-      "path": "paper3/generated/figures/controlled_error_classes.png",
-      "sha256": "2104768099fe26ac01e3ef9f8d872c5cf9f9a934d583e3666929797d3725e0bc"
+      "path": "paper3/generated/figures/padova_locations.png",
+      "sha256": "354c3ebb82ae7a1d735d2bfa158f8fddf8fa01969ac688d0fb3debbb6635fb3d"
     },
     {
       "path": "paper3/generated/figures/page_spatial_surface.png",
       "sha256": "5718a4840613e99682e909abb23d33f64a5b0f029e44e4576a13a3fb057ac21a"
+    },
+    {
+      "path": "paper3/generated/figures/spatial_support_sensitivity.png",
+      "sha256": "0341aa969cbb6ae9e776e466807fe1772ee90b71fa0ec2cdaf13ff28d805b3bd"
+    },
+    {
+      "path": "paper3/generated/figures/synthetic_error_propagation.png",
+      "sha256": "664d69bc34b7f5d3aef919ca06e1ce9aee153aaadab48e1fa144c78406c13d8a"
     }
   ],
   "scope": "auto-generated traceable figures; individual captions retain audit/protocol/design limits",
   "source_manifests": {
     "california_replication": {
-      "path": "/root/GeoLogParser/experiments/paper1/analysis/california_replication_statistics_v001.json",
-      "sha256": "5768dc7a00521b86c783081628df916e20c8eb4887c0eb3f67e241a576e430c7"
+      "path": "experiments/paper1/analysis/california_replication_statistics_v001.json",
+      "sha256": "040cb8aa1701f42fbc0bcc5d7410fbe89c0e8b91e391e090bd4538e83fc6e519"
+    },
+    "california_selection": {
+      "path": "experiments/paper1/analysis/california_selection_flow_v001.json",
+      "sha256": "2d6a813ca6a667f3e0d1386ff5838eaea2c27f2ae02dce405876d870eac98be7"
     },
     "degradation": {
       "path": "/data/GeoLogParser/artifacts/robustness/unipd_degradation_v001/degradation_manifest.jsonl",
@@ -70,6 +94,26 @@
     "locations": {
       "path": "/data/GeoLogParser/datasets/public/unipd_levee_geotech_v001/metadata/location_v001/borehole_locations.jsonl",
       "sha256": "106e7daaf45a6692bbd2a57e2557114cc190a99f1c21897a289dc7c934eba137"
+    },
+    "paper2_candidate_pool_ablation": {
+      "path": "experiments/paper2/analysis/california_candidate_pool_ablation_v001.json",
+      "sha256": "defbdef70c75ba70998e2e74e384a96a1fdb5014bc22a7b443d4d1162efd1cfe"
+    },
+    "paper2_depth_start_sensitivity": {
+      "path": "experiments/paper2/analysis/california_depth_start_sensitivity_v001.json",
+      "sha256": "79a9de1c2c3dfbed8c9a4155be558c7934e186a8b815411f28c1b04fe10f3a08"
+    },
+    "paper2_document_risk": {
+      "path": "experiments/paper2/analysis/california_document_risk_v001.json",
+      "sha256": "f51ed6701128ef1c679f7ff8e11dcb25db15d219cc1f3e856c9369b46aa2203a"
+    },
+    "paper2_threshold_curve": {
+      "path": "experiments/paper2/analysis/california_risk_threshold_curve_v001.json",
+      "sha256": "2579f50965f389dee0699f1452b8c75cfead357e511b4657f185ba87b15498f0"
+    },
+    "paper3_spatial_sensitivity": {
+      "path": "experiments/paper3/analysis/swissgeol_spatial_sensitivity_v001.json",
+      "sha256": "32440b01b2a5f7255d07b896f1dcc77b721e5f8a08a045b0b80433970c46a690"
     }
   }
 }

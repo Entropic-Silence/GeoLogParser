@@ -1,0 +1,93 @@
+{
+  "base_url": "http://127.0.0.1:18000",
+  "model_id": "qwen38-fp8-tp4-mtp4-long",
+  "model_revision": "local_Qwen3.8-27B-FP8_qwen3_5_architecture_fp8_e4m3",
+  "official_model_name": "Qwen/Qwen3.8-27B-FP8",
+  "served_model_id": "qwen38-fp8-tp4-mtp4-long",
+  "checkpoint_hashes": {
+    "config.json": "74227dd615bf1ea975aa676bdf355a0379858c12f394b5365cd9dfa5fc2c70bc",
+    "preprocessor_config.json": "27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516",
+    "model.safetensors.index.json": "f0838c766951bdfe76d6afbdb2771a8f67aaa2231dedb3d33cebd817729843a2"
+  },
+  "weight_precision": "fine-grained dynamic FP8 E4M3",
+  "inference_framework": "vLLM OpenAI server (post-hoc runtime reconstruction; see runtime_provenance)",
+  "api_key_env": "VLLM_API_KEY",
+  "max_tokens": 4096,
+  "temperature": 0.0,
+  "top_p": "PROVIDER_DEFAULT_NOT_SENT",
+  "prompt_version": "vlm_interval_source_units_v002",
+  "prompt_sha256": "891bc6beb7ff9cf35c55389191a208c9b09e9e2dc76909f716603f413745104a",
+  "image_preprocessing": {
+    "render_dpi": 200,
+    "renderer": "PyMuPDF Page.get_pixmap(dpi=200, alpha=False)",
+    "format": "lossless PNG",
+    "crop": "none",
+    "rotation": "none",
+    "enhancement": "none"
+  },
+  "retry_policy": {"automatic_page_retries": 0},
+  "response_parsing_policy": "strict JSON object; no YAML, repair, completion, reorder, or deduplication",
+  "testing_date_utc": "2026-08-17",
+  "hardware": "local_vllm_tensor_parallel_4x_modified_RTX_2080_Ti",
+  "hardware_provenance_note": "The Qwen3.8-27B evaluation used four locally modified/non-reference RTX 2080 Ti boards. The exact board modifications are not recoverable from the retained execution records; no electrical, firmware, cooling, or clock detail is inferred.",
+  "runtime_provenance_note": "The serving path used a locally modified, non-official vLLM/runtime tree (vllm-2080ti-definitive) and custom optimization settings. It is not a reference upstream vLLM execution. The source diff and immutable build recipe were not retained, so the optimization identity is only partially reconstructable.",
+  "runtime_provenance": {
+    "reconstruction_status": "partially_reconstructable",
+    "interpretation": "The serving process was still running when inspected on 2026-08-18 UTC and had started on 2026-08-17 UTC. Values below are directly observed from that running process/container, except where explicitly marked unavailable; they are not inferred as an immutable execution log for every request.",
+    "observed_utc": "2026-08-18",
+    "server_started_utc": "2026-08-17T15:25:16Z",
+    "container": {
+      "image": "ai:vfisr-workflows",
+      "image_digest": "sha256:b937a8fa086d1ab30d5ac5843f04503bc5fc2be9152a0ee44bec7eb3b22fc78d",
+      "runtime": "runc",
+      "working_directory": "/workspace/vllm-2080ti-definitive"
+    },
+    "server": {
+      "entrypoint": "vllm.entrypoints.openai.api_server",
+      "vllm_version": "0.1.14",
+      "tensor_parallel_size": 4,
+      "distributed_executor_backend": "mp",
+      "model_dtype": "half",
+      "weight_quantization": "fp8",
+      "kv_cache_dtype": "auto",
+      "max_model_len": 589824,
+      "max_num_seqs": 1,
+      "max_num_batched_tokens": 4096,
+      "gpu_memory_utilization": 0.9,
+      "chunked_prefill": true,
+      "prefix_caching": true,
+      "multimodal_limit": {"image": 1, "video": 0},
+      "gdn_prefill_backend": "flashqla_legacy",
+      "speculative_decoding": "MTP, 4 speculative tokens",
+      "compilation": "PIECEWISE CUDA graphs; capture sizes [5]"
+    },
+    "runtime_versions": {
+      "python": "3.10.12",
+      "pytorch": "2.11.0+cu128",
+      "pytorch_cuda": "12.8",
+      "transformers": "4.57.6",
+      "triton": "3.6.0"
+    },
+    "host": {
+      "nvidia_driver": "595.71.05",
+      "execution_devices": "CUDA_VISIBLE_DEVICES=1,2,3,4",
+      "execution_gpus": "4 x NVIDIA GeForce RTX 2080 Ti (compute capability 7.5)",
+      "non_execution_gpu_visible_to_container": "1 x NVIDIA GeForce RTX 5090 (not selected by CUDA_VISIBLE_DEVICES for this run)"
+    },
+    "unavailable_or_not_immutably_reconstructed": [
+      "vLLM source commit",
+      "exact local modifications relative to upstream vLLM",
+      "exact hardware modification and firmware records for the four RTX 2080 Ti boards",
+      "container build recipe",
+      "per-request server log and scheduler trace",
+      "driver state captured at every request",
+      "an immutable runtime lockfile contemporaneous with each evaluated page"
+    ]
+  },
+  "gpu_used": true,
+  "request_options": {
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    }
+  }
+}

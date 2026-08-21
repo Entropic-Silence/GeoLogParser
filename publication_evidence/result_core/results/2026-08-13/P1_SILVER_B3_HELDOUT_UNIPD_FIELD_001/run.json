@@ -1,0 +1,35 @@
+{
+  "experiment_id": "P1_SILVER_B3_HELDOUT_UNIPD_FIELD_001",
+  "git_commit": "d6833923942ce8c66b26d230aa539d8670d44856",
+  "date": "2026-08-13",
+  "dataset_version": "unipd_field_silver_v004",
+  "split_version": "project_disjoint_machine_silver_v001",
+  "model": "positioned-text-layout-rules",
+  "model_revision": "layout_v001",
+  "prompt_version": "not_applicable",
+  "seed": null,
+  "hardware": {
+    "device": "cpu_evaluation",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "3.10.12"
+  },
+  "config": {
+    "reference_path": "/data/GeoLogParser/artifacts/silver/unipd_field_silver_v004/silver_reference.jsonl",
+    "reference_sha256": "6586c024f6892e7129c4606eaac9b2f72564a8e55831c54bc654fc7212b2ae05",
+    "ground_truth_path": "/data/GeoLogParser/artifacts/silver/unipd_field_silver_v004/silver_reference.jsonl",
+    "ground_truth_sha256": "6586c024f6892e7129c4606eaac9b2f72564a8e55831c54bc654fc7212b2ae05",
+    "predictions_path": "/root/GeoLogParser/results/.silver_prediction_inputs/P1_SILVER_B3_HELDOUT_UNIPD_FIELD_001.jsonl",
+    "predictions_sha256": "ab6016ac4861721ef0c360ea97ff494aa8ab211a1b4523db0534782f75d1064f",
+    "predictions_source_path": "/root/GeoLogParser/results/2026-08-12/P1_B3_LAYOUT_UNIPD_AUDIT_002/predictions.jsonl",
+    "predictions_source_sha256": "93c8418dca1bf66aaa9df80bbda9bddd7bf5a38436e2e773755f8f96890a56bb",
+    "interval_matching_tolerance_m": 0.05,
+    "boundary_accuracy_tolerances_m": [
+      0.01,
+      0.05,
+      0.1
+    ],
+    "reference_policy": "silver"
+  }
+}

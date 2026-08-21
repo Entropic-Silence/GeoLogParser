@@ -1,0 +1,35 @@
+{
+  "experiment_family": "PaperI-ModernVLM",
+  "protocol_revision": "v003_closed_model_extension",
+  "relation_to_v002": "user-directed post-hoc exploratory roster extension; does not alter the v002 confirmatory open-model roster",
+  "status": "NO_GO_SYNTHETIC_VISUAL_PREFLIGHT_UPSTREAM_502_NO_GOLD_REQUEST",
+  "closed_model_configs": [
+    "configs/models/gpt56_sol_modern_vlm_v002.json",
+    "configs/models/claude_opus46_modern_vlm_v002.json"
+  ],
+  "fixed_against_v002": [
+    "California v001-v005 manifest membership",
+    "200-DPI rendered pages",
+    "vlm_interval_source_units_v002 prompt",
+    "temperature=0",
+    "max_tokens=4096",
+    "source-unit decoder",
+    "order-preserving boundary matcher",
+    "0.05 m matching tolerance",
+    "BGS v003 exclusion"
+  ],
+  "execution_requirements": [
+    "direct official API credential, never an opaque proxy or interactive ChatGPT/Codex session",
+    "synthetic-only endpoint-format smoke test before any Gold page request",
+    "provider-returned model identifier retained in every page prediction",
+    "raw provider response, token usage, latency, prompt hash, model configuration, and page hash retained in the immutable run directory"
+  ],
+  "preflight": {
+    "date_utc": "2026-08-17",
+    "served_model_ids": ["gpt-5.6-sol"],
+    "requested_label": "chatgpt5.6-sol-high",
+    "responses_http_status": [502, 502],
+    "result": "synthetic visual request failed upstream; no Gold page was sent"
+  },
+  "interpretation": "Results, if run, are exploratory direct page-to-JSON baselines. They may not alter the open-model protocol or the GeoLogParser configuration."
+}

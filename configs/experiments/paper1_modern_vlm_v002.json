@@ -1,0 +1,39 @@
+{
+  "experiment_family": "PaperI-ModernVLM",
+  "protocol_revision": "v002",
+  "supersedes": "paper1_modern_vlm_v001",
+  "status": "FROZEN_BEFORE_GOLD_EVALUATION",
+  "change_from_v001": {
+    "field": "max_tokens",
+    "old_value": 1024,
+    "new_value": 4096,
+    "reason": "v001 preflight established that direct JSON interval sequences can exceed 1024 completion tokens; this is a transport/schema-capacity correction only.",
+    "not_changed": ["models", "prompt", "page render", "source-unit decoder", "matcher", "thresholds", "Gold cohort membership"]
+  },
+  "gold_cohorts": [
+    "california_wcr_gold_v001:test_50",
+    "california_wcr_gold_v002:test_100",
+    "california_wcr_gold_v003:test_100",
+    "california_wcr_gold_v004:test_100",
+    "california_wcr_gold_v005:test_100"
+  ],
+  "prompt": "vlm_interval_source_units_v002",
+  "decoding": {
+    "temperature": 0.0,
+    "max_tokens": 4096,
+    "images_per_request": 1,
+    "page_aggregation": "concatenate-page-ordered-intervals-without-repair-or-deduplication"
+  },
+  "normalization": {
+    "printed_depth_unit": "ft",
+    "metres_per_printed_unit": 0.3048,
+    "matcher": "order_preserving_max_cardinality_then_min_error_v001",
+    "boundary_tolerance_m": 0.05
+  },
+  "anti_leakage": [
+    "No Gold label, error category, or metric was used to alter the prompt, decoder, threshold, roster, or model selection.",
+    "All direct-JSON models receive the same frozen page image and prompt; document-specialist models use their official task interface.",
+    "All interfaces use the same frozen source-unit decoder and boundary matcher.",
+    "BGS v003 is excluded from this protocol."
+  ]
+}

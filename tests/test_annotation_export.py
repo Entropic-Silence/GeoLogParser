@@ -11,7 +11,7 @@ from geologparser.annotation_export import (
 
 
 def record(root):
-    return json.loads((root / "examples/boreholes/synthetic_valid.json").read_text())
+    return json.loads((root / "examples/boreholes/synthetic_valid.json").read_text(encoding="utf-8"))
 
 
 def test_verified_export_rejects_auto_and_accepts_human(tmp_path, request):

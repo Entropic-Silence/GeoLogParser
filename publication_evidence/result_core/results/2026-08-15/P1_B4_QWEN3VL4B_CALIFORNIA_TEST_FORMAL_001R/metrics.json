@@ -1,0 +1,115 @@
+{
+  "county_count": 48,
+  "document_boundary_exact": {
+    "denominator": 50,
+    "numerator": 0,
+    "value": 0.0
+  },
+  "document_boundary_exact_count": 0,
+  "document_count": 50,
+  "documents_with_predictions": 1,
+  "documents_with_schema_valid_pages": 50,
+  "interval_metrics": {
+    "interval_f1": {
+      "denominator": 1.0,
+      "details": {
+        "matched_count": 0,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 5,
+        "reference_count": 697,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 5,
+        "unmatched_reference_count": 697
+      },
+      "name": "interval_f1",
+      "numerator": 0.0,
+      "unit": "ratio",
+      "value": 0.0
+    },
+    "interval_precision": {
+      "denominator": 5,
+      "details": {
+        "matched_count": 0,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 5,
+        "reference_count": 697,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 5,
+        "unmatched_reference_count": 697
+      },
+      "name": "interval_precision",
+      "numerator": 0,
+      "unit": "ratio",
+      "value": 0.0
+    },
+    "interval_recall": {
+      "denominator": 697,
+      "details": {
+        "matched_count": 0,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 5,
+        "reference_count": 697,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 5,
+        "unmatched_reference_count": 697
+      },
+      "name": "interval_recall",
+      "numerator": 0,
+      "unit": "ratio",
+      "value": 0.0
+    },
+    "matched_bottom_boundary_mae_m": {
+      "denominator": 0,
+      "details": {
+        "matched_count": 0,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 5,
+        "reference_count": 697,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 5,
+        "unmatched_reference_count": 697
+      },
+      "name": "matched_bottom_boundary_mae_m",
+      "numerator": 0,
+      "unit": "m",
+      "value": null
+    },
+    "matched_top_boundary_mae_m": {
+      "denominator": 0,
+      "details": {
+        "matched_count": 0,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 5,
+        "reference_count": 697,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 5,
+        "unmatched_reference_count": 697
+      },
+      "name": "matched_top_boundary_mae_m",
+      "numerator": 0,
+      "unit": "m",
+      "value": null
+    }
+  },
+  "latency_seconds_per_document_wall": 0.00039417161999153903,
+  "latency_seconds_total": 3438.9964404819984,
+  "limitations": [
+    "Page aggregation preserves only schema-valid VLM pages and does not repair or deduplicate intervals.",
+    "The prompt requests metres while the published reference is feet; the benchmark converts only the reference feet to metres."
+  ],
+  "matched_lithology_exact": {
+    "denominator": 0,
+    "numerator": 0,
+    "value": null
+  },
+  "matched_lithology_exact_count": 0,
+  "page_count": 77,
+  "predicted_interval_count": 5,
+  "prediction_generation_latency_seconds_per_document": 68.77992880963997,
+  "prediction_generation_latency_seconds_total": 3438.9964404819984,
+  "prediction_reference_conditioning": "none",
+  "reference_ground_truth_tier": "GOLD_PUBLISHED_MANUAL_TRANSCRIPTION",
+  "reference_interval_count": 697,
+  "scope": "human-GT benchmark evaluation",
+  "wall_time_seconds": 0.01972948400361929
+}

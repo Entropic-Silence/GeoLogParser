@@ -8,7 +8,7 @@ from datetime import date, datetime, timezone
 import json
 import platform
 import re
-import resource
+from geologparser.runtime_resources import peak_process_rss_kib
 import shutil
 import subprocess
 import tempfile
@@ -307,7 +307,7 @@ def main() -> None:
         "source_domain": "British Geological Survey GeoIndex Offshore",
         "selection_limitation": "26 source groups selected from 251 eligible paired graphic-log candidates; 34 composite pages evaluated; scan rights remain pending manual pre-submission verification",
         "wall_time_seconds": time.perf_counter() - wall, "latency_seconds_per_document_wall": (time.perf_counter() - wall) / len(manifest),
-        "peak_process_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+        "peak_process_rss_kib": peak_process_rss_kib(),
     }
     (run / "predictions.jsonl").write_text("".join(json.dumps(item, ensure_ascii=False, sort_keys=True) + "\n" for item in prediction_rows), encoding="utf-8")
     (run / "errors.jsonl").write_text("".join(json.dumps(item, ensure_ascii=False, sort_keys=True) + "\n" for item in errors), encoding="utf-8")

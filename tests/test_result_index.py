@@ -1,8 +1,9 @@
+import json
 from pathlib import Path
 
 from geologparser.result_index import (
     artifact_manifest_errors, file_sha256, formal_evidence_errors, verify_index,
-    write_artifact_manifest,
+    verify_publication_index, write_artifact_manifest,
 )
 
 
@@ -394,3 +395,40 @@ def test_artifact_manifest_rejects_unlisted_extra_file(tmp_path: Path):
     manifest = write_artifact_manifest(result)
     (result / "unlisted.txt").write_text("unlisted")
     assert artifact_manifest_errors(result, manifest) == ["unlisted artifact: unlisted.txt"]
+
+
+def test_publication_index_accepts_exact_run_and_metrics_mirror(tmp_path: Path):
+    result = tmp_path / "private" / "results/2026-08-17/E"
+    result.mkdir(parents=True)
+    (result / "run.json").write_text('{"config": {}}\n')
+    (result / "metrics.json").write_text("{}\n")
+    for name in ("predictions.jsonl", "errors.jsonl", "run.log"):
+        (result / name).write_text("")
+    dataset = tmp_path / "private" / "dataset.json"
+    dataset.write_text("{}\n")
+    row = {
+        "experiment_id": "E",
+        "result_path": "results/2026-08-17/E",
+        "dataset_manifest_path": str(dataset),
+        "dataset_manifest_sha256": file_sha256(dataset),
+        **{
+            key: file_sha256(result / filename)
+            for key, filename in {
+                "run_sha256": "run.json",
+                "metrics_sha256": "metrics.json",
+                "predictions_sha256": "predictions.jsonl",
+                "errors_sha256": "errors.jsonl",
+                "run_log_sha256": "run.log",
+            }.items()
+        },
+        "paper_eligibility": "audit_only",
+    }
+    index = tmp_path / "index.jsonl"
+    index.write_text(json.dumps(row) + "\n")
+    mirror = tmp_path / "publication_evidence" / "result_core" / row["result_path"]
+    mirror.mkdir(parents=True)
+    for name in ("run.json", "metrics.json"):
+        (mirror / name).write_bytes((result / name).read_bytes())
+
+    assert verify_publication_index(index, tmp_path) == []
+    assert any("missing" in error for error in verify_index(index, tmp_path))

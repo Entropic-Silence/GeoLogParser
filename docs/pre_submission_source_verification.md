@@ -126,6 +126,15 @@ The v004 paths are
 `datasets/splits/california_wcr_gold_split_v004.json`; include these 100 source
 links in the same final check. Manifest SHA256 is
 `054848cca5b5eac0e67b46151842a31d63d6e94558664ab8f15cec5b5ba4ca4c`.
+The v005 paths are
+`/data/GeoLogParser/datasets/public/california_wcr_gold_v005/metadata/acquisition.json`,
+`datasets/manifests/california_wcr_gold_v005.jsonl`, and
+`datasets/splits/california_wcr_gold_split_v005.json`; include these 100 source
+links in the same final check. The acquisition, manifest, and split SHA256
+values are `b16a0105f7b8a439d41cd2cd42bcb24457556a073caac70c4f48f6bb155b364e`,
+`b37fb6f5fde0fa1ffa2f41f91da0c6f685cd48ed4d07972c983255f89ec5e6f9`,
+and `cabc8723b94830f88760dd72dd18c66d444113904322fc7303a70d625ef4ea2f`,
+respectively.
 
 A non-overlapping successor freeze is stored at
 `/data/GeoLogParser/datasets/public/swissgeol_thurgau_paired_v003`. It contains

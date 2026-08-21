@@ -1,0 +1,25 @@
+{
+  "protocol": "paper2_vlm_proposal_assurance_v001",
+  "bootstrap_repetitions": 5000,
+  "bootstrap_seed": 20260817,
+  "runs": [
+    {
+      "cohort": "California v001",
+      "role": "development",
+      "experiment_id": "P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V001_DEV_003",
+      "result_path": "results/2026-08-17/P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V001_DEV_003"
+    },
+    {
+      "cohort": "California v002",
+      "role": "validation",
+      "experiment_id": "P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V002_VALIDATION_003",
+      "result_path": "results/2026-08-17/P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V002_VALIDATION_003"
+    },
+    {
+      "cohort": "California v003",
+      "role": "held-out replication",
+      "experiment_id": "P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V003_HELDOUT_002",
+      "result_path": "results/2026-08-17/P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V003_HELDOUT_002"
+    }
+  ]
+}

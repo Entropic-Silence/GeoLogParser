@@ -1,0 +1,48 @@
+{
+  "claim_id": "p1.bgs_robustness_inventory",
+  "observations": [
+    {
+      "assertion": {
+        "expected": 31,
+        "pointer": "/source_document_count",
+        "type": "json_pointer_equals"
+      },
+      "observed": 31
+    },
+    {
+      "assertion": {
+        "expected": 217,
+        "pointer": "/derived_image_count",
+        "type": "json_pointer_equals"
+      },
+      "observed": 217
+    },
+    {
+      "assertion": {
+        "expected": 7,
+        "pointer": "/profile_count",
+        "type": "json_pointer_equals"
+      },
+      "observed": 7
+    },
+    {
+      "assertion": {
+        "expected": 300,
+        "pointer": "/render_dpi",
+        "type": "json_pointer_equals"
+      },
+      "observed": 300
+    },
+    {
+      "assertion": {
+        "expected": "5a1205c944a5cb652967b99e6478169805db35f749dffe44124076eafd766628",
+        "pointer": "/degradation_manifest_sha256",
+        "type": "json_pointer_equals"
+      },
+      "observed": "5a1205c944a5cb652967b99e6478169805db35f749dffe44124076eafd766628"
+    }
+  ],
+  "origin_source_sha256": "d61d902b93f28363d2c1c45d3a557371689c82bd25c0cfafd39d529135bc4621",
+  "publication_evidence_schema_version": "claim_assertion_projection_v001",
+  "scope": "controlled degradation inventory derived from 31 real BGS first-page scans; no interval/lithology reference"
+}

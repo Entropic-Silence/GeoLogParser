@@ -6,7 +6,7 @@ from __future__ import annotations
 import argparse
 import json
 import platform
-import resource
+from geologparser.runtime_resources import peak_process_rss_kib
 import subprocess
 import threading
 import time
@@ -242,7 +242,7 @@ def main() -> None:
         "degradation_origin": "synthetic controlled transformations of real source scans",
         "wall_time_seconds": wall_seconds,
         "latency_seconds_per_image_wall": wall_seconds / len(rows) if rows else None,
-        "peak_process_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+        "peak_process_rss_kib": peak_process_rss_kib(),
     }
     (run / "metrics.json").write_text(
         json.dumps(metrics, ensure_ascii=False, indent=2, sort_keys=True) + "\n",

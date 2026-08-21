@@ -18,7 +18,7 @@ def test_synthetic_dataset_is_immutable_and_traceable(tmp_path: Path):
     summary = generate_synthetic_dataset(output, count=4, seed=7, templates=2)
     assert summary["ground_truth_tier"] == "SYNTHETIC"
     assert summary["human_ground_truth_count"] == 0
-    rows = [json.loads(line) for line in (output / "manifest.jsonl").read_text().splitlines()]
+    rows = [json.loads(line) for line in (output / "manifest.jsonl").read_text(encoding="utf-8").splitlines()]
     assert len(rows) == 4
     assert {row["ground_truth_tier"] for row in rows} == {"SYNTHETIC"}
     assert all(Path(row["image_path"]).is_file() for row in rows)

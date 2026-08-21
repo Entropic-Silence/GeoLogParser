@@ -1,11 +1,26 @@
 cff-version: 1.2.0
-message: "If you use GeoLogParser, cite the software release and the relevant paper."
-title: "GeoLogParser"
+message: "Cite this software release and the data companion separately. The Zenodo identifier 10.5281/zenodo.22030229 is a software DOI, not a journal-article DOI."
+title: "GeoLogParser Paper 4 result-reproduction package"
 type: software
 authors:
-  - family-names: "GeoLogParser contributors"
-version: 0.0.1
-date-released: 2026-08-12
+  - family-names: Du
+    given-names: Yifan
+    orcid: "https://orcid.org/0009-0008-7740-5408"
+version: paper4-cageo-v1.0.8
+date-released: 2026-08-21
 license: MIT
-abstract: "Geology-constrained multimodal structured extraction from heterogeneous legacy borehole logs."
-
+repository-code: "https://github.com/Entropic-Silence/GeoLogParser"
+url: "https://github.com/Entropic-Silence/GeoLogParser/releases/tag/paper4-cageo-v1.0.8"
+abstract: >-
+  Result-reproduction software for provenance-grounded selective assurance in
+  borehole database ingestion. The published Zenodo software archive at
+  10.5281/zenodo.22030229 contains version paper4-cageo-v1.0.6; the corrected
+  v1.0.8 GitHub release supersedes its submission artifacts without changing
+  frozen scientific results. The separately published data-v002 companion is
+  10.5281/zenodo.22031703 and remains subject to source-specific terms.
+keywords:
+  - borehole logs
+  - vision-language models
+  - provenance
+  - selective prediction
+  - spatial support

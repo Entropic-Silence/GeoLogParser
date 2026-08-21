@@ -1,0 +1,104 @@
+{
+  "cohorts": [
+    {
+      "action_level": {
+        "accepted_actions": 51,
+        "observed_fcr": 0.0,
+        "observed_incorrect_actions": 0,
+        "one_sided_95pct_upper_fcr": 0.0570479523604428,
+        "one_sided_99pct_upper_fcr": 0.08634062736082238,
+        "p_zero_errors_if_true_fcr_at_least_2pct": 0.3568862864853744,
+        "p_zero_errors_if_true_fcr_at_least_5pct": 0.07309772651287749
+      },
+      "cohort": "development",
+      "document_level": {
+        "accepted_documents": 21,
+        "observed_worsened_documents": 0,
+        "observed_worsening_rate": 0.0,
+        "one_sided_95pct_upper_worsening_rate": 0.13294591102652342,
+        "one_sided_99pct_upper_worsening_rate": 0.19691427786084859,
+        "p_zero_worsenings_if_true_rate_at_least_5pct": 0.3405616262881148
+      }
+    },
+    {
+      "action_level": {
+        "accepted_actions": 43,
+        "observed_fcr": 0.0,
+        "observed_incorrect_actions": 0,
+        "one_sided_95pct_upper_fcr": 0.06729675341386787,
+        "one_sided_99pct_upper_fcr": 0.10156146276509803,
+        "p_zero_errors_if_true_fcr_at_least_2pct": 0.4194896545954032,
+        "p_zero_errors_if_true_fcr_at_least_5pct": 0.11018311023500528
+      },
+      "cohort": "external_v004",
+      "document_level": {
+        "accepted_documents": 8,
+        "observed_worsened_documents": 0,
+        "observed_worsening_rate": 0.0,
+        "one_sided_95pct_upper_worsening_rate": 0.31234397806636793,
+        "one_sided_99pct_upper_worsening_rate": 0.4376586748096509,
+        "p_zero_worsenings_if_true_rate_at_least_5pct": 0.6634204312890623
+      }
+    },
+    {
+      "action_level": {
+        "accepted_actions": 39,
+        "observed_fcr": 0.0,
+        "observed_incorrect_actions": 0,
+        "one_sided_95pct_upper_fcr": 0.07393758892668656,
+        "one_sided_99pct_upper_fcr": 0.1113761837256596,
+        "p_zero_errors_if_true_fcr_at_least_2pct": 0.45479633056219465,
+        "p_zero_errors_if_true_fcr_at_least_5pct": 0.13527595427905592
+      },
+      "cohort": "external_v005",
+      "document_level": {
+        "accepted_documents": 11,
+        "observed_worsened_documents": 0,
+        "observed_worsening_rate": 0.0,
+        "one_sided_95pct_upper_worsening_rate": 0.2384041903808527,
+        "one_sided_99pct_upper_worsening_rate": 0.342066775342432,
+        "p_zero_worsenings_if_true_rate_at_least_5pct": 0.5688000922764597
+      }
+    },
+    {
+      "action_level": {
+        "accepted_actions": 82,
+        "observed_fcr": 0.0,
+        "observed_incorrect_actions": 0,
+        "one_sided_95pct_upper_fcr": 0.03587403171067116,
+        "one_sided_99pct_upper_fcr": 0.05461271686920599,
+        "p_zero_errors_if_true_fcr_at_least_2pct": 0.19078235561879184,
+        "p_zero_errors_if_true_fcr_at_least_5pct": 0.014905125382474753
+      },
+      "cohort": "external_pooled_v004_v005",
+      "document_level": {
+        "accepted_documents": 19,
+        "observed_worsened_documents": 0,
+        "observed_worsening_rate": 0.0,
+        "one_sided_95pct_upper_worsening_rate": 0.14586850331224344,
+        "one_sided_99pct_upper_worsening_rate": 0.21524002964853872,
+        "p_zero_worsenings_if_true_rate_at_least_5pct": 0.37735360253530725
+      }
+    }
+  ],
+  "comparison": "frozen_candidate_risk_policy_action_vs_document_risk_bounds",
+  "decision": {
+    "action_level_2pct_risk": "NOT_SUPPORTED",
+    "action_level_5pct_risk": "SUPPORTED_UNDER_IID_ACTION_ASSUMPTION",
+    "document_level_5pct_worsening": "NO_GO_INSUFFICIENT_ACCEPTED_DOCUMENTS"
+  },
+  "interpretation": "The external action-level cohort has enough zero-error actions to reject a 5% FCR at the one-sided 95% level under an iid-action assumption. It cannot certify a 2% FCR target, and the accepted-document cohort is too small to certify a 5% document worsening target. These are finite-sample confidence bounds, not cross-source guarantees.",
+  "limitations": [
+    "v004 and v005 are content-disjoint California evaluations, not independent source families",
+    "zero-error Clopper-Pearson bound assumes independent Bernoulli units; document clustering can invalidate action-level independence",
+    "no BGS, Swissgeol, or BGS v003 outcome is used to choose the policy or estimate a universal deployment guarantee",
+    "this analysis does not improve extraction recall or unseen-template coverage"
+  ],
+  "peak_process_rss_kib": 87128,
+  "policy_status": "frozen before v004/v005 evaluation",
+  "prediction_reference_conditioning": "none",
+  "reference_blinded_decision_policy": true,
+  "reference_ground_truth_tier": "GOLD_PUBLISHED_MANUAL_TRANSCRIPTION",
+  "scope": "secondary frozen-policy action-risk certification",
+  "wall_time_seconds": 0.005326733982656151
+}

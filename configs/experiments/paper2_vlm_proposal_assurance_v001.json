@@ -1,0 +1,39 @@
+{
+  "protocol_id": "paper2_vlm_proposal_assurance_v001",
+  "status": "FROZEN_AFTER_CALIFORNIA_V001_DEVELOPMENT",
+  "research_question": "Can an independent positioned-text reader convert high-recall direct-VLM proposals into evidence-grounded, selectively accepted interval actions without silent repair?",
+  "development_cohort": "California v001",
+  "validation_cohort": "California v002",
+  "heldout_cohorts": [
+    "California v003",
+    "California v004",
+    "California v005"
+  ],
+  "permanently_excluded": [
+    "BGS v003"
+  ],
+  "agreement_tolerance_m": 1e-06,
+  "field_evidence_tolerance_source_units": 1e-06,
+  "acceptance_rule": [
+    "complete top and bottom boundaries agree with one RapidOCR positioned candidate",
+    "the positioned candidate retains at least one source bbox",
+    "the interval has non-negative top and positive thickness",
+    "accepted intervals form a monotonic non-overlapping subsequence"
+  ],
+  "silent_repair": false,
+  "document_complete_acceptance_rule": [
+    "every direct-VLM proposal is accepted",
+    "the two readers emit the same number of intervals",
+    "the accepted sequence starts at source depth zero",
+    "the accepted sequence is boundary-continuous",
+    "every rendered page has valid VLM JSON",
+    "the VLM emitted no invalid numeric range"
+  ],
+  "go_gate": {
+    "same_page_numeric_anchor_coverage_minimum": 0.7,
+    "accepted_precision_must_exceed_raw": true,
+    "accepted_coverage_must_be_nonzero": true,
+    "accepted_invalid_numeric_rate_maximum": 0.0,
+    "serialized_evidence_and_decision_trace_required": true
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "experiment_id": "P1_USGS142_CROSS_SOURCE_INTERVAL_FORMAL_002",
+  "git_commit": "8a989a69858f550b218341785f0bf84f9d55b49e",
+  "date": "2026-08-14",
+  "dataset_version": "openei_usgs142_interval_gold_v001",
+  "split_version": "cross_source_single_document_holdout_v001",
+  "model": "tesseract_roi_generalized_lithology_parser",
+  "model_revision": "tesseract 4.1.1",
+  "prompt_version": "not_applicable",
+  "seed": 0,
+  "hardware": {
+    "device": "cpu",
+    "processor": "x86_64",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "3.10.12",
+    "tesseract": "tesseract 4.1.1"
+  },
+  "config": {
+    "ground_truth_sha256": "6643ac1958a5006c4d3efb6719d95cf32eb836a7ed359441d5f1d10f9a9d28bc",
+    "prediction_reference_conditioning": "none",
+    "ground_truth_tier": "GOLD_AUTHORITATIVE_SOURCE_AGREEMENT",
+    "render_dpi": 400,
+    "page": 2,
+    "roi_normalized": [
+      0.65,
+      0.25,
+      0.995,
+      0.92
+    ],
+    "psm": 11,
+    "unit_conversion": "feet_bls_to_meters_multiply_0.3048",
+    "evaluated_fields": [
+      "interval.top_depth_m",
+      "interval.bottom_depth_m",
+      "interval.thickness_m",
+      "interval.lithology_normalized"
+    ],
+    "reference_scope": "explicit generalized lithology legend in official PDF",
+    "rights_review": "PENDING_MANUAL_PRE_SUBMISSION_REVIEW"
+  },
+  "started_utc": "2026-08-14T06:05:57.465191+00:00"
+}

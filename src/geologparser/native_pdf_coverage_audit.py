@@ -7,7 +7,7 @@ import copy
 import hashlib
 import json
 from pathlib import Path
-import resource
+from geologparser.runtime_resources import peak_process_rss_kib
 import time
 from typing import Any, Mapping, Protocol
 
@@ -279,7 +279,7 @@ def run_native_pdf_coverage_audit(
         ),
         "latency_total_seconds": elapsed,
         "latency_mean_seconds_per_item": elapsed / len(rows),
-        "peak_process_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+        "peak_process_rss_kib": peak_process_rss_kib(),
         "record_output_policy": "hash_and_presence_only",
         "accuracy_metrics": None,
         "accuracy_metrics_reason": "source candidates have no human Ground Truth",

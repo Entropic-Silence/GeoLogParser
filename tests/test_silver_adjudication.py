@@ -7,7 +7,7 @@ from geologparser.silver_adjudication import adjudicate_records, build_padova_si
 
 
 def _record():
-    return json.loads(Path("examples/boreholes/synthetic_valid.json").read_text())
+    return json.loads(Path("examples/boreholes/synthetic_valid.json").read_text(encoding="utf-8"))
 
 
 def _set(record, field, value):

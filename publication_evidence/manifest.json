@@ -1,0 +1,1305 @@
+{
+  "analysis_input_file_count": 8,
+  "analysis_inputs": {
+    "publication_evidence/analysis_inputs/linkage/publication_linkage_risk.json": {
+      "origin": "docs/generated/publication_linkage_risk.json",
+      "scope": "aggregate exact-sequence and distance-fingerprint linkage diagnostics; no record mapping",
+      "sha256": "cb26b141a6aebf27ad21fe88c815c4c1ba340dce13afbe02af6383b863b04ac2"
+    },
+    "publication_evidence/analysis_inputs/linkage/publication_linkage_risk.md": {
+      "origin": "docs/publication_linkage_risk.md",
+      "scope": "release-risk interpretation for pseudonymized and transformed inputs",
+      "sha256": "d895adf92af1e78618ee292d6f99109f4a542dded6f68c1172d43c83b4fcd52e"
+    },
+    "publication_evidence/analysis_inputs/paper2/candidate_pool_recomputed_v001.jsonl": {
+      "origin": "experiments/paper2/public/candidate_pool_recomputed_v001.jsonl",
+      "scope": "deterministically recomputed ablation sequences",
+      "sha256": "46216b50af4119311b2903c58348d8383f93fd832114c85f64bf3eee3fe85d65"
+    },
+    "publication_evidence/analysis_inputs/paper2/candidate_pool_v001.jsonl": {
+      "origin": "experiments/paper2/public/candidate_pool_v001.jsonl",
+      "scope": "pseudonymized positioned-candidate pool for same-pool ablation; exact depth sequences remain linkable",
+      "sha256": "e07cd765a023e5d64c75ee427389d20d0f49dcf349c123312ecd62aaa03c2fd5"
+    },
+    "publication_evidence/analysis_inputs/paper2/candidate_pool_v001.metadata.json": {
+      "origin": "experiments/paper2/public/candidate_pool_v001.metadata.json",
+      "scope": "candidate-pool schema and release limitations",
+      "sha256": "994570447f9b666f9953ea36fadf1bd37c32075a6cc30710fd0282a113fe61cc"
+    },
+    "publication_evidence/analysis_inputs/paper3/spatial_input_v001.jsonl": {
+      "origin": "experiments/paper3/public/spatial_input_v001.jsonl",
+      "scope": "rigidly transformed spatial diagnostic input",
+      "sha256": "51ff25a2f69ca01e12de86832b710a59ccfe91dbb4222574590ef62e90c1e202"
+    },
+    "publication_evidence/analysis_inputs/paper3/spatial_input_v001.metadata.json": {
+      "origin": "experiments/paper3/public/spatial_input_v001.metadata.json",
+      "scope": "spatial transform and release limitations",
+      "sha256": "c2d8fca1f77863725138be81ecdb7b2a136c6fbb54b2b6faf46b8abc45419a6a"
+    },
+    "publication_evidence/analysis_inputs/paper3/spatial_recomputed_v001.json": {
+      "origin": "experiments/paper3/public/spatial_recomputed_v001.json",
+      "scope": "diagnostics recomputed from transformed public input",
+      "sha256": "481e113332fa74708a8c29f7e47769164f468ead568b4609d2cd5ef8b0f059cb"
+    }
+  },
+  "document_outputs": {
+    "publication_evidence/document_outputs/results/2026-08-14/P1_CALIFORNIA_WCR_RAPIDOCR_TEST_FORMAL_001/errors.jsonl": {
+      "row_count": 643,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "6dcf44d3cd2d756149b8f42730a2989c6b5c1f69e7d3317b5cde6e3f1f6dc1e4"
+    },
+    "publication_evidence/document_outputs/results/2026-08-14/P1_CALIFORNIA_WCR_RAPIDOCR_TEST_FORMAL_001/predictions.jsonl": {
+      "row_count": 50,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "bb58fad39edeec8382b87a467dfa9194c8c96b5287ecf5f3730a955b0a76a38d"
+    },
+    "publication_evidence/document_outputs/results/2026-08-14/P1_CALIFORNIA_WCR_V002_RAPIDOCR_EXTERNAL_FORMAL_002/errors.jsonl": {
+      "row_count": 1609,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "beacb2ef92bbd61913a9408b1330bd7c07bc6694bb9af12a5602c24e1cb58306"
+    },
+    "publication_evidence/document_outputs/results/2026-08-14/P1_CALIFORNIA_WCR_V002_RAPIDOCR_EXTERNAL_FORMAL_002/predictions.jsonl": {
+      "row_count": 100,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "d928230d09fc034bb72b5ae6439bb5ad061bd302af5b06acdaaf3f9eee3fcbd8"
+    },
+    "publication_evidence/document_outputs/results/2026-08-14/P1_CALIFORNIA_WCR_V003_RAPIDOCR_PROSPECTIVE_FORMAL_001/errors.jsonl": {
+      "row_count": 1654,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "0859034e4b666ace732eb2030b11d4d5ca0f68a85fe58548848f088afc277cbf"
+    },
+    "publication_evidence/document_outputs/results/2026-08-14/P1_CALIFORNIA_WCR_V003_RAPIDOCR_PROSPECTIVE_FORMAL_001/predictions.jsonl": {
+      "row_count": 100,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "501e52f3bf3bd155cc1ae2f95547d35055df3d0a538f3c3424432344b65b0e57"
+    },
+    "publication_evidence/document_outputs/results/2026-08-15/P1_CALIFORNIA_WCR_V004_RAPIDOCR_PROSPECTIVE_FORMAL_001/errors.jsonl": {
+      "row_count": 1773,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "bed9ac6ba5eade5dea7e5380fdad8bf32a48e991941b5b5f46ca33dbaee136a4"
+    },
+    "publication_evidence/document_outputs/results/2026-08-15/P1_CALIFORNIA_WCR_V004_RAPIDOCR_PROSPECTIVE_FORMAL_001/predictions.jsonl": {
+      "row_count": 100,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "ccb5ca610630ab50761856e588deda0cdeb3946ea87632eabbb734f850d6ee7b"
+    },
+    "publication_evidence/document_outputs/results/2026-08-15/P1_CALIFORNIA_WCR_V005_RAPIDOCR_EXTERNAL_FORMAL_001/errors.jsonl": {
+      "row_count": 1967,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "3055b05c7af4e93ef8b7487da069df990e0c4d59a8a7f27db6b88ff0b644e962"
+    },
+    "publication_evidence/document_outputs/results/2026-08-15/P1_CALIFORNIA_WCR_V005_RAPIDOCR_EXTERNAL_FORMAL_001/predictions.jsonl": {
+      "row_count": 100,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "b8c8fd1fb720208ea76c39589b1b916572663e0a4c3a574ce9b4a79f5273d48f"
+    },
+    "publication_evidence/document_outputs/results/2026-08-15/P2_CALIFORNIA_WCR_V004_CANDIDATE_RISK_PROSPECTIVE_FORMAL_001/errors.jsonl": {
+      "row_count": 1425,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "132252319d7e398f08ebcf8bfa0a01afe8c390f908a716de6cf52c31e9ebc926"
+    },
+    "publication_evidence/document_outputs/results/2026-08-15/P2_CALIFORNIA_WCR_V004_CANDIDATE_RISK_PROSPECTIVE_FORMAL_001/predictions.jsonl": {
+      "row_count": 100,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "4ad85dc848da7ba3342ecc8eb570bf7eb70403c124b562b30bbab5636cd61d26"
+    },
+    "publication_evidence/document_outputs/results/2026-08-15/P2_CALIFORNIA_WCR_V004_CONSTRAINT_PROSPECTIVE_FORMAL_001/errors.jsonl": {
+      "row_count": 1200,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "c760523f0cf7d987ffcf3aa7ad43f99b18b6ca96c11fea3d9dfd7888318bfdfe"
+    },
+    "publication_evidence/document_outputs/results/2026-08-15/P2_CALIFORNIA_WCR_V004_CONSTRAINT_PROSPECTIVE_FORMAL_001/predictions.jsonl": {
+      "row_count": 100,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "57a187d52249a5ed0221081e3ce7b8ed2fca11bf69564d3b8b97b473f372ccee"
+    },
+    "publication_evidence/document_outputs/results/2026-08-15/P2_CALIFORNIA_WCR_V005_CANDIDATE_RISK_EXTERNAL_FORMAL_001/errors.jsonl": {
+      "row_count": 1679,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "8d238c1cb76cc3702be2db81d61d2e45b7d2d39411814e900510a361212dadce"
+    },
+    "publication_evidence/document_outputs/results/2026-08-15/P2_CALIFORNIA_WCR_V005_CANDIDATE_RISK_EXTERNAL_FORMAL_001/predictions.jsonl": {
+      "row_count": 100,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "2a3ef05cd7e4b2c6df7316e829c5eefa21bb0869efe9acfd9b607e6731fc47e3"
+    },
+    "publication_evidence/document_outputs/results/2026-08-15/P2_CALIFORNIA_WCR_V005_CONSTRAINT_EXTERNAL_FORMAL_001/errors.jsonl": {
+      "row_count": 1369,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "53cca7d8139989c20bfbbd37956e19d643d6df57b7c5d50e177993d5402c57c4"
+    },
+    "publication_evidence/document_outputs/results/2026-08-15/P2_CALIFORNIA_WCR_V005_CONSTRAINT_EXTERNAL_FORMAL_001/predictions.jsonl": {
+      "row_count": 100,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "81db2538647444617e4574ecb52ebfa3cf80476156ccca5c4e2cc02721668d71"
+    },
+    "publication_evidence/document_outputs/results/2026-08-16/P3_SWISSGEOL_RISK_AWARE_DOWNSTREAM_INPUT_001/predictions.jsonl": {
+      "row_count": 35,
+      "sanitization": "stable hashed record key; borehole/project identifiers, source paths, county, page text, and bboxes removed",
+      "sha256": "b0fa3074a4f6f725b20b022c5b745986bddae671256c1a2c3ca559f25374e7da"
+    }
+  },
+  "excluded": [
+    "source page images and PDFs",
+    "model weights and caches",
+    "unselected development and audit prediction rows",
+    "source text and bounding boxes from released prediction rows",
+    "run.log and recursive ROI artifacts",
+    "complete source databases"
+  ],
+  "external_summaries": {
+    "publication_evidence/external/p1.bgs_robustness_inventory/claim_snapshot.json": {
+      "claim_id": "p1.bgs_robustness_inventory",
+      "origin_source_sha256": "d61d902b93f28363d2c1c45d3a557371689c82bd25c0cfafd39d529135bc4621",
+      "sha256": "affeb528789ebc2c95bcef52664aeec5d0cee346020ea976248c7cce6435d026"
+    },
+    "publication_evidence/external/p1.cad_full_svg/claim_snapshot.json": {
+      "claim_id": "p1.cad_full_svg",
+      "origin_source_sha256": "94ac064a1c2f67262a7c23b9478baf2d3fa8b229c3bf5609365a86604ef655e7",
+      "sha256": "f361e3549a8e9c21cf276a2e898d6345f384b05c2e75fdad8b1c3369f6519343"
+    },
+    "publication_evidence/external/p1.cad_priority_fidelity/claim_snapshot.json": {
+      "claim_id": "p1.cad_priority_fidelity",
+      "origin_source_sha256": "0a5af970a16bbec9bd5dc8cdb849d529eeec4e67e817cce85c9a74454b4371cb",
+      "sha256": "b1126f37d78b2b946dad79a5c6b6ee3b5a359a50fd76125b99f37d6c62f70a1a"
+    },
+    "publication_evidence/external/p1.degradation_inventory/claim_snapshot.json": {
+      "claim_id": "p1.degradation_inventory",
+      "origin_source_sha256": "62b001b386b38761f4fb518a1f33613df306a90c7c094e045222494db2804532",
+      "sha256": "6f835ad36ae02e03f25393b81945dc374981071a251aed4b863717fe0e96aec9"
+    },
+    "publication_evidence/external/p1.international_source_review/claim_snapshot.json": {
+      "claim_id": "p1.international_source_review",
+      "origin_source_sha256": "e06b599dd2359907a0a1851781d7a179afa456df4db068bce5d48d7f22c13ea9",
+      "sha256": "a0a701da678acb526c882f65900922fb7c8be5001144d71b2ece8217289737d9"
+    },
+    "publication_evidence/external/p1.padova_annotation_assignment/claim_snapshot.json": {
+      "claim_id": "p1.padova_annotation_assignment",
+      "origin_source_sha256": "3906f8297d8a70b01e2b4af4ae1956a4d1b58eddbaa2ef16521192d663864d3e",
+      "sha256": "009f608c20808f49bba2bedd0cfbf2a12a8b5f3085a7b0575223b6a1ab1083dd"
+    },
+    "publication_evidence/external/p1.padova_inventory/claim_snapshot.json": {
+      "claim_id": "p1.padova_inventory",
+      "origin_source_sha256": "2ee38b8da430075df80a4b3c16a4739838b4320ecbc73ce18dcfcbcb1ac79e2a",
+      "sha256": "439d39b24ab45e518c314a3ffbb4322126dc8d5eb299637e16d18f87c4f93c88"
+    },
+    "publication_evidence/external/p1.sedlog_content/claim_snapshot.json": {
+      "claim_id": "p1.sedlog_content",
+      "origin_source_sha256": "bd0f0f204f197d18b84d9fb502b75ffdef4dea090259b7b34600634052915fd8",
+      "sha256": "ae12fc9a06be76c9663f21379c48d347ca4d18ec27e2a24b575af6684532146c"
+    },
+    "publication_evidence/external/p1.sedlog_source_review/claim_snapshot.json": {
+      "claim_id": "p1.sedlog_source_review",
+      "origin_source_sha256": "9f2cfa3fc49929fc6e961b339cdfb9e5a1a4c14b409f127997fe9e214b7cc4ca",
+      "sha256": "a72c89cb970d0cdd8a9490ee522fdf762448fd2e959892cd6a97e30bf7df0ac4"
+    },
+    "publication_evidence/external/p1.slopes_content/claim_snapshot.json": {
+      "claim_id": "p1.slopes_content",
+      "origin_source_sha256": "32d7a487f5ef0bbe07394624d8bebfab6ec863bff0f06db92e993dea2ec48909",
+      "sha256": "bf02b30b29e10fc6c36c4496fb48a8dcbaab0cae08f60564993c9d36e1211c3e"
+    },
+    "publication_evidence/external/p1.tiber_content/claim_snapshot.json": {
+      "claim_id": "p1.tiber_content",
+      "origin_source_sha256": "b969d0206e8f6383a5f4d3293de0ead2a53b6f9b6f968ca3c46783f66bcfacf7",
+      "sha256": "4e7f105f338d29c225beda8019cc447b3a9cb65a1cd3181090dd9bcb5252bd20"
+    },
+    "publication_evidence/external/p3.coal602_source_audit/claim_snapshot.json": {
+      "claim_id": "p3.coal602_source_audit",
+      "origin_source_sha256": "261bee6cdd7b400476aa34c19046034303c2114cf4f26c5cb1c5e0151f852b21",
+      "sha256": "6bd097108c3de1ce95b4c9128de081bfbf7003871d45564a6a1097f6b564d16f"
+    },
+    "publication_evidence/external/p3.padova_spatial_catalog/claim_snapshot.json": {
+      "claim_id": "p3.padova_spatial_catalog",
+      "origin_source_sha256": "27dd4267013ac81a2271736384650a6b900dd01231c6989f6b436c818e69ebc4",
+      "sha256": "4becdd5145053574061c5c6128faff5a4dbaa7baa10962dc4bf1bed4205bb7b5"
+    },
+    "publication_evidence/external/p3.sanming_database_connectivity/claim_snapshot.json": {
+      "claim_id": "p3.sanming_database_connectivity",
+      "origin_source_sha256": "52a860230739968408a90c5d9aa7762f65eb659cb74fd4b24f294b08fca127a1",
+      "sha256": "2b74d8593f0e61d139010c1cdc7fe2e07927de2fc3b56e4eefca4b8c65c73233"
+    }
+  },
+  "external_summary_file_count": 14,
+  "frozen_date": "2026-08-17",
+  "privacy_classification": "direct identifiers removed; released projections are pseudonymized or transformed and may remain linkable; anonymity is not claimed",
+  "publication_evidence_schema_version": "publication_evidence_v003",
+  "result_core": {
+    "publication_evidence/result_core/results/2026-08-12/P1_B1_BGS_AUDIT_001/metrics.json": {
+      "experiment_id": "P1_B1_BGS_AUDIT_001",
+      "paper": "paper1",
+      "sha256": "f9f655d34f55afe629d8e554841fd0e38e86afcf844d388e6e21133117eb17ce"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_B1_BGS_AUDIT_001/run.json": {
+      "experiment_id": "P1_B1_BGS_AUDIT_001",
+      "paper": "paper1",
+      "sha256": "fba863a45978cfd463c29655e40730e185032722f22ca6c285c8af2ff22c705f"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_B1_RAPIDOCR_BGS_AUDIT_001/metrics.json": {
+      "experiment_id": "P1_B1_RAPIDOCR_BGS_AUDIT_001",
+      "paper": "paper1",
+      "sha256": "ed15f06f375ea3a03a2bca1fae6c20ae02a01c1cf52830ed3dccc4fb64d2b360"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_B1_RAPIDOCR_BGS_AUDIT_001/run.json": {
+      "experiment_id": "P1_B1_RAPIDOCR_BGS_AUDIT_001",
+      "paper": "paper1",
+      "sha256": "ad4a9e8ac5b3532af75f2f86d7fa23498a2a9ca0a43d145a52e76273661f52b3"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_B1_RAPIDOCR_BGS_AUDIT_002/metrics.json": {
+      "experiment_id": "P1_B1_RAPIDOCR_BGS_AUDIT_002",
+      "paper": "paper1",
+      "sha256": "cd568aeacaa00c1dcad9122b6d5d00afc5a09ac752345675009f6c2341b3883f"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_B1_RAPIDOCR_BGS_AUDIT_002/run.json": {
+      "experiment_id": "P1_B1_RAPIDOCR_BGS_AUDIT_002",
+      "paper": "paper1",
+      "sha256": "4842f11c1a600a0935125667db6438ec5a2b3355d439d5b86e142027214164e8"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_B2_QWEN3VL4B_TEXT_UNIPD_AUDIT_001/metrics.json": {
+      "experiment_id": "P1_B2_QWEN3VL4B_TEXT_UNIPD_AUDIT_001",
+      "paper": "paper1",
+      "sha256": "d4391e5c7d74e21ad3aaaa070b3b5184ebfcb3eb59f364dae0fc4e327bd5a876"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_B2_QWEN3VL4B_TEXT_UNIPD_AUDIT_001/run.json": {
+      "experiment_id": "P1_B2_QWEN3VL4B_TEXT_UNIPD_AUDIT_001",
+      "paper": "paper1",
+      "sha256": "1b0d4da4b7830c31035a6de4bd36ccd54b69e11760cc6a8793ba337d2231eb92"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_B2_QWEN3VL4B_TEXT_UNIPD_AUDIT_002/metrics.json": {
+      "experiment_id": "P1_B2_QWEN3VL4B_TEXT_UNIPD_AUDIT_002",
+      "paper": "paper1",
+      "sha256": "2a80b77f16de21189577c0dcd4ca1ec10538e599f4f5a527bdca1f72fa64c7b6"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_B2_QWEN3VL4B_TEXT_UNIPD_AUDIT_002/run.json": {
+      "experiment_id": "P1_B2_QWEN3VL4B_TEXT_UNIPD_AUDIT_002",
+      "paper": "paper1",
+      "sha256": "0ca9e4b6cabbfc3301e1edc0d7dd3faf6968bfc7a7694b1cf4896cab9c61bc92"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_B2_QWEN3VL4B_TEXT_UNIPD_AUDIT_003/metrics.json": {
+      "experiment_id": "P1_B2_QWEN3VL4B_TEXT_UNIPD_AUDIT_003",
+      "paper": "paper1",
+      "sha256": "e3ae13cd000cfe7f1163f714d510f68a2e4691a40f64a6f7336bd16a8d5640e9"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_B2_QWEN3VL4B_TEXT_UNIPD_AUDIT_003/run.json": {
+      "experiment_id": "P1_B2_QWEN3VL4B_TEXT_UNIPD_AUDIT_003",
+      "paper": "paper1",
+      "sha256": "4cc8f2bed3054b13724d1f8e13f6e053269dd6bb6f693037fb38764364e5d30f"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_B3_LAYOUT_UNIPD_AUDIT_001/metrics.json": {
+      "experiment_id": "P1_B3_LAYOUT_UNIPD_AUDIT_001",
+      "paper": "paper1",
+      "sha256": "414dedda8787e8df49156f6bcdbc7e81d317e56bbb80c493ee0ebb05243b2b51"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_B3_LAYOUT_UNIPD_AUDIT_001/run.json": {
+      "experiment_id": "P1_B3_LAYOUT_UNIPD_AUDIT_001",
+      "paper": "paper1",
+      "sha256": "22a613db6f4770d20ec2099ee2b9132874e5576ce594421c6fbda984aedb2c98"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_B3_LAYOUT_UNIPD_AUDIT_002/metrics.json": {
+      "experiment_id": "P1_B3_LAYOUT_UNIPD_AUDIT_002",
+      "paper": "paper1",
+      "sha256": "69bdc53004ee749cc5068042dc8513d800cd7c6601342c1c2cb3c703796b82cf"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_B3_LAYOUT_UNIPD_AUDIT_002/run.json": {
+      "experiment_id": "P1_B3_LAYOUT_UNIPD_AUDIT_002",
+      "paper": "paper1",
+      "sha256": "d336b87e84da724c1d1729fb95a8413f4100840862285447cf5826c89d0ad323"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_B4_QWEN3VL4B_BGS_AUDIT_001/metrics.json": {
+      "experiment_id": "P1_B4_QWEN3VL4B_BGS_AUDIT_001",
+      "paper": "paper1",
+      "sha256": "0f126d7d76930ae227e79c751d22db8aed36ca3d2e29a97c6cda96e9c56fd1c8"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_B4_QWEN3VL4B_BGS_AUDIT_001/run.json": {
+      "experiment_id": "P1_B4_QWEN3VL4B_BGS_AUDIT_001",
+      "paper": "paper1",
+      "sha256": "745654cf747d418c6784132f4da7958e9640bb162e94b5cfdaabc79f76cc4380"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_B4_QWEN3VL4B_SANMING_AUDIT_001/metrics.json": {
+      "experiment_id": "P1_B4_QWEN3VL4B_SANMING_AUDIT_001",
+      "paper": "paper1",
+      "sha256": "f561841332551fc85cf347231ee2be96ab1a39d0c3dc0824090e677a2a1abe79"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_B4_QWEN3VL4B_SANMING_AUDIT_001/run.json": {
+      "experiment_id": "P1_B4_QWEN3VL4B_SANMING_AUDIT_001",
+      "paper": "paper1",
+      "sha256": "874ff4694f6a235bbf5b95030f02de52a16e3a81c06d468ab4ac15a508d56493"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_B4_QWEN3VL4B_SANMING_AUDIT_SMOKE_001/metrics.json": {
+      "experiment_id": "P1_B4_QWEN3VL4B_SANMING_AUDIT_SMOKE_001",
+      "paper": "paper1",
+      "sha256": "53de51bad3ce8ae0f51ec13f1cdcfd7f155182778f122a79e250599d6d797a2a"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_B4_QWEN3VL4B_SANMING_AUDIT_SMOKE_001/run.json": {
+      "experiment_id": "P1_B4_QWEN3VL4B_SANMING_AUDIT_SMOKE_001",
+      "paper": "paper1",
+      "sha256": "c90128681eb20a0ecf04e9d707f9ef5fe5f12c0cd50b970d47e4ab40b5d3b918"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_B4_QWEN3VL4B_SANMING_AUDIT_SMOKE_002/metrics.json": {
+      "experiment_id": "P1_B4_QWEN3VL4B_SANMING_AUDIT_SMOKE_002",
+      "paper": "paper1",
+      "sha256": "a4fb764a50caf2ef15f42ed7e283db9ae828edfc872c7684d87790b39d80adcb"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_B4_QWEN3VL4B_SANMING_AUDIT_SMOKE_002/run.json": {
+      "experiment_id": "P1_B4_QWEN3VL4B_SANMING_AUDIT_SMOKE_002",
+      "paper": "paper1",
+      "sha256": "4c92c0230d686fd54d476d58efd6238e547700a8289f739139d51ee5e0362fae"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_B4_QWEN3VL4B_SANMING_AUDIT_SMOKE_003/metrics.json": {
+      "experiment_id": "P1_B4_QWEN3VL4B_SANMING_AUDIT_SMOKE_003",
+      "paper": "paper1",
+      "sha256": "9c99a7ec6f2ed117f481e461d487c001e43d10fff606ac30fd66d34ad6900737"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_B4_QWEN3VL4B_SANMING_AUDIT_SMOKE_003/run.json": {
+      "experiment_id": "P1_B4_QWEN3VL4B_SANMING_AUDIT_SMOKE_003",
+      "paper": "paper1",
+      "sha256": "1afbc64970418bff0f7e0bc7069ecfe6fb9d8fbe203b478f9a478130f79202d8"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_B4_QWEN3VL4B_UNIPD_AUDIT_001/metrics.json": {
+      "experiment_id": "P1_B4_QWEN3VL4B_UNIPD_AUDIT_001",
+      "paper": "paper1",
+      "sha256": "10280d8b97775c10690ba869a8df1c2fab0424df64f33303d6c6538527c95b71"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_B4_QWEN3VL4B_UNIPD_AUDIT_001/run.json": {
+      "experiment_id": "P1_B4_QWEN3VL4B_UNIPD_AUDIT_001",
+      "paper": "paper1",
+      "sha256": "653ec99a086285314ec27198d1960ca9f1b31d8c2a0ef457d29f8240b4e328a6"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_B5_QWEN3VL4B_SANMING_AUDIT_001/metrics.json": {
+      "experiment_id": "P1_B5_QWEN3VL4B_SANMING_AUDIT_001",
+      "paper": "paper1",
+      "sha256": "50c7effc2c762e22efd74ffd363e3f9cc088a164d140530417554007638f1f2f"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_B5_QWEN3VL4B_SANMING_AUDIT_001/run.json": {
+      "experiment_id": "P1_B5_QWEN3VL4B_SANMING_AUDIT_001",
+      "paper": "paper1",
+      "sha256": "1c90ab66d1f25c23b9a60c4ef1eafff1f2924cc33a8ef8c9de782ecfbe7cfca3"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_B6_QWEN3VL4B_UNIPD_AUDIT_001/metrics.json": {
+      "experiment_id": "P1_B6_QWEN3VL4B_UNIPD_AUDIT_001",
+      "paper": "paper1",
+      "sha256": "f85794f2fe2b28aaf6ecb01b4ed3e5d03c99358912f0782756a461b84d4faf6f"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_B6_QWEN3VL4B_UNIPD_AUDIT_001/run.json": {
+      "experiment_id": "P1_B6_QWEN3VL4B_UNIPD_AUDIT_001",
+      "paper": "paper1",
+      "sha256": "f0ee95a7596c8d3bbf33a2fbb577607071b370c9f106a9ff10c22960c5509318"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_B6_QWEN3VL4B_UNIPD_AUDIT_002/metrics.json": {
+      "experiment_id": "P1_B6_QWEN3VL4B_UNIPD_AUDIT_002",
+      "paper": "paper1",
+      "sha256": "b8877239cda7766b47eac07ebd9f1093e3b7ab5fe36d263a960f93d651a9e19a"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_B6_QWEN3VL4B_UNIPD_AUDIT_002/run.json": {
+      "experiment_id": "P1_B6_QWEN3VL4B_UNIPD_AUDIT_002",
+      "paper": "paper1",
+      "sha256": "6f9dc9358429e8ea4c516751d7ee7ad6dfeaf4c159db5a0f5ca43ebe9608746c"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_DIRECTPDF_UNIPD_AUDIT_001/metrics.json": {
+      "experiment_id": "P1_DIRECTPDF_UNIPD_AUDIT_001",
+      "paper": "paper1",
+      "sha256": "b28fdb0b5dec5ea7a6b59481e78be9e30f3c8147f5395b2c87fa1d880ea63954"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_DIRECTPDF_UNIPD_AUDIT_001/run.json": {
+      "experiment_id": "P1_DIRECTPDF_UNIPD_AUDIT_001",
+      "paper": "paper1",
+      "sha256": "7ec88ff6e5fd2e04feca6d27473b9678c9150769818d2bd4842e262a3cc6db22"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_DIRECTPDF_UNIPD_AUDIT_002/metrics.json": {
+      "experiment_id": "P1_DIRECTPDF_UNIPD_AUDIT_002",
+      "paper": "paper1",
+      "sha256": "85c82d069a745a6e1b84e615e204d40ed1a392406baabaab85a76a2c45233585"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_DIRECTPDF_UNIPD_AUDIT_002/run.json": {
+      "experiment_id": "P1_DIRECTPDF_UNIPD_AUDIT_002",
+      "paper": "paper1",
+      "sha256": "c88e01934e9db8fd8595e6e02b4ed5a2c8478b8d9674efddd6c19ab40f273cd7"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_DIRECTPDF_UNIPD_AUDIT_003/metrics.json": {
+      "experiment_id": "P1_DIRECTPDF_UNIPD_AUDIT_003",
+      "paper": "paper1",
+      "sha256": "8dcb419022be78e1e47fa27031fa0f569016d051c9cdb2e3c188e9ed3ef794f1"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_DIRECTPDF_UNIPD_AUDIT_003/run.json": {
+      "experiment_id": "P1_DIRECTPDF_UNIPD_AUDIT_003",
+      "paper": "paper1",
+      "sha256": "91771e5bb3a155bf2c21ea172e7d93dd624d96c8878634195346f54f4e8520ea"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_DIRECTPDF_UNIPD_AUDIT_004/metrics.json": {
+      "experiment_id": "P1_DIRECTPDF_UNIPD_AUDIT_004",
+      "paper": "paper1",
+      "sha256": "891b17ffbb0690cce62e810e8bd8cece27243228bf1a9e7ff9ff7b835f77d4b3"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P1_DIRECTPDF_UNIPD_AUDIT_004/run.json": {
+      "experiment_id": "P1_DIRECTPDF_UNIPD_AUDIT_004",
+      "paper": "paper1",
+      "sha256": "b1b572bc0974317d8c5b75f0e5bb31cbe80041fc71ce876b3a85ad4126bc39fb"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P3_SYNTHETIC_ERROR_PROPAGATION_MULTISEED_001/metrics.json": {
+      "experiment_id": "P3_SYNTHETIC_ERROR_PROPAGATION_MULTISEED_001",
+      "paper": "paper3",
+      "sha256": "55fa2479c232d58f6bffa51cdfcc26443b2cf72178b505aaee393f0f073dcf27"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P3_SYNTHETIC_ERROR_PROPAGATION_MULTISEED_001/run.json": {
+      "experiment_id": "P3_SYNTHETIC_ERROR_PROPAGATION_MULTISEED_001",
+      "paper": "paper3",
+      "sha256": "18074fb3390efc80d174378d2d47388bf467931b690b18c6a091af8dbbfde1d3"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P3_SYNTHETIC_ERROR_PROPAGATION_SMOKE_001/metrics.json": {
+      "experiment_id": "P3_SYNTHETIC_ERROR_PROPAGATION_SMOKE_001",
+      "paper": "paper3",
+      "sha256": "c7e7d991e351f2e633f36b8716e80a22e78ccdd06780b1557e3261f8fbbace2c"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P3_SYNTHETIC_ERROR_PROPAGATION_SMOKE_001/run.json": {
+      "experiment_id": "P3_SYNTHETIC_ERROR_PROPAGATION_SMOKE_001",
+      "paper": "paper3",
+      "sha256": "064a4e78cec29f9f6aacd106a15cda0771f4ead53952cdd135ee992e1dadfa9a"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P3_SYNTHETIC_PYVISTA_INTEROP_001/metrics.json": {
+      "experiment_id": "P3_SYNTHETIC_PYVISTA_INTEROP_001",
+      "paper": "paper3",
+      "sha256": "895c2e7b75bc901c3e9fc800d139fea70532ff5e0c362a4a3963b1c34d45aecf"
+    },
+    "publication_evidence/result_core/results/2026-08-12/P3_SYNTHETIC_PYVISTA_INTEROP_001/run.json": {
+      "experiment_id": "P3_SYNTHETIC_PYVISTA_INTEROP_001",
+      "paper": "paper3",
+      "sha256": "2ce7170eef0c96f16a2bb2c52bb9346c7dc271e6fc6a4f1bd7df95ee4889f589"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P1_B1_RAPIDOCR_SLOPES_AUDIT_001/metrics.json": {
+      "experiment_id": "P1_B1_RAPIDOCR_SLOPES_AUDIT_001",
+      "paper": "paper1",
+      "sha256": "377f0540bccc1da53fc672920634139fd09343e3bef79c2f967f3b86af89fe22"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P1_B1_RAPIDOCR_SLOPES_AUDIT_001/run.json": {
+      "experiment_id": "P1_B1_RAPIDOCR_SLOPES_AUDIT_001",
+      "paper": "paper1",
+      "sha256": "564189f82b69a65233b9a5729c10b4da702b3ac2c36b25103b87e72ccf48a430"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P1_B1_RAPIDOCR_TIBER_AUDIT_001/metrics.json": {
+      "experiment_id": "P1_B1_RAPIDOCR_TIBER_AUDIT_001",
+      "paper": "paper1",
+      "sha256": "a23497ef30e126e632957f4f3a241e9789c1b07bcd0f6cad418a49222c520b02"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P1_B1_RAPIDOCR_TIBER_AUDIT_001/run.json": {
+      "experiment_id": "P1_B1_RAPIDOCR_TIBER_AUDIT_001",
+      "paper": "paper1",
+      "sha256": "07eb3fd888faab20044d21b2ae2ffd82c131cd0fe72f36a2a448d288a3ba8776"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P1_B1_SYNTHETIC_CONTROLLED_001/metrics.json": {
+      "experiment_id": "P1_B1_SYNTHETIC_CONTROLLED_001",
+      "paper": "paper1",
+      "sha256": "e718ed17e8f3506243650496a170d2e04a95e677565146b1a301accba8dada45"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P1_B1_SYNTHETIC_CONTROLLED_001/run.json": {
+      "experiment_id": "P1_B1_SYNTHETIC_CONTROLLED_001",
+      "paper": "paper1",
+      "sha256": "f8a3dff3a9c21a3ad42a86303f12c358170fcdf8f10b6ccca08086b19c3dc147"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P1_B1_SYNTHETIC_CONTROLLED_002/metrics.json": {
+      "experiment_id": "P1_B1_SYNTHETIC_CONTROLLED_002",
+      "paper": "paper1",
+      "sha256": "4b7b00f85d5ddde66a1192591e048333bd40db85335ce715266853dcc356ca02"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P1_B1_SYNTHETIC_CONTROLLED_002/run.json": {
+      "experiment_id": "P1_B1_SYNTHETIC_CONTROLLED_002",
+      "paper": "paper1",
+      "sha256": "b2ef8db7f7574d3a9493bf5de91448d8fa0005a4a0a313eb7fbd341b4af7c570"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P1_B1_TESSERACT_SLOPES_AUDIT_001/metrics.json": {
+      "experiment_id": "P1_B1_TESSERACT_SLOPES_AUDIT_001",
+      "paper": "paper1",
+      "sha256": "f5b6a9a5a5573a6cdc0e5db41d10fcb63bc249c7222a424524084bff7f8d66ba"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P1_B1_TESSERACT_SLOPES_AUDIT_001/run.json": {
+      "experiment_id": "P1_B1_TESSERACT_SLOPES_AUDIT_001",
+      "paper": "paper1",
+      "sha256": "96df47c7735ae888ce83a0b7d0dd5d6aecdc0592c47a5b7267cbff8f74460a3d"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P1_B1_TESSERACT_TIBER_AUDIT_001/metrics.json": {
+      "experiment_id": "P1_B1_TESSERACT_TIBER_AUDIT_001",
+      "paper": "paper1",
+      "sha256": "2f7179f2cb7a37980a2ff98aa9e8db70570d158b74ad389bf4952bbcee9f8a54"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P1_B1_TESSERACT_TIBER_AUDIT_001/run.json": {
+      "experiment_id": "P1_B1_TESSERACT_TIBER_AUDIT_001",
+      "paper": "paper1",
+      "sha256": "c7dfa8082718d1bbc09fc6adc4eb1b7c44e38becfb89b53cecc76cec44eb1e2e"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P1_BGS_METADATA_ROBUSTNESS_RAPIDOCR_001/metrics.json": {
+      "experiment_id": "P1_BGS_METADATA_ROBUSTNESS_RAPIDOCR_001",
+      "paper": "paper1",
+      "sha256": "532c8cd3b0fc42b8216b045dc129dfb99a83b450c0f16b915ebc6c92fcfa30a1"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P1_BGS_METADATA_ROBUSTNESS_RAPIDOCR_001/run.json": {
+      "experiment_id": "P1_BGS_METADATA_ROBUSTNESS_RAPIDOCR_001",
+      "paper": "paper1",
+      "sha256": "be1f61c327d62234c91134dfcf24670e32e6352ef663b83f89d1d976b31f2530"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P1_BGS_METADATA_ROBUSTNESS_TESSERACT_001/metrics.json": {
+      "experiment_id": "P1_BGS_METADATA_ROBUSTNESS_TESSERACT_001",
+      "paper": "paper1",
+      "sha256": "44d18fb0d1fe916b0ec40ebb5cf6c035a8f98ebd9388c63e38e6786458b0a761"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P1_BGS_METADATA_ROBUSTNESS_TESSERACT_001/run.json": {
+      "experiment_id": "P1_BGS_METADATA_ROBUSTNESS_TESSERACT_001",
+      "paper": "paper1",
+      "sha256": "616a9230ca0a8c974d95cf7b85d0353380e1d2448ddff57019e028072d59103e"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P1_METADATA_BGS_RAPIDOCR_FORMAL_001/metrics.json": {
+      "experiment_id": "P1_METADATA_BGS_RAPIDOCR_FORMAL_001",
+      "paper": "paper1",
+      "sha256": "49d53034edc18299b38ee646d1e4a92bb76d7c552f68efecfbabeb546155358c"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P1_METADATA_BGS_RAPIDOCR_FORMAL_001/run.json": {
+      "experiment_id": "P1_METADATA_BGS_RAPIDOCR_FORMAL_001",
+      "paper": "paper1",
+      "sha256": "cdfc67302e82a497ae90e92ef807129c18b171fdc985c639cd8e82456903e258"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P1_METADATA_BGS_TESSERACT_FORMAL_002/metrics.json": {
+      "experiment_id": "P1_METADATA_BGS_TESSERACT_FORMAL_002",
+      "paper": "paper1",
+      "sha256": "4d1fa0303cc5c94f9c43572b8a5369ba905549db1314665f84fd263b1858f2e5"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P1_METADATA_BGS_TESSERACT_FORMAL_002/run.json": {
+      "experiment_id": "P1_METADATA_BGS_TESSERACT_FORMAL_002",
+      "paper": "paper1",
+      "sha256": "815818e60c80224cfa6e9ad89b1dff79e147ca436cf7db15074587d9c8e9108f"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P1_METADATA_BGS_TESSERACT_FORMAL_003/metrics.json": {
+      "experiment_id": "P1_METADATA_BGS_TESSERACT_FORMAL_003",
+      "paper": "paper1",
+      "sha256": "9f80846b2611bccf37b6e7a2b69eccd8aed395e961debf6f39066a6b6dc00b13"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P1_METADATA_BGS_TESSERACT_FORMAL_003/run.json": {
+      "experiment_id": "P1_METADATA_BGS_TESSERACT_FORMAL_003",
+      "paper": "paper1",
+      "sha256": "9c128aa267e4e64b9bf4bffe974225dc486d09153a6c135f1a27c99d9d66b8a4"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P1_METADATA_BGS_TESSERACT_FORMAL_004/metrics.json": {
+      "experiment_id": "P1_METADATA_BGS_TESSERACT_FORMAL_004",
+      "paper": "paper1",
+      "sha256": "6dfa8f3add1fa9cbd2980603a8e697c8fd0c6ca8ea0a304738e19c1483f811e4"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P1_METADATA_BGS_TESSERACT_FORMAL_004/run.json": {
+      "experiment_id": "P1_METADATA_BGS_TESSERACT_FORMAL_004",
+      "paper": "paper1",
+      "sha256": "813a6aa6310373e4789ea09bdf3f0f832b38f1d20361d3cdbbf4210da2b663fc"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P1_NATIVE_LAYOUT_SEDLOG_AUDIT_001/metrics.json": {
+      "experiment_id": "P1_NATIVE_LAYOUT_SEDLOG_AUDIT_001",
+      "paper": "paper1",
+      "sha256": "1672f03403ccd0a307e1ce4047d1715363d56fe507163c72911862b5655d1fe4"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P1_NATIVE_LAYOUT_SEDLOG_AUDIT_001/run.json": {
+      "experiment_id": "P1_NATIVE_LAYOUT_SEDLOG_AUDIT_001",
+      "paper": "paper1",
+      "sha256": "fb1759c550cadc673933c6bf3d88d3ccdc2afdb68a78ba8b17c9215d01b29453"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P1_SILVER_B3_HELDOUT_UNIPD_FIELD_001/metrics.json": {
+      "experiment_id": "P1_SILVER_B3_HELDOUT_UNIPD_FIELD_001",
+      "paper": "paper1",
+      "sha256": "eae46d42a3526f9ea83df3c05c0172e33093f49a3bc161dcc5041f4767763563"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P1_SILVER_B3_HELDOUT_UNIPD_FIELD_001/run.json": {
+      "experiment_id": "P1_SILVER_B3_HELDOUT_UNIPD_FIELD_001",
+      "paper": "paper1",
+      "sha256": "3a73540f14e4ca040619998941938dbd8b852223cd4de6957d88ce47473f0c40"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P1_SILVER_B4_UNIPD_FIELD_002/metrics.json": {
+      "experiment_id": "P1_SILVER_B4_UNIPD_FIELD_002",
+      "paper": "paper1",
+      "sha256": "c75e9e39bd9a31509e30305117c5a02e9d10ad869dda6e51a696b0a5768fd7d6"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P1_SILVER_B4_UNIPD_FIELD_002/run.json": {
+      "experiment_id": "P1_SILVER_B4_UNIPD_FIELD_002",
+      "paper": "paper1",
+      "sha256": "fbdbbb8f6fef05c9c4b668f8de68a391750106e7c9b4098efc19190c6079a02e"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P2_BGS_METADATA_CONSENSUS_ABSTENTION_001/metrics.json": {
+      "experiment_id": "P2_BGS_METADATA_CONSENSUS_ABSTENTION_001",
+      "paper": "paper2",
+      "sha256": "741b06eab95fc7532637c925c3d9a53bfa807e46d8211cbcf3ab6698f97302ab"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P2_BGS_METADATA_CONSENSUS_ABSTENTION_001/run.json": {
+      "experiment_id": "P2_BGS_METADATA_CONSENSUS_ABSTENTION_001",
+      "paper": "paper2",
+      "sha256": "3bf00f113e0cad59379b70483146f279780ec4e6ae6b3aed383b3784cbe08bd5"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P2_EXECUTED_SYNTHETIC_ABLATION_001/metrics.json": {
+      "experiment_id": "P2_EXECUTED_SYNTHETIC_ABLATION_001",
+      "paper": "paper2",
+      "sha256": "800e33358370ddbe63a2919f45b652b778d339712d4b642e4ced84edb29a99e4"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P2_EXECUTED_SYNTHETIC_ABLATION_001/run.json": {
+      "experiment_id": "P2_EXECUTED_SYNTHETIC_ABLATION_001",
+      "paper": "paper2",
+      "sha256": "95d262376e01f2483444cb80f56d0fe0e35ff1e98eff8e867208ba233bfb0ced"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P2_QWEN3VL4B_TESSERACT_UNIPD_ROI_AUDIT_001/metrics.json": {
+      "experiment_id": "P2_QWEN3VL4B_TESSERACT_UNIPD_ROI_AUDIT_001",
+      "paper": "paper2",
+      "sha256": "21e59b9eb4a80d700e3c8eddbcbab6b748415b3a37dc3fe07c8b9a11b1c7f518"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P2_QWEN3VL4B_TESSERACT_UNIPD_ROI_AUDIT_001/run.json": {
+      "experiment_id": "P2_QWEN3VL4B_TESSERACT_UNIPD_ROI_AUDIT_001",
+      "paper": "paper2",
+      "sha256": "c223d5d47a38f97819e2fd6b14267bfdd64d223079017d77d93790c7fc5b75b0"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P2_SYNTHETIC_ABLATION_002/metrics.json": {
+      "experiment_id": "P2_SYNTHETIC_ABLATION_002",
+      "paper": "paper2",
+      "sha256": "005a1d65477d4e12a3220591717ff6a65425c7a21e7484ec6c9972b305743a43"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P2_SYNTHETIC_ABLATION_002/run.json": {
+      "experiment_id": "P2_SYNTHETIC_ABLATION_002",
+      "paper": "paper2",
+      "sha256": "fca972dd45797c113b7d8e8f6134ed277d0de2b46f2506b8bc9f262e645111a8"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P3_COAL602_CONSENSUS_QC_CONTROLLED_001/metrics.json": {
+      "experiment_id": "P3_COAL602_CONSENSUS_QC_CONTROLLED_001",
+      "paper": "paper3",
+      "sha256": "c855ebc1fc034aa6c75750bb741097722d370b9e2996df2e7672482191eb20db"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P3_COAL602_CONSENSUS_QC_CONTROLLED_001/run.json": {
+      "experiment_id": "P3_COAL602_CONSENSUS_QC_CONTROLLED_001",
+      "paper": "paper3",
+      "sha256": "af5d56e4e19f3f853410ee9cfabe33ab619e8278f9af709c3eafdc416d16cee3"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P3_COAL602_CONSENSUS_QC_CONTROLLED_002/metrics.json": {
+      "experiment_id": "P3_COAL602_CONSENSUS_QC_CONTROLLED_002",
+      "paper": "paper3",
+      "sha256": "f8be81da5e7188fa77a0fae6c20a0c452bac3ef0ef1b0c84e4df84e384ae0abc"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P3_COAL602_CONSENSUS_QC_CONTROLLED_002/run.json": {
+      "experiment_id": "P3_COAL602_CONSENSUS_QC_CONTROLLED_002",
+      "paper": "paper3",
+      "sha256": "34a980c0d041a02e65d9ed782520c6f94e98a03a3e8b86d3246896f3ab9250ac"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P3_COAL602_CONSENSUS_QC_CONTROLLED_003/metrics.json": {
+      "experiment_id": "P3_COAL602_CONSENSUS_QC_CONTROLLED_003",
+      "paper": "paper3",
+      "sha256": "f662322839879ca1acb4b12079c93dd6dbd096da6878a86e692151558e7acdb3"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P3_COAL602_CONSENSUS_QC_CONTROLLED_003/run.json": {
+      "experiment_id": "P3_COAL602_CONSENSUS_QC_CONTROLLED_003",
+      "paper": "paper3",
+      "sha256": "2f2ab7e3879e5511ff67e63426f13da4a9f1e2761aaa964b9615289c40444deb"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P3_COAL602_SOURCE_ROOF_PROXY_PROTOCOL_001/metrics.json": {
+      "experiment_id": "P3_COAL602_SOURCE_ROOF_PROXY_PROTOCOL_001",
+      "paper": "paper3",
+      "sha256": "85fc812b25b622831f5714ea297c9e2b320ea31f2b67da6db8bfa81873647b94"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P3_COAL602_SOURCE_ROOF_PROXY_PROTOCOL_001/run.json": {
+      "experiment_id": "P3_COAL602_SOURCE_ROOF_PROXY_PROTOCOL_001",
+      "paper": "paper3",
+      "sha256": "01352fd5ecc2bde871f317d428564074e756badb73779318eda51c2ff0d2f7cf"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P3_EXECUTED_SYNTHETIC_RAW_QC_REFERENCE_001/metrics.json": {
+      "experiment_id": "P3_EXECUTED_SYNTHETIC_RAW_QC_REFERENCE_001",
+      "paper": "paper3",
+      "sha256": "f2e565c71ba668c9f18e33b5e949e5b99bd7c95089bbfb0431991c32227ef414"
+    },
+    "publication_evidence/result_core/results/2026-08-13/P3_EXECUTED_SYNTHETIC_RAW_QC_REFERENCE_001/run.json": {
+      "experiment_id": "P3_EXECUTED_SYNTHETIC_RAW_QC_REFERENCE_001",
+      "paper": "paper3",
+      "sha256": "58567e16d2922cec7c43b93931ea7f3607c7f25b78782474b4ab35fdb5cdf330"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_CALIFORNIA_WCR_RAPIDOCR_TEST_FORMAL_001/metrics.json": {
+      "experiment_id": "P1_CALIFORNIA_WCR_RAPIDOCR_TEST_FORMAL_001",
+      "paper": "paper1",
+      "sha256": "b6e8fc182e27b203e8c7ddbc603edf52e40706bb27004e4ce697cccd4ace8f2a"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_CALIFORNIA_WCR_RAPIDOCR_TEST_FORMAL_001/run.json": {
+      "experiment_id": "P1_CALIFORNIA_WCR_RAPIDOCR_TEST_FORMAL_001",
+      "paper": "paper1",
+      "sha256": "85e7279c85b9bea2cd9febde3b68de3612229855b9a427cefae3de7e0ee8abf7"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_CALIFORNIA_WCR_TESSERACT_TEST_FORMAL_001/metrics.json": {
+      "experiment_id": "P1_CALIFORNIA_WCR_TESSERACT_TEST_FORMAL_001",
+      "paper": "paper1",
+      "sha256": "7aa097598fe700e67a7205886afffff5802cd47233aa78a7fcbf49d7f51bb12b"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_CALIFORNIA_WCR_TESSERACT_TEST_FORMAL_001/run.json": {
+      "experiment_id": "P1_CALIFORNIA_WCR_TESSERACT_TEST_FORMAL_001",
+      "paper": "paper1",
+      "sha256": "74e1078cbe0dc92122721a317c0b460724dcfe9f85e1782a6f4ca632f47139dd"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_CALIFORNIA_WCR_V002_RAPIDOCR_EXTERNAL_FORMAL_002/metrics.json": {
+      "experiment_id": "P1_CALIFORNIA_WCR_V002_RAPIDOCR_EXTERNAL_FORMAL_002",
+      "paper": "paper1",
+      "sha256": "555edfdf1b64dad061d9a88e1110d83b2b2a81daf12124cefa247fb757404f31"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_CALIFORNIA_WCR_V002_RAPIDOCR_EXTERNAL_FORMAL_002/run.json": {
+      "experiment_id": "P1_CALIFORNIA_WCR_V002_RAPIDOCR_EXTERNAL_FORMAL_002",
+      "paper": "paper1",
+      "sha256": "7cb9df178317d43556104f4ad368f555ceee59183346b247f2a3f77053095838"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_CALIFORNIA_WCR_V002_TESSERACT_EXTERNAL_FORMAL_002/metrics.json": {
+      "experiment_id": "P1_CALIFORNIA_WCR_V002_TESSERACT_EXTERNAL_FORMAL_002",
+      "paper": "paper1",
+      "sha256": "0553107adf01f396e7ff53a2f0c9dc4f29c18ab34316e643aac7d10a20c26dc9"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_CALIFORNIA_WCR_V002_TESSERACT_EXTERNAL_FORMAL_002/run.json": {
+      "experiment_id": "P1_CALIFORNIA_WCR_V002_TESSERACT_EXTERNAL_FORMAL_002",
+      "paper": "paper1",
+      "sha256": "4d876a879f50069eba19d49d03dfa355137c9ad7fcffdd483a280ffd71518889"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_CALIFORNIA_WCR_V003_RAPIDOCR_PROSPECTIVE_FORMAL_001/metrics.json": {
+      "experiment_id": "P1_CALIFORNIA_WCR_V003_RAPIDOCR_PROSPECTIVE_FORMAL_001",
+      "paper": "paper1",
+      "sha256": "bd9fe77c667a36ba4c49fbf95124e4849c4cd1342513e7e6d20f971c4e4f6311"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_CALIFORNIA_WCR_V003_RAPIDOCR_PROSPECTIVE_FORMAL_001/run.json": {
+      "experiment_id": "P1_CALIFORNIA_WCR_V003_RAPIDOCR_PROSPECTIVE_FORMAL_001",
+      "paper": "paper1",
+      "sha256": "7b4dd4ee207a44de026297d8dceb05d63bf7217487e5cb259d9149fc5975f8f8"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_CALIFORNIA_WCR_V003_TESSERACT_PROSPECTIVE_FORMAL_001/metrics.json": {
+      "experiment_id": "P1_CALIFORNIA_WCR_V003_TESSERACT_PROSPECTIVE_FORMAL_001",
+      "paper": "paper1",
+      "sha256": "21d8d49197f154f39c6b2a792cdaf1cd88c709f225836f0df321c4570eeecb80"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_CALIFORNIA_WCR_V003_TESSERACT_PROSPECTIVE_FORMAL_001/run.json": {
+      "experiment_id": "P1_CALIFORNIA_WCR_V003_TESSERACT_PROSPECTIVE_FORMAL_001",
+      "paper": "paper1",
+      "sha256": "8c60570ebdbdebdf0015154b76f601facb746f6cca5d641666eed9db3ab69b4a"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_SWISSGEOL_CROSS_CANTON_RAPIDOCR_TRANSFER_002/metrics.json": {
+      "experiment_id": "P1_SWISSGEOL_CROSS_CANTON_RAPIDOCR_TRANSFER_002",
+      "paper": "paper1",
+      "sha256": "6541ee5312b3fc1397e8dda69c465332760ac618a265a49dc9338d8f0e1c2b66"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_SWISSGEOL_CROSS_CANTON_RAPIDOCR_TRANSFER_002/run.json": {
+      "experiment_id": "P1_SWISSGEOL_CROSS_CANTON_RAPIDOCR_TRANSFER_002",
+      "paper": "paper1",
+      "sha256": "3aa99c92acc661e0821f0d69ccc4c7d8b8cfa56a8990948ac08d8d79e403438a"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_SWISSGEOL_CROSS_CANTON_TESSERACT_TRANSFER_003/metrics.json": {
+      "experiment_id": "P1_SWISSGEOL_CROSS_CANTON_TESSERACT_TRANSFER_003",
+      "paper": "paper1",
+      "sha256": "15e1328a70d50d8b23b091457d75cf111bf04e654b32459f8cb211a6b15d72d3"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_SWISSGEOL_CROSS_CANTON_TESSERACT_TRANSFER_003/run.json": {
+      "experiment_id": "P1_SWISSGEOL_CROSS_CANTON_TESSERACT_TRANSFER_003",
+      "paper": "paper1",
+      "sha256": "29e3f20e0528f5aedfaa7696865f85898b766ffa752f251f24998d63dc0ae344"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_SWISSGEOL_FIVE_CANTON_RAPIDOCR_TRANSFER_001/metrics.json": {
+      "experiment_id": "P1_SWISSGEOL_FIVE_CANTON_RAPIDOCR_TRANSFER_001",
+      "paper": "paper1",
+      "sha256": "e497cf6c41b8489f7f0074bcf766f2763fd2713ef5f60a40c8f7358b052f8372"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_SWISSGEOL_FIVE_CANTON_RAPIDOCR_TRANSFER_001/run.json": {
+      "experiment_id": "P1_SWISSGEOL_FIVE_CANTON_RAPIDOCR_TRANSFER_001",
+      "paper": "paper1",
+      "sha256": "49aca91c4ba61bd4291ec8672562c0b71cec4ab4ec747d22c5824aec8b944c5b"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_SWISSGEOL_FIVE_CANTON_TESSERACT_TRANSFER_001/metrics.json": {
+      "experiment_id": "P1_SWISSGEOL_FIVE_CANTON_TESSERACT_TRANSFER_001",
+      "paper": "paper1",
+      "sha256": "74f9d50f1c5422fecc3a63fc7b742899c725baae194d98e1e0681f0ca2529d27"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_SWISSGEOL_FIVE_CANTON_TESSERACT_TRANSFER_001/run.json": {
+      "experiment_id": "P1_SWISSGEOL_FIVE_CANTON_TESSERACT_TRANSFER_001",
+      "paper": "paper1",
+      "sha256": "f12a9c092f0f406761195bc2e13cba390bdccb5bd32a71e2b440fe86ceff44c8"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_SWISSGEOL_TG_CONTENT_DEVELOPMENT_RAPIDOCR_001/metrics.json": {
+      "experiment_id": "P1_SWISSGEOL_TG_CONTENT_DEVELOPMENT_RAPIDOCR_001",
+      "paper": "paper1",
+      "sha256": "9b9cd6e8f45fc0653c2b34601c3499ecaf1a9f6294ae1845ac9da3865281ab52"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_SWISSGEOL_TG_CONTENT_DEVELOPMENT_RAPIDOCR_001/run.json": {
+      "experiment_id": "P1_SWISSGEOL_TG_CONTENT_DEVELOPMENT_RAPIDOCR_001",
+      "paper": "paper1",
+      "sha256": "720c18f70d7022aa8afe17319de4d2800156bad8c99be70811d88c1f0c963a09"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_SWISSGEOL_TG_CONTENT_HELDOUT_RAPIDOCR_FORMAL_005/metrics.json": {
+      "experiment_id": "P1_SWISSGEOL_TG_CONTENT_HELDOUT_RAPIDOCR_FORMAL_005",
+      "paper": "paper1",
+      "sha256": "fbc6f663e8f7eb95d7eca92d0047ebde6c23dec75094687c216c06a2e686bdcc"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_SWISSGEOL_TG_CONTENT_HELDOUT_RAPIDOCR_FORMAL_005/run.json": {
+      "experiment_id": "P1_SWISSGEOL_TG_CONTENT_HELDOUT_RAPIDOCR_FORMAL_005",
+      "paper": "paper1",
+      "sha256": "808cc4021c859f7a44829043526c836c0fa185210377f5cf0d65a17edc093953"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_SWISSGEOL_TG_CONTENT_HELDOUT_TESSERACT_FORMAL_004/metrics.json": {
+      "experiment_id": "P1_SWISSGEOL_TG_CONTENT_HELDOUT_TESSERACT_FORMAL_004",
+      "paper": "paper1",
+      "sha256": "2b369892fef29e760d57ab296ab75828660d506f1d84eaa66de5b443819ce35f"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_SWISSGEOL_TG_CONTENT_HELDOUT_TESSERACT_FORMAL_004/run.json": {
+      "experiment_id": "P1_SWISSGEOL_TG_CONTENT_HELDOUT_TESSERACT_FORMAL_004",
+      "paper": "paper1",
+      "sha256": "daecac7918cdbeeae9b26c7e2f03c75a14fa9657228b974d77e8a8085513c356"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_SWISSGEOL_TG_INCREMENTAL_TESSERACT_FORMAL_003/metrics.json": {
+      "experiment_id": "P1_SWISSGEOL_TG_INCREMENTAL_TESSERACT_FORMAL_003",
+      "paper": "paper1",
+      "sha256": "9df907742af2b2654d411eab600335979adcc28ec7a19ac7b42db391dc27c345"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_SWISSGEOL_TG_INCREMENTAL_TESSERACT_FORMAL_003/run.json": {
+      "experiment_id": "P1_SWISSGEOL_TG_INCREMENTAL_TESSERACT_FORMAL_003",
+      "paper": "paper1",
+      "sha256": "b186c338a32553596f68cf6450341a2a48d32e99042267e606a30273de93091a"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_SWISSGEOL_TG_INTERVAL_TESSERACT_FORMAL_001/metrics.json": {
+      "experiment_id": "P1_SWISSGEOL_TG_INTERVAL_TESSERACT_FORMAL_001",
+      "paper": "paper1",
+      "sha256": "eb367e3561a92388e7ac48984e7ff57b75df3e9ba66fa440f190f8308796a327"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_SWISSGEOL_TG_INTERVAL_TESSERACT_FORMAL_001/run.json": {
+      "experiment_id": "P1_SWISSGEOL_TG_INTERVAL_TESSERACT_FORMAL_001",
+      "paper": "paper1",
+      "sha256": "4be76abbfc26151a41e044e18ae0cdfb64367fce6e189ec692eead498b79406a"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_SWISSGEOL_TG_INTERVAL_TESSERACT_FORMAL_002/metrics.json": {
+      "experiment_id": "P1_SWISSGEOL_TG_INTERVAL_TESSERACT_FORMAL_002",
+      "paper": "paper1",
+      "sha256": "f0311f6a9ceaa3c2d48637f292d94d2b0602e06af488b20fc29f23ccaf713608"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_SWISSGEOL_TG_INTERVAL_TESSERACT_FORMAL_002/run.json": {
+      "experiment_id": "P1_SWISSGEOL_TG_INTERVAL_TESSERACT_FORMAL_002",
+      "paper": "paper1",
+      "sha256": "c07b2b1b504edf0a671c7cdffe2413727cbb61385b1a985f0d7dd2fff8e96370"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_USGS142_CROSS_SOURCE_INTERVAL_FORMAL_002/metrics.json": {
+      "experiment_id": "P1_USGS142_CROSS_SOURCE_INTERVAL_FORMAL_002",
+      "paper": "paper1",
+      "sha256": "32fd2ee42e6cf723c4e1a458ea1186fac625d88d519dcad990f1b66ee869202a"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_USGS142_CROSS_SOURCE_INTERVAL_FORMAL_002/run.json": {
+      "experiment_id": "P1_USGS142_CROSS_SOURCE_INTERVAL_FORMAL_002",
+      "paper": "paper1",
+      "sha256": "5a1e00b15bc45fac3429a1178dc4e00dbe8e4bba03066f2994db5657fdcb22c2"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_USGS144_CROSS_SOURCE_INTERVAL_FORMAL_001/metrics.json": {
+      "experiment_id": "P1_USGS144_CROSS_SOURCE_INTERVAL_FORMAL_001",
+      "paper": "paper1",
+      "sha256": "17ae066fc8a698b49f2949a30630ef2ad00adc3e672683b801e817f9564a59f1"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_USGS144_CROSS_SOURCE_INTERVAL_FORMAL_001/run.json": {
+      "experiment_id": "P1_USGS144_CROSS_SOURCE_INTERVAL_FORMAL_001",
+      "paper": "paper1",
+      "sha256": "7c9730bd6203c04854ce004b63a9ff4aba845c02ebaba7886605c70d74ff09ef"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_USGS_RAFT_RIVER_RAPIDOCR_INTERVAL_FORMAL_001/metrics.json": {
+      "experiment_id": "P1_USGS_RAFT_RIVER_RAPIDOCR_INTERVAL_FORMAL_001",
+      "paper": "paper1",
+      "sha256": "938b18fd0fc6fb2503a87549b4bc1bd429f3d878e8fdddbaa85e251c4d3d6408"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_USGS_RAFT_RIVER_RAPIDOCR_INTERVAL_FORMAL_001/run.json": {
+      "experiment_id": "P1_USGS_RAFT_RIVER_RAPIDOCR_INTERVAL_FORMAL_001",
+      "paper": "paper1",
+      "sha256": "d6b2c813d902289ed9d002791f9481340fc761a5563646b45a48fa329dc4b679"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_USGS_RAFT_RIVER_TESSERACT_INTERVAL_FORMAL_001/metrics.json": {
+      "experiment_id": "P1_USGS_RAFT_RIVER_TESSERACT_INTERVAL_FORMAL_001",
+      "paper": "paper1",
+      "sha256": "6eeeac0bcdce171f0b05d08011e227a8972ea85818d7d9bc753b0c09a358d6c5"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P1_USGS_RAFT_RIVER_TESSERACT_INTERVAL_FORMAL_001/run.json": {
+      "experiment_id": "P1_USGS_RAFT_RIVER_TESSERACT_INTERVAL_FORMAL_001",
+      "paper": "paper1",
+      "sha256": "c8cad2854dd3e9ecc2cad3ef22b5c60003050e798d0de269dffd44d2aeede0d4"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P2_CALIFORNIA_WCR_CONSTRAINT_TEST_FORMAL_001/metrics.json": {
+      "experiment_id": "P2_CALIFORNIA_WCR_CONSTRAINT_TEST_FORMAL_001",
+      "paper": "paper2",
+      "sha256": "7d54a91f46c4ea3048d0c33719e45ab0a6701326456845ee4836800da6e84226"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P2_CALIFORNIA_WCR_CONSTRAINT_TEST_FORMAL_001/run.json": {
+      "experiment_id": "P2_CALIFORNIA_WCR_CONSTRAINT_TEST_FORMAL_001",
+      "paper": "paper2",
+      "sha256": "d113b04b32a5712fb4a996c3508c4925d7c394de689f25c77b325b1930935311"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P2_CALIFORNIA_WCR_V002_CONSTRAINT_EXTERNAL_FORMAL_002/metrics.json": {
+      "experiment_id": "P2_CALIFORNIA_WCR_V002_CONSTRAINT_EXTERNAL_FORMAL_002",
+      "paper": "paper2",
+      "sha256": "8247e1e649b87a006f863eaf0381cb5a1da04bfc6242b35e59388965a05ee918"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P2_CALIFORNIA_WCR_V002_CONSTRAINT_EXTERNAL_FORMAL_002/run.json": {
+      "experiment_id": "P2_CALIFORNIA_WCR_V002_CONSTRAINT_EXTERNAL_FORMAL_002",
+      "paper": "paper2",
+      "sha256": "ee1c29261ca8d5041db62aa72cd34c63102d0b1948043b99dce8a6ee96f3de80"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P2_CALIFORNIA_WCR_V003_CONSTRAINT_PROSPECTIVE_FORMAL_001/metrics.json": {
+      "experiment_id": "P2_CALIFORNIA_WCR_V003_CONSTRAINT_PROSPECTIVE_FORMAL_001",
+      "paper": "paper2",
+      "sha256": "2802c6161cd982ae448167b17a1e8ca97312a412b824adf9560b35c51b93152e"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P2_CALIFORNIA_WCR_V003_CONSTRAINT_PROSPECTIVE_FORMAL_001/run.json": {
+      "experiment_id": "P2_CALIFORNIA_WCR_V003_CONSTRAINT_PROSPECTIVE_FORMAL_001",
+      "paper": "paper2",
+      "sha256": "fcb36c17b14450526942db99953e6ad6367a90aef45cfaad01f9db2b09685f4a"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P2_CALIFORNIA_WCR_V003_SELECTIVE_PROSPECTIVE_FORMAL_001/metrics.json": {
+      "experiment_id": "P2_CALIFORNIA_WCR_V003_SELECTIVE_PROSPECTIVE_FORMAL_001",
+      "paper": "paper2",
+      "sha256": "d00a0d4829ed53e22d4af00c558ed709dfb6649dce8be197f85c16e29892d6bd"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P2_CALIFORNIA_WCR_V003_SELECTIVE_PROSPECTIVE_FORMAL_001/run.json": {
+      "experiment_id": "P2_CALIFORNIA_WCR_V003_SELECTIVE_PROSPECTIVE_FORMAL_001",
+      "paper": "paper2",
+      "sha256": "e14fb178fbf91f1b46ccb1fbd09d25e01486f9239e0713b474c6394d0223d097"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P2_SWISSGEOL_TG_CONSTRAINT_REREAD_HELDOUT_001/metrics.json": {
+      "experiment_id": "P2_SWISSGEOL_TG_CONSTRAINT_REREAD_HELDOUT_001",
+      "paper": "paper2",
+      "sha256": "0e7e8245fee14a1c4b2e2d9ae70817024d4a36cf049a4185fceae557fea92ed4"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P2_SWISSGEOL_TG_CONSTRAINT_REREAD_HELDOUT_001/run.json": {
+      "experiment_id": "P2_SWISSGEOL_TG_CONSTRAINT_REREAD_HELDOUT_001",
+      "paper": "paper2",
+      "sha256": "5fce4629fe71d7689cc2cb6271336b71111c30be1a9c067ed090a5ffca2f40c5"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P2_SWISSGEOL_TG_CONSTRAINT_REREAD_HELDOUT_V003_001/metrics.json": {
+      "experiment_id": "P2_SWISSGEOL_TG_CONSTRAINT_REREAD_HELDOUT_V003_001",
+      "paper": "paper2",
+      "sha256": "936daadc70b6d4f45d7114d48799d74d4c6a00d24fbe21ffee4ce3c430f1dc80"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P2_SWISSGEOL_TG_CONSTRAINT_REREAD_HELDOUT_V003_001/run.json": {
+      "experiment_id": "P2_SWISSGEOL_TG_CONSTRAINT_REREAD_HELDOUT_V003_001",
+      "paper": "paper2",
+      "sha256": "1353c7556023102ce9d7a78e3f5448434b646dbe463979981e166e1541ae611a"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P2_SWISSGEOL_TG_CONSTRAINT_REREAD_V2_EXTERNAL_V002_001/metrics.json": {
+      "experiment_id": "P2_SWISSGEOL_TG_CONSTRAINT_REREAD_V2_EXTERNAL_V002_001",
+      "paper": "paper2",
+      "sha256": "aaac117024d3e6eff9e7b0a500dc15a749b41371b13c7ef754d690f92af1fddf"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P2_SWISSGEOL_TG_CONSTRAINT_REREAD_V2_EXTERNAL_V002_001/run.json": {
+      "experiment_id": "P2_SWISSGEOL_TG_CONSTRAINT_REREAD_V2_EXTERNAL_V002_001",
+      "paper": "paper2",
+      "sha256": "de6f39ea5fe2fb78853e60b76e745f625f1752103ebbbfb63682fa27147b669b"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P2_SWISSGEOL_TG_SELECTIVE_CONFIDENCE_SECONDARY_001/metrics.json": {
+      "experiment_id": "P2_SWISSGEOL_TG_SELECTIVE_CONFIDENCE_SECONDARY_001",
+      "paper": "paper2",
+      "sha256": "53a8cc252bdb0e0401f500de45cb35f5549cc497197e99a8f643f16ca9eb203f"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P2_SWISSGEOL_TG_SELECTIVE_CONFIDENCE_SECONDARY_001/run.json": {
+      "experiment_id": "P2_SWISSGEOL_TG_SELECTIVE_CONFIDENCE_SECONDARY_001",
+      "paper": "paper2",
+      "sha256": "52e06224fef00f14720d061bd62ad668fce3fab2476c0862aeecedc386a9d91b"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P2_SWISSGEOL_TG_V2_EXTERNAL_V002_SECONDARY_ABLATION_001/metrics.json": {
+      "experiment_id": "P2_SWISSGEOL_TG_V2_EXTERNAL_V002_SECONDARY_ABLATION_001",
+      "paper": "paper2",
+      "sha256": "23a6ca235f92f3ff1a02d85ccb7d20ac271bc9533d83ef28c48455b959686fbc"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P2_SWISSGEOL_TG_V2_EXTERNAL_V002_SECONDARY_ABLATION_001/run.json": {
+      "experiment_id": "P2_SWISSGEOL_TG_V2_EXTERNAL_V002_SECONDARY_ABLATION_001",
+      "paper": "paper2",
+      "sha256": "43bdc0e1717b44e3f06a8390fc6aeaaee33d9e55b1ee56224d4ef2d28ff8c58d"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P2_SWISSGEOL_TG_V2_SECONDARY_ABLATION_001/metrics.json": {
+      "experiment_id": "P2_SWISSGEOL_TG_V2_SECONDARY_ABLATION_001",
+      "paper": "paper2",
+      "sha256": "25b8143b75effa98450effc6911c1ed297a2353e33e0fb108133cd97b4697cd4"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P2_SWISSGEOL_TG_V2_SECONDARY_ABLATION_001/run.json": {
+      "experiment_id": "P2_SWISSGEOL_TG_V2_SECONDARY_ABLATION_001",
+      "paper": "paper2",
+      "sha256": "5bb66db2ee441e4f9255fd6da541d840f89baa213517aacaa88b2a4433562188"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P3_SWISSGEOL_ERROR_CLASS_PROPAGATION_002/metrics.json": {
+      "experiment_id": "P3_SWISSGEOL_ERROR_CLASS_PROPAGATION_002",
+      "paper": "paper3",
+      "sha256": "647c3c1c00bb95e1030853d7be137a515878b678dabb17e0dd55310dcea6a011"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P3_SWISSGEOL_ERROR_CLASS_PROPAGATION_002/run.json": {
+      "experiment_id": "P3_SWISSGEOL_ERROR_CLASS_PROPAGATION_002",
+      "paper": "paper3",
+      "sha256": "58e4cf724ff04d96f8c718c44f569bc838a3b21532dc3c7412216e265bc21288"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P3_SWISSGEOL_EXTERNAL_SPATIAL_METADATA_002/metrics.json": {
+      "experiment_id": "P3_SWISSGEOL_EXTERNAL_SPATIAL_METADATA_002",
+      "paper": "paper3",
+      "sha256": "19efa08d032a6bd7fffb0349bafee17cc48cd96228a3191da615e334f1267c24"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P3_SWISSGEOL_EXTERNAL_SPATIAL_METADATA_002/run.json": {
+      "experiment_id": "P3_SWISSGEOL_EXTERNAL_SPATIAL_METADATA_002",
+      "paper": "paper3",
+      "sha256": "468145b9a4d7e4024b0dc078be590ba90d4a4358094616f48f71c194df50881c"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P3_SWISSGEOL_PAGE_SPATIAL_SURFACE_001/metrics.json": {
+      "experiment_id": "P3_SWISSGEOL_PAGE_SPATIAL_SURFACE_001",
+      "paper": "paper3",
+      "sha256": "0fc8e350cbea94e5291b8d73cac3f402fe83cb0e1dc4d1fe6091aceb72385409"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P3_SWISSGEOL_PAGE_SPATIAL_SURFACE_001/run.json": {
+      "experiment_id": "P3_SWISSGEOL_PAGE_SPATIAL_SURFACE_001",
+      "paper": "paper3",
+      "sha256": "5255e8a77306d5a3c9a92186fc05bd317dc2b20355d9088c990815c0e043308c"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P3_SWISSGEOL_TG_BOUNDARY_SURFACE_FROM_FROZEN_REREAD_002/metrics.json": {
+      "experiment_id": "P3_SWISSGEOL_TG_BOUNDARY_SURFACE_FROM_FROZEN_REREAD_002",
+      "paper": "paper3",
+      "sha256": "3900a7343ec68e96530a500c05552eebe9a9c10055c797dc67db9795857cfac5"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P3_SWISSGEOL_TG_BOUNDARY_SURFACE_FROM_FROZEN_REREAD_002/run.json": {
+      "experiment_id": "P3_SWISSGEOL_TG_BOUNDARY_SURFACE_FROM_FROZEN_REREAD_002",
+      "paper": "paper3",
+      "sha256": "ef233ef2e77b9588889433bdaf34df4443704fa4475b8b6efe5ec2518e4b2d4c"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P3_SWISSGEOL_TG_MULTIBOUNDARY_SURFACE_FROM_FROZEN_REREAD_001/metrics.json": {
+      "experiment_id": "P3_SWISSGEOL_TG_MULTIBOUNDARY_SURFACE_FROM_FROZEN_REREAD_001",
+      "paper": "paper3",
+      "sha256": "70afa605dc7b02a75f083489dc17e0d2f614149c8430dee17bdee09b24e709a8"
+    },
+    "publication_evidence/result_core/results/2026-08-14/P3_SWISSGEOL_TG_MULTIBOUNDARY_SURFACE_FROM_FROZEN_REREAD_001/run.json": {
+      "experiment_id": "P3_SWISSGEOL_TG_MULTIBOUNDARY_SURFACE_FROM_FROZEN_REREAD_001",
+      "paper": "paper3",
+      "sha256": "8ddf3df97164ae704e67e27913aa1e82bef29e4739ecb207d1e5d4aeccc9e56c"
+    },
+    "publication_evidence/result_core/results/2026-08-15/P1_B4_QWEN3VL4B_CALIFORNIA_TEST_FORMAL_001R/metrics.json": {
+      "experiment_id": "P1_B4_QWEN3VL4B_CALIFORNIA_TEST_FORMAL_001R",
+      "paper": "paper1",
+      "sha256": "a02cd0bfc7d5e80956e03187ef90c3b36aa2bbf88885459d83c03ff71c7fe911"
+    },
+    "publication_evidence/result_core/results/2026-08-15/P1_B4_QWEN3VL4B_CALIFORNIA_TEST_FORMAL_001R/run.json": {
+      "experiment_id": "P1_B4_QWEN3VL4B_CALIFORNIA_TEST_FORMAL_001R",
+      "paper": "paper1",
+      "sha256": "a02d1e9fee35d7fd7108206fc4e06a968e897799b2b7fb92499e03925d5ce815"
+    },
+    "publication_evidence/result_core/results/2026-08-15/P1_BGS_OFFSHORE_V001_RAPIDOCR_CROSS_SOURCE_FORMAL_001/metrics.json": {
+      "experiment_id": "P1_BGS_OFFSHORE_V001_RAPIDOCR_CROSS_SOURCE_FORMAL_001",
+      "paper": "paper1",
+      "sha256": "8da62c4a706f0a6e74e05c32235e1e8b49f72f5001a7f2bfccef9a1283769a78"
+    },
+    "publication_evidence/result_core/results/2026-08-15/P1_BGS_OFFSHORE_V001_RAPIDOCR_CROSS_SOURCE_FORMAL_001/run.json": {
+      "experiment_id": "P1_BGS_OFFSHORE_V001_RAPIDOCR_CROSS_SOURCE_FORMAL_001",
+      "paper": "paper1",
+      "sha256": "a4e078ee8c02fd5351f4fc776217ee96f224b34983de9d83954499607e84fe36"
+    },
+    "publication_evidence/result_core/results/2026-08-15/P1_BGS_OFFSHORE_V001_TESSERACT_CROSS_SOURCE_FORMAL_001/metrics.json": {
+      "experiment_id": "P1_BGS_OFFSHORE_V001_TESSERACT_CROSS_SOURCE_FORMAL_001",
+      "paper": "paper1",
+      "sha256": "2c2a8729b83032cfcde53acf9280b3204c8f5bae3d907f52f91869076af55c0d"
+    },
+    "publication_evidence/result_core/results/2026-08-15/P1_BGS_OFFSHORE_V001_TESSERACT_CROSS_SOURCE_FORMAL_001/run.json": {
+      "experiment_id": "P1_BGS_OFFSHORE_V001_TESSERACT_CROSS_SOURCE_FORMAL_001",
+      "paper": "paper1",
+      "sha256": "a81b804e6f894c34d1a22ce8bfa52764820922eb99a45ffc842c0ac869761119"
+    },
+    "publication_evidence/result_core/results/2026-08-15/P1_CALIFORNIA_WCR_V004_RAPIDOCR_PROSPECTIVE_FORMAL_001/metrics.json": {
+      "experiment_id": "P1_CALIFORNIA_WCR_V004_RAPIDOCR_PROSPECTIVE_FORMAL_001",
+      "paper": "paper1",
+      "sha256": "cc4c988861177e5897800d277d2509ba8584249c4d74703f6f3438be07e58d66"
+    },
+    "publication_evidence/result_core/results/2026-08-15/P1_CALIFORNIA_WCR_V004_RAPIDOCR_PROSPECTIVE_FORMAL_001/run.json": {
+      "experiment_id": "P1_CALIFORNIA_WCR_V004_RAPIDOCR_PROSPECTIVE_FORMAL_001",
+      "paper": "paper1",
+      "sha256": "01a9c33afed14f0285c3d9d7b17980cc8d705b5cd97d1b910983d51d240df4ce"
+    },
+    "publication_evidence/result_core/results/2026-08-15/P1_CALIFORNIA_WCR_V005_RAPIDOCR_EXTERNAL_FORMAL_001/metrics.json": {
+      "experiment_id": "P1_CALIFORNIA_WCR_V005_RAPIDOCR_EXTERNAL_FORMAL_001",
+      "paper": "paper1",
+      "sha256": "ea0848ea1cb0b237adb0f9f83ed2c52905a96bd391f4403c3ee21332956e2e1b"
+    },
+    "publication_evidence/result_core/results/2026-08-15/P1_CALIFORNIA_WCR_V005_RAPIDOCR_EXTERNAL_FORMAL_001/run.json": {
+      "experiment_id": "P1_CALIFORNIA_WCR_V005_RAPIDOCR_EXTERNAL_FORMAL_001",
+      "paper": "paper1",
+      "sha256": "db21f5866c836295203706e029b7af4ba60cf1e725b27d9904ad99d279a0dd14"
+    },
+    "publication_evidence/result_core/results/2026-08-15/P1_USGS_IDAHO_LITHOLOGIC_V001_CROSS_ENGINE_COVERAGE_001/metrics.json": {
+      "experiment_id": "P1_USGS_IDAHO_LITHOLOGIC_V001_CROSS_ENGINE_COVERAGE_001",
+      "paper": "paper1",
+      "sha256": "ad3b8e84c3bee385c4c1746fac4d2ce539ef3c7667974ce9445ea4505df1cad0"
+    },
+    "publication_evidence/result_core/results/2026-08-15/P1_USGS_IDAHO_LITHOLOGIC_V001_CROSS_ENGINE_COVERAGE_001/run.json": {
+      "experiment_id": "P1_USGS_IDAHO_LITHOLOGIC_V001_CROSS_ENGINE_COVERAGE_001",
+      "paper": "paper1",
+      "sha256": "2337eac908939cebf4091d38874b692390e2f4dcb84c1adaf3c26fc6018257b5"
+    },
+    "publication_evidence/result_core/results/2026-08-15/P2_CALIFORNIA_WCR_V004_CANDIDATE_RISK_PROSPECTIVE_FORMAL_001/metrics.json": {
+      "experiment_id": "P2_CALIFORNIA_WCR_V004_CANDIDATE_RISK_PROSPECTIVE_FORMAL_001",
+      "paper": "paper2",
+      "sha256": "da49a75adc0e737a703ddcc7c928aeeeee678a438908f8aa8702c4a143a3e6a4"
+    },
+    "publication_evidence/result_core/results/2026-08-15/P2_CALIFORNIA_WCR_V004_CANDIDATE_RISK_PROSPECTIVE_FORMAL_001/run.json": {
+      "experiment_id": "P2_CALIFORNIA_WCR_V004_CANDIDATE_RISK_PROSPECTIVE_FORMAL_001",
+      "paper": "paper2",
+      "sha256": "dcb560576ebd5cd98ea3c8a8906aa7838be0d49530d148b9cffbca39f9936b58"
+    },
+    "publication_evidence/result_core/results/2026-08-15/P2_CALIFORNIA_WCR_V004_CONSTRAINT_PROSPECTIVE_FORMAL_001/metrics.json": {
+      "experiment_id": "P2_CALIFORNIA_WCR_V004_CONSTRAINT_PROSPECTIVE_FORMAL_001",
+      "paper": "paper2",
+      "sha256": "1c6867f2370f04d48523132647ae1e98ff0cb49c13d770a41611718f49f304ea"
+    },
+    "publication_evidence/result_core/results/2026-08-15/P2_CALIFORNIA_WCR_V004_CONSTRAINT_PROSPECTIVE_FORMAL_001/run.json": {
+      "experiment_id": "P2_CALIFORNIA_WCR_V004_CONSTRAINT_PROSPECTIVE_FORMAL_001",
+      "paper": "paper2",
+      "sha256": "f3b4aa68d05bdc26c976c30859f2ab0ec1190e7764aa1531e682fc3dce94b9a5"
+    },
+    "publication_evidence/result_core/results/2026-08-15/P2_CALIFORNIA_WCR_V005_CANDIDATE_RISK_EXTERNAL_FORMAL_001/metrics.json": {
+      "experiment_id": "P2_CALIFORNIA_WCR_V005_CANDIDATE_RISK_EXTERNAL_FORMAL_001",
+      "paper": "paper2",
+      "sha256": "0c476c6e3dabc3a13754329a86c18df330ea39043098cce93215529c496f29b5"
+    },
+    "publication_evidence/result_core/results/2026-08-15/P2_CALIFORNIA_WCR_V005_CANDIDATE_RISK_EXTERNAL_FORMAL_001/run.json": {
+      "experiment_id": "P2_CALIFORNIA_WCR_V005_CANDIDATE_RISK_EXTERNAL_FORMAL_001",
+      "paper": "paper2",
+      "sha256": "2d8f753112c6742a0f5d29553ec314a4b19656e037545fb43ea0be52b7455ea7"
+    },
+    "publication_evidence/result_core/results/2026-08-15/P2_CALIFORNIA_WCR_V005_CONSTRAINT_EXTERNAL_FORMAL_001/metrics.json": {
+      "experiment_id": "P2_CALIFORNIA_WCR_V005_CONSTRAINT_EXTERNAL_FORMAL_001",
+      "paper": "paper2",
+      "sha256": "93df9f916a533df93e97c9416c0d4852a63d138c14967fff750b5fa401e11a72"
+    },
+    "publication_evidence/result_core/results/2026-08-15/P2_CALIFORNIA_WCR_V005_CONSTRAINT_EXTERNAL_FORMAL_001/run.json": {
+      "experiment_id": "P2_CALIFORNIA_WCR_V005_CONSTRAINT_EXTERNAL_FORMAL_001",
+      "paper": "paper2",
+      "sha256": "d3260a50af6bccd28930f7232e0b74224e83d2a57319b047e1c9f78abdc27923"
+    },
+    "publication_evidence/result_core/results/2026-08-15/P3_SWISSGEOL_REAL_SURFACE_VTP_001/metrics.json": {
+      "experiment_id": "claim-only",
+      "paper": "paper3",
+      "sha256": "d05664055cf3f7f8f0f0e0f1dc9795eda92c549a57a72a64ec79af348799b9a3"
+    },
+    "publication_evidence/result_core/results/2026-08-15/P3_SWISSGEOL_STRATIGRAPHIC_LAYER_MODEL_002/metrics.json": {
+      "experiment_id": "P3_SWISSGEOL_STRATIGRAPHIC_LAYER_MODEL_002",
+      "paper": "paper3",
+      "sha256": "159842a2fb599b84e70ba4754a0218ef469d98a05dba9044be39b71bab71b3db"
+    },
+    "publication_evidence/result_core/results/2026-08-15/P3_SWISSGEOL_STRATIGRAPHIC_LAYER_MODEL_002/run.json": {
+      "experiment_id": "P3_SWISSGEOL_STRATIGRAPHIC_LAYER_MODEL_002",
+      "paper": "paper3",
+      "sha256": "6bb85d3606139417f7ea904851b2907e9459fbb3030be41e3fc331264f8f56e3"
+    },
+    "publication_evidence/result_core/results/2026-08-16/2026-08-16/P3_SWISSGEOL_STRATIGRAPHIC_LAYER_MODEL_RISK_AWARE_002/metrics.json": {
+      "experiment_id": "P3_SWISSGEOL_STRATIGRAPHIC_LAYER_MODEL_RISK_AWARE_002",
+      "paper": "paper3",
+      "sha256": "6c88f4fadf7906c1516ec0be872a52d234888650132cdb3d2450c80a6e7eadf1"
+    },
+    "publication_evidence/result_core/results/2026-08-16/2026-08-16/P3_SWISSGEOL_STRATIGRAPHIC_LAYER_MODEL_RISK_AWARE_002/run.json": {
+      "experiment_id": "P3_SWISSGEOL_STRATIGRAPHIC_LAYER_MODEL_RISK_AWARE_002",
+      "paper": "paper3",
+      "sha256": "bf9efa42e81778ddd4bb6afeeda3ee569e7b6b682d3a62eec82f185d8feab60f"
+    },
+    "publication_evidence/result_core/results/2026-08-16/P2_BGS_V028_ROUTED_EXTERNAL_V003_FINAL/metrics.json": {
+      "experiment_id": "P2_BGS_V028_ROUTED_EXTERNAL_V003_FINAL",
+      "paper": "paper2",
+      "sha256": "4c26e96f41d7050234f9d0db6bd12a985dae2b9be2a3933e91d5216183b8b4d2"
+    },
+    "publication_evidence/result_core/results/2026-08-16/P2_BGS_V028_ROUTED_EXTERNAL_V003_FINAL/run.json": {
+      "experiment_id": "P2_BGS_V028_ROUTED_EXTERNAL_V003_FINAL",
+      "paper": "paper2",
+      "sha256": "946f316bd94b87dfeb1f2a0fb243e4a8d43312724168f2ad14ca77c515d27d6d"
+    },
+    "publication_evidence/result_core/results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V001_FORMAL_002/metrics.json": {
+      "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V001_FORMAL_002",
+      "paper": "paper1",
+      "sha256": "d096b0c14084610e3435f307156ae867725edfd3336264ba26ef81ca5e2b2727"
+    },
+    "publication_evidence/result_core/results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V001_FORMAL_002/run.json": {
+      "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V001_FORMAL_002",
+      "paper": "paper1",
+      "sha256": "fdfb8d5b043f93bc0b931e495196046b08acb597111b86636677a061c4b397a5"
+    },
+    "publication_evidence/result_core/results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V002_FORMAL_002/metrics.json": {
+      "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V002_FORMAL_002",
+      "paper": "paper1",
+      "sha256": "496e9d7509fe2f214b6e4740d9344cf130d7af845494975bdefc29f973704195"
+    },
+    "publication_evidence/result_core/results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V002_FORMAL_002/run.json": {
+      "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V002_FORMAL_002",
+      "paper": "paper1",
+      "sha256": "fa5bc8f98b3fa5a8c623d748896164258214c82ec553e0582d04dc5d4842e5b6"
+    },
+    "publication_evidence/result_core/results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V003_FORMAL_003/metrics.json": {
+      "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V003_FORMAL_003",
+      "paper": "paper1",
+      "sha256": "93493671998cf92fc4365c6e7773facdccc2d3658cb6c38edf7950f72044891d"
+    },
+    "publication_evidence/result_core/results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V003_FORMAL_003/run.json": {
+      "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V003_FORMAL_003",
+      "paper": "paper1",
+      "sha256": "428446943fdbaa45fa12ff72d0599d4ae1ca301c56567b4280ca9d0e8af73c49"
+    },
+    "publication_evidence/result_core/results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V004_FORMAL_003/metrics.json": {
+      "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V004_FORMAL_003",
+      "paper": "paper1",
+      "sha256": "12f0bfa5d857c8117820492ef0d6cf8be69885ef0384fff078629cd0ac97e3a9"
+    },
+    "publication_evidence/result_core/results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V004_FORMAL_003/run.json": {
+      "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V004_FORMAL_003",
+      "paper": "paper1",
+      "sha256": "df1c1b1f1b7959e61f4d9aa7d1c4231ee54145053f935e176a61dfa7e9e1149e"
+    },
+    "publication_evidence/result_core/results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V005_FORMAL_001/metrics.json": {
+      "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V005_FORMAL_001",
+      "paper": "paper1",
+      "sha256": "a01da7d961b42c189c06bbc3ab348c7175168ed6e660056419f95a74b3894261"
+    },
+    "publication_evidence/result_core/results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V005_FORMAL_001/run.json": {
+      "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V005_FORMAL_001",
+      "paper": "paper1",
+      "sha256": "36075954b937e5b38542db6ea7bdb2d82c1bf5a9508c23f545bff2ae80d84847"
+    },
+    "publication_evidence/result_core/results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_SWISSGEOL_HELDOUT_001/metrics.json": {
+      "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_SWISSGEOL_HELDOUT_001",
+      "paper": "paper1",
+      "sha256": "aa22c6c9828efd68558765135c0339cdcc8803fe1bf501c0ba2d0de87b1d93e1"
+    },
+    "publication_evidence/result_core/results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_SWISSGEOL_HELDOUT_001/run.json": {
+      "experiment_id": "P1_MODERN_VLM_QWEN38_FP8_SWISSGEOL_HELDOUT_001",
+      "paper": "paper1",
+      "sha256": "8022c1d5b5d5fff9ad002f941ba1d9f1f5c70a6a81fdaa5f04dcb56b12695da8"
+    },
+    "publication_evidence/result_core/results/2026-08-17/P2_CALIFORNIA_CANDIDATE_RISK_CERTIFICATE_001/metrics.json": {
+      "experiment_id": "P2_CALIFORNIA_CANDIDATE_RISK_CERTIFICATE_001",
+      "paper": "paper2",
+      "sha256": "cabfb80e402b95ff1ad6e922103a794af2c53ef8778e584f144c7a4815158efd"
+    },
+    "publication_evidence/result_core/results/2026-08-17/P2_CALIFORNIA_CANDIDATE_RISK_CERTIFICATE_001/run.json": {
+      "experiment_id": "P2_CALIFORNIA_CANDIDATE_RISK_CERTIFICATE_001",
+      "paper": "paper2",
+      "sha256": "49bd07614a40fc08e20d44e66f71712d5823116b869b3cbcb03ece9beda3124c"
+    },
+    "publication_evidence/result_core/results/2026-08-17/P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V001_DEV_003/metrics.json": {
+      "experiment_id": "P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V001_DEV_003",
+      "paper": "paper2",
+      "sha256": "50d77067df851e215f75f2456a26dda9ce0688cd3ff05c58e4441226b8f9fe76"
+    },
+    "publication_evidence/result_core/results/2026-08-17/P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V001_DEV_003/run.json": {
+      "experiment_id": "P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V001_DEV_003",
+      "paper": "paper2",
+      "sha256": "e58cdb14ddfc7332061a33a5632ac42440c8445fe41e612debcfb93b63e9452f"
+    },
+    "publication_evidence/result_core/results/2026-08-17/P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V002_VALIDATION_003/metrics.json": {
+      "experiment_id": "P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V002_VALIDATION_003",
+      "paper": "paper2",
+      "sha256": "b7abb1baeeb951274a8682f49b6bc03c8e0cad442349f6496a3c375446b5aea2"
+    },
+    "publication_evidence/result_core/results/2026-08-17/P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V002_VALIDATION_003/run.json": {
+      "experiment_id": "P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V002_VALIDATION_003",
+      "paper": "paper2",
+      "sha256": "fdb2b765df76ce3971b6bd06da30304e27705a14b9af41501f450b024e075ecf"
+    },
+    "publication_evidence/result_core/results/2026-08-17/P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V003_HELDOUT_002/metrics.json": {
+      "experiment_id": "P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V003_HELDOUT_002",
+      "paper": "paper2",
+      "sha256": "0762d224c1ee5af979434573fdb3afff120bb9c461b89f0aefcfd5235352eb68"
+    },
+    "publication_evidence/result_core/results/2026-08-17/P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V003_HELDOUT_002/run.json": {
+      "experiment_id": "P2_VLM_PROPOSAL_ASSURANCE_CALIFORNIA_V003_HELDOUT_002",
+      "paper": "paper2",
+      "sha256": "dae5780b8c8ac43c44491499b92629d71cf1a2f95fc65db337312187fdcf3813"
+    },
+    "publication_evidence/result_core/results/2026-08-18/P2_CODEX_INTERNAL_VISUAL_CALIFORNIA_STRATIFIED_PILOT_001/metrics.json": {
+      "experiment_id": "P2_CODEX_INTERNAL_VISUAL_CALIFORNIA_STRATIFIED_PILOT_001",
+      "paper": "paper2",
+      "sha256": "8b771aeaf74255178885b8bf8a3e73111f110d5202d9c59af6aa8f9e8a150579"
+    },
+    "publication_evidence/result_core/results/2026-08-18/P2_CODEX_INTERNAL_VISUAL_CALIFORNIA_STRATIFIED_PILOT_001/run.json": {
+      "experiment_id": "P2_CODEX_INTERNAL_VISUAL_CALIFORNIA_STRATIFIED_PILOT_001",
+      "paper": "paper2",
+      "sha256": "d4439df8f3f2b3acca6f0bc9cc40791e8facf9e74809ad6e8ba4c05de182c7f2"
+    }
+  },
+  "result_core_file_count": 215,
+  "scope": "exact aggregate run/metrics evidence, selected pseudonymized document outputs, public reanalysis inputs, linkage-risk diagnostics, and privacy-minimized claim projections"
+}

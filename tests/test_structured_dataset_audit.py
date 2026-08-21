@@ -87,7 +87,7 @@ def test_binhai_audit_classifies_redacted_cptu_data(tmp_path: Path):
         audited_at_utc="2026-08-13T00:00:00Z",
     )
     assert result["verified"] is True
-    payload = json.loads((audit / "structured_content_audit.json").read_text())
+    payload = json.loads((audit / "structured_content_audit.json").read_text(encoding="utf-8"))
     content = payload["content_audit"]
     assert content["workbook_count"] == 1
     assert content["total_measurement_rows"] == 2
@@ -106,7 +106,7 @@ def test_coal_audit_records_source_consistency_and_missing_code(tmp_path: Path):
         profile="coal_boreholes_602_v001",
         audited_at_utc="2026-08-13T00:00:00Z",
     )
-    payload = json.loads((audit / "structured_content_audit.json").read_text())
+    payload = json.loads((audit / "structured_content_audit.json").read_text(encoding="utf-8"))
     content = payload["content_audit"]
     assert content["record_count"] == 1
     assert content["workbook"]["headers_match_profile"] is True

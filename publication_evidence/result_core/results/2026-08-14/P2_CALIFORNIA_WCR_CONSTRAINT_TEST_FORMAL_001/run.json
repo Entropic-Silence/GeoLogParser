@@ -1,0 +1,32 @@
+{
+  "experiment_id": "P2_CALIFORNIA_WCR_CONSTRAINT_TEST_FORMAL_001",
+  "git_commit": "e85c25fa822ba21bee0af97ea5bc4229f9646edd",
+  "date": "2026-08-14",
+  "dataset_version": "california_wcr_gold_v001",
+  "split_version": "california_wcr_gold_split_v001_test",
+  "model": "rapidocr_constraint_guided_sequence_ranker_v001",
+  "model_revision": "deterministic_dynamic_programming_v001",
+  "prompt_version": "not_applicable",
+  "seed": 0,
+  "hardware": {
+    "device": "cpu",
+    "processor": "x86_64",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "3.10.12"
+  },
+  "config": {
+    "ground_truth_sha256": "62840605320933d70daf2a601dcc800a1d42f8059c329cc03c84e2fde3fb4b73",
+    "split_sha256": "646d81d7cdd8c2baa85d700fe959a89403cfe49d64e0930980aa3ef190bd3687",
+    "partition": "test",
+    "prediction_reference_conditioning": "none",
+    "reference_blinded_decision_policy": true,
+    "raw_run_id": "P1_CALIFORNIA_WCR_RAPIDOCR_TEST_FORMAL_001",
+    "raw_artifact_manifest_sha256": "44867e1e471790d37837ea15a77861b443c150b45eaf83bf0aa12bbfee15f438",
+    "candidate_source": "frozen RapidOCR positioned regions",
+    "constraint": "depth monotonicity plus adjacent boundary continuity plus layout-column stability",
+    "reference_doi": "10.5066/P9M85U0T"
+  },
+  "started_utc": "2026-08-14T10:27:34.603105+00:00"
+}

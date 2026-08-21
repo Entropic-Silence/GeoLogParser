@@ -1,0 +1,16 @@
+{
+  "scope": "public unannotated B2 engineering audit; no Ground Truth accuracy claim",
+  "items": 15,
+  "schema_valid_responses": 13,
+  "structured_parse_rate": 0.8666666666666667,
+  "emitted_intervals": 74,
+  "constraint_evaluations": 538,
+  "constraint_violations": 8,
+  "input_tokens_total": 11973,
+  "latency_total_seconds": 529.9773764210258,
+  "latency_mean_seconds_per_page": 35.33182509473506,
+  "peak_gpu_memory_bytes": 9296219648,
+  "responses_hitting_max_new_tokens": 2,
+  "accuracy_metrics": null,
+  "accuracy_metrics_reason": "all source annotations remain auto; no human-validated Ground Truth"
+}

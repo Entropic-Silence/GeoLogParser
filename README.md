@@ -14,7 +14,9 @@ evidence-linked manuscript candidates, and generated review packages. The
 current papers use published manual-transcription references and authoritative
 source-agreement references; no project-created human Ground Truth is claimed.
 Source licence, privacy, and redistribution checks remain a separate
-pre-submission gate.
+repository-wide gate for Papers 1--3 and out-of-scope or quarantined material.
+The exact Paper 4 `data-v002` selection has an item-scoped author attestation;
+that attestation is not a blanket licence or an independent legal opinion.
 
 The machine-derived scientific-content gate is
 [docs/generated/publication_readiness.md](docs/generated/publication_readiness.md).
@@ -26,6 +28,12 @@ is signed off.
 The closure evidence trail is summarized in
 [docs/claim_evidence_matrix.md](docs/claim_evidence_matrix.md) and
 [docs/manuscript_closure_audit.md](docs/manuscript_closure_audit.md).
+The compact, clone-verifiable evidence subset is documented in
+[publication_evidence/README.md](publication_evidence/README.md). It contains
+exact run metadata, aggregate metrics, and selected pseudonymized document-level
+predictions/errors, but not restricted source pages, raw OCR regions, or model
+weights. Distinctive depth sequences and rigidly transformed coordinates remain
+linkable to public records; the bundle does not claim anonymity.
 
 ## First-round capabilities
 
@@ -47,16 +55,34 @@ The closure evidence trail is summarized in
 
 Code, tests, schemas, prompts, small manifests, and experiment metadata live in
 this repository on SSD. Large datasets, weights, caches, and generated
-artifacts live under `/data/GeoLogParser` on the mechanical RAID array. No
-dataset is redistributed merely because it appears in the registry.
+artifacts live under `/data/GeoLogParser` on the mechanical RAID array. The
+formal source inputs needed for the principal paper experiments are published
+as the portable data companion release `data-v002`; see
+[`datasets/public/dataset_bundle_v002/README.md`](datasets/public/dataset_bundle_v002/README.md).
+The historical `data-v001` prerelease is superseded and is not the current DOI
+record.
+Duplicate freezes, failed branches, model weights, and quarantine-only sources
+remain outside the release. The release manifest and source ledger preserve
+the evidence tier, attribution, and final-author rights-review status for every
+file. The corrected Paper 4 package is identified by the
+`paper4-cageo-v1.0.8` tag/release. Zenodo DOI
+`10.5281/zenodo.22030229` is a published software archive for
+`paper4-cageo-v1.0.6`, not a journal-article DOI; the published `data-v002`
+companion is `10.5281/zenodo.22031703`. A C&G article DOI is not assigned by
+either archive record. The repository-wide manifest remains
+`all_submission_ready=false` while the other papers and final portal steps are
+handled.
 
 ## Development
 
 ```bash
 python3 -m venv .venv
 . .venv/bin/activate
-python -m pip install -e '.[dev]'
+python -m pip install -e '.[test]'
 pytest
+python scripts/build_publication_evidence.py
+python scripts/regenerate_publication_artifacts.py --publication-core
+python scripts/build_paper_packages.py
 ```
 
 Optional document backends are installed separately:

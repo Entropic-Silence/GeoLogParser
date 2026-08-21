@@ -1,0 +1,18 @@
+{
+  "protocol": "paper2_closed_vlm_codex_internal_visual_baseline_v001",
+  "evidence_tier": "GOLD_PUBLISHED_MANUAL_TRANSCRIPTION",
+  "documents": 5,
+  "pages": 5,
+  "reference_intervals": 91,
+  "predicted_intervals": 91,
+  "matched_intervals": 91,
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1": 1.0,
+  "matched_boundary_mae_m": 0.0,
+  "boundary_exact_documents": 5,
+  "boundary_exact_rate": 1.0,
+  "critical_numerical_error_rate": 0.0,
+  "zero_output_rate": 0.0,
+  "scope_limit": "stratified five-page pilot; not a full California-cohort estimate"
+}

@@ -1,0 +1,73 @@
+{
+  "experiment_id": "P2_SWISSGEOL_TG_CONSTRAINT_REREAD_V2_EXTERNAL_V002_001",
+  "git_commit": "910911505b8f51eff8f640fcc89fc2ed0ca050d5",
+  "date": "2026-08-14",
+  "dataset_version": "swissgeol_thurgau_v002_external_validation",
+  "split_version": "v003_development_disjoint_v002_external_validation",
+  "model": "constraint_triggered_multiview_tesseract_reread_v2",
+  "model_revision": "tesseract 4.1.1",
+  "prompt_version": "not_applicable",
+  "seed": 0,
+  "hardware": {
+    "device": "cpu",
+    "processor": "x86_64",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "3.10.12",
+    "tesseract": "tesseract 4.1.1"
+  },
+  "config": {
+    "ground_truth_sha256": "a73e2195d871429d4d8e27ff140ac45cd5cc8b1ffdf16a990089540de0319539",
+    "development_manifest_sha256": "e18e1378c4e718e9658c9cd45057fc55ae4e8df9d97fb4e7e7a92f38a3c443a8",
+    "prediction_reference_conditioning": "none",
+    "first_pass": {
+      "render_dpi": 250,
+      "psm": 3
+    },
+    "trigger_reader": {
+      "render_dpi": 250,
+      "psm": 4
+    },
+    "triggers": [
+      "empty_interval_section",
+      "suspicious_numeric_range",
+      "reader_disagreement",
+      "incomplete_top_boundary"
+    ],
+    "reread": {
+      "render_dpi": 350,
+      "view_boxes_normalized": {
+        "full": null,
+        "roi_left_043": [
+          0.02,
+          0.23,
+          0.43,
+          0.72
+        ],
+        "roi_left_055": [
+          0.02,
+          0.23,
+          0.55,
+          0.72
+        ]
+      },
+      "psm_values": [
+        3,
+        4,
+        6
+      ]
+    },
+    "acceptance": {
+      "peer_sequence_must_start_at_zero": true,
+      "peer_sequence_must_be_contiguous": true,
+      "minimum_exact_highres_support": 2,
+      "allow_complementary_first_and_highres_coverage": true,
+      "candidate_must_equal_trigger_reader_sequence": true
+    },
+    "reference_blinded_decision_policy": true,
+    "evaluation_role": "heldout",
+    "policy_version": "v2"
+  },
+  "started_utc": "2026-08-14T06:37:16.229588+00:00"
+}

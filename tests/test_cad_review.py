@@ -26,8 +26,8 @@ def test_incomplete_derivative_cannot_be_eligible():
 def test_revisioned_review_save_archives_prior_version(tmp_path):
     first=build_review(payload(),derivative(),1);save_review(first,tmp_path)
     second=build_review(payload("exclude"),derivative(),2);save_review(second,tmp_path)
-    assert json.loads((tmp_path/"D001.json").read_text())["revision"]==2
-    assert json.loads((tmp_path/"history/D001/revision_0001.json").read_text())["revision"]==1
+    assert json.loads((tmp_path/"D001.json").read_text(encoding="utf-8"))["revision"]==2
+    assert json.loads((tmp_path/"history/D001/revision_0001.json").read_text(encoding="utf-8"))["revision"]==1
 
 
 def test_cad_review_api_rejects_eligibility_with_conversion_warning(tmp_path):

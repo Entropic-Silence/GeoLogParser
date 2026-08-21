@@ -1,0 +1,151 @@
+{
+  "analysis_id": "modern_vlm_transport_comparison_v001",
+  "created_utc": "2026-08-19",
+  "status": "COMPLETED_EXPLORATORY_TRANSPORT_EVIDENCE",
+  "protocol": "configs/experiments/paper1_modern_vlm_transport_v001.json",
+  "anti_leakage": {
+    "bgs_v003_used": false,
+    "prompt_or_threshold_tuning": false,
+    "reference_conditioning": false,
+    "interrupted_runs_included": false
+  },
+  "interpretation": "Transport degradation or interface-level loss of usable interval output recurred across multiple open-model families/interfaces on the independent Swissgeol panel. This is evidence of a recurring source-shift risk, not a universal capability estimate and not a claim that specialist decoders failed to visually recognize every table cell.",
+  "panels": {
+    "california_v003_page20": {
+      "evidence_tier": "GOLD_PUBLISHED_MANUAL_TRANSCRIPTION",
+      "document_count": 13,
+      "page_count": 20,
+      "selection": "fixed first-20-page exploratory panel; not the full cohort",
+      "depth_unit": "ft",
+      "metres_per_printed_unit": 0.3048
+    },
+    "swissgeol_heldout": {
+      "evidence_tier": "SOURCE_AGREEMENT_REFERENCE",
+      "document_count": 35,
+      "page_count": 35,
+      "selection": "complete held-out Thurgau panel",
+      "depth_unit": "m",
+      "metres_per_printed_unit": 1.0
+    }
+  },
+  "models": [
+    {
+      "model_id": "Qwen/Qwen3.8-27B-FP8",
+      "served_model_id": "qwen38-fp8-tp4-mtp4-long",
+      "revision": "local_Qwen3.8-27B-FP8_qwen3_5_architecture_fp8_e4m3",
+      "precision": "fine-grained dynamic FP8 E4M3; half compute",
+      "interface": "direct page-to-JSON",
+      "runtime_config": "configs/models/qwen38_fp8_modern_vlm_v002.json",
+      "hardware": "four modified/non-reference RTX 2080 Ti GPUs; custom non-official vllm-2080ti-definitive path; runtime provenance partially reconstructable",
+      "results": {
+        "california_v003_full": {
+          "result_path": "results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V003_FORMAL_003",
+          "documents": 100,
+          "pages": 154,
+          "interval_f1": 0.9179784589892295,
+          "precision": 0.9067103109656302,
+          "recall": 0.9295302013422819,
+          "complete_document_exactness": 0.72,
+          "zero_output_document_rate": 0.0,
+          "latency_seconds_per_page": 10.39901962916158
+        },
+        "swissgeol_heldout": {
+          "result_path": "results/2026-08-17/P1_MODERN_VLM_QWEN38_FP8_SWISSGEOL_HELDOUT_001",
+          "documents": 35,
+          "pages": 35,
+          "interval_f1": 0.5769230769230769,
+          "precision": 0.5921052631578947,
+          "recall": 0.5625,
+          "complete_document_exactness": 0.0,
+          "zero_output_document_rate": 0.0,
+          "latency_seconds_per_page": 6.843210471794009
+        }
+      }
+    },
+    {
+      "model_id": "Qwen/Qwen3-VL-4B-Instruct",
+      "revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+      "precision": "checkpoint config torch_dtype=null; effective runtime dtype partially reconstructable",
+      "interface": "direct page-to-JSON",
+      "runtime_config": "configs/models/qwen3vl4b_modern_vlm_v001.json",
+      "hardware": "RTX 5090; Transformers 5.14.1; PyTorch 2.11.0+cu128",
+      "results": {
+        "california_v003_page20": {
+          "result_path": "results/2026-08-19/P1_TRANSPORT_QWEN3VL4B_CALIFORNIA_V003_PAGE20_001",
+          "documents": 13,
+          "pages": 20,
+          "interval_f1": 0.7931034482758621,
+          "precision": 0.7582417582417582,
+          "recall": 0.8313253012048193,
+          "complete_document_exactness": 0.23076923076923078,
+          "zero_output_document_rate": 0.0,
+          "invalid_numeric_interval_count": 2,
+          "latency_seconds_per_page": 33.2681270274421,
+          "peak_gpu_memory_bytes": 9286967808
+        },
+        "swissgeol_heldout": {
+          "result_path": "results/2026-08-19/P1_TRANSPORT_QWEN3VL4B_SWISSGEOL_HELDOUT_002",
+          "documents": 35,
+          "pages": 35,
+          "interval_f1": 0.618705035971223,
+          "precision": 0.7288135593220338,
+          "recall": 0.5375,
+          "complete_document_exactness": 0.0,
+          "zero_output_document_rate": 0.02857142857142857,
+          "invalid_numeric_interval_count": 21,
+          "latency_seconds_per_page": 6.843210471794009,
+          "peak_gpu_memory_bytes": 9211626496
+        }
+      }
+    },
+    {
+      "model_id": "PaddlePaddle/PaddleOCR-VL-1.6",
+      "revision": "local_snapshot_c5630abae1d940eafe0697512a0325494b02ab42",
+      "precision": "checkpoint config torch_dtype=bfloat16",
+      "interface": "official table-recognition task",
+      "runtime_config": "configs/models/paddleocr_vl_1_6_modern_vlm_v001.json",
+      "hardware": "RTX 5090; Transformers 5.14.1; PyTorch 2.11.0+cu128",
+      "results": {
+        "swissgeol_heldout": {
+          "result_path": "results/2026-08-19/P1_TRANSPORT_PADDLEOCR16_SWISSGEOL_HELDOUT_002",
+          "documents": 35,
+          "pages": 35,
+          "decoded_page_rate": 1.0,
+          "interval_decoder_output_rate": 0.0,
+          "interval_f1": 0.0,
+          "complete_document_exactness": 0.0,
+          "zero_output_document_rate": 1.0,
+          "rejected_numeric_row_count": 0,
+          "latency_seconds_per_page": 84.296415811827,
+          "peak_gpu_memory_bytes": 2070332928,
+          "interpretation": "The official table task completed on every page, but the fixed explicit top/bottom decoder found no declared interval rows. This is reported as decoder/task coverage, not as a claim that the model produced no visual table content."
+        }
+      }
+    },
+    {
+      "model_id": "opendatalab/MinerU2.5-Pro-2604-1.2B",
+      "revision": "local_snapshot_MinerU2.5-Pro-2604-1.2B",
+      "precision": "checkpoint config torch_dtype=null; effective runtime dtype partially reconstructable",
+      "interface": "official two-step document parser",
+      "runtime_config": "configs/models/mineru25_pro_modern_vlm_v001.json",
+      "hardware": "RTX 5090; Transformers 4.57.6; PyTorch 2.11.0+cu128; mineru-vl-utils 1.2.1",
+      "results": {
+        "swissgeol_heldout": {
+          "result_path": "results/2026-08-19/P1_TRANSPORT_MINERU25_SWISSGEOL_HELDOUT_001",
+          "documents": 35,
+          "pages": 35,
+          "decoded_page_rate": 1.0,
+          "interval_decoder_output_rate": 0.0,
+          "interval_f1": 0.0,
+          "complete_document_exactness": 0.0,
+          "zero_output_document_rate": 1.0,
+          "rejected_numeric_row_count": 0,
+          "latency_seconds_per_page": 74.89161838897105,
+          "peak_gpu_memory_bytes": 3005836800,
+          "interpretation": "The official two-step parser completed on every page, but the fixed explicit top/bottom decoder found no declared interval rows. This is reported as decoder/task coverage, not as a claim that the model produced no visual table content."
+        }
+      }
+    }
+  ],
+  "headline_observation": "The direct generalist Qwen3-VL-4B panel retained some Swissgeol interval utility (F1 0.619) but remained source-sensitive relative to its California exploratory panel (F1 0.793) and had zero complete documents. Qwen3.8-27B likewise fell from 0.918 on California v003 to 0.577 on Swissgeol. The specialist interfaces exposed an additional failure mode: complete page decoding without a task-compatible, auditable interval decoder output. Together these results support a recurring transport and provenance risk across model families/interfaces, while preserving the distinction between visual recognition and usable structured output."
+}

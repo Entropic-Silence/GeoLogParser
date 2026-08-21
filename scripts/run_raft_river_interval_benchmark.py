@@ -7,7 +7,7 @@ from datetime import date, datetime, timezone
 import json
 import platform
 import re
-import resource
+from geologparser.runtime_resources import peak_process_rss_kib
 import shutil
 import subprocess
 import tempfile
@@ -255,7 +255,7 @@ def main() -> None:
         "source_domain": "USGS Raft River release / Idaho Department of Water Resources driller reports",
         "selection_limitation": "two of twelve released reports contain explicit interval tables; ten attached lithology sequences are point-depth observations and are excluded from interval scoring",
         "wall_time_seconds": time.perf_counter() - wall_started, "latency_seconds_per_document_wall": (time.perf_counter() - wall_started) / len(manifest),
-        "peak_process_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+        "peak_process_rss_kib": peak_process_rss_kib(),
     }
     (run / "predictions.jsonl").write_text("".join(json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n" for row in prediction_rows), encoding="utf-8")
     (run / "errors.jsonl").write_text("".join(json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n" for row in errors), encoding="utf-8")

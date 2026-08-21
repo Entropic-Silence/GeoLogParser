@@ -1,0 +1,67 @@
+{
+  "experiment_id": "P3_COAL602_SOURCE_ROOF_PROXY_PROTOCOL_001",
+  "git_commit": "601a26a910d64a3dab654882ce4120df04373203",
+  "date": "2026-08-13",
+  "dataset_version": "mendeley_coal_boreholes_602_v001",
+  "split_version": "not_applicable_protocol_development",
+  "model": "idw_power_2",
+  "model_revision": "geologparser_idw_v001",
+  "prompt_version": "not_applicable",
+  "seed": 20260813,
+  "hardware": {
+    "device": "cpu",
+    "processor": "x86_64",
+    "gpu_used": false
+  },
+  "software": {
+    "python": "3.10.12"
+  },
+  "config": {
+    "protocol_config_path": "/root/GeoLogParser/configs/experiments/P3_COAL602_SOURCE_ROOF_PROXY_PROTOCOL_001.yaml",
+    "protocol_config_sha256": "b4824ead130e3cf793ed30c2c49fdd4316932d9a0d7d53dc082477d055f1f20e",
+    "source_audit_path": "/data/GeoLogParser/artifacts/structured_data_audits/mendeley_coal_boreholes_602_v001_audit_v002/structured_content_audit.json",
+    "source_audit_sha256": "261bee6cdd7b400476aa34c19046034303c2114cf4f26c5cb1c5e0151f852b21",
+    "source_acquisition_sha256": "1a808d2f89050e5cad4d6bf315a0bc1e6ffe17de8012eb6e8600f7b94b62d9ad",
+    "source_workbook_sha256": "a1b60f2d62bb87a84a4618a8cf0c254c25ca6df3baa282b2f742bc4201bfc31e",
+    "source_role": "source_structured_data",
+    "source_field": "source_reported_no_3_coal_roof_depth_m",
+    "coordinate_handling": {
+      "source_labels": [
+        "Y",
+        "X"
+      ],
+      "output_labels": [
+        "local_u",
+        "local_v"
+      ],
+      "translation": "subtract_source_minimum",
+      "persist_translation_origin": false,
+      "persist_source_identifiers": false
+    },
+    "query_domain": "regular_grid_clipped_to_source_coordinate_convex_hull",
+    "grid_size": 41,
+    "magnitudes_m": [
+      0.01,
+      0.05,
+      0.1,
+      0.5,
+      1.0
+    ],
+    "repetitions": 30,
+    "idw_power": 2.0,
+    "claims_allowed": [
+      "deterministic_protocol_execution_on_licensed_structured_source",
+      "source_field_proxy_response_under_controlled_perturbation"
+    ],
+    "claims_forbidden": [
+      "ai_extraction_accuracy",
+      "geological_constraint_benefit",
+      "human_ground_truth_comparison",
+      "true_coal_seam_surface",
+      "real_3d_geological_model",
+      "absolute_geolocation",
+      "privacy_clearance"
+    ],
+    "scope": "licensed source-field protocol development; not AI, GT, QC, or geological-model evidence"
+  }
+}

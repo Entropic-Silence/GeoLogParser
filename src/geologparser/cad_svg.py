@@ -68,7 +68,6 @@ def audit_svg_geometry(svg: str, *, absolute_coordinate_limit: float = 1e15) -> 
 
 def write_review_png(svg: str, path: Path, output_width: int) -> dict[str, Any]:
     """Rasterise and trim review content, or write an explicit failure card."""
-    from cairosvg import svg2png
     from PIL import Image, ImageDraw
 
     geometry = audit_svg_geometry(svg)
@@ -78,22 +77,28 @@ def write_review_png(svg: str, path: Path, output_width: int) -> dict[str, Any]:
     unique_color_count = None
     nontransparent_bbox = None
     if geometry["geometry_sanity_passed"]:
-        raster_status = "transparent_or_empty_raster"
-        raster = Image.open(BytesIO(svg2png(bytestring=svg.encode("utf-8"), output_width=output_width))).convert("RGBA")
-        nontransparent_bbox = raster.getchannel("A").getbbox()
-        colors = raster.getcolors(maxcolors=1_000_000)
-        unique_color_count = len(colors) if colors is not None else ">1000000"
-        if nontransparent_bbox is not None:
-            left, top, right, bottom = nontransparent_bbox
-            padding = max(8, round(max(right - left, bottom - top) * 0.02))
-            crop_box = [
-                max(0, left - padding), max(0, top - padding),
-                min(raster.width, right + padding), min(raster.height, bottom + padding),
-            ]
-            raster = raster.crop(tuple(crop_box))
-            raster.save(path)
-            raster_status = "nontransparent_content_detected_and_trimmed"
-            placeholder = False
+        try:
+            from cairosvg import svg2png
+            raster_bytes = svg2png(bytestring=svg.encode("utf-8"), output_width=output_width)
+        except (ImportError, OSError):  # optional native Cairo runtime
+            raster_status = "renderer_unavailable"
+        else:
+            raster_status = "transparent_or_empty_raster"
+            raster = Image.open(BytesIO(raster_bytes)).convert("RGBA")
+            nontransparent_bbox = raster.getchannel("A").getbbox()
+            colors = raster.getcolors(maxcolors=1_000_000)
+            unique_color_count = len(colors) if colors is not None else ">1000000"
+            if nontransparent_bbox is not None:
+                left, top, right, bottom = nontransparent_bbox
+                padding = max(8, round(max(right - left, bottom - top) * 0.02))
+                crop_box = [
+                    max(0, left - padding), max(0, top - padding),
+                    min(raster.width, right + padding), min(raster.height, bottom + padding),
+                ]
+                raster = raster.crop(tuple(crop_box))
+                raster.save(path)
+                raster_status = "nontransparent_content_detected_and_trimmed"
+                placeholder = False
     if placeholder:
         raster = Image.new("RGB", (output_width, 360), "#15191d")
         draw = ImageDraw.Draw(raster)

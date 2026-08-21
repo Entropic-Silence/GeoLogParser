@@ -1,0 +1,337 @@
+{
+  "audit_version": "manuscript_metric_bindings_v002",
+  "checks": [
+    {
+      "id": "paper1_california_v005_headline",
+      "manuscript": "papers/paper1/manuscript.md",
+      "source": "publication_evidence/result_core/results/2026-08-15/P1_CALIFORNIA_WCR_V005_RAPIDOCR_EXTERNAL_FORMAL_001/metrics.json",
+      "pattern": "v005[^\\n]*?emitted (?P<predicted>\\d+) intervals and matched (?P<matched>\\d+) \\(precision (?P<precision>\\d+\\.\\d+), recall (?P<recall>\\d+\\.\\d+), F1 (?P<f1>\\d+\\.\\d+)\\)[^\\n]*?(?P<full_exact>\\d+)/100 full-document exact, (?P<boundary_exact>\\d+)/100 boundary-exact, and (?P<zero_output>\\d+)/100 zero-output",
+      "bindings": [
+        {"group": "predicted", "pointer": "/predicted_interval_count"},
+        {"group": "matched", "pointer": "/interval_metrics/interval_precision/numerator"},
+        {"group": "precision", "pointer": "/interval_metrics/interval_precision/value", "decimals": 3},
+        {"group": "recall", "pointer": "/interval_metrics/interval_recall/value", "decimals": 3},
+        {"group": "f1", "pointer": "/interval_metrics/interval_f1/value", "decimals": 3},
+        {"group": "full_exact", "pointer": "/document_full_exact/numerator"},
+        {"group": "boundary_exact", "pointer": "/document_boundary_exact/numerator"},
+        {"group": "zero_output", "pointer": "/documents_with_predictions", "subtract_from": 100}
+      ]
+    },
+    {
+      "id": "paper2_v004_risk_policy",
+      "manuscript": "papers/paper2/manuscript.md",
+      "source": "publication_evidence/result_core/results/2026-08-15/P2_CALIFORNIA_WCR_V004_CANDIDATE_RISK_PROSPECTIVE_FORMAL_001/metrics.json",
+      "pattern": "v004[^\\n]*?accepted (?P<actions>\\d+) non-overlapping high-score additions across (?P<documents>\\d+) reports[^\\n]*?matched (?P<matched>\\d+)/(?P<predicted>\\d+) predictions \\(precision (?P<precision>\\d+\\.\\d+), recall (?P<recall>\\d+\\.\\d+), F1 (?P<f1>\\d+\\.\\d+)\\)",
+      "bindings": [
+        {"group": "actions", "pointer": "/accepted_correction_actions"},
+        {"group": "documents", "pointer": "/accepted_correction_document_count"},
+        {"group": "matched", "pointer": "/risk_selected_interval_metrics/interval_precision/numerator"},
+        {"group": "predicted", "pointer": "/risk_selected_interval_metrics/interval_precision/denominator"},
+        {"group": "precision", "pointer": "/risk_selected_interval_metrics/interval_precision/value", "decimals": 3},
+        {"group": "recall", "pointer": "/risk_selected_interval_metrics/interval_recall/value", "decimals": 3},
+        {"group": "f1", "pointer": "/risk_selected_interval_metrics/interval_f1/value", "decimals": 3}
+      ]
+    },
+    {
+      "id": "paper2_v005_risk_policy",
+      "manuscript": "papers/paper2/manuscript.md",
+      "source": "publication_evidence/result_core/results/2026-08-15/P2_CALIFORNIA_WCR_V005_CANDIDATE_RISK_EXTERNAL_FORMAL_001/metrics.json",
+      "pattern": "v005[^\\n]*?accepted (?P<actions>\\d+) additions[^\\n]*?matched (?P<matched>\\d+)/(?P<predicted>\\d+) predictions \\(precision (?P<precision>\\d+\\.\\d+), recall (?P<recall>\\d+\\.\\d+), F1 (?P<f1>\\d+\\.\\d+)\\)",
+      "bindings": [
+        {"group": "actions", "pointer": "/accepted_correction_actions"},
+        {"group": "matched", "pointer": "/risk_selected_interval_metrics/interval_precision/numerator"},
+        {"group": "predicted", "pointer": "/risk_selected_interval_metrics/interval_precision/denominator"},
+        {"group": "precision", "pointer": "/risk_selected_interval_metrics/interval_precision/value", "decimals": 3},
+        {"group": "recall", "pointer": "/risk_selected_interval_metrics/interval_recall/value", "decimals": 3},
+        {"group": "f1", "pointer": "/risk_selected_interval_metrics/interval_f1/value", "decimals": 3}
+      ]
+    },
+    {
+      "id": "paper3_full_support_headline_raw",
+      "manuscript": "papers/paper3/manuscript.md",
+      "source": "experiments/paper3/analysis/swissgeol_spatial_sensitivity_v001.json",
+      "pattern": "full-support comparison[^\\n]*?raw volume error (?P<raw_volume>\\d+\\.\\d+) and mean thickness MAE (?P<raw_mae>\\d+\\.\\d+) m",
+      "bindings": [
+        {"group": "raw_volume", "pointer": "/full_support_comparison/raw/aggregate/relative_absolute_volume_error", "decimals": 4},
+        {"group": "raw_mae", "pointer": "/full_support_comparison/raw/aggregate/mean_thickness_mae_m", "decimals": 3}
+      ]
+    },
+    {
+      "id": "paper3_full_support_headline_risk",
+      "manuscript": "papers/paper3/manuscript.md",
+      "source": "experiments/paper3/analysis/swissgeol_spatial_sensitivity_v001.json",
+      "pattern": "risk-aware volume error (?P<risk_volume>\\d+\\.\\d+), mean thickness MAE (?P<risk_mae>\\d+\\.\\d+) m, and document coverage (?P<accepted>\\d+)/(?P<documents>\\d+)",
+      "bindings": [
+        {"group": "risk_volume", "pointer": "/full_support_comparison/risk/aggregate/relative_absolute_volume_error", "decimals": 4},
+        {"group": "risk_mae", "pointer": "/full_support_comparison/risk/aggregate/mean_thickness_mae_m", "decimals": 3},
+        {"group": "accepted", "pointer": "/risk_accepted_document_count"},
+        {"group": "documents", "pointer": "/document_count"}
+      ]
+    },
+    {
+      "id": "paper1_boundary_exact_range",
+      "manuscript": "papers/paper1/manuscript.md",
+      "source": "experiments/paper1/analysis/california_replication_statistics_v001.json",
+      "pattern": "exact boundary sequences in only (?P<minimum>\\d+)%–(?P<maximum>\\d+)% of reports",
+      "bindings": [
+        {
+          "group": "minimum",
+          "pointers": [
+            "/freezes/v001/rapidocr_document_diagnostics/boundary_exact_document_rate",
+            "/freezes/v002_external/rapidocr_document_diagnostics/boundary_exact_document_rate",
+            "/freezes/v003_prospective/rapidocr_document_diagnostics/boundary_exact_document_rate",
+            "/freezes/v004_prospective/rapidocr_document_diagnostics/boundary_exact_document_rate",
+            "/freezes/v005_external/rapidocr_document_diagnostics/boundary_exact_document_rate"
+          ],
+          "aggregate": "min",
+          "scale": 100
+        },
+        {
+          "group": "maximum",
+          "pointers": [
+            "/freezes/v001/rapidocr_document_diagnostics/boundary_exact_document_rate",
+            "/freezes/v002_external/rapidocr_document_diagnostics/boundary_exact_document_rate",
+            "/freezes/v003_prospective/rapidocr_document_diagnostics/boundary_exact_document_rate",
+            "/freezes/v004_prospective/rapidocr_document_diagnostics/boundary_exact_document_rate",
+            "/freezes/v005_external/rapidocr_document_diagnostics/boundary_exact_document_rate"
+          ],
+          "aggregate": "max",
+          "scale": 100
+        }
+      ]
+    },
+    {
+      "id": "paper2_raw_f1_range",
+      "manuscript": "papers/paper2/manuscript.md",
+      "source": "experiments/paper1/analysis/california_replication_statistics_v001.json",
+      "pattern": "unselective sequence ranking increased interval F1 from (?P<minimum>\\d+\\.\\d+)–(?P<maximum>\\d+\\.\\d+)",
+      "bindings": [
+        {
+          "group": "minimum",
+          "pointers": [
+            "/freezes/v001/rapidocr_document_cluster_metrics/f1",
+            "/freezes/v002_external/rapidocr_document_cluster_metrics/f1",
+            "/freezes/v003_prospective/rapidocr_document_cluster_metrics/f1",
+            "/freezes/v004_prospective/rapidocr_document_cluster_metrics/f1",
+            "/freezes/v005_external/rapidocr_document_cluster_metrics/f1"
+          ],
+          "aggregate": "min",
+          "decimals": 3
+        },
+        {
+          "group": "maximum",
+          "pointers": [
+            "/freezes/v001/rapidocr_document_cluster_metrics/f1",
+            "/freezes/v002_external/rapidocr_document_cluster_metrics/f1",
+            "/freezes/v003_prospective/rapidocr_document_cluster_metrics/f1",
+            "/freezes/v004_prospective/rapidocr_document_cluster_metrics/f1",
+            "/freezes/v005_external/rapidocr_document_cluster_metrics/f1"
+          ],
+          "aggregate": "max",
+          "decimals": 3
+        }
+      ]
+    },
+    {
+      "id": "paper1_conclusion_f1_range",
+      "manuscript": "papers/paper1/manuscript.md",
+      "source": "experiments/paper1/analysis/california_replication_statistics_v001.json",
+      "pattern": "Conclusion[\\s\\S]*?RapidOCR F1 values of (?P<minimum>\\d+\\.\\d+)–(?P<maximum>\\d+\\.\\d+)",
+      "bindings": [
+        {
+          "group": "minimum",
+          "pointers": [
+            "/freezes/v001/rapidocr_document_cluster_metrics/f1",
+            "/freezes/v002_external/rapidocr_document_cluster_metrics/f1",
+            "/freezes/v003_prospective/rapidocr_document_cluster_metrics/f1",
+            "/freezes/v004_prospective/rapidocr_document_cluster_metrics/f1",
+            "/freezes/v005_external/rapidocr_document_cluster_metrics/f1"
+          ],
+          "aggregate": "min",
+          "decimals": 3
+        },
+        {
+          "group": "maximum",
+          "pointers": [
+            "/freezes/v001/rapidocr_document_cluster_metrics/f1",
+            "/freezes/v002_external/rapidocr_document_cluster_metrics/f1",
+            "/freezes/v003_prospective/rapidocr_document_cluster_metrics/f1",
+            "/freezes/v004_prospective/rapidocr_document_cluster_metrics/f1",
+            "/freezes/v005_external/rapidocr_document_cluster_metrics/f1"
+          ],
+          "aggregate": "max",
+          "decimals": 3
+        }
+      ]
+    },
+    {
+      "id": "paper2_depth_start_sensitivity",
+      "manuscript": "papers/paper2/manuscript.md",
+      "source": "experiments/paper2/analysis/california_depth_start_sensitivity_v001.json",
+      "pattern": "left v004 F1 unchanged at (?P<v004>\\d+\\.\\d+) and moved v005 only from (?P<v005_zero>\\d+\\.\\d+) to (?P<v005_high>\\d+\\.\\d+)",
+      "bindings": [
+        {"group": "v004", "pointer": "/freezes/v004/conditions/1/metrics/interval_f1/value", "decimals": 4},
+        {"group": "v005_zero", "pointer": "/freezes/v005/conditions/0/metrics/interval_f1/value", "decimals": 4},
+        {"group": "v005_high", "pointer": "/freezes/v005/conditions/4/metrics/interval_f1/value", "decimals": 4}
+      ]
+    },
+    {
+      "id": "paper3_volume_jackknife_ranges",
+      "manuscript": "papers/paper3/manuscript.md",
+      "source": "experiments/paper3/analysis/swissgeol_spatial_sensitivity_v001.json",
+      "pattern": "relative absolute volume error was (?P<raw_mean>\\d+\\.\\d+) \\[(?P<raw_min>\\d+\\.\\d+), (?P<raw_max>\\d+\\.\\d+)\\] for raw, (?P<reread_mean>\\d+\\.\\d+) \\[(?P<reread_min>\\d+\\.\\d+), (?P<reread_max>\\d+\\.\\d+)\\] for reread, and (?P<risk_mean>\\d+\\.\\d+) \\[(?P<risk_min>\\d+\\.\\d+), (?P<risk_max>\\d+\\.\\d+)\\] for risk-aware input",
+      "bindings": [
+        {"group": "raw_mean", "pointer": "/volume_jackknife/full_support/variants/raw/relative_absolute_volume_error/mean", "decimals": 4},
+        {"group": "raw_min", "pointer": "/volume_jackknife/full_support/variants/raw/relative_absolute_volume_error/minimum", "decimals": 4},
+        {"group": "raw_max", "pointer": "/volume_jackknife/full_support/variants/raw/relative_absolute_volume_error/maximum", "decimals": 4},
+        {"group": "reread_mean", "pointer": "/volume_jackknife/full_support/variants/reread/relative_absolute_volume_error/mean", "decimals": 4},
+        {"group": "reread_min", "pointer": "/volume_jackknife/full_support/variants/reread/relative_absolute_volume_error/minimum", "decimals": 4},
+        {"group": "reread_max", "pointer": "/volume_jackknife/full_support/variants/reread/relative_absolute_volume_error/maximum", "decimals": 4},
+        {"group": "risk_mean", "pointer": "/volume_jackknife/full_support/variants/risk/relative_absolute_volume_error/mean", "decimals": 4},
+        {"group": "risk_min", "pointer": "/volume_jackknife/full_support/variants/risk/relative_absolute_volume_error/minimum", "decimals": 4},
+        {"group": "risk_max", "pointer": "/volume_jackknife/full_support/variants/risk/relative_absolute_volume_error/maximum", "decimals": 4}
+      ]
+    },
+    {
+      "id": "paper1_modern_vlm_v001",
+      "manuscript": "papers/paper1/manuscript.md",
+      "source": "experiments/paper1/modern_vlm_result_summary_v001.json",
+      "pattern": "On v001 it matched (?P<matched>\\d+) of (?P<predicted>\\d+) predictions against (?P<reference>\\d+) references \\(precision (?P<precision>\\d+\\.\\d+), recall (?P<recall>\\d+\\.\\d+), F1 (?P<f1>\\d+\\.\\d+)\\)",
+      "bindings": [
+        {"group": "matched", "pointer": "/runs/0/statistics/document_cluster_metrics/matched"},
+        {"group": "predicted", "pointer": "/runs/0/statistics/document_cluster_metrics/predicted"},
+        {"group": "reference", "pointer": "/runs/0/statistics/document_cluster_metrics/reference"},
+        {"group": "precision", "pointer": "/runs/0/metrics/precision", "decimals": 3},
+        {"group": "recall", "pointer": "/runs/0/metrics/recall", "decimals": 3},
+        {"group": "f1", "pointer": "/runs/0/metrics/f1", "decimals": 3}
+      ]
+    },
+    {
+      "id": "paper1_modern_vlm_paired_f1_gain_range",
+      "manuscript": "papers/paper1/manuscript.md",
+      "source": "experiments/paper1/analysis/modern_vlm_statistics_v001.json",
+      "pattern": "Against the paired frozen RapidOCR outputs, Qwen gained (?P<minimum>\\d+\\.\\d+)--(?P<maximum>\\d+\\.\\d+) F1 across the five cohorts",
+      "bindings": [
+        {
+          "group": "minimum",
+          "pointers": [
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V001_FORMAL_002/paired_against_frozen_rapidocr/delta_left_minus_right/f1/observed",
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V002_FORMAL_002/paired_against_frozen_rapidocr/delta_left_minus_right/f1/observed",
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V003_FORMAL_003/paired_against_frozen_rapidocr/delta_left_minus_right/f1/observed",
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V004_FORMAL_003/paired_against_frozen_rapidocr/delta_left_minus_right/f1/observed",
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V005_FORMAL_001/paired_against_frozen_rapidocr/delta_left_minus_right/f1/observed"
+          ],
+          "aggregate": "min",
+          "decimals": 3
+        },
+        {
+          "group": "maximum",
+          "pointers": [
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V001_FORMAL_002/paired_against_frozen_rapidocr/delta_left_minus_right/f1/observed",
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V002_FORMAL_002/paired_against_frozen_rapidocr/delta_left_minus_right/f1/observed",
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V003_FORMAL_003/paired_against_frozen_rapidocr/delta_left_minus_right/f1/observed",
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V004_FORMAL_003/paired_against_frozen_rapidocr/delta_left_minus_right/f1/observed",
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V005_FORMAL_001/paired_against_frozen_rapidocr/delta_left_minus_right/f1/observed"
+          ],
+          "aggregate": "max",
+          "decimals": 3
+        }
+      ]
+    },
+    {
+      "id": "paper1_modern_vlm_five_cohort_ranges_v001",
+      "manuscript": "papers/paper1/manuscript.md",
+      "source": "experiments/paper1/modern_vlm_result_summary_v001.json",
+      "pattern": "direct page-to-JSON baseline reached F1 (?P<f1_min>\\d+\\.\\d+)–(?P<f1_max>\\d+\\.\\d+) and exact boundary sequences in (?P<exact_min>\\d+)%–(?P<exact_max>\\d+)% of reports across all five cohorts, while emitting invalid numeric ranges at rates of (?P<invalid_min>\\d+\\.\\d+)–(?P<invalid_max>\\d+\\.\\d+)",
+      "bindings": [
+        {"group": "f1_min", "pointers": ["/runs/0/metrics/f1", "/runs/1/metrics/f1", "/runs/2/metrics/f1", "/runs/5/metrics/f1", "/runs/6/metrics/f1"], "aggregate": "min", "decimals": 3},
+        {"group": "f1_max", "pointers": ["/runs/0/metrics/f1", "/runs/1/metrics/f1", "/runs/2/metrics/f1", "/runs/5/metrics/f1", "/runs/6/metrics/f1"], "aggregate": "max", "decimals": 3},
+        {"group": "exact_min", "pointers": ["/runs/0/metrics/boundary_exact", "/runs/1/metrics/boundary_exact", "/runs/2/metrics/boundary_exact", "/runs/5/metrics/boundary_exact", "/runs/6/metrics/boundary_exact"], "aggregate": "min", "scale": 100},
+        {"group": "exact_max", "pointers": ["/runs/0/metrics/boundary_exact", "/runs/1/metrics/boundary_exact", "/runs/2/metrics/boundary_exact", "/runs/5/metrics/boundary_exact", "/runs/6/metrics/boundary_exact"], "aggregate": "max", "scale": 100},
+        {"group": "invalid_min", "pointers": ["/runs/0/metrics/numeric_invalidity", "/runs/1/metrics/numeric_invalidity", "/runs/2/metrics/numeric_invalidity", "/runs/5/metrics/numeric_invalidity", "/runs/6/metrics/numeric_invalidity"], "aggregate": "min", "decimals": 3},
+        {"group": "invalid_max", "pointers": ["/runs/0/metrics/numeric_invalidity", "/runs/1/metrics/numeric_invalidity", "/runs/2/metrics/numeric_invalidity", "/runs/5/metrics/numeric_invalidity", "/runs/6/metrics/numeric_invalidity"], "aggregate": "max", "decimals": 3}
+      ]
+    },
+    {
+      "id": "paper1_modern_vlm_swissgeol_source_agreement_v001",
+      "manuscript": "papers/paper1/manuscript.md",
+      "source": "experiments/paper1/modern_vlm_result_summary_v001.json",
+      "pattern": "frozen direct VLM produced (?P<matched>\\d+) matched intervals from (?P<predicted>\\d+) predictions against (?P<reference>\\d+) source-agreement references \\(P/R/F1 (?P<precision>\\d+\\.\\d+)/(?P<recall>\\d+\\.\\d+)/(?P<f1>\\d+\\.\\d+)\\)",
+      "bindings": [
+        {"group": "matched", "pointer": "/runs/7/statistics/document_cluster_metrics/matched"},
+        {"group": "predicted", "pointer": "/runs/7/statistics/document_cluster_metrics/predicted"},
+        {"group": "reference", "pointer": "/runs/7/statistics/document_cluster_metrics/reference"},
+        {"group": "precision", "pointer": "/runs/7/metrics/precision", "decimals": 3},
+        {"group": "recall", "pointer": "/runs/7/metrics/recall", "decimals": 3},
+        {"group": "f1", "pointer": "/runs/7/metrics/f1", "decimals": 3}
+      ]
+    },
+    {
+      "id": "paper2_vlm_assurance_v003",
+      "manuscript": "papers/paper2/manuscript.md",
+      "source": "experiments/paper2/analysis/vlm_proposal_assurance_v001.json",
+      "pattern": "owned/accepted coverage (?P<coverage>\\d+\\.\\d+), and selective precision (?P<correct>\\d+)/(?P<accepted>\\d+) = (?P<precision>\\d+\\.\\d+) \\[(?P<ci_low>\\d+\\.\\d+), (?P<ci_high>\\d+\\.\\d+)\\], compared with raw precision (?P<raw>\\d+\\.\\d+)",
+      "bindings": [
+        {"group": "coverage", "pointer": "/analyses/2/point_estimates/accepted_coverage", "decimals": 3},
+        {"group": "correct", "pointer": "/analyses/2/point_estimates/accepted_correct_count"},
+        {"group": "accepted", "pointer": "/analyses/2/point_estimates/accepted_count"},
+        {"group": "precision", "pointer": "/analyses/2/point_estimates/accepted_precision", "decimals": 3},
+        {"group": "ci_low", "pointer": "/analyses/2/document_cluster_bootstrap_percentile_95_ci/accepted_precision/0", "decimals": 3},
+        {"group": "ci_high", "pointer": "/analyses/2/document_cluster_bootstrap_percentile_95_ci/accepted_precision/1", "decimals": 3},
+        {"group": "raw", "pointer": "/analyses/2/point_estimates/raw_precision", "decimals": 3}
+      ]
+    },
+    {
+      "id": "paper4_qwen_headline_range",
+      "manuscript": "papers/paper4/manuscript.md",
+      "source": "experiments/paper1/analysis/modern_vlm_statistics_v001.json",
+      "pattern": "Qwen3\\.8-27B-FP8[^\\n]*?boundary-pair F1 (?P<minimum>\\d+\\.\\d+)–(?P<maximum>\\d+\\.\\d+) on California",
+      "bindings": [
+        {
+          "group": "minimum",
+          "pointers": [
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V001_FORMAL_002/document_cluster_metrics/f1",
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V002_FORMAL_002/document_cluster_metrics/f1",
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V003_FORMAL_003/document_cluster_metrics/f1",
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V004_FORMAL_003/document_cluster_metrics/f1",
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V005_FORMAL_001/document_cluster_metrics/f1"
+          ],
+          "aggregate": "min",
+          "decimals": 3
+        },
+        {
+          "group": "maximum",
+          "pointers": [
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V001_FORMAL_002/document_cluster_metrics/f1",
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V002_FORMAL_002/document_cluster_metrics/f1",
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V003_FORMAL_003/document_cluster_metrics/f1",
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V004_FORMAL_003/document_cluster_metrics/f1",
+            "/analyses/P1_MODERN_VLM_QWEN38_FP8_CALIFORNIA_V005_FORMAL_001/document_cluster_metrics/f1"
+          ],
+          "aggregate": "max",
+          "decimals": 3
+        }
+      ]
+    },
+    {
+      "id": "paper4_heldout_selective_assurance",
+      "manuscript": "papers/paper4/manuscript.md",
+      "source": "experiments/paper2/analysis/vlm_proposal_assurance_v001.json",
+      "pattern": "held-out California v003[^\\n]*?selective precision (?P<precision>\\d+\\.\\d+) \\(444/447 accepted intervals correct\\) at (?P<coverage>\\d+\\.\\d+) proposal coverage",
+      "bindings": [
+        {"group": "precision", "pointer": "/analyses/2/point_estimates/accepted_precision", "decimals": 3},
+        {"group": "coverage", "pointer": "/analyses/2/point_estimates/accepted_coverage", "decimals": 3}
+      ]
+    },
+    {
+      "id": "paper4_complete_document_acceptance",
+      "manuscript": "papers/paper4/manuscript.md",
+      "source": "experiments/paper2/analysis/vlm_proposal_assurance_v001.json",
+      "pattern": "complete-document auto-acceptance is (?P<numerator>\\d+)/(?P<denominator>\\d+) \\(4%\\)",
+      "bindings": [
+        {"group": "numerator", "pointer": "/analyses/2/complete_document_auto_acceptance/numerator"},
+        {"group": "denominator", "pointer": "/analyses/2/complete_document_auto_acceptance/denominator"}
+      ]
+    }
+  ]
+}

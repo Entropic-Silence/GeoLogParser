@@ -1,4 +1,4 @@
-verification_date_utc: "2026-08-14"
+verification_date_utc: "2026-08-17"
 policy:
   metadata_verified_does_not_imply_full_text_claim_verified: true
   unverified_claim_marker: "[CITATION TO VERIFY]"
@@ -35,6 +35,21 @@ sources:
     verification_level: published_full_text_reviewed
     local_full_text_sha256: de341a63189e5c5ffc0d0b61195efabd74078426cf3d04dabda7feab73b05d0e
     claim_scope: "47 Korean abandoned-mine reports, 908 borehole-log pages, five manually assigned types, an 8:2 page split for EfficientNet-B3 type classification, Type-1-only spreadsheet structuring, and qualitative/example-based OCR comparison; no GeoLogParser performance implication"
+  - key: zhang2020boreholeimages
+    identifier: 10.3390/app10165520
+    metadata_verified_via: "Crossref and MDPI publisher landing page"
+    verification_level: published_abstract_and_metadata
+    claim_scope: "rapid information extraction from 100 same-specification borehole-log images; comparison is used only to position template-specific image extraction, not to transfer a performance number"
+  - key: amini2023boreholepdf
+    identifier: 10.4095/332258
+    metadata_verified_via: "Geological Survey of Canada publication record and DOI metadata"
+    verification_level: official_report_metadata_and_abstract
+    claim_scope: "PDF borehole-log identification, selection, and data-capture evaluation; the report's scope and limitations are discussed without importing a benchmark score"
+  - key: ma2024historicalwell
+    identifier: 10.1038/s41598-024-81846-5
+    metadata_verified_via: "Nature Scientific Reports publisher landing page and DOI metadata"
+    verification_level: published_abstract_and_metadata
+    claim_scope: "LLM information extraction from 160 historical well records, including weaker behavior on image-based records; no performance number is transferred"
   - key: guo2017calibration
     identifier: https://proceedings.mlr.press/v70/guo17a.html
     metadata_verified_via: official PMLR landing-page citation metadata
@@ -110,3 +125,73 @@ sources:
     verification_level: official_metadata_and_data_release_reviewed
     local_full_text_sha256: c70c02284bb8db5fddd8ac8022801d2c8eddabd3e9d072c29cb7b739203e9205
     claim_scope: "version 6.0 title, authorship, CC0 status, public redacted DWR report-link field, and source limitations"
+  - key: smock2022pubtables
+    identifier: 10.1109/CVPR52688.2022.00459
+    metadata_verified_via: "IEEE Xplore and Microsoft Research publication page"
+    verification_level: official_metadata_and_abstract
+    claim_scope: "large table-extraction dataset, table-structure target, and ground-truth consistency motivation; no reported performance number is reused"
+  - key: kim2022donut
+    identifier: arXiv:2111.15664
+    metadata_verified_via: "arXiv and official implementation repository"
+    verification_level: official_metadata_and_abstract
+    claim_scope: "OCR-free document-understanding architecture and synthetic pretraining context; no performance number is reused"
+  - key: hu2024docowl2
+    identifier: 10.18653/v1/2025.acl-long.291
+    metadata_verified_via: "ACL Anthology and arXiv"
+    verification_level: official_metadata_and_abstract
+    claim_scope: "high-resolution compressed multi-page document understanding; no benchmark number is reused"
+  - key: geifman2017selective
+    identifier: arXiv:1705.08500
+    metadata_verified_via: "NeurIPS proceedings and arXiv"
+    verification_level: official_metadata_and_abstract
+    claim_scope: "selective classification trades coverage for risk; no guarantee is transferred to GeoLogParser"
+  - key: geifman2019selectivenet
+    identifier: https://proceedings.mlr.press/v97/geifman19a.html
+    metadata_verified_via: "official PMLR landing page"
+    verification_level: official_metadata_and_abstract
+    claim_scope: "integrated reject option and risk-coverage framing; no performance number is reused"
+  - key: angelopoulos2024crc
+    identifier: https://openreview.net/forum?id=33XGfHLtZg
+    metadata_verified_via: "official ICLR proceedings and OpenReview"
+    verification_level: official_metadata_and_abstract
+    claim_scope: "conformal control of expected monotone losses under stated assumptions; GeoLogParser does not claim a conformal guarantee"
+  - key: wellmann2018uncertainty
+    identifier: 10.1016/bs.agph.2018.09.001
+    metadata_verified_via: "HAL bibliographic record and DOI metadata"
+    verification_level: metadata_and_abstract
+    claim_scope: "structural geological modelling concepts, interpolation, and uncertainty framing; no numerical result is reused"
+  - key: tran2025boreholedensity
+    identifier: 10.1016/j.enggeo.2025.107991
+    metadata_verified_via: "Elsevier Engineering Geology issue page, author institutional bibliography, and DOI metadata"
+    verification_level: official_metadata_and_abstract
+    claim_scope: "borehole density changes geostatistical estimates and heterogeneous hydrogeological-model construction; no numerical result is reused"
+  - key: zhang2026boreholedensity
+    identifier: 10.1007/s12665-026-12843-2
+    metadata_verified_via: "Springer article landing page and DOI metadata"
+    verification_level: official_metadata_and_abstract
+    claim_scope: "quantitative comparison of 3D reconstruction under varying borehole density and sampling layout; no numerical result is reused"
+  - key: shiga2026boreholevlm
+    identifier: 10.11532/jsceiii.7.1_133
+    metadata_verified_via: "J-STAGE publisher landing page and open-access article metadata"
+    verification_level: official_metadata_and_abstract
+    claim_scope: "two-stage Gemini VLM schema-selection/YAML extraction evaluated on 10 boreholes and 12 pages from one Japanese ground-information system; used to position direct image-to-structure extraction without transferring its reported scores"
+  - key: garzon2026stratigraphicmetrics
+    identifier: 10.1016/j.cageo.2025.106043
+    metadata_verified_via: "Computers & Geosciences open-access article PDF, Utrecht University repository, and DOI metadata"
+    verification_level: published_full_text_reviewed
+    claim_scope: "geology-informed sequence and spatial evaluation of automated stratigraphic interpretations for 1,394 boreholes; used to distinguish post-extraction interpretation metrics from image-grounded extraction and downstream support sensitivity"
+  - key: fuentes2020lithologicalmapping
+    identifier: 10.1016/j.cageo.2020.104516
+    metadata_verified_via: "Computers & Geosciences article metadata and DOI record"
+    verification_level: official_metadata_and_abstract
+    claim_scope: "3-D lithological mapping from borehole descriptions using word embeddings; cited only to position structured post-extraction mapping, with no reported score reused"
+  - key: wang2023interfaceuncertainty
+    identifier: 10.1016/j.cageo.2023.105419
+    metadata_verified_via: "Computers & Geosciences article metadata and DOI record"
+    verification_level: official_metadata_and_abstract
+    claim_scope: "geological-interface uncertainty evaluated with a data-knowledge-driven trend-surface analysis; cited only for downstream uncertainty context"
+  - key: qwen2026qwen38
+    identifier: https://huggingface.co/Qwen/Qwen3.8-27B-FP8
+    metadata_verified_via: "official Qwen model card and Apache-2.0 license file archived with the local checkpoint"
+    verification_level: official_model_card_and_license
+    claim_scope: "model identity, 27B native vision-language architecture, FP8 checkpoint format, and Apache-2.0 license; no vendor benchmark number is reused"

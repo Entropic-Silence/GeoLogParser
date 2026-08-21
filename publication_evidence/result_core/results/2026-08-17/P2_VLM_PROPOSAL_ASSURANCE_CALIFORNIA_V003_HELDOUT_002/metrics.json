@@ -1,0 +1,271 @@
+{
+  "accepted_document_action_coverage": {
+    "denominator": 100,
+    "numerator": 63,
+    "value": 0.63
+  },
+  "accepted_document_count": 63,
+  "accepted_document_error_rate": {
+    "denominator": 63,
+    "numerator": 3,
+    "value": 0.047619047619047616
+  },
+  "accepted_error_document_count": 3,
+  "accepted_incorrect_interval_count": 3,
+  "accepted_interval_metrics": {
+    "interval_f1": {
+      "denominator": 1.0,
+      "details": {
+        "matched_count": 444,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 447,
+        "reference_count": 1788,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 3,
+        "unmatched_reference_count": 1344
+      },
+      "name": "interval_f1",
+      "numerator": 0.3973154362416107,
+      "unit": "ratio",
+      "value": 0.3973154362416107
+    },
+    "interval_precision": {
+      "denominator": 447,
+      "details": {
+        "matched_count": 444,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 447,
+        "reference_count": 1788,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 3,
+        "unmatched_reference_count": 1344
+      },
+      "name": "interval_precision",
+      "numerator": 444,
+      "unit": "ratio",
+      "value": 0.9932885906040269
+    },
+    "interval_recall": {
+      "denominator": 1788,
+      "details": {
+        "matched_count": 444,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 447,
+        "reference_count": 1788,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 3,
+        "unmatched_reference_count": 1344
+      },
+      "name": "interval_recall",
+      "numerator": 444,
+      "unit": "ratio",
+      "value": 0.2483221476510067
+    },
+    "matched_bottom_boundary_mae_m": {
+      "denominator": 444,
+      "details": {
+        "matched_count": 444,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 447,
+        "reference_count": 1788,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 3,
+        "unmatched_reference_count": 1344
+      },
+      "name": "matched_bottom_boundary_mae_m",
+      "numerator": 0.0,
+      "unit": "m",
+      "value": 0.0
+    },
+    "matched_top_boundary_mae_m": {
+      "denominator": 444,
+      "details": {
+        "matched_count": 444,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 447,
+        "reference_count": 1788,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 3,
+        "unmatched_reference_count": 1344
+      },
+      "name": "matched_top_boundary_mae_m",
+      "numerator": 0.0,
+      "unit": "m",
+      "value": 0.0
+    }
+  },
+  "accepted_interval_precision": {
+    "denominator": 447,
+    "numerator": 444,
+    "value": 0.9932885906040269
+  },
+  "accepted_invalid_numeric_range_count": 0,
+  "accepted_invalid_numeric_rate": {
+    "denominator": 447,
+    "numerator": 0,
+    "value": 0.0
+  },
+  "accepted_proposal_coverage": {
+    "denominator": 1833,
+    "numerator": 447,
+    "value": 0.24386252045826515
+  },
+  "bottom_numeric_anchor_coverage": {
+    "denominator": 1833,
+    "numerator": 1550,
+    "value": 0.845608292416803
+  },
+  "complete_document_auto_acceptance": {
+    "denominator": 100,
+    "numerator": 4,
+    "value": 0.04
+  },
+  "complete_interval_numeric_anchor_coverage": {
+    "denominator": 1833,
+    "numerator": 1450,
+    "value": 0.7910529187124932
+  },
+  "component_latency_seconds": {
+    "assurance_postprocess": 1.419246650999412,
+    "direct_vlm_total": 1601.4490228908835,
+    "positioned_reader_total": 970.142844343005
+  },
+  "correct_complete_document_auto_acceptance": {
+    "denominator": 4,
+    "numerator": 4,
+    "value": 1.0
+  },
+  "document_count": 100,
+  "evidence_definitions": {
+    "numeric_anchor": "the exact source-unit value occurs in a positioned OCR bbox on the same rendered page; it is a visual anchor candidate, not semantic ownership",
+    "semantically_owned_acceptance": "a complete interval agrees with an independently parsed positioned candidate whose source regions are retained"
+  },
+  "false_acceptance_rate": {
+    "denominator": 447,
+    "numerator": 3,
+    "value": 0.006711409395973154
+  },
+  "finished_utc": "2026-08-17T15:17:40.426624+00:00",
+  "go_gate": {
+    "accepted_coverage_pass": true,
+    "accepted_invalid_numeric_rate_pass": true,
+    "accepted_precision_pass": true,
+    "overall_pass": true,
+    "same_page_numeric_anchor_coverage_pass": true,
+    "serialized_trace_pass": true
+  },
+  "limitations": [
+    "Agreement is between one direct VLM and one positioned OCR/parser; shared source ambiguity can still produce correlated errors.",
+    "Interval acceptance does not establish document completeness; partial documents remain in the review queue.",
+    "Gold is used only after the fixed decisions to estimate error, never to form an acceptance decision.",
+    "A same-page numeric anchor can be ambiguous; only complete positioned-candidate agreement is treated as semantic ownership for automatic acceptance."
+  ],
+  "one_sided_95_zero_error_upper_bound": {
+    "per_accepted_interval": null,
+    "per_document_with_accepted_action": null
+  },
+  "peak_process_rss_kib": 284856,
+  "prediction_reference_conditioning": "none",
+  "proposal_count": 1833,
+  "raw_critical_numeric_invalidity_rate": 0.0043454644215100485,
+  "raw_interval_metrics": {
+    "interval_f1": {
+      "denominator": 1.0,
+      "details": {
+        "matched_count": 1662,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 1833,
+        "reference_count": 1788,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 171,
+        "unmatched_reference_count": 126
+      },
+      "name": "interval_f1",
+      "numerator": 0.9179784589892295,
+      "unit": "ratio",
+      "value": 0.9179784589892295
+    },
+    "interval_precision": {
+      "denominator": 1833,
+      "details": {
+        "matched_count": 1662,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 1833,
+        "reference_count": 1788,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 171,
+        "unmatched_reference_count": 126
+      },
+      "name": "interval_precision",
+      "numerator": 1662,
+      "unit": "ratio",
+      "value": 0.9067103109656302
+    },
+    "interval_recall": {
+      "denominator": 1788,
+      "details": {
+        "matched_count": 1662,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 1833,
+        "reference_count": 1788,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 171,
+        "unmatched_reference_count": 126
+      },
+      "name": "interval_recall",
+      "numerator": 1662,
+      "unit": "ratio",
+      "value": 0.9295302013422819
+    },
+    "matched_bottom_boundary_mae_m": {
+      "denominator": 1662,
+      "details": {
+        "matched_count": 1662,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 1833,
+        "reference_count": 1788,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 171,
+        "unmatched_reference_count": 126
+      },
+      "name": "matched_bottom_boundary_mae_m",
+      "numerator": 0.0,
+      "unit": "m",
+      "value": 0.0
+    },
+    "matched_top_boundary_mae_m": {
+      "denominator": 1662,
+      "details": {
+        "matched_count": 1662,
+        "matching": "order_preserving_max_cardinality_then_min_error_v001",
+        "prediction_count": 1833,
+        "reference_count": 1788,
+        "tolerance_m": 0.05,
+        "unmatched_prediction_count": 171,
+        "unmatched_reference_count": 126
+      },
+      "name": "matched_top_boundary_mae_m",
+      "numerator": 0.0,
+      "unit": "m",
+      "value": 0.0
+    }
+  },
+  "reference_ground_truth_tier": "GOLD_PUBLISHED_MANUAL_TRANSCRIPTION",
+  "same_page_numeric_anchor_coverage": {
+    "denominator": 3666,
+    "numerator": 3099,
+    "value": 0.8453355155482815
+  },
+  "scope": "heldout evidence-grounded assurance over frozen direct-VLM proposals",
+  "semantically_owned_accepted_field_coverage": {
+    "denominator": 3666,
+    "numerator": 894,
+    "value": 0.24386252045826515
+  },
+  "silent_repair": false,
+  "top_numeric_anchor_coverage": {
+    "denominator": 1833,
+    "numerator": 1549,
+    "value": 0.84506273867976
+  }
+}
