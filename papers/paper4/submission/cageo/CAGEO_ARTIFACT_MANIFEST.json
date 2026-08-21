@@ -60,9 +60,9 @@
       "sha256": "27eee3aa602eb5321a8b66bce1b0ceadc54bb3dc79defe23692c75ab878bde52"
     },
     {
-      "bytes": 9409,
+      "bytes": 10225,
       "file": "papers/paper4/submission_bundle/Paper4_Upload_Manifest.json",
-      "sha256": "3f744384c03e4c5e5b892096667d91b7605354529946b336c200b3fabf552a0c"
+      "sha256": "fb4cb55057f43924170e7c59ae432c5f4f7cf116503364ac86b0e780452c7290"
     },
     {
       "bytes": 359534,
@@ -70,9 +70,9 @@
       "sha256": "3b3ce8472cd7f5b1af11452881ba776ff41a0224eb9b996d6e835bdc148af276"
     },
     {
-      "bytes": 59883,
+      "bytes": 59817,
       "file": "papers/paper4/submission_bundle/Paper4_Final_Manuscript.md",
-      "sha256": "372f795d41adb6795615bc3421b28c756121a7096ec040cbe8db5c0be6b376b9"
+      "sha256": "6f8eac2f796e88d6956cb815eb61b7dd8402d6fe6cc96a5ea30e5ea7ce3bd3dc"
     },
     {
       "bytes": 288380,
@@ -105,9 +105,9 @@
       "sha256": "d57998a2a79a278c71c33639d304d05a05b8829668a3a69fdec6b7d95b637bde"
     },
     {
-      "bytes": 4557,
+      "bytes": 4661,
       "file": "papers/paper4/submission_bundle/Paper4_Figure_Manifest.json",
-      "sha256": "45903cd928ecf3ecc00e976a4a6edb4e73f69f609e8f28f141427f8a7ed3d4cc"
+      "sha256": "7eca1cd70669adce6600f5d784d08b0b80583783772a91a0f968ec8ec5e49e13"
     },
     {
       "bytes": 270226,
@@ -197,7 +197,7 @@
   "resolved_release_tag_commit": null,
   "rights_status": "Yifan Du, sole and corresponding author, reviewed and screened the complete Paper 4 package and exact data-v002 selection for public dissemination. The data review covered source terms, item scope, privacy, sensitive locations, embedded content, attribution, and linkage. This item-scoped author attestation supersedes earlier provisional ledger statuses for the named release scope; it is not an independent legal opinion or blanket licence. Historical run metadata remains historical. Source-specific obligations remain.",
   "schema": "paper4_cageo_artifact_manifest_v001",
-  "source_git_commit": "451f923bee0053428edf77ee5a88343a0ec49717",
+  "source_git_commit": "38c4e714a01b18052b0461f16dfa06e4a19ec13b",
   "source_git_commit_scope": "commit checked out when this manifest was generated; a release tag created after generation is intentionally unresolved here to avoid self-reference",
   "working_tree_dirty": false
 }
