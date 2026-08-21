@@ -7,24 +7,29 @@
   "doi_type": "software",
   "files": [
     {
-      "bytes": 58727,
+      "bytes": 359534,
+      "name": "Paper4_CAGEO_LaTeX_Source_v1.0.8.zip",
+      "sha256": "3b3ce8472cd7f5b1af11452881ba776ff41a0224eb9b996d6e835bdc148af276"
+    },
+    {
+      "bytes": 59883,
       "name": "Paper4_Final_Manuscript.md",
-      "sha256": "84d8f40cd0d0c0aa29881b0fe729b8b40be10797da316550a7e699bdebb53410"
+      "sha256": "372f795d41adb6795615bc3421b28c756121a7096ec040cbe8db5c0be6b376b9"
     },
     {
-      "bytes": 287323,
+      "bytes": 288380,
       "name": "Paper4_Final_Manuscript.pdf",
-      "sha256": "21d8c8445522e4ffd8c94c825261cb01b810f1b06b6c0f32cc1bad566acf4ad4"
+      "sha256": "33ee04db72a2fc64875b956a8cdb7b56fd33ad3b2eba167afe35cf17ce770a3a"
     },
     {
-      "bytes": 18119,
+      "bytes": 20527,
       "name": "Paper4_Supplementary_Methods.md",
-      "sha256": "9ec5df28a519e5f6029c82723e43e122e61415fc6151e06252bb60c18533a877"
+      "sha256": "fdb01adacff3aaabbc2d8c1f52cca2dcc4d42a53404765aba65253e14dbfcf81"
     },
     {
-      "bytes": 3964,
+      "bytes": 4385,
       "name": "Paper4_Supplementary_Figure_Captions.md",
-      "sha256": "4a37dcaf524f5761ccc04132dd632a4168b1b0c6e2b2277f0451680701ababb9"
+      "sha256": "38e381760e794a4ee318b5963872fe801a1282a1a10f02fe8a76c305d8c93b0c"
     },
     {
       "bytes": 6165,
@@ -32,54 +37,94 @@
       "sha256": "1593a3b0c2e7f3be42bb577a9ee75ed091c12610c22e35db925956a8d7b1d274"
     },
     {
-      "bytes": 310,
+      "bytes": 311,
       "name": "Paper4_Highlights.txt",
-      "sha256": "b3e5378092b8bdb8f2dbb9344b6c3fe9946e8e62b8ddae4ebd80c2a22d410bce"
+      "sha256": "d57998a2a79a278c71c33639d304d05a05b8829668a3a69fdec6b7d95b637bde"
     },
     {
-      "bytes": 2962,
+      "bytes": 4557,
       "name": "Paper4_Figure_Manifest.json",
-      "sha256": "b876f785ecd8ac63592e00df106c3ea10df3fa290fa644be54f4980b458103fe"
+      "sha256": "45903cd928ecf3ecc00e976a4a6edb4e73f69f609e8f28f141427f8a7ed3d4cc"
     },
     {
-      "bytes": 44401,
+      "bytes": 270226,
+      "name": "Paper4_Figure_1.png",
+      "sha256": "23d4c6a7b9068735a6f19787d2e7e94a7b4e73e731a902f3d6daac780932266f"
+    },
+    {
+      "bytes": 44398,
       "name": "Paper4_Figure_1.pdf",
-      "sha256": "f7b3027acd4d03755b7dcb9a7e51bc8d5c8e7addcaac07ab27ca4d98e17f0438"
+      "sha256": "c9d289e695be28d03ae0a6a2e7ab5b9fa126f163089954daba2c2478f5c145ca"
     },
     {
-      "bytes": 44526,
+      "bytes": 261705,
+      "name": "Paper4_Figure_2.png",
+      "sha256": "df79b71538a4f40118a6a85d399fced6a452ecd66782d37e96ccfa9206e1ce34"
+    },
+    {
+      "bytes": 44523,
       "name": "Paper4_Figure_2.pdf",
-      "sha256": "7097f99aa5758f8cf602e4f6fc15e8a6914c5cf3aa9823024ea12b3457a6e193"
+      "sha256": "d73b221e982f4dbcbe79cf3969ae7a1b22677407daf684b4e94b4d9d4b15257b"
     },
     {
-      "bytes": 45185,
+      "bytes": 329182,
+      "name": "Paper4_Figure_3.png",
+      "sha256": "f182789aeeafcd12a4e31fd984e7151bc0daafd4cdb30508863799dfc9734904"
+    },
+    {
+      "bytes": 45182,
       "name": "Paper4_Figure_3.pdf",
-      "sha256": "7b4bc53ebb6c4b1ac3191e2d3c2957488de17f2582b26ccd342f525c5c434b6e"
+      "sha256": "6cd4ca8ae0f2c7309d78e5a2d9c78694fee7a6e66bbd2d7fb3e8d04ef7c4215a"
     },
     {
-      "bytes": 45031,
+      "bytes": 282853,
+      "name": "Paper4_Figure_4.png",
+      "sha256": "5e1226f0950142f740705e31087c24524d38a1ac78a866e905b20d54d6b8244f"
+    },
+    {
+      "bytes": 45028,
       "name": "Paper4_Figure_4.pdf",
-      "sha256": "f6f553a21293af4dc1e8a569d4beb086885245130f8e7e66150873c47fa4b3a2"
+      "sha256": "72bee86e132b2a7dd9c1f8ae4cb4427e28499a606a16a2c2535ef028d793fbe6"
     },
     {
-      "bytes": 22918,
+      "bytes": 153634,
+      "name": "Paper4_Graphical_Abstract.png",
+      "sha256": "f1451efcecda3b105e66a5b75bcfcd0319609726bb62a45a834a7b1321e0b2ae"
+    },
+    {
+      "bytes": 44015,
       "name": "Paper4_Graphical_Abstract.pdf",
-      "sha256": "5229a96e08511b44aa8148faadfce3c27bf03b2101acb6f02648e65cdca30671"
+      "sha256": "5d286709c39ce040e865a85c4ec864f801a7197cb8b70b87013265193a2ead35"
     },
     {
-      "bytes": 89432,
+      "bytes": 260192,
       "name": "Paper4_Supplementary_Figure_S1.png",
-      "sha256": "39c3ecdb57440992326a4e154ab5bd63d876c600f729a37e0e0520f667941d25"
+      "sha256": "8231074b680b1f6cfa30691c0028787868468c78a0ed5045a20b956f91a93857"
     },
     {
-      "bytes": 103810,
+      "bytes": 16112,
+      "name": "Paper4_Supplementary_Figure_S1.pdf",
+      "sha256": "96eed0a64bb4cc589db705ba1d4fcf913f44fda81c8e7d601e4a33adb3a3bc54"
+    },
+    {
+      "bytes": 294492,
       "name": "Paper4_Supplementary_Figure_S2.png",
-      "sha256": "15909171aa7e44239d9aa5e3c5a1316c69bbfd863810892b90a4165266a956a3"
+      "sha256": "961d7f254d31f6a57cece0284dad95828b4144ba695f9da40e209f65d14bcc49"
     },
     {
-      "bytes": 290010,
+      "bytes": 17803,
+      "name": "Paper4_Supplementary_Figure_S2.pdf",
+      "sha256": "b6e01a4d42e8cd2596306802f7c49218c594281cf32a865e4c38762ab95bd431"
+    },
+    {
+      "bytes": 821541,
       "name": "Paper4_Supplementary_Figure_S3.png",
-      "sha256": "5aa64a60fd82ed56ba6efbb20feca4c30810cef087d192cf6d0ef58e8fdac0ff"
+      "sha256": "d773371eb9a7e0299b1377dfebfd8a829a90be5b065af0d96c47a331726fdf34"
+    },
+    {
+      "bytes": 24444,
+      "name": "Paper4_Supplementary_Figure_S3.pdf",
+      "sha256": "9c473843bb2b7de90f72619297b68a2620be2e430139e1178718509aa6193196"
     }
   ],
   "generated_on": "2026-08-21",
@@ -87,6 +132,6 @@
   "release_tag": "paper4-cageo-v1.0.8",
   "repository": "https://github.com/Entropic-Silence/GeoLogParser",
   "resolved_release_tag_commit": null,
-  "scope": "Final manuscript, vector artwork, tables, and supplementary material",
-  "source_git_commit": "bb8bb6d25dc592a30f157e40858838e4393c9b64"
+  "scope": "Final manuscript, editable LaTeX source, vector artwork, tables, and supplementary material",
+  "source_git_commit": "451f923bee0053428edf77ee5a88343a0ec49717"
 }
