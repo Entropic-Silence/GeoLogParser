@@ -59,7 +59,7 @@ The contributions correspond directly to the three questions:
    and can change apparent downstream error. Reproducibility records provide
    the infrastructure for these claims rather than a fourth contribution.
 
-![Figure 1. Provenance-grounded assurance framework. Vision-language model (VLM) proposals are checked against independent positioned evidence and deterministic geometry before acceptance or review.](figures/F1_trustworthy_framework.png)
+![Figure 1. Provenance-grounded assurance framework. Vision-language model (VLM) proposals are checked against independent positioned evidence and deterministic geometry before acceptance or review.](Paper4_Figure_1.png)
 
 ## 2. Related work and positioning
 
@@ -282,7 +282,7 @@ task/interface coverage, not visual recognition failure. The bounded
 interpretation is recurring transport or usable-output risk across model
 families and interfaces, not a universal capability estimate (Supplement S4.1).
 
-![Figure 2. Modern VLM reliability across California cohorts and source shift. The familiar-source panel compares Qwen3.8-27B-FP8 with the positioned RapidOCR parser on five record-disjoint California cohorts with published manual-transcription Gold evidence. The source-shift panel reports Swissgeol, British Geological Survey (BGS), and Raft River transfer/stress outcomes with their declared evidence tiers; these values are not pooled with California Gold.](figures/F2_vlm_source_shift.png)
+![Figure 2. Modern VLM reliability across California cohorts and source shift. The familiar-source panel compares Qwen3.8-27B-FP8 with the positioned RapidOCR parser on five record-disjoint California cohorts with published manual-transcription Gold evidence. The source-shift panel reports Swissgeol, British Geological Survey (BGS), and Raft River transfer/stress outcomes with their declared evidence tiers; these values are not pooled with California Gold.](Paper4_Figure_2.png)
 
 **Table 3.** Boundary-pair interval F1 across cohorts, readers, and source-shift panels. These are the results shown in Figure 2; evidence tiers are declared separately and are not pooled.
 
@@ -312,7 +312,7 @@ The assurance experiment keeps the Qwen proposals unchanged and adds an independ
 
 The selective result is intentionally not reported as whole-document accuracy. Partial proposal acceptance cannot establish complete-record correctness, and non-accepted proposals remain in the review queue. Complete-document auto-acceptance is only 4/100 documents (4%) on held-out v003, even though interval-level accepted coverage is 24.4%. That gap is not a weakness hidden by the metric; it is the conservative deployment boundary. The method's benefit is a reliable subset with explicit provenance, not an assertion that the unaccepted 75.6% are correct. This distinction is operationally important when a database ingestion job must state which rows were automatically accepted and which require review.
 
-![Figure 3. Selective assurance operating point. Precision, proposal coverage, complete-document automation, and held-out v003 evidence are shown together. Endpoint-field anchors are 3,099/3,666, both-endpoint interval anchors are 1,450/1,833, and semantically owned accepted intervals are 447/1,833; endpoint-field coverage and interval-level coverage use different denominators. The raw point is an unselective proposal baseline, not another selective cohort operating point.](figures/F3_assurance_frontier.png)
+![Figure 3. Selective assurance operating point. Precision, proposal coverage, complete-document automation, and held-out v003 evidence are shown together. Endpoint-field anchors are 3,099/3,666, both-endpoint interval anchors are 1,450/1,833, and semantically owned accepted intervals are 447/1,833; endpoint-field coverage and interval-level coverage use different denominators. The raw point is an unselective proposal baseline, not another selective cohort operating point.](Paper4_Figure_3.png)
 
 **Table 4.** Independent evidence and selective assurance. Raw proposal precision, endpoint-field anchor coverage, both-endpoint interval coverage, and accepted coverage use distinct quantities and denominators.
 
@@ -344,7 +344,7 @@ The matched-subset estimand removes this selection difference. On the identical 
 
 The controlled perturbation mechanism study is retained in Supplementary Methods S7 because its channels are synthetic rather than observed readers. It is used only to illustrate why a deployed risk policy should track both value confidence and the support cost of abstention. Supplementary Figure S3 shows the within-class responses.
 
-![Figure 4. Full-support and matched-support downstream consequences. Solid bars use observations available to each extraction policy; hatched bars use one identical 15-document accepted subset. These are distinct estimands, not a direct value-correction comparison. NN denotes nearest-neighbour distance; grid distance denotes grid-to-nearest-observation distance.](figures/F4_spatial_support_consequence.png)
+![Figure 4. Full-support and matched-support downstream consequences. Solid bars use observations available to each extraction policy; hatched bars use one identical 15-document accepted subset. These are distinct estimands, not a direct value-correction comparison. NN denotes nearest-neighbour distance; grid distance denotes grid-to-nearest-observation distance.](Paper4_Figure_4.png)
 
 **Table 5.** Risk, coverage, and downstream support diagnostics.
 

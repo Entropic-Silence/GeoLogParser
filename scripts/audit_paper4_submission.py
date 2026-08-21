@@ -71,6 +71,19 @@ ARCHIVE_CITATION_KEYS = {
     ),
     "du2026datav002": "GeoLogParser Public Data Companion v002",
 }
+BUNDLE_FIGURE_LINKS = {
+    f"figures/F{number}_{suffix}.png": f"Paper4_Figure_{number}.png"
+    for number, suffix in {
+        1: "trustworthy_framework",
+        2: "vlm_source_shift",
+        3: "assurance_frontier",
+        4: "spatial_support_consequence",
+    }.items()
+}
+BUNDLE_MANUSCRIPT_TRANSFORMATION = {
+    "type": "markdown_figure_link_rewrite",
+    "replacements": BUNDLE_FIGURE_LINKS,
+}
 
 
 def count_words(text: str) -> int:
@@ -115,6 +128,26 @@ def sha256(path: Path) -> str:
 def normalized_text_bytes(path: Path) -> bytes:
     text = path.read_text(encoding="utf-8")
     return text.replace("\r\n", "\n").replace("\r", "\n").encode("utf-8")
+
+
+def expected_upload_bytes(
+    source: Path, destination: Path, entry: dict[str, object], errors: list[str]
+) -> bytes:
+    if destination.suffix.lower() not in {".md", ".txt", ".json"}:
+        if entry.get("transformation") is not None:
+            errors.append(f"binary upload artifact declares a transformation: {entry['file']}")
+        return source.read_bytes()
+    data = normalized_text_bytes(source)
+    transformation = entry.get("transformation")
+    if transformation is None:
+        return data
+    if transformation != BUNDLE_MANUSCRIPT_TRANSFORMATION:
+        errors.append(f"upload artifact declares an unknown transformation: {entry['file']}")
+        return data
+    text = data.decode("utf-8")
+    for source_path, bundle_path in BUNDLE_FIGURE_LINKS.items():
+        text = text.replace(f"]({source_path})", f"]({bundle_path})")
+    return text.encode("utf-8")
 
 
 def audit_canonical_font_sources(errors: list[str]) -> None:
@@ -162,11 +195,7 @@ def audit_upload_bundle(errors: list[str]) -> None:
             if not source.is_file():
                 errors.append(f"upload bundle source missing: {entry['source']}")
                 continue
-            expected = (
-                normalized_text_bytes(source)
-                if destination.suffix.lower() in {".md", ".txt", ".json"}
-                else source.read_bytes()
-            )
+            expected = expected_upload_bytes(source, destination, entry, errors)
             if destination.read_bytes() != expected:
                 errors.append(f"upload artifact differs from canonical source: {entry['file']}")
         elif entry.get("file") == "Paper4_CAGEO_LaTeX_Source_v1.0.8.zip":
@@ -254,6 +283,8 @@ def audit_artwork_pairs(errors: list[str]) -> None:
                 "RGB", (pixmap.width, pixmap.height), pixmap.samples
             )
             with Image.open(png_path) as supplied:
+                if supplied.mode != "RGB":
+                    errors.append(f"PNG artwork is not RGB: {png_name}")
                 supplied_rgb = supplied.convert("RGB")
                 if supplied_rgb.size != rendered.size:
                     errors.append(

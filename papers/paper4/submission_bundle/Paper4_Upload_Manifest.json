@@ -93,18 +93,27 @@
       "source": "papers/paper4/figures/F4_spatial_support_consequence.png"
     },
     {
-      "bytes": 4557,
+      "bytes": 4661,
       "file": "Paper4_Figure_Manifest.json",
       "role": "figure manifest",
-      "sha256": "45903cd928ecf3ecc00e976a4a6edb4e73f69f609e8f28f141427f8a7ed3d4cc",
+      "sha256": "7eca1cd70669adce6600f5d784d08b0b80583783772a91a0f968ec8ec5e49e13",
       "source": "papers/paper4/figure_manifest.json"
     },
     {
-      "bytes": 59883,
+      "bytes": 59817,
       "file": "Paper4_Final_Manuscript.md",
       "role": "final manuscript",
-      "sha256": "372f795d41adb6795615bc3421b28c756121a7096ec040cbe8db5c0be6b376b9",
-      "source": "papers/paper4/submission/cageo/manuscript_final.md"
+      "sha256": "6f8eac2f796e88d6956cb815eb61b7dd8402d6fe6cc96a5ea30e5ea7ce3bd3dc",
+      "source": "papers/paper4/submission/cageo/manuscript_final.md",
+      "transformation": {
+        "replacements": {
+          "figures/F1_trustworthy_framework.png": "Paper4_Figure_1.png",
+          "figures/F2_vlm_source_shift.png": "Paper4_Figure_2.png",
+          "figures/F3_assurance_frontier.png": "Paper4_Figure_3.png",
+          "figures/F4_spatial_support_consequence.png": "Paper4_Figure_4.png"
+        },
+        "type": "markdown_figure_link_rewrite"
+      }
     },
     {
       "bytes": 288380,
@@ -135,11 +144,20 @@
       "source": "papers/paper4/submission/cageo/highlights.txt"
     },
     {
-      "bytes": 47101,
+      "bytes": 47035,
       "file": "Paper4_Main_Manuscript.md",
       "role": "main manuscript",
-      "sha256": "b664f83a25f83aed61be4d809f143f45207709d8b190c7f7f96b714837244bb7",
-      "source": "papers/paper4/manuscript.md"
+      "sha256": "afecc5da750eef6b3a40e6f09704888f76935383aabbe8c9e2290d24822b779f",
+      "source": "papers/paper4/manuscript.md",
+      "transformation": {
+        "replacements": {
+          "figures/F1_trustworthy_framework.png": "Paper4_Figure_1.png",
+          "figures/F2_vlm_source_shift.png": "Paper4_Figure_2.png",
+          "figures/F3_assurance_frontier.png": "Paper4_Figure_3.png",
+          "figures/F4_spatial_support_consequence.png": "Paper4_Figure_4.png"
+        },
+        "type": "markdown_figure_link_rewrite"
+      }
     },
     {
       "bytes": 6165,

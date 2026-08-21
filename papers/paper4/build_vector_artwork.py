@@ -147,6 +147,42 @@ def finish(c: canvas.Canvas) -> None:
     c.save()
 
 
+def save_canonical_raster(image: Image.Image, path: Path, dpi: int) -> bool:
+    """Write a PNG only when its audited pixel raster or DPI has changed."""
+
+    rgb_image = image if image.mode == "RGB" else image.convert("RGB")
+    if path.is_file():
+        try:
+            with Image.open(path) as existing:
+                existing_dpi = existing.info.get("dpi")
+                existing_rgb = existing.convert("RGB")
+                dpi_matches = (
+                    existing_dpi is not None
+                    and len(existing_dpi) >= 2
+                    and all(
+                        abs(float(value) - dpi) < 0.01
+                        for value in existing_dpi[:2]
+                    )
+                )
+                if (
+                    dpi_matches
+                    and existing.mode == "RGB"
+                    and existing_rgb.size == rgb_image.size
+                    and existing_rgb.tobytes() == rgb_image.tobytes()
+                ):
+                    return False
+        except (OSError, TypeError, ValueError):
+            pass
+    rgb_image.save(
+        path,
+        format="PNG",
+        dpi=(dpi, dpi),
+        optimize=False,
+        compress_level=9,
+    )
+    return True
+
+
 def node(c: canvas.Canvas, x: float, y: float, w: float, h: float, title: str,
          body: str, fill: str) -> None:
     box(c, x, y, w, h, fill)
@@ -388,13 +424,7 @@ def render_publication_rasters() -> None:
                 alpha=False,
             )
         image = Image.frombytes("RGB", (pixmap.width, pixmap.height), pixmap.samples)
-        image.save(
-            png_path,
-            format="PNG",
-            dpi=(RASTER_DPI, RASTER_DPI),
-            optimize=False,
-            compress_level=9,
-        )
+        save_canonical_raster(image, png_path, RASTER_DPI)
 
     # Keep the historical descriptive PDF alias in lockstep with the source
     # PDF.  F2--F4 aliases are ignored build products; F1 is tracked for

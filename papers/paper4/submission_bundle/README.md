@@ -10,6 +10,8 @@ Supplementary Tables S1–S4; the detailed supplementary methods are in
 The final manuscript pair is `Paper4_Final_Manuscript.md` and
 `Paper4_Final_Manuscript.pdf`; the Markdown and PDF carry the same audited
 scientific content, declarations, metrics, limitations, and references. The
+two bundled manuscript Markdown files link to the flat `Paper4_Figure_*.png`
+assets in this directory, so their figure previews resolve offline. The
 editable main-manuscript upload is
 `Paper4_CAGEO_LaTeX_Source_v1.0.8.zip`; it contains the final TeX, BibTeX,
 C&G class/style files, four canonical vector figures, and an internal source

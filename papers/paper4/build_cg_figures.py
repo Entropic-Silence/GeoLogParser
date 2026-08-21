@@ -24,6 +24,11 @@ from matplotlib import font_manager
 from matplotlib.patches import FancyArrowPatch, FancyBboxPatch
 from PIL import Image
 
+try:
+    from build_vector_artwork import save_canonical_raster
+except ImportError:  # pragma: no cover - package import path for callers
+    from papers.paper4.build_vector_artwork import save_canonical_raster  # type: ignore
+
 CANONICAL_FONT_DIR = Path(__file__).resolve().parent / "fonts"
 CANONICAL_FONT_SHA256 = {
     "DejaVuSans.ttf": "7da195a74c55bef988d0d48f9508bd5d849425c1770dba5d7bfc6ce9ed848954",
@@ -129,13 +134,7 @@ def render_pdf_to_png(pdf_path: Path, png_path: Path, dpi: int) -> None:
             alpha=False,
         )
     image = Image.frombytes("RGB", (pixmap.width, pixmap.height), pixmap.samples)
-    image.save(
-        png_path,
-        format="PNG",
-        dpi=(dpi, dpi),
-        optimize=False,
-        compress_level=9,
-    )
+    save_canonical_raster(image, png_path, dpi)
 
 
 def build_supplementary_artwork() -> None:
@@ -465,7 +464,11 @@ def main() -> None:
             "source_format": "single-page PDF",
             "raster_renderer": "PyMuPDF",
             "raster_dpi": RASTER_DPI,
-            "policy": "PNG files are lossless RGB derivatives of the exact PDF pages used by manuscript.tex.",
+            "policy": (
+                "PNG files are lossless RGB derivatives of the exact PDF pages used by "
+                "manuscript.tex; an existing canonical PNG encoding is preserved when "
+                "its pixels and DPI already match the rendered PDF."
+            ),
             "embedded_font_sources": {
                 (FONT_DIR / name).relative_to(ROOT).as_posix(): expected_sha256
                 for name, expected_sha256 in FONT_FILES.items()

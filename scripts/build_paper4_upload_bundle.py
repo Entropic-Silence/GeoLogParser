@@ -87,6 +87,20 @@ ZIP_DATE_TIME = (*RELEASE_DATE_PARTS, 0, 0, 0)
 SOURCE_DATE_EPOCH = int(
     datetime(*RELEASE_DATE_PARTS, tzinfo=timezone.utc).timestamp()
 )
+BUNDLE_FIGURE_LINKS = {
+    f"figures/F{number}_{suffix}.png": f"Paper4_Figure_{number}.png"
+    for number, suffix in {
+        1: "trustworthy_framework",
+        2: "vlm_source_shift",
+        3: "assurance_frontier",
+        4: "spatial_support_consequence",
+    }.items()
+}
+BUNDLE_MANUSCRIPT_TRANSFORMATION = {
+    "type": "markdown_figure_link_rewrite",
+    "replacements": BUNDLE_FIGURE_LINKS,
+}
+
 
 def sha256_bytes(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
@@ -101,6 +115,15 @@ def normalized_text_bytes(path: Path) -> bytes:
 
 def copy_text(source: Path, destination: Path) -> bytes:
     data = normalized_text_bytes(source)
+    destination.write_bytes(data)
+    return data
+
+
+def copy_bundle_manuscript(source: Path, destination: Path) -> bytes:
+    text = normalized_text_bytes(source).decode("utf-8")
+    for source_path, bundle_path in BUNDLE_FIGURE_LINKS.items():
+        text = text.replace(f"]({source_path})", f"]({bundle_path})")
+    data = text.encode("utf-8")
     destination.write_bytes(data)
     return data
 
@@ -182,14 +205,20 @@ def main() -> None:
 
     for name, source in TEXT_FILES.items():
         destination = OUT / name
-        data = copy_text(source, destination)
         if name == "Paper4_Main_Manuscript.md":
+            data = copy_bundle_manuscript(source, destination)
             role = "main manuscript"
-        elif name == "Paper4_Highlights.txt":
-            role = "submission highlights"
         else:
-            role = "supplementary/reproducibility document"
-        entries.append(entry(name, source, data, role))
+            data = copy_text(source, destination)
+            role = (
+                "submission highlights"
+                if name == "Paper4_Highlights.txt"
+                else "supplementary/reproducibility document"
+            )
+        upload_entry = entry(name, source, data, role)
+        if name == "Paper4_Main_Manuscript.md":
+            upload_entry["transformation"] = BUNDLE_MANUSCRIPT_TRANSFORMATION
+        entries.append(upload_entry)
 
     for name, source in FIGURE_FILES.items():
         destination = OUT / name
@@ -209,8 +238,15 @@ def main() -> None:
 
     for name, source in FINAL_FILES.items():
         destination = OUT / name
-        data = copy_text(source, destination) if source.suffix.lower() == ".md" else copy_binary(source, destination)
-        entries.append(entry(name, source, data, "final manuscript"))
+        data = (
+            copy_bundle_manuscript(source, destination)
+            if source.suffix.lower() == ".md"
+            else copy_binary(source, destination)
+        )
+        upload_entry = entry(name, source, data, "final manuscript")
+        if source.suffix.lower() == ".md":
+            upload_entry["transformation"] = BUNDLE_MANUSCRIPT_TRANSFORMATION
+        entries.append(upload_entry)
 
     latex_destination = OUT / LATEX_SOURCE_ARCHIVE
     latex_data, latex_sources = build_latex_source_archive(latex_destination)
@@ -267,6 +303,8 @@ Supplementary Tables S1–S4; the detailed supplementary methods are in
 The final manuscript pair is `Paper4_Final_Manuscript.md` and
 `Paper4_Final_Manuscript.pdf`; the Markdown and PDF carry the same audited
 scientific content, declarations, metrics, limitations, and references. The
+two bundled manuscript Markdown files link to the flat `Paper4_Figure_*.png`
+assets in this directory, so their figure previews resolve offline. The
 editable main-manuscript upload is
 `Paper4_CAGEO_LaTeX_Source_v1.0.8.zip`; it contains the final TeX, BibTeX,
 C&G class/style files, four canonical vector figures, and an internal source
