@@ -67,10 +67,10 @@ def main() -> None:
         "--publication-core",
         "--skip-figures",
     )
-    run("rebuild manuscript review packages", "scripts/build_paper_packages.py")
     run("verify headline claims", "papers/paper4/verify_claims.py")
     run("verify claim-to-evidence map", "papers/paper4/audit_claim_evidence.py")
     run("run C&G submission gate", "scripts/audit_paper4_submission.py")
+    run("rebuild manuscript review packages", "scripts/build_paper_packages.py")
     run(
         "verify frozen C&G artifact hashes and release metadata",
         "scripts/build_cageo_artifact_manifest.py",

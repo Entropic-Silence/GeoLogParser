@@ -51,8 +51,10 @@ The workflow performs, in order:
    reanalysis inputs.
 5. Regenerates publication-facing tables and the manuscript metric audit from
    the publication evidence core.
-6. Rebuilds `papers/package_manifest.json`.
-7. Runs the Paper 4 claim, evidence-tier, submission, and UTF-8/LF audits and
+6. Runs the Paper 4 claim, evidence-tier, and submission audits.
+7. Rebuilds `papers/package_manifest.json` after the submission gate so the
+   repository-level status captures the newly audited state.
+8. Runs the UTF-8/LF audit and
    verifies the frozen release artifact manifests without rewriting their Git
    provenance.
 
