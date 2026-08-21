@@ -42,17 +42,17 @@
     {
       "bytes": 19503,
       "file": "papers/paper4/submission/cageo/CAGEO_REQUIREMENTS.md",
-      "sha256": "89bb1908e98a2859b0f81122a2a416c37ac920bb4349b2f53f5b5848d9c37d9d"
+      "sha256": "17efa1fda19f42198e5ca5f35e4d86b79995c59c613e6b5cf296138ec9444203"
     },
     {
       "bytes": 6676,
       "file": "papers/paper4/submission/cageo/FOCUS_AND_REVIEW_AUDIT.md",
-      "sha256": "5318d349d8b6947cb1978d095ce744fb9813643ef640397a837667f7db59162a"
+      "sha256": "ed2865f79c297dc94dee76b59939ad8fe327dd85b35b54023640a782ffd80f3c"
     },
     {
       "bytes": 4622,
       "file": "papers/paper4/submission/cageo/REVIEW_VERSION_NOTES.md",
-      "sha256": "8027ff26a3ff9200daa5084e4d2d8a7476033372bbd7f6ce904e97334706b7f1"
+      "sha256": "45057765f1704c8fef1c1956fe4d03a284cbab41e4f5bcc283d1a2322591e413"
     },
     {
       "bytes": 2941,
@@ -197,7 +197,7 @@
   "resolved_release_tag_commit": null,
   "rights_status": "Yifan Du, sole and corresponding author, reviewed and screened the complete Paper 4 package and exact data-v002 selection for public dissemination. The data review covered source terms, item scope, privacy, sensitive locations, embedded content, attribution, and linkage. This item-scoped author attestation supersedes earlier provisional ledger statuses for the named release scope; it is not an independent legal opinion or blanket licence. Historical run metadata remains historical. Source-specific obligations remain.",
   "schema": "paper4_cageo_artifact_manifest_v001",
-  "source_git_commit": "9e18eb7c0988c1dcbd8b6d1e577d6c2e39487112",
+  "source_git_commit": "9bde6ee253aed8979e43da53e73c46666825e51f",
   "source_git_commit_scope": "commit checked out when this manifest was generated; a release tag created after generation is intentionally unresolved here to avoid self-reference",
   "working_tree_dirty": false
 }
