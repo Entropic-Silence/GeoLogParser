@@ -2,29 +2,29 @@
   "article_doi": null,
   "data_doi": "10.5281/zenodo.22031703",
   "data_release_tag": "data-v002",
-  "doi": "10.5281/zenodo.22030229",
-  "doi_status": "published software archive paper4-cageo-v1.0.6; not a journal-article DOI",
+  "doi": "10.5281/zenodo.22043933",
+  "doi_status": "published software archive paper4-cageo-v1.0.9; not a journal-article DOI",
   "doi_type": "software",
   "files": [
     {
       "bytes": 359534,
-      "name": "Paper4_CAGEO_LaTeX_Source_v1.0.8.zip",
-      "sha256": "3b3ce8472cd7f5b1af11452881ba776ff41a0224eb9b996d6e835bdc148af276"
+      "name": "Paper4_CAGEO_LaTeX_Source_v1.0.9.zip",
+      "sha256": "25f45cf15a680b52bfa4eee45a214f3503c42461d2c813cbd117cbcd75f71963"
     },
     {
       "bytes": 59817,
       "name": "Paper4_Final_Manuscript.md",
-      "sha256": "6f8eac2f796e88d6956cb815eb61b7dd8402d6fe6cc96a5ea30e5ea7ce3bd3dc"
+      "sha256": "56723d73d0f8ffbaea78de31bc97a0717e5d8ea0d08b36ba0c049327058f391e"
     },
     {
-      "bytes": 288380,
+      "bytes": 288376,
       "name": "Paper4_Final_Manuscript.pdf",
-      "sha256": "33ee04db72a2fc64875b956a8cdb7b56fd33ad3b2eba167afe35cf17ce770a3a"
+      "sha256": "953e1bae45d7bba377346d50a7dfe85bb9a60c0fc95103f66c97c66ea118be5d"
     },
     {
       "bytes": 20527,
       "name": "Paper4_Supplementary_Methods.md",
-      "sha256": "fdb01adacff3aaabbc2d8c1f52cca2dcc4d42a53404765aba65253e14dbfcf81"
+      "sha256": "31d2d2d744c6cc766a1009cf91a45e99b11dfd521be9583c77cb4fb2c09783e2"
     },
     {
       "bytes": 4385,
@@ -129,9 +129,9 @@
   ],
   "generated_on": "2026-08-21",
   "manifest_version": "paper4_final_delivery_v002",
-  "release_tag": "paper4-cageo-v1.0.8",
+  "release_tag": "paper4-cageo-v1.0.9",
   "repository": "https://github.com/Entropic-Silence/GeoLogParser",
   "resolved_release_tag_commit": null,
   "scope": "Final manuscript, editable LaTeX source, vector artwork, tables, and supplementary material",
-  "source_git_commit": "9bde6ee253aed8979e43da53e73c46666825e51f"
+  "source_git_commit": "0763b2f737e95f9ce783f773ca4bf4d4d3efa1a4"
 }
