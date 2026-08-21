@@ -27,6 +27,10 @@ BUNDLE_DIRECTORY = "dataset_bundle_v002"
 RELEASE_TAG = "data-v002"
 RELEASE_DATE = "2026-08-20"
 RELEASE_RIGHTS_STATUS = "AUTHOR_VERIFIED_FOR_PUBLIC_RELEASE_2026-08-20"
+PAPER4_RELEASE_METADATA = json.loads(
+    (ROOT / "papers" / "paper4" / "release_metadata.json").read_text(encoding="utf-8")
+)
+PAPER4_PACKAGE_TAG = PAPER4_RELEASE_METADATA["release_tag"]
 ABSOLUTE_PREFIXES = ("/data/GeoLogParser/", "/root/GeoLogParser/")
 TEXT_SUFFIXES = {".json", ".jsonl", ".yaml", ".yml", ".md", ".txt", ".csv"}
 
@@ -196,6 +200,11 @@ def build_manifest(stage: Path, normalization: dict[str, int]) -> dict[str, Any]
         "project": "GeoLogParser",
         "release_role": "data companion; not the complete Paper 4 reproducibility package",
         "paper4_package_tag": "paper4-cageo-v1.0.1",
+        "paper4_current_package_tag": PAPER4_PACKAGE_TAG,
+        "paper4_package_relationship": (
+            "data-v002 was originally paired with paper4-cageo-v1.0.1 and is reused "
+            "unchanged by later Paper 4 releases"
+        ),
         "archive_layout": "repository-relative paths; extract at repository root",
         "publication_status": "author_verified_public_release",
         "author_rights_review": {

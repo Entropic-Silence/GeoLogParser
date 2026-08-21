@@ -9,7 +9,7 @@ The internal review PDF has a visible `DRAFT FOR INTERNAL ACADEMIC REVIEW --
 NOT FOR SUBMISSION` banner, review footer, and adviser-question page. The
 final PDF removes all three and also removes the CAS default `Preprint
 submitted to Elsevier` footer. It retains single-column layout, double
-spacing, continuous line numbers, page numbers, editable tables, author-year
+spacing, page numbers, editable tables, author-year
 references, declarations, and vector figure links.
 
 Build command:
@@ -25,7 +25,7 @@ toolchain; `PANDOC` and `TECTONIC` may override those paths.
 ## Final QA
 
 - `manuscript_review_v2.pdf`: 21 pages; the current `manuscript_final.pdf` is
-  22 pages after the v1.0.3 rebuild. Page count is recorded from the emitted
+  22 pages after the v1.0.8 rebuild. Page count is recorded from the emitted
   PDF rather than copied from an earlier review note.
 - Both PDFs render with no clipped figures, missing glyph blocks, undefined
   citations/references, duplicate PDF destinations, or table overfull boxes.
@@ -39,10 +39,10 @@ toolchain; `PANDOC` and `TECTONIC` may override those paths.
   0.244 coverage, 444/447, 4/100 complete-document automation, matched-
   support reversal, contamination, partially reconstructable runtime, and
   diagnostic-only IDW.
-- The canonical source estimate is 5,474 main-text words (5,859 including
+- The canonical source estimate is 5,443 main-text words (5,828 including
   inline Markdown table text; captions and references excluded by the
-  estimate). The separate submission gate reports a broader 6,030-token
-  whitespace count for portal cross-checking.
+  estimate). The separate submission gate reports a broader 5,976-word
+  whitespace count against the 6,050 working limit.
 - Bibliography contains 31 cited entries, corrected `Amini, A.` metadata, full
   Borkovich author list, protected acronym capitalization, and no `et al.` in
   the rendered reference list.
@@ -70,12 +70,16 @@ release manifests remain the authoritative checksums for the published assets.
 The legacy CAS class emits one 117 pt overfull title-box warning at
 `\maketitle`; it is an invisible internal box, not clipped page content. The
 visible title page and all body/table boxes were inspected after rendering.
-The template's `lineno.sty` invalid-UTF-8 warning is external to the manuscript
-source and does not affect output glyphs.
+The review and final builds load `lineno.sty` and retain line numbering for the
+editable C&G source. The final hash is emitted as an unbreakable box, so a line
+number cannot be inserted between hexadecimal characters; the PDF regression
+test extracts the complete 64-character value.
 
 ## External author actions
 
-A permanent Zenodo/DataCite DOI and data citation remain to be created from the
-annotated release tag. Rights/linkage review is complete and recorded in
-`RIGHTS_LINKAGE_SIGNOFF.md`. Editorial Manager still requires its own upload,
-declarations-tool, word-count, and artwork-preview steps.
+The published data DOI and historical software DOI are recorded with their
+actual resource types. The C&G article DOI is assigned by the publisher; an
+optional Zenodo v1.0.8 software record must be created as a new version.
+Rights/linkage review is complete and recorded in `RIGHTS_LINKAGE_SIGNOFF.md`.
+Editorial Manager still requires its own upload, declarations-tool, word-count,
+and artwork-preview steps.

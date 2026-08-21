@@ -4,14 +4,17 @@ This GitHub Release asset is the portable data companion for GeoLogParser
 Paper 4. It contains the selected source and structured data used by the
 reported experiments. The complete manuscript, code, evidence projections,
 claim audits, figures, and submission bundle are fixed separately by the
-`paper4-cageo-v1.0.1` tag.
+corrected `paper4-cageo-v1.0.8` tag/release. This data archive was
+originally paired with an earlier Paper 4 package and is reused unchanged by
+v1.0.8.
 
 `data-v001` is retained only as a historical prerelease. It is superseded by
 `data-v002` and should not receive a DOI.
 
 ## Download, verify, and extract
 
-From a checkout of `paper4-cageo-v1.0.1`:
+From a checkout of `paper4-cageo-v1.0.8` (the archive itself remains the
+published, immutable `data-v002` record):
 
 ```bash
 gh release download data-v002 --repo Entropic-Silence/GeoLogParser \
@@ -54,7 +57,10 @@ annotation, and no evidence tier changes because of public release.
 
 ## Citation and relationship to Paper 4
 
-Use `CITATION.cff` for this data companion. Until the author registers an
-archive DOI, cite the `data-v002` GitHub Release URL and version. Cite
-`paper4-cageo-v1.0.1` separately when referring to the article's full
-reproducibility package.
+Use `CITATION.cff` for this data companion. Its published archive DOI is
+`https://doi.org/10.5281/zenodo.22031703`. Cite the corrected
+`paper4-cageo-v1.0.8` GitHub tag/release separately for the full
+result-reproduction package. The data manifest retains its historical pairing
+tag; this does not change the data contents. The published software DOI
+`https://doi.org/10.5281/zenodo.22030229` identifies v1.0.6 software, not a
+journal article.

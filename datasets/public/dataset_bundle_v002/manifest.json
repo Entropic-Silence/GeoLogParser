@@ -9881,7 +9881,9 @@
       "source_path": "synthetic_borehole_logs_v002"
     }
   ],
+  "paper4_current_package_tag": "paper4-cageo-v1.0.8",
   "paper4_package_tag": "paper4-cageo-v1.0.1",
+  "paper4_package_relationship": "data-v002 was originally paired with paper4-cageo-v1.0.1 and is reused unchanged by later Paper 4 releases",
   "path_normalization": {
     "checksum_reference_rewrites": 5,
     "normalized_files": 536

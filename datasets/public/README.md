@@ -22,5 +22,10 @@ attribution, and linkage. The source-specific obligations remain in
 `dataset_bundle_v002/DATA_LICENSES.md`; the sign-off does not create a blanket
 licence for other repository sources. Evidence tiers are unchanged by release.
 
-The complete Paper 4 manuscript/code/evidence package is separately identified
-by `paper4-cageo-v1.0.1`.
+The corrected Paper 4 manuscript/code/evidence package is separately identified
+by the `paper4-cageo-v1.0.8` tag/release. The published data-v002
+archive was originally paired with the earlier Paper 4 package and is reused
+unchanged here; its manifest preserves that historical relationship. The
+published Zenodo
+software DOI `10.5281/zenodo.22030229` identifies v1.0.6 software, not a
+journal article; the published data-v002 DOI is `10.5281/zenodo.22031703`.

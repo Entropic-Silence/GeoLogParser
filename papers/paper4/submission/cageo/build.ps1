@@ -14,6 +14,15 @@ $pandoc = if ($env:PANDOC) { $env:PANDOC } else { Join-Path $toolRoot 'pandoc-3.
 $tectonic = if ($env:TECTONIC) { $env:TECTONIC } else { Join-Path $toolRoot 'tectonic-0.17.0\bin\tectonic.exe' }
 $python = if ($env:PYTHON) { $env:PYTHON } else { 'python' }
 
+# Tectonic otherwise embeds the wall-clock time in the PDF metadata.  Use the
+# release date as the default reproducibility epoch while allowing a caller to
+# provide an explicit SOURCE_DATE_EPOCH for an archival rebuild.
+if (-not $env:SOURCE_DATE_EPOCH) {
+    $releaseMetadata = Get-Content -Raw (Join-Path $paperRoot 'release_metadata.json') | ConvertFrom-Json
+    $releaseEpoch = [DateTimeOffset]::Parse("$($releaseMetadata.release_date)T00:00:00Z").ToUnixTimeSeconds()
+    $env:SOURCE_DATE_EPOCH = [string]$releaseEpoch
+}
+
 foreach ($program in @($pandoc, $tectonic)) {
     if (-not (Test-Path -LiteralPath $program)) {
         throw "Required build tool not found: $program. Set PANDOC or TECTONIC to override."

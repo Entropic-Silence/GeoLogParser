@@ -15,10 +15,16 @@ PAPER = ROOT / "papers" / "paper4"
 CAGEO = PAPER / "submission" / "cageo"
 OUT = CAGEO / "CAGEO_ARTIFACT_MANIFEST.json"
 DELIVERY_OUT = PAPER / "submission_bundle" / "Paper4_Final_Delivery_SHA256.json"
-RELEASE_TAG = os.environ.get("PAPER4_RELEASE_TAG", "paper4-cageo-v1.0.7")
 DATA_RELEASE_TAG = "data-v002"
-ARTICLE_DOI = os.environ.get("PAPER4_DOI", "10.5281/zenodo.22030229")
-DATA_DOI = os.environ.get("PAPER4_DATA_DOI", "10.5281/zenodo.22031703")
+RELEASE_METADATA = json.loads(
+    (PAPER / "release_metadata.json").read_text(encoding="utf-8")
+)
+RELEASE_TAG = os.environ.get("PAPER4_RELEASE_TAG", RELEASE_METADATA["release_tag"])
+SOFTWARE_ARCHIVE = RELEASE_METADATA["software_archive"]
+SOFTWARE_DOI = os.environ.get("PAPER4_DOI", SOFTWARE_ARCHIVE["doi"])
+DATA_ARCHIVE = RELEASE_METADATA["data_archive"]
+DATA_DOI = os.environ.get("PAPER4_DATA_DOI", DATA_ARCHIVE["doi"])
+RELEASE_DATE = RELEASE_METADATA["release_date"]
 
 
 FILES = [
@@ -125,7 +131,7 @@ def main() -> None:
     git_metadata = manifest_git_metadata()
     payload = {
         "schema": "paper4_cageo_artifact_manifest_v001",
-        "generated_on": "2026-08-20",
+        "generated_on": RELEASE_DATE,
         **git_metadata,
         "release_tag": RELEASE_TAG,
         "data_release_tag": DATA_RELEASE_TAG,
@@ -138,16 +144,22 @@ def main() -> None:
             "email": "duyifan619916@gmail.com",
             "corresponding_author": True,
         },
-        "doi": ARTICLE_DOI,
+        "doi": SOFTWARE_DOI,
+        "doi_type": "software",
+        "article_doi": None,
         "data_doi": DATA_DOI,
-        "doi_status": "reserved Zenodo DOI; publish the records to register",
+        "doi_status": (
+            f"published software archive {SOFTWARE_ARCHIVE['version']}; "
+            "not a journal-article DOI"
+        ),
         "rights_status": (
             "Yifan Du, sole and corresponding author, reviewed and screened the complete "
             "Paper 4 package and exact data-v002 selection for public dissemination. The "
             "data review covered source terms, item scope, privacy, sensitive locations, "
-            "embedded content, attribution, and linkage. This sign-off supersedes earlier "
-            "provisional ledger statuses for the named release scope; historical run "
-            "metadata remains historical. Source-specific obligations remain."
+            "embedded content, attribution, and linkage. This item-scoped author attestation "
+            "supersedes earlier provisional ledger statuses for the named release scope; it "
+            "is not an independent legal opinion or blanket licence. Historical run metadata "
+            "remains historical. Source-specific obligations remain."
         ),
         "files": [
             {
@@ -170,16 +182,21 @@ def main() -> None:
     ]
     delivery = {
         "manifest_version": "paper4_final_delivery_v002",
-        "generated_on": "2026-08-20",
+        "generated_on": RELEASE_DATE,
         "scope": "Final manuscript, vector artwork, tables, and supplementary material",
         "repository": "https://github.com/Entropic-Silence/GeoLogParser",
         "release_tag": RELEASE_TAG,
         "data_release_tag": DATA_RELEASE_TAG,
         "source_git_commit": git_metadata["source_git_commit"],
         "resolved_release_tag_commit": git_metadata["resolved_release_tag_commit"],
-        "doi": ARTICLE_DOI,
+        "doi": SOFTWARE_DOI,
+        "doi_type": "software",
+        "article_doi": None,
         "data_doi": DATA_DOI,
-        "doi_status": "reserved Zenodo DOI; publish the records to register",
+        "doi_status": (
+            f"published software archive {SOFTWARE_ARCHIVE['version']}; "
+            "not a journal-article DOI"
+        ),
         "files": [
             {
                 "name": path.name,

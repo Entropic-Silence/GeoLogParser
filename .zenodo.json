@@ -1,15 +1,15 @@
 {
   "upload_type": "software",
   "title": "Trustworthy Borehole Database Ingestion from VLM Proposals: Provenance and Spatial Support",
-  "version": "paper4-cageo-v1.0.7",
-  "publication_date": "2026-08-20",
+  "version": "paper4-cageo-v1.0.8",
+  "publication_date": "2026-08-21",
   "creators": [
     {
       "name": "Yifan Du",
       "orcid": "0009-0008-7740-5408"
     }
   ],
-  "description": "Versioned Computers & Geosciences Paper 4 result-reproduction package containing the manuscript, supplementary methods, vector artwork, structured result-level inputs, claim-evidence audits, submission checks, rights/linkage sign-off, and deterministic recomputation scripts. The author sign-off supersedes earlier provisional ledger statuses only for the exact named release scope; historical run metadata remains historical. The separately released data-v002 companion has mixed source-specific terms and is not covered by a blanket licence.",
+  "description": "Versioned Paper 4 result-reproduction software package containing the manuscript, supplementary methods, vector artwork, structured result-level inputs, claim-evidence audits, submission checks, rights/linkage sign-off, and deterministic recomputation scripts. Version v1.0.8 corrects final-PDF rendering and publication metadata without changing scientific claims or frozen results. MIT applies to original source code and author-created package metadata only; third-party and source-derived files retain their source-specific terms. The separately released data-v002 companion has mixed source-specific terms and is not covered by a blanket licence.",
   "license": "MIT",
   "keywords": [
     "borehole logs",
@@ -21,7 +21,7 @@
   "related_identifiers": [
     {
       "identifier": "10.5281/zenodo.22031703",
-      "relation": "isSupplementTo",
+      "relation": "isSupplementedBy",
       "resource_type": "dataset",
       "scheme": "doi"
     }

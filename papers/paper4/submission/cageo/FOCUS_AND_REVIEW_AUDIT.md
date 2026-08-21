@@ -1,6 +1,6 @@
 # Paper 4 focus and simulated-review audit
 
-Audit date: 2026-08-20
+Audit date: 2026-08-21
 
 Scope: final review of the focused Paper 4 narrative and release package. No
 new experiment, model change, threshold tuning, or split change was introduced.
@@ -26,9 +26,10 @@ kept as separate claim layers.
   infrastructure, not a fourth contribution.
 - First-two-pages test: passed in the review PDF. The title, abstract, three
   RQs, three contributions, and Fig. 1 expose the full chain.
-- Remaining editorial gate: permanent archival DOI/data citation and the final
-  Editorial Manager upload/artwork preview. Author metadata and the sole-author
-  rights/linkage sign-off are complete.
+- Remaining editorial gate: final Editorial Manager upload/artwork preview and
+  the publisher-assigned article DOI. The published Zenodo software and data
+  records are cited by their actual resource types; author metadata and the
+  sole-author rights/linkage sign-off are complete.
 
 ## Reviewer B - document AI / VLM
 
@@ -63,24 +64,25 @@ kept as separate claim layers.
 - `verify_claims.py`: passed.
 - `audit_claim_evidence.py`: passed (15 claims, no errors).
 - `audit_paper4_submission.py`: passed as
-  `DOI_FINAL_RELEASE_CANDIDATE`; `submission_ready` is true. The two Zenodo
-  DOI records remain unpublished until final author verification, and the
-  final portal preview remains an external action.
+  `SUBMISSION_READY_CANDIDATE`; scientific content and release artifacts are
+  ready, while `submission_ready` remains false until final portal checks.
 - LaTeX clean build: completed for the 22-page final PDF; no undefined
-  citations/references, duplicate PDF destinations, or overfull/underfull
-  document boxes. The environment emits only a Fontconfig message and an
-  encoding warning from the bundled `lineno.sty`, not from manuscript source.
+  citations/references, duplicate PDF destinations, or visible overfull
+  document boxes. A non-fatal underfull warning occurs on the digest line
+  because the 64-character token is intentionally unbreakable. The final
+  source retains `lineno` as required by C&G, while the prompt digest is
+  emitted as one unbreakable box so line numbers cannot be inserted inside
+  its hexadecimal characters.
 - Vector artwork check: passed for Figure_1.pdf through Figure_4.pdf and the
   graphical abstract; figures render without clipping or overlap, all PDF
   fonts are embedded, and the manuscript contains zero raster image objects.
 - PDF metadata check: passed for title, author (`Yifan Du`), subject, and
   keywords; no template-default author/subject metadata remains.
-- Canonical source-Markdown estimate: 5,474 main-text words with tables and
-  captions excluded, and 5,859 article-body words when inline table text is
+- Canonical source-Markdown estimate: 5,443 main-text words with tables and
+  captions excluded, and 5,828 article-body words when inline table text is
   included; abstract, captions, keywords, highlights, declarations, and
-  references are excluded from both. The submission gate's broader
-  whitespace count is 6,030 and is retained only as a portal-oriented upper
-  bound, not as the article word-count claim.
+  references are excluded from both. The submission gate's broader whitespace
+  count is 5,976 against a 6,050 working limit.
 - Canonical full-repository test run: `484 passed, 1 skipped` after
   `python -m pip install -e "[test]"`; the remaining skip is the optional
   PyVista surface smoke test. Other historical environment counts are not
@@ -93,18 +95,18 @@ kept as separate claim layers.
 ## Open P0/P1/P2 items
 
 - P0: none identified in the frozen scientific content or evidence mapping.
-- P1: manually verify the reserved Zenodo metadata and that the separately
-  uploaded `data-v002` archive appears in each record's Files list, publish
-  the reserved records, and complete the Editorial Manager upload/artwork
-  preview.
-- P2: confirm the portal-computed word count (source estimate: 5,523 main-text
-  words; 5,908 body words). The internal banner/footer and
+- P1: complete the Editorial Manager upload/artwork preview and, if desired,
+  create a new Zenodo v1.0.8 software version. Do not relabel the published
+  v1.0.6 software DOI as an article DOI.
+- P2: confirm the portal-computed word count (source estimate: 5,443 main-text
+  words; 5,828 body words). The internal banner/footer and
   adviser-question page are absent from `manuscript_final.pdf`.
 
 ## Archive-level qualification
 
-The v1.0.3 patch release fixes portable font discovery, package metadata, and
-submission-material consistency. It does not turn the result-level workflow
+The v1.0.8 correction release fixes final-PDF hash rendering, publication
+metadata, deterministic figure PDFs, and submission-material consistency. It
+does not turn the result-level workflow
 into an end-to-end replay of the historical Qwen runtime, and it does not
 claim byte-for-byte deterministic regeneration across operating systems.
 

@@ -17,10 +17,14 @@ ROOT = Path(__file__).resolve().parents[1]
 PAPER = ROOT / "papers" / "paper4"
 OUT = PAPER / "submission_bundle"
 CAGEO = PAPER / "submission" / "cageo"
-RELEASE_TAG = "paper4-cageo-v1.0.7"
+RELEASE_METADATA = json.loads(
+    (PAPER / "release_metadata.json").read_text(encoding="utf-8")
+)
+RELEASE_TAG = RELEASE_METADATA["release_tag"]
 DATA_RELEASE_TAG = "data-v002"
-ARTICLE_DOI = "10.5281/zenodo.22030229"
-DATA_DOI = "10.5281/zenodo.22031703"
+SOFTWARE_ARCHIVE = RELEASE_METADATA["software_archive"]
+SOFTWARE_DOI = SOFTWARE_ARCHIVE["doi"]
+DATA_DOI = RELEASE_METADATA["data_archive"]["doi"]
 
 
 TEXT_FILES = {
@@ -124,16 +128,22 @@ def main() -> None:
 
     manifest = {
         "schema": "paper4_cg_upload_bundle_v001",
-        "package_label": "DOI_FINAL_RELEASE_CANDIDATE",
-        "submission_ready": True,
+        "package_label": "SUBMISSION_READY_CANDIDATE",
+        "submission_ready": False,
+        "upload_ready": True,
         "purpose": "fixed manuscript-facing file assembly for Computers & Geosciences submission",
         "rights_scope": "The sole author reviewed the complete Paper 4 package and exact data-v002 selection for public dissemination; the data review covered source terms, item scope, privacy, sensitive locations, embedded content, attribution, and linkage. The sign-off supersedes earlier provisional ledger statuses for this named release scope; historical experiment-run metadata remains historical. Source-specific obligations remain in the ledger.",
         "rights_linkage_signoff": f"Yifan Du, sole and corresponding author, confirms that {RELEASE_TAG} contains the complete result-reproduction package and {DATA_RELEASE_TAG} is its author-reviewed data companion.",
         "release_tag": RELEASE_TAG,
         "data_release_tag": DATA_RELEASE_TAG,
-        "doi": ARTICLE_DOI,
+        "doi": SOFTWARE_DOI,
+        "doi_type": "software",
+        "article_doi": None,
         "data_doi": DATA_DOI,
-        "doi_status": "reserved Zenodo DOI; publish the two records to register",
+        "doi_status": (
+            f"published software archive {SOFTWARE_ARCHIVE['version']}; "
+            "not a journal-article DOI"
+        ),
         "supplementary_caption_file": "Paper4_Supplementary_Figure_Captions.md",
         "files": sorted(entries, key=lambda row: str(row["file"])),
     }
@@ -166,11 +176,12 @@ or include model weights or private credentials. The author-reviewed selected
 source files and structured datasets are published separately as `data-v002`.
 The complete result-reproduction workflow is documented in
 `Paper4_Reproduce.md` and the repository-level `publication_evidence/` bundle.
-    The complete Paper 4 release tag is `paper4-cageo-v1.0.7`. The software
-    DOI is reserved as `https://doi.org/10.5281/zenodo.22030229` and the
-    separate data companion DOI as `https://doi.org/10.5281/zenodo.22031703`;
-    publish both Zenodo records to register them. The unchanged `data-v002`
-    companion is reused without changing its contents.
+The corrected Paper 4 release is `paper4-cageo-v1.0.8`. The published
+Zenodo software archive is `paper4-cageo-v1.0.6` at
+`https://doi.org/10.5281/zenodo.22030229`; that is a software DOI, not a
+journal-article DOI. The published `data-v002` companion is at
+`https://doi.org/10.5281/zenodo.22031703` and is reused without changing its
+contents. A future Zenodo v1.0.8 archive must be created as a new version.
 """
     (OUT / "README.md").write_bytes(readme.replace("\r\n", "\n").encode("utf-8"))
     print(OUT)

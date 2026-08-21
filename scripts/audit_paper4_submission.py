@@ -9,6 +9,7 @@ validation remain external actions.
 from __future__ import annotations
 
 import json
+import os
 import re
 import subprocess
 import sys
@@ -18,6 +19,14 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PAPER = ROOT / "papers/paper4"
 OUT = PAPER / "submission_gate.json"
+RELEASE_METADATA = json.loads(
+    (PAPER / "release_metadata.json").read_text(encoding="utf-8")
+)
+RELEASE_TAG = RELEASE_METADATA["release_tag"]
+SOFTWARE_ARCHIVE = RELEASE_METADATA["software_archive"]
+SOFTWARE_DOI = SOFTWARE_ARCHIVE["doi"]
+DATA_DOI = RELEASE_METADATA["data_archive"]["doi"]
+MAX_CAGEO_WORDS = 6050
 
 
 def count_words(text: str) -> int:
@@ -35,6 +44,12 @@ def main() -> None:
     manuscript_path = PAPER / "manuscript.md"
     text = manuscript_path.read_text(encoding="utf-8")
     errors: list[str] = []
+    manuscript_word_count = len(text.split())
+    if manuscript_word_count > MAX_CAGEO_WORDS:
+        errors.append(
+            f"manuscript whitespace word count exceeds C&G working limit "
+            f"{MAX_CAGEO_WORDS}: {manuscript_word_count}"
+        )
     required_headings = [
         "## Abstract", "## Highlights", "## 1. Problem, hypothesis, and research questions",
         "## 2. Related work and positioning", "## 3. Evidence, data, and task definition",
@@ -64,13 +79,39 @@ def main() -> None:
             errors.append(f"outdated Paper 4 terminology remains in main text: {term}")
     if "**partially reconstructable**" not in text:
         errors.append("main text does not disclose partially reconstructable Qwen runtime provenance")
+    supplement_text = (PAPER / "supplement.md").read_text(encoding="utf-8")
+    available_sections = set(
+        re.findall(r"^#{2,3}\s+(S\d+(?:\.\d+)?)\b", supplement_text, flags=re.M)
+    )
+    available_tables = set(
+        f"S{number}"
+        for number in re.findall(r"Supplementary Table S(\d+)\b", supplement_text)
+    )
+    available_sections.update(available_tables)
+    supplement_refs = re.findall(
+        r"\bSupplement(?:ary)?(?:\s+Methods?)?\s+(S\d+(?:\.\d+)?)\b",
+        text,
+        flags=re.I,
+    )
+    missing_supplement_refs = sorted(
+        {reference for reference in supplement_refs if reference not in available_sections}
+    )
+    if missing_supplement_refs:
+        errors.append(
+            "manuscript cites missing supplementary section(s): "
+            + ", ".join(missing_supplement_refs)
+        )
+    if re.search(r"\bSupplement(?:ary)?(?:\s+Methods?)?\s+S(?:10|11|12)\b", text, flags=re.I):
+        errors.append("stale Supplement S10/S11/S12 citation remains in manuscript")
     required_author_text = [
         "Yifan Du",
         "This research received no specific grant",
         "The author declares no competing interests",
         "Rights and linkage sign-off",
-        "paper4-cageo-v1.0.7",
+        RELEASE_TAG,
         "data-v002",
+        SOFTWARE_DOI,
+        "this DOI identifies software",
     ]
     for term in required_author_text:
         if term not in text:
@@ -108,24 +149,33 @@ def main() -> None:
         error = run_gate(command)
         if error:
             errors.append(error)
+    content_ready = not errors
     gate = {
         "gate_version": "paper4_cg_submission_gate_v001",
-        "package_label": "DOI_FINAL_RELEASE_CANDIDATE" if not errors else "DRAFT_NOT_SUBMISSION_READY",
-        "scientific_content_ready": not errors,
-        "submission_ready": not errors,
-        "author_metadata_complete": not errors,
-        "rights_linkage_signoff_complete": not errors,
-        "release_tag": "paper4-cageo-v1.0.7",
+        "package_label": "SUBMISSION_READY_CANDIDATE" if content_ready else "DRAFT_NOT_SUBMISSION_READY",
+        "scientific_content_ready": content_ready,
+        "release_artifacts_ready": content_ready,
+        "submission_ready": content_ready and os.environ.get("PAPER4_PORTAL_VERIFIED") == "1",
+        "author_metadata_complete": content_ready,
+        "rights_linkage_signoff_complete": content_ready,
+        "release_tag": RELEASE_TAG,
         "data_release_tag": "data-v002",
-        "doi": "10.5281/zenodo.22030229",
-        "data_doi": "10.5281/zenodo.22031703",
-        "doi_status": "reserved Zenodo DOI; publish the records to register",
-        "manuscript_wc_word_count": len(text.split()),
+        "doi": SOFTWARE_DOI,
+        "doi_type": "software",
+        "article_doi": None,
+        "data_doi": DATA_DOI,
+        "doi_status": (
+            f"published software archive {SOFTWARE_ARCHIVE['version']}; "
+            "not a journal-article DOI"
+        ),
+        "manuscript_wc_word_count": manuscript_word_count,
+        "manuscript_wc_limit": MAX_CAGEO_WORDS,
         "citation_key_count": len(cited_keys),
         "errors": errors,
         "external_review_required": [
-            "Zenodo records remain unpublished until final author verification",
             "final Computers & Geosciences portal upload and artwork preview",
+            "obtain and record the publisher-assigned C&G article DOI",
+            "optionally create a new Zenodo v1.0.8 software version; do not relabel v1.0.6 DOI",
         ],
     }
     # The gate is committed and rebuilt on Ubuntu and Windows CI runners.

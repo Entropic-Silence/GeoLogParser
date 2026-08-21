@@ -1,41 +1,26 @@
 cff-version: 1.2.0
-message: "Please cite the versioned GeoLogParser Paper 4 reproducibility package and its separate data companion."
-title: "Trustworthy Borehole Database Ingestion from VLM Proposals: Provenance and Spatial Support"
+message: "Cite this software release and the data companion separately. The Zenodo identifier 10.5281/zenodo.22030229 is a software DOI, not a journal-article DOI."
+title: "GeoLogParser Paper 4 result-reproduction package"
 type: software
 authors:
   - family-names: Du
     given-names: Yifan
     orcid: "https://orcid.org/0009-0008-7740-5408"
-version: paper4-cageo-v1.0.7
-date-released: 2026-08-20
+version: paper4-cageo-v1.0.8
+date-released: 2026-08-21
 license: MIT
 repository-code: "https://github.com/Entropic-Silence/GeoLogParser"
-url: "https://doi.org/10.5281/zenodo.22030229"
-identifiers:
-  - type: doi
-    value: "10.5281/zenodo.22030229"
+url: "https://github.com/Entropic-Silence/GeoLogParser/releases/tag/paper4-cageo-v1.0.8"
 abstract: >-
-  Provenance-grounded selective assurance for borehole database ingestion.
-  The package freezes the Paper 4 manuscript, supplementary methods, vector
-  artwork, structured result-level inputs, claim-evidence audits, and
-  deterministic recomputation scripts. The separate data-v002 companion has
-  mixed source-specific rights and is not represented as a blanket licence.
+  Result-reproduction software for provenance-grounded selective assurance in
+  borehole database ingestion. The published Zenodo software archive at
+  10.5281/zenodo.22030229 contains version paper4-cageo-v1.0.6; the corrected
+  v1.0.8 GitHub release supersedes its submission artifacts without changing
+  frozen scientific results. The separately published data-v002 companion is
+  10.5281/zenodo.22031703 and remains subject to source-specific terms.
 keywords:
   - borehole logs
   - vision-language models
   - provenance
   - selective prediction
   - spatial support
-preferred-citation:
-  type: article
-  title: "Trustworthy Borehole Database Ingestion from VLM Proposals: Provenance and Spatial Support"
-  authors:
-    - family-names: Du
-      given-names: Yifan
-      orcid: "https://orcid.org/0009-0008-7740-5408"
-  journal: "Computers & Geosciences"
-  year: 2026
-  version: paper4-cageo-v1.0.7
-  identifiers:
-    - type: doi
-      value: "10.5281/zenodo.22030229"

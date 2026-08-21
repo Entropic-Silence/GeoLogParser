@@ -5,7 +5,7 @@ The scientific source of truth remains `papers/paper4/manuscript.md` and
 `papers/paper4/supplement.md`. This file does not authorize scientific edits,
 new experiments, threshold changes, or changes to frozen headline values.
 
-Verification date: 2026-08-19 (Asia/Shanghai)
+Verification date: 2026-08-21 (Asia/Shanghai)
 
 ## Official sources checked
 
@@ -48,10 +48,10 @@ spatial diagnostic are supporting evidence for that interface.
 - **Revised submission limit:** 6,500 words, with the same 10% allowance for
   non-review articles.
 - **Current source estimate:** `manuscript.md` contains a 243-word abstract.
-  The build script estimates 5,193 main-text words with tables and captions
-  excluded; the repository submission gate reports approximately 5,770
-  whitespace-delimited words including excluded parts. Both are below the
-  6,050-word initial
+  The build script estimates 5,443 main-text words with tables and captions
+  excluded and 5,828 article-body words when inline table text is included;
+  the repository submission gate reports 5,976 whitespace-delimited words
+  including excluded parts. All are below the 6,050-word initial
   allowance; a final Editorial Manager count remains required.
 
 ### Abstract, keywords, and highlights
@@ -79,9 +79,11 @@ spatial diagnostic are supporting evidence for that interface.
   explicitly requires single column.
 - **Double spacing:** mandatory.
 - **Line numbering:** mandatory for every submission.
-- The CAGEO template implements the required pattern with `cas-sc`,
-  `\usepackage{lineno}`, `\linenumbers`, `\usepackage{setspace}`, and
-  `\doublespacing`.
+- The final editable source retains `cas-sc`, `\usepackage{lineno}`,
+  `\linenumbers`, `\usepackage{setspace}`, and `\doublespacing`. The
+  machine-readable prompt digest is emitted as one unbreakable box so a line
+  number cannot be inserted inside its 64 hexadecimal characters; the PDF
+  regression test extracts and validates the complete digest.
 - The final package must use numbered, clearly defined article sections. The
   current manuscript section structure is compatible; Markdown itself is not
   the final editable submission format.
@@ -155,13 +157,17 @@ The template's code-availability checklist also asks for code/library name,
 contact details, hardware requirements, programming language, required
 software, program size, and a public URL.
 
-Current Paper 4 status: **satisfied; DOI reserved, publication pending**.
+Current Paper 4 status: **scientific and release package complete; portal and archival follow-up pending**.
 The manuscript names the public GeoLogParser URL, MIT source-code license,
 corresponding-author contact, and reproducibility scope. A local final Git
 commit is created for this package and recorded in
 `CAGEO_ARTIFACT_MANIFEST.json`. No permanent archival DOI can be minted from
-this workspace without the author's Zenodo/DataCite authorization; the DOI
-field therefore remains explicitly pending rather than being fabricated.
+this workspace without the author's Zenodo/DataCite authorization; the
+publisher-assigned article DOI therefore remains pending rather than being
+fabricated. The
+published Zenodo identifier `10.5281/zenodo.22030229` is a software DOI for
+`paper4-cageo-v1.0.6`, not a journal-article DOI; a corrected v1.0.8 archive
+would have to be created as a new version.
 
 ### Data Availability and research data
 
@@ -177,8 +183,9 @@ field therefore remains explicitly pending rather than being fabricated.
   any third-party material must be checked before release.
 
 Current Paper 4 status: **repository, reproducibility materials, data companion,
-and author rights/linkage sign-off supplied; DOI reserved, publication pending**.
-The complete article/result package is `paper4-cageo-v1.0.7`; the selected source
+and author rights/linkage sign-off supplied; final portal and archival steps
+pending**. The complete article/result package candidate is
+`paper4-cageo-v1.0.8`; the selected source
 and structured-data companion is `data-v002`. The latter passed the author's
 item-scoped rights, privacy, sensitive-location, embedded-content, attribution,
 and linkage review. Source-specific obligations remain explicit. The completed
@@ -240,8 +247,9 @@ Current Paper 4 status: **LaTeX conversion and bibliography audit passed**.
 The final build renders 31 author-date entries with full author lists and full
 journal titles; the Amini metadata is `Amini, A.` (Afshin), and the Borkovich
 entry is not truncated with `et al.`. No undefined citations or duplicate
-References heading was found. A data/repository citation with a permanent DOI
-must be added only after the author creates the archival record.
+References heading was found. The published data and historical software
+records are cited with their actual resource types; the journal article DOI is
+intentionally absent until the publisher assigns it.
 
 ### Other verified points
 
@@ -289,7 +297,7 @@ No negative result or limitation was removed or improved.
 ### Satisfied or substantively satisfied
 
 - Scientific content/evidence gate is green
-  (`DOI_FINAL_RELEASE_CANDIDATE`); the repository package is fixed.
+  (`SUBMISSION_READY_CANDIDATE`); the repository package is fixed.
 - Article type can be classified as Original research article.
 - Abstract length and standalone structure are within the Guide's 300-word
   limit; no structured-abstract format is required by the Guide.
@@ -305,17 +313,19 @@ No negative result or limitation was removed or improved.
 
 ### Not satisfied or still pending
 
-- Reserved DOI records must be published in Zenodo and verified by the author
-  before the identifiers become registered permanent records.
+- A new Zenodo software version for v1.0.8 may be created after the GitHub
+  release; the published v1.0.6 software DOI must not be relabelled as v1.0.8
+  or as a journal-article DOI.
 - Elsevier declarations-tool competing-interest `.docx` upload and any
   portal-specific cover-letter file must be produced in Editorial Manager.
 - The final Editorial Manager word count and artwork preview remain portal
-  checks; the source estimate is 5,523 main-text words and 5,908 body words.
+  checks; the source estimate is 5,443 main-text words and 5,828 body words,
+  with a 5,976-word whitespace gate count below the 6,050 working limit.
 
 ## Information still required from the author
 
-1. Publish and verify the reserved Zenodo records
-   `10.5281/zenodo.22030229` and `10.5281/zenodo.22031703`.
+1. If desired, create and publish a new Zenodo software version for v1.0.8;
+   retain the published software and data DOIs as historical identifiers.
 2. Complete Elsevier's declarations-tool `.docx` upload and confirm the final
    cover-letter text in Editorial Manager.
 3. Run the final Editorial Manager word-count and artwork preview checks.

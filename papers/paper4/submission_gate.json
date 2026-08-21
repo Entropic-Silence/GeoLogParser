@@ -1,20 +1,25 @@
 {
+  "article_doi": null,
   "author_metadata_complete": true,
-  "citation_key_count": 32,
+  "citation_key_count": 33,
   "data_doi": "10.5281/zenodo.22031703",
   "data_release_tag": "data-v002",
   "doi": "10.5281/zenodo.22030229",
-  "doi_status": "reserved Zenodo DOI; publish the records to register",
+  "doi_status": "published software archive paper4-cageo-v1.0.6; not a journal-article DOI",
+  "doi_type": "software",
   "errors": [],
   "external_review_required": [
-    "Zenodo records remain unpublished until final author verification",
-    "final Computers & Geosciences portal upload and artwork preview"
+    "final Computers & Geosciences portal upload and artwork preview",
+    "obtain and record the publisher-assigned C&G article DOI",
+    "optionally create a new Zenodo v1.0.8 software version; do not relabel v1.0.6 DOI"
   ],
   "gate_version": "paper4_cg_submission_gate_v001",
-  "manuscript_wc_word_count": 6055,
-  "package_label": "DOI_FINAL_RELEASE_CANDIDATE",
-  "release_tag": "paper4-cageo-v1.0.7",
+  "manuscript_wc_limit": 6050,
+  "manuscript_wc_word_count": 5976,
+  "package_label": "SUBMISSION_READY_CANDIDATE",
+  "release_artifacts_ready": true,
+  "release_tag": "paper4-cageo-v1.0.8",
   "rights_linkage_signoff_complete": true,
   "scientific_content_ready": true,
-  "submission_ready": true
+  "submission_ready": false
 }

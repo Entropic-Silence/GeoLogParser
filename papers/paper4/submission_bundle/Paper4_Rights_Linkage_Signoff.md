@@ -8,11 +8,11 @@
 
 **Repository:** https://github.com/Entropic-Silence/GeoLogParser
 
-**Article/reproducibility tag:** `paper4-cageo-v1.0.7`
+**Article/reproducibility tag:** `paper4-cageo-v1.0.8`
 
 **Data companion tag:** `data-v002`
 
-**Sign-off date:** 2026-08-20
+**Sign-off date:** 2026-08-21
 
 The sole author confirms the following for the two tagged public releases:
 
@@ -35,7 +35,7 @@ The sole author confirms the following for the two tagged public releases:
 6. This completed sign-off supersedes earlier provisional or pending ledger
    statuses for the exact files selected for the named releases; historical
    experiment-run metadata remains historical and is not rewritten.
-7. `paper4-cageo-v1.0.7` contains the complete manuscript, code, evidence,
+7. `paper4-cageo-v1.0.8` contains the complete manuscript, code, evidence,
    figures, audits, and result-reproduction workflow. `data-v002` is its data
    companion and is not described as the complete Paper 4 package.
 8. Model weights and private credentials are not included. The rights sign-off
@@ -43,7 +43,11 @@ The sole author confirms the following for the two tagged public releases:
    unrelated or quarantined repository sources.
 
 This sign-off records the author's completed review of the repository contents,
-attribution, linkage, redistribution scope, and reproducibility scope. The
-article DOI `10.5281/zenodo.22030229` and data DOI `10.5281/zenodo.22031703`
-are reserved but remain unpublished until the author deposits the tagged
-releases; publishing them does not change the frozen scientific package.
+attribution, linkage, redistribution scope, and reproducibility scope for the
+named release scope. It is an item-scoped author attestation, not an
+independent legal opinion and not a blanket licence for unrelated sources. The
+published Zenodo software archive is `paper4-cageo-v1.0.6` at DOI
+`10.5281/zenodo.22030229`; that identifier is a software DOI, not a
+journal-article DOI. The published `data-v002` companion is at DOI
+`10.5281/zenodo.22031703`. A future Zenodo v1.0.8 archive, if deposited, must
+be created as a new version; these records do not assign a C&G article DOI.

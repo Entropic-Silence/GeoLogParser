@@ -48,22 +48,27 @@ The workflow performs, in order:
 The expected final state is:
 
 ```text
-package_label: DOI_FINAL_RELEASE_CANDIDATE
+package_label: SUBMISSION_READY_CANDIDATE
 scientific_content_ready: true
-submission_ready: true
+submission_ready: false
 ```
 
-`submission_ready=true` means that the repository package, authorship,
-declarations, rights/linkage sign-off, and reserved DOI metadata are fixed.
-The Zenodo records remain drafts until the author performs the final metadata
-check and clicks Publish.
+The Paper 4 scientific content, release artifacts, authorship metadata, and
+item-scoped rights/linkage attestation are complete. The gate remains
+`submission_ready=false` until the author completes the Computers & Geosciences
+portal upload and final artwork/metadata checks. The published Zenodo software
+record is v1.0.6 at DOI `10.5281/zenodo.22030229`; the published `data-v002`
+record is at DOI `10.5281/zenodo.22031703`. Neither DOI identifies a journal
+article, and a v1.0.8 Zenodo software record would require creating a new
+version rather than relabelling the v1.0.6 record.
 
 ## What is and is not redistributed
 
-The `paper4-cageo-v1.0.7` package includes the manuscript, supplement, tables,
+The `paper4-cageo-v1.0.8` package includes the manuscript, supplement, tables,
 figures, configs, analysis JSON, manifests, hashes, transformed public
 reanalysis inputs, and deterministic scripts. The separate `data-v002`
-companion contains the selected source files and structured datasets used by
+companion was originally paired with an earlier Paper 4 package and is reused
+unchanged; it contains the selected source files and structured datasets used by
 the principal experiments. Its paths are repository relative and its item-
 scoped author sign-off covers rights, attribution, linkage, privacy, sensitive
 locations, and embedded content. Model weights and private credentials are not

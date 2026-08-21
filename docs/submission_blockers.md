@@ -1,16 +1,21 @@
-# Pre-submission blockers and release gates
+# Shared pre-submission blockers and release gates
 
-The three manuscripts are scientifically closed candidates, but they are not
-authorised for immediate public upload until the following external checks are
-completed. These are source, licence, privacy, and author-review gates rather
-than missing experiments.
+This is the repository-wide gate for Papers 1--3 and for quarantined or
+out-of-scope source material. The exact Paper 4 `paper4-cageo-v1.0.8` package
+and exact `data-v002` selection have an item-scoped author review and sign-off;
+that sign-off does not grant a blanket licence or constitute an independent
+legal opinion. The published Zenodo software DOI
+`10.5281/zenodo.22030229` identifies `paper4-cageo-v1.0.6`, not a journal
+article. The published `data-v002` companion is
+`10.5281/zenodo.22031703`.
 
-## Required before submission or public data release
+## Required for Papers 1--3 or additional public releases
 
 1. Verify item-level licence, attribution, redistribution, and embedded-content
-   terms for the California WCR/USGS reference material. The metrics may be
-   retained internally, but source PDFs or derived pages must not be uploaded
-   until the exact release scope is confirmed.
+   terms for the California WCR/USGS reference material outside the named
+   `data-v002` scope. Metrics may be retained internally, but additional source
+   PDFs or derived pages must not be uploaded until their exact release scope is
+   confirmed.
 2. Verify the BGS scan-footer/OGL scope conflict for v001--v003, including
    offshore coordinate sensitivity and derived-page rights. BGS v003 has been
    consumed once as a frozen external evaluation and must not be rerun.
@@ -20,18 +25,26 @@ than missing experiments.
    terms against the exact downloaded item versions. Quarantined Chinese/DWG
    candidates remain excluded from benchmark claims.
 5. Complete a human author pass over every abstract, table, figure caption,
-   numerical value, DOI, and licence statement. This is the final scientific
-   sign-off; no automated compliance record is a substitute for it.
+   numerical value, DOI, and licence statement for each paper. No automated
+   compliance record is a substitute for that review.
 
-## Not blockers for the current manuscripts
+## Paper 4 external steps
 
-- No additional OCR/VLM model is required for the stated claims.
-- No Qwen3.8/NVFP4 training run is required or permitted by the closure plan.
+- Upload the corrected v1.0.8 package to the Computers & Geosciences portal and
+  complete its final format, artwork, and metadata checks.
+- If a Zenodo archive for v1.0.8 is desired, create a new version from the
+  published v1.0.6 software record. Do not relabel DOI `22030229` as v1.0.8 or
+  as an article DOI.
+- Obtain the journal article DOI from the publisher; neither current Zenodo DOI
+  is an article DOI.
+
+## Not blockers for the closed scientific claims
+
+- No additional OCR/VLM model or Qwen3.8/NVFP4 training run is required.
 - No second BGS v003 evaluation is permitted.
 - Human-efficiency timing, page-derived collar extraction, and production GemPy
-  integration are explicitly outside the quantitative claims of the closed
-  manuscripts.
+  integration remain outside the quantitative claims.
 
-Until the required checks are signed, use the status
-`SUBMISSION_READY_CANDIDATE`, not `SUBMISSION_READY` in an external report.
-
+Until the external steps above are complete, use
+`SUBMISSION_READY_CANDIDATE` for Paper 4 and keep the repository-wide
+`all_submission_ready=false` flag because Papers 1--3 remain gated.

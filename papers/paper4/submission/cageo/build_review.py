@@ -8,6 +8,7 @@ present before emitting the LaTeX source.
 
 from __future__ import annotations
 
+import json
 import re
 import sys
 from pathlib import Path
@@ -23,9 +24,16 @@ TITLE = (
     "Provenance and Spatial Support"
 )
 
-RELEASE_TAG = "paper4-cageo-v1.0.7"
-ARTICLE_DOI = "10.5281/zenodo.22030229"
-DATA_DOI = "10.5281/zenodo.22031703"
+RELEASE_METADATA = json.loads(
+    (REPO / "papers" / "paper4" / "release_metadata.json").read_text(encoding="utf-8")
+)
+RELEASE_TAG = RELEASE_METADATA["release_tag"]
+GITHUB_RELEASE_URL = RELEASE_METADATA["github_release_url"]
+SOFTWARE_ARCHIVE = RELEASE_METADATA["software_archive"]
+SOFTWARE_DOI = SOFTWARE_ARCHIVE["doi"]
+SOFTWARE_VERSION = SOFTWARE_ARCHIVE["version"]
+DATA_ARCHIVE = RELEASE_METADATA["data_archive"]
+DATA_DOI = DATA_ARCHIVE["doi"]
 
 
 ABSTRACT = r"""\textbf{Background:} High visual extraction accuracy does not by itself establish a trustworthy geological database. A database row also needs independently checkable page evidence, a decision state, and an account of what abstention removes from downstream spatial support. \textbf{Methods:} We evaluate the frozen \texttt{Qwen/Qwen3.8-27B-FP8} direct page-to-JSON reader on five record-disjoint California cohorts (450 reports; 8,268 published manual-transcription intervals) and source-shift panels. The headline metric is boundary-pair interval F1: both interval depths must match under an order-preserving tolerance. We then add an independently positioned reader, deterministic depth/column checks, and an accept-or-review policy; a separate legacy sequence-reconstruction analysis is reported only as a harm analysis. \textbf{Results:} Qwen reaches boundary-pair F1 0.896--0.932 on California, but falls to 0.577 on the Swissgeol source-agreement panel. On held-out California v003, independent evidence yields accepted-interval precision 0.993 (444/447 accepted intervals correct) at 0.244 proposal coverage. Only 4/100 documents satisfy complete-document auto-acceptance, which defines a conservative deployment boundary rather than a claim of full automation. A spatial diagnostic shows that full-support risk-aware volume discrepancy is 0.0821 versus 0.1387 for raw extraction, while retaining only 0.636 of the reference convex-hull area; on the identical 15-document accepted subset, risk and rereading are both 0.0754 versus 0.0326 for raw. \textbf{Conclusions:} Modern VLMs are strong proposal readers, not database authorities. Provenance-grounded selective decisions must report precision together with coverage, complete-document utility, review burden, and the spatial-support consequences of abstention."""
@@ -40,54 +48,42 @@ HIGHLIGHTS = [
 
 
 CODE_AVAILABILITY = (
-    "Program title: GeoLogParser Paper 4 result-reproduction package. Developer and "
-    "contact: Yifan Du, duyifan619916@gmail.com. First public availability: 2026. "
-    "The package contains versioned code/configuration, prompt hashes, metric bindings, "
-    "figure generators, claim audits, and recomputation scripts for this article. "
-    "The source code is released under the MIT license at "
-    "https://github.com/Entropic-Silence/GeoLogParser. It is written primarily in "
-    "Python and uses the frozen JSON/JSONL inputs; the deterministic result-level "
-    "workflow requires Python 3.10 or newer and standard scientific Python packages. "
-    "The final tagged package is paper4-cageo-v1.0.7. The optional VLM/OCR execution "
-    "environment, weights, and private credentials are not redistributed; the package "
-    "reproduces frozen predictions through the matcher, metrics, tables, figures, and "
-    "audits. The public repository and release assets are the access method. Article DOI: "
-    "https://doi.org/10.5281/zenodo.22030229. Data companion DOI: "
-    "https://doi.org/10.5281/zenodo.22031703."
+    f"GeoLogParser Paper 4 is a Python 3.10+ result-reproduction package released under "
+    f"the MIT license. It contains versioned code and configuration, prompt and artifact "
+    f"hashes, frozen JSON/JSONL inputs, figure and table generators, claim audits, and "
+    f"deterministic recomputation scripts. It reproduces frozen predictions through "
+    f"matching, metrics, tables, figures, and audits; model weights, credentials, and "
+    f"the historical VLM/OCR execution environment are not redistributed. The corrected "
+    f"GitHub release is {RELEASE_TAG} at {GITHUB_RELEASE_URL}. The published Zenodo "
+    f"software archive is version {SOFTWARE_VERSION}, DOI https://doi.org/{SOFTWARE_DOI}; "
+    f"this is a software DOI, not a journal-article DOI. Developer and contact: Yifan Du, "
+    f"duyifan619916@gmail.com."
 )
 
 
 CODE_AVAILABILITY_TEX = (
     r"\\section*{Computer Code Availability}\n"
-    r"Program title: GeoLogParser Paper 4 result-reproduction package. "
-    r"Developer and contact: Yifan Du, \\href{mailto:duyifan619916@gmail.com}{duyifan619916@gmail.com}. "
-    r"First public availability: 2026. The package contains versioned code/configuration, "
-    r"prompt hashes, metric bindings, figure generators, claim audits, and recomputation "
-    r"scripts for this article. The source code is released under the MIT license at "
-    r"\\url{https://github.com/Entropic-Silence/GeoLogParser}. It is written primarily in "
-    r"Python and uses frozen JSON/JSONL inputs; the deterministic result-level workflow "
-    r"requires Python 3.10 or newer and standard scientific Python packages. The final "
-    r"tagged package is \\texttt{paper4-cageo-v1.0.7}. The optional VLM/OCR execution "
-    r"environment, weights, and private credentials are not redistributed; the package "
-    r"reproduces frozen predictions through the matcher, metrics, tables, figures, and "
-    r"audits. The public repository and release assets are the access method. Article DOI: "
-    r"\\url{https://doi.org/10.5281/zenodo.22030229}. Data companion DOI: "
-    r"\\url{https://doi.org/10.5281/zenodo.22031703}.\\par\n"
+    rf"GeoLogParser Paper 4 is a Python 3.10+ result-reproduction package released under "
+    rf"the MIT license. It contains versioned code and configuration, prompt and artifact "
+    rf"hashes, frozen JSON/JSONL inputs, figure and table generators, claim audits, and "
+    rf"deterministic recomputation scripts. It reproduces frozen predictions through "
+    rf"matching, metrics, tables, figures, and audits; model weights, credentials, and "
+    rf"the historical VLM/OCR execution environment are not redistributed. The corrected "
+    rf"GitHub release is \\texttt{{{RELEASE_TAG}}} at "
+    rf"\\url{{{GITHUB_RELEASE_URL}}}. The published Zenodo software archive is version "
+    rf"\\texttt{{{SOFTWARE_VERSION}}}, DOI \\url{{https://doi.org/{SOFTWARE_DOI}}}; this is "
+    rf"a software DOI, not a journal-article DOI. Developer and contact: Yifan Du, "
+    rf"\\href{{mailto:duyifan619916@gmail.com}}{{duyifan619916@gmail.com}}.\\par\n"
 )
 
 DATA_AVAILABILITY = (
-    "The paper4-cageo-v1.0.7 package contains the manuscript, supplement, figures, "
-    "structured/reanalysis inputs, aggregate metrics, manifests, checksums, source URLs, "
-    "and recomputation scripts needed to reproduce the reported result-level analyses. "
-    "The separate data-v002 companion contains the author-reviewed selected source files "
-    "and structured datasets used by the principal experiments; it is a data companion, "
-    "not the complete Paper 4 package. Source-specific terms and attribution remain in "
-    "the release ledger, and linkable spatial inputs are not represented as anonymous. "
-    "Model weights and private credentials are not redistributed. The article package "
-    "has the reserved DOI https://doi.org/10.5281/zenodo.22030229 and the separate data "
-    "companion has the reserved DOI https://doi.org/10.5281/zenodo.22031703. The records "
-    "remain unpublished until the author registers them. The data archive has mixed "
-    "source-specific rights and no blanket licence; see its DATA_LICENSES.md and ledger."
+    f"The {RELEASE_TAG} GitHub release contains the manuscript, supplement, figures, "
+    f"result-level inputs, aggregate metrics, manifests, source URLs, and recomputation "
+    f"scripts. The separately published data-v002 companion, DOI https://doi.org/{DATA_DOI}, "
+    f"contains the author-reviewed source files and structured datasets used by the principal "
+    f"experiments. Source-specific terms and attribution remain in its ledger; linkable spatial "
+    f"inputs are not represented as anonymous. Model weights and private credentials are not "
+    f"redistributed. The software DOI above identifies software, not a journal article."
 )
 
 
@@ -96,13 +92,13 @@ DECLARATIONS = (
     "in the public, commercial, or not-for-profit sectors; it was self-funded.\n\n"
     "**Competing interests:** The author declares no competing interests.\n\n"
     "**Rights and linkage sign-off:** Yifan Du, sole and corresponding author, confirms that the "
-    "paper4-cageo-v1.0.7 package and exact data-v002 selection were reviewed for public "
+    f"{RELEASE_TAG} package and exact data-v002 selection were reviewed for public "
     "dissemination; the data review covered source terms, selected item scope, privacy, "
     "sensitive locations, embedded third-party content, attribution, and linkage. "
     "This sign-off supersedes earlier provisional ledger statuses for the named release "
     "scope; historical experiment-run metadata remains historical. Source-specific "
-    "obligations are retained in the manifests and ledger. This item-"
-    "scoped sign-off does not grant a blanket licence to unrelated repository sources.\n\n"
+    "obligations are retained in the manifests and ledger. This item-scoped author "
+    "attestation is not a legal opinion or blanket licence for unrelated sources.\n\n"
     "No claim in this manuscript relies on undisclosed human annotation, hidden "
     "reference-conditioned tuning, or a closed-model score that lacks a reproducible "
     "execution record."
@@ -282,15 +278,38 @@ and the aggregate reference-relative volume discrepancy is
         body,
         flags=re.S,
     )
+    data_availability_tex = (
+        f"\\section*{{Data Availability}}\nThe \\texttt{{{RELEASE_TAG}}} GitHub release "
+        "contains the manuscript, supplement, figures, result-level inputs, aggregate "
+        "metrics, manifests, source URLs, and recomputation scripts. The separately "
+        f"published \\texttt{{data-v002}} companion, DOI \\url{{https://doi.org/{DATA_DOI}}}, "
+        "contains the author-reviewed source files and structured datasets used by the "
+        "principal experiments. Source-specific terms and attribution remain in its "
+        "ledger; linkable spatial inputs are not represented as anonymous. Model weights "
+        "and private credentials are not redistributed. The software DOI above identifies "
+        "software, not a journal article.\n"
+    )
+    declarations_tex = (
+        "\\section*{Declarations}\n"
+        "\\textbf{Funding:} This research did not receive any specific grant from funding agencies "
+        "in the public, commercial, or not-for-profit sectors; it was self-funded.\\par\n"
+        "\\textbf{Competing interests:} The author declares no competing interests.\\par\n"
+        f"\\textbf{{Rights and linkage sign-off:}} Yifan Du, sole and corresponding author, confirms "
+        f"that the \\texttt{{{RELEASE_TAG}}} package and exact \\texttt{{data-v002}} selection were "
+        "reviewed for public dissemination. This item-scoped author attestation is not an independent "
+        "legal opinion or blanket licence; source-specific obligations remain in the manifests and ledger.\\par\n"
+        "\\textbf{Reproducibility scope:} No claim in this manuscript relies on undisclosed human "
+        "annotation, hidden reference-conditioned tuning, or a closed-model score that lacks a reproducible execution record.\n"
+    )
     body = re.sub(
         r"\\section\*\{Data Availability\}.*?(?=\\section\*\{Declarations\})",
-        r"\\section*{Data Availability}\nThe \\texttt{paper4-cageo-v1.0.7} package contains the manuscript, supplement, figures, structured/reanalysis inputs, aggregate metrics, manifests, checksums, source URLs, and recomputation scripts needed to reproduce the reported result-level analyses. The separate \\texttt{data-v002} companion contains the author-reviewed selected source files and structured datasets used by the principal experiments; it is a data companion, not the complete Paper 4 package. Source-specific terms and attribution remain in the release ledger, and linkable spatial inputs are not represented as anonymous. Model weights and private credentials are not redistributed. The article package has reserved DOI \\url{https://doi.org/10.5281/zenodo.22030229}; the data companion has reserved DOI \\url{https://doi.org/10.5281/zenodo.22031703}. The records remain unpublished until the author registers them. The data archive has mixed source-specific rights and no blanket licence; see its \\texttt{DATA\\_LICENSES.md} and ledger.\n",
+        lambda _: data_availability_tex,
         body,
         flags=re.S,
     )
     body = re.sub(
         r"\\section\*\{Declarations\}.*?(?=\\section\*\{References\})",
-        r"\\section*{Declarations}\n\\textbf{Funding:} This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors; it was self-funded.\\par\n\\textbf{Competing interests:} The author declares no competing interests.\\par\n\\textbf{Rights and linkage sign-off:} Yifan Du, sole and corresponding author, confirms that the \\texttt{paper4-cageo-v1.0.7} package and exact \\texttt{data-v002} selection were reviewed for public dissemination; the data review covered source terms, selected item scope, privacy, sensitive locations, embedded third-party content, attribution, and linkage. This sign-off supersedes earlier provisional ledger statuses for the named release scope; historical experiment-run metadata remains historical. Source-specific obligations are retained in the manifests and ledger. This item-scoped sign-off does not grant a blanket licence to unrelated repository sources.\\par\n\\textbf{Reproducibility scope:} No claim in this manuscript relies on undisclosed human annotation, hidden reference-conditioned tuning, or a closed-model score that lacks a reproducible execution record.\n",
+        lambda _: declarations_tex,
         body,
         flags=re.S,
     )
@@ -650,6 +669,12 @@ def main() -> None:
 \end{center}
 \vspace{1em}"""
 
+    # C&G asks for line numbers in the editable submission.  Keep them in the
+    # final source, but define the digest as an unbreakable box below so
+    # lineno cannot insert a line number between hexadecimal characters.
+    line_number_package = r"\usepackage{lineno}"
+    line_numbers = r"\linenumbers"
+
     header = rf"""{preamble_note}
 %% Scientific content is retained from papers/paper4/manuscript.md.
 \documentclass[a4paper,fleqn]{{cas-sc}}
@@ -657,7 +682,7 @@ def main() -> None:
 \usepackage{{graphicx}}
 \usepackage{{float}}
 \usepackage{{setspace}}
-\usepackage{{lineno}}
+{line_number_package}
 \usepackage{{longtable}}
 \usepackage{{booktabs}}
 \usepackage{{array}}
@@ -681,11 +706,11 @@ def main() -> None:
 \newcommand{{\pandocbounded}}[1]{{#1}}
 \newcommand{{\tightlist}}{{}}
 \newcommand{{\real}}[1]{{#1}}
-\newcommand{{\hash}}[1]{{\texttt{{\seqsplit{{#1}}}}}}
+\newcommand{{\hash}}[1]{{\mbox{{\texttt{{#1}}}}}}
 \newcolumntype{{Y}}{{>{{\raggedright\arraybackslash}}X}}
 \graphicspath{{{{../../}}}}
 \setlength{{\emergencystretch}}{{3em}}
-\linenumbers
+{line_numbers}
 \begin{{document}}
 {footer_definition}
 \let\WriteBookmarks\relax

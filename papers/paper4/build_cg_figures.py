@@ -31,6 +31,19 @@ matplotlib.rcParams.update(
     }
 )
 
+# Matplotlib otherwise writes the current time into every PDF's Info
+# dictionary.  That makes a fresh CI checkout appear dirty after regeneration
+# even when the plotted content is unchanged.
+PDF_METADATA = {
+    "Title": "GeoLogParser Paper 4 figure",
+    "Author": "Yifan Du",
+    "Subject": "Provenance-grounded selective assurance for borehole database ingestion",
+    "Creator": "GeoLogParser deterministic figure builder",
+    "Producer": "Matplotlib",
+    "CreationDate": None,
+    "ModDate": None,
+}
+
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT = Path(__file__).resolve().parent / "figures"
@@ -99,7 +112,7 @@ def fig1() -> None:
             ha="center", fontsize=9.2, color="#475569")
     fig.tight_layout()
     fig.savefig(OUT / "F1_trustworthy_framework.png", dpi=300, bbox_inches="tight")
-    fig.savefig(OUT / "F1_trustworthy_framework.pdf", bbox_inches="tight")
+    fig.savefig(OUT / "F1_trustworthy_framework.pdf", bbox_inches="tight", metadata=PDF_METADATA)
     plt.close(fig)
 
 
@@ -146,7 +159,7 @@ def fig2() -> None:
     fig.suptitle("Capability and transport are separate evidence questions", fontsize=14, fontweight="bold")
     fig.tight_layout(rect=(0, 0.08, 1, 0.93), w_pad=2.0)
     fig.savefig(OUT / "F2_vlm_source_shift.png", dpi=300, bbox_inches="tight")
-    fig.savefig(OUT / "F2_vlm_source_shift.pdf", bbox_inches="tight")
+    fig.savefig(OUT / "F2_vlm_source_shift.pdf", bbox_inches="tight", metadata=PDF_METADATA)
     plt.close(fig)
 
 
@@ -216,7 +229,7 @@ def fig3() -> None:
     fig.suptitle("Selective assurance makes automation utility explicit", fontsize=14, fontweight="bold")
     fig.tight_layout(rect=(0, 0.02, 1, 0.95))
     fig.savefig(OUT / "F3_assurance_frontier.png", dpi=300, bbox_inches="tight")
-    fig.savefig(OUT / "F3_assurance_frontier.pdf", bbox_inches="tight")
+    fig.savefig(OUT / "F3_assurance_frontier.pdf", bbox_inches="tight", metadata=PDF_METADATA)
     plt.close(fig)
 
 
@@ -265,7 +278,7 @@ def fig4() -> None:
     fig.suptitle("Abstention changes the geoscientific observation set", fontsize=14, fontweight="bold")
     fig.tight_layout(rect=(0, 0.04, 1, 0.94), w_pad=1.5)
     fig.savefig(OUT / "F4_spatial_support_consequence.png", dpi=300, bbox_inches="tight")
-    fig.savefig(OUT / "F4_spatial_support_consequence.pdf", bbox_inches="tight")
+    fig.savefig(OUT / "F4_spatial_support_consequence.pdf", bbox_inches="tight", metadata=PDF_METADATA)
     plt.close(fig)
 
 
@@ -307,7 +320,7 @@ def graphical_abstract() -> None:
             ha="center", fontsize=10, color="#334155")
     fig.tight_layout()
     fig.savefig(OUT / "graphical_abstract.png", dpi=300, bbox_inches="tight")
-    fig.savefig(OUT / "graphical_abstract.pdf", bbox_inches="tight")
+    fig.savefig(OUT / "graphical_abstract.pdf", bbox_inches="tight", metadata=PDF_METADATA)
     plt.close(fig)
 
 

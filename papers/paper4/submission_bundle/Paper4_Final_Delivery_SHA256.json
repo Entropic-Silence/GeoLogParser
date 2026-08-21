@@ -1,23 +1,25 @@
 {
+  "article_doi": null,
   "data_doi": "10.5281/zenodo.22031703",
   "data_release_tag": "data-v002",
   "doi": "10.5281/zenodo.22030229",
-  "doi_status": "reserved Zenodo DOI; publish the records to register",
+  "doi_status": "published software archive paper4-cageo-v1.0.6; not a journal-article DOI",
+  "doi_type": "software",
   "files": [
     {
-      "bytes": 59156,
+      "bytes": 58727,
       "name": "Paper4_Final_Manuscript.md",
-      "sha256": "632531675406f11733af889917bba87358942a497eed9e8fdb471f6b3bdaaabd"
+      "sha256": "84d8f40cd0d0c0aa29881b0fe729b8b40be10797da316550a7e699bdebb53410"
     },
     {
-      "bytes": 287965,
+      "bytes": 287323,
       "name": "Paper4_Final_Manuscript.pdf",
-      "sha256": "4ae680677fd6ff16468b9a1eee1068d51e363720823f13721320946723960094"
+      "sha256": "21d8c8445522e4ffd8c94c825261cb01b810f1b06b6c0f32cc1bad566acf4ad4"
     },
     {
-      "bytes": 18095,
+      "bytes": 18119,
       "name": "Paper4_Supplementary_Methods.md",
-      "sha256": "833468f5b9fbe7323d85a64dffa3e5fc8f47a4f674eb50bffae6ece33d9fc03b"
+      "sha256": "9ec5df28a519e5f6029c82723e43e122e61415fc6151e06252bb60c18533a877"
     },
     {
       "bytes": 3964,
@@ -60,9 +62,9 @@
       "sha256": "f6f553a21293af4dc1e8a569d4beb086885245130f8e7e66150873c47fa4b3a2"
     },
     {
-      "bytes": 44018,
+      "bytes": 22918,
       "name": "Paper4_Graphical_Abstract.pdf",
-      "sha256": "9109aa03cdc3b58edf6c19e17fd09c96a90e6add6cbb220ca7d368516ae4378c"
+      "sha256": "5229a96e08511b44aa8148faadfce3c27bf03b2101acb6f02648e65cdca30671"
     },
     {
       "bytes": 89432,
@@ -80,11 +82,11 @@
       "sha256": "5aa64a60fd82ed56ba6efbb20feca4c30810cef087d192cf6d0ef58e8fdac0ff"
     }
   ],
-  "generated_on": "2026-08-20",
+  "generated_on": "2026-08-21",
   "manifest_version": "paper4_final_delivery_v002",
-  "release_tag": "paper4-cageo-v1.0.7",
+  "release_tag": "paper4-cageo-v1.0.8",
   "repository": "https://github.com/Entropic-Silence/GeoLogParser",
   "resolved_release_tag_commit": null,
   "scope": "Final manuscript, vector artwork, tables, and supplementary material",
-  "source_git_commit": "d7c7b380ac742d8b3a3b7da38057542d41369881"
+  "source_git_commit": "fc95b37588232f12a680ecf4069edbbbdd0d0e8f"
 }

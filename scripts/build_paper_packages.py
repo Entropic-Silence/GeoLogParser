@@ -85,7 +85,7 @@ def main() -> None:
             "package_label": gate["package_label"],
             "scientific_content_ready": gate["scientific_content_ready"],
             "submission_ready": bool(gate.get("submission_ready", False)),
-            "submission_gate_path": external_gate.relative_to(ROOT).as_posix(),
+            "submission_gate_path": paper4_gate.relative_to(ROOT).as_posix(),
             "evidence_audit_path": paper4_audit.relative_to(arguments.paper_root).as_posix(),
             "evidence_audit_sha256": sha256(paper4_audit) if paper4_audit.is_file() else None,
             "review_bundle_path": "paper4/manuscript.md",

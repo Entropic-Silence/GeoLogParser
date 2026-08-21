@@ -232,7 +232,7 @@ Document-cluster bootstrap resamples whole reports. Public release metadata
 records source URLs, exact manifests, hashes, evidence tiers, and archive
 checksums. The article package releases structured/reanalysis assets, manifests,
 hashes, source URLs, and recomputation materials. The separately versioned
-`data-v002` companion has reserved DOI at
+`data-v002` companion is published at
 `https://doi.org/10.5281/zenodo.22031703` [@du2026datav002] and contains the
 selected source files and structured datasets that passed the author's
 item-level rights, attribution, linkage, privacy, sensitive-location, and
@@ -354,11 +354,11 @@ The resulting deployment principle is simple: use modern VLMs for high-recall vi
 
 ## Computer Code Availability
 
-Program title: GeoLogParser Paper 4 result-reproduction package. Developer and contact: Yifan Du, duyifan619916@gmail.com. First public availability: 2026. The GeoLogParser repository contains versioned code/configuration, prompt hashes, metric bindings, figure generators, claim audits, and recomputation scripts for this article. The source code is released under the MIT license at https://github.com/Entropic-Silence/GeoLogParser. It is written primarily in Python and uses frozen JSON/JSONL inputs; the deterministic result-level workflow requires Python 3.10 or newer and standard scientific Python packages. The final tagged package is `paper4-cageo-v1.0.7`; its article DOI is reserved at https://doi.org/10.5281/zenodo.22030229 and remains unpublished until the author registers the record. The optional VLM/OCR execution environment, weights, and private credentials are not redistributed; the package reproduces frozen predictions through the matcher, metrics, tables, figures, and audits. The public repository and release assets are the access method.
+GeoLogParser Paper 4 is a Python 3.10+ result-reproduction package released under the MIT license. It contains versioned code and configuration, prompt and artifact hashes, frozen JSON/JSONL inputs, figure and table generators, claim audits, and deterministic recomputation scripts. It reproduces frozen predictions through matching, metrics, tables, figures, and audits; model weights, credentials, and the historical VLM/OCR execution environment are not redistributed. The corrected GitHub release is `paper4-cageo-v1.0.8` at https://github.com/Entropic-Silence/GeoLogParser/releases/tag/paper4-cageo-v1.0.8. The published Zenodo software archive is version `paper4-cageo-v1.0.6`, DOI https://doi.org/10.5281/zenodo.22030229 [@du2026paper4software]; this DOI identifies software, not the journal article. Developer and contact: Yifan Du, duyifan619916@gmail.com.
 
 ## Data Availability
 
-The `paper4-cageo-v1.0.7` package contains the manuscript, supplement, figures, structured/reanalysis inputs, aggregate metrics, manifests, checksums, source URLs, and recomputation scripts needed to reproduce the reported result-level analyses; its article DOI is reserved at https://doi.org/10.5281/zenodo.22030229 and remains unpublished until registration. The separate `data-v002` companion has reserved DOI https://doi.org/10.5281/zenodo.22031703 [@du2026datav002] and contains the author-reviewed selected source files and structured datasets used by the principal experiments; it is a data companion, not the complete Paper 4 package. Source-specific terms and attribution remain in the release ledger, and linkable spatial inputs are not represented as anonymous. Model weights and private credentials are not redistributed.
+The `paper4-cageo-v1.0.8` GitHub release contains the manuscript, supplement, figures, result-level inputs, aggregate metrics, manifests, source URLs, and recomputation scripts. The separately published `data-v002` companion, DOI https://doi.org/10.5281/zenodo.22031703 [@du2026datav002], contains the author-reviewed source files and structured datasets used by the principal experiments. Source-specific terms and attribution remain in its ledger; linkable spatial inputs are not represented as anonymous. Model weights and private credentials are not redistributed.
 
 ## Declarations
 
@@ -366,7 +366,7 @@ The `paper4-cageo-v1.0.7` package contains the manuscript, supplement, figures, 
 
 **Competing interests:** The author declares no competing interests.
 
-**Rights and linkage sign-off:** Yifan Du, sole and corresponding author, confirms that the `paper4-cageo-v1.0.7` package and exact `data-v002` selection were reviewed for public dissemination; the data review covered source terms, selected item scope, privacy, sensitive locations, embedded third-party content, attribution, and linkage. This sign-off supersedes earlier provisional ledger statuses for the named release scope; historical experiment-run metadata remains historical. Source-specific obligations are retained in the manifests and ledger. This item-scoped sign-off does not grant a blanket licence to unrelated repository sources.
+**Rights and linkage sign-off:** Yifan Du, sole and corresponding author, confirms that the `paper4-cageo-v1.0.8` package and exact `data-v002` selection were reviewed for public dissemination; the review covered source terms, selected item scope, privacy, sensitive locations, embedded third-party content, attribution, and linkage. This author attestation supersedes provisional ledger statuses only for the named release scope; historical experiment metadata remains historical. Upstream terms continue to govern, and the sign-off is not a legal opinion or blanket licence.
 
 No claim in this manuscript relies on undisclosed human annotation, hidden reference-conditioned tuning, or a closed-model score that lacks a reproducible execution record.
 

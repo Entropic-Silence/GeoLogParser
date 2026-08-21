@@ -23,8 +23,9 @@ or include model weights or private credentials. The author-reviewed selected
 source files and structured datasets are published separately as `data-v002`.
 The complete result-reproduction workflow is documented in
 `Paper4_Reproduce.md` and the repository-level `publication_evidence/` bundle.
-    The complete Paper 4 release tag is `paper4-cageo-v1.0.7`. The software
-    DOI is reserved as `https://doi.org/10.5281/zenodo.22030229` and the
-    separate data companion DOI as `https://doi.org/10.5281/zenodo.22031703`;
-    publish both Zenodo records to register them. The unchanged `data-v002`
-    companion is reused without changing its contents.
+The corrected Paper 4 release is `paper4-cageo-v1.0.8`. The published
+Zenodo software archive is `paper4-cageo-v1.0.6` at
+`https://doi.org/10.5281/zenodo.22030229`; that is a software DOI, not a
+journal-article DOI. The published `data-v002` companion is at
+`https://doi.org/10.5281/zenodo.22031703` and is reused without changing its
+contents. A future Zenodo v1.0.8 archive must be created as a new version.

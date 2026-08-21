@@ -239,7 +239,7 @@ Document-cluster bootstrap resamples whole reports. Public release metadata
 records source URLs, exact manifests, hashes, evidence tiers, and archive
 checksums. The article package releases structured/reanalysis assets, manifests,
 hashes, source URLs, and recomputation materials. The separately versioned
-`data-v002` companion has reserved DOI at
+`data-v002` companion is published at
 `https://doi.org/10.5281/zenodo.22031703` [@du2026datav002] and contains the
 selected source files and structured datasets that passed the author's
 item-level rights, attribution, linkage, privacy, sensitive-location, and
@@ -402,11 +402,11 @@ The resulting deployment principle is simple: use modern VLMs for high-recall vi
 
 ## Computer Code Availability
 
-Program title: GeoLogParser Paper 4 result-reproduction package. Developer and contact: Yifan Du, duyifan619916@gmail.com. First public availability: 2026. The package contains versioned code/configuration, prompt hashes, metric bindings, figure generators, claim audits, and recomputation scripts for this article. The source code is released under the MIT license at https://github.com/Entropic-Silence/GeoLogParser. It is written primarily in Python and uses the frozen JSON/JSONL inputs; the deterministic result-level workflow requires Python 3.10 or newer and standard scientific Python packages. The final tagged package is paper4-cageo-v1.0.7. The optional VLM/OCR execution environment, weights, and private credentials are not redistributed; the package reproduces frozen predictions through the matcher, metrics, tables, figures, and audits. The public repository and release assets are the access method. Article DOI: https://doi.org/10.5281/zenodo.22030229. Data companion DOI: https://doi.org/10.5281/zenodo.22031703.
+GeoLogParser Paper 4 is a Python 3.10+ result-reproduction package released under the MIT license. It contains versioned code and configuration, prompt and artifact hashes, frozen JSON/JSONL inputs, figure and table generators, claim audits, and deterministic recomputation scripts. It reproduces frozen predictions through matching, metrics, tables, figures, and audits; model weights, credentials, and the historical VLM/OCR execution environment are not redistributed. The corrected GitHub release is paper4-cageo-v1.0.8 at https://github.com/Entropic-Silence/GeoLogParser/releases/tag/paper4-cageo-v1.0.8. The published Zenodo software archive is version paper4-cageo-v1.0.6, DOI https://doi.org/10.5281/zenodo.22030229; this is a software DOI, not a journal-article DOI. Developer and contact: Yifan Du, duyifan619916@gmail.com.
 
 ## Data Availability
 
-The paper4-cageo-v1.0.7 package contains the manuscript, supplement, figures, structured/reanalysis inputs, aggregate metrics, manifests, checksums, source URLs, and recomputation scripts needed to reproduce the reported result-level analyses. The separate data-v002 companion contains the author-reviewed selected source files and structured datasets used by the principal experiments; it is a data companion, not the complete Paper 4 package. Source-specific terms and attribution remain in the release ledger, and linkable spatial inputs are not represented as anonymous. Model weights and private credentials are not redistributed. The article package has the reserved DOI https://doi.org/10.5281/zenodo.22030229 and the separate data companion has the reserved DOI https://doi.org/10.5281/zenodo.22031703. The records remain unpublished until the author registers them. The data archive has mixed source-specific rights and no blanket licence; see its DATA_LICENSES.md and ledger.
+The paper4-cageo-v1.0.8 GitHub release contains the manuscript, supplement, figures, result-level inputs, aggregate metrics, manifests, source URLs, and recomputation scripts. The separately published data-v002 companion, DOI https://doi.org/10.5281/zenodo.22031703, contains the author-reviewed source files and structured datasets used by the principal experiments. Source-specific terms and attribution remain in its ledger; linkable spatial inputs are not represented as anonymous. Model weights and private credentials are not redistributed. The software DOI above identifies software, not a journal article.
 
 ## Declarations
 
@@ -414,7 +414,7 @@ The paper4-cageo-v1.0.7 package contains the manuscript, supplement, figures, st
 
 **Competing interests:** The author declares no competing interests.
 
-**Rights and linkage sign-off:** Yifan Du, sole and corresponding author, confirms that the paper4-cageo-v1.0.7 package and exact data-v002 selection were reviewed for public dissemination; the data review covered source terms, selected item scope, privacy, sensitive locations, embedded third-party content, attribution, and linkage. This sign-off supersedes earlier provisional ledger statuses for the named release scope; historical experiment-run metadata remains historical. Source-specific obligations are retained in the manifests and ledger. This item-scoped sign-off does not grant a blanket licence to unrelated repository sources.
+**Rights and linkage sign-off:** Yifan Du, sole and corresponding author, confirms that the paper4-cageo-v1.0.8 package and exact data-v002 selection were reviewed for public dissemination; the data review covered source terms, selected item scope, privacy, sensitive locations, embedded third-party content, attribution, and linkage. This sign-off supersedes earlier provisional ledger statuses for the named release scope; historical experiment-run metadata remains historical. Source-specific obligations are retained in the manifests and ledger. This item-scoped author attestation is not a legal opinion or blanket licence for unrelated sources.
 
 No claim in this manuscript relies on undisclosed human annotation, hidden reference-conditioned tuning, or a closed-model score that lacks a reproducible execution record.
 
@@ -429,6 +429,7 @@ The reference records below are the same cited entries used to build the PDF bib
 - **buneman2001provenance.** Buneman, Peter; Khanna, Sanjeev; Wang-Chiew, Tan (2001). Why and Where: A Characterization of Data Provenance. Database Theory - ICDT 2001 pp. 316-330 https://doi.org/10.1007/3-540-44503-X_20
 - **chow1970reject.** Chow, C. K. (1970). On Optimum Recognition Error and Reject Tradeoff. IEEE Transactions on Information Theory 16(1) pp. 41-46 https://doi.org/10.1109/TIT.1970.1054406
 - **du2026datav002.** Du, Yifan (2026). GeoLogParser Public Data Companion v002. https://doi.org/10.5281/zenodo.22031703
+- **du2026paper4software.** Du, Yifan (2026). GeoLogParser Paper 4 Result-Reproduction Package. https://doi.org/10.5281/zenodo.22030229
 - **fuentes2020lithologicalmapping.** Fuentes, Ignacio; Padarian, Jose; Iwanaga, Taku; Vervoort, R. W. (2020). 3D Lithological Mapping of Borehole Descriptions Using Word Embeddings. Computers & Geosciences 141 pp. 104516 https://doi.org/10.1016/j.cageo.2020.104516
 - **garzon2026stratigraphicmetrics.** Garz\'on, Sebasti\'an; Dabekaussen, Willem; Busschers, Freek S.; De Boever, Eva; Mehrkanoon, Siamak; Karssenberg, Derek (2026). Assessment of Automated Stratigraphic Interpretations of Boreholes with Geology-Informed Metrics. Computers & Geosciences 207 pp. 106043 https://doi.org/10.1016/j.cageo.2025.106043
 - **geifman2017selective.** Geifman, Yonatan; El-Yaniv, Ran (2017). Selective Classification for Deep Neural Networks. Advances in Neural Information Processing Systems 30 https://papers.nips.cc/paper/7073-selective-classification-for-deep-neural-networks
