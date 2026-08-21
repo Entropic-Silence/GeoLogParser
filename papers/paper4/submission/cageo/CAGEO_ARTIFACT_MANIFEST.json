@@ -62,7 +62,7 @@
     {
       "bytes": 10225,
       "file": "papers/paper4/submission_bundle/Paper4_Upload_Manifest.json",
-      "sha256": "fb4cb55057f43924170e7c59ae432c5f4f7cf116503364ac86b0e780452c7290"
+      "sha256": "86d633aefaeb899c982334d2bddb141af5bb8dba573dce434042aff479c6abd5"
     },
     {
       "bytes": 359534,
@@ -197,7 +197,7 @@
   "resolved_release_tag_commit": null,
   "rights_status": "Yifan Du, sole and corresponding author, reviewed and screened the complete Paper 4 package and exact data-v002 selection for public dissemination. The data review covered source terms, item scope, privacy, sensitive locations, embedded content, attribution, and linkage. This item-scoped author attestation supersedes earlier provisional ledger statuses for the named release scope; it is not an independent legal opinion or blanket licence. Historical run metadata remains historical. Source-specific obligations remain.",
   "schema": "paper4_cageo_artifact_manifest_v001",
-  "source_git_commit": "38c4e714a01b18052b0461f16dfa06e4a19ec13b",
+  "source_git_commit": "9e18eb7c0988c1dcbd8b6d1e577d6c2e39487112",
   "source_git_commit_scope": "commit checked out when this manifest was generated; a release tag created after generation is intentionally unresolved here to avoid self-reference",
   "working_tree_dirty": false
 }
